@@ -138,7 +138,24 @@
 
   .cert-card { background: #fff; border-radius: 16px; border: 1.5px solid var(--border); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
   .cert-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
-  .cert-card.cert-4 { grid-column: 1 / -1; border-color: var(--gold); background: linear-gradient(135deg, #fff 60%, var(--gold-light)); }
+  .cert-card.cert-4 { 
+    grid-column: 1 / -1; 
+    border: 3px solid var(--gold); 
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(201,168,76,0.2);
+  }
+  .cert-card.cert-4 .cert-card-header {
+    background: var(--green-dark);
+    border-bottom: 3px solid var(--gold);
+  }
+  .cert-card.cert-4 .cert-card-header .cert-title { color: #fff; }
+  .cert-card.cert-4 .cert-card-header .cert-price { color: var(--gold); }
+  .cert-4-crown { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+  .cert-4-tag { display: inline-block; background: var(--gold); color: var(--green-dark); font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 99px; margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .cert-card.cert-4 .cert-card-body { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+  .cert-4-left { }
+  .cert-4-right { }
+  @media (max-width: 768px) { .cert-card.cert-4 .cert-card-body { grid-template-columns: 1fr; } }
 
   .cert-card-header { padding: 1.5rem 1.75rem 1.25rem; border-bottom: 1px solid var(--border); }
   .cert-number { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.6rem; padding: 0.2rem 0.6rem; border-radius: 99px; }
@@ -501,23 +518,39 @@
 
     <!-- CERT 4 -->
     <div class="cert-card cert-4">
-      <div class="cert-card-header">
-        <div class="cert-number cn-4">Certification 4 — Advanced · Prerequisites: Certs 1, 2 & 3</div>
+      <div class="cert-card-header" style="padding:1.75rem 2rem;">
+        <span class="cert-4-crown">🏆</span>
+        <div class="cert-4-tag">Certification 4 — Master Level</div>
         <div class="cert-title">Master of Green Infrastructure</div>
-        <div class="cert-price">$299</div>
+        <div style="color:rgba(255,255,255,0.6); font-size:0.85rem; margin-top:0.4rem;">Prerequisite: Must have passed Certifications 1, 2 & 3 &nbsp;·&nbsp; Available individually or included in the complete package</div>
       </div>
       <div class="cert-card-body">
-        <p class="cert-desc">The highest credential offered by MidAmerica Watersheds Alliance. Available exclusively to professionals who have earned Certifications 1, 2, and 3. This advanced certification covers ecological systems and landscape architecture theory, watershed planning at the regional scale, advanced site design, materials science, planting ecology, and performance evaluation. Earning this credential signifies professional leadership in Green Infrastructure at the landscape architecture and watershed planning level — demonstrating comprehensive mastery across all disciplines of the field. Passing all four certifications earns you the <strong>Master of Green Infrastructure</strong> designation.</p>
-        <div class="cert-modules" style="grid-template-columns: repeat(3,1fr); display:grid; gap:0.35rem;">
-          <div class="cert-module-item">Ecological Systems & Landscape Architecture Theory</div>
-          <div class="cert-module-item">Watershed Planning and Regional Scale Design</div>
-          <div class="cert-module-item">Advanced Site Design and Materials Science</div>
-          <div class="cert-module-item">Planting Ecology and Habitat Design</div>
-          <div class="cert-module-item">Performance Evaluation and Monitoring</div>
-          <div class="cert-module-item">Professional Leadership and Policy</div>
+        <div class="cert-4-left">
+          <p class="cert-desc">The highest professional credential offered by MidAmerica Watersheds Alliance. Certification 4 is a fully standalone certification available individually at $299, or included in the complete package. It may be pursued immediately after passing Certifications 1, 2, and 3 — or years later as your career develops. There is no time limit between certifications.</p>
+          <p class="cert-desc" style="margin-top:0.75rem;">This advanced certification covers ecological systems and landscape architecture theory, watershed planning at the regional scale, advanced site design, materials science, planting ecology, and performance evaluation. Earning this credential signifies professional leadership in Green Infrastructure at the landscape architecture and watershed planning level — demonstrating comprehensive mastery across all disciplines of the field.</p>
+          <div style="margin-top:1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+            <div style="font-size:2rem; font-weight:600; color:var(--green-dark);">$299</div>
+            <div>
+              <a href="register.html" class="cert-enroll-btn btn-enroll-gold" style="display:inline-block; width:auto; padding:0.7rem 1.75rem;">Enroll — $299</a>
+            </div>
+          </div>
+          <p class="cert-prereq" style="text-align:left; margin-top:0.5rem;">Also included in the complete package ($899 for all four certifications)</p>
         </div>
-        <a href="register.html" class="cert-enroll-btn btn-enroll-gold" style="max-width:320px;margin:1rem auto 0">Enroll in package to unlock Cert 4 →</a>
-        <p class="cert-prereq">Must pass Certifications 1, 2 & 3 before enrolling. Purchased separately at $299.</p>
+        <div class="cert-4-right">
+          <div style="font-size:0.75rem; font-weight:600; color:var(--green-dark); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:0.75rem;">6 Modules</div>
+          <div class="cert-modules">
+            <div class="cert-module-item">Ecological Systems and Landscape Architecture Theory</div>
+            <div class="cert-module-item">Watershed Planning and Regional Scale Design</div>
+            <div class="cert-module-item">Advanced Site Design and Materials Science</div>
+            <div class="cert-module-item">Planting Ecology and Habitat Design</div>
+            <div class="cert-module-item">Performance Evaluation and Monitoring</div>
+            <div class="cert-module-item">Professional Leadership and Policy</div>
+          </div>
+          <div style="margin-top:1.25rem; background:var(--gold-light); border:1.5px solid var(--gold); border-radius:10px; padding:1rem 1.25rem;">
+            <div style="font-size:0.78rem; font-weight:600; color:#7a5c10; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem;">The ultimate credential</div>
+            <div style="font-size:0.85rem; color:#5c420a; line-height:1.6;">Passing all four certifications earns you the <strong>Master of Green Infrastructure</strong> designation — recognized professional mastery across planning, design, installation, construction, maintenance, and management of Green Infrastructure.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
