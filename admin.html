@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — MidAmerica Watersheds Alliance</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #085041;
+    --green-mid: #0d6b56;
+    --green-light: #e1f5ee;
+    --gold: #c9a84c;
+    --gold-light: #faf3e0;
+    --text: #1a1a18;
+    --text-muted: #5a5a55;
+    --border: #d4d4c8;
+    --white: #fafaf7;
+    --bg: #f4f4ef;
+    --error: #c0392b;
+    --error-light: #fdf0ef;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* LOGIN GATE */
+  .admin-login {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: var(--green-dark);
+  }
+  .login-box {
+    background: #fff; border-radius: 16px; padding: 3rem; width: 100%; max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .login-logo { text-align: center; margin-bottom: 2rem; }
+  .login-logo-mark { width: 52px; height: 52px; background: var(--gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--green-dark); margin: 0 auto 0.75rem; }
+  .login-logo-text { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--text); }
+  .login-title { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center; }
+  .login-group { margin-bottom: 1rem; }
+  .login-group label { display: block; font-size: 0.82rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+  .login-group input { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; outline: none; }
+  .login-group input:focus { border-color: var(--green-dark); box-shadow: 0 0 0 3px rgba(8,80,65,0.08); }
+  .login-btn { width: 100%; padding: 0.85rem; background: var(--green-dark); color: #fff; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; margin-top: 0.5rem; }
+  .login-btn:hover { background: var(--green-mid); }
+  .login-error { color: var(--error); font-size: 0.85rem; text-align: center; margin-top: 0.75rem; display: none; }
+  .login-error.show { display: block; }
+
+  /* NAV */
+  nav { background: var(--green-dark); padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+  .nav-logo-mark { width: 36px; height: 36px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--green-dark); }
+  .nav-title { font-family: 'DM Serif Display', serif; font-size: 1rem; color: #fff; }
+  .nav-badge { background: var(--gold); color: var(--green-dark); font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 99px; margin-left: 0.5rem; }
+  .nav-right { display: flex; align-items: center; gap: 1rem; }
+  .signout-btn { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.2); padding: 0.4rem 1rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; cursor: pointer; }
+  .signout-btn:hover { background: rgba(255,255,255,0.2); }
+
+  /* MAIN */
+  main { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* STATS ROW */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+  .stat-card { background: #fff; border-radius: 12px; border: 1.5px solid var(--border); padding: 1.25rem 1.5rem; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--green-dark); line-height: 1; margin-bottom: 0.25rem; }
+  .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+
+  /* TOOLBAR */
+  .toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; gap: 1rem; flex-wrap: wrap; }
+  .toolbar-left { display: flex; align-items: center; gap: 0.75rem; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; }
+  .search-input { padding: 0.55rem 1rem; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; width: 220px; }
+  .search-input:focus { border-color: var(--green-dark); }
+  .filter-select { padding: 0.55rem 0.75rem; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; outline: none; color: var(--text); background: #fff; }
+  .export-btn { background: var(--green-dark); color: #fff; border: none; padding: 0.55rem 1.25rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; }
+  .export-btn:hover { background: var(--green-mid); }
+
+  /* TABLE */
+  .table-wrap { background: #fff; border-radius: 14px; border: 1.5px solid var(--border); overflow: hidden; margin-bottom: 2rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead { background: var(--green-dark); }
+  thead th { padding: 0.85rem 1rem; text-align: left; color: rgba(255,255,255,0.8); font-weight: 500; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #fafaf5; }
+  tbody td { padding: 0.85rem 1rem; vertical-align: middle; }
+  .user-name { font-weight: 500; color: var(--text); }
+  .user-email { font-size: 0.82rem; color: var(--text-muted); }
+  .user-num { font-family: monospace; font-size: 0.8rem; color: var(--text-muted); }
+
+  /* BADGES */
+  .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 99px; font-size: 0.72rem; font-weight: 600; white-space: nowrap; }
+  .badge-passed { background: var(--green-light); color: var(--green-dark); }
+  .badge-progress { background: #fef9e7; color: #856404; }
+  .badge-locked { background: var(--error-light); color: var(--error); }
+  .badge-none { background: var(--bg); color: var(--text-muted); }
+  .badge-package { background: #eeedfe; color: #3c3489; }
+  .badge-individual { background: var(--green-light); color: var(--green-dark); }
+
+  /* ACTION BUTTONS */
+  .action-btn { padding: 0.3rem 0.7rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500; cursor: pointer; border: none; transition: background 0.15s; }
+  .btn-view { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
+  .btn-view:hover { border-color: var(--green-dark); }
+  .btn-reset { background: var(--error-light); color: var(--error); border: 1px solid #f5c6c2; }
+  .btn-reset:hover { background: #fce8e7; }
+
+  /* USER DETAIL MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
+  .modal-overlay.show { display: flex; }
+  .modal { background: #fff; border-radius: 16px; width: 100%; max-width: 700px; max-height: 90vh; overflow-y: auto; }
+  .modal-header { background: var(--green-dark); padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; }
+  .modal-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: #fff; }
+  .modal-close { background: rgba(255,255,255,0.15); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
+  .modal-body { padding: 2rem; }
+  .detail-section { margin-bottom: 1.75rem; }
+  .detail-section-title { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .detail-item { font-size: 0.88rem; }
+  .detail-item .dlabel { color: var(--text-muted); font-size: 0.78rem; margin-bottom: 0.2rem; }
+  .detail-item .dval { color: var(--text); font-weight: 500; }
+  .cert-row { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: var(--bg); border-radius: 8px; margin-bottom: 0.5rem; font-size: 0.88rem; }
+  .cert-row-title { font-weight: 500; }
+  .cert-row-actions { display: flex; align-items: center; gap: 0.5rem; }
+
+  .loading-screen { display: flex; align-items: center; justify-content: center; min-height: 60vh; flex-direction: column; gap: 1rem; color: var(--text-muted); }
+  .spinner-lg { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--green-dark); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .empty-row td { text-align: center; padding: 3rem; color: var(--text-muted); }
+
+  @media (max-width: 900px) {
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .toolbar { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ADMIN LOGIN GATE -->
+<div id="adminLogin" class="admin-login">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-logo-mark">M</div>
+      <div class="login-logo-text">MidAmerica Watersheds Alliance</div>
+    </div>
+    <h2 class="login-title">Admin Access</h2>
+    <div class="login-group">
+      <label>Email</label>
+      <input type="email" id="adminEmail" placeholder="admin@example.com">
+    </div>
+    <div class="login-group">
+      <label>Password</label>
+      <input type="password" id="adminPassword" placeholder="Password">
+    </div>
+    <button class="login-btn" onclick="adminLogin()">Sign in to Admin</button>
+    <div class="login-error" id="loginError">Invalid credentials or insufficient permissions.</div>
+  </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div id="adminDash" style="display:none">
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-mark">M</div>
+      <div class="nav-title">Admin Dashboard <span class="nav-badge">ADMIN</span></div>
+    </div>
+    <div class="nav-right">
+      <button class="signout-btn" onclick="adminSignOut()">Sign out</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="loading-screen" id="loadingScreen">
+      <div class="spinner-lg"></div>
+      <div>Loading user data...</div>
+    </div>
+
+    <div id="dashContent" style="display:none">
+
+      <!-- STATS -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num" id="statTotal">0</div>
+          <div class="stat-label">Total Users</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statEnrolled">0</div>
+          <div class="stat-label">Enrolled</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statCerts">0</div>
+          <div class="stat-label">Certs Issued</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statLocked">0</div>
+          <div class="stat-label">Locked Accounts</div>
+        </div>
+      </div>
+
+      <!-- TOOLBAR -->
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <h2 class="section-title">All Users</h2>
+          <input type="text" class="search-input" placeholder="Search name or email..." oninput="filterUsers(this.value)">
+          <select class="filter-select" onchange="filterByCert(this.value)">
+            <option value="">All certifications</option>
+            <option value="1">Cert 1</option>
+            <option value="2">Cert 2</option>
+            <option value="3">Cert 3</option>
+            <option value="4">Cert 4</option>
+          </select>
+        </div>
+        <button class="export-btn" onclick="exportCSV()">⬇ Export CSV</button>
+      </div>
+
+      <!-- TABLE -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>User #</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Joined</th>
+              <th>Cert 1</th>
+              <th>Cert 2</th>
+              <th>Cert 3</th>
+              <th>Cert 4</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="userTableBody"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- USER DETAIL MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">User Details</div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL = 'https://wncnxgyupryvrqkycvzp.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_kotvXZUSlXTuorvZN5HdcA_eaLF6YvF';
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const CERT_TITLES = {
+  1: 'Green Infrastructure Planning and Design',
+  2: 'Green Infrastructure Installation and Construction',
+  3: 'Green Infrastructure Maintenance and Management',
+  4: 'Master of Green Infrastructure'
+};
+
+let allUsers = [];
+let allEnrollments = [];
+let allCerts = [];
+let allPurchases = [];
+let allExamAttempts = [];
+let filteredUsers = [];
+
+// ── ADMIN LOGIN ──────────────────────────────────────────────────
+async function adminLogin() {
+  const email = document.getElementById('adminEmail').value.trim();
+  const password = document.getElementById('adminPassword').value;
+  const errEl = document.getElementById('loginError');
+  errEl.classList.remove('show');
+
+  const { data, error } = await sb.auth.signInWithPassword({ email, password });
+  if (error) { errEl.classList.add('show'); return; }
+
+  // Check is_admin flag
+  const { data: profile } = await sb.from('profiles').select('is_admin').eq('id', data.user.id).single();
+  if (!profile?.is_admin) {
+    await sb.auth.signOut();
+    errEl.textContent = 'Access denied. Admin privileges required.';
+    errEl.classList.add('show');
+    return;
+  }
+
+  document.getElementById('adminLogin').style.display = 'none';
+  document.getElementById('adminDash').style.display = 'block';
+  loadData();
+}
+
+async function adminSignOut() {
+  await sb.auth.signOut();
+  window.location.reload();
+}
+
+// Check existing session on load
+async function checkSession() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) {
+    const { data: profile } = await sb.from('profiles').select('is_admin').eq('id', session.user.id).single();
+    if (profile?.is_admin) {
+      document.getElementById('adminLogin').style.display = 'none';
+      document.getElementById('adminDash').style.display = 'block';
+      loadData();
+      return;
+    }
+  }
+}
+
+// ── LOAD DATA ────────────────────────────────────────────────────
+async function loadData() {
+  try {
+    const [profilesRes, enrollRes, certsRes, purchasesRes, examRes] = await Promise.all([
+      sb.from('profiles').select('*').order('created_at', { ascending: false }),
+      sb.from('cert_enrollments').select('*'),
+      sb.from('issued_certificates').select('*'),
+      sb.from('purchases').select('*'),
+      sb.from('exam_attempts').select('*')
+    ]);
+
+    allUsers = profilesRes.data || [];
+    allEnrollments = enrollRes.data || [];
+    allCerts = certsRes.data || [];
+    allPurchases = purchasesRes.data || [];
+    allExamAttempts = examRes.data || [];
+    filteredUsers = [...allUsers];
+
+    updateStats();
+    renderTable(filteredUsers);
+
+    document.getElementById('loadingScreen').style.display = 'none';
+    document.getElementById('dashContent').style.display = 'block';
+  } catch (e) {
+    console.error('Load error:', e);
+  }
+}
+
+// ── STATS ────────────────────────────────────────────────────────
+function updateStats() {
+  const enrolled = allUsers.filter(u => allEnrollments.some(e => e.user_id === u.id));
+  const locked = allEnrollments.filter(e => e.exam_locked);
+
+  document.getElementById('statTotal').textContent = allUsers.length;
+  document.getElementById('statEnrolled').textContent = enrolled.length;
+  document.getElementById('statCerts').textContent = allCerts.length;
+  document.getElementById('statLocked').textContent = locked.length;
+}
+
+// ── TABLE ────────────────────────────────────────────────────────
+function renderTable(users) {
+  const tbody = document.getElementById('userTableBody');
+
+  if (users.length === 0) {
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="10">No users found.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = users.map(u => {
+    const userEnrollments = allEnrollments.filter(e => e.user_id === u.id);
+    const joined = new Date(u.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+    const certCell = (num) => {
+      const e = userEnrollments.find(e => e.cert_number === num);
+      if (!e) return '<span class="badge badge-none">—</span>';
+      if (e.cert_status === 'passed') return '<span class="badge badge-passed">Passed</span>';
+      if (e.cert_status === 'locked') return '<span class="badge badge-locked">Locked</span>';
+      return '<span class="badge badge-progress">In Progress</span>';
+    };
+
+    return `<tr>
+      <td class="user-num">#${String(u.user_number).padStart(5,'0')}</td>
+      <td><div class="user-name">${u.full_name}</div></td>
+      <td><div class="user-email">${u.email}</div></td>
+      <td style="font-size:0.82rem">${u.phone || '—'}</td>
+      <td style="font-size:0.82rem;white-space:nowrap">${joined}</td>
+      <td>${certCell(1)}</td>
+      <td>${certCell(2)}</td>
+      <td>${certCell(3)}</td>
+      <td>${certCell(4)}</td>
+      <td><button class="action-btn btn-view" onclick="viewUser('${u.id}')">View</button></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── FILTER ───────────────────────────────────────────────────────
+function filterUsers(query) {
+  const q = query.toLowerCase();
+  filteredUsers = allUsers.filter(u =>
+    u.full_name.toLowerCase().includes(q) || u.email.toLowerCase().includes(q)
+  );
+  renderTable(filteredUsers);
+}
+
+function filterByCert(certNum) {
+  if (!certNum) { filteredUsers = [...allUsers]; renderTable(filteredUsers); return; }
+  filteredUsers = allUsers.filter(u =>
+    allEnrollments.some(e => e.user_id === u.id && e.cert_number === parseInt(certNum))
+  );
+  renderTable(filteredUsers);
+}
+
+// ── USER DETAIL MODAL ────────────────────────────────────────────
+function viewUser(userId) {
+  const user = allUsers.find(u => u.id === userId);
+  if (!user) return;
+
+  const enrollments = allEnrollments.filter(e => e.user_id === userId);
+  const certs = allCerts.filter(c => c.user_id === userId);
+  const purchases = allPurchases.filter(p => p.user_id === userId);
+  const attempts = allExamAttempts.filter(a => a.user_id === userId);
+
+  document.getElementById('modalTitle').textContent = user.full_name;
+
+  const certRows = [1,2,3,4].map(num => {
+    const e = enrollments.find(e => e.cert_number === num);
+    if (!e) return '';
+    const attemptsForCert = attempts.filter(a => a.cert_number === num);
+    const issuedCert = certs.find(c => c.cert_number === num);
+    const statusBadge = e.cert_status === 'passed'
+      ? '<span class="badge badge-passed">Passed</span>'
+      : e.cert_status === 'locked'
+      ? '<span class="badge badge-locked">Locked</span>'
+      : '<span class="badge badge-progress">In Progress</span>';
+
+    const resetBtn = e.exam_locked
+      ? `<button class="action-btn btn-reset" onclick="resetExamLock('${userId}', ${num})">Reset Lock</button>`
+      : '';
+
+    const passedDate = issuedCert ? new Date(issuedCert.issued_at).toLocaleDateString() : '—';
+    const attemptSummary = attemptsForCert.map(a => `${a.score}%`).join(', ') || 'None';
+
+    return `<div class="cert-row">
+      <div>
+        <div class="cert-row-title">Cert ${num} — ${CERT_TITLES[num]}</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.2rem">
+          Type: ${e.purchase_type} · Attempts: ${e.exam_attempts_used}/3 · Scores: ${attemptSummary}
+          ${issuedCert ? ` · Passed: ${passedDate}` : ''}
+        </div>
+      </div>
+      <div class="cert-row-actions">${statusBadge}${resetBtn}</div>
+    </div>`;
+  }).filter(Boolean).join('');
+
+  const purchaseRows = purchases.map(p => {
+    const date = new Date(p.purchased_at).toLocaleDateString();
+    return `<div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.88rem">
+      <span>${p.purchase_type} ${p.cert_number ? `(Cert ${p.cert_number})` : ''}</span>
+      <span>$${parseFloat(p.amount_paid).toFixed(2)} · ${p.payment_method || 'pending'} · ${date}</span>
+    </div>`; }).join('') || '<p style="color:var(--text-muted);font-size:0.88rem">No purchases recorded.</p>';
+
+  document.getElementById('modalBody').innerHTML = `
+    <div class="detail-section">
+      <div class="detail-section-title">Personal Information</div>
+      <div class="detail-grid">
+        <div class="detail-item"><div class="dlabel">Full Name</div><div class="dval">${user.full_name}</div></div>
+        <div class="detail-item"><div class="dlabel">User Number</div><div class="dval">#${String(user.user_number).padStart(5,'0')}</div></div>
+        <div class="detail-item"><div class="dlabel">Email</div><div class="dval">${user.email}</div></div>
+        <div class="detail-item"><div class="dlabel">Phone</div><div class="dval">${user.phone || '—'}</div></div>
+        <div class="detail-item" style="grid-column:1/-1"><div class="dlabel">Address</div><div class="dval">${user.address || '—'}</div></div>
+        <div class="detail-item"><div class="dlabel">Joined</div><div class="dval">${new Date(user.created_at).toLocaleDateString()}</div></div>
+        <div class="detail-item"><div class="dlabel">Certificates Earned</div><div class="dval">${certs.length}</div></div>
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title">Certification Status</div>
+      ${certRows || '<p style="color:var(--text-muted);font-size:0.88rem">Not enrolled in any certifications.</p>'}
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title">Purchase History</div>
+      ${purchaseRows}
+    </div>`;
+
+  document.getElementById('modalOverlay').classList.add('show');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modalOverlay').classList.remove('show');
+}
+
+// ── RESET EXAM LOCK ──────────────────────────────────────────────
+async function resetExamLock(userId, certNum) {
+  if (!confirm(`Reset exam lock for Cert ${certNum}? This gives the user 3 new attempts.`)) return;
+  try {
+    await sb.from('cert_enrollments').update({
+      exam_locked: false,
+      exam_attempts_used: 0,
+      cert_status: 'in_progress',
+      retry_available: false
+    }).eq('user_id', userId).eq('cert_number', certNum);
+
+    alert('Exam lock reset successfully. User can now retake the exam.');
+    closeModalDirect();
+    loadData();
+  } catch(e) {
+    alert('Error: ' + e.message);
+  }
+}
+
+// ── EXPORT CSV ───────────────────────────────────────────────────
+function exportCSV() {
+  const headers = ['User#','Full Name','Email','Phone','Address','Joined',
+    'Cert1 Status','Cert2 Status','Cert3 Status','Cert4 Status',
+    'Certs Earned','Total Purchases'];
+
+  const rows = allUsers.map(u => {
+    const enrollments = allEnrollments.filter(e => e.user_id === u.id);
+    const certStatus = (num) => {
+      const e = enrollments.find(e => e.cert_number === num);
+      return e ? e.cert_status : 'not enrolled';
+    };
+    const certsEarned = allCerts.filter(c => c.user_id === u.id).length;
+    const totalPurchases = allPurchases
+      .filter(p => p.user_id === u.id)
+      .reduce((sum, p) => sum + parseFloat(p.amount_paid || 0), 0);
+
+    return [
+      `#${String(u.user_number).padStart(5,'0')}`,
+      `"${u.full_name}"`,
+      u.email,
+      u.phone || '',
+      `"${u.address || ''}"`,
+      new Date(u.created_at).toLocaleDateString(),
+      certStatus(1), certStatus(2), certStatus(3), certStatus(4),
+      certsEarned,
+      `$${totalPurchases.toFixed(2)}`
+    ].join(',');
+  });
+
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `MAWA-Users-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+checkSession();
+</script>
+</body>
+</html>
