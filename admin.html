@@ -234,6 +234,74 @@
         </table>
       </div>
 
+      <!-- RENEWAL MANAGEMENT -->
+      <div style="margin-top:2.5rem;">
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <h2 class="section-title">Renewal Management</h2>
+            <select class="filter-select" onchange="filterRenewals(this.value)">
+              <option value="">All statuses</option>
+              <option value="in_grace">Overdue / In Grace</option>
+              <option value="pending">Pending / Current</option>
+              <option value="revoked">Revoked</option>
+              <option value="renewed">Renewed</option>
+              <option value="suspended">Suspended (Cert 4)</option>
+            </select>
+          </div>
+          <button class="export-btn" onclick="exportRenewalsCSV()">⬇ Export Renewals CSV</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>User #</th>
+                <th>Name</th>
+                <th>Cert</th>
+                <th>Renewal #</th>
+                <th>Due Date</th>
+                <th>Grace Ends</th>
+                <th>Status</th>
+                <th>Fee Due</th>
+                <th>CEUs</th>
+                <th>CEU Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="renewalTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CEU SUBMISSIONS PENDING REVIEW -->
+      <div style="margin-top:2.5rem;">
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <h2 class="section-title">CEU Submissions — Pending Review</h2>
+          </div>
+          <button class="export-btn" onclick="runAuditSelection()">🎲 Run Audit Selection (5–10%)</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Cert</th>
+                <th>Activity Type</th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Hours</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ceuTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
   </main>
 </div>
@@ -267,6 +335,8 @@ let allEnrollments = [];
 let allCerts = [];
 let allPurchases = [];
 let allExamAttempts = [];
+let allRenewals = [];
+let allCeuActivities = [];
 let filteredUsers = [];
 
 // ── ADMIN LOGIN ──────────────────────────────────────────────────
@@ -315,12 +385,14 @@ async function checkSession() {
 // ── LOAD DATA ────────────────────────────────────────────────────
 async function loadData() {
   try {
-    const [profilesRes, enrollRes, certsRes, purchasesRes, examRes] = await Promise.all([
+    const [profilesRes, enrollRes, certsRes, purchasesRes, examRes, renewalsRes, ceuRes] = await Promise.all([
       sb.from('profiles').select('*').order('created_at', { ascending: false }),
       sb.from('cert_enrollments').select('*'),
       sb.from('issued_certificates').select('*'),
       sb.from('purchases').select('*'),
-      sb.from('exam_attempts').select('*')
+      sb.from('exam_attempts').select('*'),
+      sb.from('cert_renewals').select('*').order('due_date', { ascending: true }),
+      sb.from('ceu_activities').select('*').eq('status','submitted').order('submitted_at', { ascending: false })
     ]);
 
     allUsers = profilesRes.data || [];
@@ -328,10 +400,14 @@ async function loadData() {
     allCerts = certsRes.data || [];
     allPurchases = purchasesRes.data || [];
     allExamAttempts = examRes.data || [];
+    allRenewals = renewalsRes.data || [];
+    allCeuActivities = ceuRes.data || [];
     filteredUsers = [...allUsers];
 
     updateStats();
     renderTable(filteredUsers);
+    renderRenewalTable(allRenewals);
+    renderCeuTable(allCeuActivities);
 
     document.getElementById('loadingScreen').style.display = 'none';
     document.getElementById('dashContent').style.display = 'block';
@@ -542,6 +618,212 @@ function exportCSV() {
   const a = document.createElement('a');
   a.href = url;
   a.download = `MAWA-Users-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ── RENEWAL TABLE ────────────────────────────────────────────────
+function renderRenewalTable(renewals) {
+  const tbody = document.getElementById('renewalTableBody');
+  if (!renewals || renewals.length === 0) {
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="11">No renewal records found.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = renewals.map(r => {
+    const user = allUsers.find(u => u.id === r.user_id);
+    const dueDate = new Date(r.due_date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+    const graceEnd = new Date(r.grace_end_date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+    const daysUntilDue = Math.ceil((new Date(r.due_date) - new Date()) / 86400000);
+
+    let statusBadge;
+    if (r.status === 'renewed') statusBadge = '<span class="badge badge-passed">Renewed</span>';
+    else if (r.status === 'revoked') statusBadge = '<span class="badge" style="background:#f8d7da;color:#721c24;">Revoked</span>';
+    else if (r.status === 'in_grace') statusBadge = '<span class="badge" style="background:#fdf0ef;color:#c0392b;">In Grace</span>';
+    else if (r.status === 'suspended') statusBadge = '<span class="badge badge-none">Suspended</span>';
+    else if (daysUntilDue <= 30) statusBadge = '<span class="badge badge-progress">Due Soon</span>';
+    else statusBadge = '<span class="badge badge-passed">Current</span>';
+
+    const ceuBar = `<div style="font-size:0.78rem">${r.ceu_hours_submitted || 0}/8h</div>
+      <div style="height:4px;background:#f1f0eb;border-radius:99px;width:60px;margin-top:2px;">
+        <div style="height:100%;border-radius:99px;background:var(--green-dark);width:${Math.min(100,(r.ceu_hours_submitted||0)/8*100)}%"></div>
+      </div>`;
+
+    const ceuStatus = r.ceu_approved
+      ? '<span class="badge badge-passed">Approved</span>'
+      : r.ceu_submitted
+      ? '<span class="badge badge-progress">Submitted</span>'
+      : '<span class="badge badge-none">Pending</span>';
+
+    const actions = `
+      ${r.status === 'in_grace' || r.status === 'revoked' ? `<button class="action-btn btn-reset" onclick="adminResetRenewal('${r.id}','${r.user_id}',${r.cert_number})">Reset</button>` : ''}
+      ${r.ceu_submitted && !r.ceu_approved ? `<button class="action-btn btn-view" onclick="approveCeu('${r.id}')">✓ CEU</button>` : ''}
+      <button class="action-btn btn-view" onclick="viewUser('${r.user_id}')">User</button>`;
+
+    return `<tr>
+      <td class="user-num">${user ? '#' + String(user.user_number).padStart(5,'0') : '—'}</td>
+      <td class="user-name">${user?.full_name || '—'}</td>
+      <td><span class="badge ${r.cert_number === 4 ? 'badge-progress' : 'badge-passed'}">Cert ${r.cert_number}</span></td>
+      <td style="font-size:0.82rem">#${r.renewal_number}</td>
+      <td style="font-size:0.82rem;white-space:nowrap">${dueDate}</td>
+      <td style="font-size:0.82rem;white-space:nowrap">${graceEnd}</td>
+      <td>${statusBadge}</td>
+      <td style="font-weight:600;color:var(--green-dark)">$${r.total_fee}</td>
+      <td>${ceuBar}</td>
+      <td>${ceuStatus}</td>
+      <td style="display:flex;gap:0.3rem;flex-wrap:wrap">${actions}</td>
+    </tr>`;
+  }).join('');
+}
+
+function filterRenewals(status) {
+  const filtered = status ? allRenewals.filter(r => r.status === status) : allRenewals;
+  renderRenewalTable(filtered);
+}
+
+async function adminResetRenewal(renewalId, userId, certNum) {
+  if (!confirm(`Reset renewal for Cert ${certNum}? This will mark it as pending and reset fees.`)) return;
+  try {
+    await sb.from('cert_renewals').update({
+      status: 'pending',
+      late_fee: 0,
+      total_fee: certNum === 4 ? 120 : 75,
+      due_date: new Date(Date.now() + 365*24*60*60*1000).toISOString().split('T')[0],
+      grace_end_date: certNum === 4
+        ? new Date(Date.now() + 730*24*60*60*1000).toISOString().split('T')[0]
+        : new Date(Date.now() + 395*24*60*60*1000).toISOString().split('T')[0]
+    }).eq('id', renewalId);
+    alert('Renewal reset successfully.');
+    loadData();
+  } catch(e) { alert('Error: ' + e.message); }
+}
+
+async function approveCeu(renewalId) {
+  if (!confirm('Approve all CEU activities for this renewal?')) return;
+  try {
+    await sb.from('cert_renewals').update({
+      ceu_approved: true,
+      ceu_approved_at: new Date().toISOString()
+    }).eq('id', renewalId);
+    await sb.from('ceu_activities').update({ status: 'approved' }).eq('renewal_id', renewalId);
+    alert('CEU activities approved.');
+    loadData();
+  } catch(e) { alert('Error: ' + e.message); }
+}
+
+// ── CEU SUBMISSIONS TABLE ────────────────────────────────────────
+function renderCeuTable(activities) {
+  const tbody = document.getElementById('ceuTableBody');
+  if (!activities || activities.length === 0) {
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="9">No pending CEU submissions.</td></tr>';
+    return;
+  }
+
+  const ACTIVITY_LABELS = {
+    study_coursework: 'Study / Coursework',
+    gi_work: 'GI Work',
+    conference_presentation: 'Conference Presentation',
+    publication: 'Publication',
+    teaching: 'Teaching',
+    committee_board: 'Committee / Board',
+    other: 'Other'
+  };
+
+  tbody.innerHTML = activities.map(a => {
+    const user = allUsers.find(u => u.id === a.user_id);
+    const date = new Date(a.activity_date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+
+    return `<tr>
+      <td>
+        <div class="user-name">${user?.full_name || '—'}</div>
+        <div class="user-email">${user?.email || ''}</div>
+      </td>
+      <td><span class="badge badge-passed">Cert ${a.cert_number}</span></td>
+      <td style="font-size:0.82rem">${ACTIVITY_LABELS[a.activity_type] || a.activity_type}</td>
+      <td style="font-size:0.82rem;max-width:180px">${a.activity_title}</td>
+      <td style="font-size:0.82rem;white-space:nowrap">${date}</td>
+      <td style="font-weight:600;color:var(--green-dark)">${a.ceu_hours}h</td>
+      <td style="font-size:0.78rem;max-width:200px;color:var(--text-muted)">${a.activity_description?.substring(0,100)}${a.activity_description?.length > 100 ? '...' : ''}</td>
+      <td><span class="badge badge-progress">Submitted</span></td>
+      <td style="display:flex;gap:0.3rem;">
+        <button class="action-btn btn-view" onclick="approveCeuActivity('${a.id}')">✓ Approve</button>
+        <button class="action-btn btn-reset" onclick="flagCeuActivity('${a.id}')">🔍 Audit</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+async function approveCeuActivity(activityId) {
+  try {
+    await sb.from('ceu_activities').update({
+      status: 'approved',
+      reviewed_at: new Date().toISOString()
+    }).eq('id', activityId);
+    alert('Activity approved.');
+    loadData();
+  } catch(e) { alert('Error: ' + e.message); }
+}
+
+async function flagCeuActivity(activityId) {
+  try {
+    await sb.from('ceu_activities').update({
+      status: 'flagged_for_audit',
+      reviewed_at: new Date().toISOString()
+    }).eq('id', activityId);
+    alert('Activity flagged for audit. User will be notified.');
+    loadData();
+  } catch(e) { alert('Error: ' + e.message); }
+}
+
+async function runAuditSelection() {
+  const submitted = allRenewals.filter(r => r.ceu_submitted && !r.ceu_approved && !r.selected_for_audit);
+  if (submitted.length === 0) { alert('No eligible renewals for audit selection.'); return; }
+
+  const auditCount = Math.max(1, Math.ceil(submitted.length * 0.075)); // ~7.5%
+  const shuffled = submitted.sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, auditCount);
+
+  if (!confirm(`Select ${auditCount} renewal(s) for audit (7.5% of ${submitted.length} eligible)? This will flag their CEU submissions for review.`)) return;
+
+  try {
+    for (const r of selected) {
+      await sb.from('cert_renewals').update({ selected_for_audit: true }).eq('id', r.id);
+      await sb.from('ceu_activities').update({ status: 'flagged_for_audit' }).eq('renewal_id', r.id);
+    }
+    alert(`${auditCount} renewal(s) selected for audit.`);
+    loadData();
+  } catch(e) { alert('Error: ' + e.message); }
+}
+
+// ── EXPORT RENEWALS CSV ──────────────────────────────────────────
+function exportRenewalsCSV() {
+  const headers = ['User#','Name','Email','Cert','Renewal#','Due Date','Grace End','Status','Base Fee','Late Fee','Total Fee','CEU Hours','CEU Approved','Audit Selected'];
+  const rows = allRenewals.map(r => {
+    const user = allUsers.find(u => u.id === r.user_id);
+    return [
+      user ? `#${String(user.user_number).padStart(5,'0')}` : '—',
+      `"${user?.full_name || '—'}"`,
+      user?.email || '—',
+      `Cert ${r.cert_number}`,
+      `#${r.renewal_number}`,
+      new Date(r.due_date).toLocaleDateString(),
+      new Date(r.grace_end_date).toLocaleDateString(),
+      r.status,
+      `$${r.base_fee}`,
+      `$${r.late_fee}`,
+      `$${r.total_fee}`,
+      `${r.ceu_hours_submitted || 0}/8`,
+      r.ceu_approved ? 'Yes' : 'No',
+      r.selected_for_audit ? 'Yes' : 'No'
+    ].join(',');
+  });
+
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `MAWA-Renewals-${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
   URL.revokeObjectURL(url);
 }
