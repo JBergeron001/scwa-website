@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Final Exam — MidAmerica Watersheds Alliance</title>
+<title>Final Exam — MidAmerica Watershed.Org</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -236,7 +236,7 @@ const CERT_BLURBS = {
   1: 'This certifies that the recipient has demonstrated mastery of green infrastructure planning and design principles, including site assessment, regulatory frameworks, and best management practices.',
   2: 'This certifies that the recipient has demonstrated mastery of green infrastructure installation and construction methods, materials, and quality control standards.',
   3: 'This certifies that the recipient has demonstrated mastery of green infrastructure maintenance and management, including inspection protocols, long-term performance assessment, and adaptive management.',
-  4: 'This certifies that the recipient has achieved the highest level of professional mastery in green infrastructure, having successfully completed all four certifications offered by MidAmerica Watersheds Alliance.'
+  4: 'This certifies that the recipient has achieved the highest level of professional mastery in green infrastructure, having successfully completed all four certifications offered by MidAmerica Watershed.Org.'
 };
 
 // ── SAMPLE FINAL EXAM QUESTIONS (100 questions) ──────────────────
@@ -317,7 +317,7 @@ const FINAL_EXAM_QUESTIONS = [
   { q: 'Which of the following best describes the relationship between GI and gray infrastructure?', options: ['GI always replaces gray infrastructure', 'GI and gray infrastructure are complementary and often work together', 'Gray infrastructure is always superior to GI', 'GI only works in the absence of gray infrastructure'], answer: 1 },
   { q: 'What is the primary benefit of distributed GI practices (many small practices) vs. centralized (one large practice)?', options: ['Lower total construction cost', 'Treats runoff closer to the source, reducing runoff volume and peak flows more effectively', 'Easier to maintain', 'Requires fewer permits'], answer: 1 },
   { q: 'Which of the following is a key consideration when selecting plants for a bioretention practice?', options: ['Plant height only', 'Tolerance for both wet and dry conditions, and native species preference', 'Flowering season only', 'Color and aesthetics only'], answer: 1 },
-  { q: 'What is the primary purpose of the MidAmerica Watersheds Alliance certification program?', options: ['To certify construction contractors only', 'To provide professional credentials demonstrating mastery of green infrastructure', 'To issue building permits', 'To regulate stormwater discharges'], answer: 1 },
+  { q: 'What is the primary purpose of the MidAmerica Watershed.Org certification program?', options: ['To certify construction contractors only', 'To provide professional credentials demonstrating mastery of green infrastructure', 'To issue building permits', 'To regulate stormwater discharges'], answer: 1 },
   { q: 'Which of the following best characterizes a "green infrastructure plan"?', options: ['A landscape design plan', 'A strategic document identifying where, how, and why GI will be implemented across a jurisdiction', 'A maintenance schedule for individual practices', 'A financial budget for GI construction'], answer: 1 },
   { q: 'What is the purpose of a stormwater utility?', options: ['To supply drinking water', 'To fund stormwater management programs through fees based on impervious surface area', 'To regulate land development', 'To enforce environmental laws'], answer: 1 },
   { q: 'Which of the following is an example of GI applied at the regional scale?', options: ['A rain garden in a backyard', 'A bioretention curb extension on a street', 'A watershed-wide green infrastructure master plan', 'A green roof on one building'], answer: 2 },
@@ -375,9 +375,9 @@ async function init() {
     lockedScreen.classList.add('show');
     const attemptsUsed = enrollment.exam_attempts_used;
     if (enrollment.retry_available) {
-      document.getElementById('lockedMsg').innerHTML = `You have used all 3 attempts on this exam. As a package purchaser, you have one option: pay the <strong>$50 retry fee</strong> to unlock one additional attempt. Contact MidAmerica Watersheds Alliance to arrange payment.`;
+      document.getElementById('lockedMsg').innerHTML = `You have used all 3 attempts on this exam. As a package purchaser, you have one option: pay the <strong>$50 retry fee</strong> to unlock one additional attempt. Contact MidAmerica Watershed.Org to arrange payment.`;
     } else {
-      document.getElementById('lockedMsg').textContent = `You have used all ${attemptsUsed} allowed attempts on this exam and your account has been locked. Please contact MidAmerica Watersheds Alliance to have your account reviewed and reset.`;
+      document.getElementById('lockedMsg').textContent = `You have used all ${attemptsUsed} allowed attempts on this exam and your account has been locked. Please contact MidAmerica Watershed.Org to have your account reviewed and reset.`;
     }
     return;
   }
@@ -565,9 +565,9 @@ function showResults(score, passed, correct, locked, retryAvailable) {
   if (passed) {
     desc += ` Outstanding work! Your certificate has been issued.`;
   } else if (locked && retryAvailable) {
-    desc += ` You have exhausted your 3 attempts. As a package purchaser, you may pay a $50 retry fee for one additional attempt. Contact MidAmerica Watersheds Alliance to arrange this.`;
+    desc += ` You have exhausted your 3 attempts. As a package purchaser, you may pay a $50 retry fee for one additional attempt. Contact MidAmerica Watershed.Org to arrange this.`;
   } else if (locked) {
-    desc += ` You have exhausted all allowed attempts. Your account has been locked. Please contact MidAmerica Watersheds Alliance to have your account reviewed.`;
+    desc += ` You have exhausted all allowed attempts. Your account has been locked. Please contact MidAmerica Watershed.Org to have your account reviewed.`;
   } else {
     const attemptsLeft = 3 - ((enrollment.exam_attempts_used || 0) + 1);
     desc += ` You need 80% to pass (need ${Math.ceil(total * 0.8)} correct answers). You have ${attemptsLeft} attempt(s) remaining.`;
@@ -581,7 +581,7 @@ function showResults(score, passed, correct, locked, retryAvailable) {
     const userNum = String(userProfile.user_number).padStart(5, '0');
     document.getElementById('certPreview').innerHTML = `
       <div class="cert-preview">
-        <div class="cert-org">MidAmerica Watersheds Alliance</div>
+        <div class="cert-org">MidAmerica Watershed.Org</div>
         <div style="font-size:0.8rem;color:#7a5c10;margin-bottom:0.75rem">This is to certify that</div>
         <div class="cert-name-display">${userProfile.full_name}</div>
         <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem">has successfully demonstrated mastery of</div>
@@ -639,7 +639,7 @@ function downloadCertificate() {
   doc.setTextColor(201, 168, 76);
   doc.setFontSize(11);
   doc.setFont('helvetica', 'bold');
-  doc.text('MIDAMERICA WATERSHEDS ALLIANCE', W / 2, 30, { align: 'center' });
+  doc.text('MIDAMERICA WATERSHED.ORG', W / 2, 30, { align: 'center' });
 
   // Certificate title
   doc.setTextColor(8, 80, 65);
@@ -687,7 +687,7 @@ function downloadCertificate() {
   doc.setTextColor(90, 90, 85);
   doc.text(`Issued: ${today}`, 40, 138);
   doc.text(`User #${userNum}`, W / 2, 138, { align: 'center' });
-  doc.text(`MidAmerica Watersheds Alliance`, W - 40, 138, { align: 'right' });
+  doc.text(`MidAmerica Watershed.Org`, W - 40, 138, { align: 'right' });
 
   doc.save(`MAWA-Cert${certNumber}-${userProfile.full_name.replace(/\s+/g, '-')}.pdf`);
 }

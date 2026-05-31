@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Create Account — MidAmerica Watersheds Alliance</title>
+<title>Create Account — MidAmerica Watershed.Org</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
@@ -330,7 +330,7 @@
 <div class="left-panel">
   <div class="logo-area">
     <div class="logo-mark">M</div>
-    <div class="logo-name">MidAmerica<br>Watersheds Alliance</div>
+    <div class="logo-name">MidAmerica<br>Watershed.Org</div>
   </div>
 
   <div class="panel-content">
@@ -344,7 +344,7 @@
     </div>
   </div>
 
-  <div class="panel-footer">© 2026 MidAmerica Watersheds Alliance. All rights reserved.</div>
+  <div class="panel-footer">© 2026 MidAmerica Watershed.Org. All rights reserved.</div>
 </div>
 
 <!-- RIGHT PANEL -->
@@ -436,7 +436,7 @@
   <div class="success-state" id="successState">
     <div class="success-icon">✓</div>
     <h2 class="success-title">Account created!</h2>
-    <p class="success-desc">Welcome to MidAmerica Watersheds Alliance. Check your email to confirm your address, then sign in to purchase your first certification.</p>
+    <p class="success-desc">Welcome to MidAmerica Watershed.Org. Check your email to confirm your address, then sign in to purchase your first certification.</p>
     <a href="login.html" class="login-link-btn">Go to sign in</a>
   </div>
 
@@ -445,9 +445,9 @@
 <script>
   // Init Supabase
   const SUPABASE_URL = document.querySelector('meta[name="supabase-url"]')?.content
-    || 'https://wncnxgyupryvrqkycvzp.supabase.co';
+    || 'SUPABASE_URL_PLACEHOLDER';
   const SUPABASE_ANON_KEY = document.querySelector('meta[name="supabase-anon-key"]')?.content
-    || 'sb_publishable_kotvXZUSlXTuorvZN5HdcA_eaLF6YvF';
+    || 'SUPABASE_ANON_KEY_PLACEHOLDER';
 
   const { createClient } = supabase;
   const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
