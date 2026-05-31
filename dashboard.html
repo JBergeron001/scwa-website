@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard — MidAmerica Watersheds Alliance</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #085041;
+    --green-mid: #0d6b56;
+    --green-light: #e1f5ee;
+    --gold: #c9a84c;
+    --gold-light: #faf3e0;
+    --text: #1a1a18;
+    --text-muted: #5a5a55;
+    --border: #d4d4c8;
+    --white: #fafaf7;
+    --bg: #f4f4ef;
+    --error: #c0392b;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--green-dark);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+
+  .nav-logo-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.2;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-user {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+  }
+
+  .nav-user span {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .signout-btn {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .signout-btn:hover { background: rgba(255,255,255,0.2); }
+
+  /* MAIN */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+  }
+
+  /* WELCOME BANNER */
+  .welcome-banner {
+    background: var(--green-dark);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .welcome-banner::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.2) 0%, transparent 70%);
+  }
+
+  .welcome-text { position: relative; z-index: 2; }
+
+  .welcome-greeting {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0.25rem;
+  }
+
+  .welcome-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .welcome-user-number {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    font-family: monospace;
+    letter-spacing: 0.05em;
+  }
+
+  .welcome-stats {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.25rem;
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--text);
+  }
+
+  .browse-btn {
+    background: var(--green-dark);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+
+  .browse-btn:hover { background: var(--green-mid); }
+
+  /* CERT CARDS GRID */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .cert-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .cert-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+
+  .cert-card-top {
+    padding: 1.25rem 1.25rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cert-number-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 99px;
+  }
+
+  .badge-active { background: var(--green-light); color: var(--green-dark); }
+  .badge-locked { background: #f1f0eb; color: #888; }
+  .badge-passed { background: var(--gold-light); color: #7a5c10; }
+  .badge-purchase { background: #eeedfe; color: #3c3489; }
+
+  .cert-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .cert-price {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .cert-card-body { padding: 1.25rem; }
+
+  /* PROGRESS BAR */
+  .progress-wrap { margin-bottom: 1rem; }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .progress-bar {
+    height: 6px;
+    background: var(--bg);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: var(--green-dark);
+    transition: width 0.6s ease;
+  }
+
+  .progress-fill.gold { background: var(--gold); }
+
+  /* MODULE STATUS LIST */
+  .module-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .module-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .module-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-done { background: var(--green-dark); }
+  .dot-active { background: var(--gold); }
+  .dot-locked { background: #d4d4c8; }
+
+  /* CARD ACTIONS */
+  .cert-action-btn {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    transition: background 0.2s, opacity 0.2s;
+  }
+
+  .btn-continue { background: var(--green-dark); color: #fff; }
+  .btn-continue:hover { background: var(--green-mid); }
+  .btn-passed { background: var(--gold-light); color: #7a5c10; cursor: default; }
+  .btn-locked { background: var(--bg); color: #aaa; cursor: not-allowed; border: 1.5px solid var(--border); }
+  .btn-purchase { background: #3c3489; color: #fff; }
+  .btn-purchase:hover { background: #2d2568; }
+  .btn-exam { background: var(--gold); color: var(--green-dark); font-weight: 600; }
+  .btn-exam:hover { background: #b8962a; }
+
+  /* LOCKED OVERLAY */
+  .cert-card.locked { opacity: 0.6; }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: #fff;
+    border-radius: 14px;
+    border: 1.5px dashed var(--border);
+  }
+
+  .empty-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .empty-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .empty-desc { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+  /* LOADING */
+  .loading-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--text-muted);
+  }
+
+  .spinner-lg {
+    width: 36px; height: 36px;
+    border: 3px solid var(--border);
+    border-top-color: var(--green-dark);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 600px) {
+    main { padding: 1.5rem 1rem; }
+    .welcome-banner { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+    .welcome-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">M</div>
+    <div class="nav-logo-text">MidAmerica<br>Watersheds Alliance</div>
+  </a>
+  <div class="nav-right">
+    <div class="nav-user" id="navUser">Welcome, <span id="navName">...</span></div>
+    <button class="signout-btn" onclick="signOut()">Sign out</button>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner-lg"></div>
+    <div>Loading your dashboard...</div>
+  </div>
+
+  <div id="dashContent" style="display:none">
+
+    <!-- WELCOME BANNER -->
+    <div class="welcome-banner">
+      <div class="welcome-text">
+        <div class="welcome-greeting">Welcome back</div>
+        <div class="welcome-name" id="welcomeName">...</div>
+        <div class="welcome-user-number" id="welcomeUserNum">User #...</div>
+      </div>
+      <div class="welcome-stats">
+        <div class="stat-item">
+          <div class="stat-num" id="statEnrolled">0</div>
+          <div class="stat-label">Enrolled</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" id="statPassed">0</div>
+          <div class="stat-label">Passed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" id="statCerts">0</div>
+          <div class="stat-label">Certificates</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MY CERTIFICATIONS -->
+    <div class="section-header">
+      <h2 class="section-title">My Certifications</h2>
+      <a href="enroll.html" class="browse-btn">+ Enroll in a Certification</a>
+    </div>
+
+    <div class="certs-grid" id="certsGrid">
+      <!-- Populated by JS -->
+    </div>
+
+  </div>
+</main>
+
+<script>
+const SUPABASE_URL = 'https://wncnxgyupryvrqkycvzp.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_kotvXZUSlXTuorvZN5HdcA_eaLF6YvF';
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const CERT_TITLES = {
+  1: 'Green Infrastructure Fundamentals',
+  2: 'Stormwater Management Principles',
+  3: 'Advanced GI Design',
+  4: 'Master of Green Infrastructure'
+};
+
+const CERT_PRICES = { 1: '$249', 2: '$249', 3: '$249', 4: '$299' };
+
+const CERT_MODULES = {
+  1: ['Introduction to Green Infrastructure', 'Stormwater Basics', 'GI Applications', 'Site Assessment', 'Case Studies'],
+  2: ['Hydrology Fundamentals', 'BMP Design', 'Regulatory Framework', 'Maintenance Principles', 'Field Applications'],
+  3: ['Advanced Design Methods', 'Modeling & Analysis', 'Urban Integration', 'Cost-Benefit Analysis', 'Capstone Project'],
+  4: ['Master Synthesis', 'Leadership & Policy', 'Innovation in GI', 'Professional Practice']
+};
+
+async function init() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { window.location.href = 'login.html'; return; }
+
+  const userId = session.user.id;
+
+  // Load profile
+  const { data: profile } = await sb.from('profiles').select('*').eq('id', userId).single();
+  if (!profile) { window.location.href = 'login.html'; return; }
+
+  // Load enrollments
+  const { data: enrollments } = await sb.from('cert_enrollments').select('*').eq('user_id', userId);
+
+  // Load module progress
+  const { data: moduleProgress } = await sb.from('module_progress').select('*').eq('user_id', userId);
+
+  // Load issued certs
+  const { data: issuedCerts } = await sb.from('issued_certificates').select('*').eq('user_id', userId);
+
+  // Update UI
+  document.getElementById('navName').textContent = profile.full_name.split(' ')[0];
+  document.getElementById('welcomeName').textContent = profile.full_name;
+  document.getElementById('welcomeUserNum').textContent = `User #${String(profile.user_number).padStart(5, '0')}`;
+
+  const passed = enrollments?.filter(e => e.cert_status === 'passed').length || 0;
+  document.getElementById('statEnrolled').textContent = enrollments?.length || 0;
+  document.getElementById('statPassed').textContent = passed;
+  document.getElementById('statCerts').textContent = issuedCerts?.length || 0;
+
+  renderCerts(enrollments || [], moduleProgress || [], profile);
+
+  document.getElementById('loadingScreen').style.display = 'none';
+  document.getElementById('dashContent').style.display = 'block';
+}
+
+function renderCerts(enrollments, moduleProgress, profile) {
+  const grid = document.getElementById('certsGrid');
+  grid.innerHTML = '';
+
+  const allPassed123 = [1,2,3].every(n =>
+    enrollments.find(e => e.cert_number === n && e.cert_status === 'passed')
+  );
+
+  // Show certs 1-4
+  [1, 2, 3, 4].forEach(certNum => {
+    const enrollment = enrollments.find(e => e.cert_number === certNum);
+    const modules = CERT_MODULES[certNum];
+    const modProgress = moduleProgress.filter(m => m.cert_number === certNum);
+
+    // Cert 4 only shows if enrolled or all 1-3 passed
+    if (certNum === 4 && !enrollment && !allPassed123) return;
+
+    const card = buildCertCard(certNum, enrollment, modules, modProgress, allPassed123);
+    grid.appendChild(card);
+  });
+
+  // If no enrollments at all, show empty state
+  if (enrollments.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state" style="grid-column:1/-1">
+        <div class="empty-icon">🎓</div>
+        <div class="empty-title">No certifications yet</div>
+        <div class="empty-desc">Purchase a certification to get started on your green infrastructure credentials.</div>
+        <a href="enroll.html" class="browse-btn">Browse Certifications</a>
+      </div>`;
+  }
+}
+
+function buildCertCard(certNum, enrollment, modules, modProgress, allPassed123) {
+  const card = document.createElement('div');
+  card.className = 'cert-card';
+
+  const passedModules = modProgress.filter(m => m.quiz_passed).length;
+  const totalModules = modules.length;
+  const pct = totalModules > 0 ? Math.round((passedModules / totalModules) * 100) : 0;
+
+  let badgeClass, badgeText, btnClass, btnText, btnHref, isLocked = false;
+
+  if (!enrollment) {
+    if (certNum === 4 && allPassed123) {
+      badgeClass = 'badge-purchase'; badgeText = 'Available';
+      btnClass = 'btn-purchase'; btnText = 'Purchase — $299';
+      btnHref = `enroll.html?cert=${certNum}`;
+    } else {
+      badgeClass = 'badge-purchase'; badgeText = 'Not enrolled';
+      btnClass = 'btn-purchase'; btnText = `Enroll — ${CERT_PRICES[certNum]}`;
+      btnHref = `enroll.html?cert=${certNum}`;
+    }
+  } else if (enrollment.cert_status === 'passed') {
+    badgeClass = 'badge-passed'; badgeText = '✓ Passed';
+    btnClass = 'btn-passed'; btnText = 'Certificate earned';
+    btnHref = null;
+  } else if (enrollment.cert_status === 'locked') {
+    badgeClass = 'badge-locked'; badgeText = 'Locked';
+    isLocked = true;
+    if (enrollment.retry_available) {
+      btnClass = 'btn-purchase'; btnText = 'Unlock retry — $50';
+      btnHref = `enroll.html?cert=${certNum}&retry=true`;
+    } else {
+      btnClass = 'btn-locked'; btnText = 'Contact admin to unlock';
+      btnHref = null;
+    }
+  } else if (passedModules === totalModules && totalModules > 0) {
+    badgeClass = 'badge-active'; badgeText = 'Ready for exam';
+    btnClass = 'btn-exam'; btnText = 'Take final exam →';
+    btnHref = `exam.html?cert=${certNum}`;
+  } else {
+    badgeClass = 'badge-active'; badgeText = 'In progress';
+    btnClass = 'btn-continue'; btnText = 'Continue →';
+    btnHref = `viewer.html?cert=${certNum}`;
+  }
+
+  if (isLocked) card.classList.add('locked');
+
+  // Build module dots
+  const moduleDots = modules.map((mod, i) => {
+    const mp = modProgress.find(m => m.module_number === i + 1);
+    const dotClass = mp?.quiz_passed ? 'dot-done' : (mp?.status === 'in_progress' ? 'dot-active' : 'dot-locked');
+    return `<div class="module-item">
+      <div class="module-dot ${dotClass}"></div>
+      <span>${mod}</span>
+    </div>`;
+  }).join('');
+
+  const actionBtn = btnHref
+    ? `<a href="${btnHref}" class="cert-action-btn ${btnClass}">${btnText}</a>`
+    : `<button class="cert-action-btn ${btnClass}" disabled>${btnText}</button>`;
+
+  card.innerHTML = `
+    <div class="cert-card-top">
+      <div class="cert-number-badge ${badgeClass}">Cert ${certNum} &nbsp;·&nbsp; ${badgeText}</div>
+      <div class="cert-title">${CERT_TITLES[certNum]}</div>
+      <div class="cert-price">${enrollment ? (enrollment.purchase_type === 'package' ? 'Package' : 'Individual') : CERT_PRICES[certNum]}</div>
+    </div>
+    <div class="cert-card-body">
+      ${enrollment && enrollment.cert_status !== 'passed' ? `
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Modules completed</span><span>${passedModules}/${totalModules}</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+      </div>` : ''}
+      <div class="module-list">${moduleDots}</div>
+      ${actionBtn}
+    </div>`;
+
+  return card;
+}
+
+async function signOut() {
+  await sb.auth.signOut();
+  window.location.href = 'login.html';
+}
+
+init();
+</script>
+</body>
+</html>
