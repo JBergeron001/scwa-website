@@ -728,28 +728,67 @@ async function saveProgress() {
 }
 
 // ── READ ALOUD ───────────────────────────────────────────────────
-function toggleReadAloud() {
-  if (isSpeaking) {
-    stopSpeech();
-  } else {
-    startSpeech();
+
+// Preferred natural female voices in priority order
+const PREFERRED_VOICES = [
+  'Microsoft Jenny Online (Natural) - English (United States)',
+  'Microsoft Aria Online (Natural) - English (United States)',
+  'Microsoft Jenny - English (United States)',
+  'Microsoft Zira - English (United States)',
+  'Google US English',
+  'Samantha',  // macOS/iOS natural voice
+  'Karen',     // macOS Australian
+  'Victoria',  // macOS
+];
+
+let selectedVoice = null;
+
+function getBestVoice() {
+  const voices = speechSynth.getVoices();
+  for (const preferred of PREFERRED_VOICES) {
+    const match = voices.find(v => v.name === preferred);
+    if (match) return match;
   }
+  // Fallback: first English female-sounding voice
+  const englishVoice = voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('female'));
+  if (englishVoice) return englishVoice;
+  // Final fallback: first English voice
+  return voices.find(v => v.lang.startsWith('en')) || voices[0] || null;
+}
+
+// Load voices (Chrome loads them async)
+if (speechSynth.onvoiceschanged !== undefined) {
+  speechSynth.onvoiceschanged = () => { selectedVoice = getBestVoice(); };
+}
+setTimeout(() => { selectedVoice = getBestVoice(); }, 500);
+
+function toggleReadAloud() {
+  if (isSpeaking) { stopSpeech(); } else { startSpeech(); }
 }
 
 function startSpeech() {
   stopSpeech();
+  if (!selectedVoice) selectedVoice = getBestVoice();
+
   const module = courseData.modules[currentModuleIndex];
   const slide = module.slides[currentSlideIndex];
 
-  // Strip HTML tags for speech
   const tmp = document.createElement('div');
   tmp.innerHTML = `${slide.title}. ${slide.body}`;
   const text = tmp.textContent || tmp.innerText || '';
 
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 0.95;
-  utterance.pitch = 1;
+  if (selectedVoice) utterance.voice = selectedVoice;
+  utterance.rate = 0.92;
+  utterance.pitch = 1.05;
+  utterance.volume = 1;
+
   utterance.onend = () => {
+    isSpeaking = false;
+    document.getElementById('readAloudBtn').classList.remove('active');
+    document.getElementById('readAloudBtn').textContent = '🔊 Read aloud';
+  };
+  utterance.onerror = () => {
     isSpeaking = false;
     document.getElementById('readAloudBtn').classList.remove('active');
     document.getElementById('readAloudBtn').textContent = '🔊 Read aloud';
