@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Exam — MidAmerica Watersheds Alliance</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #085041;
+    --green-mid: #0d6b56;
+    --green-light: #e1f5ee;
+    --gold: #c9a84c;
+    --gold-light: #faf3e0;
+    --text: #1a1a18;
+    --text-muted: #5a5a55;
+    --border: #d4d4c8;
+    --white: #fafaf7;
+    --bg: #f4f4ef;
+    --error: #c0392b;
+    --error-light: #fdf0ef;
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  nav {
+    background: var(--green-dark); padding: 0 2rem; height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-left { display: flex; align-items: center; gap: 1rem; }
+  .nav-logo-mark { width: 32px; height: 32px; background: var(--gold); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--green-dark); }
+  .nav-title { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: rgba(255,255,255,0.9); }
+  .nav-badge { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 99px; }
+  .attempt-indicator { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+  .attempt-indicator span { color: var(--gold); font-weight: 600; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+  /* START SCREEN */
+  .start-screen { background: #fff; border-radius: 16px; border: 1.5px solid var(--border); overflow: hidden; }
+  .start-header { background: var(--green-dark); padding: 2.5rem; position: relative; overflow: hidden; }
+  .start-header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.2) 0%, transparent 70%); }
+  .start-badge { display: inline-block; background: var(--gold); color: var(--green-dark); font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 99px; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; position: relative; z-index: 2; }
+  .start-title { font-family: 'DM Serif Display', serif; font-size: 2rem; color: #fff; margin-bottom: 0.5rem; position: relative; z-index: 2; }
+  .start-subtitle { color: rgba(255,255,255,0.65); font-size: 0.95rem; position: relative; z-index: 2; }
+  .start-body { padding: 2rem 2.5rem; }
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+  .rule-item { background: var(--bg); border-radius: 10px; padding: 1rem 1.25rem; }
+  .rule-num { font-size: 1.5rem; font-weight: 600; color: var(--green-dark); line-height: 1; margin-bottom: 0.25rem; }
+  .rule-label { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .rule-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+  .warning-box { background: #fdf0ef; border: 1.5px solid #f5c6c2; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 0.88rem; color: var(--error); line-height: 1.6; }
+  .start-btn { width: 100%; padding: 1rem; background: var(--green-dark); color: #fff; border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+  .start-btn:hover { background: var(--green-mid); }
+
+  /* EXAM PROGRESS BAR */
+  .exam-progress { background: #fff; border-radius: 10px; border: 1.5px solid var(--border); padding: 1rem 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1.5rem; }
+  .progress-text { font-size: 0.85rem; color: var(--text-muted); flex-shrink: 0; }
+  .progress-bar { flex: 1; height: 8px; background: var(--bg); border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--green-dark); border-radius: 99px; transition: width 0.4s ease; }
+  .page-indicator { font-size: 0.85rem; font-weight: 500; color: var(--text); flex-shrink: 0; }
+
+  /* QUESTION CARD */
+  .question-card { background: #fff; border-radius: 14px; border: 1.5px solid var(--border); padding: 1.75rem; margin-bottom: 1.25rem; }
+  .q-number { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+  .q-text { font-size: 1.05rem; font-weight: 500; color: var(--text); margin-bottom: 1.25rem; line-height: 1.5; }
+  .options { display: flex; flex-direction: column; gap: 0.6rem; }
+  .option-label { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem; border-radius: 8px; border: 1.5px solid var(--border); cursor: pointer; transition: border-color 0.15s, background 0.15s; font-size: 0.95rem; line-height: 1.4; }
+  .option-label:hover { border-color: var(--green-dark); background: var(--green-light); }
+  .option-label input[type="radio"] { margin-top: 2px; flex-shrink: 0; accent-color: var(--green-dark); }
+  .option-label.selected { border-color: var(--green-dark); background: var(--green-light); }
+
+  /* PAGE NAV */
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; gap: 1rem; }
+  .nav-btn { padding: 0.75rem 1.75rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500; cursor: pointer; border: none; transition: background 0.2s; }
+  .btn-prev { background: rgba(0,0,0,0.06); color: var(--text); }
+  .btn-prev:hover { background: rgba(0,0,0,0.1); }
+  .btn-prev:disabled { opacity: 0.3; cursor: not-allowed; }
+  .btn-next { background: var(--green-dark); color: #fff; }
+  .btn-next:hover { background: var(--green-mid); }
+  .btn-submit { background: var(--gold); color: var(--green-dark); font-weight: 600; font-size: 1rem; padding: 0.85rem 2.5rem; }
+  .btn-submit:hover { background: #b8962a; }
+  .page-note { font-size: 0.82rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem; }
+
+  .spinner { display: none; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto; }
+  .btn-submit.loading .btn-text { display: none; }
+  .btn-submit.loading .spinner { display: block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* RESULTS */
+  .result-screen { display: none; background: #fff; border-radius: 16px; border: 1.5px solid var(--border); overflow: hidden; }
+  .result-screen.show { display: block; }
+  .result-header { padding: 3rem 2.5rem; text-align: center; }
+  .result-icon { font-size: 4rem; margin-bottom: 1rem; }
+  .result-title { font-family: 'DM Serif Display', serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
+  .result-score { font-size: 4rem; font-weight: 600; margin: 1rem 0 0.5rem; line-height: 1; }
+  .score-pass { color: var(--green-dark); }
+  .score-fail { color: var(--error); }
+  .result-desc { color: var(--text-muted); line-height: 1.6; max-width: 500px; margin: 0 auto 2rem; }
+  .result-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; padding: 0 2rem 2.5rem; }
+  .result-btn { padding: 0.8rem 1.75rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; cursor: pointer; border: none; display: inline-block; }
+  .btn-green { background: var(--green-dark); color: #fff; }
+  .btn-green:hover { background: var(--green-mid); }
+  .btn-gold { background: var(--gold); color: var(--green-dark); font-weight: 600; }
+  .btn-gold:hover { background: #b8962a; }
+  .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
+  .btn-outline:hover { border-color: var(--green-dark); }
+
+  /* CERT PREVIEW */
+  .cert-preview { margin: 0 2.5rem 2.5rem; border: 2px solid var(--gold); border-radius: 12px; padding: 2rem; text-align: center; background: var(--gold-light); position: relative; }
+  .cert-preview::before { content: '★ CERTIFICATE OF COMPLETION ★'; position: absolute; top: -0.6rem; left: 50%; transform: translateX(-50%); background: var(--gold-light); padding: 0 0.75rem; font-size: 0.7rem; font-weight: 600; color: #7a5c10; letter-spacing: 0.1em; white-space: nowrap; }
+  .cert-org { font-size: 0.85rem; color: #7a5c10; margin-bottom: 0.5rem; }
+  .cert-name-display { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--text); margin-bottom: 0.25rem; }
+  .cert-title-display { font-size: 1rem; font-weight: 500; color: var(--green-dark); margin-bottom: 0.75rem; }
+  .cert-blurb { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .cert-meta { font-size: 0.78rem; color: #7a5c10; display: flex; justify-content: center; gap: 2rem; }
+
+  /* LOCKED SCREEN */
+  .locked-screen { display: none; background: #fff; border-radius: 16px; border: 1.5px solid #f5c6c2; padding: 3rem 2rem; text-align: center; }
+  .locked-screen.show { display: block; }
+
+  .loading-screen { display: flex; align-items: center; justify-content: center; min-height: 60vh; flex-direction: column; gap: 1rem; color: var(--text-muted); }
+  .spinner-lg { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--green-dark); border-radius: 50%; animation: spin 0.8s linear infinite; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo-mark">M</div>
+    <div class="nav-title" id="navTitle">Final Exam</div>
+    <div class="nav-badge" id="navBadge">...</div>
+  </div>
+  <div class="attempt-indicator" id="attemptIndicator"></div>
+</nav>
+
+<main>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner-lg"></div>
+    <div>Loading exam...</div>
+  </div>
+
+  <!-- START SCREEN -->
+  <div class="start-screen" id="startScreen" style="display:none">
+    <div class="start-header">
+      <div class="start-badge">Final Exam</div>
+      <div class="start-title" id="startTitle">...</div>
+      <div class="start-subtitle" id="startSubtitle">...</div>
+    </div>
+    <div class="start-body">
+      <div class="rules-grid">
+        <div class="rule-item">
+          <div class="rule-num" id="ruleQuestions">100</div>
+          <div class="rule-label">Questions</div>
+          <div class="rule-desc">Multiple choice, covering all modules</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">80%</div>
+          <div class="rule-label">To pass</div>
+          <div class="rule-desc">Score 80% or higher to earn your certificate</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num" id="ruleAttemptsLeft">3</div>
+          <div class="rule-label">Attempts remaining</div>
+          <div class="rule-desc">You have used <span id="ruleAttemptsUsed">0</span> of 3 attempts</div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">5</div>
+          <div class="rule-label">Questions per page</div>
+          <div class="rule-desc">Navigate with Previous and Next buttons</div>
+        </div>
+      </div>
+      <div class="warning-box" id="warningBox">
+        ⚠️ <strong>Important:</strong> You have a maximum of 3 attempts to pass this exam. If you exhaust all attempts, your account will be locked for this certification and must be reset by an administrator.
+      </div>
+      <button class="start-btn" onclick="startExam()">Begin Final Exam →</button>
+    </div>
+  </div>
+
+  <!-- EXAM -->
+  <div id="examArea" style="display:none">
+    <div class="exam-progress">
+      <div class="progress-text" id="progressText">Page 1 of 20</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:5%"></div></div>
+      <div class="page-indicator" id="pageIndicator">Q 1–5</div>
+    </div>
+
+    <div id="questionsContainer"></div>
+
+    <div class="page-nav">
+      <button class="nav-btn btn-prev" id="prevBtn" onclick="prevPage()" disabled>← Previous</button>
+      <button class="nav-btn btn-next" id="nextBtn" onclick="nextPage()">Next →</button>
+    </div>
+    <div class="page-note" id="pageNote"></div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="result-screen" id="resultScreen">
+    <div class="result-header">
+      <div class="result-icon" id="resultIcon"></div>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-desc" id="resultDesc"></div>
+    </div>
+    <div id="certPreview"></div>
+    <div class="result-actions" id="resultActions"></div>
+  </div>
+
+  <!-- LOCKED -->
+  <div class="locked-screen" id="lockedScreen">
+    <div style="font-size:3rem;margin-bottom:1rem">🔒</div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.8rem;margin-bottom:0.75rem">Exam Locked</h2>
+    <p style="color:var(--text-muted);line-height:1.6;max-width:420px;margin:0 auto 2rem" id="lockedMsg"></p>
+    <a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>
+  </div>
+</main>
+
+<script>
+const SUPABASE_URL = 'https://wncnxgyupryvrqkycvzp.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_kotvXZUSlXTuorvZN5HdcA_eaLF6YvF';
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const CERT_TITLES = {
+  1: 'Green Infrastructure Planning and Design',
+  2: 'Green Infrastructure Installation and Construction',
+  3: 'Green Infrastructure Maintenance and Management',
+  4: 'Master of Green Infrastructure'
+};
+
+const CERT_BLURBS = {
+  1: 'This certifies that the recipient has demonstrated mastery of green infrastructure planning and design principles, including site assessment, regulatory frameworks, and best management practices.',
+  2: 'This certifies that the recipient has demonstrated mastery of green infrastructure installation and construction methods, materials, and quality control standards.',
+  3: 'This certifies that the recipient has demonstrated mastery of green infrastructure maintenance and management, including inspection protocols, long-term performance assessment, and adaptive management.',
+  4: 'This certifies that the recipient has achieved the highest level of professional mastery in green infrastructure, having successfully completed all four certifications offered by MidAmerica Watersheds Alliance.'
+};
+
+// ── SAMPLE FINAL EXAM QUESTIONS (100 questions) ──────────────────
+// Replace with your real exam questions
+const FINAL_EXAM_QUESTIONS = [
+  { q: 'What is the primary goal of green infrastructure?', options: ['Maximize impervious surfaces', 'Manage stormwater using natural processes', 'Replace all gray infrastructure', 'Reduce landscaping costs'], answer: 1 },
+  { q: 'Which federal law forms the foundation of US stormwater regulation?', options: ['Clean Air Act', 'Safe Drinking Water Act', 'Clean Water Act', 'Resource Conservation and Recovery Act'], answer: 2 },
+  { q: 'What does NPDES stand for?', options: ['National Pollutant Discharge Elimination System', 'National Program for Drainage and Environmental Stewardship', 'Natural Precipitation and Drainage Engineering System', 'National Policy on Discharge and Environmental Standards'], answer: 0 },
+  { q: 'Which GI practice involves a vegetated depression that collects and filters stormwater?', options: ['Green roof', 'Permeable pavement', 'Bioretention / Rain garden', 'Urban tree canopy'], answer: 2 },
+  { q: 'What is the typical maximum ponding depth for a bioretention area?', options: ['2–4 inches', '6–12 inches', '18–24 inches', '36 inches'], answer: 1 },
+  { q: 'How does urbanization primarily affect the water cycle?', options: ['Increases groundwater recharge', 'Decreases stormwater runoff', 'Increases runoff volume and velocity', 'Reduces flood frequency'], answer: 2 },
+  { q: 'What is evapotranspiration?', options: ['Water percolating into the soil', 'Water returning to the atmosphere through plants', 'Runoff captured before it reaches the ground', 'Water stored temporarily in a detention basin'], answer: 1 },
+  { q: 'What is the minimum pass score for module quizzes and the final exam?', options: ['70%', '75%', '80%', '85%'], answer: 2 },
+  { q: 'Which of the following is a common stormwater pollutant from vehicles?', options: ['Nitrogen', 'Heavy metals such as zinc and copper', 'Phosphorus from fertilizers', 'Sediment from construction'], answer: 1 },
+  { q: 'What does MS4 stand for?', options: ['Multi-State Stormwater Management System', 'Municipal Separate Storm Sewer System', 'Managed Stormwater Surface Standards', 'Maximum Stormwater Storage System'], answer: 1 },
+  { q: 'At which scale does green infrastructure planning identify watershed-wide priority areas?', options: ['Site scale', 'Parcel scale', 'Regional/watershed scale', 'Block scale'], answer: 2 },
+  { q: 'What is the recommended draw-down time for a bioretention cell?', options: ['6–12 hours', '12–18 hours', '24–48 hours', '72–96 hours'], answer: 2 },
+  { q: 'When is an underdrain required in a bioretention design?', options: ['Always', 'Never', 'In low-permeability soils', 'Only in commercial applications'], answer: 2 },
+  { q: 'What does TMDL stand for?', options: ['Total Maximum Daily Load', 'Treated Municipal Discharge Level', 'Timed Maximum Drainage Limit', 'Total Measured Discharge Load'], answer: 0 },
+  { q: 'Which mechanism involves temporarily storing water and releasing it slowly?', options: ['Interception', 'Evapotranspiration', 'Infiltration', 'Storage'], answer: 3 },
+  { q: 'What is the typical media depth for a bioretention area?', options: ['2–6 inches', '6–12 inches', '18–48 inches', '60–72 inches'], answer: 2 },
+  { q: 'Which GI practice involves a porous surface that allows water to percolate into the ground?', options: ['Green roof', 'Permeable pavement', 'Bioswale', 'Rain barrel'], answer: 1 },
+  { q: 'Community engagement in GI planning is important because:', options: ['It is always required by law', 'It ensures projects reflect local needs and increases stewardship', 'It reduces design costs by 50%', 'It eliminates environmental review requirements'], answer: 1 },
+  { q: 'Which type of permit applies to municipal stormwater systems?', options: ['Construction General Permit', 'Industrial Stormwater Permit', 'MS4 Permit', 'Individual NPDES Permit'], answer: 2 },
+  { q: 'What is a key benefit of green roofs in addition to stormwater management?', options: ['Increased runoff velocity', 'Extended roof membrane life and energy savings', 'Reduced building permits required', 'Elimination of maintenance requirements'], answer: 1 },
+  { q: 'Which of the following best describes infiltration?', options: ['Water captured by plant leaves', 'Water returning to the atmosphere', 'Water percolating into the soil', 'Water detained in a pond'], answer: 2 },
+  { q: 'Construction General Permits are required for land disturbance of more than:', options: ['0.5 acres', '1 acre', '2.5 acres', '5 acres'], answer: 1 },
+  { q: 'What does "time of concentration" refer to?', options: ['Time for a permit approval', 'Time for runoff to travel from the farthest point to the outlet', 'Time to empty a bioretention cell', 'Time between consecutive storm events'], answer: 1 },
+  { q: 'Green infrastructure planning at the neighborhood scale focuses on:', options: ['Individual site designs', 'Connected GI networks across a district', 'Watershed-wide hydrology', 'Federal permit compliance'], answer: 1 },
+  { q: 'What is the primary water quality benefit of bioretention?', options: ['Increasing runoff velocity', 'Removing pollutants through filtration and biological processes', 'Increasing impervious surface area', 'Reducing evapotranspiration'], answer: 1 },
+  { q: 'Which factor does NOT directly influence GI site design?', options: ['Soil infiltration rate', 'Depth to groundwater', 'Adjacent property tax rate', 'Contributing drainage area size'], answer: 2 },
+  { q: 'What is the purpose of an overflow structure in a GI practice?', options: ['To increase runoff volume', 'To handle flows that exceed the practice capacity', 'To eliminate the need for maintenance', 'To reduce the size of the practice'], answer: 1 },
+  { q: 'Long-term maintenance agreements for GI are typically required by:', options: ['Federal NPDES only', 'State and local regulations', 'International building codes', 'EPA exclusively'], answer: 1 },
+  { q: 'Which urban pollutant in stormwater most commonly originates from pet waste and sewage overflows?', options: ['Heavy metals', 'Hydrocarbons', 'Bacteria and pathogens', 'Phosphorus'], answer: 2 },
+  { q: 'Peak flow calculations help determine:', options: ['Plant species selection', 'Whether overflow structures are needed', 'Construction crew size', 'Permit application fees'], answer: 1 },
+  { q: 'Which of the following is a benefit of urban tree canopy for stormwater?', options: ['Increases pavement temperature', 'Intercepts rainfall and reduces runoff', 'Reduces soil permeability', 'Increases impervious surface area'], answer: 1 },
+  { q: 'Stormwater retention volume requirements primarily address:', options: ['Water quality treatment', 'Stormwater quantity control', 'Groundwater contamination', 'Air quality standards'], answer: 1 },
+  { q: 'Which GI practice type is most commonly used in urban commercial corridors?', options: ['Constructed wetlands', 'Bioretention planters/curb extensions', 'Large retention ponds', 'Underground cisterns'], answer: 1 },
+  { q: 'What percentage of stormwater can an extensive green roof typically retain?', options: ['10–20%', '25–40%', '50–70%', '80–95%'], answer: 2 },
+  { q: 'Which of the following is a characteristic of a well-designed bioretention media mix?', options: ['High clay content for impermeability', 'Balanced mix of sand, compost, and topsoil for drainage and plant growth', 'Pure gravel for maximum drainage', 'Heavy organic matter to increase water retention indefinitely'], answer: 1 },
+  { q: 'State stormwater design manuals primarily specify:', options: ['Construction worker wages', 'Acceptable GI practices and design requirements', 'Federal permit fees', 'Building height restrictions'], answer: 1 },
+  { q: 'The surface area of a bioretention practice is sized to:', options: ['Match adjacent impervious surfaces visually', 'Treat the design storm volume', 'Comply with landscaping ordinances', 'Minimize cost regardless of performance'], answer: 1 },
+  { q: 'Which of the following best describes an MS4 permit holder?', options: ['A developer building a new subdivision', 'A municipality operating a stormwater drainage system', 'A farmer with more than 100 acres', 'A manufacturer discharging industrial wastewater'], answer: 1 },
+  { q: 'What is the primary cause of increased flooding frequency in urban areas?', options: ['Increased rainfall amounts', 'Increased impervious surfaces reducing infiltration', 'Climate change reducing evapotranspiration', 'Removal of detention ponds'], answer: 1 },
+  { q: 'Which GI practice involves engineered systems designed to provide both stormwater treatment and habitat?', options: ['Permeable pavement', 'Green roofs', 'Constructed wetlands', 'Rain barrels'], answer: 2 },
+  { q: 'What does "design storm" refer to in stormwater hydrology?', options: ['An unusually severe weather event', 'A storm event of specified frequency and duration used for sizing GI practices', 'A storm that has already caused flooding', 'The largest storm on record'], answer: 1 },
+  { q: 'Which factor most influences the infiltration rate of a soil?', options: ['Soil color', 'Soil texture (proportion of sand, silt, and clay)', 'Proximity to water bodies', 'Elevation above sea level'], answer: 1 },
+  { q: 'What is the primary purpose of a bioswale?', options: ['To store large volumes of runoff permanently', 'To convey and treat stormwater runoff through vegetation and infiltration', 'To replace concrete drainage channels aesthetically', 'To collect rainwater for irrigation only'], answer: 1 },
+  { q: 'Which of the following is NOT a typical GI co-benefit?', options: ['Improved pedestrian environment', 'Increased property values', 'Reduced urban heat island effect', 'Increased stormwater discharge rates'], answer: 3 },
+  { q: 'What is the typical lifespan extension of a roof membrane protected by a green roof system?', options: ['5 years', '10 years', '20 years', '40 years'], answer: 2 },
+  { q: 'A well-functioning GI network at the neighborhood scale should:', options: ['Maximize runoff to receiving waters', 'Connect individual GI practices to maximize cumulative stormwater benefits', 'Concentrate runoff at a single discharge point', 'Operate independently of adjacent sites'], answer: 1 },
+  { q: 'What role does vegetation play in a bioretention system?', options: ['Primarily aesthetic only', 'Provides uptake of pollutants, evapotranspiration, and root zone infiltration enhancement', 'Increases surface runoff velocity', 'Reduces soil permeability over time'], answer: 1 },
+  { q: 'Which of the following is a key indicator of a failing bioretention practice?', options: ['Visible plant growth', 'Slow drainage and ponding beyond 72 hours', 'Seasonal plant dormancy', 'Moderate sediment deposition at inlet'], answer: 1 },
+  { q: 'What is the primary purpose of a GI maintenance inspection?', options: ['To document the aesthetics of the practice', 'To identify and correct deficiencies before they affect performance', 'To justify removing the practice', 'To satisfy aesthetic requirements only'], answer: 1 },
+  { q: 'Which of the following best describes adaptive management in GI?', options: ['Installing GI only in areas that never need maintenance', 'Using monitoring data to improve practice performance over time', 'Replacing GI with gray infrastructure after 5 years', 'Designing GI so it never requires modification'], answer: 1 },
+  { q: 'Nitrogen in urban stormwater primarily originates from:', options: ['Heavy metals in road surfaces', 'Fertilizers and atmospheric deposition', 'Construction equipment exhaust', 'Building materials'], answer: 1 },
+  { q: 'What is the primary hydrologic benefit of preserving natural areas in a watershed?', options: ['Increases runoff volume and velocity', 'Maintains natural infiltration and evapotranspiration rates', 'Reduces groundwater recharge', 'Concentrates runoff to a single point'], answer: 1 },
+  { q: 'Which of the following is a best practice for GI inlet design?', options: ['Direct high-velocity runoff directly into the practice', 'Include energy dissipation to prevent erosion at the inlet', 'Minimize the size of the inlet opening', 'Avoid any sediment pretreatment'], answer: 1 },
+  { q: 'What is the purpose of a pretreatment forebay in a bioretention practice?', options: ['To provide additional plant growing space', 'To capture sediment and debris before it reaches the main bioretention area', 'To increase the ponding volume', 'To eliminate the need for overflow structures'], answer: 1 },
+  { q: 'Which of the following GI practices is most suitable for treating rooftop runoff?', options: ['Bioswale', 'Permeable pavement', 'Cistern or rain barrel connected to downspout', 'Constructed wetland'], answer: 2 },
+  { q: 'What does "runoff coefficient" measure?', options: ['The speed of runoff', 'The proportion of rainfall that becomes surface runoff', 'The depth of runoff', 'The pollutant concentration in runoff'], answer: 1 },
+  { q: 'Which GI practice type provides the greatest volume of stormwater storage per unit area?', options: ['Green roof', 'Bioretention', 'Underground cistern/storage vault', 'Tree box filter'], answer: 2 },
+  { q: 'What is the primary challenge of implementing GI in areas with high water tables?', options: ['Plants grow too quickly', 'Limited infiltration capacity due to shallow groundwater', 'Increased evapotranspiration', 'Reduced pollutant removal efficiency'], answer: 1 },
+  { q: 'Which of the following best describes a "green infrastructure retrofit"?', options: ['Building a new GI practice on undeveloped land', 'Adding GI to existing developed areas to manage stormwater', 'Replacing GI with gray infrastructure', 'Relocating an existing GI practice'], answer: 1 },
+  { q: 'What is the primary maintenance task for permeable pavement?', options: ['Resealing the surface annually', 'Regular vacuuming to prevent clogging of pores', 'Replacing vegetation twice a year', 'Applying herbicides monthly'], answer: 1 },
+  { q: 'Which of the following is a common indicator of clogging in a bioretention practice?', options: ['Rapid drawdown after storms', 'Ponding for more than 72 hours after a storm', 'Healthy plant growth', 'Clear effluent from underdrain'], answer: 1 },
+  { q: 'Green infrastructure is most effective when:', options: ['Implemented as isolated individual practices', 'Integrated into a connected network across the watershed', 'Designed for aesthetics only', 'Installed only on public land'], answer: 1 },
+  { q: 'What is the primary purpose of an observation well in a bioretention practice?', options: ['Aesthetic feature for visitors', 'To monitor water level and drawdown performance', 'To provide irrigation access', 'To measure air temperature'], answer: 1 },
+  { q: 'Which of the following is an example of GI at the site scale?', options: ['A watershed master plan', 'A neighborhood green corridor plan', 'A bioretention area on a commercial parking lot', 'A regional stormwater management ordinance'], answer: 2 },
+  { q: 'What does "first flush" mean in stormwater management?', options: ['The first rainfall event of the season', 'The initial portion of runoff that carries the highest pollutant concentrations', 'The overflow from a detention basin', 'The first measurement taken during a storm'], answer: 1 },
+  { q: 'Why is soil testing important before designing a bioretention practice?', options: ['To determine plant color preferences', 'To confirm infiltration rates and identify any contamination issues', 'To measure soil temperature', 'To comply with aesthetic guidelines'], answer: 1 },
+  { q: 'Which of the following is a co-benefit of street trees as GI?', options: ['Increased pavement heat absorption', 'Traffic calming, shade, air quality improvement, and stormwater interception', 'Reduced pedestrian safety', 'Increased impervious surface runoff'], answer: 1 },
+  { q: 'What is the primary regulatory driver for many municipal GI programs?', options: ['Homeowner association rules', 'MS4 stormwater permit requirements', 'International building code', 'State health department regulations'], answer: 1 },
+  { q: 'Which of the following maintenance activities is typically performed annually for bioretention?', options: ['Complete soil media replacement', 'Inspection, debris removal, and plant maintenance', 'Reconstruction of inlet structures', 'Complete replanting of all vegetation'], answer: 1 },
+  { q: 'What is the relationship between impervious surface and stormwater runoff volume?', options: ['More impervious surface equals less runoff', 'More impervious surface equals more runoff', 'Impervious surface has no effect on runoff', 'Impervious surface only affects runoff quality, not quantity'], answer: 1 },
+  { q: 'Which of the following is a performance metric used to evaluate GI effectiveness?', options: ['Number of plants installed', 'Runoff volume reduction percentage', 'Cost of materials used', 'Number of permits obtained'], answer: 1 },
+  { q: 'What is the primary purpose of a GI monitoring program?', options: ['To document construction costs', 'To verify that practices are performing as designed and identify improvements', 'To satisfy aesthetic requirements', 'To train maintenance crews only'], answer: 1 },
+  { q: 'Which of the following best describes the relationship between GI and gray infrastructure?', options: ['GI always replaces gray infrastructure', 'GI and gray infrastructure are complementary and often work together', 'Gray infrastructure is always superior to GI', 'GI only works in the absence of gray infrastructure'], answer: 1 },
+  { q: 'What is the primary benefit of distributed GI practices (many small practices) vs. centralized (one large practice)?', options: ['Lower total construction cost', 'Treats runoff closer to the source, reducing runoff volume and peak flows more effectively', 'Easier to maintain', 'Requires fewer permits'], answer: 1 },
+  { q: 'Which of the following is a key consideration when selecting plants for a bioretention practice?', options: ['Plant height only', 'Tolerance for both wet and dry conditions, and native species preference', 'Flowering season only', 'Color and aesthetics only'], answer: 1 },
+  { q: 'What is the primary purpose of the MidAmerica Watersheds Alliance certification program?', options: ['To certify construction contractors only', 'To provide professional credentials demonstrating mastery of green infrastructure', 'To issue building permits', 'To regulate stormwater discharges'], answer: 1 },
+  { q: 'Which of the following best characterizes a "green infrastructure plan"?', options: ['A landscape design plan', 'A strategic document identifying where, how, and why GI will be implemented across a jurisdiction', 'A maintenance schedule for individual practices', 'A financial budget for GI construction'], answer: 1 },
+  { q: 'What is the purpose of a stormwater utility?', options: ['To supply drinking water', 'To fund stormwater management programs through fees based on impervious surface area', 'To regulate land development', 'To enforce environmental laws'], answer: 1 },
+  { q: 'Which of the following is an example of GI applied at the regional scale?', options: ['A rain garden in a backyard', 'A bioretention curb extension on a street', 'A watershed-wide green infrastructure master plan', 'A green roof on one building'], answer: 2 },
+  { q: 'What is the primary risk of installing GI in areas with contaminated soils?', options: ['Plants will not grow well aesthetically', 'Contaminants may be mobilized and enter groundwater through infiltration', 'Practices will require more frequent mowing', 'Runoff will become cleaner than intended'], answer: 1 },
+  { q: 'Which of the following is a key advantage of native plants in GI practices?', options: ['They require more water than non-native plants', 'They are adapted to local climate conditions and typically require less maintenance', 'They are always less expensive than non-native plants', 'They provide less wildlife habitat than exotic species'], answer: 1 },
+  { q: 'What is "green infrastructure sequencing" in the context of a development site?', options: ['Planting trees before installing pavement', 'Planning GI installation in a logical order to protect downstream practices from construction sediment', 'Selecting green colors for infrastructure', 'Installing GI after all other construction is complete regardless of sequence'], answer: 1 },
+  { q: 'Which type of soil is most problematic for infiltration-based GI practices?', options: ['Sandy loam', 'Loamy sand', 'Clay with low permeability', 'Silty loam'], answer: 2 },
+  { q: 'What is the primary purpose of a wet pond in stormwater management?', options: ['Provides permanent pool for water quality treatment and peak flow attenuation', 'Infiltrates all runoff into the ground', 'Eliminates the need for other GI practices', 'Provides drinking water storage'], answer: 0 },
+  { q: 'Which of the following is a challenge of maintaining GI in cold climates?', options: ['Excessive evapotranspiration in winter', 'Salt and sand from road maintenance can damage GI practices and soils', 'Plants grow too vigorously in winter', 'Infiltration rates increase dramatically in frozen soils'], answer: 1 },
+  { q: 'What does "green infrastructure sequencing" help prevent?', options: ['Excessive plant growth', 'Sediment clogging of downstream GI practices during construction', 'Permit delays', 'Budget overruns'], answer: 1 },
+  { q: 'Which of the following is the best indicator that a bioretention practice is functioning correctly?', options: ['Standing water visible at all times', 'Complete drawdown within 24–48 hours after a storm', 'No plant growth in the media', 'Water ponding for more than one week'], answer: 1 },
+  { q: 'What is the primary regulatory purpose of requiring long-term maintenance agreements for GI?', options: ['To generate revenue for municipalities', 'To ensure GI practices continue to function as designed throughout their lifespan', 'To restrict property owner modifications', 'To satisfy aesthetic ordinances'], answer: 1 },
+  { q: 'Which of the following is a key component of a GI operations and maintenance plan?', options: ['Construction cost estimate', 'Inspection schedule, maintenance tasks, responsible parties, and performance standards', 'Marketing materials for the practice', 'Land acquisition documents'], answer: 1 },
+  { q: 'What is the primary goal of a stormwater management master plan?', options: ['To design individual GI practices', 'To identify a comprehensive, long-term strategy for managing stormwater across a jurisdiction', 'To set property tax rates', 'To regulate building permits'], answer: 1 },
+  { q: 'Which of the following describes "life cycle cost" analysis for GI?', options: ['The cost of construction only', 'Total costs over the life of a practice including design, construction, maintenance, and replacement', 'The annual maintenance budget', 'The cost of permits and inspections only'], answer: 1 },
+  { q: 'What is the primary advantage of GI over gray infrastructure from a lifecycle cost perspective?', options: ['GI always costs less to build', 'GI often provides multiple co-benefits that reduce total lifecycle costs when fully valued', 'GI never requires maintenance', 'GI can be installed without permits'], answer: 1 },
+  { q: 'Which of the following is a common barrier to GI implementation?', options: ['Excessive public support for GI', 'Lack of familiarity among design and review professionals, and regulatory uncertainty', 'Too many available funding sources', 'Excessive stormwater regulations requiring GI'], answer: 1 },
+  { q: 'What role does community education play in successful GI programs?', options: ['It is optional and rarely improves outcomes', 'It builds public support, improves stewardship, and helps maintain practices on private property', 'It increases construction costs significantly', 'It replaces the need for professional design'], answer: 1 },
+  { q: 'Which of the following best describes the Master of Green Infrastructure certification?', options: ['An entry-level credential for new professionals', 'The highest credential offered by MAWA, demonstrating comprehensive mastery of all GI disciplines', 'A credential focused only on plant selection', 'A permit required to install GI practices'], answer: 1 },
+];
+
+const QUESTIONS_PER_PAGE = 5;
+let userId = null;
+let certNumber = null;
+let userProfile = null;
+let enrollment = null;
+let currentPage = 0;
+let userAnswers = {};
+let examStarted = false;
+
+async function init() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { window.location.href = 'login.html'; return; }
+  userId = session.user.id;
+
+  const params = new URLSearchParams(window.location.search);
+  certNumber = parseInt(params.get('cert')) || 1;
+
+  const { data: profile } = await sb.from('profiles').select('*').eq('id', userId).single();
+  userProfile = profile;
+
+  const { data: enroll } = await sb.from('cert_enrollments')
+    .select('*').eq('user_id', userId).eq('cert_number', certNumber).single();
+  enrollment = enroll;
+
+  if (!enrollment) { window.location.href = 'dashboard.html'; return; }
+
+  document.getElementById('navTitle').textContent = CERT_TITLES[certNumber];
+  document.getElementById('navBadge').textContent = 'Final Exam';
+
+  // Check if locked
+  if (enrollment.exam_locked) {
+    document.getElementById('loadingScreen').style.display = 'none';
+    const lockedScreen = document.getElementById('lockedScreen');
+    lockedScreen.classList.add('show');
+    const attemptsUsed = enrollment.exam_attempts_used;
+    if (enrollment.retry_available) {
+      document.getElementById('lockedMsg').innerHTML = `You have used all 3 attempts on this exam. As a package purchaser, you have one option: pay the <strong>$50 retry fee</strong> to unlock one additional attempt. Contact MidAmerica Watersheds Alliance to arrange payment.`;
+    } else {
+      document.getElementById('lockedMsg').textContent = `You have used all ${attemptsUsed} allowed attempts on this exam and your account has been locked. Please contact MidAmerica Watersheds Alliance to have your account reviewed and reset.`;
+    }
+    return;
+  }
+
+  const attemptsUsed = enrollment.exam_attempts_used || 0;
+  const attemptsLeft = 3 - attemptsUsed;
+
+  document.getElementById('attemptIndicator').innerHTML = `Attempt <span>${attemptsUsed + 1}</span> of 3`;
+  document.getElementById('ruleAttemptsLeft').textContent = attemptsLeft;
+  document.getElementById('ruleAttemptsUsed').textContent = attemptsUsed;
+  document.getElementById('ruleQuestions').textContent = FINAL_EXAM_QUESTIONS.length;
+  document.getElementById('startTitle').textContent = `${CERT_TITLES[certNumber]} — Final Exam`;
+  document.getElementById('startSubtitle').textContent = `${FINAL_EXAM_QUESTIONS.length} questions covering all modules`;
+
+  if (attemptsUsed > 0) {
+    document.getElementById('warningBox').innerHTML = `⚠️ <strong>Warning:</strong> You have used ${attemptsUsed} of your 3 allowed attempts. You have <strong>${attemptsLeft} attempt(s) remaining</strong>. If you use all 3 attempts without passing, your account will be locked.`;
+  }
+
+  document.getElementById('loadingScreen').style.display = 'none';
+  document.getElementById('startScreen').style.display = 'block';
+}
+
+function startExam() {
+  examStarted = true;
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('examArea').style.display = 'block';
+  renderPage();
+}
+
+function renderPage() {
+  const totalPages = Math.ceil(FINAL_EXAM_QUESTIONS.length / QUESTIONS_PER_PAGE);
+  const start = currentPage * QUESTIONS_PER_PAGE;
+  const end = Math.min(start + QUESTIONS_PER_PAGE, FINAL_EXAM_QUESTIONS.length);
+  const pageQuestions = FINAL_EXAM_QUESTIONS.slice(start, end);
+  const isLastPage = currentPage === totalPages - 1;
+
+  document.getElementById('progressText').textContent = `Page ${currentPage + 1} of ${totalPages}`;
+  document.getElementById('progressFill').style.width = `${((currentPage + 1) / totalPages) * 100}%`;
+  document.getElementById('pageIndicator').textContent = `Q ${start + 1}–${end}`;
+
+  const container = document.getElementById('questionsContainer');
+  container.innerHTML = '';
+
+  pageQuestions.forEach((q, i) => {
+    const qi = start + i;
+    const card = document.createElement('div');
+    card.className = 'question-card';
+
+    const optionsHtml = q.options.map((opt, oi) => `
+      <label class="option-label${userAnswers[qi] === oi ? ' selected' : ''}" id="opt-${qi}-${oi}">
+        <input type="radio" name="q${qi}" value="${oi}" ${userAnswers[qi] === oi ? 'checked' : ''} onchange="selectAnswer(${qi}, ${oi})">
+        ${opt}
+      </label>`).join('');
+
+    card.innerHTML = `
+      <div class="q-number">Question ${qi + 1} of ${FINAL_EXAM_QUESTIONS.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${optionsHtml}</div>`;
+
+    container.appendChild(card);
+  });
+
+  document.getElementById('prevBtn').disabled = currentPage === 0;
+
+  const nextBtn = document.getElementById('nextBtn');
+  if (isLastPage) {
+    nextBtn.textContent = 'Submit Exam';
+    nextBtn.className = 'nav-btn btn-submit';
+    nextBtn.onclick = confirmSubmit;
+    nextBtn.innerHTML = '<span class="btn-text">Submit Exam</span><div class="spinner"></div>';
+  } else {
+    nextBtn.textContent = 'Next →';
+    nextBtn.className = 'nav-btn btn-next';
+    nextBtn.onclick = nextPage;
+  }
+
+  const answered = Object.keys(userAnswers).filter(k => parseInt(k) >= start && parseInt(k) < end).length;
+  const unanswered = pageQuestions.length - answered;
+  document.getElementById('pageNote').textContent = unanswered > 0
+    ? `${unanswered} question(s) on this page not yet answered.`
+    : 'All questions on this page answered.';
+
+  window.scrollTo(0, 0);
+}
+
+function selectAnswer(qi, oi) {
+  userAnswers[qi] = oi;
+  FINAL_EXAM_QUESTIONS[qi].options.forEach((_, i) => {
+    const lbl = document.getElementById(`opt-${qi}-${i}`);
+    if (lbl) lbl.classList.toggle('selected', i === oi);
+  });
+  const start = currentPage * QUESTIONS_PER_PAGE;
+  const end = Math.min(start + QUESTIONS_PER_PAGE, FINAL_EXAM_QUESTIONS.length);
+  const answered = Object.keys(userAnswers).filter(k => parseInt(k) >= start && parseInt(k) < end).length;
+  const unanswered = (end - start) - answered;
+  document.getElementById('pageNote').textContent = unanswered > 0
+    ? `${unanswered} question(s) on this page not yet answered.`
+    : 'All questions on this page answered.';
+}
+
+function nextPage() {
+  currentPage++;
+  renderPage();
+}
+
+function prevPage() {
+  if (currentPage > 0) { currentPage--; renderPage(); }
+}
+
+function confirmSubmit() {
+  const totalAnswered = Object.keys(userAnswers).length;
+  const totalQuestions = FINAL_EXAM_QUESTIONS.length;
+  const unanswered = totalQuestions - totalAnswered;
+
+  if (unanswered > 0) {
+    if (!confirm(`You have ${unanswered} unanswered question(s). Are you sure you want to submit? Unanswered questions will be marked incorrect.`)) return;
+  } else {
+    if (!confirm('Are you ready to submit your final exam? This cannot be undone.')) return;
+  }
+  submitExam();
+}
+
+async function submitExam() {
+  const submitBtn = document.getElementById('nextBtn');
+  submitBtn.classList.add('loading');
+  submitBtn.disabled = true;
+
+  let correct = 0;
+  FINAL_EXAM_QUESTIONS.forEach((q, i) => {
+    if (userAnswers[i] === q.answer) correct++;
+  });
+
+  const score = Math.round((correct / FINAL_EXAM_QUESTIONS.length) * 100);
+  const passed = score >= 80;
+  const attemptNumber = (enrollment.exam_attempts_used || 0) + 1;
+  const isPackage = enrollment.purchase_type === 'package';
+  const shouldLock = !passed && attemptNumber >= 3;
+  const retryAvailable = shouldLock && isPackage && !enrollment.retry_used;
+
+  try {
+    // Log attempt
+    await sb.from('exam_attempts').insert({
+      user_id: userId, cert_number: certNumber,
+      attempt_number: attemptNumber, score, passed,
+      is_retry: enrollment.retry_used || false
+    });
+
+    // Update enrollment
+    await sb.from('cert_enrollments').update({
+      exam_attempts_used: attemptNumber,
+      exam_locked: shouldLock && !retryAvailable,
+      retry_available: retryAvailable,
+      cert_status: passed ? 'passed' : (shouldLock && !retryAvailable ? 'locked' : 'in_progress'),
+      cert_passed_date: passed ? new Date().toISOString() : null
+    }).eq('user_id', userId).eq('cert_number', certNumber);
+
+    // If passed — issue certificate
+    if (passed && userProfile) {
+      await sb.from('issued_certificates').insert({
+        user_id: userId,
+        user_number: userProfile.user_number,
+        full_name: userProfile.full_name,
+        cert_number: certNumber,
+        cert_title: CERT_TITLES[certNumber],
+        exam_score: score
+      });
+    }
+  } catch(e) { console.error('Save error:', e); }
+
+  showResults(score, passed, correct, shouldLock, retryAvailable);
+}
+
+function showResults(score, passed, correct, locked, retryAvailable) {
+  document.getElementById('examArea').style.display = 'none';
+  const result = document.getElementById('resultScreen');
+  result.classList.add('show');
+
+  document.getElementById('resultIcon').textContent = passed ? '🎓' : (locked ? '🔒' : '📚');
+  document.getElementById('resultTitle').textContent = passed ? 'Congratulations — You Passed!' : (locked ? 'Exam Locked' : 'Not Quite — Try Again');
+  document.getElementById('resultScore').innerHTML = `<span class="${passed ? 'score-pass' : 'score-fail'}">${score}%</span>`;
+
+  const total = FINAL_EXAM_QUESTIONS.length;
+  let desc = `You answered ${correct} of ${total} questions correctly.`;
+
+  if (passed) {
+    desc += ` Outstanding work! Your certificate has been issued.`;
+  } else if (locked && retryAvailable) {
+    desc += ` You have exhausted your 3 attempts. As a package purchaser, you may pay a $50 retry fee for one additional attempt. Contact MidAmerica Watersheds Alliance to arrange this.`;
+  } else if (locked) {
+    desc += ` You have exhausted all allowed attempts. Your account has been locked. Please contact MidAmerica Watersheds Alliance to have your account reviewed.`;
+  } else {
+    const attemptsLeft = 3 - ((enrollment.exam_attempts_used || 0) + 1);
+    desc += ` You need 80% to pass (need ${Math.ceil(total * 0.8)} correct answers). You have ${attemptsLeft} attempt(s) remaining.`;
+  }
+
+  document.getElementById('resultDesc').textContent = desc;
+
+  // Certificate preview if passed
+  if (passed && userProfile) {
+    const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    const userNum = String(userProfile.user_number).padStart(5, '0');
+    document.getElementById('certPreview').innerHTML = `
+      <div class="cert-preview">
+        <div class="cert-org">MidAmerica Watersheds Alliance</div>
+        <div style="font-size:0.8rem;color:#7a5c10;margin-bottom:0.75rem">This is to certify that</div>
+        <div class="cert-name-display">${userProfile.full_name}</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem">has successfully demonstrated mastery of</div>
+        <div class="cert-title-display">${CERT_TITLES[certNumber]}</div>
+        <div class="cert-blurb">${CERT_BLURBS[certNumber]}</div>
+        <div class="cert-meta">
+          <span>Issued: ${today}</span>
+          <span>User #${userNum}</span>
+          <span>Score: ${score}%</span>
+        </div>
+      </div>`;
+  }
+
+  // Actions
+  let actionsHtml = '';
+  if (passed) {
+    actionsHtml += `<button class="result-btn btn-gold" onclick="downloadCertificate()">⬇ Download Certificate PDF</button>`;
+    actionsHtml += `<a href="dashboard.html" class="result-btn btn-green">Go to dashboard</a>`;
+  } else if (!locked) {
+    actionsHtml += `<a href="exam.html?cert=${certNumber}" class="result-btn btn-gold">Retake exam</a>`;
+    actionsHtml += `<a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;
+  } else {
+    actionsHtml += `<a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;
+  }
+  document.getElementById('resultActions').innerHTML = actionsHtml;
+}
+
+function downloadCertificate() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'letter' });
+
+  const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  const userNum = String(userProfile.user_number).padStart(5, '0');
+  const W = doc.internal.pageSize.getWidth();
+  const H = doc.internal.pageSize.getHeight();
+
+  // Background
+  doc.setFillColor(8, 80, 65);
+  doc.rect(0, 0, W, H, 'F');
+
+  // White inner area
+  doc.setFillColor(250, 250, 247);
+  doc.roundedRect(12, 12, W - 24, H - 24, 4, 4, 'F');
+
+  // Gold border
+  doc.setDrawColor(201, 168, 76);
+  doc.setLineWidth(1.5);
+  doc.roundedRect(16, 16, W - 32, H - 32, 3, 3, 'S');
+
+  // Header bar
+  doc.setFillColor(8, 80, 65);
+  doc.rect(16, 16, W - 32, 22, 'F');
+
+  // Org name
+  doc.setTextColor(201, 168, 76);
+  doc.setFontSize(11);
+  doc.setFont('helvetica', 'bold');
+  doc.text('MIDAMERICA WATERSHEDS ALLIANCE', W / 2, 30, { align: 'center' });
+
+  // Certificate title
+  doc.setTextColor(8, 80, 65);
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  doc.text('CERTIFICATE OF COMPLETION', W / 2, 46, { align: 'center' });
+
+  // This certifies that
+  doc.setTextColor(90, 90, 85);
+  doc.setFontSize(10);
+  doc.text('This is to certify that', W / 2, 58, { align: 'center' });
+
+  // Name
+  doc.setTextColor(26, 26, 24);
+  doc.setFontSize(28);
+  doc.setFont('times', 'bolditalic');
+  doc.text(userProfile.full_name, W / 2, 76, { align: 'center' });
+
+  // Has demonstrated mastery
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(10);
+  doc.setTextColor(90, 90, 85);
+  doc.text('has successfully demonstrated mastery of', W / 2, 88, { align: 'center' });
+
+  // Cert title
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(15);
+  doc.setTextColor(8, 80, 65);
+  doc.text(CERT_TITLES[certNumber], W / 2, 100, { align: 'center' });
+
+  // Blurb
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(90, 90, 85);
+  const blurbLines = doc.splitTextToSize(CERT_BLURBS[certNumber], W - 80);
+  doc.text(blurbLines, W / 2, 112, { align: 'center' });
+
+  // Gold divider
+  doc.setDrawColor(201, 168, 76);
+  doc.setLineWidth(0.5);
+  doc.line(40, 128, W - 40, 128);
+
+  // Footer info
+  doc.setFontSize(9);
+  doc.setTextColor(90, 90, 85);
+  doc.text(`Issued: ${today}`, 40, 138);
+  doc.text(`User #${userNum}`, W / 2, 138, { align: 'center' });
+  doc.text(`MidAmerica Watersheds Alliance`, W - 40, 138, { align: 'right' });
+
+  doc.save(`MAWA-Cert${certNumber}-${userProfile.full_name.replace(/\s+/g, '-')}.pdf`);
+}
+
+init();
+</script>
+</body>
+</html>
