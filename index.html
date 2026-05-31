@@ -1,194 +1,673 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MidAmerica Watersheds Alliance — Professional GI Certification</title>
-  <meta name="description" content="MAWA professional certification in green infrastructure. Four self-paced certifications from stormwater fundamentals to Master of Green Infrastructure.">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MidAmerica Watersheds Alliance — Green Infrastructure Certifications</title>
+<meta name="description" content="Professional Green Infrastructure certifications for stormwater, landscape, engineering, planning, and environmental professionals. Four self-paced certifications from MidAmerica Watersheds Alliance.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #085041;
+    --green-mid: #0d6b56;
+    --green-light: #e1f5ee;
+    --gold: #c9a84c;
+    --gold-light: #faf3e0;
+    --text: #1a1a18;
+    --text-muted: #5a5a55;
+    --border: #d4d4c8;
+    --white: #fafaf7;
+    --bg: #f4f4ef;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: var(--green-dark);
+    padding: 0 2rem; height: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+  .nav-logo-mark { width: 40px; height: 40px; background: var(--gold); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--green-dark); font-weight: 700; flex-shrink: 0; }
+  .nav-logo-text { font-family: 'DM Serif Display', serif; font-size: 1rem; color: rgba(255,255,255,0.95); line-height: 1.25; }
+  .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+  .nav-link { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.88rem; padding: 0.4rem 0.85rem; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+  .nav-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
+  .nav-cta { background: var(--gold); color: var(--green-dark); font-weight: 600; font-size: 0.88rem; padding: 0.5rem 1.25rem; border-radius: 8px; text-decoration: none; transition: background 0.2s; margin-left: 0.5rem; }
+  .nav-cta:hover { background: #b8962a; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--green-dark);
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(13,107,86,0.3) 0%, transparent 50%);
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; }
+  .hero-eyebrow { display: inline-block; background: rgba(201,168,76,0.2); color: var(--gold); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 99px; margin-bottom: 1.5rem; border: 1px solid rgba(201,168,76,0.3); }
+  .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); color: #fff; line-height: 1.1; margin-bottom: 1.5rem; }
+  .hero-title em { font-style: italic; color: var(--gold); }
+  .hero-desc { font-size: 1.1rem; color: rgba(255,255,255,0.7); line-height: 1.75; max-width: 640px; margin: 0 auto 2.5rem; }
+  .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
+  .btn-primary { background: var(--gold); color: var(--green-dark); font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 1rem; padding: 0.85rem 2rem; border-radius: 10px; text-decoration: none; transition: background 0.2s, transform 0.1s; }
+  .btn-primary:hover { background: #b8962a; transform: translateY(-1px); }
+  .btn-secondary { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.9); font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 1rem; padding: 0.85rem 2rem; border-radius: 10px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: background 0.2s; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+
+  /* HERO STATS */
+  .hero-stats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--gold); line-height: 1; }
+  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ── WHAT IS GI ── */
+  .gi-section { background: var(--white); padding: 5rem 2rem; }
+  .gi-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .gi-text .section-eyebrow { font-size: 0.75rem; font-weight: 600; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .gi-text h2 { font-family: 'DM Serif Display', serif; font-size: 2.2rem; line-height: 1.2; margin-bottom: 1.25rem; }
+  .gi-text p { font-size: 0.97rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem; }
+  .gi-text p strong { color: var(--text); }
+
+  /* CAREERS HOVER WIDGET */
+  .careers-trigger {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--green-light); color: var(--green-dark);
+    border: 1.5px solid rgba(8,80,65,0.2);
+    padding: 0.6rem 1.1rem; border-radius: 8px;
+    font-size: 0.88rem; font-weight: 500;
+    cursor: pointer; margin-top: 0.75rem;
+    position: relative; user-select: none;
+    transition: background 0.2s;
+  }
+  .careers-trigger:hover { background: #c8ecdf; }
+  .careers-trigger .ct-icon { font-size: 1rem; }
+  .careers-trigger .ct-arrow { font-size: 0.7rem; transition: transform 0.2s; }
+  .careers-trigger.open .ct-arrow { transform: rotate(180deg); }
+
+  .careers-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 580px;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    z-index: 100;
+    padding: 1.5rem;
+  }
+  .careers-panel.open { display: block; }
+  .cp-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 0.25rem; }
+  .cp-sub { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5; }
+  .cp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .cp-category { }
+  .cp-cat-title { font-size: 0.72rem; font-weight: 600; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.4rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border); }
+  .cp-cat-items { list-style: none; display: flex; flex-direction: column; gap: 0.2rem; }
+  .cp-cat-items li { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 0.4rem; line-height: 1.4; }
+  .cp-cat-items li::before { content: '·'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 0.05rem; }
+  .cp-footer { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--text-muted); font-style: italic; }
+
+  /* GI PILLARS */
+  .gi-pillars { display: flex; flex-direction: column; gap: 1rem; }
+  .gi-pillar { background: var(--bg); border-radius: 12px; padding: 1.25rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; }
+  .pillar-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .pillar-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .pillar-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── CERTIFICATIONS ── */
+  .certs-section { background: var(--bg); padding: 5rem 2rem; }
+  .section-header { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+  .section-eyebrow { font-size: 0.75rem; font-weight: 600; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 2.2rem; line-height: 1.2; margin-bottom: 0.75rem; }
+  .section-desc { font-size: 0.97rem; color: var(--text-muted); line-height: 1.7; }
+
+  .certs-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+  .cert-card { background: #fff; border-radius: 16px; border: 1.5px solid var(--border); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+  .cert-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+  .cert-card.cert-4 { grid-column: 1 / -1; border-color: var(--gold); background: linear-gradient(135deg, #fff 60%, var(--gold-light)); }
+
+  .cert-card-header { padding: 1.5rem 1.75rem 1.25rem; border-bottom: 1px solid var(--border); }
+  .cert-number { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.6rem; padding: 0.2rem 0.6rem; border-radius: 99px; }
+  .cn-1, .cn-2, .cn-3 { background: var(--green-light); color: var(--green-dark); }
+  .cn-4 { background: var(--gold-light); color: #7a5c10; }
+  .cert-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; line-height: 1.25; margin-bottom: 0.5rem; }
+  .cert-price { font-size: 1.5rem; font-weight: 600; color: var(--green-dark); }
+  .cert-card.cert-4 .cert-price { color: #7a5c10; }
+
+  .cert-card-body { padding: 1.25rem 1.75rem 1.5rem; }
+  .cert-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; }
+  .cert-modules { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.5rem; }
+  .cert-module-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; color: var(--text-muted); }
+  .cert-module-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .cert-enroll-btn { display: block; text-align: center; padding: 0.75rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: background 0.2s; }
+  .btn-enroll-green { background: var(--green-dark); color: #fff; }
+  .btn-enroll-green:hover { background: var(--green-mid); }
+  .btn-enroll-gold { background: var(--gold); color: var(--green-dark); font-weight: 600; }
+  .btn-enroll-gold:hover { background: #b8962a; }
+  .cert-prereq { font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem; font-style: italic; }
+
+  /* PACKAGE BANNER */
+  .package-section { background: var(--green-dark); padding: 3.5rem 2rem; }
+  .package-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .pkg-text .pkg-tag { display: inline-block; background: var(--gold); color: var(--green-dark); font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 99px; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .pkg-text h3 { font-family: 'DM Serif Display', serif; font-size: 1.7rem; color: #fff; margin-bottom: 0.75rem; }
+  .pkg-text p { color: rgba(255,255,255,0.65); font-size: 0.92rem; line-height: 1.7; max-width: 520px; }
+  .pkg-right { text-align: right; flex-shrink: 0; }
+  .pkg-was { font-size: 0.85rem; color: rgba(255,255,255,0.4); text-decoration: line-through; margin-bottom: 0.25rem; }
+  .pkg-price { font-family: 'DM Serif Display', serif; font-size: 3rem; color: var(--gold); line-height: 1; }
+  .pkg-save { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+  .pkg-btn { display: inline-block; background: var(--gold); color: var(--green-dark); font-family: 'DM Sans', sans-serif; font-weight: 600; padding: 0.75rem 2rem; border-radius: 10px; text-decoration: none; }
+  .pkg-btn:hover { background: #b8962a; }
+
+  /* ── WHY CERTIFY ── */
+  .why-section { background: var(--white); padding: 5rem 2rem; }
+  .why-inner { max-width: 1100px; margin: 0 auto; }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .why-card { background: var(--bg); border-radius: 14px; padding: 1.75rem; }
+  .why-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .why-title { font-family: 'DM Serif Display', serif; font-size: 1.15rem; margin-bottom: 0.5rem; }
+  .why-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+  /* ── HOW IT WORKS ── */
+  .how-section { background: var(--bg); padding: 5rem 2rem; }
+  .how-steps { max-width: 900px; margin: 3rem auto 0; display: flex; flex-direction: column; gap: 0; }
+  .how-step { display: flex; gap: 2rem; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .how-step:last-child { border-bottom: none; }
+  .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--green-dark); color: #fff; font-family: 'DM Serif Display', serif; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { flex: 1; }
+  .step-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.3rem; }
+  .step-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── CTA ── */
+  .cta-section { background: var(--green-dark); padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.15) 0%, transparent 60%); }
+  .cta-inner { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+  .cta-title { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #fff; margin-bottom: 1rem; }
+  .cta-desc { color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
+
+  /* ── FOOTER ── */
+  footer { background: #111110; padding: 2.5rem 2rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: rgba(255,255,255,0.6); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-link { color: rgba(255,255,255,0.4); font-size: 0.82rem; text-decoration: none; }
+  .footer-link:hover { color: rgba(255,255,255,0.7); }
+  .footer-copy { color: rgba(255,255,255,0.3); font-size: 0.78rem; width: 100%; margin-top: 0.5rem; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .gi-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .certs-grid { grid-template-columns: 1fr; }
+    .cert-card.cert-4 { grid-column: 1; }
+    .why-grid { grid-template-columns: 1fr; }
+    .package-inner { flex-direction: column; }
+    .pkg-right { text-align: left; }
+    .careers-panel { width: calc(100vw - 3rem); }
+  }
+</style>
 </head>
 <body>
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3C8 3 4 6.5 4 11c0 3.5 2 6.5 5 8l3 2 3-2c3-1.5 5-4.5 5-8 0-4.5-4-8-8-8z"/><circle cx="12" cy="11" r="3"/></svg>
-      </div>
-      <div class="nav-logo-text">
-        <span class="name">MidAmerica Watersheds Alliance</span>
-        <span class="tagline">Professional Certification Series</span>
-      </div>
-    </a>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="about.html" class="nav-link">About MAWA</a>
-      <a href="certifications.html" class="nav-link">Certifications</a>
-      <a href="certifications.html#pricing" class="nav-link">Pricing</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </div>
-    <div class="nav-cta">
-      <a href="portal.html" class="btn btn-secondary btn-sm">Sign in</a>
-      <a href="enroll.html" class="btn btn-primary btn-sm">Enroll now</a>
-    </div>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">M</div>
+    <div class="nav-logo-text">MidAmerica<br>Watersheds Alliance</div>
+  </a>
+  <div class="nav-links">
+    <a href="#certifications" class="nav-link">Certifications</a>
+    <a href="#why" class="nav-link">Why Certify</a>
+    <a href="#how" class="nav-link">How It Works</a>
+    <a href="login.html" class="nav-link">Sign In</a>
+    <a href="register.html" class="nav-cta">Enroll Now</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-pattern"></div>
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-content">
-    <div class="eyebrow hero-eyebrow animate-fade-up">MidAmerica Watersheds Alliance</div>
-    <h1 class="hero-title animate-fade-up-1">Professional credentials for<br><em>green infrastructure</em> leaders</h1>
-    <p class="hero-sub animate-fade-up-2">Four self-paced certifications — from stormwater fundamentals to Master of Green Infrastructure. Expert-level content, interactive slides, and read-aloud accessibility.</p>
-    <div class="hero-actions animate-fade-up-3">
-      <a href="certifications.html" class="btn btn-primary btn-lg">Explore certifications <i class="ti ti-arrow-right"></i></a>
-      <a href="about.html" class="btn btn-sm" style="color:rgba(255,255,255,0.75);border:1.5px solid rgba(255,255,255,0.2)">Learn about MAWA</a>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Professional Green Infrastructure Credentials</div>
+    <h1 class="hero-title">Master <em>Green Infrastructure.</em><br>Lead the future of sustainable communities.</h1>
+    <p class="hero-desc">Four self-paced professional certifications covering Green Infrastructure planning, design, installation, construction, maintenance, and management — built for the growing field of sustainable stormwater and land development practice.</p>
+    <div class="hero-actions">
+      <a href="register.html" class="btn-primary">Get certified today</a>
+      <a href="#certifications" class="btn-secondary">View certifications</a>
     </div>
-    <div class="hero-stats animate-fade-up-3">
-      <div><div class="hero-stat-val">4</div><div class="hero-stat-lbl">Certification levels</div></div>
-      <div><div class="hero-stat-val">131+</div><div class="hero-stat-lbl">Expert slides</div></div>
-      <div><div class="hero-stat-val">100%</div><div class="hero-stat-lbl">On-demand & self-paced</div></div>
-      <div><div class="hero-stat-val">7</div><div class="hero-stat-lbl">Languages supported</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow" style="margin-bottom:0.75rem">The certification pathway</div>
-      <h2 class="display-lg">From fundamentals to mastery</h2>
-      <p class="lead" style="margin-top:1rem;max-width:560px">A progressive, structured pathway for water resource professionals at every career stage.</p>
-    </div>
-    <div class="cert-cards">
-      <div class="cert-card">
-        <div class="cert-card-stripe" style="background:var(--green-mid)"></div>
-        <div class="cert-card-body">
-          <div class="cert-card-num">01</div>
-          <span class="badge badge-green" style="margin-bottom:0.75rem">Foundation</span>
-          <h3>Fundamentals of Stormwater &amp; GI</h3>
-          <p>Core stormwater principles, hydrology, regulatory frameworks, and introduction to all major GI practice types.</p>
-          <div style="margin-top:1.25rem"><span class="body-sm"><i class="ti ti-stack-2" style="font-size:0.875rem;vertical-align:-2px"></i> 8 modules &middot; 40 slides</span></div>
-        </div>
-        <div class="cert-card-footer">
-          <span class="badge badge-navy">No prerequisites</span>
-          <a href="certifications.html#cert1" class="btn btn-ghost btn-sm">Details <i class="ti ti-arrow-right"></i></a>
-        </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Certifications</div>
       </div>
-      <div class="cert-card">
-        <div class="cert-card-stripe" style="background:var(--green)"></div>
-        <div class="cert-card-body">
-          <div class="cert-card-num">02</div>
-          <span class="badge badge-green" style="margin-bottom:0.75rem">Practitioner</span>
-          <h3>GI Design &amp; Planning</h3>
-          <p>Site planning, watershed-based design, bioretention sizing, permeable pavement, and construction documentation.</p>
-          <div style="margin-top:1.25rem"><span class="body-sm"><i class="ti ti-stack-2" style="font-size:0.875rem;vertical-align:-2px"></i> 8 modules &middot; 40 slides</span></div>
-        </div>
-        <div class="cert-card-footer">
-          <span class="badge badge-navy">Requires Cert 1</span>
-          <a href="certifications.html#cert2" class="btn btn-ghost btn-sm">Details <i class="ti ti-arrow-right"></i></a>
-        </div>
+      <div class="stat-item">
+        <div class="stat-num">1,200+</div>
+        <div class="stat-label">Expert slides</div>
       </div>
-      <div class="cert-card">
-        <div class="cert-card-stripe" style="background:var(--green-dark)"></div>
-        <div class="cert-card-body">
-          <div class="cert-card-num">03</div>
-          <span class="badge badge-green" style="margin-bottom:0.75rem">Advanced</span>
-          <h3>Managing GI &amp; LID BMPs</h3>
-          <p>Inspection protocols, maintenance, failure mode troubleshooting, lifecycle cost analysis, and program management.</p>
-          <div style="margin-top:1.25rem"><span class="body-sm"><i class="ti ti-stack-2" style="font-size:0.875rem;vertical-align:-2px"></i> 8 modules &middot; 40 slides</span></div>
-        </div>
-        <div class="cert-card-footer">
-          <span class="badge badge-navy">Requires Cert 2</span>
-          <a href="certifications.html#cert3" class="btn btn-ghost btn-sm">Details <i class="ti ti-arrow-right"></i></a>
-        </div>
+      <div class="stat-item">
+        <div class="stat-num">80%</div>
+        <div class="stat-label">Pass threshold</div>
       </div>
-      <div class="cert-card" style="border-color:var(--gold-light)">
-        <div class="cert-card-stripe" style="background:var(--gold)"></div>
-        <div class="cert-card-body">
-          <div class="cert-card-num" style="color:rgba(201,168,76,0.3)">04</div>
-          <span class="badge badge-gold" style="margin-bottom:0.75rem">Master</span>
-          <h3>Master of Green Infrastructure</h3>
-          <p>Advanced ecological design, landscape architecture, watershed planning, GI innovation leadership. 131 expert slides across 6 modules.</p>
-          <div style="margin-top:1.25rem"><span class="body-sm"><i class="ti ti-stack-2" style="font-size:0.875rem;vertical-align:-2px"></i> 6 modules &middot; 131 slides</span></div>
-        </div>
-        <div class="cert-card-footer">
-          <span class="badge badge-gold">Requires Certs 1&ndash;3</span>
-          <a href="certifications.html#cert4" class="btn btn-sm" style="background:var(--gold);color:var(--navy);padding:6px 14px;border-radius:var(--radius-md);font-weight:500">Details <i class="ti ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem">
-      <a href="certifications.html" class="btn btn-navy">View all certifications &amp; pricing <i class="ti ti-arrow-right"></i></a>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-header centered">
-      <div class="eyebrow" style="margin-bottom:0.75rem">Platform features</div>
-      <h2 class="display-md">Built for working professionals</h2>
-    </div>
-    <div class="feature-grid">
-      <div class="feature-card"><div class="feature-icon"><i class="ti ti-clock"></i></div><h3>Self-paced &amp; on-demand</h3><p>Start, pause, and resume any time. Every slide is individually navigable — no forced sequencing or expiration dates.</p></div>
-      <div class="feature-card"><div class="feature-icon"><i class="ti ti-volume"></i></div><h3>Read-aloud accessibility</h3><p>Every slide read aloud with word-by-word highlighting and adjustable speed (0.5&times; to 2&times;) for every learner.</p></div>
-      <div class="feature-card"><div class="feature-icon"><i class="ti ti-language"></i></div><h3>Multi-language voice</h3><p>TTS in 7+ languages — English, Spanish, French, German, Mandarin, Arabic, and more. Saves to your profile.</p></div>
-      <div class="feature-card"><div class="feature-icon"><i class="ti ti-device-mobile"></i></div><h3>Mobile &amp; desktop</h3><p>Full experience on any screen — study on the job site, in the office, or anywhere in between.</p></div>
-      <div class="feature-card"><div class="feature-icon"><i class="ti ti-mouse"></i></div><h3>Interactive slides</h3><p>Clickable hotspot diagrams, embedded reference links, and short video clips bring technical content to life.</p></div>
-      <div class="feature-card"><div class="feature-icon"><i class="ti ti-certificate"></i></div><h3>Verified credentials</h3><p>Pass the exam to earn your MAWA certificate — downloadable for your portfolio, LinkedIn, and CE records.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center">
-      <div>
-        <div class="eyebrow" style="margin-bottom:0.875rem">How it works</div>
-        <h2 class="display-md" style="margin-bottom:1.25rem">From enrollment to credential in four steps</h2>
-        <p style="color:var(--text-muted);font-size:0.9375rem;line-height:1.7;margin-bottom:2rem">Everything happens inside the MAWA learning portal — from creating your account to downloading your certificate.</p>
-        <a href="enroll.html" class="btn btn-primary">Start your enrollment <i class="ti ti-arrow-right"></i></a>
-      </div>
-      <div class="steps">
-        <div class="step"><div class="step-num">1</div><div><h3>Create your account &amp; enroll</h3><p>Complete the enrollment form, choose your certification, and submit payment. Account activated within minutes.</p></div></div>
-        <div class="step"><div class="step-num">2</div><div><h3>Study at your own pace</h3><p>Work through modules with expert slides, interactive diagrams, and knowledge checks — on any device.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div><h3>Take the certification exam</h3><p>Open-book exam after completing all modules. 75% pass score. Up to 3 attempts at no extra charge.</p></div></div>
-        <div class="step"><div class="step-num">4</div><div><h3>Download your credential</h3><p>Pass and instantly download your MAWA certificate for your professional portfolio and CE records.</p></div></div>
+      <div class="stat-item">
+        <div class="stat-num">Self-paced</div>
+        <div class="stat-label">Learn on your schedule</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section-sm section-navy">
-  <div class="container" style="text-align:center">
-    <div class="eyebrow" style="color:var(--green-mid);margin-bottom:1rem">Ready to get started?</div>
-    <h2 class="display-md" style="color:#fff;margin-bottom:1.25rem">Earn your MAWA credential today</h2>
-    <p style="color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto 2rem;line-height:1.7">Join water resource professionals earning recognized credentials in green infrastructure planning, design, and management.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="enroll.html" class="btn btn-primary btn-lg">Enroll now <i class="ti ti-arrow-right"></i></a>
-      <a href="certifications.html" class="btn btn-lg" style="background:transparent;color:rgba(255,255,255,0.75);border:1.5px solid rgba(255,255,255,0.2)">View certifications</a>
+<!-- WHAT IS GREEN INFRASTRUCTURE -->
+<section class="gi-section" id="about">
+  <div class="gi-inner">
+    <div class="gi-text">
+      <div class="section-eyebrow">What is Green Infrastructure?</div>
+      <h2>Nature-based solutions for a resilient built environment</h2>
+      <p>
+        <strong>Green Infrastructure (GI)</strong> refers to the strategic integration of natural systems and engineered solutions designed to address environmental challenges in urban and rural landscapes. It incorporates interconnected networks of natural and constructed features — bioretention areas, green roofs, permeable pavements, constructed wetlands, urban forests, rain gardens, and more — that replicate ecological processes to deliver critical services including stormwater management, water quality improvement, climate adaptation, flood mitigation, urban heat reduction, and enhanced public health.
+      </p>
+      <p>
+        Unlike traditional "gray infrastructure" such as concrete storm drains, Green Infrastructure works <strong>with natural processes</strong> rather than against them — managing rainfall at its source, reducing runoff, improving water quality, sequestering carbon, and creating more livable, resilient communities. GI is applied at every scale: from a single rain garden on a residential lot to watershed-wide planning frameworks guiding entire cities and regions.
+      </p>
+      <p>
+        GI intersects with stormwater engineering, landscape architecture, urban planning, environmental compliance, land development, construction, ecology, public policy, and community development — making it one of the most cross-disciplinary fields in the built environment today.
+      </p>
+
+      <!-- CAREERS TRIGGER -->
+      <div style="position:relative; display:inline-block;">
+        <div class="careers-trigger" id="careersTrigger" onclick="toggleCareers()">
+          <span class="ct-icon">👷</span>
+          <span>Is Green Infrastructure in your field?</span>
+          <span class="ct-arrow">▼</span>
+        </div>
+        <div class="careers-panel" id="careersPanel">
+          <div class="cp-title">Green Infrastructure touches nearly every profession in the built environment</div>
+          <div class="cp-sub">If your work involves land, water, construction, planning, regulation, or community stewardship — Green Infrastructure credentials apply to you.</div>
+          <div class="cp-grid">
+            <div class="cp-category">
+              <div class="cp-cat-title">Engineering & Design</div>
+              <ul class="cp-cat-items">
+                <li>Civil Engineers</li>
+                <li>Stormwater Engineers</li>
+                <li>Hydraulic & Hydrologic Engineers</li>
+                <li>Environmental Engineers</li>
+                <li>Geotechnical Engineers</li>
+                <li>Site Design Engineers</li>
+                <li>Water Resources Engineers</li>
+              </ul>
+            </div>
+            <div class="cp-category">
+              <div class="cp-cat-title">Landscape & Planning</div>
+              <ul class="cp-cat-items">
+                <li>Landscape Architects</li>
+                <li>Urban & Regional Planners</li>
+                <li>Watershed Planners</li>
+                <li>Land Use Planners</li>
+                <li>Site Designers</li>
+                <li>Urban Designers</li>
+                <li>Parks & Recreation Planners</li>
+              </ul>
+            </div>
+            <div class="cp-category">
+              <div class="cp-cat-title">Construction & Installation</div>
+              <ul class="cp-cat-items">
+                <li>General Contractors</li>
+                <li>Landscape Contractors</li>
+                <li>Excavation & Grading Contractors</li>
+                <li>Irrigation Contractors</li>
+                <li>Erosion Control Specialists</li>
+                <li>Green Roof Installers</li>
+                <li>Permeable Paving Contractors</li>
+              </ul>
+            </div>
+            <div class="cp-category">
+              <div class="cp-cat-title">Regulation & Compliance</div>
+              <ul class="cp-cat-items">
+                <li>Stormwater Inspectors</li>
+                <li>MS4 Permit Coordinators</li>
+                <li>Environmental Compliance Officers</li>
+                <li>Regulatory Agency Staff (EPA, State)</li>
+                <li>Plan Review Engineers</li>
+                <li>Building & Zoning Officials</li>
+                <li>Floodplain Managers</li>
+              </ul>
+            </div>
+            <div class="cp-category">
+              <div class="cp-cat-title">Municipal & Government</div>
+              <ul class="cp-cat-items">
+                <li>Public Works Directors & Staff</li>
+                <li>Stormwater Utility Managers</li>
+                <li>Municipal Engineers</li>
+                <li>City & County Planners</li>
+                <li>Water Quality Program Managers</li>
+                <li>Parks & Greenways Managers</li>
+                <li>Transportation & Street Designers</li>
+              </ul>
+            </div>
+            <div class="cp-category">
+              <div class="cp-cat-title">Environment & Science</div>
+              <ul class="cp-cat-items">
+                <li>Environmental Scientists</li>
+                <li>Ecologists & Restoration Ecologists</li>
+                <li>Wetland Scientists & Biologists</li>
+                <li>Water Quality Scientists</li>
+                <li>Soil Scientists</li>
+                <li>Botanists & Horticulturalists</li>
+                <li>Wildlife Biologists</li>
+              </ul>
+            </div>
+            <div class="cp-category">
+              <div class="cp-cat-title">Development & Real Estate</div>
+              <ul class="cp-cat-items">
+                <li>Land Developers</li>
+                <li>Real Estate Developers</li>
+                <li>HOA Managers & Directors</li>
+                <li>Property Managers</li>
+                <li>Facilities Managers</li>
+                <li>Sustainability Officers</li>
+                <li>LEED & Green Building Professionals</li>
+              </ul>
+            </div>
+            <div class="cp-category">
+              <div class="cp-cat-title">Nonprofit, Education & Policy</div>
+              <ul class="cp-cat-items">
+                <li>Watershed & Conservation Nonprofits</li>
+                <li>Environmental Advocacy Organizations</li>
+                <li>University & Extension Educators</li>
+                <li>K–12 STEM Educators</li>
+                <li>Policy Analysts & Advisors</li>
+                <li>Grant Writers & Program Officers</li>
+                <li>Community Organizers & Stewards</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cp-footer">This list is illustrative — not exhaustive. Green Infrastructure is one of the fastest-growing cross-disciplinary fields in sustainable land and water management.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gi-pillars">
+      <div class="gi-pillar">
+        <div class="pillar-icon">💧</div>
+        <div>
+          <div class="pillar-title">Stormwater Management</div>
+          <div class="pillar-desc">Manages rainfall at its source through infiltration, evapotranspiration, storage, and filtration — reducing runoff volume, peak flows, and downstream flooding.</div>
+        </div>
+      </div>
+      <div class="gi-pillar">
+        <div class="pillar-icon">🌿</div>
+        <div>
+          <div class="pillar-title">Water Quality Improvement</div>
+          <div class="pillar-desc">Removes pollutants — sediment, nutrients, heavy metals, bacteria — from stormwater before it reaches rivers, lakes, and groundwater.</div>
+        </div>
+      </div>
+      <div class="gi-pillar">
+        <div class="pillar-icon">🏙️</div>
+        <div>
+          <div class="pillar-title">Climate & Community Resilience</div>
+          <div class="pillar-desc">Mitigates urban heat islands, sequesters carbon, supports biodiversity, raises property values, and creates healthier, more livable communities.</div>
+        </div>
+      </div>
+      <div class="gi-pillar">
+        <div class="pillar-icon">⚖️</div>
+        <div>
+          <div class="pillar-title">Regulatory Compliance</div>
+          <div class="pillar-desc">Helps municipalities and developers meet Clean Water Act NPDES, MS4 permit, TMDL, and local stormwater requirements through sustainable, cost-effective practices.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div style="display:flex;align-items:center;gap:10px"><div class="nav-logo-mark" style="width:32px;height:32px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3C8 3 4 6.5 4 11c0 3.5 2 6.5 5 8l3 2 3-2c3-1.5 5-4.5 5-8 0-4.5-4-8-8-8z"/><circle cx="12" cy="11" r="3"/></svg></div><span style="font-size:0.875rem;font-weight:600;color:#fff">MidAmerica Watersheds Alliance</span></div>
-        <p style="margin-top:0.875rem">Professional certification in green infrastructure and stormwater management for water resource practitioners across the Midwest and beyond.</p>
+<!-- CERTIFICATIONS -->
+<section class="certs-section" id="certifications">
+  <div class="section-header">
+    <div class="section-eyebrow">Four Professional Certifications</div>
+    <h2 class="section-title">A complete credential pathway — from fundamentals to mastery</h2>
+    <p class="section-desc">Each certification is a standalone credential. Complete all four to earn the prestigious Master of Green Infrastructure designation.</p>
+  </div>
+
+  <div class="certs-grid">
+    <!-- CERT 1 -->
+    <div class="cert-card">
+      <div class="cert-card-header">
+        <div class="cert-number cn-1">Certification 1</div>
+        <div class="cert-title">Green Infrastructure Planning and Design</div>
+        <div class="cert-price">$249</div>
       </div>
-      <div class="footer-col"><h4>Certifications</h4><a href="certifications.html#cert1">Cert 1 — Fundamentals</a><a href="certifications.html#cert2">Cert 2 — Design &amp; Planning</a><a href="certifications.html#cert3">Cert 3 — Managing BMPs</a><a href="certifications.html#cert4">Cert 4 — Master GI</a></div>
-      <div class="footer-col"><h4>Organization</h4><a href="about.html">About MAWA</a><a href="contact.html">Contact us</a><a href="certifications.html#pricing">Pricing</a><a href="enroll.html#faq">FAQ</a></div>
-      <div class="footer-col"><h4>Account</h4><a href="portal.html">Sign in to portal</a><a href="enroll.html">Enroll</a><a href="contact.html">Support</a></div>
+      <div class="cert-card-body">
+        <p class="cert-desc">Covers the principles, strategies, and techniques of Green Infrastructure and Low Impact Development (LID) at the planning and design level. Includes stormwater management approaches, GI component types, site assessment fundamentals, regulatory frameworks, and real-world case studies from cities across the United States.</p>
+        <div class="cert-modules">
+          <div class="cert-module-item">GI & LID Principles and Planning Frameworks</div>
+          <div class="cert-module-item">Stormwater Management Strategies and Techniques</div>
+          <div class="cert-module-item">GI Component Design and Applications</div>
+          <div class="cert-module-item">Regulatory Context and Compliance</div>
+          <div class="cert-module-item">Case Studies in Green Infrastructure Success</div>
+        </div>
+        <a href="register.html" class="cert-enroll-btn btn-enroll-green">Enroll — $249</a>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 MidAmerica Watersheds Alliance. All rights reserved.</p>
-      <p><a href="#" style="color:rgba(255,255,255,0.45)">Privacy policy</a> &nbsp;&middot;&nbsp; <a href="#" style="color:rgba(255,255,255,0.45)">Terms of use</a></p>
+
+    <!-- CERT 2 -->
+    <div class="cert-card">
+      <div class="cert-card-header">
+        <div class="cert-number cn-2">Certification 2</div>
+        <div class="cert-title">Green Infrastructure Installation and Construction</div>
+        <div class="cert-price">$249</div>
+      </div>
+      <div class="cert-card-body">
+        <p class="cert-desc">Focuses on the practical installation and construction of Green Infrastructure practices. Covers materials, methods, site preparation, quality control, contractor responsibilities, sequencing, and field application of bioretention, permeable pavement, green roofs, and related LID best management practices.</p>
+        <div class="cert-modules">
+          <div class="cert-module-item">GI Installation Methods and Materials</div>
+          <div class="cert-module-item">Site Preparation and Construction Sequencing</div>
+          <div class="cert-module-item">Quality Control and Field Standards</div>
+          <div class="cert-module-item">Contractor Roles and Responsibilities</div>
+          <div class="cert-module-item">Field Applications and Inspections</div>
+        </div>
+        <a href="register.html" class="cert-enroll-btn btn-enroll-green">Enroll — $249</a>
+      </div>
     </div>
+
+    <!-- CERT 3 -->
+    <div class="cert-card">
+      <div class="cert-card-header">
+        <div class="cert-number cn-3">Certification 3</div>
+        <div class="cert-title">Green Infrastructure Maintenance and Management</div>
+        <div class="cert-price">$249</div>
+      </div>
+      <div class="cert-card-body">
+        <p class="cert-desc">Equips professionals with the knowledge and skills to ensure the long-term success of Green Infrastructure systems. Covers lifecycle management, inspection protocols, routine and advanced maintenance, troubleshooting and repair, MS4 permit compliance, cost forecasting, and future innovations including AI monitoring and climate adaptation.</p>
+        <div class="cert-modules">
+          <div class="cert-module-item">Inspection, Maintenance and Lifecycle Stages</div>
+          <div class="cert-module-item">Routine and Advanced Maintenance Protocols</div>
+          <div class="cert-module-item">Troubleshooting, Diagnosis and Repairs</div>
+          <div class="cert-module-item">Policy, Compliance and Funding</div>
+          <div class="cert-module-item">Future Innovations and Climate Adaptation</div>
+        </div>
+        <a href="register.html" class="cert-enroll-btn btn-enroll-green">Enroll — $249</a>
+      </div>
+    </div>
+
+    <!-- CERT 4 -->
+    <div class="cert-card cert-4">
+      <div class="cert-card-header">
+        <div class="cert-number cn-4">Certification 4 — Advanced · Prerequisites: Certs 1, 2 & 3</div>
+        <div class="cert-title">Master of Green Infrastructure</div>
+        <div class="cert-price">$299</div>
+      </div>
+      <div class="cert-card-body">
+        <p class="cert-desc">The highest credential offered by MidAmerica Watersheds Alliance. Available exclusively to professionals who have earned Certifications 1, 2, and 3. This advanced certification covers ecological systems and landscape architecture theory, watershed planning at the regional scale, advanced site design, materials science, planting ecology, and performance evaluation. Earning this credential signifies professional leadership in Green Infrastructure at the landscape architecture and watershed planning level — demonstrating comprehensive mastery across all disciplines of the field. Passing all four certifications earns you the <strong>Master of Green Infrastructure</strong> designation.</p>
+        <div class="cert-modules" style="grid-template-columns: repeat(3,1fr); display:grid; gap:0.35rem;">
+          <div class="cert-module-item">Ecological Systems & Landscape Architecture Theory</div>
+          <div class="cert-module-item">Watershed Planning and Regional Scale Design</div>
+          <div class="cert-module-item">Advanced Site Design and Materials Science</div>
+          <div class="cert-module-item">Planting Ecology and Habitat Design</div>
+          <div class="cert-module-item">Performance Evaluation and Monitoring</div>
+          <div class="cert-module-item">Professional Leadership and Policy</div>
+        </div>
+        <a href="register.html" class="cert-enroll-btn btn-enroll-gold" style="max-width:320px;margin:1rem auto 0">Enroll in package to unlock Cert 4 →</a>
+        <p class="cert-prereq">Must pass Certifications 1, 2 & 3 before enrolling. Purchased separately at $299.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGE BANNER -->
+<section class="package-section">
+  <div class="package-inner">
+    <div class="pkg-text">
+      <div class="pkg-tag">Best value — save $147</div>
+      <h3>Complete Package — All Four Certifications</h3>
+      <p>Purchase all four Green Infrastructure certifications together at a reduced cost — <strong style="color:#fff">Green Infrastructure Planning and Design</strong>, <strong style="color:#fff">Green Infrastructure Installation and Construction</strong>, <strong style="color:#fff">Green Infrastructure Maintenance and Management</strong>, and <strong style="color:#fff">Certification 4: Master of Green Infrastructure</strong>. Each certification has its own coursework, modules, and final exam that must be individually studied for and passed. Certification 4 is unlocked after passing Certifications 1, 2, and 3 — only upon passing all four do you earn the Master of Green Infrastructure credential. Package includes one $50 retry option per certification final exam if needed.</p>
+    </div>
+    <div class="pkg-right">
+      <div class="pkg-was">$1,046 individually</div>
+      <div class="pkg-price">$899</div>
+      <div class="pkg-save">Save $147</div>
+      <a href="register.html" class="pkg-btn">Get the package</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CERTIFY -->
+<section class="why-section" id="why">
+  <div class="why-inner">
+    <div class="section-header" style="text-align:left; max-width:100%; margin-bottom:0">
+      <div class="section-eyebrow">Why get certified?</div>
+      <h2 class="section-title">Green Infrastructure is the fastest-growing discipline in sustainable land and water management</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">📋</div>
+        <div class="why-title">Regulatory demand is growing</div>
+        <div class="why-desc">Federal MS4 stormwater permits, TMDL requirements, and local ordinances increasingly mandate Green Infrastructure. Certified professionals are essential to help municipalities and developers meet these requirements.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏗️</div>
+        <div class="why-title">The field spans every sector</div>
+        <div class="why-desc">From civil engineers and landscape architects to contractors, inspectors, planners, nonprofit managers, and government officials — Green Infrastructure credentials are relevant across an exceptionally broad range of professions and industries.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎓</div>
+        <div class="why-title">Stand apart professionally</div>
+        <div class="why-desc">Demonstrate verified, specialized knowledge that sets you apart in competitive hiring, contracting, and project selection. MAWA certifications signal expertise in a field where formal credentials are still relatively rare and highly valued.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌎</div>
+        <div class="why-title">Real-world, applied content</div>
+        <div class="why-desc">Course content draws on real projects, regulatory frameworks, and field applications — not theory alone. Case studies from cities including Chicago, Seattle, Philadelphia, Kansas City, Portland, Los Angeles, and Atlanta ground every concept.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🖥️</div>
+        <div class="why-title">Fully self-paced and accessible</div>
+        <div class="why-desc">Learn on your schedule, on any device. The platform includes a built-in read-aloud feature, resume-where-you-left-off progress tracking, and clear module-by-module structure that fits into a busy professional's life.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <div class="why-title">A credential pathway that grows with you</div>
+        <div class="why-desc">Start with one certification or purchase the full package. Each credential builds on the last — culminating in the Master of Green Infrastructure designation, the highest professional credential in the field offered by MAWA.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-header">
+    <div class="section-eyebrow">How it works</div>
+    <h2 class="section-title">From enrollment to credential in five steps</h2>
+  </div>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Create your account and purchase a certification</div>
+        <div class="step-desc">Register with your name, email, address, and phone. Purchase a single certification ($249 each) or the full package of Certifications 1, 2 & 3 for $899. Payment via Stripe or PayPal.</div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Work through your modules at your own pace</div>
+        <div class="step-desc">Each certification is divided into modules. Navigate slide by slide, use the built-in read-aloud feature, and pick up exactly where you left off every time you return. Videos and additional resources are embedded throughout.</div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Pass each module quiz to advance</div>
+        <div class="step-desc">At the end of each module, complete a multiple-choice quiz. Score 80% or higher to unlock the next module. If you don't pass, review the module slides and retake — there are no attempt limits on module quizzes.</div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Pass the final exam to earn your certification</div>
+        <div class="step-desc">After completing all modules, take the comprehensive final exam — 100 to 120 multiple choice questions across all topics. Score 80% or higher to pass. You have up to 3 attempts. Pass and your certificate is generated immediately.</div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Download your certificate and advance your career</div>
+        <div class="step-desc">Your personalized certificate PDF — with your name, unique user number, date, and certification title — is available to download immediately. Complete Certifications 1, 2, and 3 to unlock and pursue the Master of Green Infrastructure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-title">Ready to get certified?</h2>
+    <p class="cta-desc">Join the growing community of Green Infrastructure professionals earning credentials through MidAmerica Watersheds Alliance. Start today — at your own pace, on your own schedule.</p>
+    <a href="register.html" class="btn-primary">Create your account</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">MidAmerica Watersheds Alliance</div>
+    <div class="footer-links">
+      <a href="register.html" class="footer-link">Enroll</a>
+      <a href="login.html" class="footer-link">Sign In</a>
+      <a href="#certifications" class="footer-link">Certifications</a>
+      <a href="#about" class="footer-link">About GI</a>
+    </div>
+    <div class="footer-copy">© 2026 MidAmerica Watersheds Alliance. All rights reserved. Professional Green Infrastructure Certifications.</div>
   </div>
 </footer>
+
+<script>
+function toggleCareers() {
+  const trigger = document.getElementById('careersTrigger');
+  const panel = document.getElementById('careersPanel');
+  const isOpen = panel.classList.contains('open');
+  panel.classList.toggle('open');
+  trigger.classList.toggle('open');
+}
+
+// Close panel when clicking outside
+document.addEventListener('click', function(e) {
+  const trigger = document.getElementById('careersTrigger');
+  const panel = document.getElementById('careersPanel');
+  if (!trigger.contains(e.target) && !panel.contains(e.target)) {
+    panel.classList.remove('open');
+    trigger.classList.remove('open');
+  }
+});
+</script>
 </body>
 </html>
