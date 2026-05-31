@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module Quiz — MidAmerica Watersheds Alliance</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #085041;
+    --green-mid: #0d6b56;
+    --green-light: #e1f5ee;
+    --gold: #c9a84c;
+    --gold-light: #faf3e0;
+    --text: #1a1a18;
+    --text-muted: #5a5a55;
+    --border: #d4d4c8;
+    --white: #fafaf7;
+    --bg: #f4f4ef;
+    --error: #c0392b;
+    --error-light: #fdf0ef;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  nav {
+    background: var(--green-dark); padding: 0 2rem; height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-left { display: flex; align-items: center; gap: 1rem; }
+  .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+  .nav-logo-mark { width: 32px; height: 32px; background: var(--gold); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--green-dark); }
+  .nav-title { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: rgba(255,255,255,0.9); }
+  .nav-badge { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 99px; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+  /* QUIZ HEADER */
+  .quiz-header { margin-bottom: 2rem; }
+  .quiz-label { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+  .quiz-title { font-family: 'DM Serif Display', serif; font-size: 1.8rem; margin-bottom: 0.75rem; }
+  .quiz-meta { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+  .quiz-rules {
+    background: var(--green-light);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    font-size: 0.88rem;
+    color: var(--green-dark);
+    line-height: 1.6;
+  }
+
+  /* QUESTION CARD */
+  .question-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .q-number { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+  .q-text { font-size: 1.05rem; font-weight: 500; color: var(--text); margin-bottom: 1.25rem; line-height: 1.5; }
+
+  .options { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .option-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .option-label:hover { border-color: var(--green-dark); background: var(--green-light); }
+  .option-label input[type="radio"] { margin-top: 2px; flex-shrink: 0; accent-color: var(--green-dark); }
+  .option-label.selected { border-color: var(--green-dark); background: var(--green-light); }
+  .option-label.correct { border-color: #27ae60; background: #eafaf1; }
+  .option-label.incorrect { border-color: var(--error); background: var(--error-light); }
+
+  /* SUBMIT */
+  .submit-area { margin-top: 2rem; }
+  .submit-btn {
+    width: 100%; padding: 1rem; background: var(--green-dark); color: #fff;
+    border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 500; cursor: pointer; transition: background 0.2s;
+    margin-bottom: 0.75rem;
+  }
+  .submit-btn:hover { background: var(--green-mid); }
+  .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .submit-note { font-size: 0.82rem; color: var(--text-muted); text-align: center; }
+
+  .spinner { display: none; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto; }
+  .submit-btn.loading .btn-text { display: none; }
+  .submit-btn.loading .spinner { display: block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* RESULTS */
+  .result-screen { display: none; text-align: center; padding: 3rem 2rem; background: #fff; border-radius: 16px; border: 1.5px solid var(--border); }
+  .result-screen.show { display: block; }
+  .result-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+  .result-title { font-family: 'DM Serif Display', serif; font-size: 2rem; margin-bottom: 0.5rem; }
+  .result-score { font-size: 3.5rem; font-weight: 600; margin: 1rem 0; }
+  .score-pass { color: var(--green-dark); }
+  .score-fail { color: var(--error); }
+  .result-desc { color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .result-btn { display: inline-block; padding: 0.8rem 2rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.95rem; text-decoration: none; cursor: pointer; border: none; margin: 0.4rem; }
+  .btn-green { background: var(--green-dark); color: #fff; }
+  .btn-green:hover { background: var(--green-mid); }
+  .btn-gold { background: var(--gold); color: var(--green-dark); font-weight: 600; }
+  .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
+  .btn-outline:hover { border-color: var(--green-dark); }
+
+  .loading-screen { display: flex; align-items: center; justify-content: center; min-height: 60vh; flex-direction: column; gap: 1rem; color: var(--text-muted); }
+  .spinner-lg { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--green-dark); border-radius: 50%; animation: spin 0.8s linear infinite; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">M</div>
+    </a>
+    <div class="nav-title" id="navTitle">Module Quiz</div>
+    <div class="nav-badge" id="navBadge">...</div>
+  </div>
+</nav>
+
+<main>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner-lg"></div>
+    <div>Loading quiz...</div>
+  </div>
+
+  <div id="quizContent" style="display:none">
+    <div class="quiz-header">
+      <div class="quiz-label" id="quizLabel">Module Quiz</div>
+      <h1 class="quiz-title" id="quizTitle">...</h1>
+      <div class="quiz-meta" id="quizMeta">...</div>
+    </div>
+
+    <div class="quiz-rules">
+      📋 Answer all questions below, then click <strong>Submit Quiz</strong>. You need <strong>80% or higher</strong> to pass. If you don't pass, you'll need to review the module slides and retake the quiz.
+    </div>
+
+    <div id="questionsContainer"></div>
+
+    <div class="submit-area">
+      <button class="submit-btn" id="submitBtn" onclick="submitQuiz()">
+        <span class="btn-text">Submit Quiz</span>
+        <div class="spinner"></div>
+      </button>
+      <div class="submit-note" id="submitNote">Answer all questions before submitting.</div>
+    </div>
+  </div>
+
+  <div class="result-screen" id="resultScreen">
+    <div class="result-icon" id="resultIcon"></div>
+    <div class="result-title" id="resultTitle"></div>
+    <div class="result-score" id="resultScore"></div>
+    <div class="result-desc" id="resultDesc"></div>
+    <div id="resultActions"></div>
+  </div>
+</main>
+
+<script>
+const SUPABASE_URL = 'https://wncnxgyupryvrqkycvzp.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_kotvXZUSlXTuorvZN5HdcA_eaLF6YvF';
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const CERT_TITLES = {
+  1: 'Green Infrastructure Planning and Design',
+  2: 'Green Infrastructure Installation and Construction',
+  3: 'Green Infrastructure Maintenance and Management',
+  4: 'Master of Green Infrastructure'
+};
+
+// ── SAMPLE QUIZ DATA ─────────────────────────────────────────────
+// Replace with your real questions per module
+const SAMPLE_QUIZZES = {
+  '1-1': {
+    title: 'Introduction to Green Infrastructure Planning',
+    questions: [
+      { q: 'What is the primary difference between green infrastructure and traditional gray infrastructure?', options: ['Green infrastructure is always more expensive', 'Green infrastructure works with natural processes to manage stormwater at its source', 'Gray infrastructure is less reliable', 'Green infrastructure only works in rural areas'], answer: 1 },
+      { q: 'Which of the following is NOT a type of green infrastructure?', options: ['Bioretention / Rain Gardens', 'Green Roofs', 'Storm sewers and concrete pipes', 'Permeable Pavement'], answer: 2 },
+      { q: 'At which scale does green infrastructure planning identify priority areas based on hydrology and land use?', options: ['Site scale', 'Neighborhood scale', 'Regional / Watershed scale', 'County scale'], answer: 2 },
+      { q: 'What federal program primarily regulates stormwater discharges in the United States?', options: ['Clean Air Act', 'Safe Drinking Water Act', 'National Pollutant Discharge Elimination System (NPDES)', 'Resource Conservation and Recovery Act'], answer: 2 },
+      { q: 'Which of the following is a key factor to evaluate during a site assessment for green infrastructure?', options: ['Proximity to highways', 'Soil type and infiltration rate', 'Distance from schools', 'Building height restrictions'], answer: 1 },
+      { q: 'What does MS4 stand for in the context of stormwater regulation?', options: ['Multi-State Stormwater Standards', 'Municipal Separate Storm Sewer System', 'Managed Stormwater Surface System', 'Maximum Stormwater Storage Standard'], answer: 1 },
+      { q: 'Which green infrastructure practice involves a vegetated roof system that absorbs rainfall?', options: ['Bioretention', 'Permeable pavement', 'Green roof', 'Constructed wetland'], answer: 2 },
+      { q: 'What does TMDL stand for?', options: ['Total Maximum Daily Load', 'Treated Municipal Discharge Limit', 'Total Measured Drainage Level', 'Timed Maximum Discharge Level'], answer: 0 },
+      { q: 'Which of the following best describes the "neighborhood scale" of green infrastructure planning?', options: ['Designing specific practices for individual parcels', 'Planning GI networks that connect sites across a district', 'Identifying watershed-wide priority areas', 'Permitting individual stormwater discharges'], answer: 1 },
+      { q: 'Why is community engagement important in green infrastructure planning?', options: ['It is required by federal law in all cases', 'It helps ensure projects reflect local needs and increases long-term stewardship', 'It eliminates the need for environmental review', 'It reduces construction costs by 50%'], answer: 1 },
+    ]
+  },
+  '1-2': {
+    title: 'Stormwater Management Principles',
+    questions: [
+      { q: 'What is the primary effect of urbanization on the water cycle?', options: ['Decreases flooding frequency', 'Increases stormwater runoff volume and velocity', 'Increases groundwater recharge', 'Reduces pollutant loads in receiving waters'], answer: 1 },
+      { q: 'Which mechanism involves returning water to the atmosphere through plants?', options: ['Infiltration', 'Interception', 'Evapotranspiration', 'Storage'], answer: 2 },
+      { q: 'Which of the following is a common urban stormwater pollutant that green infrastructure can remove?', options: ['Carbon dioxide', 'Nitrogen and phosphorus nutrients', 'Methane', 'Ozone'], answer: 1 },
+      { q: 'What does "infiltration" mean in the context of stormwater management?', options: ['Water evaporating from the soil surface', 'Water percolating into the soil', 'Water captured by plant leaves', 'Water temporarily stored in a pond'], answer: 1 },
+      { q: 'Which stormwater management mechanism involves temporarily holding water and releasing it slowly?', options: ['Interception', 'Evapotranspiration', 'Infiltration', 'Storage'], answer: 3 },
+      { q: 'Heavy metals in urban stormwater runoff primarily come from:', options: ['Agricultural fertilizers', 'Vehicles and road surfaces', 'Lawn care products', 'Building insulation'], answer: 1 },
+      { q: 'What happens to stream channels when stormwater runoff volume and velocity increase?', options: ['Channels become wider and healthier', 'Channels experience erosion and degradation', 'Channels fill with groundwater', 'Channels become cleaner over time'], answer: 1 },
+      { q: 'Which of the four stormwater management mechanisms involves capturing rainfall before it reaches the ground?', options: ['Storage', 'Infiltration', 'Interception', 'Evapotranspiration'], answer: 2 },
+      { q: 'How does urbanization affect groundwater recharge?', options: ['Increases it significantly', 'Has no effect on it', 'Reduces it', 'Makes it more seasonal'], answer: 2 },
+      { q: 'Bacteria and pathogens in urban stormwater most commonly originate from:', options: ['Industrial facilities', 'Pet waste and combined sewer overflows', 'Road salt applications', 'Construction materials'], answer: 1 },
+    ]
+  },
+  '1-3': {
+    title: 'Design Principles and Methods',
+    questions: [
+      { q: 'What is the typical maximum ponding depth for a bioretention area?', options: ['2–4 inches', '6–12 inches', '18–24 inches', '36–48 inches'], answer: 1 },
+      { q: 'What is the recommended draw-down time for a bioretention practice?', options: ['1–6 hours', '12–18 hours', '24–48 hours', '72–96 hours'], answer: 2 },
+      { q: 'When is an underdrain required in a bioretention design?', options: ['Always required', 'When treating rooftop runoff only', 'In low-permeability soils', 'When the contributing area exceeds 1 acre'], answer: 2 },
+      { q: 'Which of the following is a key parameter in hydrologic design?', options: ['Building permit number', 'Design storm frequency and duration', 'Contractor license number', 'Property tax assessment'], answer: 1 },
+      { q: 'What does "time of concentration" refer to in stormwater hydrology?', options: ['Time for a permit to be approved', 'Time for runoff to travel from the farthest point to the outlet', 'Time needed to drain a bioretention cell', 'Time between storm events'], answer: 1 },
+      { q: 'What is the typical media depth range for a bioretention area?', options: ['2–6 inches', '6–12 inches', '18–48 inches', '60–72 inches'], answer: 2 },
+      { q: 'What must be designed to handle flows that exceed a bioretention practice capacity?', options: ['A second bioretention cell', 'Overflow and bypass structures', 'A detention pond', 'An infiltration trench'], answer: 1 },
+      { q: 'Surface area of a bioretention practice is primarily sized to:', options: ['Match the footprint of adjacent buildings', 'Treat the design storm volume', 'Comply with landscaping ordinances', 'Minimize construction costs'], answer: 1 },
+      { q: 'Which factor does NOT directly affect the design of a green infrastructure practice?', options: ['Soil infiltration rate', 'Depth to groundwater', 'Adjacent property owner name', 'Contributing drainage area'], answer: 2 },
+      { q: 'Peak flow calculations are important in GI design because they help determine:', options: ['The color of the practice', 'Whether overflow structures are needed and their size', 'The species of plants to use', 'The number of construction workers needed'], answer: 1 },
+    ]
+  },
+  '1-4': {
+    title: 'Regulatory Framework',
+    questions: [
+      { q: 'What federal law provides the legal foundation for stormwater management in the US?', options: ['Clean Air Act', 'Safe Drinking Water Act', 'Clean Water Act', 'National Environmental Policy Act'], answer: 2 },
+      { q: 'Construction General Permits (CGP) are required for land disturbance of:', options: ['Any size', 'More than 1 acre', 'More than 5 acres', 'More than 10 acres'], answer: 1 },
+      { q: 'What does MS4 permit regulate?', options: ['Industrial wastewater discharges', 'Municipal stormwater systems', 'Drinking water systems', 'Agricultural runoff'], answer: 1 },
+      { q: 'Long-term maintenance agreements for green infrastructure are typically required by:', options: ['Federal NPDES regulations only', 'State and local regulations', 'International building codes', 'Homeowners associations only'], answer: 1 },
+      { q: 'What are the two primary NPDES permit types for stormwater?', options: ['Individual permits and general permits', 'Construction General Permits and MS4 Permits', 'State permits and federal permits', 'Residential permits and commercial permits'], answer: 1 },
+      { q: 'State stormwater design manuals typically specify:', options: ['Exact plant species to use', 'Acceptable GI practices and design requirements', 'Construction worker wages', 'Building height limits'], answer: 1 },
+      { q: 'Why do stormwater requirements vary significantly by jurisdiction?', options: ['Because federal law prohibits uniform standards', 'Because states and localities have authority to set their own standards within federal minimums', 'Because only rural areas have stormwater regulations', 'Because regulations change every year'], answer: 1 },
+      { q: 'What does a water quality treatment standard typically specify?', options: ['The aesthetic appearance of GI practices', 'The level of pollutant removal required from stormwater', 'The cost of stormwater permits', 'The number of GI practices per acre'], answer: 1 },
+      { q: 'Retention and detention volume requirements primarily address:', options: ['Water quality', 'Stormwater quantity control', 'Groundwater contamination', 'Air quality'], answer: 1 },
+      { q: 'Which of the following is NOT typically found in a state stormwater design manual?', options: ['Acceptable GI practice types', 'Minimum design standards', 'Contractor pricing schedules', 'Water quality treatment requirements'], answer: 2 },
+    ]
+  },
+  '1-5': {
+    title: 'Case Studies',
+    questions: [
+      { q: 'In the urban bioretention retrofit case study, what percentage reduction in runoff volume was achieved for storms up to 1.5 inches?', options: ['50%', '65%', '75%', '85%'], answer: 3 },
+      { q: 'The commercial corridor bioretention retrofit converted which type of area into planted stormwater management areas?', options: ['Sidewalks', 'Curbed parking lanes', 'Medians', 'Building setbacks'], answer: 1 },
+      { q: 'In addition to stormwater management, what other benefits did the commercial corridor project provide?', options: ['Reduced traffic congestion', 'Improved pedestrian experience and property values', 'Lower utility costs', 'Increased parking capacity'], answer: 1 },
+      { q: 'What size was the green roof installed on the municipal public works building?', options: ['5,000 square feet', '8,000 square feet', '12,000 square feet', '20,000 square feet'], answer: 2 },
+      { q: 'What type of green roof was installed on the municipal public works building?', options: ['Intensive green roof', 'Extensive green roof', 'Semi-intensive green roof', 'Modular tray system'], answer: 1 },
+      { q: 'The green roof was expected to extend the roof membrane life by approximately how many years?', options: ['5 years', '10 years', '20 years', '30 years'], answer: 2 },
+      { q: 'What was the estimated 15-year energy cost savings from the green roof installation?', options: ['$15,000', '$25,000', '$35,000', '$45,000'], answer: 3 },
+      { q: 'The green roof retained what percentage of stormwater depending on storm size?', options: ['20–30%', '35–45%', '50–70%', '75–90%'], answer: 2 },
+      { q: 'What score must you achieve on the module quiz to pass and unlock the next module?', options: ['70% or higher', '75% or higher', '80% or higher', '90% or higher'], answer: 2 },
+      { q: 'Which statement best describes the goal of green infrastructure case studies?', options: ['To show that GI always works perfectly', 'To demonstrate real-world performance data and lessons learned from implemented projects', 'To prove GI is cheaper than gray infrastructure in all cases', 'To identify which contractors to hire'], answer: 1 },
+    ]
+  }
+};
+
+let userId = null;
+let certNumber = null;
+let moduleNumber = null;
+let quizData = null;
+let userAnswers = {};
+let submitted = false;
+
+async function init() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { window.location.href = 'login.html'; return; }
+  userId = session.user.id;
+
+  const params = new URLSearchParams(window.location.search);
+  certNumber = parseInt(params.get('cert')) || 1;
+  moduleNumber = parseInt(params.get('module')) || 1;
+
+  const key = `${certNumber}-${moduleNumber}`;
+  quizData = SAMPLE_QUIZZES[key] || SAMPLE_QUIZZES['1-1'];
+
+  document.getElementById('navTitle').textContent = CERT_TITLES[certNumber];
+  document.getElementById('navBadge').textContent = `Module ${moduleNumber} Quiz`;
+  document.getElementById('quizLabel').textContent = `Certification ${certNumber} — Module ${moduleNumber}`;
+  document.getElementById('quizTitle').textContent = quizData.title + ' — Quiz';
+  document.getElementById('quizMeta').textContent = `${quizData.questions.length} questions · Pass with 80% or higher · Unlimited attempts (module restart required on fail)`;
+
+  renderQuestions();
+
+  document.getElementById('loadingScreen').style.display = 'none';
+  document.getElementById('quizContent').style.display = 'block';
+}
+
+function renderQuestions() {
+  const container = document.getElementById('questionsContainer');
+  container.innerHTML = '';
+
+  quizData.questions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+
+    let optionsHtml = q.options.map((opt, oi) => `
+      <label class="option-label" id="opt-${qi}-${oi}">
+        <input type="radio" name="q${qi}" value="${oi}" onchange="selectAnswer(${qi}, ${oi})">
+        ${opt}
+      </label>`).join('');
+
+    card.innerHTML = `
+      <div class="q-number">Question ${qi + 1} of ${quizData.questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${optionsHtml}</div>`;
+
+    container.appendChild(card);
+  });
+
+  updateSubmitNote();
+}
+
+function selectAnswer(qi, oi) {
+  userAnswers[qi] = oi;
+  // Highlight selected
+  quizData.questions[qi].options.forEach((_, i) => {
+    const lbl = document.getElementById(`opt-${qi}-${i}`);
+    if (lbl) lbl.classList.toggle('selected', i === oi);
+  });
+  updateSubmitNote();
+}
+
+function updateSubmitNote() {
+  const answered = Object.keys(userAnswers).length;
+  const total = quizData.questions.length;
+  const note = document.getElementById('submitNote');
+  const btn = document.getElementById('submitBtn');
+
+  if (answered < total) {
+    note.textContent = `${answered} of ${total} questions answered. Answer all to submit.`;
+    btn.disabled = true;
+  } else {
+    note.textContent = 'All questions answered. Ready to submit!';
+    btn.disabled = false;
+  }
+}
+
+async function submitQuiz() {
+  if (submitted) return;
+  submitted = true;
+
+  const btn = document.getElementById('submitBtn');
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  // Score
+  let correct = 0;
+  quizData.questions.forEach((q, qi) => {
+    if (userAnswers[qi] === q.answer) correct++;
+  });
+
+  const score = Math.round((correct / quizData.questions.length) * 100);
+  const passed = score >= 80;
+
+  // Save to Supabase
+  try {
+    const { data: existing } = await sb.from('module_progress')
+      .select('quiz_attempts').eq('user_id', userId)
+      .eq('cert_number', certNumber).eq('module_number', moduleNumber).single();
+
+    const attempts = (existing?.quiz_attempts || 0) + 1;
+
+    await sb.from('module_progress').upsert({
+      user_id: userId,
+      cert_number: certNumber,
+      module_number: moduleNumber,
+      quiz_passed: passed,
+      quiz_score: score,
+      quiz_attempts: attempts,
+      status: passed ? 'passed' : 'in_progress',
+      quiz_passed_date: passed ? new Date().toISOString() : null,
+      current_slide: passed ? undefined : 0,
+      last_accessed: new Date().toISOString()
+    }, { onConflict: 'user_id,cert_number,module_number' });
+
+  } catch (e) { console.error('Save error:', e); }
+
+  showResults(score, passed, correct);
+}
+
+function showResults(score, passed, correct) {
+  document.getElementById('quizContent').style.display = 'none';
+  const result = document.getElementById('resultScreen');
+  result.classList.add('show');
+
+  document.getElementById('resultIcon').textContent = passed ? '🎉' : '📚';
+  document.getElementById('resultTitle').textContent = passed ? 'Quiz Passed!' : 'Not quite — let\'s review';
+  document.getElementById('resultScore').innerHTML = `<span class="${passed ? 'score-pass' : 'score-fail'}">${score}%</span>`;
+
+  const total = quizData.questions.length;
+
+  if (passed) {
+    document.getElementById('resultDesc').textContent = `You answered ${correct} out of ${total} questions correctly. Well done! You've unlocked the next module.`;
+    document.getElementById('resultActions').innerHTML = `
+      <a href="viewer.html?cert=${certNumber}&module=${moduleNumber + 1}" class="result-btn btn-green">Continue to next module →</a>
+      <a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;
+  } else {
+    document.getElementById('resultDesc').textContent = `You answered ${correct} out of ${total} questions correctly — ${score}% (need 80% to pass). You'll need to review the module slides and retake the quiz. Your progress for this module has been reset.`;
+    document.getElementById('resultActions').innerHTML = `
+      <a href="viewer.html?cert=${certNumber}&module=${moduleNumber}" class="result-btn btn-gold">Review module slides →</a>
+      <a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>
