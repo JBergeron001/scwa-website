@@ -445,19 +445,19 @@ const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const CERT_TITLES = {
-  1: 'Green Infrastructure Fundamentals',
-  2: 'Stormwater Management Principles',
-  3: 'Advanced GI Design',
+  1: 'GI Planning and Design',
+  2: 'GI Installation and Construction',
+  3: 'GI Maintenance and Management',
   4: 'Master of Green Infrastructure'
 };
 
 const CERT_PRICES = { 1: '$249', 2: '$249', 3: '$249', 4: '$299' };
 
 const CERT_MODULES = {
-  1: ['Introduction to Green Infrastructure', 'Stormwater Basics', 'GI Applications', 'Site Assessment', 'Case Studies'],
-  2: ['Hydrology Fundamentals', 'BMP Design', 'Regulatory Framework', 'Maintenance Principles', 'Field Applications'],
-  3: ['Advanced Design Methods', 'Modeling & Analysis', 'Urban Integration', 'Cost-Benefit Analysis', 'Capstone Project'],
-  4: ['Master Synthesis', 'Leadership & Policy', 'Innovation in GI', 'Professional Practice']
+  1: ['Planning Fundamentals', 'Site Analysis', 'Design Principles', 'Regulatory Framework', 'Case Studies'],
+  2: ['Installation Methods', 'Materials and Equipment', 'Site Preparation', 'Quality Control', 'Field Applications'],
+  3: ['Maintenance Planning', 'Inspection Protocols', 'Troubleshooting', 'Long-term Management', 'Performance Assessment'],
+  4: ['Master Synthesis', 'Leadership and Policy', 'Innovation in GI', 'Professional Practice']
 };
 
 async function init() {
