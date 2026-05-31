@@ -429,6 +429,7 @@
     <div class="section-header">
       <h2 class="section-title">My Certifications</h2>
       <a href="enroll.html" class="browse-btn">+ Enroll in a Certification</a>
+      <a href="renewal.html" class="browse-btn" style="background:var(--gold);color:var(--green-dark);margin-left:0.5rem;">↻ CEU & Renewal</a>
     </div>
 
     <div class="certs-grid" id="certsGrid">
@@ -477,7 +478,31 @@ async function init() {
   const { data: moduleProgress } = await sb.from('module_progress').select('*').eq('user_id', userId);
 
   // Load issued certs
+  // Load renewals and check for urgent ones
   const { data: issuedCerts } = await sb.from('issued_certificates').select('*').eq('user_id', userId);
+  const { data: renewals } = await sb.from('cert_renewals')
+    .select('*').eq('user_id', userId)
+    .in('status', ['pending','in_grace']);
+
+  if (renewals && renewals.length > 0) {
+    const urgent = renewals.filter(r => r.status === 'in_grace');
+    const dueSoon = renewals.filter(r => {
+      const days = Math.ceil((new Date(r.due_date) - new Date()) / 86400000);
+      return days <= 60 && days > 0;
+    });
+
+    if (urgent.length > 0) {
+      const banner = document.createElement('div');
+      banner.style.cssText = 'background:#fdf0ef;border:1.5px solid #f5c6c2;border-radius:10px;padding:0.85rem 1.25rem;margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;';
+      banner.innerHTML = `<span style="font-size:0.9rem;color:#c0392b;">⚠️ <strong>${urgent.length} certification renewal(s) are overdue.</strong> Pay now to avoid losing your credential.</span><a href="renewal.html" style="background:#c0392b;color:#fff;padding:0.4rem 1rem;border-radius:6px;text-decoration:none;font-size:0.85rem;font-weight:500;white-space:nowrap;">Renew Now</a>`;
+      document.getElementById('dashContent').insertBefore(banner, document.getElementById('dashContent').firstChild);
+    } else if (dueSoon.length > 0) {
+      const banner = document.createElement('div');
+      banner.style.cssText = 'background:#fef9e7;border:1.5px solid #ffc107;border-radius:10px;padding:0.85rem 1.25rem;margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;';
+      banner.innerHTML = `<span style="font-size:0.9rem;color:#856404;">📅 <strong>${dueSoon.length} certification renewal(s) coming up soon.</strong> Log your CEUs and renew to keep your credentials current.</span><a href="renewal.html" style="background:#856404;color:#fff;padding:0.4rem 1rem;border-radius:6px;text-decoration:none;font-size:0.85rem;font-weight:500;white-space:nowrap;">View Renewals</a>`;
+      document.getElementById('dashContent').insertBefore(banner, document.getElementById('dashContent').firstChild);
+    }
+  }
 
   // Update UI
   document.getElementById('navName').textContent = profile.full_name.split(' ')[0];
