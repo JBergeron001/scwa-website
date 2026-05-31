@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEU & Renewal — MidAmerica Watershed.Org</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #085041; --green-mid: #0d6b56; --green-light: #e1f5ee;
+    --gold: #c9a84c; --gold-light: #faf3e0; --text: #1a1a18;
+    --text-muted: #5a5a55; --border: #d4d4c8; --white: #fafaf7;
+    --bg: #f4f4ef; --error: #c0392b; --error-light: #fdf0ef;
+    --warning: #856404; --warning-light: #fef9e7; --warning-border: #ffc107;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  nav { background: var(--green-dark); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+  .nav-logo-mark { width: 32px; height: 32px; background: var(--gold); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--green-dark); }
+  .nav-title { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: rgba(255,255,255,0.9); }
+  .nav-back { color: rgba(255,255,255,0.7); font-size: 0.88rem; text-decoration: none; }
+  .nav-back:hover { color: #fff; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+  .page-title { font-family: 'DM Serif Display', serif; font-size: 1.9rem; margin-bottom: 0.5rem; }
+  .page-sub { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.6; }
+
+  /* RENEWAL STATUS CARDS */
+  .renewals-grid { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+
+  .renewal-card { background: #fff; border-radius: 14px; border: 1.5px solid var(--border); overflow: hidden; }
+  .renewal-card.cert4 { border-color: var(--gold); }
+  .renewal-card-header { padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+  .renewal-cert-name { font-weight: 600; font-size: 0.95rem; }
+  .renewal-cert-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+  .status-badge { font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 99px; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+  .sb-current { background: var(--green-light); color: var(--green-dark); }
+  .sb-due-soon { background: var(--warning-light); color: var(--warning); border: 1px solid var(--warning-border); }
+  .sb-grace { background: #fdf0ef; color: var(--error); }
+  .sb-suspended { background: #f1f0eb; color: #888; }
+  .sb-revoked { background: #f8d7da; color: #721c24; }
+
+  .renewal-card-body { padding: 1.25rem 1.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; align-items: center; }
+  .renewal-stat .rs-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem; }
+  .renewal-stat .rs-val { font-size: 0.95rem; font-weight: 500; color: var(--text); }
+  .renewal-stat .rs-val.urgent { color: var(--error); }
+  .renewal-stat .rs-val.warning { color: var(--warning); }
+
+  .ceu-progress { height: 6px; background: var(--bg); border-radius: 99px; overflow: hidden; margin-top: 0.4rem; }
+  .ceu-fill { height: 100%; border-radius: 99px; background: var(--green-dark); transition: width 0.4s; }
+
+  .renewal-action-btn { padding: 0.5rem 1.1rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; border: none; text-decoration: none; display: inline-block; text-align: center; }
+  .btn-renew { background: var(--green-dark); color: #fff; }
+  .btn-renew:hover { background: var(--green-mid); }
+  .btn-renew-urgent { background: var(--error); color: #fff; }
+  .btn-renew-urgent:hover { background: #a93226; }
+  .btn-add-ceu { background: var(--green-light); color: var(--green-dark); border: 1.5px solid rgba(8,80,65,0.2); }
+  .btn-add-ceu:hover { background: #c8ecdf; }
+
+  /* ALERT BOXES */
+  .alert { border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.6; display: flex; gap: 0.75rem; }
+  .alert-warning { background: var(--warning-light); border: 1.5px solid var(--warning-border); color: var(--warning); }
+  .alert-error { background: var(--error-light); border: 1.5px solid #f5c6c2; color: var(--error); }
+  .alert-info { background: var(--green-light); border: 1.5px solid rgba(8,80,65,0.2); color: var(--green-dark); }
+
+  /* CEU FORM */
+  .ceu-section { background: #fff; border-radius: 14px; border: 1.5px solid var(--border); overflow: hidden; margin-bottom: 2rem; }
+  .ceu-section-header { background: var(--green-dark); padding: 1.1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .ceu-section-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: #fff; }
+  .ceu-section-sub { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.1rem; }
+  .ceu-section-body { padding: 1.5rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group.full { grid-column: 1 / -1; }
+  label { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text); }
+  input, select, textarea { padding: 0.7rem 1rem; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.93rem; color: var(--text); background: #fff; outline: none; transition: border-color 0.2s; }
+  input:focus, select:focus, textarea:focus { border-color: var(--green-dark); box-shadow: 0 0 0 3px rgba(8,80,65,0.08); }
+  textarea { resize: vertical; min-height: 80px; }
+  .hours-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+  .submit-btn { width: 100%; padding: 0.85rem; background: var(--green-dark); color: #fff; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; margin-top: 0.5rem; transition: background 0.2s; }
+  .submit-btn:hover { background: var(--green-mid); }
+  .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* CEU ACTIVITY LIST */
+  .activity-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .activity-item { background: var(--bg); border-radius: 10px; padding: 1rem 1.25rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  .activity-left { flex: 1; }
+  .activity-title { font-weight: 500; font-size: 0.93rem; margin-bottom: 0.2rem; }
+  .activity-meta { font-size: 0.78rem; color: var(--text-muted); }
+  .activity-hours { font-size: 1.1rem; font-weight: 600; color: var(--green-dark); white-space: nowrap; }
+  .activity-status { font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 99px; font-weight: 500; margin-left: 0.5rem; }
+  .as-submitted { background: #e8f4fd; color: #1a5276; }
+  .as-approved { background: var(--green-light); color: var(--green-dark); }
+  .as-flagged { background: var(--warning-light); color: var(--warning); }
+
+  .empty-state { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem; }
+
+  .cert-selector { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cert-tab { padding: 0.45rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; cursor: pointer; border: 1.5px solid var(--border); background: #fff; color: var(--text-muted); transition: all 0.15s; }
+  .cert-tab.active { background: var(--green-dark); color: #fff; border-color: var(--green-dark); }
+
+  .loading-screen { display: flex; align-items: center; justify-content: center; min-height: 60vh; flex-direction: column; gap: 1rem; color: var(--text-muted); }
+  .spinner-lg { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--green-dark); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .success-msg { background: var(--green-light); border: 1.5px solid rgba(8,80,65,0.2); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.9rem; color: var(--green-dark); margin-top: 0.75rem; display: none; }
+  .success-msg.show { display: block; }
+
+  @media (max-width: 640px) {
+    .renewal-card-body { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="dashboard.html" class="nav-logo">
+    <div class="nav-logo-mark">M</div>
+    <div class="nav-title">MidAmerica Watershed.Org</div>
+  </a>
+  <a href="dashboard.html" class="nav-back">← Back to dashboard</a>
+</nav>
+
+<main>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner-lg"></div>
+    <div>Loading your renewal status...</div>
+  </div>
+
+  <div id="pageContent" style="display:none">
+    <h1 class="page-title">CEU & Certification Renewal</h1>
+    <p class="page-sub">Each certification must be renewed annually. You need 8 Continuing Education Units (CEUs) per certification per year — earned through professional study, active Green Infrastructure work, presentations, publications, teaching, or committee participation. Log your activities below and submit for approval.</p>
+
+    <!-- ALERTS -->
+    <div id="alertsArea"></div>
+
+    <!-- RENEWAL STATUS CARDS -->
+    <div class="renewals-grid" id="renewalsGrid"></div>
+
+    <!-- CEU CERT SELECTOR -->
+    <div id="ceuArea" style="display:none">
+      <div class="cert-selector" id="certSelector"></div>
+
+      <!-- ADD CEU ACTIVITY FORM -->
+      <div class="ceu-section">
+        <div class="ceu-section-header">
+          <div>
+            <div class="ceu-section-title">Log a CEU Activity</div>
+            <div class="ceu-section-sub">Add activities you have completed toward your 8 CEU requirement</div>
+          </div>
+        </div>
+        <div class="ceu-section-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Activity Type</label>
+              <select id="activityType">
+                <option value="">Select type...</option>
+                <option value="study_coursework">Study / Coursework / Training</option>
+                <option value="gi_work">Active Work in Green Infrastructure</option>
+                <option value="conference_presentation">Presenting at a Conference or Seminar</option>
+                <option value="publication">Writing / Publishing an Article or Book</option>
+                <option value="teaching">Teaching or Instructing a GI Course</option>
+                <option value="committee_board">Committee or Board Participation</option>
+                <option value="other">Other Professional Activity</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>CEU Hours Earned</label>
+              <input type="number" id="ceuHours" min="0.5" max="8" step="0.5" placeholder="e.g. 2.0">
+              <div class="hours-note">Minimum 0.5 hours · Maximum 8 hours per activity · 8 total required</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full">
+              <label>Activity Title</label>
+              <input type="text" id="activityTitle" placeholder="e.g. APWA Stormwater Conference — Kansas City 2026">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date of Activity</label>
+              <input type="date" id="activityDate">
+            </div>
+            <div class="form-group">
+              <label>Organization / Sponsor (optional)</label>
+              <input type="text" id="activityOrg" placeholder="e.g. APWA, EPA, University of Missouri">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full">
+              <label>Description</label>
+              <textarea id="activityDesc" placeholder="Briefly describe the activity and how it relates to Green Infrastructure professional practice..."></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full">
+              <label>Documentation Notes (optional)</label>
+              <textarea id="activityDocs" placeholder="Note any supporting documentation you have — certificates of completion, conference programs, publication links, etc. You may be asked to provide these if selected for audit." style="min-height:60px"></textarea>
+            </div>
+          </div>
+          <button class="submit-btn" id="submitCeuBtn" onclick="submitCEU()">Submit CEU Activity</button>
+          <div class="success-msg" id="ceuSuccess">✓ Activity submitted successfully. It will be reviewed by MidAmerica Watershed.Org staff.</div>
+        </div>
+      </div>
+
+      <!-- LOGGED ACTIVITIES -->
+      <div class="ceu-section">
+        <div class="ceu-section-header">
+          <div>
+            <div class="ceu-section-title">My Logged Activities</div>
+            <div class="ceu-section-sub" id="activitiesSubtitle">Activities submitted for this renewal period</div>
+          </div>
+        </div>
+        <div class="ceu-section-body">
+          <div class="activity-list" id="activityList">
+            <div class="empty-state">No activities logged yet for this certification.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+const SUPABASE_URL = 'https://wncnxgyupryvrqkycvzp.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_kotvXZUSlXTuorvZN5HdcA_eaLF6YvF';
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const CERT_TITLES = {
+  1: 'Green Infrastructure Planning and Design',
+  2: 'Green Infrastructure Installation and Construction',
+  3: 'Green Infrastructure Maintenance and Management',
+  4: 'Master of Green Infrastructure'
+};
+
+const ACTIVITY_LABELS = {
+  study_coursework: 'Study / Coursework / Training',
+  gi_work: 'Active GI Work',
+  conference_presentation: 'Conference Presentation',
+  publication: 'Publication',
+  teaching: 'Teaching / Instructing',
+  committee_board: 'Committee / Board',
+  other: 'Other'
+};
+
+let userId = null;
+let allRenewals = [];
+let selectedCertNumber = null;
+let selectedRenewalId = null;
+
+async function init() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { window.location.href = 'login.html'; return; }
+  userId = session.user.id;
+
+  const { data: renewals } = await sb.from('cert_renewals')
+    .select('*').eq('user_id', userId).order('cert_number');
+  allRenewals = renewals || [];
+
+  renderAlerts();
+  renderRenewalCards();
+  renderCertSelector();
+
+  document.getElementById('loadingScreen').style.display = 'none';
+  document.getElementById('pageContent').style.display = 'block';
+}
+
+function renderAlerts() {
+  const area = document.getElementById('alertsArea');
+  area.innerHTML = '';
+
+  const urgent = allRenewals.filter(r => r.status === 'in_grace');
+  const dueSoon = allRenewals.filter(r => {
+    if (r.status !== 'pending') return false;
+    const days = Math.ceil((new Date(r.due_date) - new Date()) / 86400000);
+    return days <= 60 && days > 0;
+  });
+
+  urgent.forEach(r => {
+    area.innerHTML += `<div class="alert alert-error">⚠️ <strong>Late renewal:</strong> Your Cert ${r.cert_number} — ${CERT_TITLES[r.cert_number]} renewal is overdue. Current fee: <strong>$${r.total_fee}</strong>. ${r.cert_number === 4 ? 'Fee increases each quarter.' : 'You have 30 days before your certification is revoked and must be retaken.'}</div>`;
+  });
+
+  dueSoon.forEach(r => {
+    const days = Math.ceil((new Date(r.due_date) - new Date()) / 86400000);
+    area.innerHTML += `<div class="alert alert-warning">📅 <strong>Renewal due soon:</strong> Cert ${r.cert_number} — ${CERT_TITLES[r.cert_number]} renewal is due in <strong>${days} days</strong> on ${new Date(r.due_date).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}. Renewal fee: $${r.base_fee}.</div>`;
+  });
+}
+
+function renderRenewalCards() {
+  const grid = document.getElementById('renewalsGrid');
+  if (allRenewals.length === 0) {
+    grid.innerHTML = '<div class="alert alert-info">ℹ️ You have no active certifications requiring renewal yet. Renewal records are created automatically when you pass a certification exam.</div>';
+    return;
+  }
+
+  grid.innerHTML = allRenewals.map(r => {
+    const dueDate = new Date(r.due_date);
+    const today = new Date();
+    const daysUntilDue = Math.ceil((dueDate - today) / 86400000);
+    const isCert4 = r.cert_number === 4;
+
+    let statusBadge, statusClass, actionBtn;
+
+    if (r.status === 'suspended') {
+      statusBadge = '● Suspended — Cert 4 Active';
+      statusClass = 'sb-suspended';
+      actionBtn = '';
+    } else if (r.status === 'renewed') {
+      statusBadge = '✓ Renewed';
+      statusClass = 'sb-current';
+      actionBtn = `<button class="renewal-action-btn btn-add-ceu" onclick="selectCert(${r.cert_number}, '${r.id}')">Log CEUs</button>`;
+    } else if (r.status === 'revoked') {
+      statusBadge = '✗ Revoked';
+      statusClass = 'sb-revoked';
+      actionBtn = `<a href="enroll.html?cert=${r.cert_number}" class="renewal-action-btn btn-renew-urgent">Retake Cert ${r.cert_number}</a>`;
+    } else if (r.status === 'in_grace') {
+      statusBadge = '⚠ In Grace Period';
+      statusClass = 'sb-grace';
+      actionBtn = `<button class="renewal-action-btn btn-renew-urgent" onclick="payRenewal(${r.cert_number}, ${r.total_fee})">Pay $${r.total_fee} Now</button>`;
+    } else if (daysUntilDue <= 60) {
+      statusBadge = `Due in ${daysUntilDue} days`;
+      statusClass = 'sb-due-soon';
+      actionBtn = `<button class="renewal-action-btn btn-renew" onclick="payRenewal(${r.cert_number}, ${r.base_fee})">Renew — $${r.base_fee}</button>`;
+    } else {
+      statusBadge = 'Current';
+      statusClass = 'sb-current';
+      actionBtn = `<button class="renewal-action-btn btn-add-ceu" onclick="selectCert(${r.cert_number}, '${r.id}')">Log CEUs</button>`;
+    }
+
+    const ceuPct = Math.min(100, ((r.ceu_hours_submitted || 0) / 8) * 100);
+
+    return `<div class="renewal-card ${isCert4 ? 'cert4' : ''}">
+      <div class="renewal-card-header">
+        <div>
+          <div class="renewal-cert-name">Cert ${r.cert_number} — ${CERT_TITLES[r.cert_number]}</div>
+          <div class="renewal-cert-sub">Renewal #${r.renewal_number} · ${isCert4 ? '$120/year' : '$75/year'}</div>
+        </div>
+        <span class="status-badge ${statusClass}">${statusBadge}</span>
+      </div>
+      <div class="renewal-card-body">
+        <div class="renewal-stat">
+          <div class="rs-label">Due Date</div>
+          <div class="rs-val ${r.status === 'in_grace' ? 'urgent' : ''}">${dueDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
+        </div>
+        <div class="renewal-stat">
+          <div class="rs-label">CEUs Logged</div>
+          <div class="rs-val">${r.ceu_hours_submitted || 0} / 8 hours</div>
+          <div class="ceu-progress"><div class="ceu-fill" style="width:${ceuPct}%"></div></div>
+        </div>
+        <div class="renewal-stat">
+          <div class="rs-label">CEU Status</div>
+          <div class="rs-val">${r.ceu_approved ? '✓ Approved' : r.ceu_submitted ? 'Under review' : 'Not submitted'}</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:0.5rem; align-items:flex-end;">
+          ${actionBtn}
+          ${r.status !== 'suspended' && r.status !== 'revoked' ? `<button class="renewal-action-btn btn-add-ceu" onclick="selectCert(${r.cert_number}, '${r.id}')">+ Log CEU</button>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderCertSelector() {
+  const selector = document.getElementById('certSelector');
+  const activeCerts = allRenewals.filter(r => r.status !== 'suspended' && r.status !== 'revoked');
+
+  if (activeCerts.length === 0) {
+    document.getElementById('ceuArea').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('ceuArea').style.display = 'block';
+  selector.innerHTML = activeCerts.map(r =>
+    `<div class="cert-tab" id="tab-${r.cert_number}" onclick="selectCert(${r.cert_number}, '${r.id}')">Cert ${r.cert_number}</div>`
+  ).join('');
+
+  // Select first by default
+  selectCert(activeCerts[0].cert_number, activeCerts[0].id);
+}
+
+async function selectCert(certNum, renewalId) {
+  selectedCertNumber = certNum;
+  selectedRenewalId = renewalId;
+
+  document.querySelectorAll('.cert-tab').forEach(t => t.classList.remove('active'));
+  const tab = document.getElementById(`tab-${certNum}`);
+  if (tab) tab.classList.add('active');
+
+  document.getElementById('activitiesSubtitle').textContent = `Activities for Cert ${certNum} — ${CERT_TITLES[certNum]}`;
+  await loadActivities(certNum, renewalId);
+}
+
+async function loadActivities(certNum, renewalId) {
+  const { data: activities } = await sb.from('ceu_activities')
+    .select('*')
+    .eq('user_id', userId)
+    .eq('renewal_id', renewalId)
+    .order('submitted_at', { ascending: false });
+
+  const list = document.getElementById('activityList');
+  if (!activities || activities.length === 0) {
+    list.innerHTML = '<div class="empty-state">No activities logged yet for this certification renewal period.</div>';
+    return;
+  }
+
+  const totalHours = activities.reduce((sum, a) => sum + parseFloat(a.ceu_hours), 0);
+  list.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;margin-bottom:0.5rem;border-bottom:1px solid var(--border);">
+      <span style="font-size:0.85rem;color:var(--text-muted);">${activities.length} activities logged</span>
+      <span style="font-weight:600;color:var(--green-dark);">${totalHours} / 8 hours total</span>
+    </div>
+    ${activities.map(a => `
+      <div class="activity-item">
+        <div class="activity-left">
+          <div class="activity-title">${a.activity_title}
+            <span class="activity-status ${a.status === 'approved' ? 'as-approved' : a.status === 'flagged_for_audit' ? 'as-flagged' : 'as-submitted'}">${a.status === 'approved' ? 'Approved' : a.status === 'flagged_for_audit' ? 'Under Audit' : 'Submitted'}</span>
+          </div>
+          <div class="activity-meta">${ACTIVITY_LABELS[a.activity_type]} · ${new Date(a.activity_date).toLocaleDateString()} ${a.organization ? '· ' + a.organization : ''}</div>
+          <div class="activity-meta" style="margin-top:0.2rem;">${a.activity_description}</div>
+        </div>
+        <div class="activity-hours">${a.ceu_hours}h</div>
+      </div>`).join('')}`;
+}
+
+async function submitCEU() {
+  const type = document.getElementById('activityType').value;
+  const hours = parseFloat(document.getElementById('ceuHours').value);
+  const title = document.getElementById('activityTitle').value.trim();
+  const date = document.getElementById('activityDate').value;
+  const desc = document.getElementById('activityDesc').value.trim();
+  const org = document.getElementById('activityOrg').value.trim();
+  const docs = document.getElementById('activityDocs').value.trim();
+
+  if (!type || !hours || !title || !date || !desc) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+  if (!selectedRenewalId) { alert('Please select a certification first.'); return; }
+
+  const btn = document.getElementById('submitCeuBtn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  try {
+    await sb.from('ceu_activities').insert({
+      user_id: userId,
+      cert_number: selectedCertNumber,
+      renewal_id: selectedRenewalId,
+      activity_type: type,
+      activity_title: title,
+      activity_description: desc,
+      activity_date: date,
+      ceu_hours: hours,
+      organization: org || null,
+      documentation_notes: docs || null,
+      status: 'submitted'
+    });
+
+    // Update total hours on renewal record
+    const { data: allActs } = await sb.from('ceu_activities')
+      .select('ceu_hours').eq('renewal_id', selectedRenewalId);
+    const totalHours = allActs?.reduce((sum, a) => sum + parseFloat(a.ceu_hours), 0) || 0;
+
+    await sb.from('cert_renewals').update({
+      ceu_submitted: true,
+      ceu_hours_submitted: totalHours
+    }).eq('id', selectedRenewalId);
+
+    // Clear form
+    document.getElementById('activityType').value = '';
+    document.getElementById('ceuHours').value = '';
+    document.getElementById('activityTitle').value = '';
+    document.getElementById('activityDate').value = '';
+    document.getElementById('activityDesc').value = '';
+    document.getElementById('activityOrg').value = '';
+    document.getElementById('activityDocs').value = '';
+
+    document.getElementById('ceuSuccess').classList.add('show');
+    setTimeout(() => document.getElementById('ceuSuccess').classList.remove('show'), 4000);
+
+    await loadActivities(selectedCertNumber, selectedRenewalId);
+    await init(); // Refresh renewal cards
+
+  } catch (err) {
+    alert('Error: ' + err.message);
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Submit CEU Activity';
+}
+
+function payRenewal(certNum, amount) {
+  // Payment flow — will connect to Stripe later
+  alert(`Renewal payment of $${amount} for Cert ${certNum} will be processed via Stripe. Payment integration coming soon.`);
+}
+
+init();
+</script>
+</body>
+</html>
