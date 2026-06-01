@@ -328,16 +328,16 @@ function renderSlide() {
   const loader = document.getElementById('slideLoading');
   img.style.display = 'none';
   loader.style.display = 'flex';
-  // Build correct Cloudinary URL - each cert has different file naming
+  // Build correct Cloudinary URL - folder not needed in URL
   let imgUrl;
   if (certNumber === 1) {
-    imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/cert1/Slide${slideNum}.jpg`;
+    imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/Slide${slideNum}.jpg`;
   } else if (certNumber === 2) {
-    imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/cert2/S${slideNum}.jpg`;
+    imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/S${slideNum}.jpg`;
   } else if (certNumber === 3) {
-    imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/cert3/C3_${slideNum}.jpg`;
+    imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/C3_${slideNum}.jpg`;
   } else if (certNumber === 4) {
-    imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/cert4/C4_${slideNum}.jpg`;
+    imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/C4_${slideNum}.jpg`;
   }
   img.src = imgUrl;
 
