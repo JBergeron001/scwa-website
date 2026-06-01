@@ -223,6 +223,9 @@ async function init() {
 
   document.getElementById('viewerTitle').textContent = CERT_TITLES[certNumber];
 
+  // Set course data for this cert
+  courseData = COURSE_MODULES[certNumber] || COURSE_MODULES[1];
+
   // Check enrollment
   const { data: enrollment } = await sb.from('cert_enrollments')
     .select('*').eq('user_id', userId).eq('cert_number', certNumber).single();
