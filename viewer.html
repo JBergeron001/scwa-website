@@ -152,16 +152,44 @@ const CERT_TITLES = {
 
 const CLOUDINARY_BASE = 'https://res.cloudinary.com/db1tgrb8g/image/upload';
 
-// Course structure — Cert 1
-const CERT1_MODULES = [
-  { moduleNumber: 1, title: 'Green Infrastructure & LID Fundamentals', start: 1, end: 101 },
-  { moduleNumber: 2, title: 'Unified GI/LID/BMP Understanding & Roles', start: 102, end: 129 },
-  { moduleNumber: 3, title: 'Hydrology, Policy & Funding', start: 130, end: 209 },
-  { moduleNumber: 4, title: 'GI/LID Synergy & Sustainable Urban Development', start: 210, end: 336 },
-  { moduleNumber: 5, title: 'GI Networks, Project Planning & Regulatory Compliance', start: 337, end: 465 },
-  { moduleNumber: 6, title: 'Adaptive Management, Water Management & BMP/LID Selection', start: 466, end: 601 },
-  { moduleNumber: 7, title: 'Plants in BMPs and LID Systems', start: 602, end: 621 }
-];
+// Course structures for all certifications
+const COURSE_MODULES = {
+  1: [
+    { moduleNumber: 1, title: 'Green Infrastructure & LID Fundamentals', start: 1, end: 101 },
+    { moduleNumber: 2, title: 'Unified GI/LID/BMP Understanding & Roles', start: 102, end: 129 },
+    { moduleNumber: 3, title: 'Hydrology, Policy & Funding', start: 130, end: 209 },
+    { moduleNumber: 4, title: 'GI/LID Synergy & Sustainable Urban Development', start: 210, end: 336 },
+    { moduleNumber: 5, title: 'GI Networks, Project Planning & Regulatory Compliance', start: 337, end: 465 },
+    { moduleNumber: 6, title: 'Adaptive Management, Water Management & BMP/LID Selection', start: 466, end: 601 },
+    { moduleNumber: 7, title: 'Plants in BMPs and LID Systems', start: 602, end: 621 }
+  ],
+  2: [
+    { moduleNumber: 1, title: 'Foundations of Green Infrastructure, LID, and BMP Terminology', start: 1, end: 36 },
+    { moduleNumber: 2, title: 'Legal Responsibilities, Documentation and Permitting', start: 37, end: 109 },
+    { moduleNumber: 3, title: 'Site Preparation, Testing, Soils and Excavation', start: 110, end: 194 },
+    { moduleNumber: 4, title: 'Construction of LID BMPs', start: 195, end: 262 },
+    { moduleNumber: 5, title: 'Sequencing, Logistics, Quality Control and Avoiding Failure', start: 263, end: 295 },
+    { moduleNumber: 6, title: 'Retrofitting Green Infrastructure Into Existing Systems', start: 296, end: 316 },
+    { moduleNumber: 7, title: 'Post Construction', start: 317, end: 328 },
+    { moduleNumber: 8, title: 'Certifying Green Infrastructure Projects and Installations', start: 329, end: 335 }
+  ],
+  3: [
+    { moduleNumber: 1, title: 'Importance of Inspection and Maintenance', start: 1, end: 30 },
+    { moduleNumber: 2, title: 'Routine and Advanced Maintenance', start: 31, end: 217 },
+    { moduleNumber: 3, title: 'Troubleshooting and Repairs', start: 218, end: 253 },
+    { moduleNumber: 4, title: 'Inspection Tools and Lifecycle Planning', start: 254, end: 314 },
+    { moduleNumber: 5, title: 'Policy, Compliance, and Funding', start: 315, end: 370 },
+    { moduleNumber: 6, title: 'Future Innovations and Climate Adaptation', start: 371, end: 396 }
+  ],
+  4: [
+    { moduleNumber: 1, title: 'Ecological Systems and Landscape Architecture Theory', start: 1, end: 20 },
+    { moduleNumber: 2, title: 'Watershed Planning and Regional Scale Design', start: 21, end: 32 },
+    { moduleNumber: 3, title: 'Advanced Site Design and Materials Science', start: 33, end: 46 },
+    { moduleNumber: 4, title: 'Planting Ecology and Habitat Design', start: 47, end: 61 },
+    { moduleNumber: 5, title: 'Performance Evaluation and Monitoring', start: 62, end: 77 },
+    { moduleNumber: 6, title: 'Professional Leadership and Policy', start: 78, end: 116 }
+  ]
+};
 
 // All slide text for read-aloud (loaded from JSON)
 let slideTexts = {};
@@ -174,14 +202,14 @@ let isSpeaking = false;
 let speechSynth = window.speechSynthesis;
 let saveTimeout = null;
 let selectedVoice = null;
-let courseData = CERT1_MODULES;
+let courseData = [];
 
-// Load slide texts
+// Load slide texts for the correct cert
 async function loadSlideTexts() {
   try {
-    const res = await fetch('cert1_text.json');
+    const res = await fetch(`cert${certNumber}_text.json`);
     if (res.ok) slideTexts = await res.json();
-  } catch(e) { console.log('Slide texts not loaded, read-aloud will use basic text'); }
+  } catch(e) { console.log('Slide texts not loaded'); }
 }
 
 async function init() {
@@ -297,7 +325,11 @@ function renderSlide() {
   const loader = document.getElementById('slideLoading');
   img.style.display = 'none';
   loader.style.display = 'flex';
-  img.src = `${CLOUDINARY_BASE}/Slide${slideNum}.jpg`;
+  // Cert 1 images are in root, Certs 2-4 are in folders
+  const imgUrl = certNumber === 1 
+    ? `${CLOUDINARY_BASE}/Slide${slideNum}.jpg`
+    : `${CLOUDINARY_BASE}/cert${certNumber}/Slide${slideNum}.jpg`;
+  img.src = imgUrl;
 
   // Quiz prompt
   const quizArea = document.getElementById('quizPromptArea');
