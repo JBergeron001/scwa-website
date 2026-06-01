@@ -331,7 +331,7 @@ function renderSlide() {
   // Cert 1 images are in root, Certs 2-4 are in folders
   const imgUrl = certNumber === 1 
     ? `${CLOUDINARY_BASE}/Slide${slideNum}.jpg`
-    : `${CLOUDINARY_BASE}/cert${certNumber}/Slide${slideNum}.jpg`;
+    : `${CLOUDINARY_BASE}/v1/cert${certNumber}/Slide${slideNum}.jpg`;
   img.src = imgUrl;
 
   // Quiz prompt
