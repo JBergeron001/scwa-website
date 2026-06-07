@@ -242,7 +242,9 @@
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">
-    <div class="nav-logo-mark">M</div>
+    <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;">
+  <img src="logo.gif" alt="MAWA Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;" class="logo-gif">
+</div>
     <div class="nav-logo-text">MidAmerica<br>Watershed.Org</div>
   </a>
   <div class="nav-links">
@@ -771,6 +773,7 @@
       <a href="login.html" class="footer-link">Sign In</a>
       <a href="#certifications" class="footer-link">Certifications</a>
       <a href="#about" class="footer-link">About GI</a>
+      <a href="admin.html" class="footer-link" style="color:rgba(255,255,255,0.2);">Administration</a>
     </div>
     <div class="footer-copy">© 2026 MidAmerica Watershed.Org. All rights reserved. Professional Green Infrastructure Certifications.</div>
   </div>
@@ -793,6 +796,27 @@ document.addEventListener('click', function(e) {
     panel.classList.remove('open');
     trigger.classList.remove('open');
   }
+});
+</script>
+<style>
+.logo-gif { animation: none; }
+</style>
+<script>
+// Stop GIF after one loop by replacing src with static frame
+window.addEventListener('load', function() {
+  document.querySelectorAll('.logo-gif').forEach(function(img) {
+    var src = img.src;
+    // After GIF duration, freeze it by reloading with cache-busted URL then stopping
+    setTimeout(function() {
+      // Create canvas to capture last frame
+      var canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth || img.width;
+      canvas.height = img.naturalHeight || img.height;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      img.src = canvas.toDataURL('image/png');
+    }, 3000); // Stop after 3 seconds (adjust to match your GIF duration)
+  });
 });
 </script>
 </body>
