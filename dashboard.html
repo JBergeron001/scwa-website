@@ -520,6 +520,10 @@ async function init() {
 
   document.getElementById('loadingScreen').style.display = 'none';
   document.getElementById('dashContent').style.display = 'block';
+
+  // Apply launch gate after content renders
+  showLaunchBanner();
+  gateCertAccess();
 }
 
 function renderCerts(enrollments, moduleProgress, profile) {
@@ -637,6 +641,65 @@ function buildCertCard(certNum, enrollment, modules, modProgress, allPassed123) 
 async function signOut() {
   await sb.auth.signOut();
   window.location.href = 'login.html';
+}
+
+// ── LAUNCH DATE GATE ─────────────────────────────────────────────
+const LAUNCH_DATE = new Date('2026-07-30T00:00:00');
+const IS_BEFORE_LAUNCH = new Date() < LAUNCH_DATE;
+
+function showLaunchBanner() {
+  if (!IS_BEFORE_LAUNCH) return;
+  const daysLeft = Math.ceil((LAUNCH_DATE - new Date()) / (1000 * 60 * 60 * 24));
+  const banner = document.createElement('div');
+  banner.style.cssText = 'background:linear-gradient(135deg,#085041,#0d6b56);border-radius:14px;padding:1.5rem 2rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;';
+  banner.innerHTML = `
+    <div>
+      <div style="font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;">Coming Soon</div>
+      <div style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:#fff;margin-bottom:0.3rem;">Certification courses open July 30, 2026</div>
+      <div style="font-size:0.85rem;color:rgba(255,255,255,0.65);">Your account is ready. Enrollment opens in <strong style="color:#c9a84c">${daysLeft} days</strong>. You'll receive an email when courses go live.</div>
+    </div>
+    <div style="text-align:center;flex-shrink:0;">
+      <div style="font-family:'DM Serif Display',serif;font-size:2.5rem;color:#c9a84c;line-height:1;">${daysLeft}</div>
+      <div style="font-size:0.72rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.05em;">days to go</div>
+    </div>`;
+  const dashContent = document.getElementById('dashContent');
+  if (dashContent) dashContent.insertBefore(banner, dashContent.firstChild);
+}
+
+function showLockedModal(daysLeft) {
+  const existing = document.getElementById('launchModal');
+  if (existing) { existing.style.display = 'flex'; return; }
+  const modal = document.createElement('div');
+  modal.id = 'launchModal';
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:9999;padding:1rem;';
+  modal.innerHTML = `
+    <div style="background:#fff;border-radius:16px;padding:2.5rem;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+      <div style="font-size:2.5rem;margin-bottom:1rem;">🔒</div>
+      <div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:#085041;margin-bottom:0.75rem;">Available July 30, 2026</div>
+      <div style="font-size:0.95rem;color:#5a5a55;line-height:1.7;margin-bottom:0.5rem;">Certification course enrollment and access opens in <strong style="color:#085041">${daysLeft} days</strong>.</div>
+      <div style="font-size:0.88rem;color:#5a5a55;line-height:1.7;margin-bottom:2rem;">Your account is all set — come back on July 30 to enroll and begin your Green Infrastructure certification journey.</div>
+      <button onclick="document.getElementById('launchModal').style.display='none'" style="background:#085041;color:#fff;border:none;padding:0.75rem 2rem;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;width:100%;">Got it — I'll be back July 30!</button>
+    </div>`;
+  document.body.appendChild(modal);
+  modal.addEventListener('click', function(e) { if (e.target === modal) modal.style.display = 'none'; });
+}
+
+function gateCertAccess() {
+  if (!IS_BEFORE_LAUNCH) return;
+  const daysLeft = Math.ceil((LAUNCH_DATE - new Date()) / (1000 * 60 * 60 * 24));
+  // Intercept ALL clicks on the page at capture phase
+  document.addEventListener('click', function(e) {
+    const el = e.target.closest('a, button');
+    if (!el) return;
+    const href = el.getAttribute('href') || '';
+    const onclick = el.getAttribute('onclick') || '';
+    if (href.includes('enroll') || href.includes('viewer') || href.includes('quiz') || href.includes('exam') ||
+        onclick.includes('enroll') || onclick.includes('viewer')) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      showLockedModal(daysLeft);
+    }
+  }, true);
 }
 
 init();
