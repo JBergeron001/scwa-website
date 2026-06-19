@@ -123,12 +123,30 @@
 </style>
 </head>
 <body>
+<script>
+// LAUNCH DATE GATE - redirect if before July 30 2026
+(function() {
+  const LAUNCH_DATE = new Date('2026-07-30T00:00:00');
+  if (new Date() < LAUNCH_DATE) {
+    const daysLeft = Math.ceil((LAUNCH_DATE - new Date()) / (1000 * 60 * 60 * 24));
+    document.body.innerHTML = `
+      <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f4f4ef;font-family:'DM Sans',sans-serif;padding:2rem;">
+        <div style="text-align:center;max-width:480px;">
+          <img src="logo.gif" style="width:100px;height:100px;object-fit:contain;margin-bottom:1.5rem;">
+          <div style="font-family:'DM Serif Display',serif;font-size:2rem;color:#085041;margin-bottom:0.75rem;">Coming July 30, 2026</div>
+          <div style="font-size:1rem;color:#5a5a55;line-height:1.7;margin-bottom:0.5rem;">Certification courses and enrollment open in <strong>${daysLeft} days</strong>.</div>
+          <div style="font-size:0.9rem;color:#5a5a55;line-height:1.7;margin-bottom:2rem;">Your account is ready — come back on July 30 to enroll and begin your Green Infrastructure certification.</div>
+          <a href="dashboard.html" style="display:inline-block;background:#085041;color:#fff;padding:0.75rem 2rem;border-radius:10px;text-decoration:none;font-weight:500;">← Back to Dashboard</a>
+        </div>
+      </div>`;
+  }
+})();</script>
 
 <nav>
   <div class="nav-left">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;" class="logo-gif">
+      <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
+  <img src="logo.gif" alt="MAWA Logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
     </a>
     <div class="nav-title" id="navTitle">Module Quiz</div>
@@ -416,26 +434,6 @@ function showResults(score, passed, correct) {
 
 init();
 </script>
-<style>
-.logo-gif { animation: none; }
-</style>
-<script>
-// Stop GIF after one loop by replacing src with static frame
-window.addEventListener('load', function() {
-  document.querySelectorAll('.logo-gif').forEach(function(img) {
-    var src = img.src;
-    // After GIF duration, freeze it by reloading with cache-busted URL then stopping
-    setTimeout(function() {
-      // Create canvas to capture last frame
-      var canvas = document.createElement('canvas');
-      canvas.width = img.naturalWidth || img.width;
-      canvas.height = img.naturalHeight || img.height;
-      var ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-      img.src = canvas.toDataURL('image/png');
-    }, 3000); // Stop after 3 seconds (adjust to match your GIF duration)
-  });
-});
-</script>
+
 </body>
 </html>

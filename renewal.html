@@ -123,8 +123,8 @@
 
 <nav>
   <a href="dashboard.html" class="nav-logo">
-    <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;" class="logo-gif">
+    <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
+  <img src="logo.gif" alt="MAWA Logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
     <div class="nav-title">MidAmerica Watershed.Org</div>
   </a>
@@ -508,26 +508,6 @@ function payRenewal(certNum, amount) {
 
 init();
 </script>
-<style>
-.logo-gif { animation: none; }
-</style>
-<script>
-// Stop GIF after one loop by replacing src with static frame
-window.addEventListener('load', function() {
-  document.querySelectorAll('.logo-gif').forEach(function(img) {
-    var src = img.src;
-    // After GIF duration, freeze it by reloading with cache-busted URL then stopping
-    setTimeout(function() {
-      // Create canvas to capture last frame
-      var canvas = document.createElement('canvas');
-      canvas.width = img.naturalWidth || img.width;
-      canvas.height = img.naturalHeight || img.height;
-      var ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-      img.src = canvas.toDataURL('image/png');
-    }, 3000); // Stop after 3 seconds (adjust to match your GIF duration)
-  });
-});
-</script>
+
 </body>
 </html>

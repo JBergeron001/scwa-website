@@ -33,7 +33,7 @@
     box-shadow: 0 2px 16px rgba(0,0,0,0.2);
   }
   .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-  .nav-logo-mark { width: 40px; height: 40px; background: var(--gold); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--green-dark); font-weight: 700; flex-shrink: 0; }
+  .nav-logo-mark { width: 40px; height: 40px; background: none; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--green-dark); font-weight: 700; flex-shrink: 0; }
   .nav-logo-text { font-family: 'DM Serif Display', serif; font-size: 1rem; color: rgba(255,255,255,0.95); line-height: 1.25; }
   .nav-links { display: flex; align-items: center; gap: 0.25rem; }
   .nav-link { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.88rem; padding: 0.4rem 0.85rem; border-radius: 6px; transition: color 0.2s, background 0.2s; }
@@ -247,8 +247,8 @@
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">
-    <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;" class="logo-gif">
+    <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
+  <img src="logo.gif" alt="MAWA Logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
     <div class="nav-logo-text">MidAmerica<br>Watershed.Org</div>
   </a>
@@ -803,26 +803,6 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
-<style>
-.logo-gif { animation: none; }
-</style>
-<script>
-// Stop GIF after one loop by replacing src with static frame
-window.addEventListener('load', function() {
-  document.querySelectorAll('.logo-gif').forEach(function(img) {
-    var src = img.src;
-    // After GIF duration, freeze it by reloading with cache-busted URL then stopping
-    setTimeout(function() {
-      // Create canvas to capture last frame
-      var canvas = document.createElement('canvas');
-      canvas.width = img.naturalWidth || img.width;
-      canvas.height = img.naturalHeight || img.height;
-      var ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-      img.src = canvas.toDataURL('image/png');
-    }, 3000); // Stop after 3 seconds (adjust to match your GIF duration)
-  });
-});
-</script>
+
 </body>
 </html>
