@@ -521,9 +521,14 @@ async function init() {
   document.getElementById('loadingScreen').style.display = 'none';
   document.getElementById('dashContent').style.display = 'block';
 
-  // Apply launch gate after content renders
-  showLaunchBanner();
-  gateCertAccess();
+  // Check whitelist before applying launch gate
+  if (IS_BEFORE_LAUNCH) {
+    IS_WHITELISTED = await checkWhitelist(profile.email);
+    if (!IS_WHITELISTED) {
+      showLaunchBanner();
+      gateCertAccess();
+    }
+  }
 }
 
 function renderCerts(enrollments, moduleProgress, profile) {
@@ -646,6 +651,16 @@ async function signOut() {
 // ── LAUNCH DATE GATE ─────────────────────────────────────────────
 const LAUNCH_DATE = new Date('2026-07-30T00:00:00');
 const IS_BEFORE_LAUNCH = new Date() < LAUNCH_DATE;
+let IS_WHITELISTED = false;
+
+async function checkWhitelist(email) {
+  if (!IS_BEFORE_LAUNCH) return true;
+  try {
+    const { data } = await sb.from('launch_whitelist')
+      .select('email').eq('email', email).single();
+    return !!data;
+  } catch(e) { return false; }
+}
 
 function showLaunchBanner() {
   if (!IS_BEFORE_LAUNCH) return;

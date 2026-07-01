@@ -140,8 +140,8 @@
 <div id="adminLogin" class="admin-login">
   <div class="login-box">
     <div class="login-logo">
-      <div class="logo-mark" style="background:none;padding:0;overflow:hidden;width:52px;height:52px;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:100%;height:100%;object-fit:contain;border-radius:12px;" class="logo-gif">
+      <div class="logo-mark" style="background:none;padding:0;overflow:hidden;width:52px;height:52px;border-radius:12px;">
+  <img src="logo.gif" alt="MAWA Logo" style="width:52px;height:52px;object-fit:contain;border-radius:12px;" class="logo-gif">
 </div>
       <div class="login-logo-text">MidAmerica Watershed.Org</div>
     </div>
@@ -163,8 +163,8 @@
 <div id="adminDash" style="display:none">
   <nav>
     <div class="nav-logo">
-      <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;" class="logo-gif">
+      <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
+  <img src="logo.gif" alt="MAWA Logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
       <div class="nav-title">Admin Dashboard <span class="nav-badge">ADMIN</span></div>
     </div>
@@ -273,6 +273,33 @@
               </tr>
             </thead>
             <tbody id="renewalTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PRE-LAUNCH REVIEWER WHITELIST -->
+      <div style="margin-top:2.5rem;">
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <h2 class="section-title">Pre-Launch Reviewer Access</h2>
+          </div>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input type="email" id="whitelistEmail" placeholder="reviewer@email.com" style="padding:0.4rem 0.8rem;border:1.5px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:0.85rem;">
+            <input type="text" id="whitelistName" placeholder="Full name (optional)" style="padding:0.4rem 0.8rem;border:1.5px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:0.85rem;">
+            <button class="export-btn" onclick="addToWhitelist()" style="background:var(--green-dark);">+ Add Reviewer</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Added</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="whitelistTableBody"></tbody>
           </table>
         </div>
       </div>
@@ -412,6 +439,7 @@ async function loadData() {
     renderTable(filteredUsers);
     renderRenewalTable(allRenewals);
     renderCeuTable(allCeuActivities);
+    loadWhitelist();
 
     document.getElementById('loadingScreen').style.display = 'none';
     document.getElementById('dashContent').style.display = 'block';
@@ -832,28 +860,47 @@ function exportRenewalsCSV() {
   URL.revokeObjectURL(url);
 }
 
+// ── WHITELIST ────────────────────────────────────────────────────
+async function loadWhitelist() {
+  const { data } = await sb.from('launch_whitelist').select('*').order('added_at', { ascending: false });
+  const tbody = document.getElementById('whitelistTableBody');
+  if (!data || data.length === 0) {
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="4">No reviewers added yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = data.map(r => `
+    <tr>
+      <td>${r.email}</td>
+      <td>${r.full_name || '—'}</td>
+      <td style="font-size:0.82rem;color:var(--text-muted)">${new Date(r.added_at).toLocaleDateString()}</td>
+      <td><button class="action-btn btn-reset" onclick="removeFromWhitelist('${r.id}','${r.email}')">Remove</button></td>
+    </tr>`).join('');
+}
+
+async function addToWhitelist() {
+  const email = document.getElementById('whitelistEmail').value.trim().toLowerCase();
+  const name = document.getElementById('whitelistName').value.trim();
+  if (!email) { alert('Please enter an email address.'); return; }
+  try {
+    await sb.from('launch_whitelist').insert({ email, full_name: name || null });
+    document.getElementById('whitelistEmail').value = '';
+    document.getElementById('whitelistName').value = '';
+    alert(`✓ ${email} added to reviewer whitelist.`);
+    loadWhitelist();
+  } catch(e) {
+    if (e.message.includes('duplicate')) alert('That email is already on the whitelist.');
+    else alert('Error: ' + e.message);
+  }
+}
+
+async function removeFromWhitelist(id, email) {
+  if (!confirm(`Remove ${email} from the whitelist?`)) return;
+  await sb.from('launch_whitelist').delete().eq('id', id);
+  loadWhitelist();
+}
+
 checkSession();
 </script>
-<style>
-.logo-gif { animation: none; }
-</style>
-<script>
-// Stop GIF after one loop by replacing src with static frame
-window.addEventListener('load', function() {
-  document.querySelectorAll('.logo-gif').forEach(function(img) {
-    var src = img.src;
-    // After GIF duration, freeze it by reloading with cache-busted URL then stopping
-    setTimeout(function() {
-      // Create canvas to capture last frame
-      var canvas = document.createElement('canvas');
-      canvas.width = img.naturalWidth || img.width;
-      canvas.height = img.naturalHeight || img.height;
-      var ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-      img.src = canvas.toDataURL('image/png');
-    }, 3000); // Stop after 3 seconds (adjust to match your GIF duration)
-  });
-});
-</script>
+
 </body>
 </html>
