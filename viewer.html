@@ -25,6 +25,14 @@
   .read-aloud-btn { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.2); padding: 0.35rem 0.9rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; cursor: pointer; transition: background 0.2s; }
   .read-aloud-btn:hover { background: rgba(255,255,255,0.2); }
   .read-aloud-btn.active { background: var(--gold); color: var(--green-dark); border-color: var(--gold); }
+  .fullscreen-btn { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.2); padding: 0.35rem 0.9rem; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; cursor: pointer; transition: background 0.2s; }
+  .fullscreen-btn:hover { background: rgba(255,255,255,0.2); }
+
+  /* FULLSCREEN MODE */
+  .viewer-fullscreen { position: fixed !important; inset: 0 !important; z-index: 9999 !important; background: #000 !important; padding: 0 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
+  .viewer-fullscreen .slide-window { max-width: 100% !important; width: 100vw !important; border-radius: 0 !important; box-shadow: none !important; }
+  .viewer-fullscreen .slide-image-wrap { padding-top: calc(100vh - 120px) !important; max-height: calc(100vh - 120px) !important; }
+  .viewer-fullscreen .nav-buttons { position: fixed !important; bottom: 1rem !important; left: 50% !important; transform: translateX(-50%) !important; z-index: 10000 !important; }
   .slide-counter { font-size: 0.82rem; color: rgba(255,255,255,0.5); font-family: monospace; }
 
   /* LAYOUT */
@@ -188,6 +196,7 @@
   </div>
   <div class="top-bar-right">
     <button class="read-aloud-btn" id="readAloudBtn" onclick="toggleReadAloud()">🔊 Read aloud</button>
+    <button class="fullscreen-btn" id="fullscreenBtn" onclick="toggleFullscreen()">⛶ Full screen</button>
     <div class="slide-counter" id="slideCounter">— / —</div>
   </div>
 </div>
@@ -529,6 +538,59 @@ async function saveProgress() {
     setTimeout(() => { const el = document.getElementById('autoSaveLabel'); if (el) el.textContent = ''; }, 2000);
   } catch(e) { console.error('Save error:', e); }
 }
+
+// FULLSCREEN
+let isFullscreen = false;
+
+function toggleFullscreen() {
+  const slideArea = document.querySelector('.slide-area');
+  const btn = document.getElementById('fullscreenBtn');
+  
+  if (!isFullscreen) {
+    // Try native fullscreen first
+    if (slideArea.requestFullscreen) {
+      slideArea.requestFullscreen().catch(() => applyCustomFullscreen(slideArea, btn));
+    } else if (slideArea.webkitRequestFullscreen) {
+      slideArea.webkitRequestFullscreen();
+    } else {
+      applyCustomFullscreen(slideArea, btn);
+    }
+    isFullscreen = true;
+    btn.textContent = '✕ Exit full screen';
+    btn.style.background = 'rgba(255,255,255,0.25)';
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+    removeCustomFullscreen(slideArea, btn);
+    isFullscreen = false;
+    btn.textContent = '⛶ Full screen';
+    btn.style.background = '';
+  }
+}
+
+function applyCustomFullscreen(el, btn) {
+  el.classList.add('viewer-fullscreen');
+  document.body.style.overflow = 'hidden';
+}
+
+function removeCustomFullscreen(el, btn) {
+  el.classList.remove('viewer-fullscreen');
+  document.body.style.overflow = '';
+}
+
+// Handle native fullscreen exit via Escape key
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) {
+    const slideArea = document.querySelector('.slide-area');
+    const btn = document.getElementById('fullscreenBtn');
+    removeCustomFullscreen(slideArea, btn);
+    isFullscreen = false;
+    if (btn) { btn.textContent = '⛶ Full screen'; btn.style.background = ''; }
+  }
+});
 
 // READ ALOUD
 const PREFERRED_VOICES = [
