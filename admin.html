@@ -401,15 +401,34 @@ async function adminSignOut() {
 
 // Check existing session on load
 async function checkSession() {
-  const { data: { session } } = await sb.auth.getSession();
-  if (session) {
-    const { data: profile } = await sb.from('profiles').select('is_admin').eq('id', session.user.id).single();
-    if (profile?.is_admin) {
-      document.getElementById('adminLogin').style.display = 'none';
-      document.getElementById('adminDash').style.display = 'block';
-      loadData();
-      return;
+  try {
+    // First try to refresh the session
+    const { data: refreshData } = await sb.auth.refreshSession();
+    const session = refreshData?.session;
+    
+    if (session) {
+      const { data: profile } = await sb.from('profiles').select('is_admin').eq('id', session.user.id).single();
+      if (profile?.is_admin) {
+        document.getElementById('adminLogin').style.display = 'none';
+        document.getElementById('adminDash').style.display = 'block';
+        loadData();
+        return;
+      }
     }
+    
+    // Fallback to getSession
+    const { data: { session: session2 } } = await sb.auth.getSession();
+    if (session2) {
+      const { data: profile } = await sb.from('profiles').select('is_admin').eq('id', session2.user.id).single();
+      if (profile?.is_admin) {
+        document.getElementById('adminLogin').style.display = 'none';
+        document.getElementById('adminDash').style.display = 'block';
+        loadData();
+        return;
+      }
+    }
+  } catch(e) {
+    console.error('Session check error:', e);
   }
 }
 
@@ -445,6 +464,9 @@ async function loadData() {
     document.getElementById('dashContent').style.display = 'block';
   } catch (e) {
     console.error('Load error:', e);
+    document.getElementById('loadingScreen').style.display = 'none';
+    document.getElementById('dashContent').style.display = 'block';
+    alert('Error loading data: ' + e.message);
   }
 }
 
