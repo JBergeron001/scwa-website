@@ -256,13 +256,13 @@ const CLOUDINARY_BASE = 'https://res.cloudinary.com/db1tgrb8g/image/upload';
 // Course structures for all certifications
 const COURSE_MODULES = {
   1: [
-    { moduleNumber: 1, title: 'Green Infrastructure & LID Fundamentals', start: 1, end: 101 },
-    { moduleNumber: 2, title: 'Unified GI/LID/BMP Understanding & Roles', start: 102, end: 129 },
-    { moduleNumber: 3, title: 'Hydrology, Policy & Funding', start: 130, end: 209 },
-    { moduleNumber: 4, title: 'GI/LID Synergy & Sustainable Urban Development', start: 210, end: 336 },
-    { moduleNumber: 5, title: 'GI Networks, Project Planning & Regulatory Compliance', start: 337, end: 465 },
-    { moduleNumber: 6, title: 'Adaptive Management, Water Management & BMP/LID Selection', start: 466, end: 601 },
-    { moduleNumber: 7, title: 'Plants in BMPs and LID Systems', start: 602, end: 621 }
+    { moduleNumber: 1, title: 'Green Infrastructure & LID Fundamentals', start: 1, end: 81 },
+    { moduleNumber: 2, title: 'Unified GI/LID/BMP Understanding & Roles', start: 82, end: 132 },
+    { moduleNumber: 3, title: 'Hydrology, Policy & Funding', start: 133, end: 200 },
+    { moduleNumber: 4, title: 'GI/LID Synergy & Sustainable Urban Development', start: 201, end: 335 },
+    { moduleNumber: 5, title: 'GI Networks, Project Planning & Regulatory Compliance', start: 336, end: 500 },
+    { moduleNumber: 6, title: 'Adaptive Management, Water Management & BMP/LID Selection', start: 501, end: 614 },
+    { moduleNumber: 7, title: 'Plants in BMPs and LID Systems', start: 615, end: 635 }
   ],
   2: [
     { moduleNumber: 1, title: 'Foundations of Green Infrastructure, LID, and BMP Terminology', start: 1, end: 36 },
@@ -432,7 +432,7 @@ function renderSlide() {
   // Build correct Cloudinary URL - folder not needed in URL
   let imgUrl;
   if (certNumber === 1) {
-    imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/Slide${slideNum}.jpg`;
+    imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/C1_${slideNum}.jpg`;
   } else if (certNumber === 2) {
     imgUrl = `https://res.cloudinary.com/db1tgrb8g/image/upload/S${slideNum}.jpg`;
   } else if (certNumber === 3) {
