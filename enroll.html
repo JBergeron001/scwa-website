@@ -327,7 +327,7 @@
       <span class="btn-text">Proceed to payment</span>
       <div class="spinner"></div>
     </button>
-    <p class="payment-note">🔒 Secure payment via Stripe or PayPal — coming soon. Click to reserve your spot.</p>
+    <p class="payment-note">🔒 Secure checkout powered by Stripe. You'll be taken to Stripe to complete your purchase, then returned to your dashboard.</p>
   </div>
 
   <!-- SUCCESS -->
@@ -353,12 +353,14 @@ const CERTS = [
 
 let selection = null; // { type: 'package' } or { type: 'individual', certNum: N }
 let userId = null;
+let userEmail = null;
 let ownedCerts = [];
 
 async function init() {
   const { data: { session } } = await sb.auth.getSession();
   if (!session) { window.location.href = 'login.html'; return; }
   userId = session.user.id;
+  userEmail = session.user.email;
 
   const { data: enrollments } = await sb.from('cert_enrollments').select('cert_number').eq('user_id', userId);
   ownedCerts = enrollments?.map(e => e.cert_number) || [];
@@ -456,65 +458,42 @@ function updateOrderSummary() {
   btn.disabled = false;
 }
 
+// Stripe Payment Links (SANDBOX / test). Swap these for the live-mode links
+// when you go live — nothing else in this file needs to change.
+const PAYMENT_LINKS = {
+  1: 'https://buy.stripe.com/test_00wcN55UG3vMbtW9DE6EU04',
+  2: 'https://buy.stripe.com/test_dRm4gz1EqaYe41u6rs6EU03',
+  3: 'https://buy.stripe.com/test_bJe5kD2Iueaq9lObLM6EU02',
+  4: 'https://buy.stripe.com/test_fZubJ1bf0eaq41udTU6EU01',
+  package: 'https://buy.stripe.com/test_aFaaEXaaW7M20PieXY6EU00'
+};
+
 async function enroll() {
   if (!selection) return;
   const btn = document.getElementById('enrollBtn');
   btn.classList.add('loading');
   btn.disabled = true;
 
-  try {
-    if (selection.type === 'package') {
-      // Enroll in certs 1, 2, 3
-      for (const num of [1, 2, 3]) {
-        if (!ownedCerts.includes(num)) {
-          await sb.from('cert_enrollments').upsert({
-            user_id: userId,
-            cert_number: num,
-            purchase_type: 'package',
-            cert_status: 'in_progress',
-            retry_available: true,
-            retry_used: false
-          }, { onConflict: 'user_id,cert_number' });
+  // Pick the matching Stripe Payment Link.
+  const base = selection.type === 'package'
+    ? PAYMENT_LINKS.package
+    : PAYMENT_LINKS[selection.certNum];
 
-          await sb.from('purchases').insert({
-            user_id: userId,
-            purchase_type: 'package',
-            cert_number: num,
-            amount_paid: 299.67, // 899/3
-            payment_method: 'stripe',
-            transaction_id: 'pending'
-          });
-        }
-      }
-    } else {
-      const price = selection.certNum === 4 ? 299.00 : 249.00;
-      const ptype = selection.certNum === 4 ? 'cert4' : 'individual';
-      await sb.from('cert_enrollments').upsert({
-        user_id: userId,
-        cert_number: selection.certNum,
-        purchase_type: ptype,
-        cert_status: 'in_progress',
-        retry_available: false
-      }, { onConflict: 'user_id,cert_number' });
-
-      await sb.from('purchases').insert({
-        user_id: userId,
-        purchase_type: ptype,
-        cert_number: selection.certNum,
-        amount_paid: price,
-        payment_method: 'stripe',
-        transaction_id: 'pending'
-      });
-    }
-
-    document.getElementById('mainContent').style.display = 'none';
-    document.getElementById('successScreen').classList.add('show');
-
-  } catch (err) {
-    alert('Error: ' + err.message);
+  if (!base) {
+    alert('Sorry — this option is not available for purchase yet.');
     btn.classList.remove('loading');
     btn.disabled = false;
+    return;
   }
+
+  // Attach the buyer's account id so the webhook knows whose account to unlock,
+  // and pre-fill their email. Access is granted by the server AFTER Stripe
+  // confirms payment — never here in the browser.
+  const url = new URL(base);
+  url.searchParams.set('client_reference_id', userId);
+  if (userEmail) url.searchParams.set('prefilled_email', userEmail);
+
+  window.location.href = url.toString();
 }
 
 init();
