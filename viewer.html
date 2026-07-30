@@ -304,6 +304,7 @@ let speechSynth = window.speechSynthesis;
 let saveTimeout = null;
 let selectedVoice = null;
 let courseData = [];
+let isAdmin = false;
 
 // Load slide texts for the correct cert
 async function loadSlideTexts() {
@@ -318,6 +319,14 @@ async function init() {
   if (!session) { window.location.href = 'login.html'; return; }
   userId = session.user.id;
 
+  // Admin/reviewer override: any email in launch_whitelist gets unlimited navigation
+  // (all modules unlocked, no enrollment required, no sequential gating).
+  try {
+    const { data: wl } = await sb.from('launch_whitelist')
+      .select('email').eq('email', session.user.email).maybeSingle();
+    isAdmin = !!wl;
+  } catch (e) { isAdmin = false; }
+
   const params = new URLSearchParams(window.location.search);
   certNumber = parseInt(params.get('cert')) || 1;
   const moduleParam = parseInt(params.get('module')) || null;
@@ -330,7 +339,7 @@ async function init() {
   // Check enrollment
   const { data: enrollment } = await sb.from('cert_enrollments')
     .select('*').eq('user_id', userId).eq('cert_number', certNumber).single();
-  if (!enrollment) { window.location.href = 'dashboard.html'; return; }
+  if (!enrollment && !isAdmin) { window.location.href = 'dashboard.html'; return; }
 
   // Load module progress
   const { data: mp } = await sb.from('module_progress')
@@ -373,7 +382,7 @@ async function init() {
     const p = moduleProgressData.find(m => m.module_number === i + 1);
     if (!p || !p.quiz_passed) { maxAllowed = i; break; }
   }
-  if (currentModuleIndex > maxAllowed) { currentModuleIndex = maxAllowed; currentSlideInModule = 0; }
+  if (!isAdmin && currentModuleIndex > maxAllowed) { currentModuleIndex = maxAllowed; currentSlideInModule = 0; }
   if (currentModuleIndex < 0) currentModuleIndex = 0;
 
   buildSidebar();
@@ -405,7 +414,7 @@ function buildSidebar() {
     const mp = moduleProgressData.find(m => m.module_number === i + 1);
     const isDone = mp?.quiz_passed;
     const isActive = i === currentModuleIndex;
-    const isUnlocked = unlocked; // accessible only if all previous modules are passed
+    const isUnlocked = isAdmin || unlocked; // admins can open any module; students need all previous passed
 
     const label = document.createElement('div');
     label.className = 'sidebar-section-title';
