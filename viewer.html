@@ -366,6 +366,16 @@ async function init() {
   }
   setTimeout(() => { selectedVoice = getBestVoice(); }, 500);
 
+  // Enforce sequential access: never open a module beyond the first not-yet-passed one,
+  // even if a ?module= URL asks for it.
+  let maxAllowed = courseData.length - 1;
+  for (let i = 0; i < courseData.length; i++) {
+    const p = moduleProgressData.find(m => m.module_number === i + 1);
+    if (!p || !p.quiz_passed) { maxAllowed = i; break; }
+  }
+  if (currentModuleIndex > maxAllowed) { currentModuleIndex = maxAllowed; currentSlideInModule = 0; }
+  if (currentModuleIndex < 0) currentModuleIndex = 0;
+
   buildSidebar();
   renderSlide();
 
@@ -389,10 +399,13 @@ function buildSidebar() {
   const sidebar = document.getElementById('sidebar');
   sidebar.innerHTML = '';
 
+  // A module is unlocked only if every earlier module's quiz has been passed.
+  let unlocked = true;
   courseData.forEach((mod, i) => {
     const mp = moduleProgressData.find(m => m.module_number === i + 1);
     const isDone = mp?.quiz_passed;
     const isActive = i === currentModuleIndex;
+    const isUnlocked = unlocked; // accessible only if all previous modules are passed
 
     const label = document.createElement('div');
     label.className = 'sidebar-section-title';
@@ -400,11 +413,22 @@ function buildSidebar() {
     sidebar.appendChild(label);
 
     const btn = document.createElement('button');
-    btn.className = `module-btn${isActive ? ' active' : ''}`;
-    const dotClass = isDone ? 'status-done' : isActive ? 'status-active' : 'status-locked';
-    btn.innerHTML = `<div class="module-status ${dotClass}"></div>${mod.title}`;
-    btn.onclick = () => { currentModuleIndex = i; currentSlideInModule = 0; buildSidebar(); renderSlide(); };
+    btn.className = `module-btn${isActive ? ' active' : ''}${!isUnlocked ? ' locked' : ''}`;
+    const dotClass = isDone ? 'status-done' : (isUnlocked ? 'status-active' : 'status-locked');
+    const lockMark = !isUnlocked ? ' <span style="margin-left:auto;opacity:0.6">🔒</span>' : '';
+    btn.innerHTML = `<div class="module-status ${dotClass}"></div>${mod.title}${lockMark}`;
+    if (isUnlocked) {
+      btn.onclick = () => { currentModuleIndex = i; currentSlideInModule = 0; buildSidebar(); renderSlide(); };
+    } else {
+      btn.disabled = true;
+      btn.style.opacity = '0.45';
+      btn.style.cursor = 'not-allowed';
+      btn.title = 'Pass the previous module quiz (80%) to unlock this module.';
+    }
     sidebar.appendChild(btn);
+
+    // Everything after the first not-yet-passed module stays locked.
+    if (!isDone) unlocked = false;
   });
 }
 

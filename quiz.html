@@ -494,10 +494,20 @@ function showResults(score, passed, correct) {
   const total = quizData.questions.length;
 
   if (passed) {
-    document.getElementById('resultDesc').textContent = `You answered ${correct} out of ${total} questions correctly. Well done! You've unlocked the next module.`;
-    document.getElementById('resultActions').innerHTML = `
+    // Module counts per cert — used to detect the final module and route to the exam.
+    const MODULE_COUNTS = { 1: 7, 2: 8, 3: 6, 4: 6 };
+    const isLastModule = moduleNumber >= (MODULE_COUNTS[certNumber] || 99);
+    if (isLastModule) {
+      document.getElementById('resultDesc').textContent = `You answered ${correct} out of ${total} questions correctly. You've completed the final module — the last step is your certification exam.`;
+      document.getElementById('resultActions').innerHTML = `
+      <a href="exam.html?cert=${certNumber}" class="result-btn btn-green">Take Final Exam →</a>
+      <a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;
+    } else {
+      document.getElementById('resultDesc').textContent = `You answered ${correct} out of ${total} questions correctly. Well done! You've unlocked the next module.`;
+      document.getElementById('resultActions').innerHTML = `
       <a href="viewer.html?cert=${certNumber}&module=${moduleNumber + 1}" class="result-btn btn-green">Continue to next module →</a>
       <a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;
+    }
   } else {
     document.getElementById('resultDesc').textContent = `You answered ${correct} out of ${total} questions correctly — ${score}% (need 80% to pass). You'll need to review the module slides and retake the quiz. Your progress for this module has been reset.`;
     document.getElementById('resultActions').innerHTML = `
