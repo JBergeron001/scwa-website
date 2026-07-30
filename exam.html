@@ -306,8 +306,8 @@
 
   <!-- LOCKED -->
   <div class="locked-screen" id="lockedScreen">
-    <div style="font-size:3rem;margin-bottom:1rem">🔒</div>
-    <h2 style="font-family:'DM Serif Display',serif;font-size:1.8rem;margin-bottom:0.75rem">Exam Locked</h2>
+    <div style="font-size:3rem;margin-bottom:1rem" id="lockedIcon">🔒</div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.8rem;margin-bottom:0.75rem" id="lockedTitle">Exam Locked</h2>
     <p style="color:var(--text-muted);line-height:1.6;max-width:420px;margin:0 auto 2rem" id="lockedMsg"></p>
     <a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>
   </div>
@@ -476,6 +476,24 @@ async function init() {
     return;
   }
 
+  // 48-hour cooldown between attempts: block a retry until 48h after the last attempt.
+  const COOLDOWN_MS = 48 * 60 * 60 * 1000;
+  const usedSoFar = enrollment.exam_attempts_used || 0;
+  const alreadyPassed = enrollment.cert_status === 'passed';
+  if (!alreadyPassed && usedSoFar > 0 && usedSoFar < 3 && enrollment.last_exam_attempt_at) {
+    const readyAt = new Date(new Date(enrollment.last_exam_attempt_at).getTime() + COOLDOWN_MS);
+    if (Date.now() < readyAt.getTime()) {
+      document.getElementById('loadingScreen').style.display = 'none';
+      const cd = document.getElementById('lockedScreen');
+      cd.classList.add('show');
+      document.getElementById('lockedIcon').textContent = '⏳';
+      document.getElementById('lockedTitle').textContent = 'Please Wait — Cooldown Active';
+      const opts = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
+      document.getElementById('lockedMsg').innerHTML = `You've used attempt <strong>${usedSoFar} of 3</strong>. To keep the exam fair, there is a <strong>48-hour wait between attempts</strong>. Your next attempt unlocks on <strong>${readyAt.toLocaleString('en-US', opts)}</strong>. Please use the time to review the module material.`;
+      return;
+    }
+  }
+
   const attemptsUsed = enrollment.exam_attempts_used || 0;
   const attemptsLeft = 3 - attemptsUsed;
 
@@ -622,6 +640,7 @@ async function submitExam() {
     // Update enrollment
     await sb.from('cert_enrollments').update({
       exam_attempts_used: attemptNumber,
+      last_exam_attempt_at: new Date().toISOString(),
       exam_locked: shouldLock && !retryAvailable,
       retry_available: retryAvailable,
       cert_status: passed ? 'passed' : (shouldLock && !retryAvailable ? 'locked' : 'in_progress'),
@@ -664,7 +683,9 @@ function showResults(score, passed, correct, locked, retryAvailable) {
     desc += ` You have exhausted all allowed attempts. Your account has been locked. Please contact MidAmerica Watershed.Org to have your account reviewed.`;
   } else {
     const attemptsLeft = 3 - ((enrollment.exam_attempts_used || 0) + 1);
-    desc += ` You need 80% to pass (need ${Math.ceil(total * 0.8)} correct answers). You have ${attemptsLeft} attempt(s) remaining.`;
+    const readyAt = new Date(Date.now() + 48 * 60 * 60 * 1000);
+    const opts = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
+    desc += ` You need 80% to pass (${Math.ceil(total * 0.8)} correct answers). You have ${attemptsLeft} attempt(s) remaining, but there is a 48-hour wait between attempts — your next attempt opens on ${readyAt.toLocaleString('en-US', opts)}.`;
   }
 
   document.getElementById('resultDesc').textContent = desc;
@@ -695,8 +716,8 @@ function showResults(score, passed, correct, locked, retryAvailable) {
     actionsHtml += `<button class="result-btn btn-gold" onclick="downloadCertificate()">⬇ Download Certificate PDF</button>`;
     actionsHtml += `<a href="dashboard.html" class="result-btn btn-green">Go to dashboard</a>`;
   } else if (!locked) {
-    actionsHtml += `<a href="exam.html?cert=${certNumber}" class="result-btn btn-gold">Retake exam</a>`;
-    actionsHtml += `<a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;
+    // Attempts remain, but a 48-hour cooldown applies before the next try.
+    actionsHtml += `<a href="dashboard.html" class="result-btn btn-gold">Back to dashboard</a>`;
   } else {
     actionsHtml += `<a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;
   }
