@@ -458,14 +458,13 @@ function updateOrderSummary() {
   btn.disabled = false;
 }
 
-// Stripe Payment Links (SANDBOX / test). Swap these for the live-mode links
-// when you go live — nothing else in this file needs to change.
+// Stripe Payment Links (LIVE).
 const PAYMENT_LINKS = {
-  1: 'https://buy.stripe.com/test_00wcN55UG3vMbtW9DE6EU04',
-  2: 'https://buy.stripe.com/test_dRm4gz1EqaYe41u6rs6EU03',
-  3: 'https://buy.stripe.com/test_bJe5kD2Iueaq9lObLM6EU02',
-  4: 'https://buy.stripe.com/test_fZubJ1bf0eaq41udTU6EU01',
-  package: 'https://buy.stripe.com/test_aFaaEXaaW7M20PieXY6EU00'
+  1: 'https://buy.stripe.com/eVqfZb6WM42QaGx0qk6wE01',
+  2: 'https://buy.stripe.com/3cI7sF1Cs7f27ul6OI6wE02',
+  3: 'https://buy.stripe.com/dRm00d94Uczmg0R0qk6wE03',
+  4: 'https://buy.stripe.com/7sYcMZch6are9Ct6OI6wE04',
+  package: 'https://buy.stripe.com/00wdR34OEczmcOF0qk6wE00'
 };
 
 async function enroll() {
