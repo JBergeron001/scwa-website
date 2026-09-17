@@ -258,10 +258,30 @@
 </nav>
 
 <!-- RESOURCES BAR -->
-<div style="position:sticky;top:68px;z-index:199;background:var(--gold);color:var(--green-dark);font-family:'DM Sans',sans-serif;box-shadow:0 2px 12px rgba(0,0,0,.14)">
-  <div style="max-width:1120px;margin:0 auto;padding:.6rem 1.5rem;display:flex;align-items:center;justify-content:center;gap:.6rem 1.1rem;flex-wrap:wrap;text-align:center">
-    <span style="font-weight:600;font-size:.94rem;line-height:1.3">Free green-infrastructure tools &amp; references &mdash; GIST, OASIS, the MW-1 standard &amp; a GIS toolbox.</span>
-    <a href="resources.html" style="display:inline-flex;align-items:center;gap:.35rem;font-weight:700;font-size:.9rem;color:var(--gold);background:var(--green-dark);padding:.4rem .95rem;border-radius:20px;text-decoration:none;white-space:nowrap">Explore the Resources Hub &rarr;</a>
+<style>
+@keyframes resSheen { 0% { transform: translateX(-120%) skewX(-20deg); } 60%,100% { transform: translateX(320%) skewX(-20deg); } }
+@keyframes resGlow  { 0%,100% { box-shadow: 0 3px 16px rgba(224,178,60,.45); } 50% { box-shadow: 0 3px 26px rgba(244,215,120,.9); } }
+@keyframes resShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+.res-bar{ position:sticky; top:68px; z-index:199; overflow:hidden;
+  background:linear-gradient(90deg,#c79a2b,#eac455 30%,#f7e08d 50%,#eac455 70%,#c79a2b);
+  background-size:220% 100%; animation:resGlow 3.2s ease-in-out infinite, resShift 7s ease-in-out infinite; }
+.res-bar::after{ content:""; position:absolute; top:0; bottom:0; left:0; width:34%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);
+  animation:resSheen 4.2s ease-in-out infinite; pointer-events:none; }
+.res-inner{ position:relative; z-index:2; max-width:1120px; margin:0 auto; padding:.62rem 1.5rem;
+  display:flex; align-items:center; justify-content:center; gap:.6rem 1.1rem; flex-wrap:wrap; text-align:center;
+  font-family:'DM Sans',sans-serif; color:#063d32; }
+.res-inner .rtxt{ font-weight:700; font-size:.95rem; line-height:1.3; color:#063d32; text-shadow:0 1px 0 rgba(255,255,255,.35); }
+.res-btn{ display:inline-flex; align-items:center; gap:.35rem; font-weight:700; font-size:.9rem; color:#f7e08d;
+  background:#063d32; padding:.42rem 1rem; border-radius:22px; text-decoration:none; white-space:nowrap;
+  box-shadow:0 2px 8px rgba(0,0,0,.25); transition:transform .12s, box-shadow .2s; }
+.res-btn:hover{ transform:translateY(-1px); box-shadow:0 4px 14px rgba(0,0,0,.32); }
+@media (prefers-reduced-motion: reduce){ .res-bar{ animation:none; } .res-bar::after{ animation:none; display:none; } }
+</style>
+<div class="res-bar">
+  <div class="res-inner">
+    <span class="rtxt">✦ Free green-infrastructure tools &amp; references &mdash; GIST, OASIS, the MW-1 standard &amp; a GIS toolbox.</span>
+    <a class="res-btn" href="resources.html">Explore the Resources Hub &rarr;</a>
   </div>
 </div>
 
