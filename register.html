@@ -337,12 +337,12 @@
 
   <div class="panel-content">
     <h1 class="panel-headline">Professional credentials for <em>green infrastructure</em> leaders</h1>
-    <p class="panel-desc">Four self-paced certifications built for stormwater and green infrastructure professionals. Expert-level content, interactive slides, and read-aloud accessibility.</p>
+    <p class="panel-desc">Four self-paced credentials — CGIPD, CGIIC, CGIMM and CMGI — built for stormwater and green infrastructure professionals. About 30 hours each, documented toward the PDU, CEU and PDH requirements of your other credentials.</p>
     <div class="cert-list">
-      <div class="cert-item"><div class="cert-dot"></div>Green Infrastructure Fundamentals — $249</div>
-      <div class="cert-item"><div class="cert-dot"></div>Stormwater Management Principles — $249</div>
-      <div class="cert-item"><div class="cert-dot"></div>Advanced Green Infrastructure Design — $249</div>
-      <div class="cert-item"><div class="cert-dot"></div>Master of Green Infrastructure — $299</div>
+      <div class="cert-item"><div class="cert-dot"></div>CGIPD · Green Infrastructure Planning and Design — $249</div>
+      <div class="cert-item"><div class="cert-dot"></div>CGIIC · Green Infrastructure Installation and Construction — $249</div>
+      <div class="cert-item"><div class="cert-dot"></div>CGIMM · Green Infrastructure Maintenance and Management — $249</div>
+      <div class="cert-item"><div class="cert-dot"></div>CMGI · Master of Green Infrastructure — $299</div>
     </div>
   </div>
 
@@ -514,22 +514,35 @@
         email,
         password,
         options: {
-          data: { full_name: `${firstName} ${lastName}` }
+          data: {
+            full_name: `${firstName} ${lastName}`,
+            address: `${street}, ${city}, ${state} ${zip}`,
+            phone
+          },
+          emailRedirectTo: `${window.location.origin}/login.html`
         }
       });
 
       if (authError) throw authError;
 
-      // 2. Insert profile
-      const { error: profileError } = await sb.from('profiles').insert({
-        id: authData.user.id,
-        full_name: `${firstName} ${lastName}`,
-        email,
-        address: `${street}, ${city}, ${state} ${zip}`,
-        phone
-      });
+      // Supabase returns a fake user with no identities when the email is already registered.
+      if (authData.user && Array.isArray(authData.user.identities) && authData.user.identities.length === 0) {
+        throw new Error('An account with this email already exists. Please sign in or reset your password.');
+      }
 
-      if (profileError) throw profileError;
+      // 2. Insert profile — only possible now if a session exists (email confirmation off).
+      // Otherwise the database trigger (or the dashboard on first sign-in) creates it
+      // from the details saved with the signup above.
+      if (authData.session) {
+        const { error: profileError } = await sb.from('profiles').upsert({
+          id: authData.user.id,
+          full_name: `${firstName} ${lastName}`,
+          email,
+          address: `${street}, ${city}, ${state} ${zip}`,
+          phone
+        }, { onConflict: 'id' });
+        if (profileError) console.warn('Profile insert deferred:', profileError.message);
+      }
 
       // Show success
       document.getElementById('formState').style.display = 'none';

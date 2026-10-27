@@ -162,6 +162,19 @@
   .cn-1, .cn-2, .cn-3 { background: var(--green-light); color: var(--green-dark); }
   .cn-4 { background: var(--gold-light); color: #7a5c10; }
   .cert-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; line-height: 1.25; margin-bottom: 0.5rem; }
+  /* Credential "product" mark — the acronym is the brand, the full name sits under it */
+  .cred-mark { display: inline-block; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.9rem; letter-spacing: 0.06em; line-height: 1; color: var(--green-dark); border: 2px solid currentColor; border-radius: 10px; padding: 0.35rem 0.7rem 0.3rem; margin-bottom: 0.65rem; }
+  .cert-card.cert-4 .cred-mark { color: var(--gold); }
+  .cred-mark-sm { display: inline-block; font-weight: 700; letter-spacing: 0.06em; font-size: 1.05rem; color: var(--gold); border: 1.5px solid var(--gold); border-radius: 7px; padding: 0.15rem 0.5rem; margin-bottom: 0.45rem; }
+  .ce-chip { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; font-weight: 600; color: var(--green-dark); background: var(--green-light); border-radius: 99px; padding: 0.25rem 0.7rem; margin-top: 0.6rem; }
+  .cert-card.cert-4 .ce-chip { background: rgba(201,168,76,0.18); color: var(--gold); }
+  .ce-section { background: #fafaf7; padding: 4.5rem 2rem; }
+  .ce-inner { max-width: 1000px; margin: 0 auto; }
+  .ce-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .ce-card { background: #fff; border: 1.5px solid #d4d4c8; border-radius: 12px; padding: 1.25rem; }
+  .ce-card-k { font-weight: 700; color: var(--green-dark); font-size: 1.05rem; margin-bottom: 0.3rem; }
+  .ce-card-d { font-size: 0.86rem; color: #5a5a55; line-height: 1.6; }
+  .ce-note { font-size: 0.8rem; color: #5a5a55; margin-top: 1.25rem; line-height: 1.6; }
   .cert-price { font-size: 1.5rem; font-weight: 600; color: var(--green-dark); }
   .cert-card.cert-4 .cert-price { color: #7a5c10; }
 
@@ -491,9 +504,9 @@
 <!-- CERTIFICATIONS -->
 <section class="certs-section" id="certifications">
   <div class="section-header">
-    <div class="section-eyebrow">Four Professional Certifications</div>
-    <h2 class="section-title">A complete credential pathway — from fundamentals to mastery</h2>
-    <p class="section-desc">Each certification is a standalone credential. Complete all four to earn the prestigious Master of Green Infrastructure designation.</p>
+    <div class="section-eyebrow">Four Professional Credentials · CGIPD · CGIIC · CGIMM · CMGI</div>
+    <h2 class="section-title">Earn them one at a time. Collect all four.</h2>
+    <p class="section-desc">Each credential is a standalone certification you can put after your name — and each is about 30 hours of professional development you can document toward the PDU, CEU and PDH requirements of the credentials you already hold. Earn CGIPD, CGIIC and CGIMM to unlock the CMGI — Master of Green Infrastructure.</p>
   </div>
 
   <div class="certs-grid">
@@ -501,17 +514,21 @@
     <div class="cert-card">
       <div class="cert-card-header">
         <div class="cert-number cn-1">Certification 1</div>
+        <div class="cred-mark">CGIPD</div>
         <div class="cert-title">Green Infrastructure Planning and Design</div>
         <div class="cert-price">$249</div>
+        <div class="ce-chip">≈ 30 hrs · counts toward PDU / CEU / PDH</div>
       </div>
       <div class="cert-card-body">
         <p class="cert-desc">Covers the principles, strategies, and techniques of Green Infrastructure and Low Impact Development (LID) at the planning and design level. Includes stormwater management approaches, GI component types, site assessment fundamentals, regulatory frameworks, and real-world case studies from cities across the United States.</p>
         <div class="cert-modules">
-          <div class="cert-module-item">GI & LID Principles and Planning Frameworks</div>
-          <div class="cert-module-item">Stormwater Management Strategies and Techniques</div>
-          <div class="cert-module-item">GI Component Design and Applications</div>
-          <div class="cert-module-item">Regulatory Context and Compliance</div>
-          <div class="cert-module-item">Case Studies in Green Infrastructure Success</div>
+          <div class="cert-module-item">GI &amp; LID Fundamentals</div>
+          <div class="cert-module-item">Unified GI/LID/BMP Understanding &amp; Roles</div>
+          <div class="cert-module-item">Hydrology, Policy &amp; Funding</div>
+          <div class="cert-module-item">GI/LID Synergy &amp; Sustainable Urban Development</div>
+          <div class="cert-module-item">GI Networks, Project Planning &amp; Regulatory Compliance</div>
+          <div class="cert-module-item">Adaptive Management, Water Management &amp; BMP/LID Selection</div>
+          <div class="cert-module-item">Plants in BMPs and LID Systems</div>
         </div>
         <a href="register.html" class="cert-enroll-btn btn-enroll-green">Enroll — $249</a>
       </div>
@@ -521,17 +538,22 @@
     <div class="cert-card">
       <div class="cert-card-header">
         <div class="cert-number cn-2">Certification 2</div>
+        <div class="cred-mark">CGIIC</div>
         <div class="cert-title">Green Infrastructure Installation and Construction</div>
         <div class="cert-price">$249</div>
+        <div class="ce-chip">≈ 30 hrs · counts toward PDU / CEU / PDH</div>
       </div>
       <div class="cert-card-body">
         <p class="cert-desc">Focuses on the practical installation and construction of Green Infrastructure practices. Covers materials, methods, site preparation, quality control, contractor responsibilities, sequencing, and field application of bioretention, permeable pavement, green roofs, and related LID best management practices.</p>
         <div class="cert-modules">
-          <div class="cert-module-item">GI Installation Methods and Materials</div>
-          <div class="cert-module-item">Site Preparation and Construction Sequencing</div>
-          <div class="cert-module-item">Quality Control and Field Standards</div>
-          <div class="cert-module-item">Contractor Roles and Responsibilities</div>
-          <div class="cert-module-item">Field Applications and Inspections</div>
+          <div class="cert-module-item">Foundations of GI, LID &amp; BMP Terminology</div>
+          <div class="cert-module-item">Legal Responsibilities, Documentation &amp; Permitting</div>
+          <div class="cert-module-item">Site Preparation, Testing, Soils &amp; Excavation</div>
+          <div class="cert-module-item">Construction of LID BMPs</div>
+          <div class="cert-module-item">Sequencing, Logistics, Quality Control &amp; Avoiding Failure</div>
+          <div class="cert-module-item">Retrofitting GI Into Existing Systems</div>
+          <div class="cert-module-item">Post Construction</div>
+          <div class="cert-module-item">Certifying GI Projects and Installations</div>
         </div>
         <a href="register.html" class="cert-enroll-btn btn-enroll-green">Enroll — $249</a>
       </div>
@@ -541,16 +563,19 @@
     <div class="cert-card">
       <div class="cert-card-header">
         <div class="cert-number cn-3">Certification 3</div>
+        <div class="cred-mark">CGIMM</div>
         <div class="cert-title">Green Infrastructure Maintenance and Management</div>
         <div class="cert-price">$249</div>
+        <div class="ce-chip">≈ 30 hrs · counts toward PDU / CEU / PDH</div>
       </div>
       <div class="cert-card-body">
         <p class="cert-desc">Equips professionals with the knowledge and skills to ensure the long-term success of Green Infrastructure systems. Covers lifecycle management, inspection protocols, routine and advanced maintenance, troubleshooting and repair, MS4 permit compliance, cost forecasting, and future innovations including AI monitoring and climate adaptation.</p>
         <div class="cert-modules">
-          <div class="cert-module-item">Inspection, Maintenance and Lifecycle Stages</div>
-          <div class="cert-module-item">Routine and Advanced Maintenance Protocols</div>
-          <div class="cert-module-item">Troubleshooting, Diagnosis and Repairs</div>
-          <div class="cert-module-item">Policy, Compliance and Funding</div>
+          <div class="cert-module-item">Importance of Inspection and Maintenance</div>
+          <div class="cert-module-item">Routine and Advanced Maintenance</div>
+          <div class="cert-module-item">Troubleshooting and Repairs</div>
+          <div class="cert-module-item">Inspection Tools and Lifecycle Planning</div>
+          <div class="cert-module-item">Policy, Compliance, and Funding</div>
           <div class="cert-module-item">Future Innovations and Climate Adaptation</div>
         </div>
         <a href="register.html" class="cert-enroll-btn btn-enroll-green">Enroll — $249</a>
@@ -562,8 +587,10 @@
       <div class="cert-card-header" style="padding:1.75rem 2rem;">
         <span class="cert-4-crown">🏆</span>
         <div class="cert-4-tag">Certification 4 — Master Level</div>
+        <div class="cred-mark">CMGI</div>
         <div class="cert-title">Master of Green Infrastructure</div>
-        <div style="color:rgba(255,255,255,0.6); font-size:0.85rem; margin-top:0.4rem;">Prerequisite: Must have passed Certifications 1, 2 & 3 &nbsp;·&nbsp; Available individually or included in the complete package</div>
+        <div class="ce-chip">≈ 30 hrs · counts toward PDU / CEU / PDH</div>
+        <div style="color:rgba(255,255,255,0.6); font-size:0.85rem; margin-top:0.4rem;">Prerequisite: CGIPD, CGIIC &amp; CGIMM &nbsp;·&nbsp; Available individually or included in the complete package</div>
       </div>
       <div class="cert-card-body">
         <div class="cert-4-left">
@@ -580,20 +607,38 @@
         <div class="cert-4-right">
           <div style="font-size:0.75rem; font-weight:600; color:var(--green-dark); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:0.75rem;">6 Modules</div>
           <div class="cert-modules">
-            <div class="cert-module-item">Ecological Systems and Landscape Architecture Theory</div>
-            <div class="cert-module-item">Watershed Planning and Regional Scale Design</div>
-            <div class="cert-module-item">Advanced Site Design and Materials Science</div>
-            <div class="cert-module-item">Planting Ecology and Habitat Design</div>
-            <div class="cert-module-item">Performance Evaluation and Monitoring</div>
-            <div class="cert-module-item">Professional Leadership and Policy</div>
+            <div class="cert-module-item">Ecological Systems &amp; Site Analysis</div>
+            <div class="cert-module-item">GI Composition, Edges &amp; Multifunctional Landscapes</div>
+            <div class="cert-module-item">Materials, Planting Science &amp; Engineered Soils</div>
+            <div class="cert-module-item">Performance Evaluation, Greenway Networks &amp; Retrofit Design</div>
+            <div class="cert-module-item">Communication, Leadership &amp; Professional Practice in GI</div>
+            <div class="cert-module-item">Advanced Technical Methods: Microclimate, Analysis &amp; Portfolio</div>
           </div>
           <div style="margin-top:1.25rem; background:var(--gold-light); border:1.5px solid var(--gold); border-radius:10px; padding:1rem 1.25rem;">
             <div style="font-size:0.78rem; font-weight:600; color:#7a5c10; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem;">The ultimate credential</div>
-            <div style="font-size:0.85rem; color:#5c420a; line-height:1.6;">Passing all four certifications earns you the <strong>Master of Green Infrastructure</strong> designation — recognized professional mastery across planning, design, installation, construction, maintenance, and management of Green Infrastructure.</div>
+            <div style="font-size:0.85rem; color:#5c420a; line-height:1.6;">Holding all four credentials earns you the <strong>CMGI — Master of Green Infrastructure</strong> designation — recognized professional mastery across planning, design, installation, construction, maintenance, and management of Green Infrastructure.</div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CONTINUING EDUCATION -->
+<section class="ce-section" id="continuing-education">
+  <div class="ce-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Continuing Education Built In</div>
+      <h2 class="section-title">Every credential also keeps your other credentials current</h2>
+      <p class="section-desc">Each MAWA certification is roughly 30 hours of self-paced professional development with graded module quizzes and a 100-question final exam — the kind of documented coursework most licensing and certifying bodies accept toward renewal. Earn a new credential and log the hours toward the ones you already hold.</p>
+    </div>
+    <div class="ce-grid">
+      <div class="ce-card"><div class="ce-card-k">PDUs</div><div class="ce-card-d">Professional Development Units for credentials such as CPESC, CPSWQ, CESSWI and other stormwater, erosion-control and inspector certifications.</div></div>
+      <div class="ce-card"><div class="ce-card-k">PDHs</div><div class="ce-card-d">Professional Development Hours for Professional Engineer license renewal in most states, documented with your dated certificate.</div></div>
+      <div class="ce-card"><div class="ce-card-k">CEUs &amp; CE hours</div><div class="ce-card-d">Continuing education for LEED, ENV SP, landscape architecture, arborist and floodplain-management credentials and other green-building programs.</div></div>
+      <div class="ce-card"><div class="ce-card-k">CM credits</div><div class="ce-card-d">Certification Maintenance for planners — watershed planning, policy, funding and regulatory content suited to AICP self-reporting.</div></div>
+    </div>
+    <p class="ce-note">Your downloadable certificate lists your name, certificate number, credential, completion date and course hours for your records. Each credentialing body sets its own rules for which courses and how many hours it accepts — check with yours before you submit. Questions? <a href="mailto:admin@midamericawatershed.org" style="color:var(--green-dark)">admin@midamericawatershed.org</a></p>
   </div>
 </section>
 
@@ -608,7 +653,7 @@
     <!-- Header -->
     <div style="text-align:center; margin-bottom:2.5rem;">
       <div style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--gold); color:var(--green-dark); font-size:0.78rem; font-weight:700; padding:0.35rem 1.1rem; border-radius:99px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1rem;">⭐ Best Value — Save $147</div>
-      <h2 style="font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); color:#fff; line-height:1.15; margin-bottom:0.75rem;">Complete Package — <em style="color:var(--gold); font-style:italic;">All Four Certifications</em></h2>
+      <h2 style="font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); color:#fff; line-height:1.15; margin-bottom:0.75rem;">Complete Package — <em style="color:var(--gold); font-style:italic;">CGIPD · CGIIC · CGIMM · CMGI</em></h2>
       <p style="color:rgba(255,255,255,0.65); font-size:1rem; max-width:680px; margin:0 auto; line-height:1.7;">The complete path to becoming a <strong style="color:#fff;">Master of Green Infrastructure</strong> — all four certifications in one purchase at a significant discount.</p>
     </div>
 
@@ -625,7 +670,7 @@
         <div style="font-size:1.3rem; flex-shrink:0;">🎯</div>
         <div>
           <div style="font-size:0.85rem; font-weight:600; color:#fff; margin-bottom:0.2rem;">Four Standalone Certifications</div>
-          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); line-height:1.5;">Each certification is a separate credential you earn individually — covering Planning & Design, Installation & Construction, Maintenance & Management, and the Master of Green Infrastructure designation.</div>
+          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); line-height:1.5;">Each is a separate credential you earn individually — CGIPD (Planning &amp; Design), CGIIC (Installation &amp; Construction), CGIMM (Maintenance &amp; Management) and the CMGI Master of Green Infrastructure designation.</div>
         </div>
       </div>
       <div style="display:flex; gap:0.75rem; align-items:flex-start;">
@@ -646,7 +691,7 @@
         <div style="font-size:1.3rem; flex-shrink:0;">📜</div>
         <div>
           <div style="font-size:0.85rem; font-weight:600; color:#fff; margin-bottom:0.2rem;">Four Downloadable Certificates</div>
-          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); line-height:1.5;">Pass each exam and instantly download your personalized certificate PDF — with your name, user number, date earned, and certification title — for your portfolio, LinkedIn, and CE records.</div>
+          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); line-height:1.5;">Pass each exam and instantly download your personalized certificate PDF — with your name, certificate number, date earned, and credential — for your portfolio, LinkedIn, and continuing-education records. About 120 professional development hours across all four.</div>
         </div>
       </div>
       <div style="display:flex; gap:0.75rem; align-items:flex-start;">
@@ -663,24 +708,28 @@
       <div style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:1.25rem; text-align:center;">
         <div style="font-size:1.5rem; margin-bottom:0.5rem;">📐</div>
         <div style="font-size:0.72rem; font-weight:600; color:var(--gold); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.3rem;">Cert 1</div>
+        <div class="cred-mark-sm">CGIPD</div>
         <div style="font-size:0.85rem; color:#fff; font-weight:500; line-height:1.3;">Green Infrastructure Planning and Design</div>
         <div style="font-size:0.82rem; color:rgba(255,255,255,0.4); margin-top:0.4rem;">$249 individually</div>
       </div>
       <div style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:1.25rem; text-align:center;">
         <div style="font-size:1.5rem; margin-bottom:0.5rem;">🏗️</div>
         <div style="font-size:0.72rem; font-weight:600; color:var(--gold); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.3rem;">Cert 2</div>
+        <div class="cred-mark-sm">CGIIC</div>
         <div style="font-size:0.85rem; color:#fff; font-weight:500; line-height:1.3;">Green Infrastructure Installation and Construction</div>
         <div style="font-size:0.82rem; color:rgba(255,255,255,0.4); margin-top:0.4rem;">$249 individually</div>
       </div>
       <div style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:1.25rem; text-align:center;">
         <div style="font-size:1.5rem; margin-bottom:0.5rem;">🔧</div>
         <div style="font-size:0.72rem; font-weight:600; color:var(--gold); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.3rem;">Cert 3</div>
+        <div class="cred-mark-sm">CGIMM</div>
         <div style="font-size:0.85rem; color:#fff; font-weight:500; line-height:1.3;">Green Infrastructure Maintenance and Management</div>
         <div style="font-size:0.82rem; color:rgba(255,255,255,0.4); margin-top:0.4rem;">$249 individually</div>
       </div>
       <div style="background:rgba(201,168,76,0.15); border:2px solid var(--gold); border-radius:12px; padding:1.25rem; text-align:center;">
         <div style="font-size:1.5rem; margin-bottom:0.5rem;">🏆</div>
         <div style="font-size:0.72rem; font-weight:600; color:var(--gold); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.3rem;">Cert 4</div>
+        <div class="cred-mark-sm">CMGI</div>
         <div style="font-size:0.85rem; color:#fff; font-weight:500; line-height:1.3;">Master of Green Infrastructure</div>
         <div style="font-size:0.82rem; color:rgba(255,255,255,0.4); margin-top:0.4rem;">$299 individually</div>
       </div>
@@ -701,7 +750,7 @@
 
     <!-- Fine print -->
     <div style="text-align:center; font-size:0.8rem; color:rgba(255,255,255,0.35); line-height:1.6; max-width:680px; margin:0 auto;">
-      Certification 4 unlocks automatically after passing Certifications 1, 2 &amp; 3 — pursue them back-to-back or years apart, there is no time limit. Payment via Stripe or PayPal.
+      Certification 4 unlocks automatically after passing Certifications 1, 2 &amp; 3 — pursue them back-to-back or years apart, there is no time limit. Secure payment via Stripe.
     </div>
 
   </div>
@@ -780,7 +829,7 @@
       <div class="step-num">1</div>
       <div class="step-content">
         <div class="step-title">Create your account and purchase a certification</div>
-        <div class="step-desc">Register with your name, email, address, and phone. Purchase a single certification ($249 each) or the complete package of all four certifications for $899. Payment via Stripe or PayPal.</div>
+        <div class="step-desc">Register with your name, email, address, and phone. Purchase a single certification ($249 each) or the complete package of all four certifications for $899. Secure payment via Stripe.</div>
       </div>
     </div>
     <div class="how-step">
@@ -808,7 +857,7 @@
       <div class="step-num">5</div>
       <div class="step-content">
         <div class="step-title">Download your certificate and advance your career</div>
-        <div class="step-desc">Your personalized certificate PDF — with your name, unique user number, date, and certification title — is available to download immediately. Complete Certifications 1, 2, and 3 to unlock and pursue the Master of Green Infrastructure.</div>
+        <div class="step-desc">Your personalized certificate PDF — with your name, certificate number, date, and credential (CGIPD, CGIIC, CGIMM or CMGI) — is available to download immediately. Earn CGIPD, CGIIC and CGIMM to unlock the CMGI — Master of Green Infrastructure.</div>
       </div>
     </div>
   </div>

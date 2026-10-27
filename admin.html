@@ -277,6 +277,45 @@
         </div>
       </div>
 
+      <!-- COMPLIMENTARY CERTIFICATIONS (VIP) -->
+      <div style="margin-top:2.5rem;" id="compSection">
+        <div class="toolbar" style="flex-wrap:wrap;gap:0.75rem;">
+          <div class="toolbar-left">
+            <h2 class="section-title">Complimentary Certifications (VIP)</h2>
+          </div>
+        </div>
+        <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:1.1rem 1.25rem;margin-bottom:1rem;">
+          <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.8rem;line-height:1.6;">Give a VIP free access to CGIPD, CGIIC or CGIMM. If they already have an account it unlocks now; if not, it unlocks automatically when they sign up with this email. CMGI can't be comped — it must be earned.</div>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+            <input type="email" id="compEmail" placeholder="vip@agency.gov" style="flex:1 1 220px;padding:0.5rem 0.8rem;border:1.5px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:0.88rem;">
+            <input type="text" id="compName" placeholder="Full name" style="flex:1 1 170px;padding:0.5rem 0.8rem;border:1.5px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:0.88rem;">
+            <select id="compCert" class="filter-select" style="flex:0 1 auto;">
+              <option value="1">CGIPD — Planning and Design</option>
+              <option value="2">CGIIC — Installation and Construction</option>
+              <option value="3">CGIMM — Maintenance and Management</option>
+            </select>
+            <input type="text" id="compNote" placeholder="Reason / note (optional)" style="flex:1 1 200px;padding:0.5rem 0.8rem;border:1.5px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:0.88rem;">
+            <button class="export-btn" id="compBtn" onclick="grantComp()" style="background:var(--green-dark);">🎁 Comp certification</button>
+          </div>
+          <div id="compResult" style="display:none;margin-top:0.8rem;font-size:0.88rem;line-height:1.6;"></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Recipient</th>
+                <th>Credential</th>
+                <th>Status</th>
+                <th>Granted</th>
+                <th>Note</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="compTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
       <!-- PRE-LAUNCH REVIEWER WHITELIST -->
       <div style="margin-top:2.5rem;">
         <div class="toolbar">
@@ -459,6 +498,7 @@ async function loadData() {
     renderRenewalTable(allRenewals);
     renderCeuTable(allCeuActivities);
     loadWhitelist();
+    loadComps();
 
     document.getElementById('loadingScreen').style.display = 'none';
     document.getElementById('dashContent').style.display = 'block';
@@ -497,13 +537,14 @@ function renderTable(users) {
     const certCell = (num) => {
       const e = userEnrollments.find(e => e.cert_number === num);
       if (!e) return '<span class="badge badge-none">—</span>';
-      if (e.cert_status === 'passed') return '<span class="badge badge-passed">Passed</span>';
-      if (e.cert_status === 'locked') return '<span class="badge badge-locked">Locked</span>';
-      return '<span class="badge badge-progress">In Progress</span>';
+      const comp = e.purchase_type === 'comp' ? ' 🎁' : '';
+      if (e.cert_status === 'passed') return `<span class="badge badge-passed">Passed${comp}</span>`;
+      if (e.cert_status === 'locked') return `<span class="badge badge-locked">Locked${comp}</span>`;
+      return `<span class="badge badge-progress">In Progress${comp}</span>`;
     };
 
     return `<tr>
-      <td class="user-num">#${String(u.user_number).padStart(5,'0')}</td>
+      <td class="user-num">#${u.user_number}</td>
       <td><div class="user-name">${u.full_name}</div></td>
       <td><div class="user-email">${u.email}</div></td>
       <td style="font-size:0.82rem">${u.phone || '—'}</td>
@@ -558,7 +599,9 @@ function viewUser(userId) {
       : '<span class="badge badge-progress">In Progress</span>';
 
     const resetBtn = e.exam_locked
-      ? `<button class="action-btn btn-reset" onclick="resetExamLock('${userId}', ${num})">Reset Lock</button>`
+      ? (e.retry_available
+          ? `<button class="action-btn btn-reset" onclick="grantPaidRetry('${userId}', ${num})">Grant $50 Retry (1 attempt)</button> `
+          : '') + `<button class="action-btn btn-reset" onclick="resetExamLock('${userId}', ${num})">Reset Lock</button>`
       : '';
 
     const passedDate = issuedCert ? new Date(issuedCert.issued_at).toLocaleDateString() : '—';
@@ -588,7 +631,7 @@ function viewUser(userId) {
       <div class="detail-section-title">Personal Information</div>
       <div class="detail-grid">
         <div class="detail-item"><div class="dlabel">Full Name</div><div class="dval">${user.full_name}</div></div>
-        <div class="detail-item"><div class="dlabel">User Number</div><div class="dval">#${String(user.user_number).padStart(5,'0')}</div></div>
+        <div class="detail-item"><div class="dlabel">User Number</div><div class="dval">#${user.user_number}</div></div>
         <div class="detail-item"><div class="dlabel">Email</div><div class="dval">${user.email}</div></div>
         <div class="detail-item"><div class="dlabel">Phone</div><div class="dval">${user.phone || '—'}</div></div>
         <div class="detail-item" style="grid-column:1/-1"><div class="dlabel">Address</div><div class="dval">${user.address || '—'}</div></div>
@@ -636,6 +679,27 @@ async function resetExamLock(userId, certNum) {
   }
 }
 
+// ── GRANT PAID RETRY (package holders, after $50 is received) ────
+async function grantPaidRetry(userId, certNum) {
+  if (!confirm(`Confirm the $50 retry payment was received for Cert ${certNum}. This unlocks ONE more exam attempt.`)) return;
+  try {
+    const { error } = await sb.from('cert_enrollments').update({
+      exam_locked: false,
+      exam_attempts_used: 2,          // next attempt is the 3rd/last allowed
+      last_exam_attempt_at: null,     // no 48-hour wait after a paid retry
+      cert_status: 'in_progress',
+      retry_available: false,
+      retry_used: true
+    }).eq('user_id', userId).eq('cert_number', certNum);
+    if (error) throw error;
+    alert('Retry granted. The user has one exam attempt available now.');
+    closeModalDirect();
+    loadData();
+  } catch(e) {
+    alert('Error: ' + e.message);
+  }
+}
+
 // ── EXPORT CSV ───────────────────────────────────────────────────
 function exportCSV() {
   const headers = ['User#','Full Name','Email','Phone','Address','Joined',
@@ -654,7 +718,7 @@ function exportCSV() {
       .reduce((sum, p) => sum + parseFloat(p.amount_paid || 0), 0);
 
     return [
-      `#${String(u.user_number).padStart(5,'0')}`,
+      `#${u.user_number}`,
       `"${u.full_name}"`,
       u.email,
       u.phone || '',
@@ -715,7 +779,7 @@ function renderRenewalTable(renewals) {
       <button class="action-btn btn-view" onclick="viewUser('${r.user_id}')">User</button>`;
 
     return `<tr>
-      <td class="user-num">${user ? '#' + String(user.user_number).padStart(5,'0') : '—'}</td>
+      <td class="user-num">${user ? '#' + user.user_number : '—'}</td>
       <td class="user-name">${user?.full_name || '—'}</td>
       <td><span class="badge ${r.cert_number === 4 ? 'badge-progress' : 'badge-passed'}">Cert ${r.cert_number}</span></td>
       <td style="font-size:0.82rem">#${r.renewal_number}</td>
@@ -855,7 +919,7 @@ function exportRenewalsCSV() {
   const rows = allRenewals.map(r => {
     const user = allUsers.find(u => u.id === r.user_id);
     return [
-      user ? `#${String(user.user_number).padStart(5,'0')}` : '—',
+      user ? `#${user.user_number}` : '—',
       `"${user?.full_name || '—'}"`,
       user?.email || '—',
       `Cert ${r.cert_number}`,
@@ -880,6 +944,116 @@ function exportRenewalsCSV() {
   a.download = `MAWA-Renewals-${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
   URL.revokeObjectURL(url);
+}
+
+// ── COMPLIMENTARY CERTIFICATIONS (VIP) ───────────────────────────
+const COMP_ACR = { 1: 'CGIPD', 2: 'CGIIC', 3: 'CGIMM' };
+let allComps = [];
+
+function escHtml(v) {
+  return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function compInviteLink(c) {
+  const signup = 'https://www.midamericawatershed.org/register.html';
+  const login = 'https://www.midamericawatershed.org/login.html';
+  const first = (c.full_name || '').split(' ')[0] || 'there';
+  const acr = COMP_ACR[c.cert_number];
+  const subject = `Your complimentary ${acr} certification — MidAmerica Watershed.Org`;
+  const body =
+`Hi ${first},
+
+As a thank-you for your leadership in green infrastructure, I'd like to give you complimentary access to our ${acr} — ${CERT_TITLES[c.cert_number]} certification.
+
+${c.claimed_by
+  ? `It's already unlocked in your account. Sign in here to start: ${login}`
+  : `Create your free account with this email address (${c.email}) and the course will be waiting on your dashboard: ${signup}`}
+
+The course is self-paced (about 30 hours), saves your place automatically, and counts toward the continuing-education requirements of your other credentials.
+
+Jay Bergeron
+Founder & Board Chair, MidAmerica Watershed.Org
+admin@midamericawatershed.org`;
+  return `mailto:${encodeURIComponent(c.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function compStatus(c) {
+  if (!c.claimed_by) return '<span class="badge badge-none">Waiting for signup</span>';
+  const e = allEnrollments.find(x => x.user_id === c.claimed_by && x.cert_number === c.cert_number);
+  if (e?.cert_status === 'passed') return '<span class="badge badge-passed">Passed</span>';
+  if (e?.cert_status === 'locked') return '<span class="badge badge-locked">Locked</span>';
+  if (e && e.purchase_type !== 'comp') return '<span class="badge badge-progress">Already owned (paid)</span>';
+  return '<span class="badge badge-progress">Active</span>';
+}
+
+async function loadComps() {
+  const tbody = document.getElementById('compTableBody');
+  const { data, error } = await sb.from('comp_grants').select('*').order('granted_at', { ascending: false });
+  if (error) {
+    tbody.innerHTML = `<tr class="empty-row"><td colspan="6">Comps aren't set up yet — run the comp_certifications SQL script in Supabase. (${escHtml(error.message)})</td></tr>`;
+    return;
+  }
+  allComps = data || [];
+  if (!allComps.length) {
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="6">No complimentary certifications yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = allComps.map(c => {
+    const user = c.claimed_by ? allUsers.find(u => u.id === c.claimed_by) : null;
+    return `<tr>
+      <td><div class="user-name">${escHtml(user?.full_name || c.full_name || '—')}</div><div class="user-email">${escHtml(c.email)}${user ? ` · #${user.user_number}` : ''}</div></td>
+      <td><strong>${COMP_ACR[c.cert_number]}</strong></td>
+      <td>${compStatus(c)}</td>
+      <td style="font-size:0.82rem;color:var(--text-muted);white-space:nowrap">${new Date(c.granted_at).toLocaleDateString()}</td>
+      <td style="font-size:0.82rem;color:var(--text-muted)">${escHtml(c.note || '')}</td>
+      <td style="white-space:nowrap">
+        <a class="action-btn btn-view" style="text-decoration:none" href="${compInviteLink(c)}">✉ Email invite</a>
+        <button class="action-btn btn-reset" onclick="revokeComp('${c.id}')">Revoke</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+async function grantComp() {
+  const email = document.getElementById('compEmail').value.trim().toLowerCase();
+  const name = document.getElementById('compName').value.trim();
+  const cert = parseInt(document.getElementById('compCert').value);
+  const note = document.getElementById('compNote').value.trim();
+  const out = document.getElementById('compResult');
+  if (!/^\S+@\S+\.\S+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+  if (![1, 2, 3].includes(cert)) { alert('Only CGIPD, CGIIC or CGIMM can be comped.'); return; }
+  if (!confirm(`Comp ${COMP_ACR[cert]} — ${CERT_TITLES[cert]} to ${email}?`)) return;
+
+  const btn = document.getElementById('compBtn');
+  btn.disabled = true;
+  const { data, error } = await sb.rpc('admin_grant_comp', {
+    p_email: email, p_cert_number: cert, p_full_name: name || null, p_note: note || null
+  });
+  btn.disabled = false;
+  if (error) { alert('Could not comp this certification: ' + error.message); return; }
+
+  const msg = {
+    active: `✓ ${COMP_ACR[cert]} is unlocked in ${escHtml(email)}'s account now.`,
+    pending: `✓ ${COMP_ACR[cert]} is reserved for ${escHtml(email)}. It unlocks automatically when they sign up with that email.`,
+    already_enrolled: `${escHtml(email)} already has ${COMP_ACR[cert]} (they bought it or it was comped before) — nothing was charged or changed.`
+  }[data?.status] || '✓ Saved.';
+  const comp = { id: data?.grant_id, email, full_name: name, cert_number: cert, claimed_by: data?.has_account ? 'x' : null };
+  out.innerHTML = `${msg} <a href="${compInviteLink(comp)}" style="color:var(--green-dark);font-weight:600;margin-left:0.4rem">✉ Send them an email invite</a>`;
+  out.style.display = 'block';
+  ['compEmail', 'compName', 'compNote'].forEach(id => document.getElementById(id).value = '');
+  await loadData();
+}
+
+async function revokeComp(id) {
+  const c = allComps.find(x => x.id === id);
+  if (!c) return;
+  const warn = c.claimed_by
+    ? `Revoke ${COMP_ACR[c.cert_number]} from ${c.email}? Their access and module progress for this certification will be removed.`
+    : `Cancel the reserved ${COMP_ACR[c.cert_number]} comp for ${c.email}?`;
+  if (!confirm(warn)) return;
+  const { error } = await sb.rpc('admin_revoke_comp', { p_grant_id: id });
+  if (error) { alert(error.message); return; }
+  await loadData();
 }
 
 // ── WHITELIST ────────────────────────────────────────────────────

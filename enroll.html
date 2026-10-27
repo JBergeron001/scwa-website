@@ -102,6 +102,8 @@
   .cert-card.owned { opacity: 0.5; cursor: not-allowed; }
   .cert-card.owned::after { content: 'Already enrolled'; position: absolute; top: 0.75rem; right: 0.75rem; font-size: 0.7rem; background: var(--green-light); color: var(--green-dark); padding: 0.2rem 0.5rem; border-radius: 99px; font-weight: 500; }
 
+  .cred-mark { display: inline-block; font-weight: 700; letter-spacing: 0.06em; font-size: 1.35rem; line-height: 1; color: var(--green-dark); border: 2px solid currentColor; border-radius: 8px; padding: 0.3rem 0.55rem; margin-bottom: 0.6rem; }
+  .ce-line { font-size: 0.78rem; font-weight: 600; color: var(--green-dark); margin-bottom: 0.75rem; }
   .cert-num { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
   .cert-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--text); margin-bottom: 1rem; line-height: 1.3; }
   .cert-modules { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
@@ -286,8 +288,8 @@
     <div class="package-banner" id="packageBanner" onclick="selectPackage()">
       <div class="package-left">
         <div class="package-tag">Best value — save $147</div>
-        <div class="package-title">Complete Package — Certifications 1, 2 & 3</div>
-        <div class="package-desc">Purchase all three foundational certifications together at a reduced cost: <strong style="color:#fff">Green Infrastructure Planning and Design</strong>, <strong style="color:#fff">Green Infrastructure Installation and Construction</strong>, and <strong style="color:#fff">Green Infrastructure Maintenance and Management</strong>.<br><br>Each certification has its own full coursework, modules, and a final exam that must be individually studied for and passed. Completing all three does not automatically give you Certification 4 — it makes you <em>eligible</em> to purchase and enroll in <strong style="color:#fff">Certification 4: Master of Green Infrastructure</strong>, which is a separate full certification with its own coursework, modules, and final exam ($299). Only after passing Cert 4 do you earn the Master of Green Infrastructure credential.<br><br>This package also includes one $50 retry option per certification final exam if needed.</div>
+        <div class="package-title">Complete Package — CGIPD · CGIIC · CGIMM · CMGI</div>
+        <div class="package-desc">All four credentials in one purchase: <strong style="color:#fff">CGIPD</strong> Green Infrastructure Planning and Design, <strong style="color:#fff">CGIIC</strong> Green Infrastructure Installation and Construction, <strong style="color:#fff">CGIMM</strong> Green Infrastructure Maintenance and Management, and <strong style="color:#fff">CMGI</strong> Master of Green Infrastructure.<br><br>Each credential has its own coursework, module quizzes and final exam, earned at your own pace. CMGI unlocks once you pass CGIPD, CGIIC and CGIMM. About 120 professional development hours in total — document them toward the PDU, CEU and PDH requirements of your other credentials.<br><br>Package holders also get the option of one $50 retry per final exam if needed.</div>
       </div>
       <div class="package-right">
         <div class="package-was">$1,046 individually</div>
@@ -307,13 +309,14 @@
     <p class="section-label">Your ultimate goal</p>
     <div style="background:#fff; border-radius:14px; border:2px dashed var(--gold); padding:1.5rem 2rem; margin-bottom:2rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; opacity:0.85;">
       <div>
-        <div style="display:inline-block; background:var(--gold-light); color:#7a5c10; font-size:0.75rem; font-weight:600; padding:0.2rem 0.6rem; border-radius:99px; margin-bottom:0.6rem; text-transform:uppercase; letter-spacing:0.05em;">🔒 Unlocks after Certs 1, 2 & 3</div>
+        <div style="display:inline-block; background:var(--gold-light); color:#7a5c10; font-size:0.75rem; font-weight:600; padding:0.2rem 0.6rem; border-radius:99px; margin-bottom:0.6rem; text-transform:uppercase; letter-spacing:0.05em;">🔒 Unlocks after CGIPD, CGIIC &amp; CGIMM</div>
+        <div class="cred-mark" style="color:var(--gold)">CMGI</div>
         <div style="font-family:'DM Serif Display',serif; font-size:1.2rem; color:var(--text); margin-bottom:0.4rem;">Certification 4 — Master of Green Infrastructure</div>
-        <div style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">The highest credential offered by MidAmerica Watershed.Org. Available exclusively to professionals who have passed all three foundational certifications. Demonstrates full mastery of green infrastructure planning, construction, and management.</div>
+        <div style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">The highest credential offered by MidAmerica Watershed.Org, available to professionals who hold all three foundation credentials. About 30 professional development hours.</div>
       </div>
       <div style="text-align:right; flex-shrink:0;">
         <div style="font-family:'DM Serif Display',serif; font-size:2rem; color:var(--gold);">$299</div>
-        <div style="font-size:0.8rem; color:var(--text-muted);">Purchased separately</div>
+        <div style="font-size:0.8rem; color:var(--text-muted);">Individually, or included in the package</div>
       </div>
     </div>
 
@@ -346,15 +349,16 @@ const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const CERTS = [
-  { num: 1, title: 'Green Infrastructure Planning and Design', modules: 5 },
-  { num: 2, title: 'Green Infrastructure Installation and Construction', modules: 5 },
-  { num: 3, title: 'Green Infrastructure Maintenance and Management', modules: 5 }
+  { num: 1, acr: 'CGIPD', title: 'Green Infrastructure Planning and Design', modules: 7 },
+  { num: 2, acr: 'CGIIC', title: 'Green Infrastructure Installation and Construction', modules: 8 },
+  { num: 3, acr: 'CGIMM', title: 'Green Infrastructure Maintenance and Management', modules: 6 }
 ];
 
 let selection = null; // { type: 'package' } or { type: 'individual', certNum: N }
 let userId = null;
 let userEmail = null;
 let ownedCerts = [];
+let passed123 = false;
 
 async function init() {
   const { data: { session } } = await sb.auth.getSession();
@@ -362,22 +366,23 @@ async function init() {
   userId = session.user.id;
   userEmail = session.user.email;
 
-  const { data: enrollments } = await sb.from('cert_enrollments').select('cert_number').eq('user_id', userId);
+  const { data: enrollments } = await sb.from('cert_enrollments').select('cert_number, cert_status').eq('user_id', userId);
   ownedCerts = enrollments?.map(e => e.cert_number) || [];
+  passed123 = [1, 2, 3].every(n => enrollments?.find(e => e.cert_number === n && e.cert_status === 'passed'));
 
   // Check URL params
   const params = new URLSearchParams(window.location.search);
-  const certParam = params.get('cert');
+  const certParam = parseInt(params.get('cert'));
+
+  // Retry fees are not sold here (no $50 checkout link yet) — never sell a full cert by mistake.
+  if (params.get('retry')) { window.location.href = 'dashboard.html'; return; }
 
   renderCertCards();
 
-  if (certParam) {
-    if (certParam === '4') {
-      // Cert 4 individual
-      selectIndividual(4);
-    } else {
-      selectIndividual(parseInt(certParam));
-    }
+  if (params.get('bundle') === 'true') {
+    selectPackage();
+  } else if ([1, 2, 3, 4].includes(certParam)) {
+    selectIndividual(certParam);
   }
 }
 
@@ -395,8 +400,10 @@ function renderCertCards() {
     card.innerHTML = `
       <div class="select-indicator" id="indicator-${cert.num}"></div>
       <div class="cert-num">Certification ${cert.num}</div>
+      <div class="cred-mark">${cert.acr}</div>
       <div class="cert-name">${cert.title}</div>
       <div class="cert-modules">${cert.modules} modules + final exam</div>
+      <div class="ce-line">≈ 30 hrs · counts toward PDU / CEU / PDH</div>
       <div class="cert-price-tag">$249</div>`;
 
     grid.appendChild(card);
@@ -404,6 +411,10 @@ function renderCertCards() {
 }
 
 function selectPackage() {
+  if ([1, 2, 3, 4].some(n => ownedCerts.includes(n))) {
+    alert('You already own one or more of these credentials, so the package would charge you twice. Please choose the remaining credentials individually.');
+    return;
+  }
   // Deselect individual cards
   CERTS.forEach(c => {
     document.getElementById(`cert-card-${c.num}`)?.classList.remove('selected');
@@ -416,6 +427,14 @@ function selectPackage() {
 }
 
 function selectIndividual(certNum) {
+  if (ownedCerts.includes(certNum)) {
+    alert(`You are already enrolled in Certification ${certNum}. Continue it from your dashboard.`);
+    return;
+  }
+  if (certNum === 4 && !passed123) {
+    alert('CMGI — Master of Green Infrastructure — unlocks after you pass CGIPD, CGIIC and CGIMM. It is also included in the Complete Package.');
+    return;
+  }
   // Deselect package
   document.getElementById('packageBanner').classList.remove('selected');
 
@@ -443,14 +462,14 @@ function updateOrderSummary() {
   let html = '';
   if (selection.type === 'package') {
     html = `
-      <div class="order-row"><span>Certification Package (Certs 1, 2 & 3)</span><span>$899</span></div>
+      <div class="order-row"><span>Complete Package — CGIPD, CGIIC, CGIMM &amp; CMGI</span><span>$899</span></div>
       <div class="order-row"><span style="color:var(--text-muted);font-size:0.82rem">Includes retry option per cert</span><span style="color:var(--text-muted);font-size:0.82rem">Included</span></div>
       <div class="order-total"><span>Total</span><span>$899</span></div>`;
   } else {
-    const cert = CERTS.find(c => c.num === selection.certNum) || { num: 4, title: 'Master of Green Infrastructure' };
+    const cert = CERTS.find(c => c.num === selection.certNum) || { num: 4, acr: 'CMGI', title: 'Master of Green Infrastructure' };
     const price = selection.certNum === 4 ? '$299' : '$249';
     html = `
-      <div class="order-row"><span>Cert ${selection.certNum} — ${cert.title}</span><span>${price}</span></div>
+      <div class="order-row"><span>${cert.acr} — ${cert.title}</span><span>${price}</span></div>
       <div class="order-total"><span>Total</span><span>${price}</span></div>`;
   }
 

@@ -271,6 +271,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_kotvXZUSlXTuorvZN5HdcA_eaLF6YvF';
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+const CERT_ACRONYMS = { 1: 'CGIPD', 2: 'CGIIC', 3: 'CGIMM', 4: 'CMGI' };
 const CERT_TITLES = {
   1: 'Green Infrastructure Planning and Design',
   2: 'Green Infrastructure Installation and Construction',
@@ -288,6 +289,7 @@ let moduleNumber = null;
 let quizData = null;
 let userAnswers = {};
 let submitted = false;
+let alreadyPassed = false;
 
 async function init() {
   const { data: { session } } = await sb.auth.getSession();
@@ -306,9 +308,31 @@ async function init() {
     return;
   }
 
-  document.getElementById('navTitle').textContent = CERT_TITLES[certNumber];
+  // Access check: must be enrolled and have passed every earlier module quiz
+  // (whitelisted reviewers/admins are exempt, matching viewer.html).
+  let isAdmin = false;
+  try {
+    const { data: wl } = await sb.from('launch_whitelist').select('email').eq('email', session.user.email).maybeSingle();
+    isAdmin = !!wl;
+  } catch (e) {}
+  if (!isAdmin) {
+    const { data: enrollment } = await sb.from('cert_enrollments')
+      .select('cert_number').eq('user_id', userId).eq('cert_number', certNumber).maybeSingle();
+    if (!enrollment) { window.location.href = 'dashboard.html'; return; }
+    const { data: prog } = await sb.from('module_progress')
+      .select('module_number, quiz_passed').eq('user_id', userId).eq('cert_number', certNumber);
+    for (let m = 1; m < moduleNumber; m++) {
+      if (!(prog || []).find(p => p.module_number === m && p.quiz_passed)) {
+        window.location.href = `viewer.html?cert=${certNumber}&module=${m}`;
+        return;
+      }
+    }
+    alreadyPassed = !!(prog || []).find(p => p.module_number === moduleNumber && p.quiz_passed);
+  }
+
+  document.getElementById('navTitle').textContent = `${CERT_ACRONYMS[certNumber]} · ${CERT_TITLES[certNumber]}`;
   document.getElementById('navBadge').textContent = `Module ${moduleNumber} Quiz`;
-  document.getElementById('quizLabel').textContent = `Certification ${certNumber} — Module ${moduleNumber}`;
+  document.getElementById('quizLabel').textContent = `${CERT_ACRONYMS[certNumber]} — Module ${moduleNumber}`;
   document.getElementById('quizTitle').textContent = quizData.title + ' — Quiz';
   document.getElementById('quizMeta').textContent = `${quizData.questions.length} questions · Pass with 80% or higher · Unlimited attempts (module restart required on fail)`;
 
@@ -393,6 +417,14 @@ async function submitQuiz() {
 
     const attempts = (existing?.quiz_attempts || 0) + 1;
 
+    // A practice retake of a module already passed never takes the pass away.
+    if (alreadyPassed && !passed) {
+      await sb.from('module_progress').update({ quiz_attempts: attempts, last_accessed: new Date().toISOString() })
+        .eq('user_id', userId).eq('cert_number', certNumber).eq('module_number', moduleNumber);
+      showResults(score, passed, correct);
+      return;
+    }
+
     await sb.from('module_progress').upsert({
       user_id: userId,
       cert_number: certNumber,
@@ -438,7 +470,9 @@ function showResults(score, passed, correct) {
       <a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;
     }
   } else {
-    document.getElementById('resultDesc').textContent = `You answered ${correct} out of ${total} questions correctly — ${score}% (need 80% to pass). You'll need to review the module slides and retake the quiz. Your progress for this module has been reset.`;
+    document.getElementById('resultDesc').textContent = alreadyPassed
+      ? `You answered ${correct} out of ${total} questions correctly (${score}%). This was a practice retake — your earlier pass on this module still stands.`
+      : `You answered ${correct} out of ${total} questions correctly — ${score}% (need 80% to pass). You'll need to review the module slides and retake the quiz. Your progress for this module has been reset.`;
     document.getElementById('resultActions').innerHTML = `
       <a href="viewer.html?cert=${certNumber}&module=${moduleNumber}" class="result-btn btn-gold">Review module slides →</a>
       <a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;

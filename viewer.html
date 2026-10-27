@@ -244,6 +244,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_kotvXZUSlXTuorvZN5HdcA_eaLF6YvF';
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+const CERT_ACRONYMS = { 1: 'CGIPD', 2: 'CGIIC', 3: 'CGIMM', 4: 'CMGI' };
 const CERT_TITLES = {
   1: 'Green Infrastructure Planning and Design',
   2: 'Green Infrastructure Installation and Construction',
@@ -262,7 +263,7 @@ const COURSE_MODULES = {
     { moduleNumber: 4, title: 'GI/LID Synergy & Sustainable Urban Development', start: 201, end: 335 },
     { moduleNumber: 5, title: 'GI Networks, Project Planning & Regulatory Compliance', start: 336, end: 500 },
     { moduleNumber: 6, title: 'Adaptive Management, Water Management & BMP/LID Selection', start: 501, end: 614 },
-    { moduleNumber: 7, title: 'Plants in BMPs and LID Systems', start: 615, end: 635 }
+    { moduleNumber: 7, title: 'Plants in BMPs and LID Systems', start: 615, end: 636 }
   ],
   2: [
     { moduleNumber: 1, title: 'Foundations of Green Infrastructure, LID, and BMP Terminology', start: 1, end: 36 },
@@ -331,7 +332,7 @@ async function init() {
   certNumber = parseInt(params.get('cert')) || 1;
   const moduleParam = parseInt(params.get('module')) || null;
 
-  document.getElementById('viewerTitle').textContent = CERT_TITLES[certNumber];
+  document.getElementById('viewerTitle').textContent = `${CERT_ACRONYMS[certNumber]} · ${CERT_TITLES[certNumber]}`;
 
   // Set course data for this cert
   courseData = COURSE_MODULES[certNumber] || COURSE_MODULES[1];
@@ -340,6 +341,14 @@ async function init() {
   const { data: enrollment } = await sb.from('cert_enrollments')
     .select('*').eq('user_id', userId).eq('cert_number', certNumber).single();
   if (!enrollment && !isAdmin) { window.location.href = 'dashboard.html'; return; }
+
+  // CMGI (Cert 4) opens only after CGIPD, CGIIC and CGIMM are passed — package holders own it early.
+  if (certNumber === 4 && !isAdmin) {
+    const { data: prior } = await sb.from('cert_enrollments')
+      .select('cert_number, cert_status').eq('user_id', userId).in('cert_number', [1, 2, 3]);
+    const ready = [1, 2, 3].every(n => (prior || []).find(e => e.cert_number === n && e.cert_status === 'passed'));
+    if (!ready) { window.location.href = 'dashboard.html'; return; }
+  }
 
   // Load module progress
   const { data: mp } = await sb.from('module_progress')
@@ -354,7 +363,10 @@ async function init() {
     currentModuleIndex = moduleParam - 1;
     currentSlideInModule = 0;
   } else {
-    const savedModule = moduleProgressData.find(m => m.status === 'in_progress');
+    // Resume the most recently opened module that is not yet passed.
+    const savedModule = moduleProgressData
+      .filter(m => m.status === 'in_progress' && !m.quiz_passed)
+      .sort((a, b) => new Date(b.last_accessed || 0) - new Date(a.last_accessed || 0))[0];
     if (savedModule) {
       currentModuleIndex = savedModule.module_number - 1;
       currentSlideInModule = savedModule.current_slide || 0;
@@ -560,13 +572,18 @@ function scheduleSave() {
 async function saveProgress() {
   if (!userId) return;
   try {
-    await sb.from('module_progress').upsert({
+    const modNum = currentModuleIndex + 1;
+    const existing = moduleProgressData.find(m => m.module_number === modNum);
+    const row = {
       user_id: userId, cert_number: certNumber,
-      module_number: currentModuleIndex + 1,
+      module_number: modNum,
       current_slide: currentSlideInModule,
-      status: 'in_progress',
       last_accessed: new Date().toISOString()
-    }, { onConflict: 'user_id,cert_number,module_number' });
+    };
+    // Reviewing a passed module must not flip it back to "in progress".
+    if (!existing?.quiz_passed) row.status = 'in_progress';
+    await sb.from('module_progress').upsert(row, { onConflict: 'user_id,cert_number,module_number' });
+    if (existing) Object.assign(existing, row); else moduleProgressData.push(row);
     document.getElementById('autoSaveLabel').textContent = '✓ Saved';
     setTimeout(() => { const el = document.getElementById('autoSaveLabel'); if (el) el.textContent = ''; }, 2000);
   } catch(e) { console.error('Save error:', e); }

@@ -324,7 +324,7 @@ function renderRenewalCards() {
     } else if (r.status === 'revoked') {
       statusBadge = '✗ Revoked';
       statusClass = 'sb-revoked';
-      actionBtn = `<a href="enroll.html?cert=${r.cert_number}" class="renewal-action-btn btn-renew-urgent">Retake Cert ${r.cert_number}</a>`;
+      actionBtn = `<a href="mailto:admin@midamericawatershed.org?subject=${encodeURIComponent('Retake Cert ' + r.cert_number)}" class="renewal-action-btn btn-renew-urgent">Request retake — Cert ${r.cert_number}</a>`;
     } else if (r.status === 'in_grace') {
       statusBadge = '⚠ In Grace Period';
       statusClass = 'sb-grace';
@@ -502,8 +502,10 @@ async function submitCEU() {
 }
 
 function payRenewal(certNum, amount) {
-  // Payment flow — will connect to Stripe later
-  alert(`Renewal payment of $${amount} for Cert ${certNum} will be processed via Stripe. Payment integration coming soon.`);
+  // No renewal checkout link exists yet — send the request to the admin inbox instead of a dead end.
+  const subject = encodeURIComponent(`Cert ${certNum} renewal payment ($${amount})`);
+  const body = encodeURIComponent(`I would like to pay my $${amount} renewal fee for Certification ${certNum}. Please send me a payment link.`);
+  window.location.href = `mailto:admin@midamericawatershed.org?subject=${subject}&body=${body}`;
 }
 
 init();

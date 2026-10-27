@@ -319,6 +319,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_kotvXZUSlXTuorvZN5HdcA_eaLF6YvF';
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+const CERT_ACRONYMS = { 1: 'CGIPD', 2: 'CGIIC', 3: 'CGIMM', 4: 'CMGI' };
 const CERT_TITLES = {
   1: 'Green Infrastructure Planning and Design',
   2: 'Green Infrastructure Installation and Construction',
@@ -366,7 +367,33 @@ async function init() {
 
   if (!enrollment) { window.location.href = 'dashboard.html'; return; }
 
-  document.getElementById('navTitle').textContent = CERT_TITLES[certNumber];
+  // Already certified: show the certificate instead of letting a retake undo the pass.
+  if (enrollment.cert_status === 'passed') { window.location.href = `certificate.html?cert=${certNumber}`; return; }
+
+  // Every module quiz must be passed first (whitelisted reviewers exempt, as in viewer.html).
+  let isAdmin = false;
+  try {
+    const { data: wl } = await sb.from('launch_whitelist').select('email').eq('email', session.user.email).maybeSingle();
+    isAdmin = !!wl;
+  } catch (e) {}
+  if (!isAdmin) {
+    const MODULE_COUNTS = { 1: 7, 2: 8, 3: 6, 4: 6 };
+    const { data: prog } = await sb.from('module_progress')
+      .select('module_number, quiz_passed').eq('user_id', userId).eq('cert_number', certNumber);
+    for (let m = 1; m <= MODULE_COUNTS[certNumber]; m++) {
+      if (!(prog || []).find(p => p.module_number === m && p.quiz_passed)) {
+        window.location.href = `viewer.html?cert=${certNumber}&module=${m}`;
+        return;
+      }
+    }
+  }
+
+  // Safety net for records written by the old logic: 3+ attempts used means locked.
+  if (!enrollment.exam_locked && (enrollment.exam_attempts_used || 0) >= 3) {
+    enrollment.exam_locked = true;
+  }
+
+  document.getElementById('navTitle').textContent = `${CERT_ACRONYMS[certNumber]} · ${CERT_TITLES[certNumber]}`;
   document.getElementById('navBadge').textContent = 'Final Exam';
 
   // Check if locked
@@ -376,7 +403,7 @@ async function init() {
     lockedScreen.classList.add('show');
     const attemptsUsed = enrollment.exam_attempts_used;
     if (enrollment.retry_available) {
-      document.getElementById('lockedMsg').innerHTML = `You have used all 3 attempts on this exam. As a package purchaser, you have one option: pay the <strong>$50 retry fee</strong> to unlock one additional attempt. Contact MidAmerica Watershed.Org to arrange payment.`;
+      document.getElementById('lockedMsg').innerHTML = `You have used all 3 attempts on this exam. As a package purchaser, you can pay a <strong>$50 retry fee</strong> to unlock one additional attempt. Email <a href="mailto:admin@midamericawatershed.org?subject=Cert%20${certNumber}%20exam%20retry">admin@midamericawatershed.org</a> to arrange payment.`;
     } else {
       document.getElementById('lockedMsg').textContent = `You have used all ${attemptsUsed} allowed attempts on this exam and your account has been locked. Please contact MidAmerica Watershed.Org to have your account reviewed and reset.`;
     }
@@ -408,7 +435,7 @@ async function init() {
   document.getElementById('ruleAttemptsLeft').textContent = attemptsLeft;
   document.getElementById('ruleAttemptsUsed').textContent = attemptsUsed;
   document.getElementById('ruleQuestions').textContent = FINAL_EXAM_QUESTIONS.length;
-  document.getElementById('startTitle').textContent = `${CERT_TITLES[certNumber]} — Final Exam`;
+  document.getElementById('startTitle').textContent = `${CERT_ACRONYMS[certNumber]} Final Exam — ${CERT_TITLES[certNumber]}`;
   document.getElementById('startSubtitle').textContent = `${FINAL_EXAM_QUESTIONS.length} questions covering all modules`;
 
   if (attemptsUsed > 0) {
@@ -533,6 +560,8 @@ async function submitExam() {
   const passed = score >= 80;
   const attemptNumber = (enrollment.exam_attempts_used || 0) + 1;
   const isPackage = enrollment.purchase_type === 'package';
+  // After the 3rd failed attempt the exam is ALWAYS locked. Package holders who have not
+  // used their retry are flagged retry_available so an admin can grant one paid attempt.
   const shouldLock = !passed && attemptNumber >= 3;
   const retryAvailable = shouldLock && isPackage && !enrollment.retry_used;
 
@@ -548,15 +577,17 @@ async function submitExam() {
     await sb.from('cert_enrollments').update({
       exam_attempts_used: attemptNumber,
       last_exam_attempt_at: new Date().toISOString(),
-      exam_locked: shouldLock && !retryAvailable,
+      exam_locked: shouldLock,
       retry_available: retryAvailable,
-      cert_status: passed ? 'passed' : (shouldLock && !retryAvailable ? 'locked' : 'in_progress'),
+      cert_status: passed ? 'passed' : (shouldLock ? 'locked' : 'in_progress'),
       cert_passed_date: passed ? new Date().toISOString() : null
     }).eq('user_id', userId).eq('cert_number', certNumber);
 
     // If passed — issue certificate
     if (passed && userProfile) {
-      await sb.from('issued_certificates').insert({
+      const { data: existingCert } = await sb.from('issued_certificates')
+        .select('id').eq('user_id', userId).eq('cert_number', certNumber).maybeSingle();
+      if (!existingCert) await sb.from('issued_certificates').insert({
         user_id: userId,
         user_number: userProfile.user_number,
         full_name: userProfile.full_name,
@@ -583,9 +614,9 @@ function showResults(score, passed, correct, locked, retryAvailable) {
   let desc = `You answered ${correct} of ${total} questions correctly.`;
 
   if (passed) {
-    desc += ` Outstanding work! Your certificate has been issued.`;
+    desc += ` Outstanding work! You've earned the ${CERT_ACRONYMS[certNumber]} credential — your certificate is ready to download.`;
   } else if (locked && retryAvailable) {
-    desc += ` You have exhausted your 3 attempts. As a package purchaser, you may pay a $50 retry fee for one additional attempt. Contact MidAmerica Watershed.Org to arrange this.`;
+    desc += ` You have exhausted your 3 attempts. As a package purchaser, you may pay a $50 retry fee for one additional attempt — email admin@midamericawatershed.org to arrange it.`;
   } else if (locked) {
     desc += ` You have exhausted all allowed attempts. Your account has been locked. Please contact MidAmerica Watershed.Org to have your account reviewed.`;
   } else {
@@ -600,18 +631,18 @@ function showResults(score, passed, correct, locked, retryAvailable) {
   // Certificate preview if passed
   if (passed && userProfile) {
     const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    const userNum = String(userProfile.user_number).padStart(5, '0');
+    const userNum = userProfile.user_number;
     document.getElementById('certPreview').innerHTML = `
       <div class="cert-preview">
         <div class="cert-org">MidAmerica Watershed.Org</div>
         <div style="font-size:0.8rem;color:#7a5c10;margin-bottom:0.75rem">This is to certify that</div>
         <div class="cert-name-display">${userProfile.full_name}</div>
         <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem">has successfully demonstrated mastery of</div>
-        <div class="cert-title-display">${CERT_TITLES[certNumber]}</div>
+        <div class="cert-title-display">${CERT_ACRONYMS[certNumber]} — ${CERT_TITLES[certNumber]}</div>
         <div class="cert-blurb">${CERT_BLURBS[certNumber]}</div>
         <div class="cert-meta">
           <span>Issued: ${today}</span>
-          <span>User #${userNum}</span>
+          <span>Certificate No. ${userNum}</span>
           <span>Score: ${score}%</span>
         </div>
       </div>`;
@@ -620,7 +651,7 @@ function showResults(score, passed, correct, locked, retryAvailable) {
   // Actions
   let actionsHtml = '';
   if (passed) {
-    actionsHtml += `<button class="result-btn btn-gold" onclick="downloadCertificate()">⬇ Download Certificate PDF</button>`;
+    actionsHtml += `<a href="certificate.html?cert=${certNumber}" class="result-btn btn-gold">⬇ Download Certificate PDF</a>`;
     actionsHtml += `<a href="dashboard.html" class="result-btn btn-green">Go to dashboard</a>`;
   } else if (!locked) {
     // Attempts remain, but a 48-hour cooldown applies before the next try.
@@ -629,89 +660,6 @@ function showResults(score, passed, correct, locked, retryAvailable) {
     actionsHtml += `<a href="dashboard.html" class="result-btn btn-outline">Back to dashboard</a>`;
   }
   document.getElementById('resultActions').innerHTML = actionsHtml;
-}
-
-function downloadCertificate() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'letter' });
-
-  const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  const userNum = String(userProfile.user_number).padStart(5, '0');
-  const W = doc.internal.pageSize.getWidth();
-  const H = doc.internal.pageSize.getHeight();
-
-  // Background
-  doc.setFillColor(8, 80, 65);
-  doc.rect(0, 0, W, H, 'F');
-
-  // White inner area
-  doc.setFillColor(250, 250, 247);
-  doc.roundedRect(12, 12, W - 24, H - 24, 4, 4, 'F');
-
-  // Gold border
-  doc.setDrawColor(201, 168, 76);
-  doc.setLineWidth(1.5);
-  doc.roundedRect(16, 16, W - 32, H - 32, 3, 3, 'S');
-
-  // Header bar
-  doc.setFillColor(8, 80, 65);
-  doc.rect(16, 16, W - 32, 22, 'F');
-
-  // Org name
-  doc.setTextColor(201, 168, 76);
-  doc.setFontSize(11);
-  doc.setFont('helvetica', 'bold');
-  doc.text('MIDAMERICA WATERSHED.ORG', W / 2, 30, { align: 'center' });
-
-  // Certificate title
-  doc.setTextColor(8, 80, 65);
-  doc.setFontSize(9);
-  doc.setFont('helvetica', 'normal');
-  doc.text('CERTIFICATE OF COMPLETION', W / 2, 46, { align: 'center' });
-
-  // This certifies that
-  doc.setTextColor(90, 90, 85);
-  doc.setFontSize(10);
-  doc.text('This is to certify that', W / 2, 58, { align: 'center' });
-
-  // Name
-  doc.setTextColor(26, 26, 24);
-  doc.setFontSize(28);
-  doc.setFont('times', 'bolditalic');
-  doc.text(userProfile.full_name, W / 2, 76, { align: 'center' });
-
-  // Has demonstrated mastery
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(10);
-  doc.setTextColor(90, 90, 85);
-  doc.text('has successfully demonstrated mastery of', W / 2, 88, { align: 'center' });
-
-  // Cert title
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(15);
-  doc.setTextColor(8, 80, 65);
-  doc.text(CERT_TITLES[certNumber], W / 2, 100, { align: 'center' });
-
-  // Blurb
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(9);
-  doc.setTextColor(90, 90, 85);
-  const blurbLines = doc.splitTextToSize(CERT_BLURBS[certNumber], W - 80);
-  doc.text(blurbLines, W / 2, 112, { align: 'center' });
-
-  // Gold divider
-  doc.setDrawColor(201, 168, 76);
-  doc.setLineWidth(0.5);
-  doc.line(40, 128, W - 40, 128);
-
-  // Footer info
-  doc.setFontSize(9);
-  doc.setTextColor(90, 90, 85);
-  doc.text(`Issued: ${today}`, 40, 138);
-  doc.text(`User #${userNum}`, W / 2, 138, { align: 'center' });
-  doc.text(`MidAmerica Watershed.Org`, W - 40, 138, { align: 'right' });
-
-  doc.save(`MAWA-Cert${certNumber}-${userProfile.full_name.replace(/\s+/g, '-')}.pdf`);
 }
 
 init();

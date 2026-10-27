@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate — MidAmerica Watershed.Org</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #085041; --green-mid: #0d6b56; --gold: #c9a84c; --gold-light: #fdf6e3;
+    --text: #1a1a18; --text-muted: #5a5a55; --white: #fafaf7; --error: #c0392b;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: #f4f4ef; color: var(--text); min-height: 100vh; }
+  nav { background: var(--green-dark); padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  nav a { color: #fff; text-decoration: none; font-size: 0.9rem; }
+  .nav-brand { display: flex; align-items: center; gap: 0.75rem; font-family: 'DM Serif Display', serif; font-size: 1.05rem; }
+  .nav-brand img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
+  main { max-width: 760px; margin: 0 auto; padding: 2.5rem 16px; }
+  .msg { text-align: center; color: var(--text-muted); padding: 3rem 1rem; line-height: 1.7; }
+  .msg a { color: var(--green-dark); }
+  .cert { background: #fff; border: 2px solid var(--gold); border-radius: 14px; padding: 2.5rem 2rem; text-align: center; position: relative; box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+  .cert::before { content: '★ CERTIFICATE OF COMPLETION ★'; position: absolute; top: -0.65rem; left: 50%; transform: translateX(-50%); background: #fff; padding: 0 0.75rem; font-size: 0.7rem; font-weight: 600; color: #7a5c10; letter-spacing: 0.1em; white-space: nowrap; }
+  .org { font-size: 0.85rem; color: #7a5c10; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+  .small { font-size: 0.85rem; color: var(--text-muted); }
+  .name { font-family: 'DM Serif Display', serif; font-size: 2rem; margin: 0.4rem 0; }
+  .acr { display: inline-block; font-weight: 700; letter-spacing: 0.08em; font-size: 2.2rem; line-height: 1; color: var(--green-dark); border: 2.5px solid var(--gold); border-radius: 10px; padding: 0.35rem 0.8rem; margin: 0.9rem 0 0.2rem; }
+  .title { font-size: 1.15rem; font-weight: 600; color: var(--green-dark); margin: 0.6rem 0 0.9rem; }
+  .blurb { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; max-width: 480px; margin: 0 auto 1.4rem; }
+  .meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 2rem; font-size: 0.82rem; color: #7a5c10; border-top: 1px solid var(--gold); padding-top: 1rem; }
+  .actions { text-align: center; margin-top: 1.75rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 8px; font-family: inherit; font-weight: 500; font-size: 0.95rem; text-decoration: none; cursor: pointer; border: none; }
+  .btn-gold { background: var(--gold); color: var(--green-dark); }
+  .btn-outline { background: transparent; color: var(--green-dark); border: 1.5px solid var(--green-dark); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="dashboard.html" class="nav-brand"><img src="logo.gif" alt="MAWA Logo">MidAmerica Watershed.Org</a>
+  <a href="dashboard.html">← Dashboard</a>
+</nav>
+<main>
+  <div id="status" class="msg">Loading your certificate…</div>
+  <div id="certArea" style="display:none">
+    <div class="cert">
+      <div class="org">MidAmerica Watershed.Org</div>
+      <div class="small">This is to certify that</div>
+      <div class="name" id="cName"></div>
+      <div class="small">has earned the credential</div>
+      <div class="acr" id="cAcr"></div>
+      <div class="title" id="cTitle"></div>
+      <div class="blurb" id="cBlurb"></div>
+      <div class="meta">
+        <span id="cNumber"></span>
+        <span id="cIssued"></span>
+        <span id="cScore"></span>
+        <span id="cHours"></span>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-gold" onclick="downloadCertificate()">⬇ Download Certificate PDF</button>
+      <a href="dashboard.html" class="btn btn-outline">Back to dashboard</a>
+    </div>
+  </div>
+</main>
+
+<script>
+const SUPABASE_URL = 'https://wncnxgyupryvrqkycvzp.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_kotvXZUSlXTuorvZN5HdcA_eaLF6YvF';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Certification names and acronyms are permanent — do not edit.
+const CERT_ACRONYMS = { 1: 'CGIPD', 2: 'CGIIC', 3: 'CGIMM', 4: 'CMGI' };
+const CE_HOURS = 30; // approximate professional development hours per credential
+const CERT_TITLES = {
+  1: 'Green Infrastructure Planning and Design',
+  2: 'Green Infrastructure Installation and Construction',
+  3: 'Green Infrastructure Maintenance and Management',
+  4: 'Master of Green Infrastructure'
+};
+const CERT_BLURBS = {
+  1: 'This certifies that the recipient has demonstrated mastery of green infrastructure planning and design principles, including site assessment, regulatory frameworks, and best management practices.',
+  2: 'This certifies that the recipient has demonstrated mastery of green infrastructure installation and construction methods, materials, and quality control standards.',
+  3: 'This certifies that the recipient has demonstrated mastery of green infrastructure maintenance and management, including inspection protocols, long-term performance assessment, and adaptive management.',
+  4: 'This certifies that the recipient has achieved the highest level of professional mastery in green infrastructure, having successfully completed all four certifications offered by MidAmerica Watershed.Org.'
+};
+
+let cert = null;
+
+function fail(html) { document.getElementById('status').innerHTML = html; }
+
+async function init() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { window.location.href = 'login.html'; return; }
+  const userId = session.user.id;
+  const certNumber = parseInt(new URLSearchParams(location.search).get('cert'));
+  if (!CERT_TITLES[certNumber]) { window.location.href = 'dashboard.html'; return; }
+
+  const [{ data: profile }, { data: issued }, { data: enrollment }] = await Promise.all([
+    sb.from('profiles').select('full_name, user_number').eq('id', userId).maybeSingle(),
+    sb.from('issued_certificates').select('*').eq('user_id', userId).eq('cert_number', certNumber)
+      .order('issued_at', { ascending: true }).limit(1),
+    sb.from('cert_enrollments').select('cert_status, cert_passed_date').eq('user_id', userId).eq('cert_number', certNumber).maybeSingle()
+  ]);
+
+  const row = issued && issued[0];
+  if (!row && enrollment?.cert_status !== 'passed') {
+    fail(`You haven't earned this certificate yet. <a href="dashboard.html">Return to your dashboard</a> to continue your coursework.`);
+    return;
+  }
+  if (!profile) {
+    fail(`We couldn't load your account details. Please email <a href="mailto:admin@midamericawatershed.org">admin@midamericawatershed.org</a>.`);
+    return;
+  }
+
+  cert = {
+    certNumber,
+    name: (row?.full_name || profile.full_name || '').trim(),
+    number: row?.user_number ?? profile.user_number,
+    issued: new Date(row?.issued_at || enrollment?.cert_passed_date || Date.now())
+      .toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    score: row?.exam_score
+  };
+
+  document.getElementById('cName').textContent = cert.name;
+  document.getElementById('cAcr').textContent = CERT_ACRONYMS[certNumber];
+  document.getElementById('cTitle').textContent = CERT_TITLES[certNumber];
+  document.getElementById('cHours').textContent = `≈ ${CE_HOURS} professional development hours`;
+  document.getElementById('cBlurb').textContent = CERT_BLURBS[certNumber];
+  document.getElementById('cNumber').textContent = `Certificate No. ${cert.number}`;
+  document.getElementById('cIssued').textContent = `Issued: ${cert.issued}`;
+  document.getElementById('cScore').textContent = cert.score != null ? `Exam score: ${cert.score}%` : '';
+  document.getElementById('status').style.display = 'none';
+  document.getElementById('certArea').style.display = 'block';
+}
+
+function downloadCertificate() {
+  if (!cert) return;
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'letter' });
+  const W = doc.internal.pageSize.getWidth();
+  const H = doc.internal.pageSize.getHeight();
+
+  doc.setFillColor(8, 80, 65); doc.rect(0, 0, W, H, 'F');
+  doc.setFillColor(250, 250, 247); doc.roundedRect(12, 12, W - 24, H - 24, 4, 4, 'F');
+  doc.setDrawColor(201, 168, 76); doc.setLineWidth(1.5); doc.roundedRect(16, 16, W - 32, H - 32, 3, 3, 'S');
+  doc.setFillColor(8, 80, 65); doc.rect(16, 16, W - 32, 22, 'F');
+
+  doc.setTextColor(201, 168, 76); doc.setFontSize(11); doc.setFont('helvetica', 'bold');
+  doc.text('MIDAMERICA WATERSHED.ORG', W / 2, 30, { align: 'center' });
+
+  doc.setTextColor(8, 80, 65); doc.setFontSize(9); doc.setFont('helvetica', 'normal');
+  doc.text('CERTIFICATE OF COMPLETION', W / 2, 46, { align: 'center' });
+
+  doc.setTextColor(90, 90, 85); doc.setFontSize(10);
+  doc.text('This is to certify that', W / 2, 58, { align: 'center' });
+
+  doc.setTextColor(26, 26, 24); doc.setFontSize(28); doc.setFont('times', 'bolditalic');
+  doc.text(cert.name, W / 2, 76, { align: 'center' });
+
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(90, 90, 85);
+  doc.text('has earned the credential', W / 2, 86, { align: 'center' });
+
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(24); doc.setTextColor(8, 80, 65);
+  doc.text(CERT_ACRONYMS[cert.certNumber], W / 2, 99, { align: 'center' });
+
+  doc.setFontSize(13);
+  doc.text(CERT_TITLES[cert.certNumber], W / 2, 108, { align: 'center' });
+
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(90, 90, 85);
+  doc.text(doc.splitTextToSize(CERT_BLURBS[cert.certNumber], W - 80), W / 2, 117, { align: 'center' });
+
+  doc.setDrawColor(201, 168, 76); doc.setLineWidth(0.5); doc.line(40, 133, W - 40, 133);
+
+  doc.setFontSize(9); doc.setTextColor(90, 90, 85);
+  doc.text(`Issued: ${cert.issued}`, 40, 142);
+  doc.setFont('helvetica', 'bold'); doc.setTextColor(8, 80, 65);
+  doc.text(`Certificate No. ${cert.number}`, W / 2, 142, { align: 'center' });
+  doc.setFont('helvetica', 'normal'); doc.setTextColor(90, 90, 85);
+  doc.text('MidAmerica Watershed.Org', W - 40, 142, { align: 'right' });
+  doc.setFontSize(8);
+  doc.text(`Approximately ${CE_HOURS} hours of self-paced professional development, module assessments and a final examination.`, W / 2, 150, { align: 'center' });
+  doc.text('Submit to your credentialing body for PDU / PDH / CEU / CM credit according to its rules.', W / 2, 155, { align: 'center' });
+
+  doc.save(`MAWA-${CERT_ACRONYMS[cert.certNumber]}-No${cert.number}-${cert.name.replace(/\s+/g, '-')}.pdf`);
+}
+
+init();
+</script>
+</body>
+</html>
