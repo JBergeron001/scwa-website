@@ -73,7 +73,7 @@ const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Certification names and acronyms are permanent — do not edit.
 const CERT_ACRONYMS = { 1: 'CGIPD', 2: 'CGIIC', 3: 'CGIMM', 4: 'CMGI' };
-const CE_HOURS = 30; // approximate professional development hours per credential
+const CE_HOURS = 30; // credential = more than this many professional development hours
 const CERT_TITLES = {
   1: 'Green Infrastructure Planning and Design',
   2: 'Green Infrastructure Installation and Construction',
@@ -127,7 +127,7 @@ async function init() {
   document.getElementById('cName').textContent = cert.name;
   document.getElementById('cAcr').textContent = CERT_ACRONYMS[certNumber];
   document.getElementById('cTitle').textContent = CERT_TITLES[certNumber];
-  document.getElementById('cHours').textContent = `≈ ${CE_HOURS} professional development hours`;
+  document.getElementById('cHours').textContent = `More than ${CE_HOURS} professional development hours`;
   document.getElementById('cBlurb').textContent = CERT_BLURBS[certNumber];
   document.getElementById('cNumber').textContent = `Certificate No. ${cert.number}`;
   document.getElementById('cIssued').textContent = `Issued: ${cert.issued}`;
@@ -181,7 +181,7 @@ function downloadCertificate() {
   doc.setFont('helvetica', 'normal'); doc.setTextColor(90, 90, 85);
   doc.text('MidAmerica Watershed.Org', W - 40, 142, { align: 'right' });
   doc.setFontSize(8);
-  doc.text(`Approximately ${CE_HOURS} hours of self-paced professional development, module assessments and a final examination.`, W / 2, 150, { align: 'center' });
+  doc.text(`More than ${CE_HOURS} hours of self-paced professional development, module assessments and a final examination.`, W / 2, 150, { align: 'center' });
   doc.text('Submit to your credentialing body for PDU / PDH / CEU / CM credit according to its rules.', W / 2, 155, { align: 'center' });
 
   doc.save(`MAWA-${CERT_ACRONYMS[cert.certNumber]}-No${cert.number}-${cert.name.replace(/\s+/g, '-')}.pdf`);

@@ -248,6 +248,51 @@
     .pkg-right { text-align: left; }
     .careers-panel { width: calc(100vw - 3rem); }
   }
+  /* ── "You already manage GI" (BMP bridge) ── */
+  .bmp-section { background: #fff; padding: 4.5rem 2rem; border-bottom: 1px solid var(--border); }
+  .bmp-inner { max-width: 1100px; margin: 0 auto; }
+  .bmp-lead { max-width: 820px; margin: 0 auto 2rem; text-align: center; }
+  .bmp-lead p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.75; margin-top: 0.9rem; }
+  .bmp-equation { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.6rem; margin: 0 auto 2.25rem; }
+  .bmp-term { background: var(--green-light); border-radius: 12px; padding: 0.7rem 1rem; text-align: center; min-width: 150px; }
+  .bmp-term b { display: block; font-size: 1.15rem; color: var(--green-dark); letter-spacing: 0.03em; }
+  .bmp-term span { font-size: 0.78rem; color: var(--text-muted); }
+  .bmp-eq { font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+  .bmp-sub { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--text); margin: 0 0 1rem; text-align: center; }
+  .bmp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 2.75rem; }
+  @media (max-width: 900px) { .bmp-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .bmp-equation { flex-direction: column; } .bmp-eq { line-height: 1; } .bmp-term { min-width: 230px; } .bmp-chip { font-size: 0.82rem; } }
+  .bmp-chip { border: 1.5px solid var(--border); border-radius: 10px; padding: 0.7rem 0.85rem; font-size: 0.88rem; line-height: 1.4; background: #fafaf7; }
+  .bmp-chip b { color: var(--green-dark); display: block; font-size: 0.92rem; }
+  .bmp-roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+  .bmp-role { border: 1.5px solid var(--border); border-radius: 14px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.55rem; background: #fff; }
+  .bmp-role-who { font-weight: 700; color: var(--text); font-size: 1rem; }
+  .bmp-role-q { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
+  .bmp-role-fit { font-size: 0.82rem; color: var(--green-dark); font-weight: 600; border-top: 1px solid var(--border); padding-top: 0.6rem; }
+  .bmp-role-fit span { display: inline-block; font-weight: 700; letter-spacing: 0.05em; border: 1.5px solid var(--green-dark); border-radius: 6px; padding: 0 0.35rem; margin-right: 0.25rem; }
+  .bmp-term-gi { background: var(--green-dark); }
+  .bmp-term-gi b { color: var(--gold); } .bmp-term-gi span { color: rgba(255,255,255,0.8); }
+  .gi-more { margin: 0 0 2.75rem; }
+  .gi-more-head { text-align: center; max-width: 760px; margin: 0 auto 1.25rem; }
+  .gi-more-head p { color: var(--text-muted); line-height: 1.7; }
+  .gi-compare { border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .gc-row { display: grid; grid-template-columns: 150px 1fr 1.4fr; }
+  .gc-row > div { padding: 0.75rem 1rem; font-size: 0.9rem; line-height: 1.55; border-top: 1px solid var(--border); }
+  .gc-row > div:nth-child(2) { color: var(--text-muted); background: #fafaf7; }
+  .gc-row > div:nth-child(3) { color: var(--text); background: var(--green-light); font-weight: 500; }
+  .gc-head > div { border-top: none; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .gc-head > div:nth-child(3) { background: var(--green-dark) !important; color: var(--gold) !important; }
+  .gc-k { font-weight: 700; color: var(--green-dark); }
+  @media (max-width: 640px) {
+    .gc-row { grid-template-columns: 1fr; }
+    .gc-head { display: none; }
+    .gc-row > div { border-top: none; padding: 0.5rem 0.9rem; }
+    .gc-row .gc-k { border-top: 1px solid var(--border); padding-top: 0.8rem; }
+    .gc-row > div:nth-child(2)::before { content: 'Ordinary BMP: '; font-weight: 700; }
+    .gc-row > div:nth-child(3)::before { content: 'Green infrastructure: '; font-weight: 700; color: var(--green-dark); }
+  }
+  .bmp-close { text-align: center; margin-top: 2rem; font-size: 0.95rem; color: var(--text-muted); }
+  .bmp-close a { color: var(--green-dark); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -304,7 +349,7 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Professional Green Infrastructure Credentials</div>
     <h1 class="hero-title">Master <em>Green Infrastructure.</em><br>Lead the future of sustainable communities.</h1>
-    <p class="hero-desc">Four self-paced professional certifications covering Green Infrastructure planning, design, installation, construction, maintenance, and management — built for the growing field of sustainable stormwater and land development practice.</p>
+    <p class="hero-desc">Four self-paced professional credentials covering the stormwater BMPs you already design, build, inspect and maintain — basins, bioretention, swales, permeable pavement and more — from planning and design through installation, construction, maintenance and management.</p>
     <div class="hero-actions">
       <a href="register.html" class="btn-primary">Get certified today</a>
       <a href="#certifications" class="btn-secondary">View certifications</a>
@@ -331,6 +376,79 @@
 </section>
 
 <!-- WHAT IS GREEN INFRASTRUCTURE -->
+<!-- YOU ALREADY MANAGE GI: BMP BRIDGE -->
+<section class="bmp-section" id="bmps">
+  <div class="bmp-inner">
+    <div class="bmp-lead">
+      <div class="section-eyebrow">You already work with the building blocks of Green Infrastructure</div>
+      <h2 class="section-title">You may just call it stormwater BMPs</h2>
+      <p>If your sites have a detention basin, a rain garden, a bioswale, permeable pavers, a green roof or an underground stormwater system, you already design, build, inspect or maintain the practices these credentials cover. Permits and ordinances call them <strong>stormwater BMPs</strong> — Best Management Practices — and they are required on most new development and redevelopment. BMPs are where green infrastructure starts — MAWA credentials take you from the practices you know to the bigger picture.</p>
+    </div>
+
+    <div class="bmp-equation" aria-label="BMPs are the practice, LID is the site strategy, Green Infrastructure is the connected system">
+      <div class="bmp-term"><b>BMPs</b><span>The individual practice</span></div>
+      <div class="bmp-eq">→</div>
+      <div class="bmp-term"><b>LID</b><span>The site-wide strategy</span></div>
+      <div class="bmp-eq">→</div>
+      <div class="bmp-term bmp-term-gi"><b>GI</b><span>The connected, multi-benefit system</span></div>
+    </div>
+
+    <h3 class="bmp-sub">Practices you probably already deal with</h3>
+    <div class="bmp-grid">
+      <div class="bmp-chip"><b>Detention &amp; retention basins</b>Dry ponds, wet ponds, outlet structures</div>
+      <div class="bmp-chip"><b>Bioretention &amp; rain gardens</b>Planted cells with engineered soil</div>
+      <div class="bmp-chip"><b>Bioswales &amp; vegetated channels</b>Grass and planted conveyance</div>
+      <div class="bmp-chip"><b>Permeable pavement</b>Pavers, porous asphalt and concrete</div>
+      <div class="bmp-chip"><b>Underground systems</b>Chambers, vaults, infiltration galleries</div>
+      <div class="bmp-chip"><b>Sand &amp; media filters</b>Filter strips, sand filters, inserts</div>
+      <div class="bmp-chip"><b>Green roofs &amp; cisterns</b>Rooftop storage and rainwater reuse</div>
+      <div class="bmp-chip"><b>Constructed wetlands</b>And stream buffers, tree boxes, planters</div>
+    </div>
+
+    <div class="gi-more">
+      <div class="gi-more-head">
+        <div class="section-eyebrow">…and so much more</div>
+        <h3 class="bmp-sub" style="margin-bottom:0.4rem">Green infrastructure goes beyond meeting the permit</h3>
+        <p>A BMP is built to check a box on one site. Green infrastructure links those practices into living systems that work harder for the owner, the city and the watershed — for decades.</p>
+      </div>
+      <div class="gi-compare" role="table" aria-label="Ordinary BMP approach compared with a green infrastructure approach">
+        <div class="gc-row gc-head" role="row"><div role="columnheader"></div><div role="columnheader">Ordinary BMP approach</div><div role="columnheader">Green infrastructure approach</div></div>
+        <div class="gc-row" role="row"><div class="gc-k" role="rowheader">Goal</div><div>Meet the permit on this site</div><div>Manage rain as a resource across the whole watershed</div></div>
+        <div class="gc-row" role="row"><div class="gc-k" role="rowheader">Scale</div><div>One practice, one parcel</div><div>Connected networks — streets, parks, corridors, greenways and neighborhoods</div></div>
+        <div class="gc-row" role="row"><div class="gc-k" role="rowheader">Benefits</div><div>Detention and sediment control</div><div>Cleaner water, flood resilience, cooler streets, habitat, recreation, property value and public health</div></div>
+        <div class="gc-row" role="row"><div class="gc-k" role="rowheader">Design</div><div>Size it to the required volume</div><div>Multifunctional landscapes — planting science, engineered soils, hydrology and site ecology working together</div></div>
+        <div class="gc-row" role="row"><div class="gc-k" role="rowheader">Life cycle</div><div>Built, then often forgotten until it fails</div><div>Planned, built, inspected and maintained to keep performing — with budgets to match</div></div>
+        <div class="gc-row" role="row"><div class="gc-k" role="rowheader">Value</div><div>A compliance cost</div><div>An asset — eligible for stormwater fee credits, grants and lower long-term cost where programs allow</div></div>
+      </div>
+    </div>
+
+    <h3 class="bmp-sub">Where you fit</h3>
+    <div class="bmp-roles">
+      <div class="bmp-role">
+        <div class="bmp-role-who">Civil &amp; site engineers</div>
+        <div class="bmp-role-q">Sizing post-construction BMPs, meeting detention and water-quality requirements, choosing the right practice for the soils and getting plans through review.</div>
+        <div class="bmp-role-fit"><span>CGIPD</span> Planning &amp; Design</div>
+      </div>
+      <div class="bmp-role">
+        <div class="bmp-role-who">Contractors &amp; installers</div>
+        <div class="bmp-role-q">Building BMPs that pass inspection the first time — excavation, soil media, sequencing, protecting the system from construction sediment and avoiding costly failures.</div>
+        <div class="bmp-role-fit"><span>CGIIC</span> Installation &amp; Construction</div>
+      </div>
+      <div class="bmp-role">
+        <div class="bmp-role-who">Facility, property &amp; HOA managers</div>
+        <div class="bmp-role-q">The basins, swales and underground systems on your property usually come with a recorded maintenance agreement — and inspection notices when they clog, erode or stand full of water.</div>
+        <div class="bmp-role-fit"><span>CGIMM</span> Maintenance &amp; Management</div>
+      </div>
+      <div class="bmp-role">
+        <div class="bmp-role-who">Public works, MS4 &amp; inspection staff</div>
+        <div class="bmp-role-q">Reviewing plans, inspecting private and public BMPs, tracking maintenance and reporting under your MS4 permit — the whole life cycle in one place.</div>
+        <div class="bmp-role-fit"><span>CGIPD</span><span>CGIIC</span><span>CGIMM</span> → <span>CMGI</span></div>
+      </div>
+    </div>
+    <p class="bmp-close">Every credential is more than 30 hours toward the PDH, PDU and CEU requirements of the licenses you already hold. <a href="#certifications">See the four credentials →</a></p>
+  </div>
+</section>
+
 <section class="gi-section" id="about">
   <div class="gi-inner">
     <div class="gi-text">
@@ -506,7 +624,7 @@
   <div class="section-header">
     <div class="section-eyebrow">Four Professional Credentials · CGIPD · CGIIC · CGIMM · CMGI</div>
     <h2 class="section-title">Earn them one at a time. Collect all four.</h2>
-    <p class="section-desc">Each credential is a standalone certification you can put after your name — and each is about 30 hours of professional development you can document toward the PDU, CEU and PDH requirements of the credentials you already hold. Earn CGIPD, CGIIC and CGIMM to unlock the CMGI — Master of Green Infrastructure.</p>
+    <p class="section-desc">Each credential is a standalone certification you can put after your name — and each is more than 30 hours of professional development you can document toward the PDU, CEU and PDH requirements of the credentials you already hold. Earn CGIPD, CGIIC and CGIMM to unlock the CMGI — Master of Green Infrastructure.</p>
   </div>
 
   <div class="certs-grid">
@@ -517,7 +635,7 @@
         <div class="cred-mark">CGIPD</div>
         <div class="cert-title">Green Infrastructure Planning and Design</div>
         <div class="cert-price">$249</div>
-        <div class="ce-chip">≈ 30 hrs · counts toward PDU / CEU / PDH</div>
+        <div class="ce-chip">30+ hrs · counts toward PDU / CEU / PDH</div>
       </div>
       <div class="cert-card-body">
         <p class="cert-desc">Covers the principles, strategies, and techniques of Green Infrastructure and Low Impact Development (LID) at the planning and design level. Includes stormwater management approaches, GI component types, site assessment fundamentals, regulatory frameworks, and real-world case studies from cities across the United States.</p>
@@ -541,7 +659,7 @@
         <div class="cred-mark">CGIIC</div>
         <div class="cert-title">Green Infrastructure Installation and Construction</div>
         <div class="cert-price">$249</div>
-        <div class="ce-chip">≈ 30 hrs · counts toward PDU / CEU / PDH</div>
+        <div class="ce-chip">30+ hrs · counts toward PDU / CEU / PDH</div>
       </div>
       <div class="cert-card-body">
         <p class="cert-desc">Focuses on the practical installation and construction of Green Infrastructure practices. Covers materials, methods, site preparation, quality control, contractor responsibilities, sequencing, and field application of bioretention, permeable pavement, green roofs, and related LID best management practices.</p>
@@ -566,7 +684,7 @@
         <div class="cred-mark">CGIMM</div>
         <div class="cert-title">Green Infrastructure Maintenance and Management</div>
         <div class="cert-price">$249</div>
-        <div class="ce-chip">≈ 30 hrs · counts toward PDU / CEU / PDH</div>
+        <div class="ce-chip">30+ hrs · counts toward PDU / CEU / PDH</div>
       </div>
       <div class="cert-card-body">
         <p class="cert-desc">Equips professionals with the knowledge and skills to ensure the long-term success of Green Infrastructure systems. Covers lifecycle management, inspection protocols, routine and advanced maintenance, troubleshooting and repair, MS4 permit compliance, cost forecasting, and future innovations including AI monitoring and climate adaptation.</p>
@@ -589,7 +707,7 @@
         <div class="cert-4-tag">Certification 4 — Master Level</div>
         <div class="cred-mark">CMGI</div>
         <div class="cert-title">Master of Green Infrastructure</div>
-        <div class="ce-chip">≈ 30 hrs · counts toward PDU / CEU / PDH</div>
+        <div class="ce-chip">30+ hrs · counts toward PDU / CEU / PDH</div>
         <div style="color:rgba(255,255,255,0.6); font-size:0.85rem; margin-top:0.4rem;">Prerequisite: CGIPD, CGIIC &amp; CGIMM &nbsp;·&nbsp; Available individually or included in the complete package</div>
       </div>
       <div class="cert-card-body">
@@ -630,7 +748,7 @@
     <div class="section-header">
       <div class="section-eyebrow">Continuing Education Built In</div>
       <h2 class="section-title">Every credential also keeps your other credentials current</h2>
-      <p class="section-desc">Each MAWA certification is roughly 30 hours of self-paced professional development with graded module quizzes and a 100-question final exam — the kind of documented coursework most licensing and certifying bodies accept toward renewal. Earn a new credential and log the hours toward the ones you already hold.</p>
+      <p class="section-desc">Each MAWA certification is more than 30 hours of self-paced professional development with graded module quizzes and a 100-question final exam — the kind of documented coursework most licensing and certifying bodies accept toward renewal. Earn a new credential and log the hours toward the ones you already hold.</p>
     </div>
     <div class="ce-grid">
       <div class="ce-card"><div class="ce-card-k">PDUs</div><div class="ce-card-d">Professional Development Units for credentials such as CPESC, CPSWQ, CESSWI and other stormwater, erosion-control and inspector certifications.</div></div>
@@ -691,7 +809,7 @@
         <div style="font-size:1.3rem; flex-shrink:0;">📜</div>
         <div>
           <div style="font-size:0.85rem; font-weight:600; color:#fff; margin-bottom:0.2rem;">Four Downloadable Certificates</div>
-          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); line-height:1.5;">Pass each exam and instantly download your personalized certificate PDF — with your name, certificate number, date earned, and credential — for your portfolio, LinkedIn, and continuing-education records. About 120 professional development hours across all four.</div>
+          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); line-height:1.5;">Pass each exam and instantly download your personalized certificate PDF — with your name, certificate number, date earned, and credential — for your portfolio, LinkedIn, and continuing-education records. More than 120 professional development hours across all four.</div>
         </div>
       </div>
       <div style="display:flex; gap:0.75rem; align-items:flex-start;">
@@ -868,7 +986,11 @@
   <div class="cta-inner">
     <h2 class="cta-title">Ready to get certified?</h2>
     <p class="cta-desc">Join the growing community of Green Infrastructure professionals earning credentials through MidAmerica Watershed.Org. Start today — at your own pace, on your own schedule.</p>
-    <a href="register.html" class="btn-primary">Create your account</a>
+    <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+      <a href="register.html" class="btn-primary">Create your account</a>
+      <a href="approval.html" class="btn-primary" style="background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.6);">Ask my employer to pay →</a>
+    </div>
+    <p style="color:rgba(255,255,255,0.55);font-size:0.85rem;margin-top:1rem;">Pick your job title and we'll write the approval request for your manager — why it matters for your role, and what it costs.</p>
   </div>
 </section>
 

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Employer Approval — MidAmerica Watershed.Org</title>
+<meta name="description" content="Build a ready-to-send request asking your employer to approve and pay for a MidAmerica Watershed.Org green infrastructure credential.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #085041; --green-mid: #0d6b56; --green-light: #e1f5ee;
+    --gold: #c9a84c; --gold-light: #faf3e0;
+    --text: #1a1a18; --text-muted: #5a5a55; --border: #d4d4c8; --white: #fafaf7; --error: #c0392b;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: #f4f4ef; color: var(--text); min-height: 100vh; }
+  nav { background: var(--green-dark); padding: 0.85rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .brand { display: flex; align-items: center; gap: 0.7rem; color: #fff; text-decoration: none; font-family: 'DM Serif Display', serif; font-size: 1.05rem; }
+  .brand img { width: 38px; height: 38px; object-fit: contain; border-radius: 8px; }
+  nav .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; margin-left: 1.25rem; }
+
+  header.hero { background: linear-gradient(135deg, #062e25, #085041); color: #fff; padding: 3rem 1.25rem 2.5rem; text-align: center; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  header.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.15; margin-bottom: 0.75rem; }
+  header.hero p { max-width: 640px; margin: 0 auto; color: rgba(255,255,255,0.72); line-height: 1.7; }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 2rem 16px 4rem; display: grid; grid-template-columns: 380px 1fr; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+
+  .panel { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; padding: 1.4rem; }
+  .panel h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 0.25rem; }
+  .panel .hint { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.55; }
+  .field { margin-bottom: 0.9rem; }
+  .field > label, .field > .label { display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; }
+  .field input, .field select { width: 100%; padding: 0.65rem 0.8rem; border: 1.5px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.93rem; background: #fff; color: var(--text); }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--green-dark); box-shadow: 0 0 0 3px rgba(8,80,65,0.1); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .cred-opts { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cred-opt { display: flex; align-items: center; gap: 0.6rem; border: 1.5px solid var(--border); border-radius: 9px; padding: 0.5rem 0.7rem; cursor: pointer; font-size: 0.88rem; }
+  .cred-opt input { accent-color: var(--green-dark); width: 16px; height: 16px; }
+  .cred-opt .acr { font-weight: 700; letter-spacing: 0.05em; color: var(--green-dark); min-width: 58px; }
+  .cred-opt .price { margin-left: auto; font-weight: 600; color: var(--text-muted); }
+  .cred-opt.pkg { background: var(--gold-light); border-color: var(--gold); }
+  .cred-opt.disabled { opacity: 0.5; }
+  .recommend { font-size: 0.82rem; color: var(--green-dark); background: var(--green-light); border-radius: 8px; padding: 0.55rem 0.75rem; margin: 0.2rem 0 0.9rem; display: none; line-height: 1.5; }
+
+  .letter-wrap { position: sticky; top: 1rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem; }
+  .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.1rem; border-radius: 9px; font-family: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; }
+  .btn-green { background: var(--green-dark); color: #fff; }
+  .btn-gold { background: var(--gold); color: var(--green-dark); }
+  .btn-outline { background: #fff; color: var(--green-dark); border: 1.5px solid var(--green-dark); }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .copied { font-size: 0.85rem; color: var(--green-dark); align-self: center; display: none; }
+
+  .letter { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; padding: 2rem 2.2rem; line-height: 1.65; font-size: 0.95rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+  .letter .subj { font-size: 0.82rem; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 0.7rem; margin-bottom: 1.1rem; }
+  .letter .subj b { color: var(--text); }
+  .letter p { margin-bottom: 0.85rem; }
+  .letter h3 { font-size: 0.95rem; color: var(--green-dark); margin: 1.1rem 0 0.4rem; }
+  .letter ul { margin: 0 0 0.85rem 1.2rem; }
+  .letter li { margin-bottom: 0.3rem; }
+  .cost { width: 100%; border-collapse: collapse; margin: 0.3rem 0 0.9rem; font-size: 0.9rem; }
+  .cost td { padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--border); }
+  .cost td:last-child { text-align: right; white-space: nowrap; }
+  .cost tr.total td { font-weight: 700; border-bottom: 2px solid var(--green-dark); }
+  .cost tr.save td { color: var(--green-dark); font-size: 0.85rem; }
+  .placeholder { color: #a0a096; font-style: italic; }
+  .empty { text-align: center; color: var(--text-muted); padding: 3rem 1rem; }
+  .empty b { display: block; font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--text); margin-bottom: 0.4rem; }
+  .fine { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.9rem; line-height: 1.55; }
+
+  @media print {
+    nav, header.hero, .panel.form, .actions, .fine, .no-print { display: none !important; }
+    body { background: #fff; }
+    main { display: block; padding: 0; max-width: none; }
+    .letter { border: none; box-shadow: none; padding: 0; font-size: 11pt; }
+    .letter-wrap { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand"><img src="logo.gif" alt="MAWA logo">MidAmerica Watershed.Org</a>
+  <div class="nav-links"><a href="certifications.html">Certifications</a><a href="login.html">Sign in</a></div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Ask your employer to pay</div>
+  <h1>Build your approval request in one minute</h1>
+  <p>Choose your job title and the credential you want. We'll write a ready-to-send request for your manager — why it matters for your role, what it costs, and what your organization gets back.</p>
+</header>
+
+<main>
+  <section class="panel form" aria-labelledby="formTitle">
+    <h2 id="formTitle">Your details</h2>
+    <p class="hint">Nothing you type here is saved or sent anywhere — the request is built right in your browser.</p>
+
+    <div class="field">
+      <label for="role">Your job title</label>
+      <select id="role">
+        <option value="">Choose the closest match…</option>
+      </select>
+    </div>
+    <div class="recommend" id="recommend"></div>
+
+    <div class="field">
+      <span class="label">Credential(s) to request</span>
+      <div class="cred-opts" id="credOpts"></div>
+    </div>
+
+    <div class="field"><label for="yourName">Your name</label><input id="yourName" placeholder="Jane Smith" autocomplete="name"></div>
+    <div class="field"><label for="jobTitleText">Your exact title (optional)</label><input id="jobTitleText" placeholder="e.g. Senior Project Engineer"></div>
+    <div class="two">
+      <div class="field"><label for="mgrName">Manager's name</label><input id="mgrName" placeholder="Pat Jones"></div>
+      <div class="field"><label for="mgrEmail">Manager's email</label><input id="mgrEmail" type="email" placeholder="pat@company.com"></div>
+    </div>
+    <div class="field"><label for="org">Organization</label><input id="org" placeholder="City of St. Charles, ABC Engineering…" autocomplete="organization"></div>
+    <div class="field">
+      <label for="creds">Licenses or credentials you hold (optional)</label>
+      <input id="creds" placeholder="e.g. PE, CPESC, AICP, LEED AP">
+    </div>
+  </section>
+
+  <section class="letter-wrap" aria-labelledby="letterTitle">
+    <h2 id="letterTitle" class="no-print" style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:0.6rem">Your request</h2>
+    <div class="actions">
+      <button class="btn btn-green" id="emailBtn" disabled>✉ Email it to my manager</button>
+      <button class="btn btn-gold" id="copyBtn" disabled>Copy text</button>
+      <button class="btn btn-outline" id="printBtn" disabled>Print / Save as PDF</button>
+      <span class="copied" id="copied">Copied ✓</span>
+    </div>
+    <article class="letter" id="letter">
+      <div class="empty"><b>Pick your job title to start</b>Your tailored request will appear here.</div>
+    </article>
+    <p class="fine">Prices shown are current website prices. Continuing-education acceptance is set by each licensing or credentialing body — confirm with yours. Teams of 5 or more: email <a href="mailto:admin@midamericawatershed.org" style="color:var(--green-dark)">admin@midamericawatershed.org</a> for group pricing.</p>
+  </section>
+</main>
+
+<script>
+// ── Credentials & prices (keep in sync with enroll.html) ────────────
+const CREDS = {
+  1: { acr: 'CGIPD', title: 'Green Infrastructure Planning and Design', price: 249 },
+  2: { acr: 'CGIIC', title: 'Green Infrastructure Installation and Construction', price: 249 },
+  3: { acr: 'CGIMM', title: 'Green Infrastructure Maintenance and Management', price: 249 },
+  4: { acr: 'CMGI',  title: 'Master of Green Infrastructure', price: 299 }
+};
+const PACKAGE_PRICE = 899;
+
+// ── Job-title profiles ───────────────────────────────────────────────
+// rec: recommended credentials · ce: continuing-education the hours can support · why: role-specific value
+const ROLES = [
+  { id: 'civil', label: 'Civil / site / stormwater engineer', rec: [1], ce: 'PE license PDH',
+    why: ['Sizing and selecting post-construction BMPs that meet detention, water-quality and local ordinance requirements the first time.',
+          'Fewer plan-review comments and redesigns — choosing the right practice for site soils, hydrology and maintenance access.',
+          'Bringing green infrastructure options to clients and public agencies that increasingly require or reward them.'] },
+  { id: 'la', label: 'Landscape architect / site designer', rec: [1], ce: 'LA CES / state landscape architecture CE',
+    why: ['Designing multifunctional landscapes where stormwater, planting, soils and site use work together.',
+          'Specifying engineered soils and plant palettes that survive and keep performing.',
+          'Positioning our team for public and private projects that score green infrastructure.'] },
+  { id: 'planner', label: 'Planner (city, county, regional or watershed)', rec: [1], ce: 'AICP Certification Maintenance',
+    why: ['Writing and reviewing ordinances, plans and incentives built around green infrastructure and stormwater BMPs.',
+          'Connecting site-level BMPs to watershed plans, greenway networks and funding programs.',
+          'Speaking the same language as the engineers, developers and public works staff we coordinate with.'] },
+  { id: 'contractor', label: 'Contractor / construction PM / superintendent', rec: [2], ce: 'erosion-control and inspector credentials (e.g. CPESC, CESSWI)',
+    why: ['Building BMPs that pass inspection the first time — excavation, soil media, sequencing and protection from construction sediment.',
+          'Avoiding call-backs and warranty work caused by clogged or failed practices.',
+          'Qualifying for green infrastructure bids that ask for trained installers.'] },
+  { id: 'inspector', label: 'Stormwater / construction inspector', rec: [2, 3], ce: 'inspector credentials (e.g. CESSWI, CPESC)',
+    why: ['Recognizing installation defects before they are buried and become long-term failures.',
+          'Consistent, defensible inspection findings for both construction-phase and post-construction BMPs.',
+          'Understanding maintenance needs so inspection reports lead to the right corrective actions.'] },
+  { id: 'facility', label: 'Facility / property / HOA manager', rec: [3], ce: 'facility-management and green-building CE (e.g. LEED)',
+    why: ['Keeping the detention basins, swales, rain gardens and underground systems on our property in compliance with our recorded maintenance agreement.',
+          'Fewer violation notices and emergency repairs — planning routine maintenance and budgeting for it.',
+          'Better scopes and oversight for landscape and stormwater maintenance contractors.'] },
+  { id: 'publicworks', label: 'Public works / MS4 / stormwater program manager', rec: [1, 2, 3, 4], ce: 'PE PDH, AICP CM or erosion-control credentials',
+    why: ['Covering the full BMP life cycle our MS4 permit requires — plan review, construction inspection, long-term maintenance and reporting.',
+          'Building a consistent, trained approach across review, inspection and maintenance staff.',
+          'Making stronger cases for green infrastructure in capital plans, grants and stormwater credit programs.'] },
+  { id: 'environmental', label: 'Environmental scientist / compliance specialist', rec: [1, 2, 3, 4], ce: 'environmental and stormwater credentials (e.g. CPSWQ, CPESC)',
+    why: ['Connecting water-quality goals, permits and TMDLs to the BMPs that actually achieve them.',
+          'Advising clients and project teams across planning, construction and maintenance.',
+          'Adding a recognized green infrastructure credential to our team\'s qualifications.'] },
+  { id: 'developer', label: 'Land / real-estate developer', rec: [1], ce: 'professional CE where applicable',
+    why: ['Using green infrastructure to meet stormwater requirements while protecting usable land and project budgets.',
+          'Faster approvals by bringing review-ready stormwater approaches to the table early.',
+          'Lower long-term maintenance obligations for future owners and associations.'] },
+  { id: 'sustainability', label: 'Sustainability officer / green-building professional', rec: [1], ce: 'LEED / ENV SP / green-building CE',
+    why: ['Delivering measurable stormwater, heat-island and habitat outcomes for sustainability goals and reporting.',
+          'Linking site practices to green-building and infrastructure rating systems.',
+          'Credible, documented expertise when presenting projects to leadership and the public.'] },
+  { id: 'other', label: 'Other / not listed', rec: [1], ce: 'professional continuing-education requirements',
+    why: ['Practical, current knowledge of the stormwater BMPs and green infrastructure our work touches.',
+          'A recognized professional credential that strengthens our organization\'s qualifications.',
+          'Self-paced online training that fits around my workload.'] }
+];
+
+const $ = id => document.getElementById(id);
+const fmt = n => '$' + n.toLocaleString('en-US');
+let selected = new Set();
+let usePackage = false;
+
+// Build role dropdown
+ROLES.forEach(r => { const o = document.createElement('option'); o.value = r.id; o.textContent = r.label; $('role').appendChild(o); });
+
+// Build credential options
+function renderCredOpts() {
+  const box = $('credOpts');
+  box.innerHTML = '';
+  const pkg = document.createElement('label');
+  pkg.className = 'cred-opt pkg';
+  pkg.innerHTML = `<input type="checkbox" id="optPkg" ${usePackage ? 'checked' : ''}><span class="acr">ALL 4</span><span>Complete package — save $147</span><span class="price">${fmt(PACKAGE_PRICE)}</span>`;
+  box.appendChild(pkg);
+  pkg.querySelector('input').addEventListener('change', e => { usePackage = e.target.checked; renderCredOpts(); render(); });
+  Object.entries(CREDS).forEach(([n, c]) => {
+    n = +n;
+    const l = document.createElement('label');
+    l.className = 'cred-opt' + (usePackage ? ' disabled' : '');
+    l.innerHTML = `<input type="checkbox" ${selected.has(n) || usePackage ? 'checked' : ''} ${usePackage ? 'disabled' : ''}><span class="acr">${c.acr}</span><span>${c.title}</span><span class="price">${fmt(c.price)}</span>`;
+    l.querySelector('input').addEventListener('change', e => { e.target.checked ? selected.add(n) : selected.delete(n); render(); });
+    box.appendChild(l);
+  });
+}
+
+function pricing() {
+  if (usePackage) {
+    const individual = Object.values(CREDS).reduce((s, c) => s + c.price, 0);
+    return { items: [['Complete package — CGIPD, CGIIC, CGIMM and CMGI', PACKAGE_PRICE]], total: PACKAGE_PRICE, save: individual - PACKAGE_PRICE, nums: [1, 2, 3, 4] };
+  }
+  const nums = [...selected].sort();
+  const items = nums.map(n => [`${CREDS[n].acr} — ${CREDS[n].title}`, CREDS[n].price]);
+  return { items, total: items.reduce((s, i) => s + i[1], 0), save: 0, nums };
+}
+
+// Current inputs, with friendly placeholders
+function val(id, fallback) { const v = $(id).value.trim(); return v || fallback; }
+
+function buildContent() {
+  const role = ROLES.find(r => r.id === $('role').value);
+  if (!role) return null;
+  const p = pricing();
+  if (!p.nums.length) return { role, p, none: true };
+  const you = val('yourName', '[Your name]'), mgr = val('mgrName', '[Manager\'s name]'), org = val('org', 'our organization');
+  const title = val('jobTitleText', role.label.split(' / ')[0]);
+  const held = $('creds').value.trim();
+  const names = p.nums.map(n => CREDS[n].acr);
+  const nameList = names.length === 1 ? names[0] : names.slice(0, -1).join(', ') + ' and ' + names.slice(-1);
+  const hours = p.nums.length * 30;
+  const cmgiNote = p.nums.includes(4) ? ' CMGI — Master of Green Infrastructure — opens once the first three are passed.' : '';
+  const subject = `Request for approval: ${nameList} professional certification (${fmt(p.total)})`;
+  const what = p.nums.length === 1
+    ? `the ${names[0]} (${CREDS[p.nums[0]].title}) credential`
+    : `the ${nameList} credentials`;
+  const ceTarget = held ? `the continuing-education requirements for my ${held}` : `${role.ce} requirements`;
+  const ceLine = `More than ${hours} hours of documented professional development I can submit toward ${ceTarget}, where accepted — reducing what we spend on separate continuing education.`;
+
+  return { role, p, subject, you, mgr, org, title, names, nameList, hours, what, cmgiNote, ceLine };
+}
+
+function render() {
+  const c = buildContent();
+  const L = $('letter');
+  ['emailBtn', 'copyBtn', 'printBtn'].forEach(id => $(id).disabled = !c || c.none);
+  if (!c) { L.innerHTML = '<div class="empty"><b>Pick your job title to start</b>Your tailored request will appear here.</div>'; return; }
+  if (c.none) { L.innerHTML = '<div class="empty"><b>Choose at least one credential</b>Tick one or more credentials, or the complete package.</div>'; return; }
+
+  const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+  const ph = (v, f) => v.startsWith('[') ? `<span class="placeholder">${esc(v)}</span>` : esc(v);
+  const costRows = c.p.items.map(([n, a]) => `<tr><td>${esc(n)}</td><td>${fmt(a)}</td></tr>`).join('') +
+    `<tr class="total"><td>Total</td><td>${fmt(c.p.total)}</td></tr>` +
+    (c.p.save ? `<tr class="save"><td>Savings versus buying separately</td><td>${fmt(c.p.save)}</td></tr>` : '');
+
+  L.innerHTML = `
+    <div class="subj"><b>Subject:</b> ${esc(c.subject)}</div>
+    <p>Dear ${ph(c.mgr)},</p>
+    <p>I'm requesting approval for ${esc(c.org)} to cover ${esc(c.what)} from MidAmerica Watershed.Org — professional green infrastructure certifications focused on the stormwater BMPs we work with: basins, bioretention, swales, permeable pavement, underground systems and more.</p>
+    <h3>Why it matters in my role as ${esc(c.title)}</h3>
+    <ul>${c.role.why.map(w => `<li>${esc(w)}</li>`).join('')}</ul>
+    <h3>What it involves</h3>
+    <ul>
+      <li>Self-paced online coursework — more than 30 hours per credential, with no travel and no time away from projects. My progress saves automatically, so I can fit it around my workload.</li>
+      <li>Graded module quizzes and a 100-question final exam (80% to pass), so the credential reflects real, tested knowledge.</li>
+      <li>A certificate with my name, certificate number and completion date for our records and qualifications.${esc(c.cmgiNote)}</li>
+    </ul>
+    <h3>What ${esc(c.org)} gets</h3>
+    <ul>
+      <li>${esc(c.ceLine)}</li>
+      <li>A recognized green infrastructure credential to list in proposals, qualifications statements and staff bios.</li>
+      <li>Fewer costly mistakes on the BMPs we design, build, inspect or maintain.</li>
+    </ul>
+    <h3>Cost</h3>
+    <table class="cost">${costRows}</table>
+    <p>If approved, I'll enroll at midamericawatershed.org/enroll.html and share my certificate when I finish. Group pricing is available for teams of five or more if others here would benefit too.</p>
+    <p>Thank you for considering this.</p>
+    <p>${ph(c.you)}</p>`;
+}
+
+function plainText(c) {
+  const lines = [];
+  lines.push(`Dear ${c.mgr},`, '');
+  lines.push(`I'm requesting approval for ${c.org} to cover ${c.what} from MidAmerica Watershed.Org — professional green infrastructure certifications focused on the stormwater BMPs we work with: basins, bioretention, swales, permeable pavement, underground systems and more.`, '');
+  lines.push(`WHY IT MATTERS IN MY ROLE AS ${c.title.toUpperCase()}`);
+  c.role.why.forEach(w => lines.push('• ' + w));
+  lines.push('', 'WHAT IT INVOLVES');
+  lines.push('• Self-paced online coursework — more than 30 hours per credential, with no travel and no time away from projects. My progress saves automatically.');
+  lines.push('• Graded module quizzes and a 100-question final exam (80% to pass).');
+  lines.push('• A certificate with my name, certificate number and completion date.' + c.cmgiNote);
+  lines.push('', `WHAT ${c.org.toUpperCase()} GETS`);
+  lines.push('• ' + c.ceLine);
+  lines.push('• A recognized green infrastructure credential for proposals, qualifications and staff bios.');
+  lines.push('• Fewer costly mistakes on the BMPs we design, build, inspect or maintain.');
+  lines.push('', 'COST');
+  c.p.items.forEach(([n, a]) => lines.push(`• ${n}: ${fmt(a)}`));
+  lines.push(`• Total: ${fmt(c.p.total)}` + (c.p.save ? ` (saves ${fmt(c.p.save)} versus buying separately)` : ''));
+  lines.push('', 'If approved, I\'ll enroll at midamericawatershed.org/enroll.html and share my certificate when I finish. Group pricing is available for teams of five or more.', '', 'Thank you for considering this.', '', c.you);
+  return lines.join('\n');
+}
+
+$('role').addEventListener('change', () => {
+  const role = ROLES.find(r => r.id === $('role').value);
+  if (role) {
+    usePackage = role.rec.length === 4;
+    selected = new Set(usePackage ? [] : role.rec);
+    const rec = usePackage ? 'the complete package (all four)' : role.rec.map(n => CREDS[n].acr).join(' + ');
+    $('recommend').innerHTML = `Recommended for your role: <b>${rec}</b>. You can change this below.`;
+    $('recommend').style.display = 'block';
+  } else { $('recommend').style.display = 'none'; }
+  renderCredOpts(); render();
+});
+['yourName', 'jobTitleText', 'mgrName', 'mgrEmail', 'org', 'creds'].forEach(id => $(id).addEventListener('input', render));
+
+$('emailBtn').addEventListener('click', () => {
+  const c = buildContent(); if (!c || c.none) return;
+  const to = $('mgrEmail').value.trim();
+  window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(c.subject)}&body=${encodeURIComponent(plainText(c))}`;
+});
+$('copyBtn').addEventListener('click', async () => {
+  const c = buildContent(); if (!c || c.none) return;
+  const text = `Subject: ${c.subject}\n\n${plainText(c)}`;
+  try { await navigator.clipboard.writeText(text); }
+  catch (e) { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+  $('copied').style.display = 'inline'; setTimeout(() => $('copied').style.display = 'none', 2000);
+});
+$('printBtn').addEventListener('click', () => window.print());
+
+// Pre-select a role from the link, e.g. approval.html?role=facility
+const q = new URLSearchParams(location.search).get('role');
+if (q && ROLES.some(r => r.id === q)) { $('role').value = q; $('role').dispatchEvent(new Event('change')); }
+renderCredOpts();
+</script>
+</body>
+</html>
