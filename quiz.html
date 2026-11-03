@@ -220,7 +220,7 @@
   <div class="nav-left">
     <a href="#" class="nav-logo">
       <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
+  <img src="logo.gif" alt="MidAmerica Watershed.Org logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
     </a>
     <div class="nav-title" id="navTitle">Module Quiz</div>
@@ -319,6 +319,13 @@ async function init() {
     const { data: enrollment } = await sb.from('cert_enrollments')
       .select('cert_number').eq('user_id', userId).eq('cert_number', certNumber).maybeSingle();
     if (!enrollment) { window.location.href = 'dashboard.html'; return; }
+    // CMGI (Cert 4) opens only after CGIPD, CGIIC and CGIMM are passed (matches viewer.html).
+    if (certNumber === 4) {
+      const { data: prior } = await sb.from('cert_enrollments')
+        .select('cert_number, cert_status').eq('user_id', userId).in('cert_number', [1, 2, 3]);
+      const ready = [1, 2, 3].every(n => (prior || []).find(e => e.cert_number === n && e.cert_status === 'passed'));
+      if (!ready) { window.location.href = 'dashboard.html'; return; }
+    }
     const { data: prog } = await sb.from('module_progress')
       .select('module_number, quiz_passed').eq('user_id', userId).eq('cert_number', certNumber);
     for (let m = 1; m < moduleNumber; m++) {

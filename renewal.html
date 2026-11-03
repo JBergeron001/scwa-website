@@ -124,7 +124,7 @@
 <nav>
   <a href="dashboard.html" class="nav-logo">
     <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
+  <img src="logo.gif" alt="MidAmerica Watershed.Org logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
     <div class="nav-title">MidAmerica Watershed.Org</div>
   </a>
@@ -328,7 +328,7 @@ function renderRenewalCards() {
     } else if (r.status === 'in_grace') {
       statusBadge = '⚠ In Grace Period';
       statusClass = 'sb-grace';
-      actionBtn = `<button class="renewal-action-btn btn-renew-urgent" onclick="payRenewal(${r.cert_number}, ${r.total_fee})">Pay $${r.total_fee} Now</button>`;
+      actionBtn = `<button class="renewal-action-btn btn-renew-urgent" onclick="payRenewal(${r.cert_number}, ${r.total_fee})">Request $${r.total_fee} payment link</button>`;
     } else if (daysUntilDue <= 60) {
       statusBadge = `Due in ${daysUntilDue} days`;
       statusClass = 'sb-due-soon';

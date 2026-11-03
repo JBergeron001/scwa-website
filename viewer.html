@@ -394,7 +394,12 @@ async function init() {
     const p = moduleProgressData.find(m => m.module_number === i + 1);
     if (!p || !p.quiz_passed) { maxAllowed = i; break; }
   }
-  if (!isAdmin && currentModuleIndex > maxAllowed) { currentModuleIndex = maxAllowed; currentSlideInModule = 0; }
+  if (!isAdmin && currentModuleIndex > maxAllowed) {
+    // Asked for a locked module: open the current module where the student left off.
+    currentModuleIndex = maxAllowed;
+    const saved = moduleProgressData.find(m => m.module_number === maxAllowed + 1);
+    currentSlideInModule = saved?.current_slide || 0;
+  }
   if (currentModuleIndex < 0) currentModuleIndex = 0;
 
   buildSidebar();
@@ -685,9 +690,16 @@ function stopSpeech() {
   updateReadAloudBtn(false);
 }
 
+function slideHasText() {
+  const n = getAbsoluteSlideNumber();
+  return !!(slideTexts[n] || slideTexts[String(n)]);
+}
+
 function updateReadAloudBtn(active) {
   const btn = document.getElementById('readAloudBtn');
   if (!btn) return;
+  // Only offer read-aloud where narration text exists for this slide.
+  btn.style.display = (courseData.length && slideHasText()) ? '' : 'none';
   btn.classList.toggle('active', active);
   btn.textContent = active ? '⏹ Stop reading' : '🔊 Read aloud';
 }

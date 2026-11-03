@@ -342,7 +342,7 @@ footer .dotsep{width:3px;height:3px;border-radius:50%;background:var(--line)}
 <footer>
   <span>Green Infrastructure Selection Tool (GIST) &copy; 2024 Jay Bergeron</span>
   <span class="dotsep"></span>
-  <span>Prepared by MidAmerica Watershed.Org (MAWA) &middot; <a href="https://www.midamericawatershed.org" target="_blank" rel="noopener">midamericawatershed.org</a></span>
+  <span>Prepared by MidAmerica Watershed.Org &middot; <a href="https://www.midamericawatershed.org" target="_blank" rel="noopener">midamericawatershed.org</a></span>
   <span class="dotsep"></span>
   <span>Decision support &mdash; verify site conditions with a qualified engineer or planner.</span>
 </footer>
@@ -797,7 +797,7 @@ function buildReport(scn){
         <div class="rt-doc">Green Infrastructure Strategy Report</div>
       </div>
       <div class="rright">
-        <div class="rmeta"><b>Prepared with GIST by</b><br>MidAmerica Watershed.Org (MAWA)<br><a class="rurl" href="https://www.midamericawatershed.org" target="_blank" rel="noopener">www.midamericawatershed.org</a><div class="rdate">${d}</div></div>
+        <div class="rmeta"><b>Prepared with GIST by</b><br>MidAmerica Watershed.Org<br><a class="rurl" href="https://www.midamericawatershed.org" target="_blank" rel="noopener">www.midamericawatershed.org</a><div class="rdate">${d}</div></div>
         <img class="rlogo" src="${MAWA_LOGO}" alt="MidAmerica Watershed.Org logo">
       </div>
     </div>
@@ -809,7 +809,7 @@ function buildReport(scn){
     </div>
     <h3 class="rh">Site setting narrative</h3>
     <div class="rnarr">${narr||'<p>No narrative — no criteria selected.</p>'}</div>
-    <div class="rfoot"><span>Green Infrastructure Selection Tool (GIST) — prepared by MidAmerica Watershed.Org (MAWA) · www.midamericawatershed.org · © 2024 Jay Bergeron</span><span>Decision support — verify site conditions with a qualified engineer or planner before design.</span></div>`;
+    <div class="rfoot"><span>Green Infrastructure Selection Tool (GIST) — prepared by MidAmerica Watershed.Org · www.midamericawatershed.org · © 2024 Jay Bergeron</span><span>Decision support — verify site conditions with a qualified engineer or planner before design.</span></div>`;
 }
 function openReport(scn){
   if(Object.values(scn.sel).filter(Boolean).length===0){toast("Choose some criteria first");switchTab&&switchTab("strategies");return;}

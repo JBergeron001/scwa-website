@@ -141,7 +141,7 @@
   <div class="login-box">
     <div class="login-logo">
       <div class="logo-mark" style="background:none;padding:0;overflow:hidden;width:52px;height:52px;border-radius:12px;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:52px;height:52px;object-fit:contain;border-radius:12px;" class="logo-gif">
+  <img src="logo.gif" alt="MidAmerica Watershed.Org logo" style="width:52px;height:52px;object-fit:contain;border-radius:12px;" class="logo-gif">
 </div>
       <div class="login-logo-text">MidAmerica Watershed.Org</div>
     </div>
@@ -164,7 +164,7 @@
   <nav>
     <div class="nav-logo">
       <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
+  <img src="logo.gif" alt="MidAmerica Watershed.Org logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
       <div class="nav-title">Admin Dashboard <span class="nav-badge">ADMIN</span></div>
     </div>
@@ -735,7 +735,7 @@ function exportCSV() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `MAWA-Users-${new Date().toISOString().slice(0,10)}.csv`;
+  a.download = `MidAmericaWatershed-Users-${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
   URL.revokeObjectURL(url);
 }
@@ -941,7 +941,7 @@ function exportRenewalsCSV() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `MAWA-Renewals-${new Date().toISOString().slice(0,10)}.csv`;
+  a.download = `MidAmericaWatershed-Renewals-${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
   URL.revokeObjectURL(url);
 }

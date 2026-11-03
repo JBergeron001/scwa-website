@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learning Portal — MAWA Certifications</title>
+  <title>Learning Portal — MidAmerica Watershed.Org</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
   <style>
@@ -91,7 +91,7 @@
   <aside class="sidebar" aria-label="Course navigation">
     <div class="sb-logo">
       <div class="mark"><svg viewBox="0 0 24 24"><path d="M12 3C8 3 4 6.5 4 11c0 3.5 2 6.5 5 8l3 2 3-2c3-1.5 5-4.5 5-8 0-4.5-4-8-8-8z"/><circle cx="12" cy="11" r="3"/></svg></div>
-      <div><div class="name">MAWA Portal</div><div class="sub">Learning platform</div></div>
+      <div><div class="name">Learning Portal</div><div class="sub">Learning platform</div></div>
     </div>
 
     <nav class="sb-nav">
@@ -263,7 +263,7 @@ function openMod(id) {
 }
 
 function renderSlide() {
-  const slides = SLIDES[curMod.id] || [{ type:'intro', tag:'Module '+curMod.id, title:curMod.title, body:'Slides for this module will be loaded from the MAWA content library.', bullets:['All module content is available here','Navigate with the arrows below'] }];
+  const slides = SLIDES[curMod.id] || [{ type:'intro', tag:'Module '+curMod.id, title:curMod.title, body:'Slides for this module will be loaded from the course content library.', bullets:['All module content is available here','Navigate with the arrows below'] }];
   const s = slides[curSlide];
   const tot = slides.length;
   const pct = Math.round(((curSlide + 1) / tot) * 100);

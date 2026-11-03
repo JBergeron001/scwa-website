@@ -38,7 +38,7 @@
 </head>
 <body>
 <nav>
-  <a href="dashboard.html" class="nav-brand"><img src="logo.gif" alt="MAWA Logo">MidAmerica Watershed.Org</a>
+  <a href="dashboard.html" class="nav-brand"><img src="logo.gif" alt="MidAmerica Watershed.Org logo">MidAmerica Watershed.Org</a>
   <a href="dashboard.html">← Dashboard</a>
 </nav>
 <main>
@@ -184,7 +184,7 @@ function downloadCertificate() {
   doc.text(`More than ${CE_HOURS} hours of self-paced professional development, module assessments and a final examination.`, W / 2, 150, { align: 'center' });
   doc.text('Submit to your credentialing body for PDU / PDH / CEU / CM credit according to its rules.', W / 2, 155, { align: 'center' });
 
-  doc.save(`MAWA-${CERT_ACRONYMS[cert.certNumber]}-No${cert.number}-${cert.name.replace(/\s+/g, '-')}.pdf`);
+  doc.save(`MidAmericaWatershed-${CERT_ACRONYMS[cert.certNumber]}-No${cert.number}-${cert.name.replace(/\s+/g, '-')}.pdf`);
 }
 
 init();

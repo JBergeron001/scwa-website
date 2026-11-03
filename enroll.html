@@ -272,7 +272,7 @@
 <nav>
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
+  <img src="logo.gif" alt="MidAmerica Watershed.Org logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
     <div class="nav-logo-text">MidAmerica<br>Watershed.Org</div>
   </a>
@@ -307,14 +307,14 @@
 
     <!-- CERT 4 BANNER -->
     <p class="section-label">Your ultimate goal</p>
-    <div style="background:#fff; border-radius:14px; border:2px dashed var(--gold); padding:1.5rem 2rem; margin-bottom:2rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; opacity:0.85;">
+    <div style="background:#fff; border-radius:14px; border:2px dashed var(--gold); padding:1.5rem 2rem; margin-bottom:2rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.5rem; opacity:0.85;">
       <div>
         <div style="display:inline-block; background:var(--gold-light); color:#7a5c10; font-size:0.75rem; font-weight:600; padding:0.2rem 0.6rem; border-radius:99px; margin-bottom:0.6rem; text-transform:uppercase; letter-spacing:0.05em;">🔒 Unlocks after CGIPD, CGIIC &amp; CGIMM</div>
         <div class="cred-mark" style="color:var(--gold)">CMGI</div>
         <div style="font-family:'DM Serif Display',serif; font-size:1.2rem; color:var(--text); margin-bottom:0.4rem;">Certification 4 — Master of Green Infrastructure</div>
         <div style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">The highest credential offered by MidAmerica Watershed.Org, available to professionals who hold all three foundation credentials. More than 30 professional development hours.</div>
       </div>
-      <div style="text-align:right; flex-shrink:0;">
+      <div style="text-align:right; flex-shrink:1;">
         <div style="font-family:'DM Serif Display',serif; font-size:2rem; color:var(--gold);">$299</div>
         <div style="font-size:0.8rem; color:var(--text-muted);">Individually, or included in the package</div>
       </div>
@@ -463,7 +463,7 @@ function updateOrderSummary() {
   if (selection.type === 'package') {
     html = `
       <div class="order-row"><span>Complete Package — CGIPD, CGIIC, CGIMM &amp; CMGI</span><span>$899</span></div>
-      <div class="order-row"><span style="color:var(--text-muted);font-size:0.82rem">Includes retry option per cert</span><span style="color:var(--text-muted);font-size:0.82rem">Included</span></div>
+      <div class="order-row"><span style="color:var(--text-muted);font-size:0.82rem">Option of one $50 retry per final exam</span><span style="color:var(--text-muted);font-size:0.82rem">If needed</span></div>
       <div class="order-total"><span>Total</span><span>$899</span></div>`;
   } else {
     const cert = CERTS.find(c => c.num === selection.certNum) || { num: 4, acr: 'CMGI', title: 'Master of Green Infrastructure' };

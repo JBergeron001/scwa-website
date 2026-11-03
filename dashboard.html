@@ -386,7 +386,7 @@
 <nav>
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
+  <img src="logo.gif" alt="MidAmerica Watershed.Org logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
     <div class="nav-logo-text">MidAmerica<br>Watershed.Org</div>
   </a>
@@ -625,6 +625,18 @@ function buildCertCard(certNum, enrollment, modules, modProgress, allPassed123) 
       btnClass = 'btn-locked'; btnText = 'Contact admin to unlock';
       btnHref = null;
     }
+  } else if (passedModules === totalModules && totalModules > 0 && (enrollment.exam_locked || (enrollment.exam_attempts_used || 0) >= 3)) {
+    badgeClass = 'badge-locked'; badgeText = 'Exam locked';
+    isLocked = true;
+    btnClass = 'btn-locked'; btnText = 'All 3 attempts used — see exam page';
+    btnHref = `exam.html?cert=${certNum}`;
+  } else if (passedModules === totalModules && totalModules > 0 && enrollment.last_exam_attempt_at && (enrollment.exam_attempts_used || 0) > 0
+             && Date.now() < new Date(enrollment.last_exam_attempt_at).getTime() + 48 * 3600 * 1000) {
+    const readyAt = new Date(new Date(enrollment.last_exam_attempt_at).getTime() + 48 * 3600 * 1000);
+    badgeClass = 'badge-active'; badgeText = `Attempt ${enrollment.exam_attempts_used} of 3 used`;
+    btnClass = 'btn-locked';
+    btnText = `⏳ Next exam attempt opens ${readyAt.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}`;
+    btnHref = null;
   } else if (passedModules === totalModules && totalModules > 0) {
     badgeClass = 'badge-active'; badgeText = 'Ready for exam';
     btnClass = 'btn-exam'; btnText = 'Take final exam →';

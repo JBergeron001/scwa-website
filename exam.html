@@ -224,7 +224,7 @@
 <nav>
   <div class="nav-left">
     <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
-  <img src="logo.gif" alt="MAWA Logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
+  <img src="logo.gif" alt="MidAmerica Watershed.Org logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
     <div class="nav-title" id="navTitle">Final Exam</div>
     <div class="nav-badge" id="navBadge">...</div>
@@ -377,6 +377,13 @@ async function init() {
     isAdmin = !!wl;
   } catch (e) {}
   if (!isAdmin) {
+    // CMGI (Cert 4) opens only after CGIPD, CGIIC and CGIMM are passed (matches viewer.html).
+    if (certNumber === 4) {
+      const { data: prior } = await sb.from('cert_enrollments')
+        .select('cert_number, cert_status').eq('user_id', userId).in('cert_number', [1, 2, 3]);
+      const ready = [1, 2, 3].every(n => (prior || []).find(e => e.cert_number === n && e.cert_status === 'passed'));
+      if (!ready) { window.location.href = 'dashboard.html'; return; }
+    }
     const MODULE_COUNTS = { 1: 7, 2: 8, 3: 6, 4: 6 };
     const { data: prog } = await sb.from('module_progress')
       .select('module_number, quiz_passed').eq('user_id', userId).eq('cert_number', certNumber);
