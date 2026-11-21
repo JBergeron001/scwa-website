@@ -256,7 +256,7 @@ footer a{color:var(--moss-deep)} .dotsep{width:3px;height:3px;border-radius:50%;
 <footer>
   <span>OASIS &mdash; Open-space Assessment of Sustainability, Integrity &amp; Systems &copy; 2024 Jay Bergeron</span>
   <span class="dotsep"></span>
-  <span>Prepared by MidAmerica Watershed.Org &middot; <a href="https://www.midamericawatershed.org" target="_blank" rel="noopener">midamericawatershed.org</a></span>
+  <span>Prepared by Mid-America Watershed.Org &middot; <a href="https://www.midamericawatershed.org" target="_blank" rel="noopener">midamericawatershed.org</a></span>
   <span class="dotsep"></span>
   <span>Field assessment aid — verify with a qualified ecologist or planner.</span>
 </footer>
@@ -517,15 +517,15 @@ function buildReport(snap){
     return `<tr><td class="rcat">${c.label}</td><td class="rlvl">${lvl}</td><td class="rv">${state.weights[c.k]??1}×</td><td class="rv">${Math.round(f*100)}</td></tr>`;}).join("");
   $("#reportSheet").innerHTML=`
     <div class="rhd"><div><div class="rt">OASIS</div><div class="rt-full">Open-space Assessment of Sustainability, Integrity &amp; Systems</div><div class="rt-doc">Site Sustainability &amp; Connectivity Report</div></div>
-      <div class="rright"><div class="rmeta"><b>Prepared with OASIS by</b><br>MidAmerica Watershed.Org<br><a class="rurl" href="https://www.midamericawatershed.org">www.midamericawatershed.org</a><div class="rdate">${d}</div></div>
-      <img class="rlogo" src="${MAWA_LOGO}" alt="MidAmerica Watershed.Org logo"></div></div>
+      <div class="rright"><div class="rmeta"><b>Prepared with OASIS by</b><br>Mid-America Watershed.Org<br><a class="rurl" href="https://www.midamericawatershed.org">www.midamericawatershed.org</a><div class="rdate">${d}</div></div>
+      <img class="rlogo" src="${MAWA_LOGO}" alt="Mid-America Watershed.Org logo"></div></div>
     <div class="rsite"><b>${esc(meta.name||"Untitled site")}</b> &nbsp;·&nbsp; Location: ${meta.lat&&meta.lng?esc(meta.lat+", "+meta.lng):"—"} &nbsp;·&nbsp; ${meta.acres?esc(meta.acres)+" acres":"— acres"} &nbsp;·&nbsp; Surveyor: ${esc(meta.surveyor||"—")}${meta.land?` &nbsp;·&nbsp; ${esc(meta.land)}`:""}</div>
     <div class="rscore"><div><div class="rbig">${Math.round(o.pct)}<span style="font-size:20px;color:#5a6a4f">/100</span></div><div class="rgl">Overall sustainability &amp; connectivity index · ${o.answered}/${CATS.length} items</div></div>
       <div style="text-align:center"><div class="rgrade" style="color:${col.replace('var(--gA)','#2E7D32').replace('var(--gB)','#6BA03A').replace('var(--gC)','#D19A24').replace('var(--gD)','#E07B39').replace('var(--gE)','#C24B3A')}">${g}</div><div class="rgl">${gl}</div></div></div>
     ${narrativeHTML(snap)}
     <h3 class="rh">Scored items</h3>
     <table class="rtab"><thead><tr><th>Item</th><th>Assessed condition</th><th class="rv">Wt</th><th class="rv">Score /100</th></tr></thead><tbody>${rows||'<tr><td>No items scored.</td><td></td><td></td><td></td></tr>'}</tbody></table>
-    <div class="rfoot"><span>OASIS © 2024 Jay Bergeron · prepared by MidAmerica Watershed.Org · www.midamericawatershed.org</span><span>Field assessment aid — verify with a qualified ecologist or planner.</span></div>`;
+    <div class="rfoot"><span>OASIS © 2024 Jay Bergeron · prepared by Mid-America Watershed.Org · www.midamericawatershed.org</span><span>Field assessment aid — verify with a qualified ecologist or planner.</span></div>`;
 }
 function catFrac2(c,snap){
   if(c.sub){const fs=c.sub.map(s=>fracFromScore(s.levels,(snap.subs[c.k]||{})[s.k])).filter(x=>x!=null);return fs.length?fs.reduce((a,b)=>a+b)/fs.length:null;}

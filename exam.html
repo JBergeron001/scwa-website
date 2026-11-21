@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Final Exam — MidAmerica Watershed.Org</title>
+<title>Final Exam — Mid-America Watershed.Org</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -224,7 +224,7 @@
 <nav>
   <div class="nav-left">
     <div class="nav-logo-mark" style="background:none;padding:0;overflow:hidden;width:40px;height:40px;border-radius:8px;">
-  <img src="logo.gif" alt="MidAmerica Watershed.Org logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
+  <img src="logo.gif" alt="Mid-America Watershed.Org logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;" class="logo-gif">
 </div>
     <div class="nav-title" id="navTitle">Final Exam</div>
     <div class="nav-badge" id="navBadge">...</div>
@@ -331,7 +331,7 @@ const CERT_BLURBS = {
   1: 'This certifies that the recipient has demonstrated mastery of green infrastructure planning and design principles, including site assessment, regulatory frameworks, and best management practices.',
   2: 'This certifies that the recipient has demonstrated mastery of green infrastructure installation and construction methods, materials, and quality control standards.',
   3: 'This certifies that the recipient has demonstrated mastery of green infrastructure maintenance and management, including inspection protocols, long-term performance assessment, and adaptive management.',
-  4: 'This certifies that the recipient has achieved the highest level of professional mastery in green infrastructure, having successfully completed all four certifications offered by MidAmerica Watershed.Org.'
+  4: 'This certifies that the recipient has achieved the highest level of professional mastery in green infrastructure, having successfully completed all four certifications offered by Mid-America Watershed.Org.'
 };
 
 // ── SAMPLE FINAL EXAM QUESTIONS (100 questions) ──────────────────
@@ -412,7 +412,7 @@ async function init() {
     if (enrollment.retry_available) {
       document.getElementById('lockedMsg').innerHTML = `You have used all 3 attempts on this exam. As a package purchaser, you can pay a <strong>$50 retry fee</strong> to unlock one additional attempt. Email <a href="mailto:admin@midamericawatershed.org?subject=Cert%20${certNumber}%20exam%20retry">admin@midamericawatershed.org</a> to arrange payment.`;
     } else {
-      document.getElementById('lockedMsg').textContent = `You have used all ${attemptsUsed} allowed attempts on this exam and your account has been locked. Please contact MidAmerica Watershed.Org to have your account reviewed and reset.`;
+      document.getElementById('lockedMsg').textContent = `You have used all ${attemptsUsed} allowed attempts on this exam and your account has been locked. Please contact Mid-America Watershed.Org to have your account reviewed and reset.`;
     }
     return;
   }
@@ -595,7 +595,7 @@ function showResults(score, passed, correct, locked, retryAvailable) {
   } else if (locked && retryAvailable) {
     desc += ` You have exhausted your 3 attempts. As a package purchaser, you may pay a $50 retry fee for one additional attempt — email admin@midamericawatershed.org to arrange it.`;
   } else if (locked) {
-    desc += ` You have exhausted all allowed attempts. Your account has been locked. Please contact MidAmerica Watershed.Org to have your account reviewed.`;
+    desc += ` You have exhausted all allowed attempts. Your account has been locked. Please contact Mid-America Watershed.Org to have your account reviewed.`;
   } else {
     const attemptsLeft = 3 - (enrollment.exam_attempts_used || 0);
     const readyAt = new Date(Date.now() + 48 * 60 * 60 * 1000);
@@ -611,7 +611,7 @@ function showResults(score, passed, correct, locked, retryAvailable) {
     const userNum = userProfile.user_number;
     document.getElementById('certPreview').innerHTML = `
       <div class="cert-preview">
-        <div class="cert-org">MidAmerica Watershed.Org</div>
+        <div class="cert-org">Mid-America Watershed.Org</div>
         <div style="font-size:0.8rem;color:#7a5c10;margin-bottom:0.75rem">This is to certify that</div>
         <div class="cert-name-display">${userProfile.full_name}</div>
         <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem">has successfully demonstrated mastery of</div>

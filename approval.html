@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Request Employer Approval — MidAmerica Watershed.Org</title>
-<meta name="description" content="Build a ready-to-send request asking your employer to approve and pay for a MidAmerica Watershed.Org green infrastructure credential.">
+<title>Request Employer Approval — Mid-America Watershed.Org</title>
+<meta name="description" content="Build a ready-to-send request asking your employer to approve and pay for a Mid-America Watershed.Org green infrastructure credential.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -82,7 +82,7 @@
 <body>
 
 <nav>
-  <a href="index.html" class="brand"><img src="logo.gif" alt="MidAmerica Watershed.Org logo">MidAmerica Watershed.Org</a>
+  <a href="index.html" class="brand"><img src="logo.gif" alt="Mid-America Watershed.Org logo">Mid-America Watershed.Org</a>
   <div class="nav-links"><a href="certifications.html">Certifications</a><a href="login.html">Sign in</a></div>
 </nav>
 
@@ -275,7 +275,7 @@ function render() {
   L.innerHTML = `
     <div class="subj"><b>Subject:</b> ${esc(c.subject)}</div>
     <p>Dear ${ph(c.mgr)},</p>
-    <p>I'm requesting approval for ${esc(c.org)} to cover ${esc(c.what)} from MidAmerica Watershed.Org — professional green infrastructure certifications focused on the stormwater BMPs we work with: basins, bioretention, swales, permeable pavement, underground systems and more.</p>
+    <p>I'm requesting approval for ${esc(c.org)} to cover ${esc(c.what)} from Mid-America Watershed.Org — professional green infrastructure certifications focused on the stormwater BMPs we work with: basins, bioretention, swales, permeable pavement, underground systems and more.</p>
     <h3>Why it matters in my role as ${esc(c.title)}</h3>
     <ul>${c.role.why.map(w => `<li>${esc(w)}</li>`).join('')}</ul>
     <h3>What it involves</h3>
@@ -300,7 +300,7 @@ function render() {
 function plainText(c) {
   const lines = [];
   lines.push(`Dear ${c.mgr},`, '');
-  lines.push(`I'm requesting approval for ${c.org} to cover ${c.what} from MidAmerica Watershed.Org — professional green infrastructure certifications focused on the stormwater BMPs we work with: basins, bioretention, swales, permeable pavement, underground systems and more.`, '');
+  lines.push(`I'm requesting approval for ${c.org} to cover ${c.what} from Mid-America Watershed.Org — professional green infrastructure certifications focused on the stormwater BMPs we work with: basins, bioretention, swales, permeable pavement, underground systems and more.`, '');
   lines.push(`WHY IT MATTERS IN MY ROLE AS ${c.title.toUpperCase()}`);
   c.role.why.forEach(w => lines.push('• ' + w));
   lines.push('', 'WHAT IT INVOLVES');
