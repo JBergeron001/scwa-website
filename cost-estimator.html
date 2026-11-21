@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Green infrastructure cost &amp; upkeep estimator · Mid-America Watershed.Org</title>
+<meta name="description" content="Free planning-level build, upkeep and life-cycle cost estimator for green infrastructure stormwater practices, with every published figure shown.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#173B6B;--green-deep:#2F7D34;--cream:#EAF3FA;--text:#15243B;--muted:#54637C;--line:#E2E7EE;--blue:#2a78d6;--teal:#1baf7a;--amber:#eda100;--head:"Public Sans",system-ui,sans-serif;--body:"Public Sans",system-ui,sans-serif;--serif:"Fraunces",Georgia,serif}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0;background:#FBFAF6;color:var(--text);font:15px/1.5 var(--body)}
+.app{display:grid;grid-template-columns:290px minmax(0,1fr);gap:22px;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(24,21,124,.12);padding:18px}
+h4{margin:0 0 6px;font:600 13px var(--head);text-transform:uppercase;letter-spacing:.06em;color:var(--navy)}
+.in label{display:block;font-size:13px;color:var(--muted);margin:10px 0 3px}
+.in select,.in input[type=number]{width:100%;font:15px var(--body);min-height:36px;padding:0 8px;border:1px solid #cfd3c6;border-radius:6px;background:#fff}
+.in input[type=range]{width:100%;accent-color:var(--navy)}
+.seg{display:flex;gap:4px}.seg button{flex:1;font:500 12px var(--body);min-height:34px;border:1px solid #cfd3c6;border-radius:6px;background:#fff;color:var(--text);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--green-deep);outline-offset:2px}
+.hint{font-size:12px;color:var(--muted);margin:3px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.k{background:var(--cream);border-radius:8px;padding:10px 12px}.k p{margin:0;font-size:12.5px;color:var(--muted)}
+.k b{display:block;font:600 24px/1.1 var(--serif);color:var(--navy);margin-top:3px}.k span{font-size:12px;color:var(--muted)}
+.card{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.card h4 small{font:400 12px var(--body);text-transform:none;letter-spacing:0;color:var(--muted);margin-left:6px}
+.strip{position:relative;height:74px;margin:6px 8px 0}
+.axis{position:absolute;left:0;right:0;top:44px;height:1px;background:#c9ccc0}
+.band{position:absolute;top:30px;height:28px;border-radius:6px;opacity:.18}
+.typ{position:absolute;top:24px;width:3px;height:40px;border-radius:2px;transform:translateX(-1px)}
+.dot{position:absolute;top:36px;width:16px;height:16px;border-radius:50%;border:2px solid #fff;transform:translateX(-8px);box-shadow:0 0 0 1px rgba(0,0,0,.15);cursor:help}
+.dot.epa{border-radius:3px;transform:translateX(-8px) rotate(45deg)}
+.tick{position:absolute;top:58px;font-size:11px;color:var(--muted);transform:translateX(-50%);white-space:nowrap}
+.tl{position:absolute;top:0;font:500 12px var(--body);transform:translateX(-50%);white-space:nowrap}
+.tip{position:fixed;pointer-events:none;background:#fff;border:1px solid var(--line);border-radius:6px;padding:6px 9px;font-size:12px;box-shadow:0 4px 12px rgba(0,0,0,.12);max-width:300px;display:none;z-index:5}
+.cmp{display:grid;grid-template-columns:200px minmax(0,1fr) 92px;gap:6px 10px;align-items:center;font-size:13px}
+.cmp .nm{text-align:right;color:var(--text)}.cmp .nm.on{font-weight:500;color:var(--navy)}
+.cmp .tr{position:relative;height:18px}
+.cmp .rg{position:absolute;top:6px;height:6px;border-radius:3px;background:#c9d9ef}
+.cmp .tv{position:absolute;top:1px;width:4px;height:16px;border-radius:2px;background:var(--blue);transform:translateX(-2px)}
+.cmp .on~.tr .rg{background:#9fc0ea}.cmp .v{font-variant-numeric:tabular-nums;color:var(--muted);text-align:right}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+details{font-size:13px}details summary{cursor:pointer;color:var(--navy);font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px}th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--line);vertical-align:top}th{font-weight:500;color:var(--muted)}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.flag{margin:-4px 0 12px;padding:8px 12px;border-left:4px solid var(--amber);background:#fdf6e3;font-size:13px;line-height:1.45;border-radius:0}
+.pg{max-width:1180px;margin:0 auto;padding:22px 18px 30px}
+.ph{margin-bottom:18px}.ph .back{display:inline-block;font-size:14px;color:#2C7FB8;text-decoration:none;margin-bottom:10px}
+.ph .kick{margin:0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#2F7D34;font-weight:600}
+.ph h1{margin:4px 0 6px;font:600 clamp(26px,4vw,38px)/1.1 var(--serif);color:var(--navy)}
+.ph .lede{margin:0;max-width:70ch;color:var(--muted);font-size:16px}
+.pf{margin-top:16px;font-size:12.5px;color:var(--muted);text-align:center}
+.fine{font-size:12px;color:var(--muted);line-height:1.45}
+@media(max-width:900px){.app{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.cmp{grid-template-columns:120px minmax(0,1fr) 70px}}
+</style>
+</head>
+<body>
+<div class="pg">
+<header class="ph"><a class="back" href="resources.html#tools">&larr; Free tools</a><div><p class="kick">Free tool · Mid-America Watershed.Org</p><h1>Green infrastructure cost &amp; upkeep estimator</h1><p class="lede">Planning-level build, upkeep and life-cycle costs for common stormwater practices, sized to your drainage area. Every published figure is shown, so you can see the evidence behind each range.</p></div></header>
+<div class="app">
+ <aside class="in" aria-label="Project inputs">
+  <h4>Project</h4>
+  <label for="pr">Practice</label>
+  <select id="pr"></select>
+  <label for="da">Drainage area treated (acres)</label><input id="da" type="number" min="0.05" step="0.05" value="1">
+  <label for="ip">Impervious share: <span id="ipv"></span>%</label><input id="ip" type="range" min="10" max="100" step="5" value="80">
+  <label for="sz" id="szl">Practice size</label><input id="sz" type="number" min="1" step="1">
+  <p class="hint" id="szh"></p>
+  <label>Project type</label><div class="seg" data-k="type"><button data-v="0">New</button><button data-v="1">Redevelop</button><button data-v="2">Retrofit</button></div>
+  <label>Site conditions</label><div class="seg" data-k="hard"><button data-v="0">Easy</button><button data-v="1">Some</button><button data-v="2">Difficult</button></div>
+  <p class="hint">Difficult means clay soils needing underdrains, steep slopes, utilities or pretreatment.</p>
+  <label for="life">Design life: <span id="lifev"></span> years</label><input id="life" type="range" min="10" max="50" step="5" value="20">
+  <label for="dr">Discount rate: <span id="drv"></span>%</label><input id="dr" type="range" min="0" max="7" step="0.5" value="3">
+  <label for="sc">Design, engineering and contingency: <span id="scv"></span>%</label><input id="sc" type="range" min="0" max="60" step="5" value="25">
+ </aside>
+ <main>
+  <div class="kpis">
+   <div class="k"><p>Build cost</p><b id="kb"></b><span id="kbr"></span></div>
+   <div class="k"><p>Upkeep per year</p><b id="ko"></b><span id="kor"></span></div>
+   <div class="k"><p>Life-cycle cost</p><b id="kl"></b><span id="klr"></span></div>
+   <div class="k"><p>Per 1,000 gallons managed</p><b id="kg"></b><span id="kgr"></span></div>
+  </div>
+  <p class="flag" id="flag" hidden></p>
+  <div class="card"><h4>Build cost evidence<small>each dot is one published figure, in 2025 dollars, for this size</small></h4><div class="strip" id="s1"></div></div>
+  <div class="card"><h4>Yearly upkeep evidence<small>each dot is one published figure, in 2025 dollars</small></h4><div class="strip" id="s2"></div>
+   <div class="legend" id="leg"></div></div>
+  <div class="card"><h4>Compare practices for this drainage area<small>typical cost per 1,000 gallons managed each year, with low to high range</small></h4><div class="cmp" id="cmp"></div><p class="fine" style="margin:8px 0 0">* May be understated where costs depend on more detailed site-specific information and data, such as engineered bioswales, infiltration basins needing pretreatment, and street planters in tight utility corridors.</p></div>
+  <details><summary>Sources, assumptions and every number used</summary>
+   <p class="fine">Planning-level screening estimates, not bids. Range is the lowest to highest published figure; typical is the middle (median) figure. Each figure is converted to 2025 dollars with the U.S. Consumer Price Index (annual averages). St. Louis is more than 100 miles from the regional cost centers the U.S. Environmental Protection Agency uses, so the national cost level (1.0) applies. Design, engineering and contingency are added on top of build figures because several sources exclude them. Life-cycle cost adds the present value of yearly upkeep over the design life; replacement costs are not included because the sources give no replacement intervals. Gallons managed assume about 42 inches of rain a year, 90% runoff from impervious surfaces, and practices sized to capture about 85% of yearly runoff (green roofs retain about half the rain that falls on them; cisterns are assumed to reuse 30%). Default practice sizes are common planning rules of thumb; replace them with your design.</p>
+   <table id="src"></table>
+  </details>
+ </main>
+</div>
+<footer class="pf">Provided free by Mid-America Watershed.Org · Planning-level screening estimates, not bids or engineering cost opinions.</footer>
+</div>
+<div class="tip" id="tip"></div>
+<script>
+{
+// U.S. Consumer Price Index, all urban consumers, annual averages (1982-84=100)
+const CPI={2005:195.3,2008:215.303,2010:218.06,2014:236.74,2016:240.0,2025:322.6};
+const inf=y=>y?CPI[2025]/CPI[y]:1;
+const SRC={
+ werf:{c:'#2a78d6',n:'Water Environment Research Foundation whole-life cost models (2008 dollars), as summarized in the U.S. Environmental Protection Agency LID cost analysis, 2015'},
+ epa:{c:'#18157c',n:'U.S. Environmental Protection Agency National Stormwater Calculator cost curves (2014 dollars)',shape:'epa'},
+ real:{c:'#e8553e',n:'BMP-REALCOST equations (2010 dollars; exclude land, contingency, engineering), as summarized by the U.S. Environmental Protection Agency, 2015'},
+ lidc:{c:'#9b59b6',n:'Low Impact Development Center, 2014 (2014 dollars)'},
+ wrf:{c:'#1baf7a',n:'Water Research Foundation national maintenance survey (Clary and Piza 2017; treated as 2016 dollars)'},
+ sbpat:{c:'#eda100',n:'Structural BMP Prioritization and Analysis Tool, SBPAT (2005 dollars)'},
+ cnt:{c:'#8a8f96',n:'Center for Neighborhood Technology Green Values calculator (year not stated; not inflated)'}};
+// size unit: 'sf' footprint square feet, 'gal' cistern gallons. Functions take size (A) and context (x) and return dollars in the source year.
+const P={
+ bio:{n:'Bioretention (commercial rain garden)',u:'sf',def:x=>x.I*0.06,dh:'About 6% of the impervious area draining to it.',cap:.85,
+  epa:[[.2717,346.08],[1.5691,3696],[4.6378,10052]],
+  build:[['werf','Professionally installed rain garden, low ($8/sq ft)',2008,A=>8*A],['werf','Professionally installed rain garden, average ($16.05/sq ft)',2008,A=>16.05*A],['werf','Professionally installed rain garden, high ($40/sq ft)',2008,A=>40*A],['lidc','Commercial design, low ($10/sq ft)',2014,A=>10*A],['lidc','Commercial design, high ($40/sq ft)',2014,A=>40*A]],
+  om:[['wrf','Survey low ($0.13/sq ft/yr)',2016,A=>.13*A],['wrf','Survey median ($0.687/sq ft/yr)',2016,A=>.687*A],['wrf','Survey high ($2.30/sq ft/yr)',2016,A=>2.30*A],['sbpat','$0.05/sq ft/yr',2005,A=>.05*A],['werf','Highest reported per practice ($3,840/yr)',2008,A=>3840]]},
+ pp:{n:'Permeable pavement',u:'sf',def:x=>x.I/3,dh:'Pavement area, treating itself plus run-on from about twice its area.',cap:.85,
+  epa:[[2.3502,1545],[4.7209,1800],[7.8694,3750]],
+  build:[['werf','Range low ($0.50/sq ft)',2008,A=>.5*A],['werf','Range high ($10/sq ft)',2008,A=>10*A],['real','Permeable interlocking concrete pavers ($7,257 + $14.23/sq ft)',2010,A=>7257+14.23*A],['real','Porous concrete ($14,409 + $16.49/sq ft)',2010,A=>14409+16.49*A],['real','Concrete grid pavers ($102.86 + $10.10/sq ft)',2010,A=>102.86+10.10*A]],
+  om:[['real','Pavers or porous concrete ($125/acre/yr)',2010,A=>125*A/43560],['sbpat','$290/acre of practice/yr',2005,A=>290*A/43560],['cnt','$4,000/acre managed/yr',0,(A,x)=>4000*x.da],['werf','Per practice, low ($98/yr)',2008,A=>98],['werf','Per practice, high ($2,660/yr)',2008,A=>2660]]},
+ gr:{n:'Green roof',u:'sf',def:x=>x.I,dh:'Roof area; a green roof manages the rain that falls on it.',green:true,
+  epa:[[.5421,1975.2],[2.5009,3288],[7.5401,20824]],
+  build:[['werf','Range low ($19.50/sq ft)',2008,A=>19.5*A],['werf','Range high ($50.85/sq ft)',2008,A=>50.85*A]],
+  om:[['cnt','Low ($0.025/sq ft/yr)',0,A=>.025*A],['cnt','High ($2.89/sq ft/yr)',0,A=>2.89*A],['sbpat','$0.05/sq ft/yr',2005,A=>.05*A],['werf','Per practice, low ($670/yr)',2008,A=>670],['werf','Per practice, high ($19,320/yr)',2008,A=>19320]]},
+ sw:{flag:'Based on grass swale data. Engineered bioswales with amended soils, underdrains or check dams cost more.',n:'Bioswale (vegetated swale)',u:'sf',def:x=>x.I*0.05,dh:'About 5% of the impervious area draining to it.',cap:.85,
+  build:[['werf','$1,000 per acre drained',2008,(A,x)=>1000*x.da],['werf','$3,000 per acre drained',2008,(A,x)=>3000*x.da]],
+  om:[['cnt','$527 per acre treated/yr',0,(A,x)=>527*x.da],['cnt','$2,744 per acre treated/yr',0,(A,x)=>2744*x.da],['werf','Per practice, low ($150/yr)',2008,A=>150],['werf','Per practice, high ($6,020/yr)',2008,A=>6020]],
+  omPct:[['sbpat','5% of build cost/yr',.05],['sbpat','7% of build cost/yr',.07]]},
+ ib:{flag:'Based on a single national curve. Pretreatment, soil testing and outlet structures can add cost.',n:'Infiltration basin',u:'sf',def:x=>x.I*0.04,dh:'About 4% of the impervious area draining to it.',cap:.85,
+  epa:[[.8205,1928.2],[.8473,3864],[3.7531,13050]],build:[],om:[],
+  omPct:[['sbpat','1% of build cost/yr',.01],['sbpat','3% of build cost/yr',.03]]},
+ sp:{flag:'Utility conflicts, structural soil and curb work in street retrofits can add cost.',n:'Street planter / tree box',u:'sf',def:x=>x.I*0.05,dh:'About 5% of the impervious area; in-curb vaults counted at about 100 sq ft each.',cap:.85,
+  epa:[[.5592,1928.2],[2.7125,2580.6],[10.357,14163]],
+  build:[['werf','In-curb planter vault ($10,000 each)',2008,A=>10000*Math.max(1,Math.round(A/100))]],
+  om:[['werf','Per vault, low ($117/yr)',2008,A=>117*Math.max(1,Math.round(A/100))],['werf','Per vault, high ($1,155/yr)',2008,A=>1155*Math.max(1,Math.round(A/100))]]},
+ rh:{n:'Cistern / rainwater harvesting',u:'gal',def:x=>x.I*0.5/12*7.48,dh:'Gallons of storage to hold the first half inch of rain from the impervious area.',reuse:.3,
+  epa:[[.3844,61.8],[.7697,3564],[1.4085,4350]],
+  build:[['werf','Tank only, low ($1.33/gallon)',2008,A=>1.33*A],['werf','Tank only, high ($2.51/gallon)',2008,A=>2.51*A]],
+  om:[['sbpat','$100/yr',2005,A=>100],['cnt','$200 per installation/yr',0,A=>200],['werf','Per practice, low ($345/yr)',2008,A=>345],['werf','Per practice, high ($11,280/yr)',2008,A=>11280]]}};
+const st={type:1,hard:1};const $=i=>document.getElementById(i);
+const sel=$('pr');for(const k in P){const o=document.createElement('option');o.value=k;o.textContent=P[k].n+(P[k].flag?' *':'');sel.appendChild(o)}
+let userSize=false;
+const ctx=()=>{const da=+$('da').value||0,ip=+$('ip').value/100;return{da,ip,I:da*43560*ip}};
+const lvl=()=>Math.min(2,Math.max(0,Math.round((st.type+st.hard)/2+ (st.type===2&&st.hard===2?0.5:0))));
+const LV=['simple','typical','complex'];
+const med=a=>{const s=[...a].sort((x,y)=>x-y),m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2};
+const fmt=v=>v>=1e6?'$'+(v/1e6).toFixed(v>=1e7?0:1)+'M':v>=1e4?'$'+Math.round(v/1000)+'k':'$'+Math.round(v).toLocaleString();
+function evalP(k,x,A){const p=P[k],sc=1+(+$('sc').value)/100,lv=lvl();
+ const b=p.build.map(([s,l,y,f])=>({s,l,y,v:f(A,x)*inf(y)*sc}));
+ if(p.epa){const [m,c]=p.epa[lv];b.push({s:'epa',l:'National screening curve, '+LV[lv]+' site ($'+m+' per '+(p.u==='gal'?'gallon':'sq ft')+' + $'+c.toLocaleString()+')',y:2014,v:(m*A+c)*inf(2014)*sc,epa:true})}
+ const bv=b.map(d=>d.v),bl=Math.min(...bv),bh=Math.max(...bv),bt=med(bv);
+ const o=p.om.map(([s,l,y,f])=>({s,l,y,v:f(A,x)*inf(y)}));
+ if(p.omPct)for(const [s,l,r] of p.omPct)o.push({s,l:l+' (typical build)',y:2005,v:bt*r/sc});
+ const ov=o.map(d=>d.v),ol=Math.min(...ov),oh=Math.max(...ov),ot=med(ov);
+ const n=+$('life').value,r=+$('dr').value/100,ann=r?(1-Math.pow(1+r,-n))/r:n,crf=1/ann;
+ const rainGal=x.I*0.9*42/12*7.48;
+ const gal=p.green?A*42/12*7.48*.5:p.reuse?rainGal*p.reuse:rainGal*p.cap;
+ const lc=[bl+ol*ann,bt+ot*ann,bh+oh*ann];const per=[(bl*crf+ol)/(gal/1000),(bt*crf+ot)/(gal/1000),(bh*crf+oh)/(gal/1000)];
+ return{b,o,bl,bh,bt,ol,oh,ot,lc,per,gal}}
+function strip(el,data,lo,hi,typ,col){el.innerHTML='';const W=el.clientWidth;
+ const mn=Math.max(1,lo/1.6),mx=hi*1.6,lx=v=>(Math.log10(v)-Math.log10(mn))/(Math.log10(mx)-Math.log10(mn))*W;
+ const ax=document.createElement('div');ax.className='axis';el.appendChild(ax);
+ const band=document.createElement('div');band.className='band';band.style.left=lx(lo)+'px';band.style.width=Math.max(4,lx(hi)-lx(lo))+'px';band.style.background=col;el.appendChild(band);
+ for(let e=Math.ceil(Math.log10(mn));e<=Math.floor(Math.log10(mx));e++)for(const m of [1,3]){const v=m*10**e;if(v<mn||v>mx)continue;const t=document.createElement('div');t.className='tick';t.style.left=lx(v)+'px';t.textContent=fmt(v);el.appendChild(t)}
+ const tp=document.createElement('div');tp.className='typ';tp.style.left=lx(typ)+'px';tp.style.background=col;el.appendChild(tp);
+ const tl=document.createElement('div');tl.className='tl';tl.style.left=Math.min(W-40,Math.max(40,lx(typ)))+'px';tl.style.color=col;tl.textContent='Typical '+fmt(typ);el.appendChild(tl);
+ for(const d of data){if(!(d.v>0))continue;const dt=document.createElement('div');dt.className='dot'+(d.epa?' epa':'');dt.style.left=lx(d.v)+'px';dt.style.background=SRC[d.s].c;dt.tabIndex=0;
+  dt.dataset.t=fmt(d.v)+' · '+d.l;dt.setAttribute('aria-label',dt.dataset.t);el.appendChild(dt)}}
+const tip=$('tip');
+document.addEventListener('pointerover',e=>{const d=e.target.closest('.dot');if(!d)return;tip.textContent=d.dataset.t;tip.style.display='block'});
+document.addEventListener('pointermove',e=>{if(tip.style.display==='block'){tip.style.left=Math.min(innerWidth-310,e.clientX+12)+'px';tip.style.top=(e.clientY+14)+'px'}});
+document.addEventListener('pointerout',e=>{if(e.target.closest('.dot'))tip.style.display='none'});
+document.addEventListener('focusin',e=>{const d=e.target.closest('.dot');if(!d)return;const r=d.getBoundingClientRect();tip.textContent=d.dataset.t;tip.style.display='block';tip.style.left=Math.min(innerWidth-310,r.left)+'px';tip.style.top=(r.bottom+6)+'px'});
+document.addEventListener('focusout',()=>tip.style.display='none');
+function draw(){const k=sel.value,p=P[k],x=ctx();
+ $('ipv').textContent=$('ip').value;$('lifev').textContent=$('life').value;$('drv').textContent=$('dr').value;$('scv').textContent=$('sc').value;
+ $('szl').textContent=p.u==='gal'?'Storage size (gallons)':'Practice size (sq ft)';
+ if(!userSize)$('sz').value=Math.max(1,Math.round(p.def(x)));$('szh').textContent=p.dh+(userSize?' (your size)':' Edit to match your design.');
+ const A=+$('sz').value||1,r=evalP(k,x,A);
+ const fl=$('flag');fl.hidden=!p.flag;if(p.flag)fl.textContent='* May be understated: this estimate needs more detailed site-specific information and data. '+p.flag;
+ $('kb').textContent=fmt(r.bt);$('kbr').textContent=fmt(r.bl)+' to '+fmt(r.bh);
+ $('ko').textContent=fmt(r.ot);$('kor').textContent=fmt(r.ol)+' to '+fmt(r.oh);
+ $('kl').textContent=fmt(r.lc[1]);$('klr').textContent=fmt(r.lc[0])+' to '+fmt(r.lc[2])+' over '+$('life').value+' yrs';
+ $('kg').textContent='$'+r.per[1].toFixed(2);$('kgr').textContent='$'+r.per[0].toFixed(2)+' to $'+r.per[2].toFixed(2)+' · '+Math.round(r.gal).toLocaleString()+' gal/yr';
+ strip($('s1'),r.b,r.bl,r.bh,r.bt,'#2a78d6');strip($('s2'),r.o,r.ol,r.oh,r.ot,'#1baf7a');
+ const used=new Set([...r.b,...r.o].map(d=>d.s));$('leg').innerHTML='';
+ for(const s of used){const sp=document.createElement('span');const i=document.createElement('i');i.style.background=SRC[s].c;if(s==='epa')i.style.borderRadius='2px';sp.append(i,document.createTextNode(SRC[s].n.split(' (')[0].replace('U.S. Environmental Protection Agency ','EPA ')));$('leg').appendChild(sp)}
+ // comparison
+ const rows=Object.keys(P).map(q=>{const pp=P[q],A2=q===k?A:Math.max(1,pp.def(x));return{q,n:pp.n,r:evalP(q,x,A2)}}).filter(o=>isFinite(o.r.per[1])&&o.r.per[1]>0);
+ const hi=Math.max(...rows.map(o=>o.r.per[2])),lo=Math.min(...rows.map(o=>o.r.per[0])),mn=Math.max(.01,lo/1.5),mx=hi*1.2,lx=v=>(Math.log10(v)-Math.log10(mn))/(Math.log10(mx)-Math.log10(mn))*100;
+ rows.sort((a,b)=>a.r.per[1]-b.r.per[1]);const c=$('cmp');c.innerHTML='';
+ for(const o of rows){const nm=document.createElement('div');nm.className='nm'+(o.q===k?' on':'');nm.textContent=o.n+(P[o.q].flag?' *':'');
+  const tr=document.createElement('div');tr.className='tr';const rg=document.createElement('div');rg.className='rg';rg.style.left=lx(o.r.per[0])+'%';rg.style.width=Math.max(1,lx(o.r.per[2])-lx(o.r.per[0]))+'%';if(o.q===k)rg.style.background='#9fc0ea';
+  const tv=document.createElement('div');tv.className='tv';tv.style.left=lx(o.r.per[1])+'%';if(o.q!==k)tv.style.background='#7fa6d6';tr.append(rg,tv);
+  const v=document.createElement('div');v.className='v';v.textContent='$'+o.r.per[1].toFixed(2);c.append(nm,tr,v)}
+ // sources table
+ const t=$('src');t.innerHTML='<tr><th>Figure</th><th>Source</th><th>Dollar year</th><th class="n">2025 dollars</th></tr>';
+ for(const [lab,arr] of [['Build',r.b],['Upkeep per year',r.o]])for(const d of arr){const tr=document.createElement('tr');
+  [lab+': '+d.l,SRC[d.s].n,d.y?String(d.y)+' (×'+inf(d.y).toFixed(2)+')':'not stated',fmt(d.v)].forEach((s,i)=>{const td=document.createElement('td');if(i===3)td.className='n';td.textContent=s;tr.appendChild(td)});t.appendChild(tr)}}
+document.querySelectorAll('.seg').forEach(g=>{const k=g.dataset.k;g.querySelectorAll('button').forEach(b=>{b.type='button';b.setAttribute('aria-pressed',+b.dataset.v===st[k]);
+ b.addEventListener('click',()=>{st[k]=+b.dataset.v;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()})})});
+$('da').addEventListener('input',()=>{userSize=false});$('ip').addEventListener('input',()=>{userSize=false});
+['da','ip','life','dr','sc'].forEach(i=>$(i).addEventListener('input',draw));
+sel.addEventListener('change',()=>{userSize=false;draw()});
+$('sz').addEventListener('input',()=>{userSize=true;draw()});
+new ResizeObserver(draw).observe(document.querySelector('main'));
+draw();
+}
+</script>
+</body>
+</html>
