@@ -1,0 +1,343 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Travis County",
+  "note": ""
+ },
+ "1209030101": {
+  "watershed": "Willbarger Creek-Colorado River",
+  "note": ""
+ },
+ "1209020503": {
+  "watershed": "City of Austin-Colorado River",
+  "note": ""
+ },
+ "1209020502": {
+  "watershed": "Cow Creek-Lake Travis",
+  "note": ""
+ },
+ "1209020504": {
+  "watershed": "Onion Creek-Colorado River",
+  "note": ""
+ },
+ "1209020603": {
+  "watershed": "Pedernales River-Lake Travis",
+  "note": ""
+ },
+ "1209030103": {
+  "watershed": "Walnut Creek-Cedar Creek",
+  "note": ""
+ },
+ "1210020304": {
+  "watershed": "Plum Creek",
+  "note": ""
+ },
+ "1207020504": {
+  "watershed": "Turkey Creek-Brushy Creek",
+  "note": ""
+ },
+ "1207020502": {
+  "watershed": "South Fork San Gabriel River",
+  "note": ""
+ },
+ "120903010103": {
+  "subwatershed": "Upper Wilbarger Creek",
+  "note": ""
+ },
+ "120903010106": {
+  "subwatershed": "Gilleland Creek",
+  "note": ""
+ },
+ "120903010109": {
+  "subwatershed": "Red Gully Creek-Dry Creek",
+  "note": ""
+ },
+ "120903010102": {
+  "subwatershed": "Cottonwood Creek",
+  "note": ""
+ },
+ "120903010107": {
+  "subwatershed": "Decker Creek-Colorado River",
+  "note": ""
+ },
+ "120903010101": {
+  "subwatershed": "Willow Creek",
+  "note": ""
+ },
+ "120903010108": {
+  "subwatershed": "Coleman Branch-Colorado River",
+  "note": ""
+ },
+ "120903010105": {
+  "subwatershed": "Lower Wilbarger Creek",
+  "note": ""
+ },
+ "120903010104": {
+  "subwatershed": "Elm Creek-Dry Creek",
+  "note": ""
+ },
+ "120903010110": {
+  "subwatershed": "Wilbarger Bend-Colorado River",
+  "note": ""
+ },
+ "120902050307": {
+  "subwatershed": "Walnut Creek-Colorado River",
+  "note": ""
+ },
+ "120902050305": {
+  "subwatershed": "Lake Austin-Town Lake",
+  "note": ""
+ },
+ "120902050306": {
+  "subwatershed": "Town Lake-Colorado River",
+  "note": ""
+ },
+ "120902050301": {
+  "subwatershed": "Headwaters Lake Austin",
+  "note": ""
+ },
+ "120902050302": {
+  "subwatershed": "Bull Creek-Lake Austin",
+  "note": ""
+ },
+ "120902050304": {
+  "subwatershed": "Little Barton Creek-Barton Creek",
+  "note": ""
+ },
+ "120902050303": {
+  "subwatershed": "Headwaters Barton Creek",
+  "note": ""
+ },
+ "120902050204": {
+  "subwatershed": "Bee Creek-Lake Travis",
+  "note": ""
+ },
+ "120902050205": {
+  "subwatershed": "Big Sandy Creek",
+  "note": ""
+ },
+ "120902050206": {
+  "subwatershed": "Hurst Creek-Lake Travis",
+  "note": ""
+ },
+ "120902050203": {
+  "subwatershed": "Post Oak Creek-Lake Travis",
+  "note": ""
+ },
+ "120902050207": {
+  "subwatershed": "Cypress Creek-Lake Travis",
+  "note": ""
+ },
+ "120902050202": {
+  "subwatershed": "Little Cypress Creek-Lake Travis",
+  "note": ""
+ },
+ "120902050201": {
+  "subwatershed": "Hickory Creek-Lake Travis",
+  "note": ""
+ },
+ "120902050408": {
+  "subwatershed": "Williamson Creek-Onion Creek",
+  "note": ""
+ },
+ "120902050407": {
+  "subwatershed": "Slaughter Creek-Onion Creek",
+  "note": ""
+ },
+ "120902050409": {
+  "subwatershed": "Carson Creek-Colorado River",
+  "note": ""
+ },
+ "120902050406": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "120902050405": {
+  "subwatershed": "Mustang Branch-Onion Creek",
+  "note": ""
+ },
+ "120902050401": {
+  "subwatershed": "Headwaters Onion Creek",
+  "note": ""
+ },
+ "120902050404": {
+  "subwatershed": "Yorks Creek-Onion Creek",
+  "note": ""
+ },
+ "120902050403": {
+  "subwatershed": "Gatlin Creek-Onion Creek",
+  "note": ""
+ },
+ "120902050402": {
+  "subwatershed": "South Onion Creek",
+  "note": ""
+ },
+ "120902060310": {
+  "subwatershed": "Fall Creek-Lake Travis",
+  "note": ""
+ },
+ "120902060307": {
+  "subwatershed": "Roy Creek-Lake Travis",
+  "note": ""
+ },
+ "120902060309": {
+  "subwatershed": "Lower Cypress Creek",
+  "note": ""
+ },
+ "120902060302": {
+  "subwatershed": "Cottonwood Creek-Pedernales River",
+  "note": ""
+ },
+ "120902060301": {
+  "subwatershed": "Towhead Creek-Pedernales River",
+  "note": ""
+ },
+ "120902060308": {
+  "subwatershed": "Upper Cypress Creek",
+  "note": ""
+ },
+ "120902060303": {
+  "subwatershed": "Upper Miller Creek",
+  "note": ""
+ },
+ "120902060304": {
+  "subwatershed": "Lower Miller Creek",
+  "note": ""
+ },
+ "120902060306": {
+  "subwatershed": "Flat Creek",
+  "note": ""
+ },
+ "120902060305": {
+  "subwatershed": "Pedernales Falls-Pedernales River",
+  "note": ""
+ },
+ "120903010301": {
+  "subwatershed": "Maha Creek",
+  "note": ""
+ },
+ "120903010302": {
+  "subwatershed": "Lytton Springs Creek-Cedar Creek",
+  "note": ""
+ },
+ "120903010303": {
+  "subwatershed": "Greens Creek-Cedar Creek",
+  "note": ""
+ },
+ "120903010304": {
+  "subwatershed": "Lytton Creek-Walnut Creek",
+  "note": ""
+ },
+ "120903010308": {
+  "subwatershed": "Brushy Creek-Sandy Creek",
+  "note": ""
+ },
+ "120903010309": {
+  "subwatershed": "Sandy Creek-Cedar Creek",
+  "note": ""
+ },
+ "120903010306": {
+  "subwatershed": "Alum Creek-Walnut Creek",
+  "note": ""
+ },
+ "120903010305": {
+  "subwatershed": "Bee Creek-Walnut Creek",
+  "note": ""
+ },
+ "120903010307": {
+  "subwatershed": "Lentz Branch-Walnut Creek",
+  "note": ""
+ },
+ "121002030403": {
+  "subwatershed": "Elm Creek-Plum Creek",
+  "note": ""
+ },
+ "121002030402": {
+  "subwatershed": "Brushy Creek-Plum Creek",
+  "note": ""
+ },
+ "121002030407": {
+  "subwatershed": "Clear Fork Plum Creek",
+  "note": ""
+ },
+ "121002030409": {
+  "subwatershed": "West Fork Plum Creek-Plum Creek",
+  "note": ""
+ },
+ "121002030406": {
+  "subwatershed": "Daniels Creek-Plum Creek",
+  "note": ""
+ },
+ "121002030404": {
+  "subwatershed": "Dry Creek-Plum Creek",
+  "note": ""
+ },
+ "121002030405": {
+  "subwatershed": "Pecan Branch-Plum Creek",
+  "note": ""
+ },
+ "121002030401": {
+  "subwatershed": "Bunton Branch-Plum Creek",
+  "note": ""
+ },
+ "121002030410": {
+  "subwatershed": "McNeil Creek-Plum Creek",
+  "note": ""
+ },
+ "121002030408": {
+  "subwatershed": "Copperas Creek-Plum Creek",
+  "note": ""
+ },
+ "120702050401": {
+  "subwatershed": "South Brushy Creek-Brushy Creek",
+  "note": ""
+ },
+ "120702050404": {
+  "subwatershed": "Cottonwood Creek-Brushy Creek",
+  "note": ""
+ },
+ "120702050406": {
+  "subwatershed": "Boggy Creek-Brushy Creek",
+  "note": ""
+ },
+ "120702050402": {
+  "subwatershed": "Lake Creek-Brushy Creek",
+  "note": ""
+ },
+ "120702050403": {
+  "subwatershed": "Chandler Branch-Brushy Creek",
+  "note": ""
+ },
+ "120702050409": {
+  "subwatershed": "Turkey Creek",
+  "note": ""
+ },
+ "120702050408": {
+  "subwatershed": "Berry Branch-Brushy Creek",
+  "note": ""
+ },
+ "120702050410": {
+  "subwatershed": "Rocky Creek-Brushy Creek",
+  "note": ""
+ },
+ "120702050405": {
+  "subwatershed": "Mustang Creek",
+  "note": ""
+ },
+ "120702050407": {
+  "subwatershed": "Dry Brushy Creek-Brushy Creek",
+  "note": ""
+ },
+ "120702050202": {
+  "subwatershed": "Middle South Fork San Gabriel River",
+  "note": ""
+ },
+ "120702050203": {
+  "subwatershed": "Lower South Fork San Gabriel River",
+  "note": ""
+ },
+ "120702050201": {
+  "subwatershed": "Upper South Fork San Gabriel River",
+  "note": ""
+ }
+}

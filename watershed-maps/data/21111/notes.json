@@ -1,0 +1,183 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Jefferson County",
+  "note": ""
+ },
+ "0514010109": {
+  "watershed": "Beargrass Creek-Ohio River",
+  "note": ""
+ },
+ "0514010212": {
+  "watershed": "Pond Creek",
+  "note": ""
+ },
+ "0514010208": {
+  "watershed": "Upper Floyds Fork",
+  "note": ""
+ },
+ "0514010210": {
+  "watershed": "Lower Floyds Fork",
+  "note": ""
+ },
+ "0514010106": {
+  "watershed": "Goose Creek-Ohio River",
+  "note": ""
+ },
+ "0514010105": {
+  "watershed": "Harrods Creek",
+  "note": ""
+ },
+ "0514010209": {
+  "watershed": "Plum Creek-Salt River",
+  "note": ""
+ },
+ "051401010902": {
+  "subwatershed": "Beargrass Creek",
+  "note": ""
+ },
+ "051401010903": {
+  "subwatershed": "Mill Creek Cutoff",
+  "note": ""
+ },
+ "051401010901": {
+  "subwatershed": "South Fork Beargrass Creek",
+  "note": ""
+ },
+ "051401010906": {
+  "subwatershed": "Fourmile Creek-Ohio River",
+  "note": ""
+ },
+ "051401010904": {
+  "subwatershed": "Fall Run-Ohio River",
+  "note": ""
+ },
+ "051401010905": {
+  "subwatershed": "Knob Creek",
+  "note": ""
+ },
+ "051401021201": {
+  "subwatershed": "Northern Ditch",
+  "note": ""
+ },
+ "051401021202": {
+  "subwatershed": "Headwaters Southern Ditch",
+  "note": ""
+ },
+ "051401021203": {
+  "subwatershed": "Southern Ditch-Pond Creek",
+  "note": ""
+ },
+ "051401021205": {
+  "subwatershed": "Brier Creek-Pond Creek",
+  "note": ""
+ },
+ "051401021204": {
+  "subwatershed": "Knob Creek",
+  "note": ""
+ },
+ "051401020806": {
+  "subwatershed": "Cane Run-Floyds Fork",
+  "note": ""
+ },
+ "051401020804": {
+  "subwatershed": "Brush Run-Floyds Fork",
+  "note": ""
+ },
+ "051401020805": {
+  "subwatershed": "Long Run",
+  "note": ""
+ },
+ "051401020803": {
+  "subwatershed": "Currys Fork",
+  "note": ""
+ },
+ "051401020802": {
+  "subwatershed": "Lick Fork-Floyds Fork",
+  "note": ""
+ },
+ "051401020801": {
+  "subwatershed": "Headwaters Floyds Fork",
+  "note": ""
+ },
+ "051401021002": {
+  "subwatershed": "Pennsylvania Run-Cedar Creek",
+  "note": ""
+ },
+ "051401021001": {
+  "subwatershed": "Chenoweth Run",
+  "note": ""
+ },
+ "051401021003": {
+  "subwatershed": "Broad Run-Floyds Fork",
+  "note": ""
+ },
+ "051401021004": {
+  "subwatershed": "Wells Run-Floyds Fork",
+  "note": ""
+ },
+ "051401021005": {
+  "subwatershed": "Bluelick Creek-Floyds Fork",
+  "note": ""
+ },
+ "051401010605": {
+  "subwatershed": "Lentzier Creek-Ohio River",
+  "note": ""
+ },
+ "051401010604": {
+  "subwatershed": "Little Huckleberry Creek-Ohio River",
+  "note": ""
+ },
+ "051401010602": {
+  "subwatershed": "Pattons Creek-Ohio River",
+  "note": ""
+ },
+ "051401010603": {
+  "subwatershed": "Bull Creek-Ohio River",
+  "note": ""
+ },
+ "051401010601": {
+  "subwatershed": "Camp Creek",
+  "note": ""
+ },
+ "051401010505": {
+  "subwatershed": "Wolf Pen Branch-Harrods Creek",
+  "note": ""
+ },
+ "051401010504": {
+  "subwatershed": "South Fork Harrods Creek",
+  "note": ""
+ },
+ "051401010501": {
+  "subwatershed": "Headwaters Harrods Creek",
+  "note": ""
+ },
+ "051401010503": {
+  "subwatershed": "Darby Creek-Harrods Creek",
+  "note": ""
+ },
+ "051401010502": {
+  "subwatershed": "Brush Creek-Harrods Creek",
+  "note": ""
+ },
+ "051401020902": {
+  "subwatershed": "Upper Plum Creek",
+  "note": ""
+ },
+ "051401020903": {
+  "subwatershed": "Lower Plum Creek",
+  "note": ""
+ },
+ "051401020904": {
+  "subwatershed": "Goose Creek-Salt River",
+  "note": ""
+ },
+ "051401020901": {
+  "subwatershed": "Elk Creek-Salt River",
+  "note": ""
+ },
+ "051401020905": {
+  "subwatershed": "Whittaker Run-Salt River",
+  "note": ""
+ }
+}

@@ -1,0 +1,371 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Harris County",
+  "note": ""
+ },
+ "1204010407": {
+  "watershed": "Buffalo Bayou-San Jacinto River",
+  "note": ""
+ },
+ "1204010201": {
+  "watershed": "Little Cypress Creek-Cypress Creek",
+  "note": ""
+ },
+ "1204010406": {
+  "watershed": "Greens Bayou",
+  "note": ""
+ },
+ "1204010403": {
+  "watershed": "Whiteoak Bayou-Buffalo Bayou",
+  "note": ""
+ },
+ "1204020401": {
+  "watershed": "Clear Creek-Frontal Galveston Bay",
+  "note": ""
+ },
+ "1204010402": {
+  "watershed": "Addicks Reservoir",
+  "note": ""
+ },
+ "1204010404": {
+  "watershed": "Brays Bayou",
+  "note": ""
+ },
+ "1204010202": {
+  "watershed": "Walnut Creek-Spring Creek",
+  "note": ""
+ },
+ "1204010405": {
+  "watershed": "Sims Bayou",
+  "note": ""
+ },
+ "1204020301": {
+  "watershed": "Adlong Ditch-Cedar Bayou",
+  "note": ""
+ },
+ "1204010105": {
+  "watershed": "Lake Houston-San Jacinto River",
+  "note": ""
+ },
+ "1204010401": {
+  "watershed": "Barker Reservoir",
+  "note": ""
+ },
+ "1204010304": {
+  "watershed": "East Fork San Jacinto River-Frontal Lake Houston",
+  "note": ""
+ },
+ "1204010302": {
+  "watershed": "Tarkington Bayou-Luce Bayou",
+  "note": ""
+ },
+ "1204010301": {
+  "watershed": "Peach Creek-Caney Creek",
+  "note": ""
+ },
+ "1204020302": {
+  "watershed": "Cedar Bayou",
+  "note": ""
+ },
+ "120401040703": {
+  "subwatershed": "Vince Bayou-Buffalo Bayou",
+  "note": ""
+ },
+ "120401040704": {
+  "subwatershed": "Jackson Bayou-San Jacinto River",
+  "note": ""
+ },
+ "120401040706": {
+  "subwatershed": "Goose Creek",
+  "note": ""
+ },
+ "120401040701": {
+  "subwatershed": "Hunting Bayou",
+  "note": ""
+ },
+ "120401040702": {
+  "subwatershed": "Carpenters Bayou",
+  "note": ""
+ },
+ "120401040705": {
+  "subwatershed": "Highlands Reservoir-San Jacinto River",
+  "note": ""
+ },
+ "120401020107": {
+  "subwatershed": "Turkey Creek-Cypress Creek",
+  "note": ""
+ },
+ "120401020106": {
+  "subwatershed": "Marshall Lake-Cypress Creek",
+  "note": ""
+ },
+ "120401020105": {
+  "subwatershed": "Little Cypress Creek",
+  "note": ""
+ },
+ "120401020103": {
+  "subwatershed": "Mallard Lake-Cypress Creek",
+  "note": ""
+ },
+ "120401020104": {
+  "subwatershed": "Dry Creek-Cypress Creek",
+  "note": ""
+ },
+ "120401020101": {
+  "subwatershed": "Mound Creek-Cypress Creek",
+  "note": ""
+ },
+ "120401020102": {
+  "subwatershed": "Live Oak Creek",
+  "note": ""
+ },
+ "120401040604": {
+  "subwatershed": "Halls Bayou",
+  "note": ""
+ },
+ "120401040603": {
+  "subwatershed": "Upper Greens Bayou",
+  "note": ""
+ },
+ "120401040602": {
+  "subwatershed": "Garners Bayou",
+  "note": ""
+ },
+ "120401040601": {
+  "subwatershed": "Headwaters Greens Bayou",
+  "note": ""
+ },
+ "120401040606": {
+  "subwatershed": "Lower Greens Bayou",
+  "note": ""
+ },
+ "120401040605": {
+  "subwatershed": "Middle Greens Bayou",
+  "note": ""
+ },
+ "120401040303": {
+  "subwatershed": "Spring Branch-Buffalo Bayou",
+  "note": ""
+ },
+ "120401040302": {
+  "subwatershed": "Cole Creek-Whiteoak Bayou",
+  "note": ""
+ },
+ "120401040304": {
+  "subwatershed": "Little Whiteoak Bayou-Whiteoak Bayou",
+  "note": ""
+ },
+ "120401040301": {
+  "subwatershed": "Jersey Lake-Whiteoak Bayou",
+  "note": ""
+ },
+ "120401040305": {
+  "subwatershed": "City of Houston-Buffalo Bayou",
+  "note": ""
+ },
+ "120402040100": {
+  "subwatershed": "Clear Creek-Frontal Galveston Bay",
+  "note": ""
+ },
+ "120401040201": {
+  "subwatershed": "Langham Creek",
+  "note": ""
+ },
+ "120401040203": {
+  "subwatershed": "South Mayde Creek",
+  "note": ""
+ },
+ "120401040202": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "120401040401": {
+  "subwatershed": "Keegans Bayou-Brays Bayou",
+  "note": ""
+ },
+ "120401040402": {
+  "subwatershed": "Country Club Bayou-Brays Bayou",
+  "note": ""
+ },
+ "120401020210": {
+  "subwatershed": "Willow Creek",
+  "note": ""
+ },
+ "120401020201": {
+  "subwatershed": "Kickapoo Creek-Spring Creek",
+  "note": ""
+ },
+ "120401020205": {
+  "subwatershed": "Sugar Creek-Spring Creek",
+  "note": ""
+ },
+ "120401020209": {
+  "subwatershed": "Dry Creek-Spring Creek",
+  "note": ""
+ },
+ "120401020213": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "120401020212": {
+  "subwatershed": "Panther Branch-Spring Creek",
+  "note": ""
+ },
+ "120401020202": {
+  "subwatershed": "Threemile Creek-Brushy Creek",
+  "note": ""
+ },
+ "120401020204": {
+  "subwatershed": "Mink Branch-Walnut Creek",
+  "note": ""
+ },
+ "120401020203": {
+  "subwatershed": "Birch Creek-Walnut Creek",
+  "note": ""
+ },
+ "120401020208": {
+  "subwatershed": "Decker Branch-Mill Creek",
+  "note": ""
+ },
+ "120401020211": {
+  "subwatershed": "Bear Branch-Panther Branch",
+  "note": ""
+ },
+ "120401020206": {
+  "subwatershed": "Hurricane Creek-Mill Creek",
+  "note": ""
+ },
+ "120401020207": {
+  "subwatershed": "Kachel Lake-Mill Creek",
+  "note": ""
+ },
+ "120401040502": {
+  "subwatershed": "Lower Sims Bayou",
+  "note": ""
+ },
+ "120401040501": {
+  "subwatershed": "Upper Sims Bayou",
+  "note": ""
+ },
+ "120402030106": {
+  "subwatershed": "Cedar Point Lateral-Cedar Bayou",
+  "note": ""
+ },
+ "120402030104": {
+  "subwatershed": "Cedar Bayou Lake-Cedar Bayou",
+  "note": ""
+ },
+ "120402030103": {
+  "subwatershed": "Red Bud Lake-Cedar Bayou",
+  "note": ""
+ },
+ "120402030102": {
+  "subwatershed": "Seaberg Reservoir Number 1-Cedar Bayou",
+  "note": ""
+ },
+ "120402030105": {
+  "subwatershed": "Ellis Branch-Cedar Bayou",
+  "note": ""
+ },
+ "120402030101": {
+  "subwatershed": "North Dayton Oil Field-Cedar Bayou",
+  "note": ""
+ },
+ "120401010501": {
+  "subwatershed": "Bens Branch",
+  "note": ""
+ },
+ "120401010502": {
+  "subwatershed": "San Jacinto Dam",
+  "note": ""
+ },
+ "120401040104": {
+  "subwatershed": "Barker Reservoir-Buffalo Bayou",
+  "note": ""
+ },
+ "120401040102": {
+  "subwatershed": "Cane Island Branch",
+  "note": ""
+ },
+ "120401040103": {
+  "subwatershed": "Little Prong-Buffalo Bayou",
+  "note": ""
+ },
+ "120401040101": {
+  "subwatershed": "Willow Fork",
+  "note": ""
+ },
+ "120401030402": {
+  "subwatershed": "Orange Branch-East Fork San Jacinto River",
+  "note": ""
+ },
+ "120401030401": {
+  "subwatershed": "Whiskey Branch-East Fork San Jancito River",
+  "note": ""
+ },
+ "120401030205": {
+  "subwatershed": "Luce Bayou",
+  "note": ""
+ },
+ "120401030201": {
+  "subwatershed": "Upper Tarkington Bayou",
+  "note": ""
+ },
+ "120401030202": {
+  "subwatershed": "Marsh Branch-Tarkington Bayou",
+  "note": ""
+ },
+ "120401030204": {
+  "subwatershed": "Indian Gulley-Luce Bayou",
+  "note": ""
+ },
+ "120401030203": {
+  "subwatershed": "Lower Tarkington Bayou",
+  "note": ""
+ },
+ "120401030110": {
+  "subwatershed": "White Oak Creek",
+  "note": ""
+ },
+ "120401030109": {
+  "subwatershed": "Gully Branch-Peach Creek",
+  "note": ""
+ },
+ "120401030102": {
+  "subwatershed": "McRae Creek-Caney Creek",
+  "note": ""
+ },
+ "120401030106": {
+  "subwatershed": "Boggy Creek-Peach Creek",
+  "note": ""
+ },
+ "120401030101": {
+  "subwatershed": "Hegar Branch-Caney Creek",
+  "note": ""
+ },
+ "120401030103": {
+  "subwatershed": "West Fork Spring Branch-Spring Branch",
+  "note": ""
+ },
+ "120401030107": {
+  "subwatershed": "Lawrence Creek-Peach Creek",
+  "note": ""
+ },
+ "120401030105": {
+  "subwatershed": "Dry Creek-Caney Creek",
+  "note": ""
+ },
+ "120401030104": {
+  "subwatershed": "Cagle Branch-Caney Creek",
+  "note": ""
+ },
+ "120401030108": {
+  "subwatershed": "Jayhawker Creek",
+  "note": ""
+ },
+ "120402030200": {
+  "subwatershed": "Cedar Bayou",
+  "note": ""
+ }
+}

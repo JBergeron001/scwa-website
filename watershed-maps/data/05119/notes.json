@@ -1,0 +1,351 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Pulaski County",
+  "note": ""
+ },
+ "1111020704": {
+  "watershed": "Fourche Creek-Arkansas River",
+  "note": ""
+ },
+ "1111020701": {
+  "watershed": "Maumelle River-Arkansas River",
+  "note": ""
+ },
+ "1111020702": {
+  "watershed": "Little Fourche Creek-Fourche Creek",
+  "note": ""
+ },
+ "0802040201": {
+  "watershed": "Upper Bayou Meto",
+  "note": ""
+ },
+ "1111020703": {
+  "watershed": "Clear Creek-Pennington Bayou",
+  "note": ""
+ },
+ "1111020705": {
+  "watershed": "Plum Bayou",
+  "note": ""
+ },
+ "0802040202": {
+  "watershed": "Bayou Two Prairie",
+  "note": ""
+ },
+ "1111020304": {
+  "watershed": "Palarm Creek",
+  "note": ""
+ },
+ "1111020706": {
+  "watershed": "Caney Bayou-Arkansas River",
+  "note": ""
+ },
+ "1111020305": {
+  "watershed": "Rocky Cypress Creek-Arkansas River",
+  "note": ""
+ },
+ "0802030101": {
+  "watershed": "Fourmile Creek-Cypress Bayou",
+  "note": ""
+ },
+ "0804020301": {
+  "watershed": "North Fork Saline River",
+  "note": ""
+ },
+ "0802040101": {
+  "watershed": "Indian Bayou",
+  "note": ""
+ },
+ "0804020304": {
+  "watershed": "Hurricane Creek",
+  "note": ""
+ },
+ "111102070401": {
+  "subwatershed": "White Oak Bayou-Arkansas River",
+  "note": ""
+ },
+ "111102070404": {
+  "subwatershed": "Fourche Bayou-Arkansas River",
+  "note": ""
+ },
+ "111102070405": {
+  "subwatershed": "Gar Slough-Arkansas River",
+  "note": ""
+ },
+ "111102070402": {
+  "subwatershed": "City of North Little Rock-Arkansas River",
+  "note": ""
+ },
+ "111102070403": {
+  "subwatershed": "Faulkner Lake",
+  "note": ""
+ },
+ "111102070106": {
+  "subwatershed": "Reece Creek-Maumelle River",
+  "note": ""
+ },
+ "111102070104": {
+  "subwatershed": "Fletcher Creek-Little Maumelle River",
+  "note": ""
+ },
+ "111102070107": {
+  "subwatershed": "Maumelle River-Arkansas River",
+  "note": ""
+ },
+ "111102070103": {
+  "subwatershed": "Kinley Creek-Nowlin Creek",
+  "note": ""
+ },
+ "111102070105": {
+  "subwatershed": "Outlet Little Maumelle River",
+  "note": ""
+ },
+ "111102070102": {
+  "subwatershed": "Bringle Creek-Maumelle River",
+  "note": ""
+ },
+ "111102070101": {
+  "subwatershed": "Brown Creek-Maumelle River",
+  "note": ""
+ },
+ "111102070204": {
+  "subwatershed": "Coleman Creek-Fourche Creek",
+  "note": ""
+ },
+ "111102070202": {
+  "subwatershed": "McHenry Creek-Fourche Creek",
+  "note": ""
+ },
+ "111102070203": {
+  "subwatershed": "Little Fourche Creek",
+  "note": ""
+ },
+ "111102070201": {
+  "subwatershed": "Owen Creek-Fourche Creek",
+  "note": ""
+ },
+ "080204020104": {
+  "subwatershed": "Fivemile Creek-Bayou Meto",
+  "note": ""
+ },
+ "080204020105": {
+  "subwatershed": "Ink Bayou-Bayou Meto",
+  "note": ""
+ },
+ "080204020103": {
+  "subwatershed": "Kellogg Creek",
+  "note": ""
+ },
+ "080204020102": {
+  "subwatershed": "Headwaters Bayou Meto",
+  "note": ""
+ },
+ "080204020101": {
+  "subwatershed": "Bridge Creek-Leopard Creek",
+  "note": ""
+ },
+ "080204020106": {
+  "subwatershed": "Lone Cypress Brake-Bayou Meto",
+  "note": ""
+ },
+ "080204020107": {
+  "subwatershed": "080204020107-Bayou Meto",
+  "note": ""
+ },
+ "111102070301": {
+  "subwatershed": "Fish Creek",
+  "note": ""
+ },
+ "111102070302": {
+  "subwatershed": "Lorance Creek-Pennington Bayou",
+  "note": ""
+ },
+ "111102070303": {
+  "subwatershed": "Clear Creek-Pennington Bayou",
+  "note": ""
+ },
+ "111102070501": {
+  "subwatershed": "North Bayou-Plum Bayou",
+  "note": ""
+ },
+ "111102070502": {
+  "subwatershed": "Beaverdam Bayou-Plum Bayou",
+  "note": ""
+ },
+ "111102070505": {
+  "subwatershed": "Black Bayou-Plum Bayou",
+  "note": ""
+ },
+ "111102070503": {
+  "subwatershed": "Waterloo Bayou",
+  "note": ""
+ },
+ "080204020202": {
+  "subwatershed": "Jacks Bayou-Bayou Two Prairie",
+  "note": ""
+ },
+ "080204020201": {
+  "subwatershed": "Glade Branch-Bayou Two Prairie",
+  "note": ""
+ },
+ "080204020205": {
+  "subwatershed": "Skinners Branch-Bayou Two Prairie",
+  "note": ""
+ },
+ "080204020206": {
+  "subwatershed": "Outlet Bayou Two Prairie",
+  "note": ""
+ },
+ "080204020204": {
+  "subwatershed": "White Oak Branch-Bayou Two Prairie",
+  "note": ""
+ },
+ "080204020203": {
+  "subwatershed": "Burris Branch-Bayou Two Prairie",
+  "note": ""
+ },
+ "111102030405": {
+  "subwatershed": "Jim Creek-Palarm Creek",
+  "note": ""
+ },
+ "111102030403": {
+  "subwatershed": "Little Creek-Lake Conway",
+  "note": ""
+ },
+ "111102030404": {
+  "subwatershed": "Lake Conway-Palarm Creek",
+  "note": ""
+ },
+ "111102030402": {
+  "subwatershed": "Bentley Creek-Palarm Creek",
+  "note": ""
+ },
+ "111102030401": {
+  "subwatershed": "Little Cypress Creek",
+  "note": ""
+ },
+ "111102070601": {
+  "subwatershed": "Harris Bayou-Arkansas River",
+  "note": ""
+ },
+ "111102070605": {
+  "subwatershed": "Caney Bayou",
+  "note": ""
+ },
+ "111102070603": {
+  "subwatershed": "Eastwood Bayou-Arkansas River",
+  "note": ""
+ },
+ "111102070606": {
+  "subwatershed": "Plum Bayou-Arkansas River",
+  "note": ""
+ },
+ "111102070602": {
+  "subwatershed": "Tar Camp Creek-Arkansas River",
+  "note": ""
+ },
+ "111102070604": {
+  "subwatershed": "Yellow Lake-Arkansas River",
+  "note": ""
+ },
+ "111102030507": {
+  "subwatershed": "Beaverdam Creek-Arkansas River",
+  "note": ""
+ },
+ "111102030504": {
+  "subwatershed": "Miller Bayou-Arkansas River",
+  "note": ""
+ },
+ "111102030505": {
+  "subwatershed": "Tupelo Bayou",
+  "note": ""
+ },
+ "111102030501": {
+  "subwatershed": "Rocky Cypress Creek",
+  "note": ""
+ },
+ "111102030503": {
+  "subwatershed": "Portland Bottoms-Arkansas River",
+  "note": ""
+ },
+ "111102030502": {
+  "subwatershed": "Cypress Creek",
+  "note": ""
+ },
+ "111102030506": {
+  "subwatershed": "Taylor Creek-Arkansas River",
+  "note": ""
+ },
+ "080203010103": {
+  "subwatershed": "Fourmile Creek",
+  "note": ""
+ },
+ "080203010106": {
+  "subwatershed": "Red Cut Slough-Cypress Bayou",
+  "note": ""
+ },
+ "080203010102": {
+  "subwatershed": "Jacksnipe Branch-Cypress Bayou",
+  "note": ""
+ },
+ "080203010101": {
+  "subwatershed": "Boone Branch-Cypress Bayou",
+  "note": ""
+ },
+ "080203010104": {
+  "subwatershed": "White Oak Creek-Cypress Bayou",
+  "note": ""
+ },
+ "080203010105": {
+  "subwatershed": "Pigeon Roost Creek",
+  "note": ""
+ },
+ "080402030103": {
+  "subwatershed": "Lower North Fork Saline River",
+  "note": ""
+ },
+ "080402030102": {
+  "subwatershed": "Middle North Fork Saline River",
+  "note": ""
+ },
+ "080402030101": {
+  "subwatershed": "Upper North Fork Saline River",
+  "note": ""
+ },
+ "080204010101": {
+  "subwatershed": "Snow Brake-Indian Bayou",
+  "note": ""
+ },
+ "080204010102": {
+  "subwatershed": "Indian Bayou",
+  "note": ""
+ },
+ "080204010103": {
+  "subwatershed": "Bakers Bayou-Indian Bayou",
+  "note": ""
+ },
+ "080402030401": {
+  "subwatershed": "Little Hurricane Creek-Hurricane Creek",
+  "note": ""
+ },
+ "080402030405": {
+  "subwatershed": "Ray Creek-Hurricane Creek",
+  "note": ""
+ },
+ "080402030406": {
+  "subwatershed": "White Oak Creek-Hurricane Creek",
+  "note": ""
+ },
+ "080402030403": {
+  "subwatershed": "Simpson Creek",
+  "note": ""
+ },
+ "080402030404": {
+  "subwatershed": "Mud Creek-Hurricane Creek",
+  "note": ""
+ },
+ "080402030402": {
+  "subwatershed": "Logan Creek-Hurricane Creek",
+  "note": ""
+ }
+}

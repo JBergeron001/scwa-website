@@ -1,0 +1,319 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Mobile County",
+  "note": ""
+ },
+ "0316020403": {
+  "watershed": "Chickasaw Creek",
+  "note": ""
+ },
+ "0316020501": {
+  "watershed": "Halls Mill Creek-Frontal Mobile Bay",
+  "note": ""
+ },
+ "0316020401": {
+  "watershed": "Cedar Creek-Tensaw River",
+  "note": ""
+ },
+ "0316020404": {
+  "watershed": "Bayo Sara-Mobile River",
+  "note": ""
+ },
+ "0317000802": {
+  "watershed": "Puppy Creek-Escatawpa River",
+  "note": ""
+ },
+ "0317000805": {
+  "watershed": "Upper Big Creek",
+  "note": ""
+ },
+ "0317000806": {
+  "watershed": "Lower Big Creek",
+  "note": ""
+ },
+ "0317000901": {
+  "watershed": "Bayou La Batre-Frontal Mississippi Sound",
+  "note": ""
+ },
+ "0317000807": {
+  "watershed": "Black Creek-Escatawpa River",
+  "note": ""
+ },
+ "0316020405": {
+  "watershed": "Bay Minette Creek-Frontal Mobile Bay",
+  "note": ""
+ },
+ "0317000803": {
+  "watershed": "Brushy Creek-Escatawpa River",
+  "note": ""
+ },
+ "0317000804": {
+  "watershed": "Rocky Creek-Escatawpa River",
+  "note": ""
+ },
+ "0316020402": {
+  "watershed": "Rains Creek-Tensaw River",
+  "note": ""
+ },
+ "0317000902": {
+  "watershed": "Grand Bay-Mississippi Sound",
+  "note": ""
+ },
+ "0316020311": {
+  "watershed": "Sand Hill Creek-Tombigbee River",
+  "note": ""
+ },
+ "0316020503": {
+  "watershed": "Mobile Bay",
+  "note": ""
+ },
+ "031602040302": {
+  "subwatershed": "Meekers Creek-Chickasaw Creek",
+  "note": ""
+ },
+ "031602040303": {
+  "subwatershed": "Seabury Creek-Chickasaw Creek",
+  "note": ""
+ },
+ "031602040304": {
+  "subwatershed": "Red Creek-Eightmile Creek",
+  "note": ""
+ },
+ "031602040305": {
+  "subwatershed": "Greenwood Bayou-Chickasaw Creek",
+  "note": ""
+ },
+ "031602040301": {
+  "subwatershed": "Log Creek",
+  "note": ""
+ },
+ "031602050104": {
+  "subwatershed": "Fowl River",
+  "note": ""
+ },
+ "031602050101": {
+  "subwatershed": "Upper Dog River",
+  "note": ""
+ },
+ "031602050102": {
+  "subwatershed": "Halls Mill Creek",
+  "note": ""
+ },
+ "031602050103": {
+  "subwatershed": "Lower Dog River",
+  "note": ""
+ },
+ "031602050105": {
+  "subwatershed": "South Fork Deer River-Frontal Bon Secour Bay",
+  "note": ""
+ },
+ "031602040102": {
+  "subwatershed": "Bush Coon Creek-Cedar Creek",
+  "note": ""
+ },
+ "031602040106": {
+  "subwatershed": "Big Chippewa Lake-Mobile River",
+  "note": ""
+ },
+ "031602040101": {
+  "subwatershed": "Little Creek-Cedar Creek",
+  "note": ""
+ },
+ "031602040103": {
+  "subwatershed": "Farris Creek-Mobile River",
+  "note": ""
+ },
+ "031602040105": {
+  "subwatershed": "Cold Creek",
+  "note": ""
+ },
+ "031602040104": {
+  "subwatershed": "Little Halls Creek-Halls Creek",
+  "note": ""
+ },
+ "031602040401": {
+  "subwatershed": "Gunnison Creek",
+  "note": ""
+ },
+ "031602040402": {
+  "subwatershed": "Bayou Sara",
+  "note": ""
+ },
+ "031602040403": {
+  "subwatershed": "Grand Bay-Mobile River",
+  "note": ""
+ },
+ "031700080205": {
+  "subwatershed": "Puppy Creek",
+  "note": ""
+ },
+ "031700080203": {
+  "subwatershed": "Bennett Creek",
+  "note": ""
+ },
+ "031700080206": {
+  "subwatershed": "Nobodies Creek-Escatawpa River",
+  "note": ""
+ },
+ "031700080204": {
+  "subwatershed": "Okwakee Creek-Escatawpa River",
+  "note": ""
+ },
+ "031700080202": {
+  "subwatershed": "Flat Branch-Escatawpa River",
+  "note": ""
+ },
+ "031700080201": {
+  "subwatershed": "Pond Creek-Little Creek",
+  "note": ""
+ },
+ "031700080502": {
+  "subwatershed": "Hamilton Creek-Big Creek",
+  "note": ""
+ },
+ "031700080501": {
+  "subwatershed": "Juniper Creek-Big Creek",
+  "note": ""
+ },
+ "031700080601": {
+  "subwatershed": "Pierce Creek-Big Creek",
+  "note": ""
+ },
+ "031700080602": {
+  "subwatershed": "Miller Creek",
+  "note": ""
+ },
+ "031700080603": {
+  "subwatershed": "Collins Creek-Big Creek",
+  "note": ""
+ },
+ "031700090103": {
+  "subwatershed": "West Fowl River-Frontal Fowl River Bay",
+  "note": ""
+ },
+ "031700090102": {
+  "subwatershed": "Bayou La Batre",
+  "note": ""
+ },
+ "031700090101": {
+  "subwatershed": "Bayou Heron-Frontal Grand Bay",
+  "note": ""
+ },
+ "031700080701": {
+  "subwatershed": "Jackson Creek",
+  "note": ""
+ },
+ "031700080702": {
+  "subwatershed": "Franklin Creek",
+  "note": ""
+ },
+ "031700080704": {
+  "subwatershed": "Black Creek Cooling Pond-Black Creek",
+  "note": ""
+ },
+ "031700080705": {
+  "subwatershed": "Beardslee Lake-Escatawpa River",
+  "note": ""
+ },
+ "031700080703": {
+  "subwatershed": "Lyons Creek-Escatawpa River",
+  "note": ""
+ },
+ "031602040504": {
+  "subwatershed": "Toulmins Spring Branch-Three Mile Creek",
+  "note": ""
+ },
+ "031602040505": {
+  "subwatershed": "Chacaloochee Bay-Frontal Bon Secour Bay",
+  "note": ""
+ },
+ "031602040501": {
+  "subwatershed": "Upper Bay Minette Creek",
+  "note": ""
+ },
+ "031602040503": {
+  "subwatershed": "Lower Bay Minette Creek",
+  "note": ""
+ },
+ "031602040502": {
+  "subwatershed": "Whitehouse Creek",
+  "note": ""
+ },
+ "031700080303": {
+  "subwatershed": "Powell Creek-Escatawpa River",
+  "note": ""
+ },
+ "031700080302": {
+  "subwatershed": "Scarborough Creek-Brushy Creek",
+  "note": ""
+ },
+ "031700080301": {
+  "subwatershed": "Long Branch-Brushy Creek",
+  "note": ""
+ },
+ "031700080404": {
+  "subwatershed": "Flat Creek",
+  "note": ""
+ },
+ "031700080402": {
+  "subwatershed": "Red Creek-Escatawpa River",
+  "note": ""
+ },
+ "031700080405": {
+  "subwatershed": "Spring Creek-Escatawpa River",
+  "note": ""
+ },
+ "031700080403": {
+  "subwatershed": "Juniper Bay-Escatawpa River",
+  "note": ""
+ },
+ "031700080401": {
+  "subwatershed": "Rocky Branch-Rocky Creek",
+  "note": ""
+ },
+ "031700080406": {
+  "subwatershed": "Cunningham Branch-Escatawpa River",
+  "note": ""
+ },
+ "031602040202": {
+  "subwatershed": "Mittlin Lake-Mobile River",
+  "note": ""
+ },
+ "031602040203": {
+  "subwatershed": "The Basin-Tensaw River",
+  "note": ""
+ },
+ "031602040201": {
+  "subwatershed": "Rains Creek",
+  "note": ""
+ },
+ "031700090201": {
+  "subwatershed": "Grand Bay-Mississippi Sound",
+  "note": ""
+ },
+ "031700090202": {
+  "subwatershed": "Dauphin Island",
+  "note": ""
+ },
+ "031700090203": {
+  "subwatershed": "Pelican Bay",
+  "note": ""
+ },
+ "031602031102": {
+  "subwatershed": "Poll Bayou",
+  "note": ""
+ },
+ "031602031103": {
+  "subwatershed": "Alabama River Cutoff-Tombigbee River",
+  "note": ""
+ },
+ "031602031101": {
+  "subwatershed": "Sand Hill Creek",
+  "note": ""
+ },
+ "031602050300": {
+  "subwatershed": "Bon Secour Bay",
+  "note": ""
+ }
+}

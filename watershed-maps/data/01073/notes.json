@@ -1,0 +1,367 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Jefferson County",
+  "note": ""
+ },
+ "0316011104": {
+  "watershed": "Lower Locust Fork",
+  "note": ""
+ },
+ "0316011201": {
+  "watershed": "Valley Creek",
+  "note": ""
+ },
+ "0316011103": {
+  "watershed": "Middle Locust Fork",
+  "note": ""
+ },
+ "0315020201": {
+  "watershed": "Headwaters Cahaba River",
+  "note": ""
+ },
+ "0315020203": {
+  "watershed": "Shades Creek",
+  "note": ""
+ },
+ "0315020202": {
+  "watershed": "Buck Creek-Cahaba River",
+  "note": ""
+ },
+ "0316011202": {
+  "watershed": "Big Yellow Creek-Black Warrior River",
+  "note": ""
+ },
+ "0315010603": {
+  "watershed": "Big Canoe Creek-Coosa River",
+  "note": ""
+ },
+ "0316011203": {
+  "watershed": "Davis Creek-Black Warrior River",
+  "note": ""
+ },
+ "0316010906": {
+  "watershed": "Cane Creek-Mulberry Fork",
+  "note": ""
+ },
+ "0316010902": {
+  "watershed": "Dorsey Creek-Mulberry Fork",
+  "note": ""
+ },
+ "0315010608": {
+  "watershed": "Shoal Creek-Coosa River",
+  "note": ""
+ },
+ "031601110408": {
+  "subwatershed": "Upper Village Creek",
+  "note": ""
+ },
+ "031601110406": {
+  "subwatershed": "Upper Fivemile Creek",
+  "note": ""
+ },
+ "031601110404": {
+  "subwatershed": "Campbell Creek-Locust Fork",
+  "note": ""
+ },
+ "031601110413": {
+  "subwatershed": "Coal Creek-Locust Fork",
+  "note": ""
+ },
+ "031601110402": {
+  "subwatershed": "Cane Creek-Locust Fork",
+  "note": ""
+ },
+ "031601110409": {
+  "subwatershed": "Lower Village Creek",
+  "note": ""
+ },
+ "031601110407": {
+  "subwatershed": "Lower Fivemile Creek",
+  "note": ""
+ },
+ "031601110411": {
+  "subwatershed": "Short Creek",
+  "note": ""
+ },
+ "031601110401": {
+  "subwatershed": "Crooked Creek",
+  "note": ""
+ },
+ "031601110410": {
+  "subwatershed": "Falls Creek-Locust Fork",
+  "note": ""
+ },
+ "031601110403": {
+  "subwatershed": "Cane Creek",
+  "note": ""
+ },
+ "031601110405": {
+  "subwatershed": "Newfound Creek",
+  "note": ""
+ },
+ "031601110412": {
+  "subwatershed": "Fishtrap Branch-Locust Fork",
+  "note": ""
+ },
+ "031601120104": {
+  "subwatershed": "Lick Creek-Valley Creek",
+  "note": ""
+ },
+ "031601120101": {
+  "subwatershed": "Headwaters Valley Creek",
+  "note": ""
+ },
+ "031601120105": {
+  "subwatershed": "Woods Creek-Mud Creek",
+  "note": ""
+ },
+ "031601120102": {
+  "subwatershed": "Five Mile Creek-Valley Creek",
+  "note": ""
+ },
+ "031601120103": {
+  "subwatershed": "Lost Creek-Rock Creek",
+  "note": ""
+ },
+ "031601120106": {
+  "subwatershed": "Jordan Spring Branch-Valley Creek",
+  "note": ""
+ },
+ "031601110306": {
+  "subwatershed": "North Creek-Turkey Creek",
+  "note": ""
+ },
+ "031601110307": {
+  "subwatershed": "Cunningham Creek",
+  "note": ""
+ },
+ "031601110304": {
+  "subwatershed": "Self Creek-Gurley Creek",
+  "note": ""
+ },
+ "031601110303": {
+  "subwatershed": "Sand Valley Creek-Gurley Creek",
+  "note": ""
+ },
+ "031601110308": {
+  "subwatershed": "Hogeland Creek-Locust Fork",
+  "note": ""
+ },
+ "031601110305": {
+  "subwatershed": "Neeley Creek-Locust Fork",
+  "note": ""
+ },
+ "031601110301": {
+  "subwatershed": "Sugar Creek-Locust Fork",
+  "note": ""
+ },
+ "031601110302": {
+  "subwatershed": "Longs Branch",
+  "note": ""
+ },
+ "031502020104": {
+  "subwatershed": "Hogpen Branch-Cahaba River",
+  "note": ""
+ },
+ "031502020101": {
+  "subwatershed": "Pinchgut Creek-Cahaba River",
+  "note": ""
+ },
+ "031502020103": {
+  "subwatershed": "Little Cahaba River",
+  "note": ""
+ },
+ "031502020102": {
+  "subwatershed": "Big Black Creek",
+  "note": ""
+ },
+ "031502020303": {
+  "subwatershed": "Lower Shades Creek",
+  "note": ""
+ },
+ "031502020301": {
+  "subwatershed": "Upper Shades Creek",
+  "note": ""
+ },
+ "031502020302": {
+  "subwatershed": "Cooley Creek-Mud Creek",
+  "note": ""
+ },
+ "031502020204": {
+  "subwatershed": "Patton Creek-Cahaba River",
+  "note": ""
+ },
+ "031502020206": {
+  "subwatershed": "Beaverdam Creek-Cahaba River",
+  "note": ""
+ },
+ "031502020202": {
+  "subwatershed": "Cahaba Valley Creek",
+  "note": ""
+ },
+ "031502020203": {
+  "subwatershed": "Prairie Brook-Buck Creek",
+  "note": ""
+ },
+ "031502020205": {
+  "subwatershed": "Murry Creek-Piney Woods Creek",
+  "note": ""
+ },
+ "031502020201": {
+  "subwatershed": "Peavine Creek",
+  "note": ""
+ },
+ "031601120203": {
+  "subwatershed": "Shoal Creek-Black Warrior River",
+  "note": ""
+ },
+ "031601120201": {
+  "subwatershed": "Upper Big Yellow Creek",
+  "note": ""
+ },
+ "031601120202": {
+  "subwatershed": "Lower Big Yellow Creek",
+  "note": ""
+ },
+ "031501060302": {
+  "subwatershed": "Headwaters Big Canoe Creek",
+  "note": ""
+ },
+ "031501060301": {
+  "subwatershed": "Little Canoe Creek",
+  "note": ""
+ },
+ "031501060309": {
+  "subwatershed": "H Neely Henry Lake-Coosa River",
+  "note": ""
+ },
+ "031501060305": {
+  "subwatershed": "Middle Big Canoe Creek",
+  "note": ""
+ },
+ "031501060306": {
+  "subwatershed": "Lower Big Canoe Creek",
+  "note": ""
+ },
+ "031501060303": {
+  "subwatershed": "Upper Big Canoe Creek",
+  "note": ""
+ },
+ "031501060307": {
+  "subwatershed": "Laymans Pond-Beaver Creek",
+  "note": ""
+ },
+ "031501060308": {
+  "subwatershed": "Shoal Creek",
+  "note": ""
+ },
+ "031501060304": {
+  "subwatershed": "Lake Sumatanga-Little Canoe Creek",
+  "note": ""
+ },
+ "031601120302": {
+  "subwatershed": "Rockcastle Creek",
+  "note": ""
+ },
+ "031601120303": {
+  "subwatershed": "Whiteoak Creek-Davis Creek",
+  "note": ""
+ },
+ "031601120306": {
+  "subwatershed": "Bluff Creek-Black Warrior River",
+  "note": ""
+ },
+ "031601120301": {
+  "subwatershed": "Lick Creek-Blue Creek",
+  "note": ""
+ },
+ "031601120305": {
+  "subwatershed": "Daniel Creek",
+  "note": ""
+ },
+ "031601120304": {
+  "subwatershed": "Peques Creek",
+  "note": ""
+ },
+ "031601090604": {
+  "subwatershed": "Lost Creek-Mulberry Fork",
+  "note": ""
+ },
+ "031601090602": {
+  "subwatershed": "Old Town Creek-Mulberry Fork",
+  "note": ""
+ },
+ "031601090601": {
+  "subwatershed": "Town Creek-Cane Creek",
+  "note": ""
+ },
+ "031601090603": {
+  "subwatershed": "Burnt Cane Creek-Mulberry Fork",
+  "note": ""
+ },
+ "031601090206": {
+  "subwatershed": "Sloan Creek-Mulberry Fork",
+  "note": ""
+ },
+ "031601090205": {
+  "subwatershed": "Rice Creek-Mulberry Fork",
+  "note": ""
+ },
+ "031601090203": {
+  "subwatershed": "Mill Creek-Mulberry Fork",
+  "note": ""
+ },
+ "031601090204": {
+  "subwatershed": "Dorsey Creek",
+  "note": ""
+ },
+ "031601090202": {
+  "subwatershed": "Marriott Creek",
+  "note": ""
+ },
+ "031601090201": {
+  "subwatershed": "Thacker Creek",
+  "note": ""
+ },
+ "031501060804": {
+  "subwatershed": "Jess Branch-Shoal Creek",
+  "note": ""
+ },
+ "031501060803": {
+  "subwatershed": "Rabbit Branch-Coosa River",
+  "note": ""
+ },
+ "031501060805": {
+  "subwatershed": "Ram Horn Branch-Kelly Creek",
+  "note": ""
+ },
+ "031501060810": {
+  "subwatershed": "Spring Creek-Coosa River",
+  "note": ""
+ },
+ "031501060807": {
+  "subwatershed": "Bear Creek-Kelly Creek",
+  "note": ""
+ },
+ "031501060806": {
+  "subwatershed": "Hearthstone Creek-Wolf Creek",
+  "note": ""
+ },
+ "031501060808": {
+  "subwatershed": "Camp Creek-Kelly Creek",
+  "note": ""
+ },
+ "031501060802": {
+  "subwatershed": "Haw Branch-Clear Creek",
+  "note": ""
+ },
+ "031501060801": {
+  "subwatershed": "Poorhouse Branch",
+  "note": ""
+ },
+ "031501060809": {
+  "subwatershed": "Fanning Branch",
+  "note": ""
+ }
+}

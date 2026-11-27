@@ -1,0 +1,311 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Oklahoma County",
+  "note": ""
+ },
+ "1110030201": {
+  "watershed": "Choctaw Creek-North Canadian River",
+  "note": ""
+ },
+ "1110030301": {
+  "watershed": "Lake Arcadia-Deep Fork",
+  "note": ""
+ },
+ "1105000208": {
+  "watershed": "Cottonwood Creek",
+  "note": ""
+ },
+ "1110030302": {
+  "watershed": "Bear Creek-Deep Fork",
+  "note": ""
+ },
+ "1110030202": {
+  "watershed": "City of Shawnee-North Canadian River",
+  "note": ""
+ },
+ "1109020301": {
+  "watershed": "Upper Little River",
+  "note": ""
+ },
+ "1110030107": {
+  "watershed": "Lake Overholser-North Canadian River",
+  "note": ""
+ },
+ "1110030303": {
+  "watershed": "Kickapoo Creek-Deep Fork",
+  "note": ""
+ },
+ "1109020203": {
+  "watershed": "City of Tuttle-Canadian River",
+  "note": ""
+ },
+ "111003020107": {
+  "subwatershed": "Silver Creek-North Canadian River",
+  "note": ""
+ },
+ "111003020104": {
+  "subwatershed": "Crutcho Creek",
+  "note": ""
+ },
+ "111003020106": {
+  "subwatershed": "Choctaw Creek",
+  "note": ""
+ },
+ "111003020105": {
+  "subwatershed": "Crooked Oak Creek-North Canadian River",
+  "note": ""
+ },
+ "111003020103": {
+  "subwatershed": "Brock Creek-North Canadian River",
+  "note": ""
+ },
+ "111003020101": {
+  "subwatershed": "111003020101-North Canadian River",
+  "note": ""
+ },
+ "111003020102": {
+  "subwatershed": "Lightning Creek",
+  "note": ""
+ },
+ "111003030102": {
+  "subwatershed": "White Turkey Creek-Deep Fork",
+  "note": ""
+ },
+ "111003030101": {
+  "subwatershed": "Headwaters Deep Fork",
+  "note": ""
+ },
+ "111003030104": {
+  "subwatershed": "Coffee Creek",
+  "note": ""
+ },
+ "111003030103": {
+  "subwatershed": "Lake Arcadia-Deep Fork",
+  "note": ""
+ },
+ "111003030106": {
+  "subwatershed": "Lake Hiwassee-Deep Fork",
+  "note": ""
+ },
+ "111003030105": {
+  "subwatershed": "Soldier Creek",
+  "note": ""
+ },
+ "110500020807": {
+  "subwatershed": "Chisholm Creek",
+  "note": ""
+ },
+ "110500020801": {
+  "subwatershed": "Bluff Creek",
+  "note": ""
+ },
+ "110500020804": {
+  "subwatershed": "Lower Deer Creek",
+  "note": ""
+ },
+ "110500020803": {
+  "subwatershed": "Middle Deer Creek",
+  "note": ""
+ },
+ "110500020809": {
+  "subwatershed": "Lower Cottonwood Creek",
+  "note": ""
+ },
+ "110500020806": {
+  "subwatershed": "Upper Cottonwood Creek",
+  "note": ""
+ },
+ "110500020802": {
+  "subwatershed": "Upper Deer Creek",
+  "note": ""
+ },
+ "110500020808": {
+  "subwatershed": "Middle Cottonwood Creek",
+  "note": ""
+ },
+ "110500020805": {
+  "subwatershed": "Headwaters Cottonwood Creek",
+  "note": ""
+ },
+ "110500020810": {
+  "subwatershed": "Outlet Cottonwood Creek",
+  "note": ""
+ },
+ "111003030206": {
+  "subwatershed": "Wildhorse Creek-Deep Fork",
+  "note": ""
+ },
+ "111003030201": {
+  "subwatershed": "Coon Creek",
+  "note": ""
+ },
+ "111003030202": {
+  "subwatershed": "Opossum Creek",
+  "note": ""
+ },
+ "111003030204": {
+  "subwatershed": "Middle Bear Creek",
+  "note": ""
+ },
+ "111003030203": {
+  "subwatershed": "Upper Bear Creek",
+  "note": ""
+ },
+ "111003030205": {
+  "subwatershed": "Lower Bear Creek",
+  "note": ""
+ },
+ "111003020201": {
+  "subwatershed": "Horseshoe Lake-North Canadian River",
+  "note": ""
+ },
+ "111003020202": {
+  "subwatershed": "North Deer Creek",
+  "note": ""
+ },
+ "111003020203": {
+  "subwatershed": "South Deer Creek",
+  "note": ""
+ },
+ "111003020204": {
+  "subwatershed": "Kishketon Lake-North Canadian River",
+  "note": ""
+ },
+ "111003020206": {
+  "subwatershed": "Lost Creek-North Canadian River",
+  "note": ""
+ },
+ "111003020205": {
+  "subwatershed": "Squirrel Creek",
+  "note": ""
+ },
+ "110902030106": {
+  "subwatershed": "Upper Hog Creek",
+  "note": ""
+ },
+ "110902030103": {
+  "subwatershed": "Elm Creek",
+  "note": ""
+ },
+ "110902030101": {
+  "subwatershed": "North Fork",
+  "note": ""
+ },
+ "110902030107": {
+  "subwatershed": "Lower Hog Creek",
+  "note": ""
+ },
+ "110902030104": {
+  "subwatershed": "Rock Creek-Little River",
+  "note": ""
+ },
+ "110902030105": {
+  "subwatershed": "Dave Blue Creek-Lake Thunderbird",
+  "note": ""
+ },
+ "110902030108": {
+  "subwatershed": "Clear Creek",
+  "note": ""
+ },
+ "110902030102": {
+  "subwatershed": "Headwaters Little River",
+  "note": ""
+ },
+ "111003010709": {
+  "subwatershed": "Campbell Creek-North Canadian River",
+  "note": ""
+ },
+ "111003010708": {
+  "subwatershed": "Lake Overholser-North Canadian River",
+  "note": ""
+ },
+ "111003010706": {
+  "subwatershed": "111003010706-North Canadian River",
+  "note": ""
+ },
+ "111003010707": {
+  "subwatershed": "Mustang Creek",
+  "note": ""
+ },
+ "111003010701": {
+  "subwatershed": "Sixmile Creek",
+  "note": ""
+ },
+ "111003010702": {
+  "subwatershed": "Fourmile Creek-North Canadian River",
+  "note": ""
+ },
+ "111003010705": {
+  "subwatershed": "Town of Richland-North Canadian River",
+  "note": ""
+ },
+ "111003010703": {
+  "subwatershed": "Purcell Creek",
+  "note": ""
+ },
+ "111003010704": {
+  "subwatershed": "Shell Creek",
+  "note": ""
+ },
+ "111003030301": {
+  "subwatershed": "West Captain Creek",
+  "note": ""
+ },
+ "111003030302": {
+  "subwatershed": "East Captain Creek",
+  "note": ""
+ },
+ "111003030304": {
+  "subwatershed": "Pecan Creek-Deep Fork",
+  "note": ""
+ },
+ "111003030307": {
+  "subwatershed": "Upper Bellcow Creek",
+  "note": ""
+ },
+ "111003030303": {
+  "subwatershed": "Eagle Creek-Deep Fork",
+  "note": ""
+ },
+ "111003030309": {
+  "subwatershed": "111003030309-Deep Fork",
+  "note": ""
+ },
+ "111003030306": {
+  "subwatershed": "Rat Creek-Deep Fork",
+  "note": ""
+ },
+ "111003030305": {
+  "subwatershed": "Kickapoo Creek",
+  "note": ""
+ },
+ "111003030308": {
+  "subwatershed": "Lower Bellcow Creek",
+  "note": ""
+ },
+ "110902020302": {
+  "subwatershed": "Coal Creek-Canadian River",
+  "note": ""
+ },
+ "110902020303": {
+  "subwatershed": "Pond Creek-Canadian River",
+  "note": ""
+ },
+ "110902020301": {
+  "subwatershed": "Dry Creek-Canadian River",
+  "note": ""
+ },
+ "110902020305": {
+  "subwatershed": "Bishop Creek-Canadian River",
+  "note": ""
+ },
+ "110902020306": {
+  "subwatershed": "Dripping Springs Creek-Canadian River",
+  "note": ""
+ },
+ "110902020304": {
+  "subwatershed": "Boggy Creek-Canadian River",
+  "note": ""
+ }
+}

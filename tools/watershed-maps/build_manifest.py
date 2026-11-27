@@ -18,7 +18,10 @@ METRO = {'29189': 'St. Louis', '29095': 'Kansas City', '31055': 'Omaha', '19153'
          '29077': 'Springfield', '17167': 'Springfield', '17031': 'Chicago', '27053': 'Minneapolis-St. Paul',
          '18097': 'Indianapolis', '39049': 'Columbus', '55079': 'Milwaukee', '26163': 'Detroit', '20173': 'Wichita',
          '31109': 'Lincoln', '39061': 'Cincinnati', '39035': 'Cleveland', '55025': 'Madison', '26081': 'Grand Rapids',
-         '19163': 'Quad Cities', '46099': 'Sioux Falls', '29031': 'Cape Girardeau', '29183': 'St. Charles and West Alton'}
+         '19163': 'Quad Cities', '46099': 'Sioux Falls', '29031': 'Cape Girardeau', '29183': 'St. Charles and West Alton',
+         '01073': 'Birmingham', '01097': 'Mobile', '40109': 'Oklahoma City', '40143': 'Tulsa', '48201': 'Houston',
+         '48113': 'Dallas', '48439': 'Fort Worth', '48029': 'San Antonio', '48453': 'Austin', '21111': 'Louisville',
+         '05119': 'Little Rock'}
 # Mississippi River Cities and Towns Initiative member cities, by county
 _mr = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'mrcti.json')
 if os.path.exists(_mr): METRO = {**json.load(open(_mr)), **METRO}

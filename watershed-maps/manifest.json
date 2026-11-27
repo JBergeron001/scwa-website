@@ -2,6 +2,46 @@
  "updated": "2026-11-27",
  "maps": [
   {
+   "geoid": "01073",
+   "includes": [],
+   "name": "Jefferson County",
+   "state": "Alabama",
+   "slug": "jefferson-county",
+   "areakm": 2899.92,
+   "watersheds": 12,
+   "subwatersheds": 43,
+   "elo": 255,
+   "ehi": 1309,
+   "bb": [
+    -87.3517,
+    -86.50668,
+    33.23601,
+    33.85324
+   ],
+   "metro": "Birmingham",
+   "thumb": "watershed-maps/thumbs/01073.jpg"
+  },
+  {
+   "geoid": "01097",
+   "includes": [],
+   "name": "Mobile County",
+   "state": "Alabama",
+   "slug": "mobile-county",
+   "areakm": 3274.1,
+   "watersheds": 16,
+   "subwatersheds": 48,
+   "elo": -4,
+   "ehi": 341,
+   "bb": [
+    -88.44201,
+    -87.91394,
+    30.21803,
+    31.18331
+   ],
+   "metro": "Mobile",
+   "thumb": "watershed-maps/thumbs/01097.jpg"
+  },
+  {
    "geoid": "05017",
    "includes": [],
    "name": "Chicot County",
@@ -80,6 +120,26 @@
    ],
    "metro": "Helena-West Helena",
    "thumb": "watershed-maps/thumbs/05107.jpg"
+  },
+  {
+   "geoid": "05119",
+   "includes": [],
+   "name": "Pulaski County",
+   "state": "Arkansas",
+   "slug": "pulaski-county",
+   "areakm": 2082.59,
+   "watersheds": 14,
+   "subwatersheds": 36,
+   "elo": 211,
+   "ehi": 996,
+   "bb": [
+    -92.7654,
+    -92.01954,
+    34.47954,
+    35.02459
+   ],
+   "metro": "Little Rock",
+   "thumb": "watershed-maps/thumbs/05119.jpg"
   },
   {
    "geoid": "17001",
@@ -560,6 +620,26 @@
    ],
    "metro": "Columbus, KY",
    "thumb": "watershed-maps/thumbs/21105.jpg"
+  },
+  {
+   "geoid": "21111",
+   "includes": [],
+   "name": "Jefferson County",
+   "state": "Kentucky",
+   "slug": "jefferson-county",
+   "areakm": 1024.51,
+   "watersheds": 7,
+   "subwatersheds": 23,
+   "elo": 397,
+   "ehi": 870,
+   "bb": [
+    -85.95711,
+    -85.3949,
+    37.98722,
+    38.39025
+   ],
+   "metro": "Louisville",
+   "thumb": "watershed-maps/thumbs/21111.jpg"
   },
   {
    "geoid": "22005",
@@ -1599,6 +1679,46 @@
    "thumb": "watershed-maps/thumbs/39061.jpg"
   },
   {
+   "geoid": "40109",
+   "includes": [],
+   "name": "Oklahoma County",
+   "state": "Oklahoma",
+   "slug": "oklahoma-county",
+   "areakm": 1852.26,
+   "watersheds": 9,
+   "subwatersheds": 37,
+   "elo": 890,
+   "ehi": 1375,
+   "bb": [
+    -97.68405,
+    -97.1308,
+    35.36686,
+    35.73597
+   ],
+   "metro": "Oklahoma City",
+   "thumb": "watershed-maps/thumbs/40109.jpg"
+  },
+  {
+   "geoid": "40143",
+   "includes": [],
+   "name": "Tulsa County",
+   "state": "Oklahoma",
+   "slug": "tulsa-county",
+   "areakm": 1512.36,
+   "watersheds": 12,
+   "subwatersheds": 33,
+   "elo": 575,
+   "ehi": 994,
+   "bb": [
+    -96.30791,
+    -95.75155,
+    35.84625,
+    36.43375
+   ],
+   "metro": "Tulsa",
+   "thumb": "watershed-maps/thumbs/40143.jpg"
+  },
+  {
    "geoid": "46099",
    "includes": [],
    "name": "Minnehaha County",
@@ -1657,6 +1777,106 @@
    ],
    "metro": "Memphis",
    "thumb": "watershed-maps/thumbs/47157.jpg"
+  },
+  {
+   "geoid": "48029",
+   "includes": [],
+   "name": "Bexar County",
+   "state": "Texas",
+   "slug": "bexar-county",
+   "areakm": 3243.09,
+   "watersheds": 13,
+   "subwatersheds": 45,
+   "elo": 447,
+   "ehi": 1826,
+   "bb": [
+    -98.81655,
+    -98.1069,
+    29.10443,
+    29.77071
+   ],
+   "metro": "San Antonio",
+   "thumb": "watershed-maps/thumbs/48029.jpg"
+  },
+  {
+   "geoid": "48113",
+   "includes": [],
+   "name": "Dallas County",
+   "state": "Texas",
+   "slug": "dallas-county",
+   "areakm": 2344.17,
+   "watersheds": 10,
+   "subwatersheds": 43,
+   "elo": 354,
+   "ehi": 854,
+   "bb": [
+    -97.04869,
+    -96.50698,
+    32.53521,
+    32.99969
+   ],
+   "metro": "Dallas",
+   "thumb": "watershed-maps/thumbs/48113.jpg"
+  },
+  {
+   "geoid": "48201",
+   "includes": [],
+   "name": "Harris County",
+   "state": "Texas",
+   "slug": "harris-county",
+   "areakm": 4572.71,
+   "watersheds": 16,
+   "subwatersheds": 51,
+   "elo": 0,
+   "ehi": 312,
+   "bb": [
+    -95.97073,
+    -94.8985,
+    29.48752,
+    30.18061
+   ],
+   "metro": "Houston",
+   "thumb": "watershed-maps/thumbs/48201.jpg"
+  },
+  {
+   "geoid": "48439",
+   "includes": [],
+   "name": "Tarrant County",
+   "state": "Texas",
+   "slug": "tarrant-county",
+   "areakm": 2331.43,
+   "watersheds": 10,
+   "subwatersheds": 44,
+   "elo": 460,
+   "ehi": 957,
+   "bb": [
+    -97.56058,
+    -97.02101,
+    32.53867,
+    33.00419
+   ],
+   "metro": "Fort Worth",
+   "thumb": "watershed-maps/thumbs/48439.jpg"
+  },
+  {
+   "geoid": "48453",
+   "includes": [],
+   "name": "Travis County",
+   "state": "Texas",
+   "slug": "travis-county",
+   "areakm": 2645.88,
+   "watersheds": 9,
+   "subwatersheds": 40,
+   "elo": 395,
+   "ehi": 1339,
+   "bb": [
+    -98.18298,
+    -97.35954,
+    30.01345,
+    30.63825
+   ],
+   "metro": "Austin",
+   "thumb": "watershed-maps/thumbs/48453.jpg"
   },
   {
    "geoid": "55023",

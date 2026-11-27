@@ -1,0 +1,327 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Dallas County",
+  "note": ""
+ },
+ "1203010501": {
+  "watershed": "Headwaters Trinity River",
+  "note": ""
+ },
+ "1203010502": {
+  "watershed": "Tenmile Creek-Trinity River",
+  "note": ""
+ },
+ "1203010310": {
+  "watershed": "Timber Creek-Elm Fork Trinity River",
+  "note": ""
+ },
+ "1203010605": {
+  "watershed": "Duck Creek-East Fork Trinity River",
+  "note": ""
+ },
+ "1203010604": {
+  "watershed": "East Fork Trinity River-Lake Ray Hubbard",
+  "note": ""
+ },
+ "1203010206": {
+  "watershed": "Mountain Creek-Mountain Creek Lake",
+  "note": ""
+ },
+ "1203010207": {
+  "watershed": "Mountain Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "1203010503": {
+  "watershed": "Red Oak Creek",
+  "note": ""
+ },
+ "1203010403": {
+  "watershed": "Lower Denton Creek",
+  "note": ""
+ },
+ "1203010903": {
+  "watershed": "Waxahachie Creek",
+  "note": ""
+ },
+ "120301050108": {
+  "subwatershed": "Fivemile Creek-Trinity River",
+  "note": ""
+ },
+ "120301050107": {
+  "subwatershed": "Headwaters Fivemile Creek",
+  "note": ""
+ },
+ "120301050105": {
+  "subwatershed": "White Rock Creek-White Rock Lake",
+  "note": ""
+ },
+ "120301050102": {
+  "subwatershed": "Coombs Creek-Trinity River",
+  "note": ""
+ },
+ "120301050106": {
+  "subwatershed": "City of Dallas-White Rock Creek",
+  "note": ""
+ },
+ "120301050101": {
+  "subwatershed": "Turtle Creek",
+  "note": ""
+ },
+ "120301050104": {
+  "subwatershed": "Floyd Branch-White Rock Creek",
+  "note": ""
+ },
+ "120301050103": {
+  "subwatershed": "Headwaters White Rock Creek",
+  "note": ""
+ },
+ "120301050203": {
+  "subwatershed": "Prairie Creek-Trinity River",
+  "note": ""
+ },
+ "120301050201": {
+  "subwatershed": "Headwaters Tenmile Creek",
+  "note": ""
+ },
+ "120301050202": {
+  "subwatershed": "Deep Branch-Tenmile Creek",
+  "note": ""
+ },
+ "120301050204": {
+  "subwatershed": "Hickory Creek-Parsons Slough",
+  "note": ""
+ },
+ "120301050205": {
+  "subwatershed": "Parsons Slough-Trinity River",
+  "note": ""
+ },
+ "120301031007": {
+  "subwatershed": "Bachman Branch-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301031004": {
+  "subwatershed": "Grapevine Creek-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301031005": {
+  "subwatershed": "Farmers Branch-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301031006": {
+  "subwatershed": "Cottonwood Branch-Hackberry Creek",
+  "note": ""
+ },
+ "120301031003": {
+  "subwatershed": "Indian Creek-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301031002": {
+  "subwatershed": "Timber Creek",
+  "note": ""
+ },
+ "120301031001": {
+  "subwatershed": "Prairie Creek-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301060501": {
+  "subwatershed": "Duck Creek",
+  "note": ""
+ },
+ "120301060504": {
+  "subwatershed": "South Mesquite Creek",
+  "note": ""
+ },
+ "120301060503": {
+  "subwatershed": "North Mesquite Creek-East Fork Trinity River",
+  "note": ""
+ },
+ "120301060505": {
+  "subwatershed": "Mustang Creek-East Fork Trinity River",
+  "note": ""
+ },
+ "120301060507": {
+  "subwatershed": "White House Ridge-East Fork Trinity River",
+  "note": ""
+ },
+ "120301060502": {
+  "subwatershed": "Long Branch-Buffalo Creek",
+  "note": ""
+ },
+ "120301060506": {
+  "subwatershed": "Anthony Branch-Buffalo Creek",
+  "note": ""
+ },
+ "120301060408": {
+  "subwatershed": "Rowlett Creek-Ray Hubbard Lake",
+  "note": ""
+ },
+ "120301060403": {
+  "subwatershed": "Muddy Creek-Ray Hubbard Lake",
+  "note": ""
+ },
+ "120301060407": {
+  "subwatershed": "Pittman Creek-Spring Creek",
+  "note": ""
+ },
+ "120301060409": {
+  "subwatershed": "Rush Creek-Ray Hubbard Lake",
+  "note": ""
+ },
+ "120301060402": {
+  "subwatershed": "Cottonwood Creek-East Fork Trinity River",
+  "note": ""
+ },
+ "120301060406": {
+  "subwatershed": "Brown Branch-Rowlett Creek",
+  "note": ""
+ },
+ "120301060401": {
+  "subwatershed": "Camp Creek-Ray Hubbard Lake",
+  "note": ""
+ },
+ "120301060404": {
+  "subwatershed": "Headwaters Rowlett Creek",
+  "note": ""
+ },
+ "120301060405": {
+  "subwatershed": "Town of Allen-Cottonwood Creek",
+  "note": ""
+ },
+ "120301020603": {
+  "subwatershed": "Low Branch-Mountain Creek",
+  "note": ""
+ },
+ "120301020607": {
+  "subwatershed": "Cottonwood Creek-Mountain Creek Lake",
+  "note": ""
+ },
+ "120301020606": {
+  "subwatershed": "Fish Creek-Mountain Creek Lake",
+  "note": ""
+ },
+ "120301020605": {
+  "subwatershed": "Lynn Creek-Walnut Creek",
+  "note": ""
+ },
+ "120301020601": {
+  "subwatershed": "Headwaters Mountain Creek",
+  "note": ""
+ },
+ "120301020604": {
+  "subwatershed": "King Branch-Walnut Creek",
+  "note": ""
+ },
+ "120301020602": {
+  "subwatershed": "Soap Creek",
+  "note": ""
+ },
+ "120301020706": {
+  "subwatershed": "Delaware Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "120301020705": {
+  "subwatershed": "Estelle Creek-Bear Creek",
+  "note": ""
+ },
+ "120301020701": {
+  "subwatershed": "Hurricane Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "120301020702": {
+  "subwatershed": "Johnson Creek",
+  "note": ""
+ },
+ "120301020703": {
+  "subwatershed": "Big Bear Creek",
+  "note": ""
+ },
+ "120301020704": {
+  "subwatershed": "Little Bear Creek",
+  "note": ""
+ },
+ "120301050301": {
+  "subwatershed": "Headwaters Red Oak Creek",
+  "note": ""
+ },
+ "120301050305": {
+  "subwatershed": "Middle Red Oak Creek",
+  "note": ""
+ },
+ "120301050306": {
+  "subwatershed": "Lower Red Oak Creek",
+  "note": ""
+ },
+ "120301050302": {
+  "subwatershed": "Upper Red Oak Creek",
+  "note": ""
+ },
+ "120301050303": {
+  "subwatershed": "Upper Grove Creek",
+  "note": ""
+ },
+ "120301050304": {
+  "subwatershed": "Lower Grove Creek",
+  "note": ""
+ },
+ "120301040307": {
+  "subwatershed": "Cottonwood Branch-Denton Creek",
+  "note": ""
+ },
+ "120301040301": {
+  "subwatershed": "Headwaters Elizabeth Creek",
+  "note": ""
+ },
+ "120301040305": {
+  "subwatershed": "Marshall Branch-Grapevine Lake",
+  "note": ""
+ },
+ "120301040302": {
+  "subwatershed": "Henrietta Creek",
+  "note": ""
+ },
+ "120301040303": {
+  "subwatershed": "Elizabeth Creek-Denton Creek",
+  "note": ""
+ },
+ "120301040304": {
+  "subwatershed": "Denton Creek-Grapevine Lake",
+  "note": ""
+ },
+ "120301040306": {
+  "subwatershed": "Dove Creek-Grapevine Lake",
+  "note": ""
+ },
+ "120301090301": {
+  "subwatershed": "Headwaters Waxahachie Creek",
+  "note": ""
+ },
+ "120301090307": {
+  "subwatershed": "Upper Big Onion Creek",
+  "note": ""
+ },
+ "120301090308": {
+  "subwatershed": "Lower Big Onion Creek",
+  "note": ""
+ },
+ "120301090302": {
+  "subwatershed": "Upper Waxahachie Creek",
+  "note": ""
+ },
+ "120301090305": {
+  "subwatershed": "Mustang Creek",
+  "note": ""
+ },
+ "120301090303": {
+  "subwatershed": "South Prong Creek-Lake Waxahachie",
+  "note": ""
+ },
+ "120301090306": {
+  "subwatershed": "Lower Waxahachie Creek",
+  "note": ""
+ },
+ "120301090304": {
+  "subwatershed": "Middle Waxahachie Creek",
+  "note": ""
+ }
+}

@@ -201,6 +201,7 @@ ABBR = {'Crk': 'Creek', 'Cr': 'Creek', 'Ck': 'Creek', 'Riv': 'River', 'Br': 'Bra
 
 def clean_name(n):
     n = re.sub(r' (city )?\(balance\)$', '', n)
+    n = re.sub(r'/.*metro(politan)? government.*$', '', n)
     n = ' '.join(ABBR.get(w, w) for w in n.split())
     return n.replace("'", "’")
 

@@ -1,0 +1,319 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Tarrant County",
+  "note": ""
+ },
+ "1203010205": {
+  "watershed": "Big Fossil Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "1203010204": {
+  "watershed": "Village Creek",
+  "note": ""
+ },
+ "1203010207": {
+  "watershed": "Mountain Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "1203010203": {
+  "watershed": "Lower Clear Fork Trinity River",
+  "note": ""
+ },
+ "1203010206": {
+  "watershed": "Mountain Creek-Mountain Creek Lake",
+  "note": ""
+ },
+ "1203010201": {
+  "watershed": "Lake Worth-West Fork Trinity River",
+  "note": ""
+ },
+ "1203010403": {
+  "watershed": "Lower Denton Creek",
+  "note": ""
+ },
+ "1203010106": {
+  "watershed": "West Fork Trinity River-Eagle Mountain Lake",
+  "note": ""
+ },
+ "1203010202": {
+  "watershed": "Upper Clear Fork Trinity River",
+  "note": ""
+ },
+ "1203010310": {
+  "watershed": "Timber Creek-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301020503": {
+  "subwatershed": "Whites Branch-Big Fossil Creek",
+  "note": ""
+ },
+ "120301020502": {
+  "subwatershed": "Headwaters Sycamore Creek",
+  "note": ""
+ },
+ "120301020504": {
+  "subwatershed": "Sycamore Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "120301020501": {
+  "subwatershed": "Marine Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "120301020505": {
+  "subwatershed": "Headwaters Walker Branch",
+  "note": ""
+ },
+ "120301020506": {
+  "subwatershed": "Walker Branch-West Fork Trinity River",
+  "note": ""
+ },
+ "120301020405": {
+  "subwatershed": "Rush Creek-Village Creek",
+  "note": ""
+ },
+ "120301020403": {
+  "subwatershed": "Village Creek-Lake Arlington",
+  "note": ""
+ },
+ "120301020402": {
+  "subwatershed": "Deer Creek-Village Creek",
+  "note": ""
+ },
+ "120301020404": {
+  "subwatershed": "Wildcat Branch-Lake Arlington",
+  "note": ""
+ },
+ "120301020401": {
+  "subwatershed": "Quil Miller Creek-Village Creek",
+  "note": ""
+ },
+ "120301020703": {
+  "subwatershed": "Big Bear Creek",
+  "note": ""
+ },
+ "120301020701": {
+  "subwatershed": "Hurricane Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "120301020704": {
+  "subwatershed": "Little Bear Creek",
+  "note": ""
+ },
+ "120301020702": {
+  "subwatershed": "Johnson Creek",
+  "note": ""
+ },
+ "120301020705": {
+  "subwatershed": "Estelle Creek-Bear Creek",
+  "note": ""
+ },
+ "120301020706": {
+  "subwatershed": "Delaware Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "120301020307": {
+  "subwatershed": "Lake Como-Clear Fork Trinity River",
+  "note": ""
+ },
+ "120301020306": {
+  "subwatershed": "Marys Creek",
+  "note": ""
+ },
+ "120301020305": {
+  "subwatershed": "Dutch Branch-Benbrook Lake",
+  "note": ""
+ },
+ "120301020304": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ },
+ "120301020303": {
+  "subwatershed": "Mustang Creek",
+  "note": ""
+ },
+ "120301020302": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "120301020301": {
+  "subwatershed": "South Bear Creek",
+  "note": ""
+ },
+ "120301020605": {
+  "subwatershed": "Lynn Creek-Walnut Creek",
+  "note": ""
+ },
+ "120301020606": {
+  "subwatershed": "Fish Creek-Mountain Creek Lake",
+  "note": ""
+ },
+ "120301020604": {
+  "subwatershed": "King Branch-Walnut Creek",
+  "note": ""
+ },
+ "120301020603": {
+  "subwatershed": "Low Branch-Mountain Creek",
+  "note": ""
+ },
+ "120301020607": {
+  "subwatershed": "Cottonwood Creek-Mountain Creek Lake",
+  "note": ""
+ },
+ "120301020601": {
+  "subwatershed": "Headwaters Mountain Creek",
+  "note": ""
+ },
+ "120301020602": {
+  "subwatershed": "Soap Creek",
+  "note": ""
+ },
+ "120301020105": {
+  "subwatershed": "Farmers Branch-West Fork Trinity River",
+  "note": ""
+ },
+ "120301020101": {
+  "subwatershed": "West Fork Trinity River-Lake Worth",
+  "note": ""
+ },
+ "120301020104": {
+  "subwatershed": "Live Oak Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "120301020103": {
+  "subwatershed": "Silver Creek-Lake Worth",
+  "note": ""
+ },
+ "120301020102": {
+  "subwatershed": "Headwaters Silver Creek",
+  "note": ""
+ },
+ "120301040302": {
+  "subwatershed": "Henrietta Creek",
+  "note": ""
+ },
+ "120301040305": {
+  "subwatershed": "Marshall Branch-Grapevine Lake",
+  "note": ""
+ },
+ "120301040306": {
+  "subwatershed": "Dove Creek-Grapevine Lake",
+  "note": ""
+ },
+ "120301040307": {
+  "subwatershed": "Cottonwood Branch-Denton Creek",
+  "note": ""
+ },
+ "120301040301": {
+  "subwatershed": "Headwaters Elizabeth Creek",
+  "note": ""
+ },
+ "120301040303": {
+  "subwatershed": "Elizabeth Creek-Denton Creek",
+  "note": ""
+ },
+ "120301040304": {
+  "subwatershed": "Denton Creek-Grapevine Lake",
+  "note": ""
+ },
+ "120301010606": {
+  "subwatershed": "Indian Creek-Eagle Mountain Lake",
+  "note": ""
+ },
+ "120301010610": {
+  "subwatershed": "Dosier Creek-Eagle Mountain Creek",
+  "note": ""
+ },
+ "120301010608": {
+  "subwatershed": "Lower Walnut Creek",
+  "note": ""
+ },
+ "120301010609": {
+  "subwatershed": "Ash Creek",
+  "note": ""
+ },
+ "120301010605": {
+  "subwatershed": "Blue Creek-Eagle Mountain Lake",
+  "note": ""
+ },
+ "120301010603": {
+  "subwatershed": "Salt Creek",
+  "note": ""
+ },
+ "120301010602": {
+  "subwatershed": "Garrett Creek",
+  "note": ""
+ },
+ "120301010604": {
+  "subwatershed": "Walnut Creek-West Fork Trinity River",
+  "note": ""
+ },
+ "120301010607": {
+  "subwatershed": "Upper Walnut Creek",
+  "note": ""
+ },
+ "120301010601": {
+  "subwatershed": "Martin Branch-West Fork Trinity Branch",
+  "note": ""
+ },
+ "120301020208": {
+  "subwatershed": "Brown Branch-Clear Fork Trinity River",
+  "note": ""
+ },
+ "120301020201": {
+  "subwatershed": "Cottonwood Creek-Clear Fork Trinity River",
+  "note": ""
+ },
+ "120301020205": {
+  "subwatershed": "Underwood Branch-Willow Creek",
+  "note": ""
+ },
+ "120301020203": {
+  "subwatershed": "Clear Fork Trinity River-Lake Weatherford",
+  "note": ""
+ },
+ "120301020207": {
+  "subwatershed": "South Fork",
+  "note": ""
+ },
+ "120301020206": {
+  "subwatershed": "Brogden Branch-Town Creek",
+  "note": ""
+ },
+ "120301020202": {
+  "subwatershed": "Gourdneck Creek",
+  "note": ""
+ },
+ "120301020204": {
+  "subwatershed": "Reservoir Creek-Clear Fork Trinity River",
+  "note": ""
+ },
+ "120301031004": {
+  "subwatershed": "Grapevine Creek-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301031006": {
+  "subwatershed": "Cottonwood Branch-Hackberry Creek",
+  "note": ""
+ },
+ "120301031007": {
+  "subwatershed": "Bachman Branch-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301031003": {
+  "subwatershed": "Indian Creek-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301031005": {
+  "subwatershed": "Farmers Branch-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301031001": {
+  "subwatershed": "Prairie Creek-Elm Fork Trinity River",
+  "note": ""
+ },
+ "120301031002": {
+  "subwatershed": "Timber Creek",
+  "note": ""
+ }
+}

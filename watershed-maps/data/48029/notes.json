@@ -1,0 +1,363 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Bexar County",
+  "note": ""
+ },
+ "1210030205": {
+  "watershed": "Lower Medina River",
+  "note": ""
+ },
+ "1210030204": {
+  "watershed": "Leon Creek",
+  "note": ""
+ },
+ "1210030101": {
+  "watershed": "Headwaters Salado Creek",
+  "note": ""
+ },
+ "1210030102": {
+  "watershed": "Headwaters San Antonio River",
+  "note": ""
+ },
+ "1210030402": {
+  "watershed": "Upper Cibolo Creek",
+  "note": ""
+ },
+ "1210030103": {
+  "watershed": "Calaveras Creek-San Antonio River",
+  "note": ""
+ },
+ "1210030401": {
+  "watershed": "Headwaters Cibolo Creek",
+  "note": ""
+ },
+ "1210030203": {
+  "watershed": "Middle Medina River",
+  "note": ""
+ },
+ "1210030403": {
+  "watershed": "Middle Cibolo Creek",
+  "note": ""
+ },
+ "1211011002": {
+  "watershed": "Galvan Creek-Atascosa River",
+  "note": ""
+ },
+ "1211011001": {
+  "watershed": "Headwaters Atascosa River",
+  "note": ""
+ },
+ "1210030301": {
+  "watershed": "Kicaster Creek-San Antonio River",
+  "note": ""
+ },
+ "1211011003": {
+  "watershed": "Borrego Creek-Atascosa River",
+  "note": ""
+ },
+ "121003020504": {
+  "subwatershed": "Medio Creek",
+  "note": ""
+ },
+ "121003020509": {
+  "subwatershed": "Palo Blanco Creek-Medina River",
+  "note": ""
+ },
+ "121003020506": {
+  "subwatershed": "Post Oak Creek-Elm Creek",
+  "note": ""
+ },
+ "121003020503": {
+  "subwatershed": "Polecat Creek-Medina River",
+  "note": ""
+ },
+ "121003020505": {
+  "subwatershed": "Live Oak Slough-Medina River",
+  "note": ""
+ },
+ "121003020507": {
+  "subwatershed": "Town of Somerset-Elm Creek",
+  "note": ""
+ },
+ "121003020508": {
+  "subwatershed": "Town of Oak Island-Medina River",
+  "note": ""
+ },
+ "121003020502": {
+  "subwatershed": "Big Sous Creek",
+  "note": ""
+ },
+ "121003020501": {
+  "subwatershed": "Flat Creek-Medina River",
+  "note": ""
+ },
+ "121003020404": {
+  "subwatershed": "Lower Culebra Creek",
+  "note": ""
+ },
+ "121003020402": {
+  "subwatershed": "Upper Leon Creek",
+  "note": ""
+ },
+ "121003020406": {
+  "subwatershed": "Lower Leon Creek",
+  "note": ""
+ },
+ "121003020403": {
+  "subwatershed": "Upper Culebra Creek",
+  "note": ""
+ },
+ "121003020405": {
+  "subwatershed": "Middle Leon Creek",
+  "note": ""
+ },
+ "121003020401": {
+  "subwatershed": "Headwaters Leon Creek",
+  "note": ""
+ },
+ "121003010103": {
+  "subwatershed": "Mud Creek",
+  "note": ""
+ },
+ "121003010101": {
+  "subwatershed": "Lewis Creek-Salado Creek",
+  "note": ""
+ },
+ "121003010105": {
+  "subwatershed": "Walzem Creek-Salado Creek",
+  "note": ""
+ },
+ "121003010102": {
+  "subwatershed": "Panther Springs Creek-Salado Creek",
+  "note": ""
+ },
+ "121003010106": {
+  "subwatershed": "Rosillo Creek",
+  "note": ""
+ },
+ "121003010104": {
+  "subwatershed": "Beitel Creek-Salado Creek",
+  "note": ""
+ },
+ "121003010203": {
+  "subwatershed": "Salado Creek-San Antonio River",
+  "note": ""
+ },
+ "121003010202": {
+  "subwatershed": "San Pedro Creek",
+  "note": ""
+ },
+ "121003010201": {
+  "subwatershed": "Olmos Creek-San Antonio River",
+  "note": ""
+ },
+ "121003010204": {
+  "subwatershed": "Blue Wing Lake-San Antonio River",
+  "note": ""
+ },
+ "121003040205": {
+  "subwatershed": "Salitrillo Creek-Martinez Creek",
+  "note": ""
+ },
+ "121003040206": {
+  "subwatershed": "Martinez Creek-Cibolo Creek",
+  "note": ""
+ },
+ "121003040201": {
+  "subwatershed": "Clear Fork-Cibolo Creek",
+  "note": ""
+ },
+ "121003040202": {
+  "subwatershed": "Dietz Creek-Cibolo Creek",
+  "note": ""
+ },
+ "121003040203": {
+  "subwatershed": "Upper Santa Clara Creek",
+  "note": ""
+ },
+ "121003040204": {
+  "subwatershed": "Lower Santa Clara Creek",
+  "note": ""
+ },
+ "121003010302": {
+  "subwatershed": "Upper Calaveras Creek",
+  "note": ""
+ },
+ "121003010301": {
+  "subwatershed": "Braunig Lake-San Antonio River",
+  "note": ""
+ },
+ "121003010303": {
+  "subwatershed": "Lower Calaveras Creek",
+  "note": ""
+ },
+ "121003040104": {
+  "subwatershed": "Indian Creek-Cibolo Creek",
+  "note": ""
+ },
+ "121003040102": {
+  "subwatershed": "Balcones Creek-Cibolo Creek",
+  "note": ""
+ },
+ "121003040103": {
+  "subwatershed": "Pleasant Valley Creek-Cibolo Creek",
+  "note": ""
+ },
+ "121003040101": {
+  "subwatershed": "Frederick Creek-Cibolo Creek",
+  "note": ""
+ },
+ "121003040105": {
+  "subwatershed": "Lewis Creek",
+  "note": ""
+ },
+ "121003020306": {
+  "subwatershed": "Upper San Geronimo Creek",
+  "note": ""
+ },
+ "121003020307": {
+  "subwatershed": "Lower San Geronimo Creek",
+  "note": ""
+ },
+ "121003020301": {
+  "subwatershed": "Pipe Creek-Red Bluff Creek",
+  "note": ""
+ },
+ "121003020305": {
+  "subwatershed": "Diversion Lake-Medina River",
+  "note": ""
+ },
+ "121003020303": {
+  "subwatershed": "Medina River-Medina Lake",
+  "note": ""
+ },
+ "121003020304": {
+  "subwatershed": "Elm Creek-Medina Lake",
+  "note": ""
+ },
+ "121003020302": {
+  "subwatershed": "Bruins Creek-Medina River",
+  "note": ""
+ },
+ "121003040301": {
+  "subwatershed": "Headwaters Dry Hollow Creek",
+  "note": ""
+ },
+ "121003040302": {
+  "subwatershed": "Dry Hollow Creek-Cibolo Creek",
+  "note": ""
+ },
+ "121003040303": {
+  "subwatershed": "Elm Creek",
+  "note": ""
+ },
+ "121003040304": {
+  "subwatershed": "Gum Branch-Cibolo Creek",
+  "note": ""
+ },
+ "121003040305": {
+  "subwatershed": "Alum Creek",
+  "note": ""
+ },
+ "121101100204": {
+  "subwatershed": "Gallinas Creek",
+  "note": ""
+ },
+ "121101100205": {
+  "subwatershed": "Galvan Creek",
+  "note": ""
+ },
+ "121101100202": {
+  "subwatershed": "Palo Alto Creek",
+  "note": ""
+ },
+ "121101100203": {
+  "subwatershed": "Salt Branch-Atascosa River",
+  "note": ""
+ },
+ "121101100201": {
+  "subwatershed": "Santa Anna Creek-Atascosa River",
+  "note": ""
+ },
+ "121101100206": {
+  "subwatershed": "Bonita Creek-Atascosa River",
+  "note": ""
+ },
+ "121101100101": {
+  "subwatershed": "North Prong Atascosa River",
+  "note": ""
+ },
+ "121101100102": {
+  "subwatershed": "Town of Anchorage-Atascosa River",
+  "note": ""
+ },
+ "121101100104": {
+  "subwatershed": "Lower Siestedero Creek",
+  "note": ""
+ },
+ "121101100103": {
+  "subwatershed": "Upper Siestedero Creek",
+  "note": ""
+ },
+ "121101100105": {
+  "subwatershed": "Padilla Creek-Atascosa River",
+  "note": ""
+ },
+ "121003030101": {
+  "subwatershed": "Sandpit Creek-San Antonio River",
+  "note": ""
+ },
+ "121003030104": {
+  "subwatershed": "Picosa Creek",
+  "note": ""
+ },
+ "121003030103": {
+  "subwatershed": "Pajarito Creek-San Antonio River",
+  "note": ""
+ },
+ "121003030102": {
+  "subwatershed": "Kicaster Creek",
+  "note": ""
+ },
+ "121003030105": {
+  "subwatershed": "Camp Ranch-San Antonio River",
+  "note": ""
+ },
+ "121003030106": {
+  "subwatershed": "Olmos Creek",
+  "note": ""
+ },
+ "121101100303": {
+  "subwatershed": "Lucas Creek",
+  "note": ""
+ },
+ "121101100301": {
+  "subwatershed": "Averia Creek-Atascosa River",
+  "note": ""
+ },
+ "121101100304": {
+  "subwatershed": "Headwaters Borrego Creek",
+  "note": ""
+ },
+ "121101100308": {
+  "subwatershed": "Lipan Creek-Atascosa River",
+  "note": ""
+ },
+ "121101100306": {
+  "subwatershed": "Middle Borrego Creek",
+  "note": ""
+ },
+ "121101100305": {
+  "subwatershed": "Upper Borrego Creek",
+  "note": ""
+ },
+ "121101100307": {
+  "subwatershed": "Lower Borrego Creek",
+  "note": ""
+ },
+ "121101100302": {
+  "subwatershed": "Liveoak Creek-Atascosa River",
+  "note": ""
+ }
+}

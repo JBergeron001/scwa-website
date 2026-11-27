@@ -1,0 +1,447 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Tulsa County",
+  "note": ""
+ },
+ "1111010103": {
+  "watershed": "Upper Arkansas River",
+  "note": ""
+ },
+ "1107010704": {
+  "watershed": "Lower Bird Creek",
+  "note": ""
+ },
+ "1111010105": {
+  "watershed": "Lower Arkansas River",
+  "note": ""
+ },
+ "1111010102": {
+  "watershed": "Snake Creek",
+  "note": ""
+ },
+ "1111010101": {
+  "watershed": "Polecat Creek",
+  "note": ""
+ },
+ "1107010607": {
+  "watershed": "Lower Caney River",
+  "note": ""
+ },
+ "1107010703": {
+  "watershed": "Middle Bird Creek",
+  "note": ""
+ },
+ "1107010502": {
+  "watershed": "Sweetwater Creek-Verdigris River",
+  "note": ""
+ },
+ "1106000607": {
+  "watershed": "Keystone Lake-Arkansas River",
+  "note": ""
+ },
+ "1107010503": {
+  "watershed": "Newt Graham Lake-Verdigris River",
+  "note": ""
+ },
+ "1105000305": {
+  "watershed": "Cimarron River-Keystone Lake",
+  "note": ""
+ },
+ "1107010702": {
+  "watershed": "Hominy Creek",
+  "note": ""
+ },
+ "111101010304": {
+  "subwatershed": "Mooser Creek-Arkansas River",
+  "note": ""
+ },
+ "111101010305": {
+  "subwatershed": "Posey Creek-Arkansas River",
+  "note": ""
+ },
+ "111101010302": {
+  "subwatershed": "Euchee Creek-Arkansas River",
+  "note": ""
+ },
+ "111101010303": {
+  "subwatershed": "Harlow Creek-Arkansas River",
+  "note": ""
+ },
+ "111101010301": {
+  "subwatershed": "Shell Creek-Arkansas River",
+  "note": ""
+ },
+ "110701070403": {
+  "subwatershed": "Mingo Creek",
+  "note": ""
+ },
+ "110701070404": {
+  "subwatershed": "Ranch Creek-Bird Creek",
+  "note": ""
+ },
+ "110701070402": {
+  "subwatershed": "Flat Rock Creek-Bird Creek",
+  "note": ""
+ },
+ "110701070405": {
+  "subwatershed": "Elm Creek-Bird Creek",
+  "note": ""
+ },
+ "110701070401": {
+  "subwatershed": "Delaware Creek",
+  "note": ""
+ },
+ "111101010501": {
+  "subwatershed": "Haikey Creek",
+  "note": ""
+ },
+ "111101010502": {
+  "subwatershed": "Broken Arrow Creek-Arkansas River",
+  "note": ""
+ },
+ "111101010503": {
+  "subwatershed": "Cedar Creek-Arkansas River",
+  "note": ""
+ },
+ "111101010507": {
+  "subwatershed": "Blue Creek-Arkansas River",
+  "note": ""
+ },
+ "111101010506": {
+  "subwatershed": "Coal Creek-Arkansas River",
+  "note": ""
+ },
+ "111101010508": {
+  "subwatershed": "Pecan Creek",
+  "note": ""
+ },
+ "111101010509": {
+  "subwatershed": "City of Muskogee-Arkansas River",
+  "note": ""
+ },
+ "111101010505": {
+  "subwatershed": "Ash Creek",
+  "note": ""
+ },
+ "111101010504": {
+  "subwatershed": "Concharty Creek",
+  "note": ""
+ },
+ "111101010207": {
+  "subwatershed": "Lower Snake Creek",
+  "note": ""
+ },
+ "111101010203": {
+  "subwatershed": "North Duck Creek-Duck Creek",
+  "note": ""
+ },
+ "111101010206": {
+  "subwatershed": "Duck Creek",
+  "note": ""
+ },
+ "111101010205": {
+  "subwatershed": "Middle Snake Creek",
+  "note": ""
+ },
+ "111101010201": {
+  "subwatershed": "Middle Duck Creek",
+  "note": ""
+ },
+ "111101010204": {
+  "subwatershed": "Upper Snake Creek",
+  "note": ""
+ },
+ "111101010202": {
+  "subwatershed": "Eagle Creek",
+  "note": ""
+ },
+ "111101010111": {
+  "subwatershed": "Nickel Creek-Polecat Creek",
+  "note": ""
+ },
+ "111101010107": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ },
+ "111101010110": {
+  "subwatershed": "City of Sapulpa-Polecat Creek",
+  "note": ""
+ },
+ "111101010109": {
+  "subwatershed": "Skull Creek-Polecat Creek",
+  "note": ""
+ },
+ "111101010106": {
+  "subwatershed": "Clear Creek-Polecat Creek",
+  "note": ""
+ },
+ "111101010105": {
+  "subwatershed": "Little Polecat Creek-Polecat Creek",
+  "note": ""
+ },
+ "111101010101": {
+  "subwatershed": "Figure Eight Creek-Polecat Creek",
+  "note": ""
+ },
+ "111101010103": {
+  "subwatershed": "Browns Creek",
+  "note": ""
+ },
+ "111101010104": {
+  "subwatershed": "Rowland Creek-Polecat Creek",
+  "note": ""
+ },
+ "111101010102": {
+  "subwatershed": "Dog Creek-Polecat Creek",
+  "note": ""
+ },
+ "111101010108": {
+  "subwatershed": "Euchee Creek-Rock Creek",
+  "note": ""
+ },
+ "110701060709": {
+  "subwatershed": "Horsepen Creek",
+  "note": ""
+ },
+ "110701060710": {
+  "subwatershed": "Saunders Creek-Caney River",
+  "note": ""
+ },
+ "110701060711": {
+  "subwatershed": "Hobbs Creek-Caney Creek",
+  "note": ""
+ },
+ "110701060705": {
+  "subwatershed": "Double Creek",
+  "note": ""
+ },
+ "110701060704": {
+  "subwatershed": "Curl Creek",
+  "note": ""
+ },
+ "110701060703": {
+  "subwatershed": "Hogshooter Creek",
+  "note": ""
+ },
+ "110701060702": {
+  "subwatershed": "Rice Creek-Caney River",
+  "note": ""
+ },
+ "110701060707": {
+  "subwatershed": "Buck Creek-Caney River",
+  "note": ""
+ },
+ "110701060706": {
+  "subwatershed": "Timberlake Creek-Caney River",
+  "note": ""
+ },
+ "110701060708": {
+  "subwatershed": "Robb Creek",
+  "note": ""
+ },
+ "110701060701": {
+  "subwatershed": "Fish Creek",
+  "note": ""
+ },
+ "110701070307": {
+  "subwatershed": "Charley Creek-Bird Creek",
+  "note": ""
+ },
+ "110701070306": {
+  "subwatershed": "Skalall Creek-Bird Creek",
+  "note": ""
+ },
+ "110701070304": {
+  "subwatershed": "Candy Creek",
+  "note": ""
+ },
+ "110701070301": {
+  "subwatershed": "Upper Birch Creek",
+  "note": ""
+ },
+ "110701070302": {
+  "subwatershed": "Lower Birch Creek",
+  "note": ""
+ },
+ "110701070303": {
+  "subwatershed": "Dog Thresher Creek-Bird Creek",
+  "note": ""
+ },
+ "110701070305": {
+  "subwatershed": "Bull Creek-Bird Creek",
+  "note": ""
+ },
+ "110701050204": {
+  "subwatershed": "Spunky Creek",
+  "note": ""
+ },
+ "110701050202": {
+  "subwatershed": "Sweetwater Creek-Verdigris River",
+  "note": ""
+ },
+ "110701050201": {
+  "subwatershed": "Fourmile Creek",
+  "note": ""
+ },
+ "110701050205": {
+  "subwatershed": "Mossy Creek-Verdigris River",
+  "note": ""
+ },
+ "110701050203": {
+  "subwatershed": "Honey Creek-Verdigris River",
+  "note": ""
+ },
+ "110600060709": {
+  "subwatershed": "Mud Creek-Arkansas River",
+  "note": ""
+ },
+ "110600060704": {
+  "subwatershed": "Harper Creek-Arkansas River",
+  "note": ""
+ },
+ "110600060706": {
+  "subwatershed": "Cedar Creek-Arkansas River",
+  "note": ""
+ },
+ "110600060708": {
+  "subwatershed": "Waresha Creek-Arkansas River",
+  "note": ""
+ },
+ "110600060703": {
+  "subwatershed": "Ranch Creek",
+  "note": ""
+ },
+ "110600060701": {
+  "subwatershed": "Bug Creek",
+  "note": ""
+ },
+ "110600060705": {
+  "subwatershed": "Black Dog Creek-Arkansas River",
+  "note": ""
+ },
+ "110600060702": {
+  "subwatershed": "Hellroaring Creek",
+  "note": ""
+ },
+ "110600060707": {
+  "subwatershed": "Cowskin Creek",
+  "note": ""
+ },
+ "110701050303": {
+  "subwatershed": "Adams Creek",
+  "note": ""
+ },
+ "110701050305": {
+  "subwatershed": "Bull Creek",
+  "note": ""
+ },
+ "110701050304": {
+  "subwatershed": "Inola Creek",
+  "note": ""
+ },
+ "110701050306": {
+  "subwatershed": "Commodore Creek-Verdigris River",
+  "note": ""
+ },
+ "110701050302": {
+  "subwatershed": "Big Flag Lake-Verdigris River",
+  "note": ""
+ },
+ "110701050301": {
+  "subwatershed": "Salt Creek",
+  "note": ""
+ },
+ "110500030509": {
+  "subwatershed": "Salt Creek-Cimarron River",
+  "note": ""
+ },
+ "110500030508": {
+  "subwatershed": "Fish Creek-Salt Creek",
+  "note": ""
+ },
+ "110500030503": {
+  "subwatershed": "Dry Creek-Cimarron River",
+  "note": ""
+ },
+ "110500030507": {
+  "subwatershed": "House Creek",
+  "note": ""
+ },
+ "110500030506": {
+  "subwatershed": "Rocky Canyon Creek-Cimarron River",
+  "note": ""
+ },
+ "110500030504": {
+  "subwatershed": "Upper Lagoon Creek",
+  "note": ""
+ },
+ "110500030505": {
+  "subwatershed": "Lower Lagoon Creek",
+  "note": ""
+ },
+ "110500030501": {
+  "subwatershed": "Tiger Creek",
+  "note": ""
+ },
+ "110500030502": {
+  "subwatershed": "Buckeye Creek",
+  "note": ""
+ },
+ "110701070214": {
+  "subwatershed": "Rock Creek-Hominy Creek",
+  "note": ""
+ },
+ "110701070202": {
+  "subwatershed": "Little Hominy Creek",
+  "note": ""
+ },
+ "110701070203": {
+  "subwatershed": "Nicicola Creek-Hominy Creek",
+  "note": ""
+ },
+ "110701070204": {
+  "subwatershed": "Penn Creek",
+  "note": ""
+ },
+ "110701070207": {
+  "subwatershed": "Mahala Creek-Hominy Creek",
+  "note": ""
+ },
+ "110701070201": {
+  "subwatershed": "Daniels Run-Hominy Creek",
+  "note": ""
+ },
+ "110701070212": {
+  "subwatershed": "Lost Creek-Skiatook Lake",
+  "note": ""
+ },
+ "110701070213": {
+  "subwatershed": "Quapaw Creek",
+  "note": ""
+ },
+ "110701070209": {
+  "subwatershed": "Cedar Canyon",
+  "note": ""
+ },
+ "110701070208": {
+  "subwatershed": "Buck Creek",
+  "note": ""
+ },
+ "110701070205": {
+  "subwatershed": "Twomile Creek-Hominy Creek",
+  "note": ""
+ },
+ "110701070206": {
+  "subwatershed": "Boar Creek",
+  "note": ""
+ },
+ "110701070210": {
+  "subwatershed": "Turkey Creek-Skiatook Lake",
+  "note": ""
+ },
+ "110701070211": {
+  "subwatershed": "Cedar Creek-Skiatook Lake",
+  "note": ""
+ }
+}
