@@ -2,6 +2,44 @@
  "updated": "2026-11-26",
  "maps": [
   {
+   "geoid": "19153",
+   "includes": [],
+   "name": "Polk County",
+   "state": "Iowa",
+   "slug": "polk-county",
+   "areakm": 1524.18,
+   "watersheds": 10,
+   "subwatersheds": 27,
+   "elo": 759,
+   "ehi": 1045,
+   "bb": [
+    -93.82572,
+    -93.31841,
+    41.47184,
+    41.87347
+   ],
+   "thumb": "watershed-maps/thumbs/19153.jpg"
+  },
+  {
+   "geoid": "29095",
+   "includes": [],
+   "name": "Jackson County",
+   "state": "Missouri",
+   "slug": "jackson-county",
+   "areakm": 1587.41,
+   "watersheds": 7,
+   "subwatersheds": 30,
+   "elo": 703,
+   "ehi": 1105,
+   "bb": [
+    -94.61833,
+    -94.09482,
+    38.82301,
+    39.24711
+   ],
+   "thumb": "watershed-maps/thumbs/29095.jpg"
+  },
+  {
    "geoid": "29189",
    "includes": [
     [
@@ -24,6 +62,25 @@
     38.90115
    ],
    "thumb": "watershed-maps/thumbs/29189.jpg"
+  },
+  {
+   "geoid": "31055",
+   "includes": [],
+   "name": "Douglas County",
+   "state": "Nebraska",
+   "slug": "douglas-county",
+   "areakm": 874.58,
+   "watersheds": 6,
+   "subwatersheds": 19,
+   "elo": 971,
+   "ehi": 1324,
+   "bb": [
+    -96.48072,
+    -95.86149,
+    41.18,
+    41.40331
+   ],
+   "thumb": "watershed-maps/thumbs/31055.jpg"
   }
  ]
 }

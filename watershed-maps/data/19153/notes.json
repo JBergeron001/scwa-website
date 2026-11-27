@@ -1,0 +1,255 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Polk County",
+  "note": ""
+ },
+ "0710000815": {
+  "watershed": "Calhoun Creek-Des Moines River",
+  "note": ""
+ },
+ "0710000801": {
+  "watershed": "Fourmile Creek",
+  "note": ""
+ },
+ "0708010509": {
+  "watershed": "Sugar Creek-South Skunk River",
+  "note": ""
+ },
+ "0710000410": {
+  "watershed": "Saylor Creek-Des Moines River",
+  "note": ""
+ },
+ "0710000617": {
+  "watershed": "Raccoon River",
+  "note": ""
+ },
+ "0710000409": {
+  "watershed": "Beaver Creek",
+  "note": ""
+ },
+ "0710000616": {
+  "watershed": "Walnut Creek",
+  "note": ""
+ },
+ "0710000408": {
+  "watershed": "Big Creek",
+  "note": ""
+ },
+ "0708010508": {
+  "watershed": "Indian Creek",
+  "note": ""
+ },
+ "0710000804": {
+  "watershed": "North River",
+  "note": ""
+ },
+ "071000081503": {
+  "subwatershed": "Yeader Creek-Des Moines River",
+  "note": ""
+ },
+ "071000081502": {
+  "subwatershed": "Mud Creek",
+  "note": ""
+ },
+ "071000081504": {
+  "subwatershed": "Camp Creek",
+  "note": ""
+ },
+ "071000081501": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "071000081507": {
+  "subwatershed": "Wildcat Creek-Des Moines River",
+  "note": ""
+ },
+ "071000081506": {
+  "subwatershed": "Calhoun Creek",
+  "note": ""
+ },
+ "071000081509": {
+  "subwatershed": "Wallingslock Creek-Des Moines River",
+  "note": ""
+ },
+ "071000081508": {
+  "subwatershed": "Teter Creek-Des Moines River",
+  "note": ""
+ },
+ "071000081505": {
+  "subwatershed": "Walnut Creek",
+  "note": ""
+ },
+ "071000080102": {
+  "subwatershed": "Middle Fourmile Creek",
+  "note": ""
+ },
+ "071000080103": {
+  "subwatershed": "Lower Fourmile Creek",
+  "note": ""
+ },
+ "071000080101": {
+  "subwatershed": "Upper Fourmile Creek",
+  "note": ""
+ },
+ "070801050904": {
+  "subwatershed": "Coon Creek-South Skunk River",
+  "note": ""
+ },
+ "070801050905": {
+  "subwatershed": "Old Channel-South Skunk River",
+  "note": ""
+ },
+ "070801050906": {
+  "subwatershed": "Santiago Creek-South Skunk River",
+  "note": ""
+ },
+ "070801050908": {
+  "subwatershed": "Sugar Creek-South Skunk River",
+  "note": ""
+ },
+ "070801050903": {
+  "subwatershed": "Town of Ames-South Skunk River",
+  "note": ""
+ },
+ "070801050902": {
+  "subwatershed": "Ballard Creek",
+  "note": ""
+ },
+ "070801050907": {
+  "subwatershed": "Red Rock Creek",
+  "note": ""
+ },
+ "070801050901": {
+  "subwatershed": "Walnut Creek",
+  "note": ""
+ },
+ "071000041001": {
+  "subwatershed": "Murphy Branch-Des Moines River",
+  "note": ""
+ },
+ "071000041003": {
+  "subwatershed": "Saylor Creek-Des Moines River",
+  "note": ""
+ },
+ "071000041002": {
+  "subwatershed": "Rock Creek-Des Moines River",
+  "note": ""
+ },
+ "071000061703": {
+  "subwatershed": "Jordan Creek-Raccoon River",
+  "note": ""
+ },
+ "071000061702": {
+  "subwatershed": "Johnson Creek-Raccoon River",
+  "note": ""
+ },
+ "071000061701": {
+  "subwatershed": "Sugar Creek",
+  "note": ""
+ },
+ "071000040911": {
+  "subwatershed": "Beaver Creek",
+  "note": ""
+ },
+ "071000040910": {
+  "subwatershed": "Royer Creek-Beaver Creek",
+  "note": ""
+ },
+ "071000040905": {
+  "subwatershed": "Headwaters Beaver Creek",
+  "note": ""
+ },
+ "071000040906": {
+  "subwatershed": "Beaver Branch-Beaver Creek",
+  "note": ""
+ },
+ "071000040907": {
+  "subwatershed": "Slough Creek",
+  "note": ""
+ },
+ "071000040908": {
+  "subwatershed": "Little Beaver Creek-Beaver Creek",
+  "note": ""
+ },
+ "071000040902": {
+  "subwatershed": "West Beaver Creek",
+  "note": ""
+ },
+ "071000040903": {
+  "subwatershed": "Middle Beaver Creek",
+  "note": ""
+ },
+ "071000040909": {
+  "subwatershed": "City of Bouton-Beaver Creek",
+  "note": ""
+ },
+ "071000040901": {
+  "subwatershed": "Little Beaver Creek",
+  "note": ""
+ },
+ "071000040904": {
+  "subwatershed": "East Beaver Creek",
+  "note": ""
+ },
+ "071000061602": {
+  "subwatershed": "Walnut Creek",
+  "note": ""
+ },
+ "071000061601": {
+  "subwatershed": "Little Walnut Creek-Walnut Creek",
+  "note": ""
+ },
+ "071000040803": {
+  "subwatershed": "Big Creek",
+  "note": ""
+ },
+ "071000040802": {
+  "subwatershed": "Little Creek",
+  "note": ""
+ },
+ "071000040801": {
+  "subwatershed": "Headwaters Big Creek",
+  "note": ""
+ },
+ "070801050803": {
+  "subwatershed": "Peoria Cemetery-Indian Creek",
+  "note": ""
+ },
+ "070801050804": {
+  "subwatershed": "Byers Branch-Indian Creek",
+  "note": ""
+ },
+ "070801050801": {
+  "subwatershed": "Calamus Creeks-Indian Creek",
+  "note": ""
+ },
+ "070801050805": {
+  "subwatershed": "Turkey Creek-Indian Creek",
+  "note": ""
+ },
+ "070801050802": {
+  "subwatershed": "Wolf Creek",
+  "note": ""
+ },
+ "071000080405": {
+  "subwatershed": "North River",
+  "note": ""
+ },
+ "071000080404": {
+  "subwatershed": "Middle Creek",
+  "note": ""
+ },
+ "071000080402": {
+  "subwatershed": "Badger Creek",
+  "note": ""
+ },
+ "071000080401": {
+  "subwatershed": "Cedar Creek",
+  "note": ""
+ },
+ "071000080403": {
+  "subwatershed": "Saint Patricks Cemetery-North River",
+  "note": ""
+ }
+}

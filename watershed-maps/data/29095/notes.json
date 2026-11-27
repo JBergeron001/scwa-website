@@ -1,0 +1,223 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Jackson County",
+  "note": ""
+ },
+ "1030010102": {
+  "watershed": "Little Blue River",
+  "note": ""
+ },
+ "1030010105": {
+  "watershed": "Sni-A-Bar Creek",
+  "note": ""
+ },
+ "1030010101": {
+  "watershed": "Blue River",
+  "note": ""
+ },
+ "1030010106": {
+  "watershed": "Fire Prairie Creek-Missouri River",
+  "note": ""
+ },
+ "1029010803": {
+  "watershed": "Headwaters Big Creek",
+  "note": ""
+ },
+ "1030010103": {
+  "watershed": "Shoal Creek-Missouri River",
+  "note": ""
+ },
+ "1027010406": {
+  "watershed": "Turkey Creek-Kansas River",
+  "note": ""
+ },
+ "103001010208": {
+  "subwatershed": "Little Blue River",
+  "note": ""
+ },
+ "103001010205": {
+  "subwatershed": "East Fork Little Blue River",
+  "note": ""
+ },
+ "103001010207": {
+  "subwatershed": "Burr Oak Creek-Little Blue River",
+  "note": ""
+ },
+ "103001010204": {
+  "subwatershed": "Little Cedar Creek-Little Blue River",
+  "note": ""
+ },
+ "103001010206": {
+  "subwatershed": "May Brook-Little Blue River",
+  "note": ""
+ },
+ "103001010203": {
+  "subwatershed": "Cedar Creek-Little Blue River",
+  "note": ""
+ },
+ "103001010201": {
+  "subwatershed": "Headwaters Little Blue River",
+  "note": ""
+ },
+ "103001010202": {
+  "subwatershed": "Mouse Creek-Little Blue River",
+  "note": ""
+ },
+ "103001010502": {
+  "subwatershed": "Headwaters Sni-A-Bar Creek",
+  "note": ""
+ },
+ "103001010504": {
+  "subwatershed": "Horseshoe Creek-Sni-A-Bar Creek",
+  "note": ""
+ },
+ "103001010503": {
+  "subwatershed": "Swiney Branch-Sni-A-Bar Creek",
+  "note": ""
+ },
+ "103001010501": {
+  "subwatershed": "West Fork Sni-A-Bar Creek",
+  "note": ""
+ },
+ "103001010506": {
+  "subwatershed": "Sni-A-Bar Creek",
+  "note": ""
+ },
+ "103001010505": {
+  "subwatershed": "East Fork Sni-A-Bar Creek",
+  "note": ""
+ },
+ "103001010105": {
+  "subwatershed": "Brush Creek-Blue River",
+  "note": ""
+ },
+ "103001010106": {
+  "subwatershed": "Outlet Blue River",
+  "note": ""
+ },
+ "103001010104": {
+  "subwatershed": "Camp Branch-Blue River",
+  "note": ""
+ },
+ "103001010103": {
+  "subwatershed": "Indian Creek",
+  "note": ""
+ },
+ "103001010101": {
+  "subwatershed": "Headwaters Blue River",
+  "note": ""
+ },
+ "103001010102": {
+  "subwatershed": "Headwaters Indian Creek",
+  "note": ""
+ },
+ "103001010601": {
+  "subwatershed": "Headwaters Fire Prairie Creek",
+  "note": ""
+ },
+ "103001010602": {
+  "subwatershed": "Fire Prairie Creek",
+  "note": ""
+ },
+ "103001010604": {
+  "subwatershed": "Cravens Creek-Missouri River",
+  "note": ""
+ },
+ "103001010603": {
+  "subwatershed": "Brady Creek",
+  "note": ""
+ },
+ "102901080302": {
+  "subwatershed": "Headwaters Big Creek",
+  "note": ""
+ },
+ "102901080304": {
+  "subwatershed": "West Branch Crawford Creek",
+  "note": ""
+ },
+ "102901080303": {
+  "subwatershed": "East Branch Crawford Creek",
+  "note": ""
+ },
+ "102901080301": {
+  "subwatershed": "Middle Big Creek",
+  "note": ""
+ },
+ "102901080306": {
+  "subwatershed": "Duncan Branch-Big Creek",
+  "note": ""
+ },
+ "102901080308": {
+  "subwatershed": "Camp Branch",
+  "note": ""
+ },
+ "102901080309": {
+  "subwatershed": "Lost Creek-Big Creek",
+  "note": ""
+ },
+ "102901080307": {
+  "subwatershed": "Headwaters Camp Branch",
+  "note": ""
+ },
+ "102901080305": {
+  "subwatershed": "Crawford Creek",
+  "note": ""
+ },
+ "103001010305": {
+  "subwatershed": "Rock Creek-Missouri River",
+  "note": ""
+ },
+ "103001010306": {
+  "subwatershed": "Rush Creek-Missouri River",
+  "note": ""
+ },
+ "103001010301": {
+  "subwatershed": "Buckeye Creek-Missouri River",
+  "note": ""
+ },
+ "103001010307": {
+  "subwatershed": "Dry Creek-Missouri River",
+  "note": ""
+ },
+ "103001010304": {
+  "subwatershed": "Lower Shoal Creek",
+  "note": ""
+ },
+ "103001010303": {
+  "subwatershed": "Middle Shoal Creek",
+  "note": ""
+ },
+ "103001010302": {
+  "subwatershed": "Upper Shoal Creek",
+  "note": ""
+ },
+ "102701040607": {
+  "subwatershed": "Turkey Creek-Kansas River",
+  "note": ""
+ },
+ "102701040602": {
+  "subwatershed": "New Olathe Lake-Cedar Creek",
+  "note": ""
+ },
+ "102701040603": {
+  "subwatershed": "Wolf Creek-Kansas River",
+  "note": ""
+ },
+ "102701040601": {
+  "subwatershed": "Spoon Creek-Kill Creek",
+  "note": ""
+ },
+ "102701040606": {
+  "subwatershed": "Lake of the Forest Dam-Kansas River",
+  "note": ""
+ },
+ "102701040604": {
+  "subwatershed": "Shawnee Mission Lake-Mill Creek",
+  "note": ""
+ },
+ "102701040605": {
+  "subwatershed": "Elmers Lake-Mill Creek",
+  "note": ""
+ }
+}

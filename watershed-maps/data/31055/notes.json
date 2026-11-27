@@ -1,0 +1,147 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Douglas County",
+  "note": ""
+ },
+ "1023000602": {
+  "watershed": "Big Papillion Creek-Papillion Creek",
+  "note": ""
+ },
+ "1023000601": {
+  "watershed": "West Papillion Creek-Papillion Creek",
+  "note": ""
+ },
+ "1022000310": {
+  "watershed": "Rawhide Creek-Elkhorn River",
+  "note": ""
+ },
+ "1023000606": {
+  "watershed": "Indian Creek-Missouri River",
+  "note": ""
+ },
+ "1023000605": {
+  "watershed": "Honey Creek-Missouri River",
+  "note": ""
+ },
+ "1020020201": {
+  "watershed": "Otoe Creek-Platte River",
+  "note": ""
+ },
+ "102300060205": {
+  "subwatershed": "Big Elk Creek-Big Papillion Creek",
+  "note": ""
+ },
+ "102300060204": {
+  "subwatershed": "Little Papillion Creek",
+  "note": ""
+ },
+ "102300060203": {
+  "subwatershed": "Butter Flat Creek-Big Papillion Creek",
+  "note": ""
+ },
+ "102300060206": {
+  "subwatershed": "Mud Creek-Papillion Creek",
+  "note": ""
+ },
+ "102300060201": {
+  "subwatershed": "Northwest Branch Papillion Creek",
+  "note": ""
+ },
+ "102300060202": {
+  "subwatershed": "East Fork Big Papillion Creek-Big Papillion Creek",
+  "note": ""
+ },
+ "102300060103": {
+  "subwatershed": "Hell Creek-West Papillion Creek",
+  "note": ""
+ },
+ "102300060101": {
+  "subwatershed": "North Branch West Papillion Creek-West Papillion Creek",
+  "note": ""
+ },
+ "102300060102": {
+  "subwatershed": "South Papillion Creek",
+  "note": ""
+ },
+ "102300060104": {
+  "subwatershed": "Walnut Creek-Papillion Creek",
+  "note": ""
+ },
+ "102200031006": {
+  "subwatershed": "Big Slough-Elkhorn River",
+  "note": ""
+ },
+ "102200031005": {
+  "subwatershed": "Old Channel Rawhide Creek-Elkhorn River",
+  "note": ""
+ },
+ "102200031004": {
+  "subwatershed": "Snyder Lake-Elkhorn River",
+  "note": ""
+ },
+ "102200031003": {
+  "subwatershed": "Rawhide Creek",
+  "note": ""
+ },
+ "102200031001": {
+  "subwatershed": "Clark Creek",
+  "note": ""
+ },
+ "102200031002": {
+  "subwatershed": "Bachelor Creek-Elkhorn River",
+  "note": ""
+ },
+ "102300060601": {
+  "subwatershed": "Carter Lake-Missouri River",
+  "note": ""
+ },
+ "102300060602": {
+  "subwatershed": "Lake Manawa-Missouri River",
+  "note": ""
+ },
+ "102300060603": {
+  "subwatershed": "Folsom Lake-Missouri River",
+  "note": ""
+ },
+ "102300060505": {
+  "subwatershed": "Ponca Creek-Missouri River",
+  "note": ""
+ },
+ "102300060504": {
+  "subwatershed": "Deer Creek-Missouri River",
+  "note": ""
+ },
+ "102300060502": {
+  "subwatershed": "Moores Creek-Missouri River",
+  "note": ""
+ },
+ "102300060503": {
+  "subwatershed": "Honey Creek",
+  "note": ""
+ },
+ "102300060501": {
+  "subwatershed": "Long Creek",
+  "note": ""
+ },
+ "102002020104": {
+  "subwatershed": "Otoe Creek-Platte River",
+  "note": ""
+ },
+ "102002020105": {
+  "subwatershed": "102002020105",
+  "note": ""
+ },
+ "102002020103": {
+  "subwatershed": "Elm Creek-Platte River",
+  "note": ""
+ },
+ "102002020101": {
+  "subwatershed": "Rawhide Creek-Platte River",
+  "note": ""
+ },
+ "102002020102": {
+  "subwatershed": "Headwaters Otoe Creek",
+  "note": ""
+ }
+}
