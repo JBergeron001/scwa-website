@@ -210,6 +210,7 @@ def road_name(n):
     n = re.sub(r'^I- ?(\d+) .*', r'I-\1', n)
     n = re.sub(r'^US Hwy (\d+\w?)$', r'US \1', n)
     n = re.sub(r'^State Hwy (\w+)$', r'Hwy \1', n)
+    n = re.sub(r'\b(Hwy|Rte|Route) ([A-Za-z]{1,2})$', lambda m: m.group(1) + ' ' + m.group(2).upper(), n)
     return clean_name(n) if len(n) < 26 else ''
 
 

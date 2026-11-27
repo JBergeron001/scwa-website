@@ -1,0 +1,283 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Cape Girardeau County",
+  "note": ""
+ },
+ "0714010705": {
+  "watershed": "Whitewater River",
+  "note": ""
+ },
+ "0714010505": {
+  "watershed": "Cape La Croix Creek-Mississippi River",
+  "note": ""
+ },
+ "0714010504": {
+  "watershed": "Apple Creek-Mississippi River",
+  "note": ""
+ },
+ "0714010706": {
+  "watershed": "Hubble Creek",
+  "note": ""
+ },
+ "0802020401": {
+  "watershed": "Caney Creek",
+  "note": ""
+ },
+ "0714010703": {
+  "watershed": "Crooked Creek",
+  "note": ""
+ },
+ "0802020402": {
+  "watershed": "Castor River",
+  "note": ""
+ },
+ "0802020406": {
+  "watershed": "Main Ditch-Little River",
+  "note": ""
+ },
+ "0714010704": {
+  "watershed": "Castor River-Castor River Diversion Channel",
+  "note": ""
+ },
+ "071401070509": {
+  "subwatershed": "Byrd Creek",
+  "note": ""
+ },
+ "071401070503": {
+  "subwatershed": "Caney Fork",
+  "note": ""
+ },
+ "071401070508": {
+  "subwatershed": "Cane Creek",
+  "note": ""
+ },
+ "071401070510": {
+  "subwatershed": "Dillard Creek-Whitewater River",
+  "note": ""
+ },
+ "071401070511": {
+  "subwatershed": "Whitewater River",
+  "note": ""
+ },
+ "071401070507": {
+  "subwatershed": "Wolf Creek-Whitewater River",
+  "note": ""
+ },
+ "071401070506": {
+  "subwatershed": "Lower Little Whitewater Creek",
+  "note": ""
+ },
+ "071401070505": {
+  "subwatershed": "Middle Little Whitewater Creek",
+  "note": ""
+ },
+ "071401070501": {
+  "subwatershed": "Conrad Creek-Whitewater River",
+  "note": ""
+ },
+ "071401070502": {
+  "subwatershed": "Buck Creek-Whitewater River",
+  "note": ""
+ },
+ "071401070504": {
+  "subwatershed": "Upper Little Whitewater Creek",
+  "note": ""
+ },
+ "071401050503": {
+  "subwatershed": "Cape La Croix Creek-Mississippi River",
+  "note": ""
+ },
+ "071401050502": {
+  "subwatershed": "Flora Creek-Mississippi River",
+  "note": ""
+ },
+ "071401050501": {
+  "subwatershed": "Little Indian Creek-Indian Creek",
+  "note": ""
+ },
+ "071401050403": {
+  "subwatershed": "Middle Apple Creek",
+  "note": ""
+ },
+ "071401050404": {
+  "subwatershed": "Lower Apple Creek",
+  "note": ""
+ },
+ "071401050405": {
+  "subwatershed": "Neelys Creek-Mississippi River",
+  "note": ""
+ },
+ "071401050401": {
+  "subwatershed": "Upper Apple Creek",
+  "note": ""
+ },
+ "071401050402": {
+  "subwatershed": "Indian Creek",
+  "note": ""
+ },
+ "071401070602": {
+  "subwatershed": "Hubble Creek",
+  "note": ""
+ },
+ "071401070604": {
+  "subwatershed": "Headwater Diversion Channel",
+  "note": ""
+ },
+ "071401070601": {
+  "subwatershed": "Williams Creek",
+  "note": ""
+ },
+ "071401070603": {
+  "subwatershed": "Ramsey Creek",
+  "note": ""
+ },
+ "080202040102": {
+  "subwatershed": "Old Channel Hubble Creek",
+  "note": ""
+ },
+ "080202040101": {
+  "subwatershed": "Caney Creek",
+  "note": ""
+ },
+ "071401070306": {
+  "subwatershed": "Lower Crooked Creek",
+  "note": ""
+ },
+ "071401070304": {
+  "subwatershed": "Hog Creek",
+  "note": ""
+ },
+ "071401070305": {
+  "subwatershed": "Middle Crooked Creek",
+  "note": ""
+ },
+ "071401070302": {
+  "subwatershed": "Upper Crooked Creek",
+  "note": ""
+ },
+ "071401070303": {
+  "subwatershed": "Hurricane Creek",
+  "note": ""
+ },
+ "071401070301": {
+  "subwatershed": "Little Crooked Creek",
+  "note": ""
+ },
+ "080202040207": {
+  "subwatershed": "Ash Slough",
+  "note": ""
+ },
+ "080202040202": {
+  "subwatershed": "Tilley Ditch-Upper Castor River",
+  "note": ""
+ },
+ "080202040206": {
+  "subwatershed": "Link Creek-Upper Castor River",
+  "note": ""
+ },
+ "080202040205": {
+  "subwatershed": "Cato Slough-Upper Castor River",
+  "note": ""
+ },
+ "080202040203": {
+  "subwatershed": "Duck Creek",
+  "note": ""
+ },
+ "080202040208": {
+  "subwatershed": "Mud Slough",
+  "note": ""
+ },
+ "080202040201": {
+  "subwatershed": "Swan Pond",
+  "note": ""
+ },
+ "080202040204": {
+  "subwatershed": "Wolf Creek",
+  "note": ""
+ },
+ "080202040601": {
+  "subwatershed": "Whitewater River",
+  "note": ""
+ },
+ "080202040615": {
+  "subwatershed": "Ditch Number 61-Old Channel Little River",
+  "note": ""
+ },
+ "080202040607": {
+  "subwatershed": "Town of Howardville-Little River",
+  "note": ""
+ },
+ "080202040606": {
+  "subwatershed": "Otter Slough Ditch-Little River",
+  "note": ""
+ },
+ "080202040614": {
+  "subwatershed": "Elk Chute Ditch-Old Channel Little River",
+  "note": ""
+ },
+ "080202040602": {
+  "subwatershed": "City of Oran",
+  "note": ""
+ },
+ "080202040608": {
+  "subwatershed": "Portage Open Bay",
+  "note": ""
+ },
+ "080202040604": {
+  "subwatershed": "Ash Slough Ditch",
+  "note": ""
+ },
+ "080202040609": {
+  "subwatershed": "Ditch Number 65-Old Channel Little River",
+  "note": ""
+ },
+ "080202040605": {
+  "subwatershed": "Town of North Llibourn",
+  "note": ""
+ },
+ "080202040611": {
+  "subwatershed": "Community of Stanley",
+  "note": ""
+ },
+ "080202040610": {
+  "subwatershed": "Ditch Number 68-Old Channel Little River",
+  "note": ""
+ },
+ "080202040613": {
+  "subwatershed": "Main Ditch Number 8",
+  "note": ""
+ },
+ "080202040612": {
+  "subwatershed": "Ditch Number 22-Main Ditch Number 8",
+  "note": ""
+ },
+ "080202040603": {
+  "subwatershed": "Community of Delmo-Otter Slough Ditch",
+  "note": ""
+ },
+ "071401070406": {
+  "subwatershed": "Dry Creek-Castor River Diversion Channel",
+  "note": ""
+ },
+ "071401070402": {
+  "subwatershed": "Pond Creek-Upper Castor River",
+  "note": ""
+ },
+ "071401070403": {
+  "subwatershed": "Castor River Diversion Channel-Upper Castor River",
+  "note": ""
+ },
+ "071401070404": {
+  "subwatershed": "Lake of the Hills-Cane Creek",
+  "note": ""
+ },
+ "071401070401": {
+  "subwatershed": "Perkins Creek",
+  "note": ""
+ },
+ "071401070405": {
+  "subwatershed": "Hawker Creek-Castor River Diversion Channel",
+  "note": ""
+ }
+}

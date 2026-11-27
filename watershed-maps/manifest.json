@@ -202,6 +202,26 @@
    "thumb": "watershed-maps/thumbs/29019.jpg"
   },
   {
+   "geoid": "29031",
+   "includes": [],
+   "name": "Cape Girardeau County",
+   "state": "Missouri",
+   "slug": "cape-girardeau-county",
+   "areakm": 1511.45,
+   "watersheds": 9,
+   "subwatersheds": 26,
+   "elo": 323,
+   "ehi": 735,
+   "bb": [
+    -89.8768,
+    -89.41105,
+    37.11604,
+    37.61642
+   ],
+   "metro": "Cape Girardeau",
+   "thumb": "watershed-maps/thumbs/29031.jpg"
+  },
+  {
    "geoid": "29077",
    "includes": [],
    "name": "Greene County",
