@@ -302,9 +302,7 @@ function build(D,kind){
   group.add(new THREE.Mesh(top,new THREE.MeshLambertMaterial({vertexColors:true})),new THREE.Mesh(wg,new THREE.MeshLambertMaterial({vertexColors:true,side:THREE.DoubleSide})),
             new THREE.Mesh(bot,new THREE.MeshBasicMaterial({color:'#5d564e',side:THREE.DoubleSide})));
   // runoff particles follow the steepest way downhill
-  const down=new Int32Array(N).fill(-1);
-  for(let i=1;i<NY-1;i++)for(let j=1;j<NX-1;j++){const k=i*NX+j;if(!inC(k)||cls(k)===1)continue;let best=-1,bd=0;
-    for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){if(!a&&!b)continue;const m=k+a*NX+b;if(!inC(m))continue;const d=(H[k]-H[m])/(a&&b?1.414:1);if(d>bd){bd=d;best=m}}down[k]=best}
+  const FF=flowField({NX,NY,N,inC,cls,H}),down=new Int32Array(N);for(let k=0;k<N;k++)down[k]=FF.out[k]?-1:FF.to[k];
   const cut=lo+.3*(hi-lo),starts=[];for(let k=0;k<N;k++)if(inC(k)&&down[k]>=0&&elev(k)>cut)starts.push(k);
   const FN=starts.length?1500:0,fp=new Float32Array(FN*3),fs=[];
   const spawn=m=>{fs[m]={k:starts[(Math.random()*starts.length)|0],t:Math.random(),age:0}};for(let m=0;m<FN;m++)spawn(m);
@@ -318,7 +316,7 @@ function build(D,kind){
     else{e.className='lab '+o.type+(o.type==='road'&&/^I-/.test(o.t)?' i':'');e.textContent=o.t}
     e.style.display='none';stage.appendChild(e);
     return{e,k:Math.round(o.v*(NY-1))*NX+Math.round(o.u*(NX-1)),type:o.type,cat:o.cat}});
-  const T={kind,D,NX,NY,N,pos,cs,group,top,labs,flow,fg,fp,fs,FN,down,inC,cls,key,S,H,hov:0,sel:0,lo,hi,cm:null,
+  const T={kind,D,NX,NY,N,pos,cs,group,top,labs,flow,fg,fp,fs,FN,down,inC,cls,key,S,H,hov:0,sel:0,lo,hi,cm:null,ff:FF,
     bb:[minx,maxx,minz,maxz],cx:sx/n,cz:sz/n,ext:Math.max(maxx-minx,maxz-minz),
     recolor(){for(let k=0;k<N;k++){tmp.setRGB(base[k*3],base[k*3+1],base[k*3+2]);const c=cls(k),wet=c===1||c===2||c===3;
       const kv=key(k);if(inC(k)&&c!==1&&c!==2){const tc=tintOf(kv);if(tc)tmp.lerp(tc,.18)}
@@ -349,9 +347,16 @@ function flowField(T){if(T.ff)return T.ff;const {NX,NY,N,inC,cls,H}=T;
   const hk=new Float64Array(N+8),hv=new Int32Array(N+8);let hn=0;
   const push=(k,e)=>{let i=hn++;while(i>0){const p=(i-1)>>1;if(hk[p]<=e)break;hk[i]=hk[p];hv[i]=hv[p];i=p}hk[i]=e;hv[i]=k};
   const pop=()=>{const r=hv[0],e=hk[0];const lk=hk[--hn],lv=hv[hn];let i=0;for(;;){let c=2*i+1;if(c>=hn)break;if(c+1<hn&&hk[c+1]<hk[c])c++;if(hk[c]>=lk)break;hk[i]=hk[c];hv[i]=hv[c];i=c}hk[i]=lk;hv[i]=lv;return[r,e]};
-  for(let i=0;i<NY;i++)for(let j=0;j<NX;j++){const k=i*NX+j;if(!inC(k))continue;const c=cls(k);
-    let edge=i===0||j===0||i===NY-1||j===NX-1;if(!edge)edge=!inC(k-1)||!inC(k+1)||!inC(k-NX)||!inC(k+NX);
-    if(edge||c===1||c===2){out[k]=1;done[k]=1;push(k,H[k])}}
+  // Water only ends the trip where it leaves the map: the map edge, the big rivers, and any lake or river area that touches the edge.
+  // Ponds and lakes inside the map are crossed, so the water keeps going out the other side.
+  const isEdge=k=>{const i=(k/NX)|0,j=k%NX;return i===0||j===0||i===NY-1||j===NX-1||!inC(k-1)||!inC(k+1)||!inC(k-NX)||!inC(k+NX)};
+  const comp=new Int32Array(N).fill(-1),exitC=[];
+  for(let k=0;k<N;k++){if(!inC(k)||cls(k)!==1||comp[k]>=0)continue;const id=exitC.length,st=[k];comp[k]=id;let ex=false;
+    while(st.length){const c=st.pop();if(isEdge(c))ex=true;const ci=(c/NX)|0,cj=c%NX;
+      for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const ii=ci+a,jj=cj+b;if(ii<0||jj<0||ii>=NY||jj>=NX)continue;const m=ii*NX+jj;if(comp[m]<0&&inC(m)&&cls(m)===1){comp[m]=id;st.push(m)}}}
+    exitC.push(ex)}
+  for(let k=0;k<N;k++){if(!inC(k))continue;const c=cls(k);
+    if(isEdge(k)||c===2||(c===1&&exitC[comp[k]])){out[k]=1;done[k]=1;push(k,H[k])}}
   const fill=new Float64Array(N);
   while(hn){const [c,e]=pop();order[on++]=c;fill[c]=e;const ci=(c/NX)|0,cj=c%NX;
     for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){if(!a&&!b)continue;const ii=ci+a,jj=cj+b;if(ii<0||jj<0||ii>=NY||jj>=NX)continue;const m=ii*NX+jj;if(done[m]||!inC(m))continue;
@@ -633,7 +638,7 @@ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLower
 const v3=new THREE.Vector3();
 function tick(){requestAnimationFrame(tick);ctl.update();
   const T=cur;
-  if(T&&st.flow&&T.FN){for(let m=0;m<T.FN;m++){const f=T.fs[m];f.t+=.22;if(f.t>=1){f.t=0;const nk=T.down[f.k];f.age++;if(nk<0||T.cls(nk)===1||f.age>160){T.respawn(m);continue}f.k=nk}
+  if(T&&st.flow&&T.FN){for(let m=0;m<T.FN;m++){const f=T.fs[m];f.t+=.22;if(f.t>=1){f.t=0;const nk=T.down[f.k];f.age++;if(nk<0||f.age>260){T.respawn(m);continue}f.k=nk}
     const a=f.k,b=T.down[a]>=0?T.down[a]:a,u=f.t;T.fp[m*3]=T.pos[a*3]*(1-u)+T.pos[b*3]*u;T.fp[m*3+1]=T.pos[a*3+1]*(1-u)+T.pos[b*3+1]*u+.25;T.fp[m*3+2]=T.pos[a*3+2]*(1-u)+T.pos[b*3+2]*u}
     T.fg.attributes.position.needsUpdate=true}
   if(T&&st.rain){for(let m=0;m<RN;m++){rp[m*3+1]-=rv[m];if(rp[m*3+1]<T.topY*.3)resetDrop(m,T)}rg.attributes.position.needsUpdate=true}
