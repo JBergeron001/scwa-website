@@ -69,8 +69,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.01em
 .mk.park svg{display:block;width:100%;height:100%}
 .mk.school{--dot:#e0a400}.mk.college{--dot:#7b4fa3}.mk.hospital{--dot:#d32f2f}.mk.fire{--dot:#f06a1d}.mk.cityhall{--dot:#2b5fb4}
 .pin{position:absolute;z-index:11;width:22px;height:30px;transform:translate(-50%,-100%);pointer-events:none}
-.story{position:absolute;left:50%;bottom:58px;transform:translateX(-50%);z-index:8;width:min(560px,calc(100% - 40px));background:rgba(255,255,255,.96);border-left:4px solid #00a6d6;
- border-radius:10px;padding:9px 34px 9px 13px;box-shadow:0 6px 18px rgba(15,42,78,.2)}
+.story{position:relative;background:#eef8fc;border-left:4px solid #00a6d6;border-radius:10px;padding:9px 34px 9px 13px}
 .story b{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#0083ad}
 .story p{margin:2px 0 0;font-size:13px;line-height:1.45}
 .story button{position:absolute;right:4px;top:4px;width:28px;height:28px;border:0;background:none;font-size:20px;line-height:1;color:var(--ink-soft);cursor:pointer}
@@ -142,7 +141,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.01em
         <div class="loading" id="loading">Building the 3D terrain...</div>
         <div class="cap" id="cap"><b id="capName">-</b><span id="capSub"></span></div>
         <div class="tip" id="tip" hidden></div>
-        <div class="story" id="story" hidden role="status"><b>Where does my rain go?</b><p id="stext"></p><button type="button" id="sclose" aria-label="Close">×</button></div>
         <div class="hint" id="hint">Click the map to turn on zoom</div>
         <button class="stbtn" id="back" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6"/></svg><span id="backName">Whole county</span></button>
         <button class="stbtn" id="reset" title="Reset the view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Reset view</button>
@@ -178,6 +176,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.01em
     </div>
     <aside class="panel side" id="side">
       <div><div class="kick" id="sideKick">County</div><h2 id="sideName">-</h2><p class="note" id="sideDesc"></p></div>
+      <div class="story" id="story" hidden role="status"><b>Where does my rain go?</b><p id="stext"></p><button type="button" id="sclose" aria-label="Close">×</button></div>
       <div class="stats" id="stats"></div>
       <div class="about" id="about"><p id="aboutText"></p><p class="mynote" id="myNote"></p></div>
       <div><div class="kick" id="listHead">Watersheds</div><ul class="list" id="list"></ul></div>
@@ -566,7 +565,10 @@ function drawLogo3D(g,x,y,d){g.save();
 async function compose(){await whenLogo();await document.fonts.ready;return composeSync()}
 function composeSync(){
   const shot=snapshot(Math.max(2,Math.min(3,2400/stage.clientWidth)));
-  const Wd=2400,head=190,foot=150,mapH=Math.round(Wd*shot.height/shot.width),Hd=head+mapH+foot,sx=Wd/stage.clientWidth;
+  const Wd=2400,head=190,foot0=150,mapH=Math.round(Wd*shot.height/shot.width),sx=Wd/stage.clientWidth;
+  let storyLines=[];if(!$('story').hidden){const m=document.createElement('canvas').getContext('2d');m.font='400 26px "Public Sans",sans-serif';let ln='';
+    for(const w of $('stext').textContent.split(' ')){const t=ln?ln+' '+w:w;if(m.measureText(t).width>Wd-100){storyLines.push(ln);ln=w}else ln=t}if(ln)storyLines.push(ln)}
+  const storyH=storyLines.length?100+storyLines.length*34:0,foot=foot0+storyH,Hd=head+mapH+foot;
   const c=document.createElement('canvas');c.width=Wd;c.height=Hd;const g=c.getContext('2d');
   g.fillStyle='#ffffff';g.fillRect(0,0,Wd,Hd);
   const sky=g.createLinearGradient(0,head,0,head+mapH);sky.addColorStop(0,'#f4f9fd');sky.addColorStop(1,'#c9dcec');g.fillStyle=sky;g.fillRect(0,head,Wd,mapH);
@@ -590,11 +592,9 @@ function composeSync(){
   for(let yy=-mapH;yy<=mapH;yy+=190)for(let xx=-Wd;xx<=Wd;xx+=900)g.fillText('Mid-America Watershed.Org',xx+(yy/190%2?450:0),yy);
   g.globalAlpha=.06;const cd=Math.min(mapH,Wd)*.45;g.drawImage(logoImg,-cd/2,-cd/2,cd,cd*302/300);g.restore();
   // story box, when a rain trace is showing
-  if(!$('story').hidden){g.save();const txt=$('stext').textContent,bw=Math.min(1500,Wd-200),x0=(Wd-bw)/2;g.font='400 26px "Public Sans",sans-serif';
-    const words=txt.split(' '),lines=[];let ln='';for(const w of words){const t=ln?ln+' '+w:w;if(g.measureText(t).width>bw-60){lines.push(ln);ln=w}else ln=t}if(ln)lines.push(ln);
-    const bh=60+lines.length*34,y0=head+mapH-bh-30;g.fillStyle='rgba(255,255,255,.95)';g.fillRect(x0,y0,bw,bh);g.fillStyle='#00a6d6';g.fillRect(x0,y0,8,bh);
-    g.fillStyle='#0083ad';g.font='700 22px "Public Sans",sans-serif';g.fillText('WHERE DOES MY RAIN GO?',x0+30,y0+36);g.fillStyle='#15243B';g.font='400 26px "Public Sans",sans-serif';
-    lines.forEach((l,i)=>g.fillText(l,x0+30,y0+72+i*34));g.restore()}
+  if(storyLines.length){g.save();const y0=head+mapH;g.fillStyle='#eef8fc';g.fillRect(0,y0,Wd,storyH);g.fillStyle='#00a6d6';g.fillRect(0,y0,10,storyH);
+    g.fillStyle='#0083ad';g.font='700 22px "Public Sans",sans-serif';g.textAlign='left';g.textBaseline='alphabetic';g.fillText('WHERE DOES MY RAIN GO?',40,y0+42);g.fillStyle='#15243B';g.font='400 26px "Public Sans",sans-serif';
+    storyLines.forEach((l,i)=>g.fillText(l,40,y0+80+i*34));g.restore()}
   // header band
   g.fillStyle='#173B6B';g.fillRect(0,0,Wd,head);g.fillStyle='#E39A2A';g.fillRect(0,head-8,Wd,8);
   drawLogo3D(g,36,18,150);
@@ -605,12 +605,13 @@ function composeSync(){
   g.font='500 28px "Public Sans",sans-serif';g.fillStyle='#E39A2A';g.fillText('midamericawatershed.org',Wd-40,126);
   drawLogo3D(g,Wd-300,head+36,250);
   // footer band
-  g.fillStyle='#FBFAF6';g.fillRect(0,head+mapH,Wd,foot);g.fillStyle='#E2E7EE';g.fillRect(0,head+mapH,Wd,3);
-  drawLogo3D(g,36,head+mapH+22,106);
-  g.textAlign='left';g.fillStyle='#173B6B';g.font='700 32px "Public Sans",sans-serif';g.fillText('Free 3D Watershed Map Library · midamericawatershed.org',166,head+mapH+64);
+  const fy=head+mapH+storyH;
+  g.fillStyle='#FBFAF6';g.fillRect(0,fy,Wd,foot0);g.fillStyle='#E2E7EE';g.fillRect(0,fy,Wd,3);
+  drawLogo3D(g,36,fy+22,106);
+  g.textAlign='left';g.fillStyle='#173B6B';g.font='700 32px "Public Sans",sans-serif';g.fillText('Free 3D Watershed Map Library · midamericawatershed.org',166,fy+64);
   g.fillStyle='#54637C';g.font='400 21px "Public Sans",sans-serif';
-  g.fillText('Elevation: USGS 3D Elevation Program (AWS Terrain Tiles). Watersheds: USGS Watershed Boundary Dataset. County, city, road, water lines: U.S. Census Bureau TIGER/Line 2023. Places: © OpenStreetMap contributors.',166,head+mapH+100,Wd-200);
-  g.fillText('Heights exaggerated. Map design © Mid-America Watershed.Org. Share freely with this logo and credit intact. Generated '+new Date().toLocaleDateString()+'.',166,head+mapH+130,Wd-200);
+  g.fillText('Elevation: USGS 3D Elevation Program (AWS Terrain Tiles). Watersheds: USGS Watershed Boundary Dataset. County, city, road, water lines: U.S. Census Bureau TIGER/Line 2023. Places: © OpenStreetMap contributors.',166,fy+100,Wd-200);
+  g.fillText('Heights exaggerated. Map design © Mid-America Watershed.Org. Share freely with this logo and credit intact. Generated '+new Date().toLocaleDateString()+'.',166,fy+130,Wd-200);
   return c}
 function fileBase(){return ('mawa-'+$('capName').textContent).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 $('dl').onclick=async()=>{const c=await compose();c.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fileBase()+'.png';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),4000)},'image/png')};
