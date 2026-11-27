@@ -25,3 +25,7 @@ python3 tools/watershed-maps/build_manifest.py .
 - County, place, area water, linear water and roads: U.S. Census Bureau cartographic boundary files and TIGER/Line 2023
 - Parks, schools, colleges, hospitals, fire stations and city halls: OpenStreetMap (ODbL, credit "© OpenStreetMap contributors")
 - Each county folder has a notes.json: add your own text for the county, a watershed or a subwatershed and it shows under the About text.
+
+## Town names and city limits
+
+After building a county, run `python3 tools/watershed-maps/patch_places.py watershed-maps/data <GEOID>`. It replaces town labels and city-limit lines using the Census Bureau 2025 place list: only active incorporated places get city limits, labels add large census-designated communities (25+ sq km), and inactive or dissolved places (like Toonsville or Pinhook, MO) are never shown.

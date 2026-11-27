@@ -217,8 +217,8 @@ const C=h=>new THREE.Color(h);
 const PAL=['#2C7FB8','#2F7D34','#E39A2A','#7B4FA3','#C2453B','#1F9A8A','#B07A2A','#4F6FB8','#8A9A2C','#C2577F','#3A8F5A','#6B5BD1'],PC=PAL.map(C);
 const land=[C('#eef3c4'),C('#c6e08c'),C('#8cc35d'),C('#56a043'),C('#2f6e2c'),C('#6b5a3e')];
 const WATER=C('#3c9be0'),MAJOR=C('#2a7fcf'),MINOR=C('#6dbbeb'),LINE10=C('#13294a'),LINE12=C('#33466b'),CTY=C('#E39A2A'),HOV=C('#ffffff'),SEL=C('#ffd54f'),CITYLINE=C('#d81b7a');
-const BIGRIVER=C('#1f5fae'),OUTSIDE=C('#e9ecef'),CITYEDGE=C('#b3206f'),CITYTINT=C('#f6d58a'),PARKEDGE=C('#0b4f22'),PARKTINT=C('#5cc251'),RAINTINT=C('#2f8fd8');
-const ROADS=[null,[C('#f4f0e6'),.42],[C('#c9a46a'),.7],[C('#8a7b62'),.82]];
+const BIGRIVER=C('#1f5fae'),OUTSIDE=C('#e9ecef'),CITYEDGE=C('#c2185b'),CITYTINT=C('#f6c86a'),PARKEDGE=C('#0b4f22'),PARKTINT=C('#5cc251'),RAINTINT=C('#2f8fd8');
+const ROADS=[null,[C('#fbf7ee'),.68],[C('#b8863a'),.93],[C('#5c4f3e'),.97]];
 const TREE='<svg viewBox="0 0 12 14" aria-hidden="true"><path d="M6 .8 11.2 9.6H.8z" fill="#178a3c" stroke="#fff" stroke-width=".8" stroke-linejoin="round"/><rect x="5" y="9.6" width="2" height="3.6" fill="#6b4a2f"/></svg>';
 const PIN='<svg viewBox="0 0 22 30" aria-hidden="true"><path d="M11 29s9-10.3 9-17.2A9 9 0 0 0 2 11.8C2 18.7 11 29 11 29z" fill="#b3206f" stroke="#fff" stroke-width="2"/><circle cx="11" cy="11.5" r="3.4" fill="#fff"/></svg>';
 const CATN={park:'Park',school:'School',college:'College or university',hospital:'Hospital',fire:'Fire station',cityhall:'City hall'};
@@ -289,6 +289,10 @@ function build(D,kind){
        if(en*D.cellkm>=6)for(const c of cells)RIB[c]=1;
        if(CNa){for(const c of cells){if(!CNa[c])continue;const nm=D.creeks[CNa[c]-1];if(!/River/.test(nm))continue;if(!bigNames.has(nm))bigNames.set(nm,[]);bigNames.get(nm).push(c)}}}
      id++}}
+  const CEB=new Uint8Array(N),RCB=new Uint8Array(N);
+  if(RD){for(let i=1;i<NY-1;i++)for(let j=1;j<NX-1;j++){const k=i*NX+j,r=RD[k],rc=r&3,ce=(r>>3)&1;
+      if(rc>RCB[k])RCB[k]=rc;
+      if(ce||rc>=2)for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const m=k+a*NX+b;if(ce)CEB[m]=1;if(rc>=2&&(a===0||b===0)&&rc>RCB[m])RCB[m]=rc}}}
   const cs=W/(Math.max(NX,NY)-1),kmU=D.cellkm/cs,lo=D.hlo,hi=D.hhi,BASE=lo-(hi-lo)*.12;
   const X=j=>j*cs-(NX-1)*cs/2,Z=i=>i*cs-(NY-1)*cs/2,yOf=(m,ex)=>(m-BASE)/1000/kmU*ex;
   const pos=new Float32Array(N*3),col=new Float32Array(N*3),base=new Float32Array(N*3),tmp=new THREE.Color();
@@ -344,8 +348,8 @@ function build(D,kind){
       const kv=key(k);if(inC(k)&&c!==1&&c!==2){const tc=tintOf(kv);if(tc)tmp.lerp(tc,.18)}
       if(RD&&inC(k)){const r=RD[k];
         if(st.parks&&c!==1){if((r>>5)&1)tmp.lerp(PARKEDGE,.85);else if((r>>4)&1)tmp.lerp(PARKTINT,.45)}
-        if(st.cities&&!wet){if((r>>3)&1)tmp.copy(CITYEDGE);else if((r>>6)&1)tmp.lerp(CITYTINT,.35)}
-        if(st.roads){const rc=r&3;if(rc&&(c!==1||rc===3)){const R=ROADS[rc];tmp.lerp(R[0],R[1])}}}
+        if(st.cities&&!wet){if(CEB[k])tmp.copy(CITYEDGE);else if((r>>6)&1)tmp.lerp(CITYTINT,.42)}
+        if(st.roads){const rc=RCB[k];if(rc&&(c!==1||rc===3)){const R=ROADS[rc];tmp.lerp(R[0],R[1])}}}
       if(st.sheds&&inC(k)&&c!==1){if(isCounty){if(B10[k])tmp.lerp(LINE10,.85);else if(B12[k])tmp.lerp(LINE12,.25)}else if(B12[k])tmp.lerp(LINE10,.8)}
       if(!isCounty&&inC(k)&&!((P[k]>>6)&1)&&c!==1&&c!==2)tmp.lerp(OUTSIDE,.38);
       if(ctyEdge(k))tmp.lerp(CTY,.7);
