@@ -62,6 +62,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.01em
 .tip[hidden]{display:none}
 .lab{position:absolute;z-index:5;pointer-events:none;font-size:11.5px;font-weight:700;color:#3b2a4a;transform:translate(-50%,-50%);white-space:nowrap;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 6px #fff}
 .lab.city::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin-right:4px;vertical-align:1px;box-shadow:0 0 0 1.5px #fff}
+.lab.river{color:#0b3d91;font-style:italic;font-size:13px;letter-spacing:.02em}
 .lab.road{font-size:10.5px;color:#fff;background:#6b5b45;padding:1px 6px;border-radius:4px;text-shadow:none;box-shadow:0 1px 2px rgba(0,0,0,.3)}
 .lab.road.i{background:#1f4f9a}
 .mk{position:absolute;z-index:4;width:9px;height:9px;border-radius:50%;transform:translate(-50%,-50%);border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.18);background:var(--dot);pointer-events:auto;cursor:help}
@@ -183,7 +184,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.01em
       <div class="about" id="about"><p id="aboutText"></p><p class="mynote" id="myNote"></p></div>
       <div><div class="kick" id="listHead">Watersheds</div><ul class="list" id="list"></ul></div>
       <ul class="key" aria-label="Map key">
-        <li><i class="ln" style="background:#13294a"></i>Watershed line</li><li><i class="ln" style="background:#E39A2A"></i>County line</li>
+        <li><i class="ln" style="background:#1a4f9c;height:6px"></i>Major river</li><li><i class="ln" style="background:#13294a"></i>Watershed line</li><li><i class="ln" style="background:#E39A2A"></i>County line</li>
         <li id="keyInc" hidden><i class="ln" style="background:#d81b7a"></i><span id="keyIncT">City boundary</span></li>
         <li><i class="ln" style="background:#f39a2b;height:6px;width:6px;border-radius:50%"></i>Runoff</li>
         <li><svg viewBox="0 0 12 14" width="11" height="13" aria-hidden="true"><path d="M6 .8 11.2 9.6H.8z" fill="#178a3c" stroke="#fff" stroke-width=".8"/><rect x="5" y="9.6" width="2" height="3.6" fill="#6b4a2f"/></svg>Park</li>
@@ -216,7 +217,7 @@ const C=h=>new THREE.Color(h);
 const PAL=['#2C7FB8','#2F7D34','#E39A2A','#7B4FA3','#C2453B','#1F9A8A','#B07A2A','#4F6FB8','#8A9A2C','#C2577F','#3A8F5A','#6B5BD1'],PC=PAL.map(C);
 const land=[C('#eef3c4'),C('#c6e08c'),C('#8cc35d'),C('#56a043'),C('#2f6e2c'),C('#6b5a3e')];
 const WATER=C('#3c9be0'),MAJOR=C('#2a7fcf'),MINOR=C('#6dbbeb'),LINE10=C('#13294a'),LINE12=C('#33466b'),CTY=C('#E39A2A'),HOV=C('#ffffff'),SEL=C('#ffd54f'),CITYLINE=C('#d81b7a');
-const OUTSIDE=C('#e9ecef'),CITYEDGE=C('#b3206f'),CITYTINT=C('#f6d58a'),PARKEDGE=C('#0b4f22'),PARKTINT=C('#5cc251'),RAINTINT=C('#2f8fd8');
+const BIGRIVER=C('#1f5fae'),OUTSIDE=C('#e9ecef'),CITYEDGE=C('#b3206f'),CITYTINT=C('#f6d58a'),PARKEDGE=C('#0b4f22'),PARKTINT=C('#5cc251'),RAINTINT=C('#2f8fd8');
 const ROADS=[null,[C('#f4f0e6'),.42],[C('#c9a46a'),.7],[C('#8a7b62'),.82]];
 const TREE='<svg viewBox="0 0 12 14" aria-hidden="true"><path d="M6 .8 11.2 9.6H.8z" fill="#178a3c" stroke="#fff" stroke-width=".8" stroke-linejoin="round"/><rect x="5" y="9.6" width="2" height="3.6" fill="#6b4a2f"/></svg>';
 const PIN='<svg viewBox="0 0 22 30" aria-hidden="true"><path d="M11 29s9-10.3 9-17.2A9 9 0 0 0 2 11.8C2 18.7 11 29 11 29z" fill="#b3206f" stroke="#fff" stroke-width="2"/><circle cx="11" cy="11.5" r="3.4" fill="#fff"/></svg>';
@@ -276,6 +277,14 @@ function build(D,kind){
   for(let i=1;i<NY-1;i++)for(let j=1;j<NX-1;j++){const k=i*NX+j;if(!inC(k)||!S[k])continue;
     for(const m of [k-1,k+1,k-NX,k+NX]){if(!inC(m)||!S[m])continue;if(S[m]!==S[k]){B12[k]=1;if(grpOf(S[m])!==grpOf(S[k]))B10[k]=1}}}
   const INC=new Uint8Array(N);{const R=isCounty?1:0;for(let i=R;i<NY-R;i++)for(let j=R;j<NX-R;j++){const k=i*NX+j;if(!((P[k]>>5)&1))continue;for(let a=-R;a<=R;a++)for(let b=-R;b<=R;b++)if(inC(k+a*NX+b))INC[k+a*NX+b]=1}}
+  // big rivers and large lakes: connected open water covering more than about 1.5 sq km
+  const BIG=new Uint8Array(N),wcomp=new Int32Array(N).fill(-1),bigNames=new Map();
+  {const CNa=D.cn?b64(D.cn):null,minCells=1.5/(D.cellkm*D.cellkm);let id=0;
+   for(let k0=0;k0<N;k0++){if(!inC(k0)||cls(k0)!==1||wcomp[k0]>=0)continue;const cells=[k0],st=[k0];wcomp[k0]=id;
+     while(st.length){const c=st.pop(),ci=(c/NX)|0,cj=c%NX;for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const ii=ci+a,jj=cj+b;if(ii<0||jj<0||ii>=NY||jj>=NX)continue;const m=ii*NX+jj;if(wcomp[m]<0&&inC(m)&&cls(m)===1){wcomp[m]=id;st.push(m);cells.push(m)}}}
+     if(cells.length>=minCells){for(const c of cells)BIG[c]=1;
+       if(CNa){for(const c of cells){if(!CNa[c])continue;const nm=D.creeks[CNa[c]-1];if(!/River/.test(nm))continue;if(!bigNames.has(nm))bigNames.set(nm,[]);bigNames.get(nm).push(c)}}}
+     id++}}
   const cs=W/(Math.max(NX,NY)-1),kmU=D.cellkm/cs,lo=D.hlo,hi=D.hhi,BASE=lo-(hi-lo)*.12;
   const X=j=>j*cs-(NX-1)*cs/2,Z=i=>i*cs-(NY-1)*cs/2,yOf=(m,ex)=>(m-BASE)/1000/kmU*ex;
   const pos=new Float32Array(N*3),col=new Float32Array(N*3),base=new Float32Array(N*3),tmp=new THREE.Color();
@@ -287,7 +296,7 @@ function build(D,kind){
     tmp.copy(land[q]).lerp(land[q+1],t-q);
     const gx=(elev(i*NX+Math.min(NX-1,j+1))-elev(i*NX+Math.max(0,j-1)))/(2*cm)*slopeK,gz=(elev(Math.min(NY-1,i+1)*NX+j)-elev(Math.max(0,i-1)*NX+j))/(2*cm)*slopeK;
     const hs=Math.max(0,(0.55*gx+0.55*gz+0.63)/Math.hypot(gx,gz,1)/0.98);tmp.multiplyScalar(Math.min(1.12,.55+.6*hs));
-    const co=c===1?WATER:c===2?MAJOR:c===3?MINOR:tmp;base[k*3]=co.r;base[k*3+1]=co.g;base[k*3+2]=co.b}
+    const co=c===1?(BIG[k]?BIGRIVER:WATER):c===2?MAJOR:c===3?MINOR:tmp;base[k*3]=co.r;base[k*3+1]=co.g;base[k*3+2]=co.b}
   const q=(i,j)=>i>=0&&j>=0&&i<NY-1&&j<NX-1&&inC(i*NX+j)&&inC(i*NX+j+1)&&inC((i+1)*NX+j)&&inC((i+1)*NX+j+1);
   const idx=[];for(let i=0;i<NY-1;i++)for(let j=0;j<NX-1;j++)if(q(i,j)){const a=i*NX+j,b=a+1,c=a+NX,d=c+1;idx.push(a,c,b,b,c,d)}
   const top=new THREE.BufferGeometry();top.setAttribute('position',new THREE.BufferAttribute(pos,3));top.setAttribute('color',new THREE.BufferAttribute(col,3));top.setIndex(idx);
@@ -296,11 +305,17 @@ function build(D,kind){
   function wall(k1,k2){for(let L=0;L<strata.length-1;L++){const s0=strata[L],s1=strata[L+1],c=C(s0[2]);
     const v=[[pos[k1*3],pos[k1*3+2],k1,s0],[pos[k2*3],pos[k2*3+2],k2,s0],[pos[k1*3],pos[k1*3+2],k1,s1],[pos[k2*3],pos[k2*3+2],k2,s1]];
     for(const t of [0,2,1,1,2,3]){const p=v[t];wp.push(p[0],0,p[1]);wc.push(c.r,c.g,c.b);wK.push(p[2]);wA.push(p[3][0]);wB.push(p[3][1])}}}
+  const rp2=[],rK=[],rD=[],RW=isCounty?1.7:2.6,near=k=>{const i=(k/NX)|0,j=k%NX;for(let a=-2;a<=2;a++)for(let b=-2;b<=2;b++){const ii=i+a,jj=j+b;if(ii>=0&&jj>=0&&ii<NY&&jj<NX&&BIG[ii*NX+jj])return ii*NX+jj}return -1};
+  function rib(k1,k2,ox,oz){let w1=near(k1),w2=near(k2);if(w1<0&&w2<0)return;if(w1<0)w1=w2;if(w2<0)w2=w1;const ex=cs*.5,dx=pos[k2*3]-pos[k1*3],dz=pos[k2*3+2]-pos[k1*3+2],L=Math.hypot(dx,dz)||1,ux=dx/L*ex,uz=dz/L*ex;
+    const x1=pos[k1*3]-ux,z1=pos[k1*3+2]-uz,x2=pos[k2*3]+ux,z2=pos[k2*3+2]+uz,v=[[x1,z1,0],[x2,z2,0],[x1+ox*RW,z1+oz*RW,1],[x2+ox*RW,z2+oz*RW,1],[x1+ox*RW,z1+oz*RW,2],[x2+ox*RW,z2+oz*RW,2]];
+    for(const t of [0,2,1,1,2,3,2,4,3,3,4,5]){const p=v[t];rp2.push(p[0],0,p[1]);rK.push(t%2===0?w1:w2);rD.push(p[2])}}
   for(let i=0;i<NY-1;i++)for(let j=0;j<NX-1;j++)if(q(i,j)){const a=i*NX+j,b=a+1,c=a+NX,d=c+1;
-    if(!q(i-1,j))wall(b,a);if(!q(i+1,j))wall(c,d);if(!q(i,j-1))wall(a,c);if(!q(i,j+1))wall(d,b)}
+    if(!q(i-1,j)){wall(b,a);rib(b,a,0,-1)}if(!q(i+1,j)){wall(c,d);rib(c,d,0,1)}if(!q(i,j-1)){wall(a,c);rib(a,c,-1,0)}if(!q(i,j+1)){wall(d,b);rib(d,b,1,0)}}
+  const rgeo=new THREE.BufferGeometry(),rpos=new Float32Array(rp2);rgeo.setAttribute('position',new THREE.BufferAttribute(rpos,3));
   const wg=new THREE.BufferGeometry(),wpos=new Float32Array(wp);wg.setAttribute('position',new THREE.BufferAttribute(wpos,3));wg.setAttribute('color',new THREE.BufferAttribute(new Float32Array(wc),3));
   const bot=new THREE.BufferGeometry();bot.setAttribute('position',new THREE.BufferAttribute(pos.map((v,m)=>m%3===1?FLOOR:v),3));bot.setIndex(idx);
   const group=new THREE.Group();
+  group.add(new THREE.Mesh(rgeo,new THREE.MeshLambertMaterial({color:'#1a4f9c',emissive:'#0b2c66',emissiveIntensity:.35,side:THREE.DoubleSide})));
   group.add(new THREE.Mesh(top,new THREE.MeshLambertMaterial({vertexColors:true})),new THREE.Mesh(wg,new THREE.MeshLambertMaterial({vertexColors:true,side:THREE.DoubleSide})),
             new THREE.Mesh(bot,new THREE.MeshBasicMaterial({color:'#5d564e',side:THREE.DoubleSide})));
   // runoff particles follow the steepest way downhill
@@ -311,7 +326,8 @@ function build(D,kind){
   const fg=new THREE.BufferGeometry();fg.setAttribute('position',new THREE.BufferAttribute(fp,3));
   const flow=new THREE.Points(fg,new THREE.PointsMaterial({color:'#f39a2b',size:isCounty?.42:.5,transparent:true,opacity:.95}));group.add(flow);flow.visible=st.flow;
   // labels and place markers
-  const raw=[...(D.cities||[]).map(([t,u,v])=>({t,u,v,type:'city'})),...(D.roads||[]).map(([t,u,v,c])=>({t,u,v,type:'road',c})),...(D.places||[]).map(([c,t,u,v])=>({t,u,v,type:'marker',cat:c}))];
+  const riverLabs=[...bigNames.entries()].filter(e=>e[1].length>=40).map(([t,cells])=>{const c=cells[(cells.length/2)|0],i=(c/NX)|0,j=c%NX;return{t,u:j/(NX-1),v:i/(NY-1),type:'river'}});
+  const raw=[...riverLabs,...(D.cities||[]).map(([t,u,v])=>({t,u,v,type:'city'})),...(D.roads||[]).map(([t,u,v,c])=>({t,u,v,type:'road',c})),...(D.places||[]).map(([c,t,u,v])=>({t,u,v,type:'marker',cat:c}))];
   const labs=raw.map(o=>{const e=document.createElement('div');
     if(o.type==='marker'){e.className='mk '+o.cat;e.setAttribute('role','img');e.setAttribute('aria-label',o.t);if(o.cat==='park')e.innerHTML=TREE;e.dataset.name=o.t;e.dataset.cat=CATN[o.cat]||'';
       e.addEventListener('pointerenter',()=>showMkTip(e));e.addEventListener('pointerleave',()=>tip.hidden=true)}
@@ -334,7 +350,8 @@ function build(D,kind){
       if(T.cm&&T.cm[k])tmp.lerp(RAINTINT,.35);
       col[k*3]=tmp.r;col[k*3+1]=tmp.g;col[k*3+2]=tmp.b}top.attributes.color.needsUpdate=true},
     applyEx(ex){for(let k=0;k<N;k++)pos[k*3+1]=inC(k)?yOf(elev(k),ex)+.02:0;top.attributes.position.needsUpdate=true;top.computeVertexNormals();
-      for(let v=0;v<wK.length;v++)wpos[v*3+1]=wA[v]*pos[wK[v]*3+1]+wB[v];wg.attributes.position.needsUpdate=true;wg.computeVertexNormals();T.topY=yOf(hi,ex)},
+      for(let v=0;v<wK.length;v++)wpos[v*3+1]=wA[v]*pos[wK[v]*3+1]+wB[v];wg.attributes.position.needsUpdate=true;wg.computeVertexNormals();
+      for(let v=0;v<rK.length;v++){const y=pos[rK[v]*3+1];rpos[v*3+1]=rD[v]===2?Math.min(y-.5,-1.4):y-.08}if(rK.length){rgeo.attributes.position.needsUpdate=true;rgeo.computeVertexNormals()}T.topY=yOf(hi,ex)},
     cell(x,z){const j=Math.round((x+(NX-1)*cs/2)/cs),i=Math.round((z+(NY-1)*cs/2)/cs);return i>=0&&j>=0&&i<NY&&j<NX?i*NX+j:-1},
     cellLL(lon,lat){const [w0,e0,s0,n0]=D.bb,j=Math.floor((lon-w0)/(e0-w0)*NX),i=Math.floor((n0-lat)/(n0-s0)*NY);return i>=0&&j>=0&&i<NY&&j<NX?i*NX+j:-1},
     creekAt(k){return CN&&k>=0&&CN[k]?D.creeks[CN[k]-1]:''},
@@ -588,6 +605,7 @@ function composeSync(){
       const t=L.e.textContent;
       if(L.type==='road'){g.font=`700 ${Math.round(10.5*sx)}px "Public Sans",sans-serif`;const tw=g.measureText(t).width,ph=8*sx;g.fillStyle=/^I-/.test(t)?'#1f4f9a':'#6b5b45';
         g.fillRect(x-tw/2-6*sx/2,y-ph,tw+6*sx,ph*2);g.fillStyle='#fff';g.textAlign='center';g.fillText(t,x,y);continue}
+      if(L.type==='river'){g.font=`italic 700 ${Math.round(13*sx)}px "Public Sans",sans-serif`;g.lineWidth=5*sx/2;g.strokeStyle='rgba(255,255,255,.95)';g.textAlign='center';g.strokeText(t,x,y);g.fillStyle='#0b3d91';g.fillText(t,x,y);continue}
       g.font=`700 ${Math.round(11.5*sx)}px "Public Sans",sans-serif`;const tw=g.measureText(t).width;g.lineWidth=5*sx/2;g.strokeStyle='rgba(255,255,255,.95)';
       g.fillStyle='#b3206f';g.beginPath();g.arc(x-tw/2-2*sx,y,3.2*sx/2,0,7);g.fill();g.textAlign='center';g.strokeText(t,x+4,y);g.fillStyle='#3b2a4a';g.fillText(t,x+4,y)}
     if(pin&&pin.e.style.display!=='none'){const [x,y]=at(pin.e);g.fillStyle='#b3206f';g.strokeStyle='#fff';g.lineWidth=4;g.beginPath();g.arc(x,y-28,18,0,7);g.fill();g.stroke();g.beginPath();g.moveTo(x-12,y-18);g.lineTo(x,y);g.lineTo(x+12,y-18);g.fill()}
