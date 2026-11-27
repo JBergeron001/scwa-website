@@ -72,7 +72,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.01em
 .story{position:relative;background:#eef8fc;border-left:4px solid #00a6d6;border-radius:10px;padding:9px 34px 9px 13px}
 .story b{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#0083ad}
 .story p{margin:2px 0 0;font-size:13px;line-height:1.45}
-.story button{position:absolute;right:4px;top:4px;width:28px;height:28px;border:0;background:none;font-size:20px;line-height:1;color:var(--ink-soft);cursor:pointer}
+.story .follow{position:static;width:auto;height:auto;margin-top:7px;font:700 13px var(--sans);color:#fff;background:#0083ad;border-radius:8px;padding:6px 11px}
+.story .follow[hidden]{display:none}
+.story button#sclose{position:absolute;right:4px;top:4px;width:28px;height:28px;border:0;background:none;font-size:20px;line-height:1;color:var(--ink-soft);cursor:pointer}
 .story[hidden]{display:none}
 /* controls under the map */
 .controls{padding:10px 12px 12px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:9px;background:var(--surface)}
@@ -176,7 +178,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.01em
     </div>
     <aside class="panel side" id="side">
       <div><div class="kick" id="sideKick">County</div><h2 id="sideName">-</h2><p class="note" id="sideDesc"></p></div>
-      <div class="story" id="story" hidden role="status"><b>Where does my rain go?</b><p id="stext"></p><button type="button" id="sclose" aria-label="Close">×</button></div>
+      <div class="story" id="story" hidden role="status"><b>Where does my rain go?</b><p id="stext"></p><button type="button" class="follow" id="sfollow" hidden>Follow it to the end of the watershed →</button><button type="button" id="sclose" aria-label="Close">×</button></div>
       <div class="stats" id="stats"></div>
       <div class="about" id="about"><p id="aboutText"></p><p class="mynote" id="myNote"></p></div>
       <div><div class="kick" id="listHead">Watersheds</div><ul class="list" id="list"></ul></div>
@@ -214,7 +216,7 @@ const C=h=>new THREE.Color(h);
 const PAL=['#2C7FB8','#2F7D34','#E39A2A','#7B4FA3','#C2453B','#1F9A8A','#B07A2A','#4F6FB8','#8A9A2C','#C2577F','#3A8F5A','#6B5BD1'],PC=PAL.map(C);
 const land=[C('#eef3c4'),C('#c6e08c'),C('#8cc35d'),C('#56a043'),C('#2f6e2c'),C('#6b5a3e')];
 const WATER=C('#3c9be0'),MAJOR=C('#2a7fcf'),MINOR=C('#6dbbeb'),LINE10=C('#13294a'),LINE12=C('#33466b'),CTY=C('#E39A2A'),HOV=C('#ffffff'),SEL=C('#ffd54f'),CITYLINE=C('#d81b7a');
-const CITYEDGE=C('#b3206f'),CITYTINT=C('#f6d58a'),PARKEDGE=C('#0b4f22'),PARKTINT=C('#5cc251'),RAINTINT=C('#2f8fd8');
+const OUTSIDE=C('#e9ecef'),CITYEDGE=C('#b3206f'),CITYTINT=C('#f6d58a'),PARKEDGE=C('#0b4f22'),PARKTINT=C('#5cc251'),RAINTINT=C('#2f8fd8');
 const ROADS=[null,[C('#f4f0e6'),.42],[C('#c9a46a'),.7],[C('#8a7b62'),.82]];
 const TREE='<svg viewBox="0 0 12 14" aria-hidden="true"><path d="M6 .8 11.2 9.6H.8z" fill="#178a3c" stroke="#fff" stroke-width=".8" stroke-linejoin="round"/><rect x="5" y="9.6" width="2" height="3.6" fill="#6b4a2f"/></svg>';
 const PIN='<svg viewBox="0 0 22 30" aria-hidden="true"><path d="M11 29s9-10.3 9-17.2A9 9 0 0 0 2 11.8C2 18.7 11 29 11 29z" fill="#b3206f" stroke="#fff" stroke-width="2"/><circle cx="11" cy="11.5" r="3.4" fill="#fff"/></svg>';
@@ -325,6 +327,7 @@ function build(D,kind){
         if(st.cities&&!wet){if((r>>3)&1)tmp.copy(CITYEDGE);else if((r>>6)&1)tmp.lerp(CITYTINT,.35)}
         if(st.roads){const rc=r&3;if(rc&&(c!==1||rc===3)){const R=ROADS[rc];tmp.lerp(R[0],R[1])}}}
       if(st.sheds&&inC(k)&&c!==1){if(isCounty){if(B10[k])tmp.lerp(LINE10,.85);else if(B12[k])tmp.lerp(LINE12,.25)}else if(B12[k])tmp.lerp(LINE10,.8)}
+      if(!isCounty&&inC(k)&&!((P[k]>>6)&1)&&c!==1&&c!==2)tmp.lerp(OUTSIDE,.38);
       if(ctyEdge(k))tmp.lerp(CTY,.7);
       if(INC[k])tmp.lerp(CITYLINE,.92);
       if(T.sel&&kv===T.sel)tmp.lerp(SEL,.45);else if(T.sel&&kv&&!T.cm)tmp.multiplyScalar(.85);else if(T.hov&&kv===T.hov)tmp.lerp(HOV,.35);
@@ -347,16 +350,9 @@ function flowField(T){if(T.ff)return T.ff;const {NX,NY,N,inC,cls,H}=T;
   const hk=new Float64Array(N+8),hv=new Int32Array(N+8);let hn=0;
   const push=(k,e)=>{let i=hn++;while(i>0){const p=(i-1)>>1;if(hk[p]<=e)break;hk[i]=hk[p];hv[i]=hv[p];i=p}hk[i]=e;hv[i]=k};
   const pop=()=>{const r=hv[0],e=hk[0];const lk=hk[--hn],lv=hv[hn];let i=0;for(;;){let c=2*i+1;if(c>=hn)break;if(c+1<hn&&hk[c+1]<hk[c])c++;if(hk[c]>=lk)break;hk[i]=hk[c];hv[i]=hv[c];i=c}hk[i]=lk;hv[i]=lv;return[r,e]};
-  // Water only ends the trip where it leaves the map: the map edge, the big rivers, and any lake or river area that touches the edge.
-  // Ponds and lakes inside the map are crossed, so the water keeps going out the other side.
-  const isEdge=k=>{const i=(k/NX)|0,j=k%NX;return i===0||j===0||i===NY-1||j===NX-1||!inC(k-1)||!inC(k+1)||!inC(k-NX)||!inC(k+NX)};
-  const comp=new Int32Array(N).fill(-1),exitC=[];
-  for(let k=0;k<N;k++){if(!inC(k)||cls(k)!==1||comp[k]>=0)continue;const id=exitC.length,st=[k];comp[k]=id;let ex=false;
-    while(st.length){const c=st.pop();if(isEdge(c))ex=true;const ci=(c/NX)|0,cj=c%NX;
-      for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const ii=ci+a,jj=cj+b;if(ii<0||jj<0||ii>=NY||jj>=NX)continue;const m=ii*NX+jj;if(comp[m]<0&&inC(m)&&cls(m)===1){comp[m]=id;st.push(m)}}}
-    exitC.push(ex)}
-  for(let k=0;k<N;k++){if(!inC(k))continue;const c=cls(k);
-    if(isEdge(k)||c===2||(c===1&&exitC[comp[k]])){out[k]=1;done[k]=1;push(k,H[k])}}
+  // Water only ends its trip where it leaves the map. Streams, rivers, ponds and lakes inside the map are all followed or crossed.
+  for(let i=0;i<NY;i++)for(let j=0;j<NX;j++){const k=i*NX+j;if(!inC(k))continue;
+    if(i===0||j===0||i===NY-1||j===NX-1||!inC(k-1)||!inC(k+1)||!inC(k-NX)||!inC(k+NX)){out[k]=1;done[k]=1;push(k,H[k])}}
   const fill=new Float64Array(N);
   while(hn){const [c,e]=pop();order[on++]=c;fill[c]=e;const ci=(c/NX)|0,cj=c%NX;
     for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){if(!a&&!b)continue;const ii=ci+a,jj=cj+b;if(ii<0||jj<0||ii>=NY||jj>=NX)continue;const m=ii*NX+jj;if(done[m]||!inC(m))continue;
@@ -395,10 +391,14 @@ function startTrace(T,k0){if(k0<0||!T.inC(k0))return;clearTrace();const {to,acc,
   if(creek&&ci>0)s+=`${mi(ci)} to reach ${creek}`;else if(creek)s+=`straight into ${creek}`;else s+=`${mi(path.length)}`;
   if(end&&end!==creek)s+=`, then flows on to ${end}`;
   s+='.';
-  if(out[last]&&T.cls(last)!==1&&T.cls(last)!==2&&!end)s+=' It leaves this map at the edge, heading into the next watershed downstream.';
+  let follow=null;
+  if(T.kind==='county'){const gi=T.key(k0);if(gi&&out[last]){s+=' It leaves the county here and keeps going downstream.';const D=T.D,[w0,e0,s0,n0]=D.bb,ii=(k0/T.NX)|0,jj=k0%T.NX;
+      follow={code:COUNTY.groups[gi-1][0],lon:w0+(jj+.5)*(e0-w0)/T.NX,lat:n0-(ii+.5)*(n0-s0)/T.NY}}}
+  else{const g=COUNTY.groups[view.id-1];s+=` It keeps going until it leaves the ${g?g[1]+' watershed':'watershed'} at its outlet, the end of the watershed.`}
   s+=` The blue-tinted patch is the land that drains to the same spot, about ${acres.toLocaleString()} acres.`;
   if(shed)s+=` You are in the ${shed[1]} subwatershed.`;
-  $('stext').textContent=s;$('story').hidden=false}
+  $('stext').textContent=s;$('story').hidden=false;
+  const fb=$('sfollow');fb.hidden=!follow;fb.onclick=follow?()=>openShed(follow.code,{pin:[follow.lon,follow.lat],addr:''}):null}
 function stepTrace(){const tr=trace,T=tr.T,pn=performance.now(),now=(pn-tr.t0)/1000,rdt=Math.min(.5,(pn-(tr.lt||pn))/1000);tr.lt=pn;
   if(now>tr.dur+1.2){tr.t0=performance.now();for(const q of tr.parts){q.k=q.k0;q.t=0}tr.lead=0}
   const adv=rdt*tr.speed;let lead=0;
@@ -431,7 +431,7 @@ renderer.domElement.addEventListener('pointerup',e=>{if(!downAt)return;const mov
   const k=pickCell(e);if(k<0){if(cur&&cur.sel&&!trace){cur.sel=0;cur.recolor();if(view.kind==='county')showCountyPanel();else showShedPanel(view.id)}return}
   const v=cur.key(k);
   if(cur.kind==='county'){if(!v)return;if(st.lock){cur.sel=v;cur.recolor();showGroupPreview(v);startTrace(cur,k)}else openShed(COUNTY.groups[v-1][0])}
-  else{if(v)selectSub(v,{keepTrace:true});startTrace(cur,k)}});
+  else{if(v)selectSub(v,{keepTrace:true,force:true});startTrace(cur,k)}});
 renderer.domElement.addEventListener('pointermove',e=>{if(e.buttons)return;const k=pickCell(e);
   if(k<0){tip.hidden=true;if(cur&&cur.hov){cur.hov=0;cur.recolor()}return}
   const v=cur.key(k),creek=cur.creekAt(k);let name='',sub='';
@@ -456,35 +456,36 @@ function topNames(T,n){const counts=new Map(),CN=T.D.cn?b64(T.D.cn):null;if(!CN)
   return[...counts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,n).map(e=>T.D.creeks[e[0]-1])}
 const joinList=a=>a.length<2?a.join(''):a.slice(0,-1).join(', ')+' and '+a[a.length-1];
 function setAbout(text,noteKey){$('aboutText').textContent=text;$('myNote').textContent=(NOTES[noteKey]&&NOTES[noteKey].note)||''}
-function showCountyPanel(){const D=COUNTY,inc=incNames();
+function showCountyPanel(){const D=COUNTY,inc=incNames(),NS=D.sheds.filter(r=>r[2]>0).length;
   $('sideKick').textContent='County';$('sideName').textContent=`${D.name}, ${D.state}`;
-  $('sideDesc').textContent=`${areaName()} drain through ${D.groups.length} watersheds, which divide into ${D.sheds.length} smaller subwatersheds.`.replace(/^(\S+ \S+ County) drain /,'$1 drains ');
-  $('stats').innerHTML=stat(sqmi(D.areakm),'square miles')+stat(D.groups.length,'watersheds')+stat(D.sheds.length,'subwatersheds')+stat(`${D.elo.toLocaleString()}-${D.ehi.toLocaleString()}`,'feet above sea level');
+  $('sideDesc').textContent=`${areaName()} drain through ${D.groups.length} watersheds, which divide into ${NS} smaller subwatersheds.`.replace(/^(\S+ \S+ County) drain /,'$1 drains ');
+  $('stats').innerHTML=stat(sqmi(D.areakm),'square miles')+stat(D.groups.length,'watersheds')+stat(NS,'subwatersheds')+stat(`${D.elo.toLocaleString()}-${D.ehi.toLocaleString()}`,'feet above sea level');
   const big=D.groups.slice(0,3).map(g=>g[1]),cities=(D.cities||[]).slice(0,4).map(c=>c[0]);
   setAbout(`Every drop of rain that falls on ${areaName()} ends up in one of ${D.groups.length} watersheds. The largest are ${joinList(big)}. Land ranges from ${D.elo.toLocaleString()} to ${D.ehi.toLocaleString()} feet above sea level${cities.length?`, and communities include ${joinList(cities)}`:''}. Each dark line on the map is a watershed divide, the high ground where rain starts flowing toward a different stream.${inc.length?` The pink line marks the ${joinList(inc)} boundary.`:''}`,'county');
   $('listHead').textContent='Watersheds';
   setList(D.groups.map((g,i)=>({v:i+1,name:g[1],right:sqmi(g[2])+' sq mi',color:PAL[i%PAL.length],code:g[0]})),it=>openShed(it.code));
-  $('capName').textContent=D.name+(inc.length?' and '+inc.join(' and '):'');$('capSub').textContent=`${D.state} · ${D.groups.length} watersheds · ${D.sheds.length} subwatersheds`;
+  $('capName').textContent=D.name+(inc.length?' and '+inc.join(' and '):'');$('capSub').textContent=`${D.state} · ${D.groups.length} watersheds · ${NS} subwatersheds`;
   $('crumb').textContent=`${D.name}, ${D.state}`;$('back').hidden=true;$('shed').value='c'}
 function showGroupPreview(gi){const g=COUNTY.groups[gi-1];$('sideKick').textContent='Watershed (locked view)';$('sideName').textContent=g[1];
-  $('sideDesc').textContent=`${sqmi(g[2])} sq mi in the map area · ${g[3].length} subwatersheds. Turn off Lock view and click to open it.`;
+  $('sideDesc').textContent=`${sqmi(g[2])} sq mi in the county (${sqmi(g[4])} sq mi in all) · ${g[3].length} subwatersheds. Turn off Lock view and click to open the whole watershed.`;
   document.querySelectorAll('#list button').forEach(b=>b.classList.toggle('on',+b.dataset.v===gi))}
 function showShedPanel(gi){const D=COUNTY,g=D.groups[gi-1],sub=g[3];
   $('sideKick').textContent='Watershed';$('sideName').textContent=g[1];
-  const part=g[2]/g[4]<.97?` About ${Math.round(g[2]/g[4]*100)}% of this ${sqmi(g[4])}-square-mile watershed lies in ${areaName()}; the map shows that part.`:'';
+  const part=g[2]/g[4]<.97?` The map shows the whole watershed. About ${Math.round(g[2]/g[4]*100)}% of it lies in ${areaName()}; the rest is shaded lighter, and the gold line is the county line.`:'';
   $('sideDesc').textContent=`Watershed ${g[0]} (a 10-digit hydrologic unit).${part}`;
-  $('stats').innerHTML=stat(sqmi(g[2]),'sq mi on this map')+stat(sub.length,'subwatersheds')+stat(`${shedT.D.elo.toLocaleString()}-${shedT.D.ehi.toLocaleString()}`,'feet above sea level')+stat(shedT.D.creeks.length,'named streams and lakes');
+  $('stats').innerHTML=stat(sqmi(g[4]),'sq mi in the whole watershed')+stat(sqmi(g[2]),'sq mi in the county')+stat(sub.length,'subwatersheds')+stat(`${shedT.D.elo.toLocaleString()}-${shedT.D.ehi.toLocaleString()}`,'feet above sea level')+stat(shedT.D.creeks.length,'named streams and lakes')+stat(Math.round(g[2]/g[4]*100)+'%','in the county');
   const streams=topNames(shedT,4),cities=(shedT.D.cities||[]).slice(0,5).map(c=>c[0]);
-  setAbout(`The ${g[1]} watershed covers ${sqmi(g[2])} square miles here and is split into ${sub.length} subwatershed${sub.length>1?'s':''}.${streams.length?` Its main streams include ${joinList(streams)}.`:''}${cities.length?` It takes in parts of ${joinList(cities)}.`:''} Click anywhere on the land to see where the rain goes from that spot.`,g[0]);
+  setAbout(`The ${g[1]} watershed covers ${sqmi(g[4])} square miles in all, ${sqmi(g[2])} of them in ${areaName()}, and is split into ${sub.length} subwatershed${sub.length>1?'s':''}.${streams.length?` Its main streams include ${joinList(streams)}.`:''}${cities.length?` It takes in parts of ${joinList(cities)}.`:''} Click anywhere on the land to follow the rain from that spot all the way to the end of the watershed.`,g[0]);
   $('listHead').textContent='Subwatersheds';
-  setList(sub.map((s,i)=>({v:s,name:D.sheds[s-1][1],right:sqmi(D.sheds[s-1][2])+' sq mi',color:PAL[i%PAL.length]})),it=>selectSub(it.v));
+  setList(sub.map((s,i)=>({v:s,name:D.sheds[s-1][1],right:sqmi(D.sheds[s-1][5]||D.sheds[s-1][2])+' sq mi'+(D.sheds[s-1][2]?'':' · outside county'),color:PAL[i%PAL.length]})),it=>selectSub(it.v));
   $('capName').textContent=g[1]+' watershed';$('capSub').textContent=`${areaName()}, ${D.state} · ${sub.length} subwatersheds`;
   $('crumb').textContent=`${D.name}, ${D.state} / ${g[1]}`;$('back').hidden=false;$('backName').textContent='Whole county';$('shed').value='g'+gi}
 function selectSub(v,opt={}){if(!shedT)return;if(!opt.keepTrace)clearTrace();shedT.sel=(shedT.sel===v&&!opt.keepTrace&&!opt.force)?0:v;shedT.recolor();
   document.querySelectorAll('#list button').forEach(b=>b.classList.toggle('on',+b.dataset.v===shedT.sel));
-  if(shedT.sel){const s=COUNTY.sheds[v-1];$('capName').textContent=s[1];$('capSub').textContent=`Subwatershed ${s[0]} · ${sqmi(s[2])} sq mi on this map`+(s[3]<.97?` (${Math.round(s[3]*100)}% of it)`:'');
+  if(shedT.sel){const s=COUNTY.sheds[v-1],full=s[5]||s[2],inC=s[2]?(s[3]<.97?`${Math.round(s[3]*100)}% in the county`:'all in the county'):'outside the county';
+    $('capName').textContent=s[1];$('capSub').textContent=`Subwatershed ${s[0]} · ${sqmi(full)} sq mi · ${inC}`;
     $('sideKick').textContent='Subwatershed';$('sideName').textContent=s[1];$('sideDesc').textContent=`Subwatershed ${s[0]} (a 12-digit hydrologic unit), part of the ${COUNTY.groups[s[4]-1][1]} watershed.`;
-    $('aboutText').textContent=`${s[1]} covers ${sqmi(s[2])} square miles on this map${s[3]<.97?`, ${Math.round(s[3]*100)}% of the whole subwatershed`:''}. Click on the land to trace where rain from any spot goes.`;
+    $('aboutText').textContent=`${s[1]} covers ${sqmi(full)} square miles (${inC}). Click on the land to follow rain from any spot all the way to the end of the watershed.`;
     $('myNote').textContent=(NOTES[s[0]]&&NOTES[s[0]].note)||'';$('shed').value='s'+v}
   else{showShedPanel(view.id)}updateUrl()}
 function fillPicker(){const sel=$('shed');sel.innerHTML='<option value="c">Whole county</option>';
