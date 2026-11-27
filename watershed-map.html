@@ -56,7 +56,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.01em
 .stbtn[hidden]{display:none}
 #back{left:12px;bottom:12px}#reset{left:12px;bottom:12px}#back:not([hidden])~#reset{left:150px}
 #fsb{right:12px;bottom:12px}
-.hint{position:absolute;right:12px;bottom:52px;z-index:6;font-size:12px;color:var(--ink-soft);background:rgba(255,255,255,.85);padding:3px 8px;border-radius:8px;pointer-events:none}
+.hint{position:absolute;left:12px;bottom:56px;z-index:6;font-size:12px;color:var(--ink-soft);background:rgba(255,255,255,.85);padding:3px 8px;border-radius:8px;pointer-events:none}
 .tip{position:absolute;z-index:9;pointer-events:none;background:var(--navy-2);color:#fff;font-size:12.5px;font-weight:600;padding:5px 9px;border-radius:8px;transform:translate(-50%,calc(-100% - 12px));white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .tip small{display:block;font-weight:400;opacity:.85}
 .tip[hidden]{display:none}
@@ -445,11 +445,14 @@ function pickCell(ev){if(!cur)return -1;const r=renderer.domElement.getBoundingC
 let downAt=null;
 renderer.domElement.addEventListener('pointerdown',e=>{downAt=[e.clientX,e.clientY]});
 renderer.domElement.addEventListener('pointerup',e=>{if(!downAt)return;const moved=Math.hypot(e.clientX-downAt[0],e.clientY-downAt[1]);downAt=null;if(moved>6)return;
+  if(inCompass(e)){faceNorth();return}
   const k=pickCell(e);if(k<0){if(cur&&cur.sel&&!trace){cur.sel=0;cur.recolor();if(view.kind==='county')showCountyPanel();else showShedPanel(view.id)}return}
   const v=cur.key(k);
   if(cur.kind==='county'){if(!v)return;if(st.lock){cur.sel=v;cur.recolor();showGroupPreview(v);startTrace(cur,k)}else openShed(COUNTY.groups[v-1][0])}
   else{if(v)selectSub(v,{keepTrace:true,force:true});startTrace(cur,k)}});
-renderer.domElement.addEventListener('pointermove',e=>{if(e.buttons)return;const k=pickCell(e);
+renderer.domElement.addEventListener('pointermove',e=>{if(e.buttons)return;
+  if(inCompass(e)){renderer.domElement.style.cursor='pointer';renderer.domElement.title='Turn the map to face north';tip.hidden=true;return}renderer.domElement.style.cursor='';renderer.domElement.title='';
+  const k=pickCell(e);
   if(k<0){tip.hidden=true;if(cur&&cur.hov){cur.hov=0;cur.recolor()}return}
   const v=cur.key(k),creek=cur.creekAt(k);let name='',sub='';
   if(cur.kind==='county'){if(v){name=COUNTY.groups[v-1][1]+' watershed';sub=st.lock?'Click to trace the rain':'Click to explore its subwatersheds'}}
@@ -576,7 +579,7 @@ $('share').onclick=async()=>{const url=viewUrl(),title=$('capName').textContent+
 // ------------------------------------------------------------------ branded exports (logo is drawn into the pixels)
 function whenLogo(){return logoImg.complete&&logoImg.naturalWidth?Promise.resolve():new Promise(r=>{logoImg.onload=r;logoImg.onerror=r})}
 function snapshot(scale){const w=stage.clientWidth,h=stage.clientHeight,pr=renderer.getPixelRatio();
-  renderer.setPixelRatio(scale);renderer.setSize(w,h,false);renderer.render(scene,cam);
+  renderer.setPixelRatio(scale);renderer.setSize(w,h,false);renderer.render(scene,cam);drawCompass();
   const c=document.createElement('canvas');c.width=renderer.domElement.width;c.height=renderer.domElement.height;c.getContext('2d').drawImage(renderer.domElement,0,0);
   renderer.setPixelRatio(pr);size();return c}
 function drawLogo3D(g,x,y,d){g.save();
@@ -653,6 +656,35 @@ window.addEventListener('beforeprint',()=>{if(!$('printSheet').getAttribute('src
 window.addEventListener('afterprint',()=>{$('printSheet').removeAttribute('src')});
 document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='p'){e.preventDefault();$('print').click()}});
 
+// ------------------------------------------------------------------ 3D compass rose (lower right, turns with the map; click it to face north)
+const CS=118,CMR=8,CMB=54,cScene=new THREE.Scene(),cCam=new THREE.PerspectiveCamera(30,1,.1,50);
+cScene.add(new THREE.HemisphereLight('#ffffff','#9aa3b5',2.2));
+{const flat=g=>{g.rotateX(-Math.PI/2);return g};
+ cScene.add(new THREE.Mesh(flat(new THREE.CircleGeometry(1.08,48)),new THREE.MeshLambertMaterial({color:'#ffffff',transparent:true,opacity:.92})));
+ const ring=new THREE.Mesh(flat(new THREE.RingGeometry(1.0,1.08,48)),new THREE.MeshLambertMaterial({color:'#173B6B'}));ring.position.y=.01;cScene.add(ring);
+ const rim=new THREE.Mesh(new THREE.CylinderGeometry(1.08,1.08,.08,48,1,true),new THREE.MeshLambertMaterial({color:'#173B6B',side:THREE.DoubleSide}));rim.position.y=-.03;cScene.add(rim);
+ const point=(ang,len,w,color,y)=>{const sh=new THREE.Shape();sh.moveTo(0,len);sh.lineTo(w,0);sh.lineTo(-w,0);sh.closePath();
+   const g=new THREE.ExtrudeGeometry(sh,{depth:.03,bevelEnabled:false});g.rotateX(-Math.PI/2);g.rotateY(ang);const m=new THREE.Mesh(g,new THREE.MeshLambertMaterial({color,side:THREE.DoubleSide}));m.position.y=y;cScene.add(m)};
+ for(const a of [Math.PI/4,3*Math.PI/4,5*Math.PI/4,7*Math.PI/4])point(a,.62,.14,'#9aa3b5',.02);
+ point(0,.95,.2,'#c8102e',.05);point(Math.PI,.95,.2,'#173B6B',.05);point(Math.PI/2,.95,.2,'#173B6B',.04);point(-Math.PI/2,.95,.2,'#173B6B',.04);
+ const hub=new THREE.Mesh(new THREE.CylinderGeometry(.09,.09,.08,20),new THREE.MeshLambertMaterial({color:'#E39A2A'}));hub.position.y=.09;cScene.add(hub);
+ const letter=(t,x,z,color)=>{const c=document.createElement('canvas');c.width=c.height=64;const g=c.getContext('2d');g.font='700 42px "Public Sans", Arial, sans-serif';g.textAlign='center';g.textBaseline='middle';
+   g.lineWidth=6;g.strokeStyle='rgba(255,255,255,.95)';g.strokeText(t,32,34);g.fillStyle=color;g.fillText(t,32,34);
+   const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:Object.assign(new THREE.CanvasTexture(c),{colorSpace:THREE.SRGBColorSpace}),depthTest:false}));sp.scale.set(.62,.62,1);sp.position.set(x,.12,z);cScene.add(sp)};
+ letter('N',0,-1.42,'#c8102e');letter('S',0,1.42,'#173B6B');letter('E',1.42,0,'#173B6B');letter('W',-1.42,0,'#173B6B')}
+const inCompass=ev=>{const r=renderer.domElement.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top;return x>r.width-CS-CMR&&x<r.width-CMR&&y>r.height-CS-CMB&&y<r.height-CMB};
+function faceNorth(){const off=cam.position.clone().sub(ctl.target),h=Math.hypot(off.x,off.z),p0=cam.position.clone(),p1=ctl.target.clone().add(new THREE.Vector3(0,off.y,h)),s0=performance.now();
+  if(st.rotate)setToggle('rotate',false);
+  (function step(){const u=Math.min(1,(performance.now()-s0)/900),e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;
+    // swing around the target, not through it
+    const a0=Math.atan2(p0.x-ctl.target.x,p0.z-ctl.target.z);let a1=0,da=a1-a0;while(da>Math.PI)da-=2*Math.PI;while(da<-Math.PI)da+=2*Math.PI;const a=a0+da*e;
+    cam.position.set(ctl.target.x+Math.sin(a)*h,p0.y+(p1.y-p0.y)*e,ctl.target.z+Math.cos(a)*h);if(u<1)requestAnimationFrame(step)})()}
+function drawCompass(){const w=stage.clientWidth,h=stage.clientHeight;
+  cCam.position.copy(cam.position).sub(ctl.target).normalize();cCam.position.y=Math.max(cCam.position.y,.82);cCam.position.normalize().multiplyScalar(6.6);cCam.lookAt(0,0,0);
+  renderer.autoClear=false;renderer.setScissorTest(true);renderer.setViewport(w-CS-CMR,CMB,CS,CS);renderer.setScissor(w-CS-CMR,CMB,CS,CS);
+  renderer.clearDepth();renderer.render(cScene,cCam);
+  renderer.setScissorTest(false);renderer.setViewport(0,0,w,h);renderer.autoClear=true}
+
 // ------------------------------------------------------------------ animation
 const v3=new THREE.Vector3();
 function tick(){requestAnimationFrame(tick);ctl.update();
@@ -662,7 +694,7 @@ function tick(){requestAnimationFrame(tick);ctl.update();
     T.fg.attributes.position.needsUpdate=true}
   if(T&&st.rain){for(let m=0;m<RN;m++){rp[m*3+1]-=rv[m];if(rp[m*3+1]<T.topY*.3)resetDrop(m,T)}rg.attributes.position.needsUpdate=true}
   if(trace)stepTrace();
-  renderer.render(scene,cam);
+  renderer.render(scene,cam);drawCompass();
   if(T){const w=stage.clientWidth,h=stage.clientHeight,placed=[];
     const show=L=>L.type==='marker'?(st.places&&(L.cat!=='park'||st.parks)):L.type==='road'?(st.labels&&st.roads):st.labels;
     for(const L of T.labs){if(!show(L)){L.e.style.display='none';continue}
