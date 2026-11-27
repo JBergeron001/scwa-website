@@ -1,0 +1,29 @@
+{
+ "updated": "2026-11-26",
+ "maps": [
+  {
+   "geoid": "29189",
+   "includes": [
+    [
+     "29510",
+     "City of St. Louis"
+    ]
+   ],
+   "name": "St. Louis County",
+   "state": "Missouri",
+   "slug": "st-louis-county",
+   "areakm": 1518.96,
+   "watersheds": 8,
+   "subwatersheds": 23,
+   "elo": 379,
+   "ehi": 903,
+   "bb": [
+    -90.74617,
+    -90.10771,
+    38.37822,
+    38.90115
+   ],
+   "thumb": "watershed-maps/thumbs/29189.jpg"
+  }
+ ]
+}

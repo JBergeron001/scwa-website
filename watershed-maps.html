@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D Watershed Map Library - Mid-America Watershed.Org</title>
+<meta name="description" content="Free interactive 3D watershed and subwatershed maps for Midwest counties, from Mid-America Watershed.Org. Explore, download, print and share.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#173B6B;--navy-2:#0F2A4E;--river:#2C7FB8;--river-deep:#1B5E8C;--land:#2F7D34;--land-deep:#1C5E22;--sun:#E39A2A;
+ --ink:#15243B;--ink-soft:#54637C;--paper:#FBFAF6;--surface:#fff;--sky:#EAF3FA;--line:#E2E7EE;--r:16px;--r-sm:11px;
+ --sans:"Public Sans",system-ui,sans-serif;--serif:"Fraunces",Georgia,serif;--shadow:0 1px 2px rgba(21,36,59,.05),0 10px 30px rgba(21,36,59,.08);
+ --shadow-lg:0 2px 6px rgba(21,36,59,.08),0 24px 60px rgba(21,36,59,.12)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.015em;color:var(--ink)}
+a{color:var(--river-deep)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.top{display:flex;align-items:center;gap:14px;padding:10px 24px;background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.top .home{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font-weight:700}
+.top .home img{width:38px;height:38px}
+.top .sp{flex:1}
+.top a.link{font-weight:600;font-size:14px;text-decoration:none;color:var(--navy)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--sans);padding:11px 18px;border-radius:var(--r-sm);border:1px solid transparent;cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--land);color:#fff}.btn.primary:hover{background:var(--land-deep)}
+.btn.ghost{background:var(--surface);border-color:var(--line);color:var(--navy)}
+.hero{background:linear-gradient(180deg,#e8f2fa 0%,var(--paper) 100%);padding:44px 0 26px}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+@media (max-width:800px){.hero-grid{grid-template-columns:1fr}.hero-logo{display:none}}
+.kicker{font-size:12.5px;font-weight:700;color:var(--land-deep);letter-spacing:.04em;text-transform:uppercase}
+.hero h1{font-size:clamp(30px,4.4vw,48px);color:var(--navy);margin:6px 0 10px;line-height:1.1}
+.lead{font-size:18px;color:var(--ink-soft);max-width:720px;margin:0}
+/* prominent, slightly 3D, clickable logo */
+.hero-logo{display:block;width:190px;aspect-ratio:300/302;perspective:700px;position:relative}
+.hero-logo .disc{position:absolute;inset:0;border-radius:50%;background:#fff;transform:rotateX(10deg) rotateY(-14deg);transition:transform .35s cubic-bezier(.2,.8,.2,1);
+ box-shadow:0 1px 0 #fff inset,0 -4px 8px rgba(15,42,78,.18) inset,0 3px 0 #d6dee8,0 6px 0 #b9c6d6,0 9px 0 #9fb0c5,0 18px 26px rgba(15,42,78,.33),0 34px 50px rgba(15,42,78,.16)}
+.hero-logo img{position:absolute;inset:5%;width:90%;height:90%;border-radius:50%}
+.hero-logo .disc::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(70% 45% at 35% 18%,rgba(255,255,255,.7),rgba(255,255,255,0) 60%)}
+.hero-logo:hover .disc{transform:rotateX(0) rotateY(0) translateZ(16px) scale(1.04)}
+.find{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.find input,.find select{font:500 16px var(--sans);padding:11px 14px;border:1px solid #cfd9e5;border-radius:var(--r-sm);background:#fff;color:var(--ink);min-width:0}
+.find input{flex:1 1 280px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:14px;color:var(--ink-soft)}
+.facts b{color:var(--navy)}
+section{padding:34px 0}
+.sec-head{margin-bottom:16px}.sec-head h2{font-size:28px;color:var(--navy)}.sec-head p{margin:4px 0 0;color:var(--ink-soft)}
+.mapcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;position:relative}
+.loc{width:100%;height:auto;display:block}
+.loc path.c{fill:#eef1f4;stroke:#fff;stroke-width:.5;transition:fill .15s}
+.loc path.c.on{fill:#3f9a4a;cursor:pointer}
+.loc path.c.on:hover,.loc path.c.on:focus{fill:#E39A2A;outline:none}
+.loc path.c.soon:hover{fill:#dbe4ee}
+.loc path.c.hit{fill:#2C7FB8}
+.loc path.x{fill:#eef1f4;stroke:#fff;stroke-width:.5}
+.loc path.s{fill:none;stroke:#7d8da3;stroke-width:1.1;pointer-events:none}
+.loc text{font:700 13px var(--sans);fill:#9aa7b8;pointer-events:none;text-anchor:middle;letter-spacing:.05em}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13.5px;color:var(--ink-soft);margin-top:8px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.ltip{position:absolute;pointer-events:none;background:var(--navy-2);color:#fff;font-size:13px;font-weight:600;padding:5px 9px;border-radius:8px;transform:translate(-50%,calc(-100% - 10px));white-space:nowrap}
+.ltip small{display:block;font-weight:400;opacity:.85}
+.ltip[hidden]{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.card .th{aspect-ratio:3/2;background:linear-gradient(180deg,#f4f9fd,#c9dcec);position:relative}
+.card .th img{width:100%;height:100%;object-fit:cover;display:block}
+.card .bd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{font-size:19px;color:var(--navy)}
+.card .st{font-size:13.5px;color:var(--ink-soft)}
+.card .go{margin-top:auto;padding-top:8px;font-weight:700;font-size:14px;color:var(--land-deep)}
+.empty{color:var(--ink-soft);padding:20px;text-align:center;border:1px dashed #cfd9e5;border-radius:var(--r)}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.how div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.how h4{font-size:17px;color:var(--navy);margin-bottom:4px}
+.how p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+.cta{background:var(--navy);color:#fff;border-radius:var(--r);padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.cta h3{color:#fff;font-size:24px}.cta p{margin:4px 0 0;color:#cfe0f2}
+.cta .btn{background:var(--sun);color:#1b1206}
+footer{padding:26px 0 40px;font-size:13px;color:var(--ink-soft)}
+footer p{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="home" href="index.html"><img src="watershed-maps/mawa-logo.png" alt=""><span>Mid-America Watershed.Org</span></a>
+  <span class="sp"></span>
+  <a class="link" href="resources.html">Resources hub</a>
+</div>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Free · 3D Watershed Map Library</span>
+      <h1>See your county's watersheds in 3D</h1>
+      <p class="lead">Turn, zoom and click through every watershed and subwatershed in a county, built on U.S. Geological Survey elevation and watershed data. Download, print or share any view for planning meetings, reports and classrooms, free.</p>
+      <div class="find">
+        <input id="q" type="search" placeholder="Find a county or city, e.g. St. Louis" aria-label="Find a county or city">
+        <select id="stf" aria-label="Filter by state"><option value="">All states</option></select>
+      </div>
+      <div class="facts" id="facts"></div>
+    </div>
+    <a class="hero-logo" href="https://www.midamericawatershed.org/" title="Mid-America Watershed.Org" aria-label="Mid-America Watershed.Org home"><span class="disc"><img src="watershed-maps/mawa-logo.png" alt="Mid-America Watershed.Org logo"></span></a>
+  </div>
+</div>
+
+<section id="maps">
+  <div class="wrap">
+    <div class="sec-head"><h2>Available maps</h2><p>Each map opens in an interactive 3D viewer with downloads, printing and share links.</p></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="locator" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>Browse the Midwest</h2><p>Green counties are ready to explore. Click one to open its 3D map. More counties are added regularly.</p></div>
+    <div class="mapcard" id="mapcard">
+      <svg class="loc" id="loc" role="img" aria-label="Map of Midwest counties with available 3D watershed maps"></svg>
+      <div class="ltip" id="ltip" hidden></div>
+      <div class="legend"><span><i style="background:#3f9a4a"></i>3D map available</span><span><i style="background:#eef1f4;border:1px solid #d5dde6"></i>Coming soon</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>How to use the maps</h2></div>
+    <div class="how">
+      <div><h4>Explore</h4><p>Drag to turn the county, scroll or pinch to zoom, and click a watershed to see the subwatersheds inside it. Orange dots show which way rain runs off the land.</p></div>
+      <div><h4>Download and print</h4><p>Save a high-resolution image or PDF, or print straight from the map. Every copy carries the Mid-America Watershed.Org logo and data credits.</p></div>
+      <div><h4>Share a view</h4><p>The Share button copies a link that opens the exact county, watershed and subwatershed you are looking at.</p></div>
+      <div><h4>For planners and schools</h4><p>Use the maps in watershed plans, stormwater presentations, board packets and lessons on how water moves across the land.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta">
+      <div><h3>Need a county that isn't here yet?</h3><p>Planning agencies, conservation districts and schools can request a county and we'll move it up the list.</p></div>
+      <a class="btn" href="mailto:admin@midamericawatershed.org?subject=3D%20watershed%20map%20request">Request a county</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Data: elevation from the U.S. Geological Survey 3D Elevation Program (via AWS Terrain Tiles); watersheds and subwatersheds from the U.S. Geological Survey Watershed Boundary Dataset; county, water and community boundaries from the U.S. Census Bureau TIGER/Line 2023.</p>
+    <p>Map designs &copy; Mid-America Watershed.Org. Free to view, print and share for education and planning when the Mid-America Watershed.Org logo and credit stay on the map. <a href="https://www.midamericawatershed.org/">midamericawatershed.org</a></p>
+  </div>
+</footer>
+
+<script>
+(async function(){
+  const $=id=>document.getElementById(id), sqmi=k=>Math.round(k*0.386102).toLocaleString();
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const [man,loc]=await Promise.all([fetch('watershed-maps/manifest.json').then(r=>r.json()),fetch('watershed-maps/midwest-counties.json').then(r=>r.json())]);
+  const maps=man.maps, have=new Map(), url=m=>'watershed-map.html?c='+m.geoid;
+  maps.forEach(m=>{m.full=m.name+((m.includes||[]).length?' and '+m.includes.map(r=>r[1]).join(' and '):'');have.set(m.geoid,m);(m.includes||[]).forEach(r=>have.set(r[0],m))});
+  const states=[...new Set(maps.map(m=>m.state))].sort();
+  $('stf').insertAdjacentHTML('beforeend',states.map(s=>`<option>${esc(s)}</option>`).join(''));
+  $('facts').innerHTML=`<span><b>${maps.length}</b> map${maps.length===1?'':'s'} live</span><span><b>${maps.reduce((a,m)=>a+m.watersheds,0)}</b> watersheds</span><span><b>${maps.reduce((a,m)=>a+m.subwatersheds,0)}</b> subwatersheds</span><span>Updated ${esc(man.updated)}</span>`;
+  // cards
+  function render(){const q=$('q').value.trim().toLowerCase(),sf=$('stf').value;
+    const list=maps.filter(m=>(!sf||m.state===sf)&&(!q||(m.full+' '+m.state).toLowerCase().includes(q)));
+    $('grid').innerHTML=list.length?list.map(m=>`<a class="card" href="${url(m)}"><div class="th">${m.thumb?`<img src="${esc(m.thumb)}" alt="3D view of ${esc(m.full)}" loading="lazy">`:''}</div>
+      <div class="bd"><h3>${esc(m.full)}</h3><span class="st">${esc(m.state)} · ${sqmi(m.areakm)} sq mi</span><span class="st">${m.watersheds} watersheds · ${m.subwatersheds} subwatersheds</span><span class="go">Open 3D map →</span></div></a>`).join('')
+      :`<div class="empty">No map yet for that search. <a href="mailto:admin@midamericawatershed.org?subject=3D%20watershed%20map%20request">Request it</a> and we'll add it.</div>`;
+    document.querySelectorAll('#loc path.c').forEach(p=>p.classList.toggle('hit',!!q&&p.classList.contains('on')&&list.some(m=>have.get(p.dataset.g)===m)))}
+  $('q').oninput=render;$('stf').onchange=render;
+  // locator map
+  const svg=$('loc'),NS='http://www.w3.org/2000/svg';svg.setAttribute('viewBox',`0 0 ${loc.w} ${loc.h}`);
+  const frag=document.createDocumentFragment();
+  for(const [g,name,st,d,x] of loc.counties){const p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('class',x?'x':'c '+(have.has(g)?'on':'soon'));p.dataset.g=g;p.dataset.n=name+', '+st;
+    if(have.has(g)){p.setAttribute('tabindex','0');p.setAttribute('role','link');p.setAttribute('aria-label',name+', '+st+' - open 3D map')}frag.append(p)}
+  for(const [ab,name,d,c] of loc.states){const p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('class','s');frag.append(p);
+    const t=document.createElementNS(NS,'text');t.setAttribute('x',c[0]);t.setAttribute('y',c[1]);t.textContent=ab;frag.append(t)}
+  svg.append(frag);
+  const tip=$('ltip'),card=$('mapcard');
+  svg.addEventListener('mousemove',e=>{const p=e.target.closest('path.c');if(!p){tip.hidden=true;return}const r=card.getBoundingClientRect();
+    const hm=have.get(p.dataset.g);tip.innerHTML=`${esc(p.dataset.n)}<small>${hm?(hm.geoid===p.dataset.g?'Click to open the 3D map':'Included in the '+esc(hm.name)+' map'):'Coming soon'}</small>`;tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px';tip.hidden=false});
+  svg.addEventListener('mouseleave',()=>tip.hidden=true);
+  const open=p=>{if(p&&p.classList.contains('on'))location.href=url(have.get(p.dataset.g))};
+  svg.addEventListener('click',e=>open(e.target.closest('path.c')));
+  svg.addEventListener('keydown',e=>{if(e.key==='Enter')open(e.target.closest('path.c'))});
+  const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.get('q')}
+  render();
+})();
+</script>
+</body>
+</html>

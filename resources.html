@@ -204,6 +204,17 @@ footer ul a:hover{color:#fff}
 
 :focus-visible{outline:2.5px solid var(--river);outline-offset:2px;border-radius:4px}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+.wmap-band{padding:8px 0 6px}
+.wmap{display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch;border-radius:var(--r);overflow:hidden;background:linear-gradient(135deg,#173B6B 0%,#0F2A4E 100%);box-shadow:var(--shadow-lg);text-decoration:none!important;color:#fff;border:3px solid #E39A2A;transition:transform .15s}
+.wmap:hover{transform:translateY(-2px)}
+@media(max-width:820px){.wmap{grid-template-columns:1fr}}
+.wmap .wt{padding:28px 30px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.wmap .wk{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#E39A2A}
+.wmap h2{color:#fff;font-size:clamp(24px,3vw,34px);line-height:1.15}
+.wmap p{margin:0;color:#cfe0f2;font-size:16px}
+.wmap .wb{align-self:flex-start;margin-top:6px;background:#E39A2A;color:#1b1206;font-weight:700;padding:11px 18px;border-radius:11px}
+.wmap .wi{background:linear-gradient(180deg,#f4f9fd,#c9dcec);min-height:220px}
+.wmap .wi img{width:100%;height:100%;object-fit:cover;display:block}
 </style>
 </head>
 <body>
@@ -216,6 +227,7 @@ footer ul a:hover{color:#fff}
     </a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     <div class="navlinks" id="navlinks">
+      <a href="watershed-maps.html" style="font-weight:700;color:var(--land-deep);white-space:nowrap">3D Maps</a>
       <a href="#tools">Tools</a>
       <a href="#guides">Guides &amp; standards</a>
       <a href="#framework">Framework</a>
@@ -253,6 +265,21 @@ footer ul a:hover{color:#fff}
   </div>
   <svg class="wavesep" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 60 C240 20 480 20 720 48 C960 76 1200 76 1440 44 L1440 90 L0 90 Z" fill="var(--paper)"/></svg>
 </div>
+
+<!-- ============ 3D WATERSHED MAP LIBRARY (featured banner) ============ -->
+<section class="wmap-band" id="watershed-maps">
+  <div class="wrap">
+    <a class="wmap" href="watershed-maps.html">
+      <div class="wt">
+        <span class="wk">New · Free 3D Watershed Map Library</span>
+        <h2>Explore your county's watersheds and subwatersheds in 3D</h2>
+        <p>Turn, zoom and click through every watershed in a county. Download, print or share any view for plans, presentations and classrooms.</p>
+        <span class="wb">Open the map library →</span>
+      </div>
+      <div class="wi"><img src="watershed-maps/thumbs/29189.jpg" alt="3D map of St. Louis County watersheds" loading="lazy"></div>
+    </a>
+  </div>
+</section>
 
 <!-- ============ TOOLS ============ -->
 <section id="tools">

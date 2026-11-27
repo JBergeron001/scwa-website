@@ -1,0 +1,348 @@
+#!/usr/bin/env python3
+"""Build Mid-America Watershed.Org 3D watershed map data for one county.
+
+Usage: python3 build_county.py <5-digit county GEOID> <output dir> [--with=<GEOID>,...]
+  --with adds areas such as an independent city into the map with a highlighted boundary.
+
+Sources (all public domain / open data):
+  County and place boundaries, area and linear water: U.S. Census Bureau (cartographic boundary + TIGER/Line 2023)
+  Watersheds (HUC10) and subwatersheds (HUC12): USGS Watershed Boundary Dataset
+  Elevation: Terrain Tiles on AWS Open Data (Terrarium encoding; USGS 3DEP/NED in the U.S.)
+"""
+import sys, os, io, json, math, base64, zipfile, re, urllib.request, urllib.parse
+import numpy as np, shapefile
+from PIL import Image, ImageDraw
+from shapely.geometry import shape, mapping, box, Point
+from shapely.ops import unary_union
+from shapely import make_valid
+
+RAW = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'raw')
+os.makedirs(os.path.join(RAW, 'tiles'), exist_ok=True)
+TIGER = 'https://www2.census.gov/geo/tiger/'
+WBD = 'https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/'
+ZOOM = 12
+
+
+def fetch(url, path, timeout=180):
+    if not os.path.exists(path) or os.path.getsize(path) == 0:
+        req = urllib.request.Request(url, headers={'User-Agent': 'MAWA-map-builder'})
+        with urllib.request.urlopen(req, timeout=timeout) as r, open(path, 'wb') as f:
+            f.write(r.read())
+    return path
+
+
+def read_shp_zip(path):
+    z = zipfile.ZipFile(path)
+    base = [n[:-4] for n in z.namelist() if n.endswith('.shp')][0]
+    r = shapefile.Reader(shp=io.BytesIO(z.read(base + '.shp')), shx=io.BytesIO(z.read(base + '.shx')),
+                         dbf=io.BytesIO(z.read(base + '.dbf')), encoding='latin-1')
+    names = [f[0] for f in r.fields[1:]]
+    out = []
+    for sr in r.iterShapeRecords():
+        try:
+            g = shape(sr.shape.__geo_interface__)
+        except Exception:
+            continue
+        out.append((dict(zip(names, sr.record)), g))
+    return out
+
+
+def km_scale(lat):
+    return 111.32 * math.cos(math.radians(lat)), 110.57
+
+
+def area_km2(g, lat0):
+    kx, ky = km_scale(lat0)
+    from shapely.affinity import scale
+    return scale(g, kx, ky, origin=(0, 0)).area
+
+
+def wbd_query(layer, bb, fields):
+    w, s, e, n = bb
+    q = urllib.parse.urlencode({'geometry': f'{w},{s},{e},{n}', 'geometryType': 'esriGeometryEnvelope', 'inSR': 4326,
+                                'spatialRel': 'esriSpatialRelIntersects', 'outFields': fields, 'returnGeometry': 'true',
+                                'outSR': 4326, 'f': 'geojson'})
+    req = urllib.request.Request(WBD + f'{layer}/query?' + q, headers={'User-Agent': 'MAWA-map-builder'})
+    with urllib.request.urlopen(req, timeout=180) as r:
+        return json.load(r)['features']
+
+
+# ---------- elevation ----------
+def tile_xy(lon, lat, z):
+    n = 2 ** z
+    x = (lon + 180) / 360 * n
+    y = (1 - math.log(math.tan(math.radians(lat)) + 1 / math.cos(math.radians(lat))) / math.pi) / 2 * n
+    return x, y
+
+
+class Elev:
+    def __init__(self, bb):
+        w, s, e, n = bb
+        x0, y0 = tile_xy(w, n, ZOOM); x1, y1 = tile_xy(e, s, ZOOM)
+        self.tx0, self.ty0 = int(x0), int(y0)
+        tx1, ty1 = int(x1), int(y1)
+        W, H = (tx1 - self.tx0 + 1) * 256, (ty1 - self.ty0 + 1) * 256
+        self.a = np.zeros((H, W), np.float32)
+        for ty in range(self.ty0, ty1 + 1):
+            for tx in range(self.tx0, tx1 + 1):
+                p = os.path.join(RAW, 'tiles', f'{ZOOM}_{tx}_{ty}.png')
+                fetch(f'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{ZOOM}/{tx}/{ty}.png', p)
+                im = np.asarray(Image.open(p).convert('RGB')).astype(np.float32)
+                el = im[..., 0] * 256 + im[..., 1] + im[..., 2] / 256 - 32768
+                oy, ox = (ty - self.ty0) * 256, (tx - self.tx0) * 256
+                self.a[oy:oy + 256, ox:ox + 256] = el
+
+    def sample(self, lons, lats):
+        x, y = tile_xy(lons, lats, ZOOM) if np.isscalar(lons) else self._xy(lons, lats)
+        px = (x - self.tx0) * 256 - .5; py = (y - self.ty0) * 256 - .5
+        i0 = np.clip(np.floor(py).astype(int), 0, self.a.shape[0] - 2); j0 = np.clip(np.floor(px).astype(int), 0, self.a.shape[1] - 2)
+        fy = np.clip(py - i0, 0, 1); fx = np.clip(px - j0, 0, 1)
+        a = self.a
+        return (a[i0, j0] * (1 - fx) * (1 - fy) + a[i0, j0 + 1] * fx * (1 - fy) + a[i0 + 1, j0] * (1 - fx) * fy + a[i0 + 1, j0 + 1] * fx * fy)
+
+    def _xy(self, lons, lats):
+        n = 2 ** ZOOM
+        x = (lons + 180) / 360 * n
+        lr = np.radians(lats)
+        y = (1 - np.log(np.tan(lr) + 1 / np.cos(lr)) / math.pi) / 2 * n
+        return x, y
+
+
+# ---------- rasterizing ----------
+class Grid:
+    def __init__(self, bb, maxdim, mincell=0.03):
+        w, s, e, n = bb
+        lat0 = (s + n) / 2
+        kx, ky = km_scale(lat0)
+        wkm, hkm = (e - w) * kx, (n - s) * ky
+        self.cellkm = max(max(wkm, hkm) / maxdim, mincell)
+        self.nx = max(2, int(round(wkm / self.cellkm)))
+        self.ny = max(2, int(round(hkm / self.cellkm)))
+        self.dlon = (e - w) / self.nx; self.dlat = (n - s) / self.ny
+        self.bb = [w, e, s, n]; self.w, self.n = w, n; self.lat0 = lat0
+
+    def px(self, lon, lat):
+        return ((lon - self.w) / self.dlon - .5, (self.n - lat) / self.dlat - .5)
+
+    def centers(self):
+        j = np.arange(self.nx); i = np.arange(self.ny)
+        lon = self.w + (j + .5) * self.dlon; lat = self.n - (i + .5) * self.dlat
+        return np.meshgrid(lon, lat)
+
+    def polys(self, g):
+        if g.is_empty: return []
+        if g.geom_type == 'Polygon': return [g]
+        if hasattr(g, 'geoms'):
+            out = []
+            for p in g.geoms: out += self.polys(p)
+            return out
+        return []
+
+    def lines(self, g):
+        if g.is_empty: return []
+        if g.geom_type == 'LineString': return [g]
+        if hasattr(g, 'geoms'):
+            out = []
+            for p in g.geoms: out += self.lines(p)
+            return out
+        return []
+
+    def fill(self, items, mode='L'):
+        """items: list of (geom, value). Later items paint over earlier ones."""
+        im = Image.new(mode, (self.nx, self.ny), 0)
+        d = ImageDraw.Draw(im)
+        for g, v in items:
+            for p in self.polys(g):
+                d.polygon([self.px(x, y) for x, y in p.exterior.coords], fill=v)
+                for h in p.interiors:
+                    d.polygon([self.px(x, y) for x, y in h.coords], fill=0)
+        return np.asarray(im)
+
+    def stroke(self, items, mode='L'):
+        im = Image.new(mode, (self.nx, self.ny), 0)
+        d = ImageDraw.Draw(im)
+        for g, v, wdt in items:
+            for l in self.lines(g):
+                d.line([self.px(x, y) for x, y in l.coords], fill=v, width=wdt)
+        return np.asarray(im)
+
+
+def b64(a):
+    return base64.b64encode(np.ascontiguousarray(a).tobytes()).decode()
+
+
+def slug(s):
+    return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
+
+
+ABBR = {'Crk': 'Creek', 'Cr': 'Creek', 'Ck': 'Creek', 'Riv': 'River', 'Br': 'Branch', 'Brk': 'Brook', 'Trib': 'Tributary',
+        'Lk': 'Lake', 'Res': 'Reservoir', 'Spg': 'Spring', 'Spgs': 'Springs', 'Fk': 'Fork', 'Pd': 'Pond',
+        'N': 'North', 'S': 'South', 'E': 'East', 'W': 'West', 'Mid': 'Middle', 'Ft': 'Fort', 'Mt': 'Mount',
+        'Hbr': 'Harbor', 'Chnl': 'Channel', 'Dch': 'Ditch', 'Slo': 'Slough'}
+
+
+def clean_name(n):
+    n = ' '.join(ABBR.get(w, w) for w in n.split())
+    return n.replace("'", "’")
+
+
+def build_grid(G, county, region, el, sheds, area_water, lin_water, places, detail, extras=()):
+    """Returns the encoded payload for a grid covering `region` (already inside the county)."""
+    LON, LAT = G.centers()
+    h = el.sample(LON, LAT)
+    inside = G.fill([(region, 1)])
+    cty = G.fill([(county, 1)])
+    # water
+    aw = G.fill([(g, 1) for p, g in area_water if g.intersects(region)])
+    major, minor, cn_items, creeks = [], [], [], []
+    for p, g in lin_water:
+        if not g.intersects(region): continue
+        nm = clean_name((p.get('FULLNAME') or '').strip())
+        if not nm and not detail: continue
+        if re.search(r'\bRiver\b', nm): major.append((g, 1, 2 if detail else 1))
+        else: minor.append((g, 1, 1))
+        if nm:
+            if nm not in creeks and len(creeks) < 254: creeks.append(nm)
+            if nm in creeks: cn_items.append((g, creeks.index(nm) + 1, 2))
+    for p, g in area_water:
+        nm = clean_name((p.get('FULLNAME') or '').strip())
+        if nm and g.intersects(region):
+            if nm not in creeks and len(creeks) < 254: creeks.append(nm)
+    mj = G.stroke(major); mn = G.stroke(minor)
+    cn = G.stroke(cn_items)
+    cna = G.fill([(g, creeks.index(clean_name((p.get('FULLNAME') or '').strip())) + 1) for p, g in area_water
+                  if clean_name((p.get('FULLNAME') or '').strip()) in creeks and g.intersects(region)])
+    cn = np.where(cna > 0, cna, cn).astype(np.uint8)
+    # subwatersheds (global index), drawn biggest first
+    sidx = G.fill([(g, i + 1) for i, (code, nm, g, a, fr, gi) in sorted(enumerate(sheds), key=lambda t: -t[1][3])])
+    # elevation: fill outside-region cells with nearest-ish value so edges don't spike
+    hv = h.copy()
+    # cls bits: 0-2 class (0 land, 1 open water, 2 major river line, 3 minor stream), bit3 inside region, bit4 county line
+    cls = np.zeros((G.ny, G.nx), np.uint8)
+    cls[mn > 0] = 3; cls[mj > 0] = 2; cls[aw > 0] = 1
+    cls |= (inside > 0).astype(np.uint8) << 3
+    # county edge marker (cells inside county with an outside neighbour) - used when region == county
+    edge = np.zeros_like(cty)
+    c = cty > 0
+    e = np.zeros_like(c); e[1:-1, 1:-1] = c[1:-1, 1:-1] & ~(c[:-2, 1:-1] & c[2:, 1:-1] & c[1:-1, :-2] & c[1:-1, 2:])
+    cls |= e.astype(np.uint8) << 4
+    # bit5: boundary of an included area (e.g. an independent city inside the county map), highlighted in the viewer
+    for xg in extras:
+        xr = G.fill([(xg, 1)]) > 0
+        xe = np.zeros_like(xr); xe[1:-1, 1:-1] = xr[1:-1, 1:-1] & ~(xr[:-2, 1:-1] & xr[2:, 1:-1] & xr[1:-1, :-2] & xr[1:-1, 2:])
+        xe &= (inside > 0)
+        cls |= xe.astype(np.uint8) << 5
+    hin = hv[inside > 0]
+    lo, hi = float(np.percentile(hin, 0.5)), float(np.percentile(hin, 99.8))
+    # labels (u,v in 0..1 grid space)
+    cities = []
+    for nm, pt, a in places:
+        if region.contains(pt):
+            cities.append([clean_name(nm), round((pt.x - G.w) / (G.dlon * G.nx), 4), round((G.n - pt.y) / (G.dlat * G.ny), 4), round(a, 2)])
+    hv = np.maximum(hv, lo - 2.0)
+    cities.sort(key=lambda r: -r[3])
+    cities = [r[:3] for r in cities[:(36 if detail else 18)]]
+    return {
+        'bb': [round(v, 5) for v in G.bb], 'nx': G.nx, 'ny': G.ny, 'cellkm': round(G.cellkm, 5),
+        'h': b64(np.clip(np.round(hv * 2), -32000, 32000).astype('<i2')), 'c': b64(cls), 's': b64(sidx.astype(np.uint8)),
+        'cn': b64(cn), 'creeks': creeks, 'cities': cities,
+        'hlo': round(lo, 1), 'hhi': round(hi, 1), 'elo': int(round(lo * 3.281)), 'ehi': int(round(float(hin.max()) * 3.281)),
+    }
+
+
+def main(geoid, outdir, extra=()):
+    st = geoid[:2]
+    counties = read_shp_zip(fetch(TIGER + 'GENZ2023/shp/cb_2023_us_county_500k.zip', os.path.join(RAW, 'cb_2023_us_county_500k.zip')))
+    rec = [(p, g) for p, g in counties if p['GEOID'] == geoid]
+    if not rec: sys.exit('county not found')
+    cp, county = rec[0]
+    county = make_valid(county)
+    cname, sname = cp['NAMELSAD'], cp['STATE_NAME']
+    includes, extra_geoms = [], []
+    for xg in extra:  # areas shown inside this map with a highlighted boundary (e.g. City of St. Louis)
+        xp, xgeom = [(p, g) for p, g in counties if p['GEOID'] == xg][0]
+        xn = xp['NAMELSAD']; xn = 'City of ' + xn[:-5] if xn.endswith(' city') else xn
+        includes.append([xg, xn]); extra_geoms.append(make_valid(xgeom))
+    if extra_geoms:
+        county = make_valid(unary_union([county] + extra_geoms).buffer(0.0004).buffer(-0.0004))
+    if cname.endswith(' city'): cname = 'City of ' + cname[:-5]  # independent cities (St. Louis, Baltimore, Virginia cities)
+    w, s, e, n = county.bounds
+    lat0 = (s + n) / 2
+    print('county', cname, sname, county.bounds)
+    pad = 0.01
+    bb = (w - pad, s - pad, e + pad, n + pad)
+
+    # watersheds
+    h10 = wbd_query(5, bb, 'huc10,name,areasqkm'); h12 = wbd_query(6, bb, 'huc12,name,areasqkm')
+    groups = []
+    for f in h10:
+        g = make_valid(shape(f['geometry'])).intersection(county)
+        a = area_km2(g, lat0)
+        if a < 0.5: continue
+        groups.append([f['properties']['huc10'], clean_name(f['properties']['name']), g, a, f['properties']['areasqkm']])
+    groups.sort(key=lambda r: -r[3])
+    sheds = []
+    for f in h12:
+        g = make_valid(shape(f['geometry'])).intersection(county)
+        a = area_km2(g, lat0)
+        if a < 0.25: continue
+        code = f['properties']['huc12']
+        gi = next((i for i, gr in enumerate(groups) if code.startswith(gr[0])), None)
+        if gi is None: continue
+        sheds.append([code, clean_name(f['properties']['name']), g, a, min(1, a / max(f['properties']['areasqkm'], .01)), gi])
+    sheds.sort(key=lambda r: (r[5], -r[3]))
+    if len(sheds) > 254: sys.exit('too many subwatersheds')
+    print(len(groups), 'watersheds,', len(sheds), 'subwatersheds')
+
+    # water + places
+    aw, lw = [], []
+    for gg in [geoid] + list(extra):
+        aw += read_shp_zip(fetch(TIGER + f'TIGER2023/AREAWATER/tl_2023_{gg}_areawater.zip', os.path.join(RAW, f'tl_2023_{gg}_areawater.zip')))
+        lw += read_shp_zip(fetch(TIGER + f'TIGER2023/LINEARWATER/tl_2023_{gg}_linearwater.zip', os.path.join(RAW, f'tl_2023_{gg}_linearwater.zip')))
+    aw = [(p, make_valid(g)) for p, g in aw]
+    lw = [(p, g) for p, g in lw]
+    pl = read_shp_zip(fetch(TIGER + f'GENZ2023/shp/cb_2023_{st}_place_500k.zip', os.path.join(RAW, f'cb_2023_{st}_place_500k.zip')))
+    places = []
+    for p, g in pl:
+        if not g.intersects(county): continue
+        gi = make_valid(g).intersection(county)
+        if gi.is_empty or area_km2(gi, lat0) < 0.3: continue
+        places.append((p['NAME'], gi.representative_point(), area_km2(gi, lat0)))
+
+    el = Elev(bb)
+    cslug = slug(cname)
+    os.makedirs(outdir, exist_ok=True)
+
+    G = Grid(bb, 560)
+    D = build_grid(G, county, county, el, sheds, aw, lw, places, detail=False, extras=extra_geoms)
+    D.update({'geoid': geoid, 'name': cname, 'state': sname, 'slug': cslug, 'kind': 'county', 'includes': includes,
+              'areakm': round(area_km2(county, lat0), 2),
+              'groups': [[g[0], g[1], round(g[3], 2), [i + 1 for i, sh in enumerate(sheds) if sh[5] == gi], round(g[4], 1)] for gi, g in enumerate(groups)],
+              'sheds': [[sh[0], sh[1], round(sh[3], 2), round(sh[4], 3), sh[5] + 1] for sh in sheds]})
+    json.dump(D, open(os.path.join(outdir, 'county.json'), 'w'), separators=(',', ':'))
+    print('county grid', G.nx, G.ny, round(G.cellkm, 3), 'km')
+
+    for gi, g in enumerate(groups):
+        gb = g[2].bounds
+        GG = Grid((gb[0] - .004, gb[1] - .004, gb[2] + .004, gb[3] + .004), 440)
+        DD = build_grid(GG, county, g[2], el, sheds, aw, lw, places, detail=True, extras=extra_geoms)
+        DD.update({'kind': 'watershed', 'huc10': g[0], 'name': g[1], 'areakm': round(g[3], 2), 'fullkm': round(g[4], 1)})
+        json.dump(DD, open(os.path.join(outdir, g[0] + '.json'), 'w'), separators=(',', ':'))
+        print(' ', g[0], g[1], GG.nx, GG.ny, round(GG.cellkm, 3))
+
+    # small outline for the gallery card (lon/lat simplified)
+    simp = county.simplify(0.003)
+    outline = []
+    for p in G.polys(simp):
+        outline.append([[round(x, 4), round(y, 4)] for x, y in p.exterior.coords])
+    return {'geoid': geoid, 'includes': includes, 'name': cname, 'state': sname, 'slug': cslug, 'areakm': D['areakm'],
+            'watersheds': len(groups), 'subwatersheds': len(sheds), 'elo': D['elo'], 'ehi': D['ehi'],
+            'bb': D['bb'], 'outline': outline}
+
+
+if __name__ == '__main__':
+    ex = [a.split('=', 1)[1] for a in sys.argv[3:] if a.startswith('--with=')]
+    ex = [x for a in ex for x in a.split(',')]
+    info = main(sys.argv[1], sys.argv[2], ex)
+    json.dump(info, open(os.path.join(sys.argv[2], 'info.json'), 'w'), separators=(',', ':'))
+    print('done', info['name'], info['watersheds'], info['subwatersheds'])
