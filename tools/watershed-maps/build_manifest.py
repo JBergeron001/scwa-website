@@ -8,11 +8,17 @@ root = sys.argv[1]; wm = os.path.join(root, 'watershed-maps')
 EXCLUDE = {'29183'}  # St. Charles County: its map lives only on the St. Charles Watersheds Alliance site
 MIDWEST = {'29': 'Missouri', '17': 'Illinois', '19': 'Iowa', '20': 'Kansas', '31': 'Nebraska', '27': 'Minnesota', '55': 'Wisconsin',
            '18': 'Indiana', '39': 'Ohio', '26': 'Michigan', '38': 'North Dakota', '46': 'South Dakota'}
+# Metro area each county belongs to, shown on the gallery cards and used by the search box. Add one line per new county.
+METRO = {'29189': 'St. Louis', '29095': 'Kansas City', '31055': 'Omaha', '19153': 'Des Moines', '29019': 'Columbia',
+         '29077': 'Springfield', '17167': 'Springfield', '17031': 'Chicago', '27053': 'Minneapolis-St. Paul',
+         '18097': 'Indianapolis', '39049': 'Columbus', '55079': 'Milwaukee', '26163': 'Detroit', '20173': 'Wichita',
+         '31109': 'Lincoln'}
 maps = []
 for f in sorted(glob.glob(os.path.join(wm, 'data', '*', 'info.json'))):
     i = json.load(open(f))
     if i['geoid'] in EXCLUDE: continue
     i.pop('outline', None)
+    i['metro'] = METRO.get(i['geoid'], '')
     i['thumb'] = f"watershed-maps/thumbs/{i['geoid']}.jpg" if os.path.exists(os.path.join(wm, 'thumbs', i['geoid'] + '.jpg')) else ''
     maps.append(i)
 maps.sort(key=lambda r: (r['state'], r['name'].replace('City of ', '')))

@@ -18,6 +18,7 @@
     41.45971,
     42.16427
    ],
+   "metro": "Chicago",
    "thumb": "watershed-maps/thumbs/17031.jpg"
   },
   {
@@ -37,6 +38,7 @@
     39.5121,
     39.98673
    ],
+   "metro": "Springfield",
    "thumb": "watershed-maps/thumbs/17167.jpg"
   },
   {
@@ -56,6 +58,7 @@
     39.62218,
     39.93738
    ],
+   "metro": "Indianapolis",
    "thumb": "watershed-maps/thumbs/18097.jpg"
   },
   {
@@ -75,6 +78,7 @@
     41.47184,
     41.87347
    ],
+   "metro": "Des Moines",
    "thumb": "watershed-maps/thumbs/19153.jpg"
   },
   {
@@ -94,6 +98,7 @@
     37.46418,
     37.92273
    ],
+   "metro": "Wichita",
    "thumb": "watershed-maps/thumbs/20173.jpg"
   },
   {
@@ -113,6 +118,7 @@
     42.02334,
     42.46101
    ],
+   "metro": "Detroit",
    "thumb": "watershed-maps/thumbs/26163.jpg"
   },
   {
@@ -132,6 +138,7 @@
     44.77519,
     45.25662
    ],
+   "metro": "Minneapolis-St. Paul",
    "thumb": "watershed-maps/thumbs/27053.jpg"
   },
   {
@@ -151,6 +158,7 @@
     38.63317,
     39.25879
    ],
+   "metro": "Columbia",
    "thumb": "watershed-maps/thumbs/29019.jpg"
   },
   {
@@ -170,6 +178,7 @@
     37.07869,
     37.43742
    ],
+   "metro": "Springfield",
    "thumb": "watershed-maps/thumbs/29077.jpg"
   },
   {
@@ -189,6 +198,7 @@
     38.82301,
     39.24711
    ],
+   "metro": "Kansas City",
    "thumb": "watershed-maps/thumbs/29095.jpg"
   },
   {
@@ -213,6 +223,7 @@
     38.37822,
     38.90115
    ],
+   "metro": "St. Louis",
    "thumb": "watershed-maps/thumbs/29189.jpg"
   },
   {
@@ -232,6 +243,7 @@
     41.18,
     41.40331
    ],
+   "metro": "Omaha",
    "thumb": "watershed-maps/thumbs/31055.jpg"
   },
   {
@@ -251,6 +263,7 @@
     40.51301,
     41.05612
    ],
+   "metro": "Lincoln",
    "thumb": "watershed-maps/thumbs/31109.jpg"
   },
   {
@@ -270,6 +283,7 @@
     39.785,
     40.15308
    ],
+   "metro": "Columbus",
    "thumb": "watershed-maps/thumbs/39049.jpg"
   },
   {
@@ -289,6 +303,7 @@
     42.83212,
     43.20258
    ],
+   "metro": "Milwaukee",
    "thumb": "watershed-maps/thumbs/55079.jpg"
   }
  ]

@@ -69,6 +69,10 @@ section{padding:34px 0}
 .card .bd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
 .card h3{font-size:19px;color:var(--navy)}
 .card .st{font-size:13.5px;color:var(--ink-soft)}
+.card .metro{position:absolute;left:10px;bottom:10px;background:rgba(15,42,78,.88);color:#fff;font:700 13px var(--sans);padding:5px 10px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.card .stchip{display:inline-block;align-self:flex-start;font-size:12px;font-weight:700;color:var(--land-deep);background:#e8f4e9;border-radius:6px;padding:2px 8px;letter-spacing:.02em}
+.stgroup{grid-column:1/-1;margin:10px 0 -4px;font-family:var(--serif);font-size:22px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:4px}
+.stgroup:first-child{margin-top:0}
 .card .go{margin-top:auto;padding-top:8px;font-weight:700;font-size:14px;color:var(--land-deep)}
 .empty{color:var(--ink-soft);padding:20px;text-align:center;border:1px dashed #cfd9e5;border-radius:var(--r)}
 .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
@@ -96,7 +100,7 @@ footer p{margin:4px 0}
       <h1>See your county's watersheds in 3D</h1>
       <p class="lead">Turn, zoom and click through every watershed and subwatershed in a county, built on U.S. Geological Survey elevation and watershed data. Download, print or share any view for planning meetings, reports and classrooms, free.</p>
       <div class="find">
-        <input id="q" type="search" placeholder="Find a county or city, e.g. St. Louis" aria-label="Find a county or city">
+        <input id="q" type="search" placeholder="Find your county, metro or state, e.g. Kansas City" aria-label="Find a county, metro area or state">
         <select id="stf" aria-label="Filter by state"><option value="">All states</option></select>
       </div>
       <div class="facts" id="facts"></div>
@@ -163,9 +167,10 @@ footer p{margin:4px 0}
   $('facts').innerHTML=`<span><b>${maps.length}</b> map${maps.length===1?'':'s'} live</span><span><b>${maps.reduce((a,m)=>a+m.watersheds,0)}</b> watersheds</span><span><b>${maps.reduce((a,m)=>a+m.subwatersheds,0)}</b> subwatersheds</span><span>Updated ${esc(man.updated)}</span>`;
   // cards
   function render(){const q=$('q').value.trim().toLowerCase(),sf=$('stf').value;
-    const list=maps.filter(m=>(!sf||m.state===sf)&&(!q||(m.full+' '+m.state).toLowerCase().includes(q)));
-    $('grid').innerHTML=list.length?list.map(m=>`<a class="card" href="${url(m)}"><div class="th">${m.thumb?`<img src="${esc(m.thumb)}" alt="3D view of ${esc(m.full)}" loading="lazy">`:''}</div>
-      <div class="bd"><h3>${esc(m.full)}</h3><span class="st">${esc(m.state)} · ${sqmi(m.areakm)} sq mi</span><span class="st">${m.watersheds} watersheds · ${m.subwatersheds} subwatersheds</span><span class="go">Open 3D map →</span></div></a>`).join('')
+    const list=maps.filter(m=>(!sf||m.state===sf)&&(!q||(m.full+' '+m.state+' '+(m.metro||'')+' metro').toLowerCase().includes(q)));
+    let lastSt='';
+    $('grid').innerHTML=list.length?list.map(m=>{const head=m.state!==lastSt?`<h3 class="stgroup">${esc(m.state)}</h3>`:'';lastSt=m.state;return head+`<a class="card" href="${url(m)}"><div class="th">${m.thumb?`<img src="${esc(m.thumb)}" alt="3D view of ${esc(m.full)}" loading="lazy">`:''}${m.metro?`<span class="metro">${esc(m.metro)} metro</span>`:''}</div>
+      <div class="bd"><span class="stchip">${esc(m.state)}</span><h3>${esc(m.full)}</h3><span class="st">${m.metro?esc(m.metro)+' metro area · ':''}${sqmi(m.areakm)} sq mi</span><span class="st">${m.watersheds} watersheds · ${m.subwatersheds} subwatersheds</span><span class="go">Open 3D map →</span></div></a>`}).join('')
       :`<div class="empty">No map yet for that search. <a href="mailto:admin@midamericawatershed.org?subject=3D%20watershed%20map%20request">Request it</a> and we'll add it.</div>`;
     document.querySelectorAll('#loc path.c').forEach(p=>p.classList.toggle('hit',!!q&&p.classList.contains('on')&&list.some(m=>have.get(p.dataset.g)===m)))}
   $('q').oninput=render;$('stf').onchange=render;
@@ -179,7 +184,7 @@ footer p{margin:4px 0}
   svg.append(frag);
   const tip=$('ltip'),card=$('mapcard');
   svg.addEventListener('mousemove',e=>{const p=e.target.closest('path.c');if(!p){tip.hidden=true;return}const r=card.getBoundingClientRect();
-    const hm=have.get(p.dataset.g);tip.innerHTML=`${esc(p.dataset.n)}<small>${hm?(hm.geoid===p.dataset.g?'Click to open the 3D map':'Included in the '+esc(hm.name)+' map'):'Coming soon'}</small>`;tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px';tip.hidden=false});
+    const hm=have.get(p.dataset.g);tip.innerHTML=`${esc(p.dataset.n)}<small>${hm?(hm.geoid===p.dataset.g?(hm.metro?esc(hm.metro)+' metro · ':'')+'Click to open the 3D map':'Included in the '+esc(hm.name)+' map'):'Coming soon'}</small>`;tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px';tip.hidden=false});
   svg.addEventListener('mouseleave',()=>tip.hidden=true);
   const open=p=>{if(p&&p.classList.contains('on'))location.href=url(have.get(p.dataset.g))};
   svg.addEventListener('click',e=>open(e.target.closest('path.c')));
