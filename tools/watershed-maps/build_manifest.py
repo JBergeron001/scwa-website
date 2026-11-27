@@ -12,7 +12,8 @@ MIDWEST = {'29': 'Missouri', '17': 'Illinois', '19': 'Iowa', '20': 'Kansas', '31
 METRO = {'29189': 'St. Louis', '29095': 'Kansas City', '31055': 'Omaha', '19153': 'Des Moines', '29019': 'Columbia',
          '29077': 'Springfield', '17167': 'Springfield', '17031': 'Chicago', '27053': 'Minneapolis-St. Paul',
          '18097': 'Indianapolis', '39049': 'Columbus', '55079': 'Milwaukee', '26163': 'Detroit', '20173': 'Wichita',
-         '31109': 'Lincoln'}
+         '31109': 'Lincoln', '39061': 'Cincinnati', '39035': 'Cleveland', '55025': 'Madison', '26081': 'Grand Rapids',
+         '19163': 'Quad Cities', '46099': 'Sioux Falls'}
 maps = []
 for f in sorted(glob.glob(os.path.join(wm, 'data', '*', 'info.json'))):
     i = json.load(open(f))

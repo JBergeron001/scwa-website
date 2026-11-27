@@ -404,6 +404,8 @@ def main(geoid, outdir, extra=()):
         a = area_km2(g, lat0)
         if a < 0.5: continue
         if f['properties']['areasqkm'] > 5000: continue  # open-water Great Lakes units (e.g. 'Lake Michigan'), not land watersheds
+        bx = full.bounds; kx, ky = km_scale(lat0)
+        if (bx[2] - bx[0]) * kx * (bx[3] - bx[1]) * ky > 20 * f['properties']['areasqkm']: continue  # long thin open-lake units such as 'Pelee Island'
         groups.append([f['properties']['huc10'], clean_name(f['properties']['name']), g, a, f['properties']['areasqkm'], full])
     groups.sort(key=lambda r: -r[3])
     gb = [g[5].bounds for g in groups]

@@ -82,6 +82,26 @@
    "thumb": "watershed-maps/thumbs/19153.jpg"
   },
   {
+   "geoid": "19163",
+   "includes": [],
+   "name": "Scott County",
+   "state": "Iowa",
+   "slug": "scott-county",
+   "areakm": 1205.89,
+   "watersheds": 7,
+   "subwatersheds": 22,
+   "elo": 549,
+   "ehi": 827,
+   "bb": [
+    -90.90985,
+    -90.30277,
+    41.43963,
+    41.78643
+   ],
+   "metro": "Quad Cities",
+   "thumb": "watershed-maps/thumbs/19163.jpg"
+  },
+  {
    "geoid": "20173",
    "includes": [],
    "name": "Sedgwick County",
@@ -100,6 +120,26 @@
    ],
    "metro": "Wichita",
    "thumb": "watershed-maps/thumbs/20173.jpg"
+  },
+  {
+   "geoid": "26081",
+   "includes": [],
+   "name": "Kent County",
+   "state": "Michigan",
+   "slug": "kent-county",
+   "areakm": 2244.17,
+   "watersheds": 10,
+   "subwatersheds": 45,
+   "elo": 600,
+   "ehi": 1006,
+   "bb": [
+    -85.80066,
+    -85.29963,
+    42.7581,
+    43.3044
+   ],
+   "metro": "Grand Rapids",
+   "thumb": "watershed-maps/thumbs/26081.jpg"
   },
   {
    "geoid": "26163",
@@ -267,6 +307,26 @@
    "thumb": "watershed-maps/thumbs/31109.jpg"
   },
   {
+   "geoid": "39035",
+   "includes": [],
+   "name": "Cuyahoga County",
+   "state": "Ohio",
+   "slug": "cuyahoga-county",
+   "areakm": 1180.79,
+   "watersheds": 10,
+   "subwatersheds": 29,
+   "elo": 577,
+   "ehi": 1261,
+   "bb": [
+    -81.98126,
+    -81.36477,
+    41.26504,
+    41.64135
+   ],
+   "metro": "Cleveland",
+   "thumb": "watershed-maps/thumbs/39035.jpg"
+  },
+  {
    "geoid": "39049",
    "includes": [],
    "name": "Franklin County",
@@ -285,6 +345,66 @@
    ],
    "metro": "Columbus",
    "thumb": "watershed-maps/thumbs/39049.jpg"
+  },
+  {
+   "geoid": "39061",
+   "includes": [],
+   "name": "Hamilton County",
+   "state": "Ohio",
+   "slug": "hamilton-county",
+   "areakm": 1063.44,
+   "watersheds": 7,
+   "subwatersheds": 27,
+   "elo": 464,
+   "ehi": 956,
+   "bb": [
+    -84.83016,
+    -84.24637,
+    39.01208,
+    39.32206
+   ],
+   "metro": "Cincinnati",
+   "thumb": "watershed-maps/thumbs/39061.jpg"
+  },
+  {
+   "geoid": "46099",
+   "includes": [],
+   "name": "Minnehaha County",
+   "state": "South Dakota",
+   "slug": "minnehaha-county",
+   "areakm": 2094.23,
+   "watersheds": 17,
+   "subwatersheds": 38,
+   "elo": 1296,
+   "ehi": 1801,
+   "bb": [
+    -97.13951,
+    -96.44309,
+    43.48968,
+    43.8595
+   ],
+   "metro": "Sioux Falls",
+   "thumb": "watershed-maps/thumbs/46099.jpg"
+  },
+  {
+   "geoid": "55025",
+   "includes": [],
+   "name": "Dane County",
+   "state": "Wisconsin",
+   "slug": "dane-county",
+   "areakm": 3185.1,
+   "watersheds": 22,
+   "subwatersheds": 56,
+   "elo": 740,
+   "ehi": 1396,
+   "bb": [
+    -89.84857,
+    -88.99883,
+    42.83504,
+    43.30417
+   ],
+   "metro": "Madison",
+   "thumb": "watershed-maps/thumbs/55025.jpg"
   },
   {
    "geoid": "55079",

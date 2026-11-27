@@ -1,0 +1,335 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Minnehaha County",
+  "note": ""
+ },
+ "1017020311": {
+  "watershed": "Skunk Creek",
+  "note": ""
+ },
+ "1017020312": {
+  "watershed": "Sioux Falls Diversion Channel-Big Sioux River",
+  "note": ""
+ },
+ "1017020310": {
+  "watershed": "Colton Creek-Skunk Creek",
+  "note": ""
+ },
+ "1017020317": {
+  "watershed": "Ninemile Creek-Big Sioux River",
+  "note": ""
+ },
+ "1017020309": {
+  "watershed": "West Branch Skunk Creek",
+  "note": ""
+ },
+ "1017020314": {
+  "watershed": "West Pipestone Creek",
+  "note": ""
+ },
+ "1017020316": {
+  "watershed": "Split Rock Creek",
+  "note": ""
+ },
+ "1017020315": {
+  "watershed": "Springwater Creek-Beaver Creek",
+  "note": ""
+ },
+ "1017020306": {
+  "watershed": "Brookfield Creek-Big Sioux River",
+  "note": ""
+ },
+ "1017020313": {
+  "watershed": "Pipestone Creek",
+  "note": ""
+ },
+ "1017010210": {
+  "watershed": "Long Creek",
+  "note": ""
+ },
+ "1017020308": {
+  "watershed": "Buffalo Creek",
+  "note": ""
+ },
+ "1017010207": {
+  "watershed": "Elce Creek",
+  "note": ""
+ },
+ "1017010204": {
+  "watershed": "Lower East Fork Vermillion River",
+  "note": ""
+ },
+ "1017020318": {
+  "watershed": "Beaver Creek",
+  "note": ""
+ },
+ "1017010211": {
+  "watershed": "Upper Vermillion River",
+  "note": ""
+ },
+ "1017010202": {
+  "watershed": "Middle East Fork Vermillion River",
+  "note": ""
+ },
+ "101702031101": {
+  "subwatershed": "Beaver Lake",
+  "note": ""
+ },
+ "101702031103": {
+  "subwatershed": "Willow Creek",
+  "note": ""
+ },
+ "101702031104": {
+  "subwatershed": "Wall Lake",
+  "note": ""
+ },
+ "101702031105": {
+  "subwatershed": "Outlet Skunk Creek",
+  "note": ""
+ },
+ "101702031102": {
+  "subwatershed": "Buffalo Ridge-Skunk Creek",
+  "note": ""
+ },
+ "101702031201": {
+  "subwatershed": "Town of Baltic-Big Sioux River",
+  "note": ""
+ },
+ "101702031203": {
+  "subwatershed": "Covells Lake-Big Sioux River",
+  "note": ""
+ },
+ "101702031202": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "101702031002": {
+  "subwatershed": "Colton Creek",
+  "note": ""
+ },
+ "101702031003": {
+  "subwatershed": "Jensen Airport-Skunk Creek",
+  "note": ""
+ },
+ "101702031001": {
+  "subwatershed": "Anderson Slough-Skunk Creek",
+  "note": ""
+ },
+ "101702031705": {
+  "subwatershed": "Cactus Hills-Big Sioux River",
+  "note": ""
+ },
+ "101702031701": {
+  "subwatershed": "Slip-up Creek",
+  "note": ""
+ },
+ "101702031702": {
+  "subwatershed": "Blood Run",
+  "note": ""
+ },
+ "101702031704": {
+  "subwatershed": "Ninemile Creek",
+  "note": ""
+ },
+ "101702031703": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "101702030901": {
+  "subwatershed": "Upper West Branch Skunk Creek",
+  "note": ""
+ },
+ "101702030902": {
+  "subwatershed": "Lower West Branch Skunk Creek",
+  "note": ""
+ },
+ "101702031402": {
+  "subwatershed": "Lower West Pipestone Creek",
+  "note": ""
+ },
+ "101702031401": {
+  "subwatershed": "Upper West Pipestone Creek",
+  "note": ""
+ },
+ "101702031605": {
+  "subwatershed": "The Palisades-Split Rock Creek",
+  "note": ""
+ },
+ "101702031606": {
+  "subwatershed": "Split Rock Creek",
+  "note": ""
+ },
+ "101702031604": {
+  "subwatershed": "Devils Gulch",
+  "note": ""
+ },
+ "101702031602": {
+  "subwatershed": "City of Jasper-Split Rock Creek",
+  "note": ""
+ },
+ "101702031601": {
+  "subwatershed": "Headwaters Split Rock Creek",
+  "note": ""
+ },
+ "101702031603": {
+  "subwatershed": "101702031603",
+  "note": ""
+ },
+ "101702031506": {
+  "subwatershed": "Lower Beaver Creek",
+  "note": ""
+ },
+ "101702031505": {
+  "subwatershed": "Fourmile Creek",
+  "note": ""
+ },
+ "101702031504": {
+  "subwatershed": "Springwater Creek",
+  "note": ""
+ },
+ "101702031501": {
+  "subwatershed": "Upper Beaver Creek",
+  "note": ""
+ },
+ "101702031503": {
+  "subwatershed": "Middle Beaver Creek",
+  "note": ""
+ },
+ "101702031502": {
+  "subwatershed": "Little Beaver Creek",
+  "note": ""
+ },
+ "101702030605": {
+  "subwatershed": "Dells of the Sioux River-Big Sioux River",
+  "note": ""
+ },
+ "101702030604": {
+  "subwatershed": "Town of Trent-Big Sioux River",
+  "note": ""
+ },
+ "101702030602": {
+  "subwatershed": "City of Flandreau-Big Sioux River",
+  "note": ""
+ },
+ "101702030603": {
+  "subwatershed": "Brookfield Creek",
+  "note": ""
+ },
+ "101702030601": {
+  "subwatershed": "Mud Creek",
+  "note": ""
+ },
+ "101702031305": {
+  "subwatershed": "Pipestone Creek",
+  "note": ""
+ },
+ "101702031304": {
+  "subwatershed": "South Branch Pipestone Creek-Pipestone Creek",
+  "note": ""
+ },
+ "101702031301": {
+  "subwatershed": "Main Ditch-Pipestone Creek",
+  "note": ""
+ },
+ "101702031303": {
+  "subwatershed": "Lower North Branch Pipestone Creek",
+  "note": ""
+ },
+ "101702031302": {
+  "subwatershed": "Upper North Branch Pipestone Creek",
+  "note": ""
+ },
+ "101701021001": {
+  "subwatershed": "Upper Long Creek",
+  "note": ""
+ },
+ "101701021005": {
+  "subwatershed": "Saddle Creek",
+  "note": ""
+ },
+ "101701021004": {
+  "subwatershed": "Snake Creek",
+  "note": ""
+ },
+ "101701021006": {
+  "subwatershed": "Lower Long Creek",
+  "note": ""
+ },
+ "101701021003": {
+  "subwatershed": "Ditch Number Four",
+  "note": ""
+ },
+ "101701021002": {
+  "subwatershed": "Lake Albert",
+  "note": ""
+ },
+ "101702030802": {
+  "subwatershed": "Buffalo Creek",
+  "note": ""
+ },
+ "101702030801": {
+  "subwatershed": "North Buffalo Creek",
+  "note": ""
+ },
+ "101701020701": {
+  "subwatershed": "Elce Creek",
+  "note": ""
+ },
+ "101701020402": {
+  "subwatershed": "101701020402-East Fork Vermillion River",
+  "note": ""
+ },
+ "101701020403": {
+  "subwatershed": "Battle Creek-East Fork Vermillion River",
+  "note": ""
+ },
+ "101701020401": {
+  "subwatershed": "Town of Montrose-East Fork Vermillion River",
+  "note": ""
+ },
+ "101701020404": {
+  "subwatershed": "Town of Rumpus Ridge-East Fork Vermillion River",
+  "note": ""
+ },
+ "101701020405": {
+  "subwatershed": "Outlet East Fork Vermillion River",
+  "note": ""
+ },
+ "101702031801": {
+  "subwatershed": "Headwaters Beaver Creek",
+  "note": ""
+ },
+ "101702031803": {
+  "subwatershed": "Beaver Creek",
+  "note": ""
+ },
+ "101702031802": {
+  "subwatershed": "South Fork Beaver Creek",
+  "note": ""
+ },
+ "101701021101": {
+  "subwatershed": "Camp Creek",
+  "note": ""
+ },
+ "101701021103": {
+  "subwatershed": "Town of Davis-Vermillion River",
+  "note": ""
+ },
+ "101701021104": {
+  "subwatershed": "Mount Zion Cemetery-Vermillion River",
+  "note": ""
+ },
+ "101701021102": {
+  "subwatershed": "Town of Naomi",
+  "note": ""
+ },
+ "101701020202": {
+  "subwatershed": "Klatzer Dam-East Fork Vermillion River",
+  "note": ""
+ },
+ "101701020201": {
+  "subwatershed": "Lake George-East Fork Vermillion River",
+  "note": ""
+ }
+}

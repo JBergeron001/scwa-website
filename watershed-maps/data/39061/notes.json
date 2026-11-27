@@ -1,0 +1,207 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Hamilton County",
+  "note": ""
+ },
+ "0509020301": {
+  "watershed": "Mill Creek",
+  "note": ""
+ },
+ "0508000209": {
+  "watershed": "Taylor Creek-Great Miami River",
+  "note": ""
+ },
+ "0509020214": {
+  "watershed": "Sycamore Creek-Little Miami River",
+  "note": ""
+ },
+ "0509020302": {
+  "watershed": "Muddy Creek-Ohio River",
+  "note": ""
+ },
+ "0508000308": {
+  "watershed": "Whitewater River",
+  "note": ""
+ },
+ "0509020112": {
+  "watershed": "Twelvemile Creek-Ohio River",
+  "note": ""
+ },
+ "0509020209": {
+  "watershed": "O\u2019Bannon Creek-Little Miami River",
+  "note": ""
+ },
+ "050902030102": {
+  "subwatershed": "West Fork Mill Creek",
+  "note": ""
+ },
+ "050902030104": {
+  "subwatershed": "Congress Run-Mill Creek",
+  "note": ""
+ },
+ "050902030103": {
+  "subwatershed": "Sharon Creek-Mill Creek",
+  "note": ""
+ },
+ "050902030105": {
+  "subwatershed": "West Fork Mill Creek-Mill Creek",
+  "note": ""
+ },
+ "050902030101": {
+  "subwatershed": "East Fork Mill Creek-Mill Creek",
+  "note": ""
+ },
+ "050800020905": {
+  "subwatershed": "Taylor Creek",
+  "note": ""
+ },
+ "050800020906": {
+  "subwatershed": "Jordan Creek-Great Miami River",
+  "note": ""
+ },
+ "050800020904": {
+  "subwatershed": "Owl Creek-Great Miami River",
+  "note": ""
+ },
+ "050800020907": {
+  "subwatershed": "Doublelick Run-Great Miami River",
+  "note": ""
+ },
+ "050800020902": {
+  "subwatershed": "Banklick Creek-Great Miami River",
+  "note": ""
+ },
+ "050800020903": {
+  "subwatershed": "Paddys Run",
+  "note": ""
+ },
+ "050800020901": {
+  "subwatershed": "Pleasant Run",
+  "note": ""
+ },
+ "050902021401": {
+  "subwatershed": "Sycamore Creek",
+  "note": ""
+ },
+ "050902021406": {
+  "subwatershed": "Clough Creek-Little Miami River",
+  "note": ""
+ },
+ "050902021405": {
+  "subwatershed": "Dry Run-Little Miami River",
+  "note": ""
+ },
+ "050902021404": {
+  "subwatershed": "Duck Creek",
+  "note": ""
+ },
+ "050902021402": {
+  "subwatershed": "Polk Run-Little Miami River",
+  "note": ""
+ },
+ "050902021403": {
+  "subwatershed": "Horner Run-Little Miami River",
+  "note": ""
+ },
+ "050902030202": {
+  "subwatershed": "Dry Creek-Ohio River",
+  "note": ""
+ },
+ "050902030203": {
+  "subwatershed": "Muddy Creek",
+  "note": ""
+ },
+ "050902030201": {
+  "subwatershed": "Town of Newport-Ohio River",
+  "note": ""
+ },
+ "050902030204": {
+  "subwatershed": "Garrison Creek-Ohio River",
+  "note": ""
+ },
+ "050800030809": {
+  "subwatershed": "Lee Creek-Dry Fork Whitewater River",
+  "note": ""
+ },
+ "050800030810": {
+  "subwatershed": "Jameson Creek-Whitewater River",
+  "note": ""
+ },
+ "050800030808": {
+  "subwatershed": "Howard Creek-Dry Fork Whitewater River",
+  "note": ""
+ },
+ "050800030806": {
+  "subwatershed": "Johnson Fork-Whitewater River",
+  "note": ""
+ },
+ "050800030803": {
+  "subwatershed": "Big Cedar Creek",
+  "note": ""
+ },
+ "050800030804": {
+  "subwatershed": "Little Cedar Creek-Whitewater River",
+  "note": ""
+ },
+ "050800030801": {
+  "subwatershed": "Headwaters Blue Creek",
+  "note": ""
+ },
+ "050800030805": {
+  "subwatershed": "Blackburn Creek-Whitewater River",
+  "note": ""
+ },
+ "050800030807": {
+  "subwatershed": "Headwaters Dry Fork Whitewater River",
+  "note": ""
+ },
+ "050800030802": {
+  "subwatershed": "Wolf Creek-Blue Creek",
+  "note": ""
+ },
+ "050902011208": {
+  "subwatershed": "Ninemile Creek-Ohio River",
+  "note": ""
+ },
+ "050902011205": {
+  "subwatershed": "Twelvemile Creek",
+  "note": ""
+ },
+ "050902011201": {
+  "subwatershed": "Headwaters Big Indian Creek",
+  "note": ""
+ },
+ "050902011204": {
+  "subwatershed": "Ferguson Run-Twelvemile Creek",
+  "note": ""
+ },
+ "050902011202": {
+  "subwatershed": "North Fork Indian Creek-Big Indian Creek",
+  "note": ""
+ },
+ "050902011207": {
+  "subwatershed": "Fourmile Creek",
+  "note": ""
+ },
+ "050902011203": {
+  "subwatershed": "Boat Run-Ohio River",
+  "note": ""
+ },
+ "050902011206": {
+  "subwatershed": "Tenmile Creek",
+  "note": ""
+ },
+ "050902020903": {
+  "subwatershed": "Salt Run-Little Miami River",
+  "note": ""
+ },
+ "050902020902": {
+  "subwatershed": "O\u2019Bannon Creek",
+  "note": ""
+ },
+ "050902020901": {
+  "subwatershed": "Muddy Creek",
+  "note": ""
+ }
+}

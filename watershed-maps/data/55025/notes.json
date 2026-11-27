@@ -1,0 +1,439 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Dane County",
+  "note": ""
+ },
+ "0709000204": {
+  "watershed": "Koshkonong Creek",
+  "note": ""
+ },
+ "0709000206": {
+  "watershed": "Lake Mendota-Yahara River",
+  "note": ""
+ },
+ "0709000209": {
+  "watershed": "Lake Kegonsa-Yahara River",
+  "note": ""
+ },
+ "0707000505": {
+  "watershed": "Black Earth Creek",
+  "note": ""
+ },
+ "0709000402": {
+  "watershed": "Headwaters Sugar River",
+  "note": ""
+ },
+ "0709000207": {
+  "watershed": "Lake Monona-Yahara River",
+  "note": ""
+ },
+ "0709000108": {
+  "watershed": "Maunesha River",
+  "note": ""
+ },
+ "0709000205": {
+  "watershed": "Headwaters Yahara River",
+  "note": ""
+ },
+ "0709000401": {
+  "watershed": "West Branch Sugar River",
+  "note": ""
+ },
+ "0709000208": {
+  "watershed": "Badfish Creek",
+  "note": ""
+ },
+ "0707000503": {
+  "watershed": "Otter Creek-Wisconsin River",
+  "note": ""
+ },
+ "0709000305": {
+  "watershed": "Blue Mounds Branch",
+  "note": ""
+ },
+ "0709000210": {
+  "watershed": "Lake Koshkonong-Rock River",
+  "note": ""
+ },
+ "0709000405": {
+  "watershed": "Story Creek-Sugar River",
+  "note": ""
+ },
+ "0707000506": {
+  "watershed": "Blue Mounds Creek",
+  "note": ""
+ },
+ "0707000502": {
+  "watershed": "Lake Wisconsin-Wisconsin River",
+  "note": ""
+ },
+ "0709000110": {
+  "watershed": "Crawfish River",
+  "note": ""
+ },
+ "0709000404": {
+  "watershed": "Little Sugar River",
+  "note": ""
+ },
+ "0709000403": {
+  "watershed": "Allen Creek",
+  "note": ""
+ },
+ "0707000512": {
+  "watershed": "City of Spring Green-Wisconsin River",
+  "note": ""
+ },
+ "0709000107": {
+  "watershed": "Headwaters Crawfish River",
+  "note": ""
+ },
+ "0709000306": {
+  "watershed": "Ridgeway Branch-East Branch Pecatonica River",
+  "note": ""
+ },
+ "070900020403": {
+  "subwatershed": "Mud Lake-Koshkonong Creek",
+  "note": ""
+ },
+ "070900020401": {
+  "subwatershed": "Headwaters Koshkonong Creek",
+  "note": ""
+ },
+ "070900020402": {
+  "subwatershed": "Mud Creek",
+  "note": ""
+ },
+ "070900020404": {
+  "subwatershed": "Lake Ripley-Koshkonong Creek",
+  "note": ""
+ },
+ "070900020405": {
+  "subwatershed": "Koshkonong Creek",
+  "note": ""
+ },
+ "070900020601": {
+  "subwatershed": "Waunakee Marsh-Sixmile Creek",
+  "note": ""
+ },
+ "070900020604": {
+  "subwatershed": "Lake Mendota-Yahara River",
+  "note": ""
+ },
+ "070900020602": {
+  "subwatershed": "Sixmile Creek",
+  "note": ""
+ },
+ "070900020603": {
+  "subwatershed": "Pheasant Branch",
+  "note": ""
+ },
+ "070900020901": {
+  "subwatershed": "Door Creek",
+  "note": ""
+ },
+ "070900020902": {
+  "subwatershed": "Lake Kegonsa-Yahara River",
+  "note": ""
+ },
+ "070900020903": {
+  "subwatershed": "City of Stoughton-Yahara River",
+  "note": ""
+ },
+ "070900020904": {
+  "subwatershed": "Town of Dunkirk-Yahara River",
+  "note": ""
+ },
+ "070900020905": {
+  "subwatershed": "Yahara River",
+  "note": ""
+ },
+ "070700050502": {
+  "subwatershed": "Middle Black Earth Creek",
+  "note": ""
+ },
+ "070700050503": {
+  "subwatershed": "Halfway Prairie Creek",
+  "note": ""
+ },
+ "070700050501": {
+  "subwatershed": "Upper Black Earth Creek",
+  "note": ""
+ },
+ "070700050504": {
+  "subwatershed": "Lower Black Earth Creek",
+  "note": ""
+ },
+ "070900040202": {
+  "subwatershed": "Headwaters Sugar River",
+  "note": ""
+ },
+ "070900040201": {
+  "subwatershed": "Badger Mill Creek",
+  "note": ""
+ },
+ "070900040203": {
+  "subwatershed": "Town of Paoli-Sugar River",
+  "note": ""
+ },
+ "070900020702": {
+  "subwatershed": "Lake Monona-Yahara River",
+  "note": ""
+ },
+ "070900020703": {
+  "subwatershed": "Lake Waubesa-Yahara River",
+  "note": ""
+ },
+ "070900020701": {
+  "subwatershed": "Starkweather Creek",
+  "note": ""
+ },
+ "070900010802": {
+  "subwatershed": "Deansville Marsh-Maunesha River",
+  "note": ""
+ },
+ "070900010801": {
+  "subwatershed": "Headwaters Maunesha River",
+  "note": ""
+ },
+ "070900010804": {
+  "subwatershed": "Maunesha River",
+  "note": ""
+ },
+ "070900010803": {
+  "subwatershed": "Stony Brook",
+  "note": ""
+ },
+ "070900020504": {
+  "subwatershed": "Cherokee Lake-Yahara River",
+  "note": ""
+ },
+ "070900020503": {
+  "subwatershed": "Token Creek",
+  "note": ""
+ },
+ "070900020502": {
+  "subwatershed": "One Hundred Mile Grove Cemetery",
+  "note": ""
+ },
+ "070900020501": {
+  "subwatershed": "Goose Lake-Yahara River",
+  "note": ""
+ },
+ "070900040102": {
+  "subwatershed": "Primrose Branch-West Branch Sugar River",
+  "note": ""
+ },
+ "070900040103": {
+  "subwatershed": "West Branch Sugar River",
+  "note": ""
+ },
+ "070900040101": {
+  "subwatershed": "Mount Vernon Creek",
+  "note": ""
+ },
+ "070900020801": {
+  "subwatershed": "Oregon Branch",
+  "note": ""
+ },
+ "070900020802": {
+  "subwatershed": "Rutland Branch-Badfish Creek",
+  "note": ""
+ },
+ "070900020803": {
+  "subwatershed": "Badfish Creek",
+  "note": ""
+ },
+ "070700050303": {
+  "subwatershed": "Dunbar Creek-Wisconsin River",
+  "note": ""
+ },
+ "070700050301": {
+  "subwatershed": "Roxbury Creek",
+  "note": ""
+ },
+ "070700050302": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "070900030501": {
+  "subwatershed": "Pleasant Valley Branch",
+  "note": ""
+ },
+ "070900030502": {
+  "subwatershed": "Blue Mounds Branch",
+  "note": ""
+ },
+ "070900021005": {
+  "subwatershed": "Saunders Creek",
+  "note": ""
+ },
+ "070900021003": {
+  "subwatershed": "Lake Koshkonong-Rock River",
+  "note": ""
+ },
+ "070900021002": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "070900021001": {
+  "subwatershed": "Fort Atkinson-Rock River",
+  "note": ""
+ },
+ "070900021004": {
+  "subwatershed": "City of Milton",
+  "note": ""
+ },
+ "070900021006": {
+  "subwatershed": "Town of Newville-Rock River",
+  "note": ""
+ },
+ "070900040501": {
+  "subwatershed": "Story Creek",
+  "note": ""
+ },
+ "070900040502": {
+  "subwatershed": "Ross Crossing Creek-Sugar River",
+  "note": ""
+ },
+ "070900040503": {
+  "subwatershed": "Gill Creek-Sugar River",
+  "note": ""
+ },
+ "070700050601": {
+  "subwatershed": "East Branch Blue Mounds Creek",
+  "note": ""
+ },
+ "070700050603": {
+  "subwatershed": "Blue Mounds Creek",
+  "note": ""
+ },
+ "070700050602": {
+  "subwatershed": "West Branch Blue Mounds Creek",
+  "note": ""
+ },
+ "070700050204": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "070700050206": {
+  "subwatershed": "Prairie Du Sac 1907c189 Dam-Wisconsin River",
+  "note": ""
+ },
+ "070700050202": {
+  "subwatershed": "Rowan Creek",
+  "note": ""
+ },
+ "070700050205": {
+  "subwatershed": "Prentice Creek-Wisconsin River",
+  "note": ""
+ },
+ "070700050203": {
+  "subwatershed": "Whalen Bay-Wisconsin River",
+  "note": ""
+ },
+ "070700050201": {
+  "subwatershed": "Hinkson Creek",
+  "note": ""
+ },
+ "070900011001": {
+  "subwatershed": "Nolan Creek-Crawfish River",
+  "note": ""
+ },
+ "070900011002": {
+  "subwatershed": "Mud Creek-Crawfish River",
+  "note": ""
+ },
+ "070900011004": {
+  "subwatershed": "Chub Lake-Crawfish River",
+  "note": ""
+ },
+ "070900011003": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ },
+ "070900011005": {
+  "subwatershed": "Crawfish River",
+  "note": ""
+ },
+ "070900040402": {
+  "subwatershed": "Ward Creek-Little Sugar River",
+  "note": ""
+ },
+ "070900040401": {
+  "subwatershed": "West Branch Little Sugar River",
+  "note": ""
+ },
+ "070900040404": {
+  "subwatershed": "Little Sugar River",
+  "note": ""
+ },
+ "070900040403": {
+  "subwatershed": "Burgy Creek",
+  "note": ""
+ },
+ "070900040301": {
+  "subwatershed": "City of Evansville-Allen Creek",
+  "note": ""
+ },
+ "070900040302": {
+  "subwatershed": "Allen Creek",
+  "note": ""
+ },
+ "070700051201": {
+  "subwatershed": "Marsh Creek-Wisconsin River",
+  "note": ""
+ },
+ "070700051205": {
+  "subwatershed": "Cruson Slough-Wisconsin River",
+  "note": ""
+ },
+ "070700051202": {
+  "subwatershed": "Wilson Creek-Wisconsin River",
+  "note": ""
+ },
+ "070700051204": {
+  "subwatershed": "Rush Creek",
+  "note": ""
+ },
+ "070700051207": {
+  "subwatershed": "Avoca Lake-Wisconsin River",
+  "note": ""
+ },
+ "070700051206": {
+  "subwatershed": "Morrey Creek",
+  "note": ""
+ },
+ "070700051203": {
+  "subwatershed": "Lowery Creek",
+  "note": ""
+ },
+ "070900010701": {
+  "subwatershed": "Headwaters Crawfish River",
+  "note": ""
+ },
+ "070900010702": {
+  "subwatershed": "Headwaters North Branch Crawfish River",
+  "note": ""
+ },
+ "070900010703": {
+  "subwatershed": "North Branch Crawfish River",
+  "note": ""
+ },
+ "070900010704": {
+  "subwatershed": "Robbins Creek-Crawfish River",
+  "note": ""
+ },
+ "070900030602": {
+  "subwatershed": "Williams-Barneveld Creek-East Branch Pecatonica River",
+  "note": ""
+ },
+ "070900030601": {
+  "subwatershed": "Ridgeway Branch",
+  "note": ""
+ },
+ "070900030603": {
+  "subwatershed": "Olson Creek-East Branch Pecatonica River",
+  "note": ""
+ }
+}

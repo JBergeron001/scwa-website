@@ -1,0 +1,227 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Cuyahoga County",
+  "note": ""
+ },
+ "0411000206": {
+  "watershed": "Big Creek-Cuyahoga River",
+  "note": ""
+ },
+ "0411000102": {
+  "watershed": "Rocky River-Frontal Lake Erie",
+  "note": ""
+ },
+ "0411000305": {
+  "watershed": "Euclid Creek-Frontal Lake Erie",
+  "note": ""
+ },
+ "0411000205": {
+  "watershed": "Tinkers Creek-Cuyahoga River",
+  "note": ""
+ },
+ "0411000304": {
+  "watershed": "East Branch Chagrin River-Chagrin River",
+  "note": ""
+ },
+ "0411000101": {
+  "watershed": "West Branch Rocky River",
+  "note": ""
+ },
+ "0411000303": {
+  "watershed": "Aurora Branch-Chagrin River",
+  "note": ""
+ },
+ "0411000106": {
+  "watershed": "Black River-Frontal Lake Erie",
+  "note": ""
+ },
+ "0411000204": {
+  "watershed": "Yellow Creek-Cuyahoga River",
+  "note": ""
+ },
+ "0411000104": {
+  "watershed": "East Branch Black River",
+  "note": ""
+ },
+ "041100020603": {
+  "subwatershed": "Big Creek",
+  "note": ""
+ },
+ "041100020605": {
+  "subwatershed": "City of Cleveland-Cuyahoga River",
+  "note": ""
+ },
+ "041100020601": {
+  "subwatershed": "Mill Creek",
+  "note": ""
+ },
+ "041100020604": {
+  "subwatershed": "Town of Cuyahoga Heights-Cuyahoga River",
+  "note": ""
+ },
+ "041100020602": {
+  "subwatershed": "Village of Independence-Cuyahoga River",
+  "note": ""
+ },
+ "041100010202": {
+  "subwatershed": "Baldwin Creek-East Branch Rocky River",
+  "note": ""
+ },
+ "041100010204": {
+  "subwatershed": "Cahoon Creek-Frontal Lake Erie",
+  "note": ""
+ },
+ "041100010203": {
+  "subwatershed": "Rocky River",
+  "note": ""
+ },
+ "041100010201": {
+  "subwatershed": "Headwaters East Branch Rocky River",
+  "note": ""
+ },
+ "041100030504": {
+  "subwatershed": "Doan Brook-Frontal Lake Erie",
+  "note": ""
+ },
+ "041100030503": {
+  "subwatershed": "Euclid Creek",
+  "note": ""
+ },
+ "041100030502": {
+  "subwatershed": "City of Euclid-Frontal Lake Erie",
+  "note": ""
+ },
+ "041100030501": {
+  "subwatershed": "Marsh Creek",
+  "note": ""
+ },
+ "041100020504": {
+  "subwatershed": "Town of Twinsburg-Tinkers Creek",
+  "note": ""
+ },
+ "041100020503": {
+  "subwatershed": "Headwaters Chippewa Creek",
+  "note": ""
+ },
+ "041100020505": {
+  "subwatershed": "Willow Lake-Cuyahoga River",
+  "note": ""
+ },
+ "041100020501": {
+  "subwatershed": "Pond Brook",
+  "note": ""
+ },
+ "041100020502": {
+  "subwatershed": "Headwaters Tinkers Creek",
+  "note": ""
+ },
+ "041100030402": {
+  "subwatershed": "Griswold Creek-Chagrin River",
+  "note": ""
+ },
+ "041100030401": {
+  "subwatershed": "East Branch Chagrin River",
+  "note": ""
+ },
+ "041100030403": {
+  "subwatershed": "Town of Willoughby-Chagrin River",
+  "note": ""
+ },
+ "041100010108": {
+  "subwatershed": "Baker Creek-West Branch Rocky River",
+  "note": ""
+ },
+ "041100010106": {
+  "subwatershed": "Cossett Creek-West Branch Rocky River",
+  "note": ""
+ },
+ "041100010107": {
+  "subwatershed": "City of Olmsted Falls-Plum Creek",
+  "note": ""
+ },
+ "041100010105": {
+  "subwatershed": "City of Medina-West Branch Rocky River",
+  "note": ""
+ },
+ "041100010102": {
+  "subwatershed": "North Branch West Branch Rocky River",
+  "note": ""
+ },
+ "041100010103": {
+  "subwatershed": "Headwaters West Branch Rocky River",
+  "note": ""
+ },
+ "041100010104": {
+  "subwatershed": "Mallet Creek",
+  "note": ""
+ },
+ "041100010101": {
+  "subwatershed": "Lake Brunswick-Plum Creek",
+  "note": ""
+ },
+ "041100030303": {
+  "subwatershed": "McFarland Creek-Aurora Branch",
+  "note": ""
+ },
+ "041100030304": {
+  "subwatershed": "Beaver Creek-Chagrin River",
+  "note": ""
+ },
+ "041100030302": {
+  "subwatershed": "Headwaters Aurora Branch",
+  "note": ""
+ },
+ "041100030301": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "041100010601": {
+  "subwatershed": "French Creek",
+  "note": ""
+ },
+ "041100010603": {
+  "subwatershed": "Heider Ditch-Frontal Lake Erie",
+  "note": ""
+ },
+ "041100010602": {
+  "subwatershed": "Black River",
+  "note": ""
+ },
+ "041100020403": {
+  "subwatershed": "Furnace Run",
+  "note": ""
+ },
+ "041100020405": {
+  "subwatershed": "Boston Run-Cuyahoga River",
+  "note": ""
+ },
+ "041100020404": {
+  "subwatershed": "Brandywine Creek",
+  "note": ""
+ },
+ "041100020402": {
+  "subwatershed": "Yellow Creek",
+  "note": ""
+ },
+ "041100020401": {
+  "subwatershed": "Mud Brook",
+  "note": ""
+ },
+ "041100010403": {
+  "subwatershed": "Willow Creek",
+  "note": ""
+ },
+ "041100010401": {
+  "subwatershed": "Town of Litchfield-East Branch Black River",
+  "note": ""
+ },
+ "041100010402": {
+  "subwatershed": "Salt Creek-East Branch Black River",
+  "note": ""
+ },
+ "041100010404": {
+  "subwatershed": "Jackson Ditch-East Branch Black River",
+  "note": ""
+ }
+}

@@ -278,11 +278,15 @@ function build(D,kind){
     for(const m of [k-1,k+1,k-NX,k+NX]){if(!inC(m)||!S[m])continue;if(S[m]!==S[k]){B12[k]=1;if(grpOf(S[m])!==grpOf(S[k]))B10[k]=1}}}
   const INC=new Uint8Array(N);{const R=isCounty?1:0;for(let i=R;i<NY-R;i++)for(let j=R;j<NX-R;j++){const k=i*NX+j;if(!((P[k]>>5)&1))continue;for(let a=-R;a<=R;a++)for(let b=-R;b<=R;b++)if(inC(k+a*NX+b))INC[k+a*NX+b]=1}}
   // big rivers and large lakes: connected open water covering more than about 1.5 sq km
-  const BIG=new Uint8Array(N),wcomp=new Int32Array(N).fill(-1),bigNames=new Map();
+  const BIG=new Uint8Array(N),RIB=new Uint8Array(N),wcomp=new Int32Array(N).fill(-1),bigNames=new Map();
   {const CNa=D.cn?b64(D.cn):null,minCells=1.5/(D.cellkm*D.cellkm);let id=0;
    for(let k0=0;k0<N;k0++){if(!inC(k0)||cls(k0)!==1||wcomp[k0]>=0)continue;const cells=[k0],st=[k0];wcomp[k0]=id;
      while(st.length){const c=st.pop(),ci=(c/NX)|0,cj=c%NX;for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const ii=ci+a,jj=cj+b;if(ii<0||jj<0||ii>=NY||jj>=NX)continue;const m=ii*NX+jj;if(wcomp[m]<0&&inC(m)&&cls(m)===1){wcomp[m]=id;st.push(m);cells.push(m)}}}
      if(cells.length>=minCells){for(const c of cells)BIG[c]=1;
+       // ribbon only where this river runs along the map edge for 6 km or more (not where a river just crosses it)
+       let en=0;const seen=new Set();for(const c of cells){const ci=(c/NX)|0,cj=c%NX;for(let a=-2;a<=2;a++)for(let b=-2;b<=2;b++){const ii=ci+a,jj=cj+b;if(ii<0||jj<0||ii>=NY||jj>=NX)continue;const m=ii*NX+jj;
+         if(seen.has(m)||!inC(m))continue;if(ii===0||jj===0||ii===NY-1||jj===NX-1||!inC(m-1)||!inC(m+1)||!inC(m-NX)||!inC(m+NX)){seen.add(m);en++}}}
+       if(en*D.cellkm>=6)for(const c of cells)RIB[c]=1;
        if(CNa){for(const c of cells){if(!CNa[c])continue;const nm=D.creeks[CNa[c]-1];if(!/River/.test(nm))continue;if(!bigNames.has(nm))bigNames.set(nm,[]);bigNames.get(nm).push(c)}}}
      id++}}
   const cs=W/(Math.max(NX,NY)-1),kmU=D.cellkm/cs,lo=D.hlo,hi=D.hhi,BASE=lo-(hi-lo)*.12;
@@ -305,7 +309,7 @@ function build(D,kind){
   function wall(k1,k2){for(let L=0;L<strata.length-1;L++){const s0=strata[L],s1=strata[L+1],c=C(s0[2]);
     const v=[[pos[k1*3],pos[k1*3+2],k1,s0],[pos[k2*3],pos[k2*3+2],k2,s0],[pos[k1*3],pos[k1*3+2],k1,s1],[pos[k2*3],pos[k2*3+2],k2,s1]];
     for(const t of [0,2,1,1,2,3]){const p=v[t];wp.push(p[0],0,p[1]);wc.push(c.r,c.g,c.b);wK.push(p[2]);wA.push(p[3][0]);wB.push(p[3][1])}}}
-  const rp2=[],rK=[],rD=[],RW=isCounty?1.7:2.6,near=k=>{const i=(k/NX)|0,j=k%NX;for(let a=-2;a<=2;a++)for(let b=-2;b<=2;b++){const ii=i+a,jj=j+b;if(ii>=0&&jj>=0&&ii<NY&&jj<NX&&BIG[ii*NX+jj])return ii*NX+jj}return -1};
+  const rp2=[],rK=[],rD=[],RW=isCounty?1.7:2.6,near=k=>{const i=(k/NX)|0,j=k%NX;for(let a=-2;a<=2;a++)for(let b=-2;b<=2;b++){const ii=i+a,jj=j+b;if(ii>=0&&jj>=0&&ii<NY&&jj<NX&&RIB[ii*NX+jj])return ii*NX+jj}return -1};
   function rib(k1,k2,ox,oz){let w1=near(k1),w2=near(k2);if(w1<0&&w2<0)return;if(w1<0)w1=w2;if(w2<0)w2=w1;const ex=cs*.5,dx=pos[k2*3]-pos[k1*3],dz=pos[k2*3+2]-pos[k1*3+2],L=Math.hypot(dx,dz)||1,ux=dx/L*ex,uz=dz/L*ex;
     const x1=pos[k1*3]-ux,z1=pos[k1*3+2]-uz,x2=pos[k2*3]+ux,z2=pos[k2*3+2]+uz,v=[[x1,z1,0],[x2,z2,0],[x1+ox*RW,z1+oz*RW,1],[x2+ox*RW,z2+oz*RW,1],[x1+ox*RW,z1+oz*RW,2],[x2+ox*RW,z2+oz*RW,2]];
     for(const t of [0,2,1,1,2,3,2,4,3,3,4,5]){const p=v[t];rp2.push(p[0],0,p[1]);rK.push(t%2===0?w1:w2);rD.push(p[2])}}

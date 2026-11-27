@@ -1,0 +1,423 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Kent County",
+  "note": ""
+ },
+ "0405000605": {
+  "watershed": "Rush Creek-Grand River",
+  "note": ""
+ },
+ "0405000604": {
+  "watershed": "Rogue River",
+  "note": ""
+ },
+ "0405000602": {
+  "watershed": "Flat River",
+  "note": ""
+ },
+ "0405000704": {
+  "watershed": "Lower Thornapple River",
+  "note": ""
+ },
+ "0405000601": {
+  "watershed": "Coopers Creek-Flat River",
+  "note": ""
+ },
+ "0405000703": {
+  "watershed": "Coldwater River",
+  "note": ""
+ },
+ "0405000603": {
+  "watershed": "Prairie Creek-Grand River",
+  "note": ""
+ },
+ "0405000607": {
+  "watershed": "Grand River",
+  "note": ""
+ },
+ "0405000308": {
+  "watershed": "Rabbit River",
+  "note": ""
+ },
+ "0405000606": {
+  "watershed": "Crockery Creek",
+  "note": ""
+ },
+ "040500060502": {
+  "subwatershed": "Egypt Creek-Grand River",
+  "note": ""
+ },
+ "040500060507": {
+  "subwatershed": "Lamberton Creek-Grand River",
+  "note": ""
+ },
+ "040500060501": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "040500060506": {
+  "subwatershed": "Plaster Creek",
+  "note": ""
+ },
+ "040500060510": {
+  "subwatershed": "Buck Creek",
+  "note": ""
+ },
+ "040500060505": {
+  "subwatershed": "Headwaters Plaster Creek",
+  "note": ""
+ },
+ "040500060512": {
+  "subwatershed": "Town of Walker-Grand River",
+  "note": ""
+ },
+ "040500060508": {
+  "subwatershed": "Sharps Creek-Buck Creek",
+  "note": ""
+ },
+ "040500060503": {
+  "subwatershed": "Mill Creek",
+  "note": ""
+ },
+ "040500060504": {
+  "subwatershed": "Indian Mill Creek",
+  "note": ""
+ },
+ "040500060509": {
+  "subwatershed": "East Branch Rush Creek",
+  "note": ""
+ },
+ "040500060511": {
+  "subwatershed": "Rush Creek",
+  "note": ""
+ },
+ "040500060408": {
+  "subwatershed": "Stegman Creek-Rogue River",
+  "note": ""
+ },
+ "040500060406": {
+  "subwatershed": "Cedar Creek",
+  "note": ""
+ },
+ "040500060402": {
+  "subwatershed": "Duke Creek",
+  "note": ""
+ },
+ "040500060403": {
+  "subwatershed": "Spring Creek-Rogue River",
+  "note": ""
+ },
+ "040500060407": {
+  "subwatershed": "Freska Lake-Rogue River",
+  "note": ""
+ },
+ "040500060405": {
+  "subwatershed": "Ball Creek-Rogue River",
+  "note": ""
+ },
+ "040500060404": {
+  "subwatershed": "Nash Creek",
+  "note": ""
+ },
+ "040500060401": {
+  "subwatershed": "Hickory Creek-Rogue River",
+  "note": ""
+ },
+ "040500060201": {
+  "subwatershed": "Wabasis Creek",
+  "note": ""
+ },
+ "040500060209": {
+  "subwatershed": "Page Creek-Flat River",
+  "note": ""
+ },
+ "040500060207": {
+  "subwatershed": "Seely Creek",
+  "note": ""
+ },
+ "040500060202": {
+  "subwatershed": "County Farm Pond-Dickerson Creek",
+  "note": ""
+ },
+ "040500060206": {
+  "subwatershed": "Sanderson Lake-Flat River",
+  "note": ""
+ },
+ "040500060204": {
+  "subwatershed": "Long Lake",
+  "note": ""
+ },
+ "040500060208": {
+  "subwatershed": "Honey Lake-Flat River",
+  "note": ""
+ },
+ "040500060205": {
+  "subwatershed": "Dickerson Creek",
+  "note": ""
+ },
+ "040500060203": {
+  "subwatershed": "Twin Lakes-Dickerson Creek",
+  "note": ""
+ },
+ "040500070407": {
+  "subwatershed": "McCords Creek-Thornapple River",
+  "note": ""
+ },
+ "040500070408": {
+  "subwatershed": "Thornapple River",
+  "note": ""
+ },
+ "040500070405": {
+  "subwatershed": "Duncan Creek",
+  "note": ""
+ },
+ "040500070406": {
+  "subwatershed": "Turner Creek-Thornapple River",
+  "note": ""
+ },
+ "040500070404": {
+  "subwatershed": "Algonquin Lake-Thornapple River",
+  "note": ""
+ },
+ "040500070403": {
+  "subwatershed": "Glass Creek",
+  "note": ""
+ },
+ "040500070402": {
+  "subwatershed": "Butler Creek-Thornapple River",
+  "note": ""
+ },
+ "040500070401": {
+  "subwatershed": "Fall Creek",
+  "note": ""
+ },
+ "040500060108": {
+  "subwatershed": "Coopers Creek",
+  "note": ""
+ },
+ "040500060106": {
+  "subwatershed": "Alder Creek Drain-Black Creek",
+  "note": ""
+ },
+ "040500060107": {
+  "subwatershed": "Clear Creek",
+  "note": ""
+ },
+ "040500060109": {
+  "subwatershed": "Perch Lake-Flat River",
+  "note": ""
+ },
+ "040500060103": {
+  "subwatershed": "Townline Creek-Flat River",
+  "note": ""
+ },
+ "040500060104": {
+  "subwatershed": "Mud Lake-Flat River",
+  "note": ""
+ },
+ "040500060102": {
+  "subwatershed": "Fifth Lake",
+  "note": ""
+ },
+ "040500060101": {
+  "subwatershed": "Clear Lake-Black Creek",
+  "note": ""
+ },
+ "040500060105": {
+  "subwatershed": "Hunter Lake-Flat River",
+  "note": ""
+ },
+ "040500070307": {
+  "subwatershed": "Bullhead Drain-Coldwater River",
+  "note": ""
+ },
+ "040500070305": {
+  "subwatershed": "Pratt Lake Creek",
+  "note": ""
+ },
+ "040500070306": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "040500070304": {
+  "subwatershed": "Duck Creek",
+  "note": ""
+ },
+ "040500070303": {
+  "subwatershed": "Messer Brook-Coldwater River",
+  "note": ""
+ },
+ "040500070301": {
+  "subwatershed": "Jordan Lake-Little Thornapple River",
+  "note": ""
+ },
+ "040500070302": {
+  "subwatershed": "Woodland Creek-Little Thornapple River",
+  "note": ""
+ },
+ "040500060313": {
+  "subwatershed": "Lee Creek-Grand River",
+  "note": ""
+ },
+ "040500060312": {
+  "subwatershed": "Toles Creek-Grand River",
+  "note": ""
+ },
+ "040500060309": {
+  "subwatershed": "Bellemy Creek-Grand River",
+  "note": ""
+ },
+ "040500060301": {
+  "subwatershed": "Taylor Drain-Libhart Creek",
+  "note": ""
+ },
+ "040500060304": {
+  "subwatershed": "Pickerel Lake-Prairie Creek",
+  "note": ""
+ },
+ "040500060303": {
+  "subwatershed": "Bacon Creek-Prairie Creek",
+  "note": ""
+ },
+ "040500060311": {
+  "subwatershed": "Lake Creek",
+  "note": ""
+ },
+ "040500060306": {
+  "subwatershed": "Prairie Creek",
+  "note": ""
+ },
+ "040500060310": {
+  "subwatershed": "Crooked Creek-Grand River",
+  "note": ""
+ },
+ "040500060302": {
+  "subwatershed": "Libhart Creek",
+  "note": ""
+ },
+ "040500060308": {
+  "subwatershed": "Sessions Creek",
+  "note": ""
+ },
+ "040500060305": {
+  "subwatershed": "Bow Pond",
+  "note": ""
+ },
+ "040500060307": {
+  "subwatershed": "Dry Creek-Grand River",
+  "note": ""
+ },
+ "040500060701": {
+  "subwatershed": "East Fork",
+  "note": ""
+ },
+ "040500060705": {
+  "subwatershed": "Ottawa Creek-Grand River",
+  "note": ""
+ },
+ "040500060703": {
+  "subwatershed": "Sand Creek",
+  "note": ""
+ },
+ "040500060712": {
+  "subwatershed": "Lloyd Bayou-Grand River",
+  "note": ""
+ },
+ "040500060704": {
+  "subwatershed": "Dear Creek",
+  "note": ""
+ },
+ "040500060707": {
+  "subwatershed": "Bass River",
+  "note": ""
+ },
+ "040500060711": {
+  "subwatershed": "Spring Lake",
+  "note": ""
+ },
+ "040500060710": {
+  "subwatershed": "Norris Creek",
+  "note": ""
+ },
+ "040500060706": {
+  "subwatershed": "Bass Creek",
+  "note": ""
+ },
+ "040500060702": {
+  "subwatershed": "Headwaters Sand Creek",
+  "note": ""
+ },
+ "040500060708": {
+  "subwatershed": "Jubb Bayou-Grand River",
+  "note": ""
+ },
+ "040500060709": {
+  "subwatershed": "Pottawatomie Bayou",
+  "note": ""
+ },
+ "040500030806": {
+  "subwatershed": "Headwaters Little Rabbit River",
+  "note": ""
+ },
+ "040500030801": {
+  "subwatershed": "Green Lake Creek",
+  "note": ""
+ },
+ "040500030809": {
+  "subwatershed": "Black Creek",
+  "note": ""
+ },
+ "040500030811": {
+  "subwatershed": "Stink Lake-Rabbit River",
+  "note": ""
+ },
+ "040500030808": {
+  "subwatershed": "Pigeon Creek-Rabbit River",
+  "note": ""
+ },
+ "040500030803": {
+  "subwatershed": "Miller Creek",
+  "note": ""
+ },
+ "040500030807": {
+  "subwatershed": "Little Rabbit River",
+  "note": ""
+ },
+ "040500030802": {
+  "subwatershed": "Fales Drain-Rabbit River",
+  "note": ""
+ },
+ "040500030810": {
+  "subwatershed": "Silver Creek-Rabbit River",
+  "note": ""
+ },
+ "040500030804": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "040500030805": {
+  "subwatershed": "Buskirk Creek-Rabbit River",
+  "note": ""
+ },
+ "040500060601": {
+  "subwatershed": "North Branch Crockery Creek",
+  "note": ""
+ },
+ "040500060602": {
+  "subwatershed": "Eastland Drain-Crockery Creek",
+  "note": ""
+ },
+ "040500060605": {
+  "subwatershed": "Brandy Creek-Crockery Creek",
+  "note": ""
+ },
+ "040500060603": {
+  "subwatershed": "Rio Grande Creek-Crockery Creek",
+  "note": ""
+ },
+ "040500060604": {
+  "subwatershed": "Lawrence Drain-Crockery Creek",
+  "note": ""
+ }
+}
