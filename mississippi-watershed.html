@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mississippi River Basin 3D Map - Mid-America Watershed.Org</title>
+<meta name="description" content="Interactive 3D map of the Mississippi River Basin: its six great regions, 84 subregions, rivers, and how long rain takes to reach the Gulf of Mexico. From Mid-America Watershed.Org.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#173B6B;--navy-2:#0F2A4E;--river:#2C7FB8;--river-deep:#1B5E8C;--land:#2F7D34;--land-deep:#1C5E22;--sun:#E39A2A;--pink:#b3206f;
+ --ink:#15243B;--ink-soft:#54637C;--paper:#FBFAF6;--surface:#fff;--sky:#EAF3FA;--line:#E2E7EE;--r:16px;--r-sm:11px;
+ --sans:"Public Sans",system-ui,sans-serif;--serif:"Fraunces",Georgia,serif;--shadow:0 1px 2px rgba(21,36,59,.05),0 10px 30px rgba(21,36,59,.08)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--river-deep)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.01em}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.top{display:flex;align-items:center;gap:14px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.top .home{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font-weight:700}
+.top .home img{width:38px;height:38px}
+.top .crumbs{font-size:14px;color:var(--ink-soft);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top .crumbs a{text-decoration:none;font-weight:600}
+.top .lib{font-weight:600;font-size:14px;text-decoration:none;padding:8px 14px;border-radius:10px;border:1px solid var(--line);color:var(--navy);white-space:nowrap}
+.wrap{max-width:1440px;margin:0 auto;padding:18px 20px 40px}
+.head h1{font-size:clamp(22px,3vw,32px);color:var(--navy)}
+.head p{margin:2px 0 12px;color:var(--ink-soft)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start}
+@media (max-width:980px){.layout{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+/* map card: stage + controls (goes full screen together) */
+.mapcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.mapcard.fs{position:fixed;inset:0;z-index:100;border-radius:0;border:0}
+.stage{position:relative;height:min(68vh,700px);min-height:420px;background:radial-gradient(120% 90% at 50% 0%,#f4f9fd 0%,#dcebf6 55%,#c9dcec 100%);touch-action:none;overflow:hidden}
+.mapcard.fs .stage{flex:1;height:auto}
+.stage canvas{display:block;width:100%;height:100%;cursor:grab}
+.stage canvas:active{cursor:grabbing}
+.loading{position:absolute;inset:0;display:grid;place-items:center;font-weight:600;color:var(--navy);background:rgba(234,243,250,.75);z-index:8}
+.loading[hidden]{display:none}
+/* brand: prominent, clickable, slightly 3D */
+.mawa-brand{position:absolute;top:14px;left:14px;z-index:20;display:block;width:clamp(78px,10vw,120px);aspect-ratio:300/302;perspective:600px;text-decoration:none}
+.mawa-brand .disc{position:absolute;inset:0;border-radius:50%;transform:rotateX(10deg) rotateY(-12deg);transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.8,.2,1);background:#fff;
+ box-shadow:0 1px 0 #fff inset,0 -3px 6px rgba(15,42,78,.18) inset,0 2px 0 #d6dee8,0 4px 0 #b9c6d6,0 6px 0 #9fb0c5,0 12px 18px rgba(15,42,78,.35),0 22px 34px rgba(15,42,78,.18)}
+.mawa-brand img{position:absolute;inset:5%;width:90%;height:90%;border-radius:50%;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
+.mawa-brand .disc::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;background:radial-gradient(70% 45% at 35% 18%,rgba(255,255,255,.75),rgba(255,255,255,0) 60%)}
+.mawa-brand:hover .disc,.mawa-brand:focus-visible .disc{transform:rotateX(0) rotateY(0) translateZ(14px) scale(1.04)}
+.mawa-brand .tag{position:absolute;left:50%;top:100%;transform:translate(-50%,8px);white-space:nowrap;font-size:11px;font-weight:700;color:#fff;background:var(--navy);padding:3px 9px;border-radius:20px;box-shadow:0 3px 8px rgba(15,42,78,.3)}
+@media (max-width:600px){.mawa-brand .tag{left:0;transform:translateY(6px);font-size:9.5px}}
+.cap{position:absolute;top:14px;right:14px;z-index:6;background:rgba(255,255,255,.93);backdrop-filter:blur(6px);border-radius:12px;padding:8px 12px;font-size:12.5px;color:var(--ink-soft);
+ max-width:min(46%,360px);text-align:right;box-shadow:var(--shadow)}
+.cap b{display:block;color:var(--navy);font-size:15px;font-family:var(--serif);line-height:1.25}
+.stbtn{position:absolute;z-index:7;font:600 13px var(--sans);background:rgba(255,255,255,.95);color:var(--navy);border:1px solid var(--line);border-radius:10px;padding:7px 11px;
+ display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 6px rgba(15,42,78,.12);cursor:pointer}
+.stbtn svg{width:15px;height:15px}
+.stbtn[hidden]{display:none}
+#back{left:12px;bottom:12px}#reset{left:12px;bottom:12px}#back:not([hidden])~#reset{left:150px}
+#fsb{right:12px;bottom:12px}
+.hint{position:absolute;left:12px;bottom:56px;z-index:6;font-size:12px;color:var(--ink-soft);background:rgba(255,255,255,.85);padding:3px 8px;border-radius:8px;pointer-events:none}
+.tip{position:absolute;z-index:9;pointer-events:none;background:var(--navy-2);color:#fff;font-size:12.5px;font-weight:600;padding:5px 9px;border-radius:8px;transform:translate(-50%,calc(-100% - 12px));white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.tip small{display:block;font-weight:400;opacity:.85}
+.tip[hidden]{display:none}
+.lab{position:absolute;z-index:5;pointer-events:none;font-size:11.5px;font-weight:700;color:#3b2a4a;transform:translate(-50%,-50%);white-space:nowrap;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 6px #fff}
+.lab.city::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--pink);margin-right:4px;vertical-align:1px;box-shadow:0 0 0 1.5px #fff}
+.lab.river{color:#0b3d91;font-style:italic;font-size:13px;letter-spacing:.02em}
+.lab.road{font-size:10.5px;color:#fff;background:#6b5b45;padding:1px 6px;border-radius:4px;text-shadow:none;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.lab.road.i{background:#1f4f9a}
+.mk{position:absolute;z-index:4;width:9px;height:9px;border-radius:50%;transform:translate(-50%,-50%);border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.18);background:var(--dot);pointer-events:auto;cursor:help}
+.mk.park,.mk.landmark{width:13px;height:16px;border:0;border-radius:0;background:none;box-shadow:none;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35));transform:translate(-50%,-90%)}
+.mk.landmark{width:14px;height:19px}
+.mk .pinlab{position:absolute;left:15px;top:0;white-space:nowrap;font:700 11px var(--sans);color:#4a2f00;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 5px #fff;pointer-events:none}
+.mk.park .pinlab{color:#0b4f22}
+.clock{position:absolute;z-index:12;pointer-events:none;transform:translate(-50%,calc(-100% - 14px));background:#0b3d91;color:#fff;font:700 12.5px var(--sans);padding:3px 8px;border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,.3);white-space:nowrap}
+.clock small{font-weight:500;opacity:.85;margin-left:4px}
+.clock[hidden]{display:none}
+.mk.park svg{display:block;width:100%;height:100%}
+.mk.school{--dot:#e0a400}.mk.college{--dot:#7b4fa3}.mk.hospital{--dot:#d32f2f}.mk.fire{--dot:#f06a1d}.mk.cityhall{--dot:#2b5fb4}
+.pin{position:absolute;z-index:11;width:22px;height:30px;transform:translate(-50%,-100%);pointer-events:none}
+.story{position:relative;background:#eef8fc;border-left:4px solid #00a6d6;border-radius:10px;padding:9px 34px 9px 13px}
+.story b{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#0083ad}
+.story p{margin:2px 0 0;font-size:13px;line-height:1.45}
+.story .follow{position:static;width:auto;height:auto;margin-top:7px;font:700 13px var(--sans);color:#fff;background:#0083ad;border-radius:8px;padding:6px 11px}
+.story .follow[hidden]{display:none}
+.story button#sclose{position:absolute;right:4px;top:4px;width:28px;height:28px;border:0;background:none;font-size:20px;line-height:1;color:var(--ink-soft);cursor:pointer}
+.story[hidden]{display:none}
+/* controls under the map */
+.controls{padding:10px 12px 12px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:9px;background:var(--surface)}
+.row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.row label{font-weight:700;font-size:13px;color:var(--navy)}
+.ex{display:flex;align-items:center;gap:8px}
+.ex input{width:120px;accent-color:var(--river)}
+.ex output{font:600 13px var(--sans);color:var(--ink-soft);min-width:34px}
+.pick{display:flex;align-items:center;gap:8px;flex:1 1 260px}
+.pick select{flex:1;min-width:0;font:500 14px var(--sans);padding:7px 9px;border:1px solid #cfd9e5;border-radius:9px;background:#fff;color:var(--ink)}
+.find{display:flex;gap:6px;flex:1 1 320px}
+.find input{flex:1;min-width:0;font:15px var(--sans);padding:7px 12px;border:2px solid var(--navy);border-radius:20px;color:var(--ink)}
+.find button{font:700 13px var(--sans);padding:7px 14px;border:0;border-radius:20px;background:var(--navy);color:#fff;cursor:pointer}
+.fmsg{font-size:12.5px;color:var(--pink);margin:0;flex-basis:100%}
+.fmsg:empty{display:none}
+.tg{display:flex;flex-wrap:wrap;gap:6px}
+.tg button,.out button{font:600 12.5px var(--sans);background:#fff;color:var(--navy);border:1px solid #cfd9e5;border-radius:18px;padding:5px 11px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.tg button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tg button[data-k=lock][aria-pressed="true"]{background:var(--pink);border-color:var(--pink)}
+.out{display:flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+.out button{border-radius:10px;padding:6px 11px}
+.out svg{width:14px;height:14px}
+.mapcard.fs .controls{max-height:42vh;overflow:auto}
+@media (max-width:600px){.mapcard.fs .tg{flex-wrap:nowrap;overflow-x:auto}}
+/* side panel */
+.side{padding:16px 16px 12px;display:flex;flex-direction:column;gap:12px}
+.side .kick{font-size:12px;font-weight:700;color:var(--land-deep);text-transform:uppercase;letter-spacing:.05em}
+.side h2{font-size:21px;color:var(--navy)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stat{background:var(--sky);border-radius:10px;padding:8px 10px}
+.stat b{display:block;font-size:17px;color:var(--navy)}
+.stat span{font-size:12px;color:var(--ink-soft)}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+.list button{width:100%;text-align:left;font:500 14px var(--sans);color:var(--ink);background:none;border:1px solid transparent;border-radius:10px;padding:6px 9px;display:flex;align-items:center;gap:9px;cursor:pointer}
+.list button:hover,.list button.on{background:var(--sky);border-color:#d3e3f1}
+.list .sw{width:12px;height:12px;border-radius:4px;flex:none}
+.list .ar{margin-left:auto;font-size:12px;color:var(--ink-soft);white-space:nowrap}
+.note{font-size:13px;color:var(--ink-soft);margin:6px 0 0}
+.about{font-size:13.5px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+.about p{margin:0 0 6px}.about p:last-child{margin:0}
+.about .mynote{border-top:1px dashed #cfd9e5;padding-top:6px;color:var(--ink-soft)}
+.about .mynote:empty{display:none}
+.key{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;color:var(--ink-soft)}
+.key li{display:flex;align-items:center;gap:5px}
+.key i{display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.key i.ln{width:16px;height:4px;border-radius:2px;border:0;box-shadow:none}
+.cred,.terms{font-size:12px;color:var(--ink-soft);margin:0}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy-2);color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;z-index:200;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.toast[hidden]{display:none}
+#printSheet{display:none}
+@media print{@page{size:landscape;margin:.35in}body>*:not(#printSheet){display:none!important}#printSheet{display:block!important;width:100%;height:auto}}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="home" href="index.html"><img src="watershed-maps/mawa-logo.png" alt=""><span>Mid-America Watershed.Org</span></a>
+  <div class="crumbs"><a href="resources.html">Resources</a> / <a href="watershed-maps.html">Watershed Map Library</a> / <span id="crumb">Mississippi River Basin</span></div>
+  <a class="lib" href="watershed-maps.html">All maps</a>
+</div>
+
+<div class="wrap">
+  <div class="head"><h1 id="title">Loading map...</h1><p id="subtitle">Interactive 3D watersheds and subwatersheds</p></div>
+  <div class="layout">
+    <div class="mapcard" id="mapcard">
+      <div class="stage" id="stage">
+        <div class="loading" id="loading">Building the 3D basin...</div>
+        <div class="cap" id="cap"><b id="capName">-</b><span id="capSub"></span></div>
+        <div class="tip" id="tip" hidden></div>
+        <div class="clock" id="clock" hidden></div>
+        <div class="hint" id="hint">Click the map to turn on zoom</div>
+        <button class="stbtn" id="back" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6"/></svg><span id="backName">Whole basin</span></button>
+        <button class="stbtn" id="reset" title="Reset the view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Reset view</button>
+        <button class="stbtn" id="fsb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span id="fsl">Full screen</span></button>
+      </div>
+      <div class="controls">
+        <div class="row">
+          <div class="ex"><label for="ex">Height</label><input id="ex" type="range" min="1" max="80" step="1" value="22"><output id="exv">22×</output></div>
+          <div class="pick"><label for="shed">Region</label><select id="shed"></select></div>
+          <form class="find" id="find" role="search"><label for="q" class="vh">Find my watershed</label><input id="q" type="search" placeholder="Where does my rain go? Enter an address" autocomplete="street-address" enterkeyhint="search"><button type="submit">Find</button><p class="fmsg" id="fmsg" role="status"></p></form>
+        </div>
+        <div class="row">
+          <div class="tg" id="tg">
+            <button type="button" data-k="lock" aria-pressed="false" title="When on, clicking highlights a watershed and traces the rain without opening the next level">Lock view</button>
+            <button type="button" data-k="rotate" aria-pressed="true">Turn slowly</button>
+            <button type="button" data-k="flow" aria-pressed="true">Runoff</button>
+            <button type="button" data-k="rain" aria-pressed="true">Rain</button>
+            <button type="button" data-k="sheds" aria-pressed="true">Region lines</button>
+            <button type="button" data-k="states" aria-pressed="true">State lines</button>
+            <button type="button" data-k="counties" aria-pressed="false">County lines</button>
+            <button type="button" data-k="roads" aria-pressed="true">Interstates</button>
+                        <button type="button" data-k="places" aria-pressed="true">Landmarks</button>
+            <button type="button" data-k="labels" aria-pressed="true">Labels</button>
+          </div>
+          <div class="out">
+            <button type="button" id="dl" title="Download a branded image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Image</button>
+            <button type="button" id="pdf" title="Download a branded PDF">PDF</button>
+            <button type="button" id="print" title="Print with Mid-America Watershed.Org branding"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v7H8z"/></svg>Print</button>
+            <button type="button" id="share" title="Share a link to this view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="panel side" id="side">
+      <div><div class="kick" id="sideKick">County</div><h2 id="sideName">-</h2><p class="note" id="sideDesc"></p></div>
+      <div class="story" id="story" hidden role="status"><b>Where does my rain go?</b><p id="stext"></p><button type="button" class="follow" id="sfollow" hidden>Follow it all the way to the Gulf of Mexico →</button><button type="button" id="sclose" aria-label="Close">×</button></div>
+      <div class="stats" id="stats"></div>
+      <div class="about" id="about"><p id="aboutText"></p><p class="mynote" id="myNote"></p></div>
+      <div><div class="kick" id="listHead">Watersheds</div><ul class="list" id="list"></ul></div>
+      <ul class="key" aria-label="Map key">
+        <li><i class="ln" style="background:#1f5fae;height:6px"></i>Major river</li><li><i class="ln" style="background:#13294a"></i>Region line</li>
+        <li><i class="ln" style="background:#3b3b3b"></i>State line</li><li><i class="ln" style="background:#b9c0c8"></i>County line</li><li><i class="ln" style="background:#5c4f3e"></i>Interstate</li>
+        <li><i class="ln" style="background:#f39a2b;height:6px;width:6px;border-radius:50%"></i>Runoff</li>
+        <li><svg viewBox="0 0 12 14" width="11" height="13" aria-hidden="true"><path d="M6 .8 11.2 9.6H.8z" fill="#178a3c" stroke="#fff" stroke-width=".8"/><rect x="5" y="9.6" width="2" height="3.6" fill="#6b4a2f"/></svg>Park</li>
+        <li><svg viewBox="0 0 22 30" width="10" height="14" aria-hidden="true"><path d="M11 29s9-10.3 9-17.2A9 9 0 0 0 2 11.8C2 18.7 11 29 11 29z" fill="#E39A2A" stroke="#fff" stroke-width="2"/></svg>Landmark</li>
+      </ul>
+      <p class="cred">Data: watershed regions and subregions from the U.S. Geological Survey Watershed Boundary Dataset; elevation from the U.S. Geological Survey 3D Elevation Program and other sources (via AWS Terrain Tiles); rivers, lakes, interstates and metro areas from Natural Earth (public domain); state and county lines from the U.S. Census Bureau. Travel times are estimates based on typical stream and river speeds; heights are exaggerated to show the landform. Address search by Esri.</p>
+      <p class="terms">Map design &copy; Mid-America Watershed.Org. Free to view, print and share for education and planning when the Mid-America Watershed.Org logo and credit stay on the map.</p>
+    </aside>
+  </div>
+</div>
+<img id="printSheet" alt="">
+<div class="toast" id="toast" hidden></div>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+
+const SITE='https://www.midamericawatershed.org/', LOGO_SRC='watershed-maps/mawa-logo.png', DATA_DIR='watershed-maps/mississippi/';
+const $=id=>document.getElementById(id);
+const stage=$('stage'), tip=$('tip'), card=$('mapcard');
+const qs=new URLSearchParams(location.search);
+const GEOID='mississippi';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const st={lock:false,rotate:!reduce,flow:!reduce,rain:!reduce,sheds:true,states:true,counties:false,roads:true,places:true,labels:true,ex:22};
+const sqmi=k=>{const m=k*0.386102;return m<10?m.toFixed(1):Math.round(m).toLocaleString()};
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const C=h=>new THREE.Color(h);
+const PAL=['#2C7FB8','#2F7D34','#E39A2A','#7B4FA3','#C2453B','#1F9A8A','#B07A2A','#4F6FB8','#8A9A2C','#C2577F','#3A8F5A','#6B5BD1'],PC=PAL.map(C);
+const land=[C('#eef3c4'),C('#c6e08c'),C('#8cc35d'),C('#56a043'),C('#2f6e2c'),C('#6b5a3e')];
+const WATER=C('#3c9be0'),MAJOR=C('#2a7fcf'),MINOR=C('#6dbbeb'),LINE10=C('#13294a'),LINE12=C('#33466b'),CTY=C('#E39A2A'),HOV=C('#ffffff'),SEL=C('#ffd54f'),CITYLINE=C('#d81b7a');
+const BIGRIVER=C('#1f5fae'),OUTSIDE=C('#e9ecef'),CITYEDGE=C('#c2185b'),CITYTINT=C('#f6c86a'),PARKEDGE=C('#0b4f22'),PARKTINT=C('#5cc251'),RAINTINT=C('#2f8fd8');
+const ROADS=[null,[C('#fbf7ee'),.68],[C('#b8863a'),.93],[C('#5c4f3e'),.97]];
+const TREE='<svg viewBox="0 0 12 14" aria-hidden="true"><path d="M6 .8 11.2 9.6H.8z" fill="#178a3c" stroke="#fff" stroke-width=".8" stroke-linejoin="round"/><rect x="5" y="9.6" width="2" height="3.6" fill="#6b4a2f"/></svg>';
+const LMK='<svg viewBox="0 0 22 30" aria-hidden="true"><path d="M11 29s9-10.3 9-17.2A9 9 0 0 0 2 11.8C2 18.7 11 29 11 29z" fill="#E39A2A" stroke="#fff" stroke-width="2"/><circle cx="11" cy="11.5" r="3.4" fill="#fff"/></svg>';
+const STATELINE=C('#2f2f2f'),COUNTYLINE=C('#c3c9d1');
+const PIN='<svg viewBox="0 0 22 30" aria-hidden="true"><path d="M11 29s9-10.3 9-17.2A9 9 0 0 0 2 11.8C2 18.7 11 29 11 29z" fill="#b3206f" stroke="#fff" stroke-width="2"/><circle cx="11" cy="11.5" r="3.4" fill="#fff"/></svg>';
+const CATN={landmark:'Landmark',park:'Park',school:'School',college:'College or university',hospital:'Hospital',fire:'Fire station',cityhall:'City hall'};
+const REGION_ABOUT={
+ '07':'The Upper Mississippi region runs from Lake Itasca in northern Minnesota down to Cairo, Illinois, where the Ohio River joins. It takes in the Minnesota, Wisconsin, Iowa, Des Moines and Illinois rivers, and the river is managed here by a long series of locks and dams.',
+ '10':'The Missouri is the largest region of the basin. It starts in the Rocky Mountains of Montana and Wyoming, crosses the Great Plains, and joins the Mississippi just north of St. Louis. The Missouri River is about 2,300 miles long, and the Yellowstone, Platte and Kansas rivers are among its major tributaries.',
+ '05':'The Ohio region begins at Pittsburgh, where the Allegheny and Monongahela rivers meet. The Ohio River flows about 980 miles to join the Mississippi at Cairo, Illinois, and it carries more water than any other Mississippi tributary. The Wabash, Cumberland and Kanawha rivers drain here.',
+ '06':'The Tennessee region drains the southern Appalachians, including the Great Smoky Mountains. Its river system is managed by the Tennessee Valley Authority\'s dams and reservoirs, and the Tennessee River joins the Ohio River at Paducah, Kentucky.',
+ '11':'The Arkansas-White-Red region reaches from the Rocky Mountains of Colorado and New Mexico across Kansas, Oklahoma, Texas and Arkansas. The Arkansas and White rivers join the Mississippi in southeast Arkansas, and the Red River flows into the Atchafalaya and Mississippi system in Louisiana.',
+ '08':'The Lower Mississippi region runs from Cairo, Illinois to the Gulf of Mexico through a wide, flat floodplain and delta. The Yazoo, St. Francis and Atchafalaya rivers are here, and below New Orleans the river splits at Head of Passes into the channels that reach the Gulf.'};
+const FLOOR=-6, W=100;
+let COUNTY=null, NOTES={}, cur=null, countyT=null, shedT=null, view={kind:'county'}, busy=false, trace=null, pin=null;
+const cache=new Map();
+
+// ------------------------------------------------------------------ brand (always present)
+const logoImg=new Image(); logoImg.src=LOGO_SRC;
+function makeBrand(){
+  const a=document.createElement('a');a.className='mawa-brand';a.id='mawaBrand';a.href=SITE;a.target='_blank';a.rel='noopener';
+  a.setAttribute('aria-label','Mid-America Watershed.Org - visit the website');a.title='Mid-America Watershed.Org - visit the website';
+  a.innerHTML='<span class="disc"><img src="'+LOGO_SRC+'" alt="Mid-America Watershed.Org logo"></span><span class="tag">midamericawatershed.org</span>';
+  return a}
+let brand=makeBrand(); stage.appendChild(brand);
+const brandObs=new MutationObserver(()=>guardBrand());
+function watchBrand(){brandObs.disconnect();brandObs.observe(stage,{childList:true});brandObs.observe(brand,{subtree:true,attributes:true,childList:true})}
+function guardBrand(){
+  const b=$('mawaBrand');let ok=!!b&&b.parentNode===stage&&b.href===SITE;
+  if(ok){const cs=getComputedStyle(b),r=b.getBoundingClientRect(),img=b.querySelector('img');
+    ok=cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity)>.85&&r.width>=60&&img&&img.getAttribute('src')===LOGO_SRC&&getComputedStyle(img).display!=='none'&&parseFloat(getComputedStyle(img).opacity)>.85}
+  if(!ok){if(b)b.remove();brand=makeBrand();stage.appendChild(brand);watchBrand()}}
+watchBrand();setInterval(guardBrand,1500);
+
+// ------------------------------------------------------------------ renderer
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));stage.prepend(renderer.domElement);
+const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(32,1,.5,2000);
+scene.add(new THREE.HemisphereLight('#ffffff','#6d7a5a',1.05));
+const sun=new THREE.DirectionalLight('#fff4e0',2.6);sun.position.set(-55,40,-40);scene.add(sun);
+const ctl=new OrbitControls(cam,renderer.domElement);ctl.enableDamping=true;ctl.dampingFactor=.08;ctl.maxPolarAngle=Math.PI*.47;ctl.minDistance=8;ctl.maxDistance=420;
+ctl.autoRotateSpeed=.45;ctl.enableZoom=false;ctl.addEventListener('start',()=>{if(st.rotate)setToggle('rotate',false)});
+function size(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+new ResizeObserver(size).observe(stage);size();
+// zoom only after the visitor clicks the map, so scrolling the page never gets stuck in it
+renderer.domElement.addEventListener('pointerdown',()=>{if(!ctl.enableZoom){ctl.enableZoom=true;$('hint').textContent='Zoom on';setTimeout(()=>$('hint').hidden=true,1500)}});
+stage.addEventListener('mouseleave',()=>{if(!card.classList.contains('fs')){ctl.enableZoom=false;$('hint').hidden=false;$('hint').textContent='Click the map to turn on zoom'}});
+
+// ------------------------------------------------------------------ rain cloud
+const cloud=new THREE.Group(),cmat=new THREE.MeshLambertMaterial({color:'#ffffff',emissive:'#c9d6e6',emissiveIntensity:.35});
+[[0,0,0,4],[3.6,.4,.6,3.2],[-3.4,-.3,.4,2.9],[1.4,1.6,-.4,2.8],[-1.6,1.2,.8,2.6]].forEach(([x,y,z,r])=>{const m=new THREE.Mesh(new THREE.SphereGeometry(r,18,12),cmat);m.position.set(x,y,z);cloud.add(m)});scene.add(cloud);
+const RN=900,rp=new Float32Array(RN*3),rv=new Float32Array(RN),rg=new THREE.BufferGeometry();rg.setAttribute('position',new THREE.BufferAttribute(rp,3));
+const rain=new THREE.Points(rg,new THREE.PointsMaterial({color:'#2f8fd8',size:.34,transparent:true,opacity:.85}));scene.add(rain);
+function resetDrop(m,T=cur){if(!T)return;rp[m*3]=cloud.position.x+(Math.random()-.5)*14;rp[m*3+1]=cloud.position.y-2-Math.random()*(cloud.position.y-T.topY*.3);rp[m*3+2]=cloud.position.z+(Math.random()-.5)*8;rv[m]=.35+Math.random()*.25}
+function placeCloud(T){cloud.position.set(T.cx-T.ext*.15,Math.max(14,T.topY+12),T.cz+4);for(let m=0;m<RN;m++)resetDrop(m,T)}
+
+// ------------------------------------------------------------------ terrain builder
+function build(D,kind){
+  const NX=D.nx,NY=D.ny,N=NX*NY,H=new Int16Array(b64(D.h).buffer),P=b64(D.c),S=b64(D.s),CN=D.cn?b64(D.cn):null,RD=D.r?b64(D.r):null;
+  const cls=k=>P[k]&7,inC=k=>(P[k]>>3)&1,ctyEdge=k=>(P[k]>>4)&1,elev=k=>H[k]/2;
+  const isCounty=kind==='county';
+  const grpOf=s=>s?COUNTY.sheds[s-1][4]:0;
+  const key=k=>isCounty?grpOf(S[k]):S[k];
+  const tintOf=v=>{if(!v)return null;if(isCounty)return PC[(v-1)%PC.length];const g=COUNTY.groups[COUNTY.sheds[v-1][4]-1],i=g[3].indexOf(v);return PC[(i<0?0:i)%PC.length]};
+  const B10=new Uint8Array(N),B12=new Uint8Array(N);
+  for(let i=1;i<NY-1;i++)for(let j=1;j<NX-1;j++){const k=i*NX+j;if(!inC(k)||!S[k])continue;
+    for(const m of [k-1,k+1,k-NX,k+NX]){if(!inC(m)||!S[m])continue;if(S[m]!==S[k]){B12[k]=1;if(grpOf(S[m])!==grpOf(S[k]))B10[k]=1}}}
+  const INC=new Uint8Array(N);{const R=isCounty?1:0;for(let i=R;i<NY-R;i++)for(let j=R;j<NX-R;j++){const k=i*NX+j;if(true)continue;for(let a=-R;a<=R;a++)for(let b=-R;b<=R;b++)if(inC(k+a*NX+b))INC[k+a*NX+b]=1}}
+  // big rivers and large lakes: connected open water covering more than about 1.5 sq km
+  const BIG=new Uint8Array(N),RIB=new Uint8Array(N),wcomp=new Int32Array(N).fill(-1),bigNames=new Map();
+  {const CNa=D.cn?b64(D.cn):null,minCells=1.5/(D.cellkm*D.cellkm);let id=0;
+   for(let k0=0;k0<N;k0++){if(!inC(k0)||cls(k0)!==1||wcomp[k0]>=0)continue;const cells=[k0],st=[k0];wcomp[k0]=id;
+     while(st.length){const c=st.pop(),ci=(c/NX)|0,cj=c%NX;for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const ii=ci+a,jj=cj+b;if(ii<0||jj<0||ii>=NY||jj>=NX)continue;const m=ii*NX+jj;if(wcomp[m]<0&&inC(m)&&cls(m)===1){wcomp[m]=id;st.push(m);cells.push(m)}}}
+     if(cells.length>=minCells){for(const c of cells)BIG[c]=1;
+       // ribbon only where this river runs along the map edge for 6 km or more (not where a river just crosses it)
+       let en=0;const seen=new Set();for(const c of cells){const ci=(c/NX)|0,cj=c%NX;for(let a=-2;a<=2;a++)for(let b=-2;b<=2;b++){const ii=ci+a,jj=cj+b;if(ii<0||jj<0||ii>=NY||jj>=NX)continue;const m=ii*NX+jj;
+         if(seen.has(m)||!inC(m))continue;if(ii===0||jj===0||ii===NY-1||jj===NX-1||!inC(m-1)||!inC(m+1)||!inC(m-NX)||!inC(m+NX)){seen.add(m);en++}}}
+       if(en*D.cellkm>=6)for(const c of cells)RIB[c]=1;
+       if(CNa){for(const c of cells){if(!CNa[c])continue;const nm=D.creeks[CNa[c]-1];if(!/River/.test(nm))continue;if(!bigNames.has(nm))bigNames.set(nm,[]);bigNames.get(nm).push(c)}}}
+     id++}}
+  const CEB=new Uint8Array(N),RCB=new Uint8Array(N);
+  if(RD){for(let i=1;i<NY-1;i++)for(let j=1;j<NX-1;j++){const k=i*NX+j,r=RD[k],rc=r&3,ce=(r>>3)&1;
+      if(rc>RCB[k])RCB[k]=rc;
+      if(ce||rc>=2)for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const m=k+a*NX+b;if(ce)CEB[m]=1;if(rc>=2&&(a===0||b===0)&&rc>RCB[m])RCB[m]=rc}}}
+  const cs=W/(Math.max(NX,NY)-1),kmU=D.cellkm/cs,lo=D.hlo,hi=D.hhi,BASE=lo-(hi-lo)*.12;
+  const X=j=>j*cs-(NX-1)*cs/2,Z=i=>i*cs-(NY-1)*cs/2,yOf=(m,ex)=>(m-BASE)/1000/kmU*ex;
+  const pos=new Float32Array(N*3),col=new Float32Array(N*3),base=new Float32Array(N*3),tmp=new THREE.Color();
+  let sx=0,sz=0,n=0,minx=1e9,maxx=-1e9,minz=1e9,maxz=-1e9;
+  const slopeK=isCounty?5:2.2,cm=D.cellkm*1000;
+  for(let i=0;i<NY;i++)for(let j=0;j<NX;j++){const k=i*NX+j,x=X(j),z=Z(i);pos[k*3]=x;pos[k*3+2]=z;
+    if(inC(k)){sx+=x;sz+=z;n++;if(x<minx)minx=x;if(x>maxx)maxx=x;if(z<minz)minz=z;if(z>maxz)maxz=z}
+    const c=cls(k);let t=Math.min(1,Math.max(0,(elev(k)-lo)/(hi-lo)))*(land.length-2);const q=Math.min(land.length-2,Math.floor(t));
+    tmp.copy(land[q]).lerp(land[q+1],t-q);
+    const gx=(elev(i*NX+Math.min(NX-1,j+1))-elev(i*NX+Math.max(0,j-1)))/(2*cm)*slopeK,gz=(elev(Math.min(NY-1,i+1)*NX+j)-elev(Math.max(0,i-1)*NX+j))/(2*cm)*slopeK;
+    const hs=Math.max(0,(0.55*gx+0.55*gz+0.63)/Math.hypot(gx,gz,1)/0.98);tmp.multiplyScalar(Math.min(1.12,.55+.6*hs));
+    const co=c===1?(BIG[k]?BIGRIVER:WATER):c===2?MAJOR:c===3?MINOR:tmp;base[k*3]=co.r;base[k*3+1]=co.g;base[k*3+2]=co.b}
+  const q=(i,j)=>i>=0&&j>=0&&i<NY-1&&j<NX-1&&inC(i*NX+j)&&inC(i*NX+j+1)&&inC((i+1)*NX+j)&&inC((i+1)*NX+j+1);
+  const idx=[];for(let i=0;i<NY-1;i++)for(let j=0;j<NX-1;j++)if(q(i,j)){const a=i*NX+j,b=a+1,c=a+NX,d=c+1;idx.push(a,c,b,b,c,d)}
+  const top=new THREE.BufferGeometry();top.setAttribute('position',new THREE.BufferAttribute(pos,3));top.setAttribute('color',new THREE.BufferAttribute(col,3));top.setIndex(idx);
+  const strata=[[1,0,'#6b4a2f'],[1,-1.2,'#b89466'],[.45,-3.2,'#9aa1a8'],[0,FLOOR,null]];
+  const wp=[],wc=[],wK=[],wA=[],wB=[];
+  function wall(k1,k2){for(let L=0;L<strata.length-1;L++){const s0=strata[L],s1=strata[L+1],c=C(s0[2]);
+    const v=[[pos[k1*3],pos[k1*3+2],k1,s0],[pos[k2*3],pos[k2*3+2],k2,s0],[pos[k1*3],pos[k1*3+2],k1,s1],[pos[k2*3],pos[k2*3+2],k2,s1]];
+    for(const t of [0,2,1,1,2,3]){const p=v[t];wp.push(p[0],0,p[1]);wc.push(c.r,c.g,c.b);wK.push(p[2]);wA.push(p[3][0]);wB.push(p[3][1])}}}
+  const rp2=[],rK=[],rD=[],RW=isCounty?1.7:2.6,near=k=>{const i=(k/NX)|0,j=k%NX;for(let a=-2;a<=2;a++)for(let b=-2;b<=2;b++){const ii=i+a,jj=j+b;if(ii>=0&&jj>=0&&ii<NY&&jj<NX&&RIB[ii*NX+jj])return ii*NX+jj}return -1};
+  function rib(k1,k2,ox,oz){let w1=near(k1),w2=near(k2);if(w1<0&&w2<0)return;if(w1<0)w1=w2;if(w2<0)w2=w1;const ex=cs*.5,dx=pos[k2*3]-pos[k1*3],dz=pos[k2*3+2]-pos[k1*3+2],L=Math.hypot(dx,dz)||1,ux=dx/L*ex,uz=dz/L*ex;
+    const x1=pos[k1*3]-ux,z1=pos[k1*3+2]-uz,x2=pos[k2*3]+ux,z2=pos[k2*3+2]+uz,v=[[x1,z1,0],[x2,z2,0],[x1+ox*RW,z1+oz*RW,1],[x2+ox*RW,z2+oz*RW,1],[x1+ox*RW,z1+oz*RW,2],[x2+ox*RW,z2+oz*RW,2]];
+    for(const t of [0,2,1,1,2,3,2,4,3,3,4,5]){const p=v[t];rp2.push(p[0],0,p[1]);rK.push(t%2===0?w1:w2);rD.push(p[2])}}
+  for(let i=0;i<NY-1;i++)for(let j=0;j<NX-1;j++)if(q(i,j)){const a=i*NX+j,b=a+1,c=a+NX,d=c+1;
+    if(!q(i-1,j)){wall(b,a);rib(b,a,0,-1)}if(!q(i+1,j)){wall(c,d);rib(c,d,0,1)}if(!q(i,j-1)){wall(a,c);rib(a,c,-1,0)}if(!q(i,j+1)){wall(d,b);rib(d,b,1,0)}}
+  const rgeo=new THREE.BufferGeometry(),rpos=new Float32Array(rp2);rgeo.setAttribute('position',new THREE.BufferAttribute(rpos,3));
+  const wg=new THREE.BufferGeometry(),wpos=new Float32Array(wp);wg.setAttribute('position',new THREE.BufferAttribute(wpos,3));wg.setAttribute('color',new THREE.BufferAttribute(new Float32Array(wc),3));
+  const bot=new THREE.BufferGeometry();bot.setAttribute('position',new THREE.BufferAttribute(pos.map((v,m)=>m%3===1?FLOOR:v),3));bot.setIndex(idx);
+  const group=new THREE.Group();
+  group.add(new THREE.Mesh(rgeo,new THREE.MeshLambertMaterial({color:'#1a4f9c',emissive:'#0b2c66',emissiveIntensity:.35,side:THREE.DoubleSide})));
+  group.add(new THREE.Mesh(top,new THREE.MeshLambertMaterial({vertexColors:true})),new THREE.Mesh(wg,new THREE.MeshLambertMaterial({vertexColors:true,side:THREE.DoubleSide})),
+            new THREE.Mesh(bot,new THREE.MeshBasicMaterial({color:'#5d564e',side:THREE.DoubleSide})));
+  // runoff particles follow the steepest way downhill
+  const FF=flowField({NX,NY,N,inC,cls,H,isOut:k=>(P[k]>>5)&1}),down=new Int32Array(N);for(let k=0;k<N;k++)down[k]=FF.out[k]?-1:FF.to[k];
+  const cut=lo+.3*(hi-lo),starts=[];for(let k=0;k<N;k++)if(inC(k)&&down[k]>=0&&elev(k)>cut)starts.push(k);
+  const FN=starts.length?1500:0,fp=new Float32Array(FN*3),fs=[];
+  const spawn=m=>{fs[m]={k:starts[(Math.random()*starts.length)|0],t:Math.random(),age:0}};for(let m=0;m<FN;m++)spawn(m);
+  const fg=new THREE.BufferGeometry();fg.setAttribute('position',new THREE.BufferAttribute(fp,3));
+  const flow=new THREE.Points(fg,new THREE.PointsMaterial({color:'#f39a2b',size:isCounty?.42:.5,transparent:true,opacity:.95}));group.add(flow);flow.visible=st.flow;
+  // labels and place markers
+  const riverLabs=[...bigNames.entries()].filter(e=>e[1].length>=40).map(([t,cells])=>{const c=cells[(cells.length/2)|0],i=(c/NX)|0,j=c%NX;return{t,u:j/(NX-1),v:i/(NY-1),type:'river'}});
+  const raw=[...(D.rivers||[]).map(([t,u,v])=>({t,u,v,type:'river'})),...riverLabs.filter(r=>!(D.rivers||[]).some(x=>x[0]===r.t)),...(D.cities||[]).map(([t,u,v])=>({t,u,v,type:'city'})),...(D.roads||[]).map(([t,u,v,c])=>({t,u,v,type:'road',c})),...(D.places||[]).map(([c,t,u,v,d])=>({t,u,v,type:'marker',cat:c,d}))];
+  const labs=raw.map(o=>{const e=document.createElement('div');
+    if(o.type==='marker'){e.className='mk '+o.cat;e.setAttribute('role','img');e.setAttribute('aria-label',o.t);e.innerHTML=(o.cat==='park'?TREE:LMK)+'<span class="pinlab"></span>';e.querySelector('.pinlab').textContent=o.t;e.dataset.name=o.t;e.dataset.cat=o.d||CATN[o.cat]||'';
+      e.addEventListener('pointerenter',()=>showMkTip(e));e.addEventListener('pointerleave',()=>tip.hidden=true)}
+    else{e.className='lab '+o.type+(o.type==='road'&&/^I-/.test(o.t)?' i':'');e.textContent=o.t}
+    e.style.display='none';stage.appendChild(e);
+    return{e,k:Math.round(o.v*(NY-1))*NX+Math.round(o.u*(NX-1)),type:o.type,cat:o.cat}});
+  const T={kind,D,NX,NY,N,pos,cs,group,top,labs,flow,fg,fp,fs,FN,down,inC,cls,key,S,H,hov:0,sel:0,lo,hi,cm:null,ff:FF,
+    bb:[minx,maxx,minz,maxz],cx:sx/n,cz:sz/n,ext:Math.max(maxx-minx,maxz-minz),
+    recolor(){for(let k=0;k<N;k++){tmp.setRGB(base[k*3],base[k*3+1],base[k*3+2]);const c=cls(k),wet=c===1||c===2||c===3;
+      const kv=key(k);if(inC(k)&&c!==1&&c!==2){const tc=tintOf(kv);if(tc)tmp.lerp(tc,.18)}
+      if(RD&&inC(k)){const r=RD[k];
+        if(st.counties&&((r>>4)&1)&&!wet)tmp.lerp(COUNTYLINE,.45);
+        if(st.states&&((r>>3)&1))tmp.lerp(STATELINE,.8);
+        if(st.roads){const rc=RCB[k];if(rc&&(c!==1||rc===3)){const R=ROADS[rc];tmp.lerp(R[0],R[1])}}}
+      if(st.sheds&&inC(k)&&c!==1){if(isCounty){if(B10[k])tmp.lerp(LINE10,.85);else if(B12[k])tmp.lerp(LINE12,.25)}else if(B12[k])tmp.lerp(LINE10,.8)}
+      if(!isCounty&&inC(k)&&!((P[k]>>6)&1)&&c!==1&&c!==2)tmp.lerp(OUTSIDE,.38);
+      if(ctyEdge(k))tmp.lerp(CTY,.7);
+      if(INC[k])tmp.lerp(CITYLINE,.92);
+      if(T.sel&&kv===T.sel)tmp.lerp(SEL,.45);else if(T.sel&&kv&&!T.cm)tmp.multiplyScalar(.85);else if(T.hov&&kv===T.hov)tmp.lerp(HOV,.35);
+      if(T.cm&&T.cm[k])tmp.lerp(RAINTINT,.35);
+      col[k*3]=tmp.r;col[k*3+1]=tmp.g;col[k*3+2]=tmp.b}top.attributes.color.needsUpdate=true},
+    applyEx(ex){for(let k=0;k<N;k++)pos[k*3+1]=inC(k)?yOf(elev(k),ex)+.02:0;top.attributes.position.needsUpdate=true;top.computeVertexNormals();
+      for(let v=0;v<wK.length;v++)wpos[v*3+1]=wA[v]*pos[wK[v]*3+1]+wB[v];wg.attributes.position.needsUpdate=true;wg.computeVertexNormals();
+      for(let v=0;v<rK.length;v++){const y=pos[rK[v]*3+1];rpos[v*3+1]=rD[v]===2?Math.min(y-.5,-1.4):y-.08}if(rK.length){rgeo.attributes.position.needsUpdate=true;rgeo.computeVertexNormals()}T.topY=yOf(hi,ex)},
+    cell(x,z){const j=Math.round((x+(NX-1)*cs/2)/cs),i=Math.round((z+(NY-1)*cs/2)/cs);return i>=0&&j>=0&&i<NY&&j<NX?i*NX+j:-1},
+    cellLL(lon,lat){const [w0,e0,s0,n0]=D.bb,j=Math.floor((lon-w0)/(e0-w0)*NX),i=Math.floor((n0-lat)/(n0-s0)*NY);return i>=0&&j>=0&&i<NY&&j<NX?i*NX+j:-1},
+    creekAt(k){return CN&&k>=0&&CN[k]?D.creeks[CN[k]-1]:''},
+    elevAt:elev,respawn:spawn,
+    dispose(){group.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material)o.material.dispose()});labs.forEach(L=>L.e.remove())}};
+  T.recolor();T.applyEx(st.ex);
+  return T;
+}
+
+// ------------------------------------------------------------------ flow routing for "where does my rain go?" (fills dips so every drop reaches an outlet)
+function flowField(T){if(T.ff)return T.ff;const {NX,NY,N,inC,cls,H,isOut}=T;const Hb=k=>H[k]-(cls(k)===2?160:cls(k)===1?120:cls(k)===3?60:0);
+  const to=new Int32Array(N).fill(-1),out=new Uint8Array(N),done=new Uint8Array(N),order=new Int32Array(N);let on=0;
+  const hk=new Float64Array(N+8),hv=new Int32Array(N+8);let hn=0;
+  const push=(k,e)=>{let i=hn++;while(i>0){const p=(i-1)>>1;if(hk[p]<=e)break;hk[i]=hk[p];hv[i]=hv[p];i=p}hk[i]=e;hv[i]=k};
+  const pop=()=>{const r=hv[0],e=hk[0];const lk=hk[--hn],lv=hv[hn];let i=0;for(;;){let c=2*i+1;if(c>=hn)break;if(c+1<hn&&hk[c+1]<hk[c])c++;if(hk[c]>=lk)break;hk[i]=hk[c];hv[i]=hv[c];i=c}hk[i]=lk;hv[i]=lv;return[r,e]};
+  // Water ends its trip only where it leaves this view: the Gulf of Mexico, or the outlet of the region shown.
+  // Mapped rivers and lakes are lowered for routing, so the water follows the real river channels.
+  let any=false;for(let k=0;k<N;k++)if(inC(k)&&isOut&&isOut(k)){out[k]=1;done[k]=1;push(k,Hb(k));any=true}
+  if(!any)for(let i=0;i<NY;i++)for(let j=0;j<NX;j++){const k=i*NX+j;if(!inC(k))continue;
+    if(i===0||j===0||i===NY-1||j===NX-1||!inC(k-1)||!inC(k+1)||!inC(k-NX)||!inC(k+NX)){out[k]=1;done[k]=1;push(k,Hb(k))}}
+  const fill=new Float64Array(N);
+  while(hn){const [c,e]=pop();order[on++]=c;fill[c]=e;const ci=(c/NX)|0,cj=c%NX;
+    for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){if(!a&&!b)continue;const ii=ci+a,jj=cj+b;if(ii<0||jj<0||ii>=NY||jj>=NX)continue;const m=ii*NX+jj;if(done[m]||!inC(m))continue;
+      done[m]=1;to[m]=c;push(m,Math.max(Hb(m),e+.001))}}
+  const acc=new Float32Array(N).fill(1);for(let o=on-1;o>=0;o--){const k=order[o];if(to[k]>=0)acc[to[k]]+=acc[k]}
+  return T.ff={to,out,acc}}
+let _dt=null;
+function dropTex(){if(_dt)return _dt;const c=document.createElement('canvas');c.width=c.height=64;const g=c.getContext('2d'),r=g.createRadialGradient(32,32,0,32,32,32);
+  r.addColorStop(0,'rgba(255,255,255,1)');r.addColorStop(.35,'rgba(255,255,255,.95)');r.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=r;g.fillRect(0,0,64,64);return _dt=new THREE.CanvasTexture(c)}
+function clearTrace(){$('clock').hidden=true;if(!trace)return;const T=trace.T;T.group.remove(trace.pts,trace.trail);trace.pts.geometry.dispose();trace.trail.geometry.dispose();T.cm=null;T.recolor();trace=null;$('story').hidden=true}
+function startTrace(T,k0){if(k0<0||!T.inC(k0))return;clearTrace();const {to,acc,out}=flowField(T),{NX,N}=T,cellA=T.D.cellkm*T.D.cellkm;
+  // the neighborhood drainage area: everything upstream of the first point below here that drains about 100 acres
+  let p=k0,guard=0;while(!out[p]&&acc[p]*cellA<(T.kind==='county'?2500:600)&&to[p]>=0&&guard++<4000)p=to[p];
+  const up=[];for(let k=0;k<N;k++)if(to[k]>=0)(up[to[k]]||(up[to[k]]=[])).push(k);
+  const cm=new Uint8Array(N),stack=[p];cm[p]=1;const cells=[p];
+  while(stack.length&&cells.length<60000){const c=stack.pop();const u=up[c];if(u)for(const nn of u)if(!cm[nn]){cm[nn]=1;cells.push(nn);stack.push(nn)}}
+  T.cm=cm;T.recolor();
+  const path=[k0];let k=k0;guard=0;while(!out[k]&&to[k]>=0&&guard++<8000){k=to[k];path.push(k)}
+  const NP=Math.min(900,Math.max(250,cells.length)),parts=[];
+  for(let i=0;i<NP;i++){const c=cells[(Math.random()*cells.length)|0];parts.push({k0:c,k:c,t:0,jx:(Math.random()-.5)*.9,jz:(Math.random()-.5)*.9,delay:Math.random()*.6})}
+  const geo=new THREE.BufferGeometry(),arr=new Float32Array(NP*3);geo.setAttribute('position',new THREE.BufferAttribute(arr,3));
+  const pts=new THREE.Points(geo,new THREE.PointsMaterial({color:'#1e7fd8',size:2.4,map:dropTex(),transparent:true,opacity:.95,depthTest:false,depthWrite:false,sizeAttenuation:true,alphaTest:.02}));pts.renderOrder=6;
+  const tp=[];for(let q=0;q<path.length;q+=2){const c=path[q];tp.push(new THREE.Vector3(T.pos[c*3],T.pos[c*3+1]+.2,T.pos[c*3+2]))}const last=path[path.length-1];tp.push(new THREE.Vector3(T.pos[last*3],T.pos[last*3+1]+.2,T.pos[last*3+2]));
+  const tg=tp.length>1?new THREE.TubeGeometry(new THREE.CatmullRomCurve3(tp),Math.max(8,tp.length*2),.16,6,false):new THREE.BufferGeometry();
+  const trail=new THREE.Mesh(tg,new THREE.MeshBasicMaterial({color:'#64b5f6',transparent:true,opacity:.6,depthTest:false}));trail.renderOrder=5;if(tg.index)tg.setDrawRange(0,0);
+  T.group.add(trail,pts);
+  // travel time: typical speeds rise from slow headwater creeks to the big rivers; 1.25 allows for river bends
+  const cum=new Float32Array(path.length);for(let q=1;q<path.length;q++){const a=path[q-1],b=path[q],dg=((a%NX)!==(b%NX))&&(((a/NX)|0)!==((b/NX)|0));
+    const km=T.D.cellkm*(dg?1.414:1)*1.25,A=acc[b]*cellA,v=A<300?0.3:A<10000?0.45:A<300000?0.55:0.65;cum[q]=cum[q-1]+km*1000/v/3600}
+  const steps=path.length,spd=Math.max(30,steps/9);
+  trace={T,pts,arr,parts,to,out,trail,total:tg.index?tg.index.count:0,path,cum,speed:spd,t0:performance.now(),dur:steps/spd+2.5};
+  // the story, in plain words
+  let creek='',ci=-1;for(let q=0;q<path.length;q++){const nm=T.creekAt(path[q]);if(nm){creek=nm;ci=q;break}}
+  let end='';for(let q=path.length-1;q>=Math.max(0,path.length-12);q--){const nm=T.creekAt(path[q]);if(nm){end=nm;break}}
+  let miles=0;for(let q=1;q<path.length;q++){const a=path[q-1],b=path[q];miles+=T.D.cellkm*((((a%NX)!==(b%NX))&&(((a/NX)|0)!==((b/NX)|0)))?1.414:1)*1.25*0.621}miles=Math.round(miles);
+  const hrs=cum[cum.length-1],days=hrs/24;
+  const fmtH=h=>h<48?`about ${Math.max(1,Math.round(h))} hours`:`about ${Math.round(h).toLocaleString()} hours (${days<10?days.toFixed(1):Math.round(days)} days)`;
+  const sq=Math.round(cells.length*cellA*0.386);
+  const sid=T.S[k0],shed=sid?COUNTY.sheds[sid-1]:null;
+  let s='Rain that falls here ';
+  if(creek&&ci>0)s+=`runs downhill to the ${creek}`;else if(creek)s+=`drops straight into the ${creek}`;else s+='runs downhill';
+  if(end&&end!==creek)s+=`, then flows on to the ${end}`;
+  let follow=null;
+  if(T.kind==='county'){s+=`. It travels about ${miles.toLocaleString()} river miles and reaches the Gulf of Mexico in ${fmtH(hrs)}.`}
+  else{const g=COUNTY.groups[view.id-1],D=T.D,[w0,e0,s0,n0]=D.bb,ii=(k0/T.NX)|0,jj=k0%T.NX;
+    if(g&&g[0]==='08')s+=`. It travels about ${miles.toLocaleString()} river miles and reaches the Gulf of Mexico in ${fmtH(hrs)}.`;
+    else{s+=`. It travels about ${miles.toLocaleString()} river miles to leave the ${g?g[1]:''} region in ${fmtH(hrs)}, then keeps going toward the Gulf of Mexico.`;
+      follow={lon:w0+(jj+.5)*(e0-w0)/T.NX,lat:n0-(ii+.5)*(n0-s0)/T.NY}}}
+  s+=` The blue-tinted area is the land that drains to the same spot, about ${sq.toLocaleString()} square miles.`;
+  if(shed)s+=` You are in the ${shed[1]} subregion.`;
+  $('stext').textContent=s;$('story').hidden=false;
+  const fb=$('sfollow');fb.hidden=!follow;fb.onclick=follow?()=>{showCounty();setTimeout(()=>{const kk=countyT.cellLL(follow.lon,follow.lat);if(kk>=0){setPin(kk,'');startTrace(countyT,kk)}},1100)}:null}
+function stepTrace(){const tr=trace,T=tr.T,pn=performance.now(),now=(pn-tr.t0)/1000,rdt=Math.min(.5,(pn-(tr.lt||pn))/1000);tr.lt=pn;
+  if(now>tr.dur+1.2){tr.t0=performance.now();for(const q of tr.parts){q.k=q.k0;q.t=0}tr.lead=0}
+  const adv=rdt*tr.speed;let lead=0;
+  tr.parts.forEach((q,i)=>{if(now<q.delay){tr.arr[i*3+1]=-999;return}
+    q.t+=adv;while(q.t>=1){q.t-=1;const n=tr.to[q.k];if(n>=0&&!tr.out[q.k])q.k=n;else{q.t=0;break}}
+    const n=tr.to[q.k]>=0&&!tr.out[q.k]?tr.to[q.k]:q.k,P=T.pos,f=q.t,sp=.75;
+    tr.arr[i*3]=P[q.k*3]+(P[n*3]-P[q.k*3])*f+q.jx*sp;tr.arr[i*3+1]=P[q.k*3+1]+(P[n*3+1]-P[q.k*3+1])*f+.35;tr.arr[i*3+2]=P[q.k*3+2]+(P[n*3+2]-P[q.k*3+2])*f+q.jz*sp;
+    if(i<120){const pi=tr.path.indexOf(q.k);if(pi>lead)lead=pi}});
+  tr.pts.geometry.attributes.position.needsUpdate=true;
+  const frac=Math.max(tr.lead||0,lead/Math.max(1,tr.path.length-1));tr.lead=frac;if(tr.total)tr.trail.geometry.setDrawRange(0,Math.floor(tr.total*frac/6)*6);
+  const li=Math.min(tr.path.length-1,Math.round(frac*(tr.path.length-1))),kc=tr.path[li],hh=tr.cum[li];
+  v3.set(T.pos[kc*3],T.pos[kc*3+1]+.4,T.pos[kc*3+2]).project(cam);const ck=$('clock');
+  if(v3.z<1){ck.hidden=false;ck.style.left=((v3.x+1)/2*stage.clientWidth)+'px';ck.style.top=((1-v3.y)/2*stage.clientHeight)+'px';
+    ck.innerHTML='⏱ '+Math.round(hh).toLocaleString()+' h'+(hh>=48?'<small>'+(hh/24).toFixed(hh<240?1:0)+' days</small>':'')}}
+$('sclose').onclick=clearTrace;
+
+// ------------------------------------------------------------------ camera
+const camDir=new THREE.Vector3(-.3,.78,.95).normalize();
+function poseFor(T){const tg=new THREE.Vector3(T.cx,T.topY*.25,T.cz);const d=T.ext*.5/Math.tan(cam.fov*Math.PI/360)*0.86*Math.max(1,1.08/cam.aspect);
+  return{p:tg.clone().add(camDir.clone().multiplyScalar(d)),tg}}
+function flyTo(T,ms=1000){const to=poseFor(T);if(reduce||ms<5){cam.position.copy(to.p);ctl.target.copy(to.tg);return}
+  const p0=cam.position.clone(),t0=ctl.target.clone(),s=performance.now();
+  (function step(){const u=Math.min(1,(performance.now()-s)/ms),e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;cam.position.lerpVectors(p0,to.p,e);ctl.target.lerpVectors(t0,to.tg,e);if(u<1)requestAnimationFrame(step)})()}
+
+// ------------------------------------------------------------------ picking
+const ray=new THREE.Raycaster(),ndc=new THREE.Vector2(),hitP=new THREE.Vector3();
+function pickCell(ev){if(!cur)return -1;const r=renderer.domElement.getBoundingClientRect();ndc.set((ev.clientX-r.left)/r.width*2-1,-(ev.clientY-r.top)/r.height*2+1);
+  ray.setFromCamera(ndc,cam);let y=cur.topY*.4,k=-1;
+  for(let it=0;it<6;it++){const pl=new THREE.Plane(new THREE.Vector3(0,1,0),-y);if(!ray.ray.intersectPlane(pl,hitP))return -1;k=cur.cell(hitP.x,hitP.z);if(k<0||!cur.inC(k))return -1;y=cur.pos[k*3+1]}
+  return k}
+let downAt=null;
+renderer.domElement.addEventListener('pointerdown',e=>{downAt=[e.clientX,e.clientY]});
+renderer.domElement.addEventListener('pointerup',e=>{if(!downAt)return;const moved=Math.hypot(e.clientX-downAt[0],e.clientY-downAt[1]);downAt=null;if(moved>6)return;
+  if(inCompass(e)){faceNorth();return}
+  const k=pickCell(e);if(k<0){if(cur&&cur.sel&&!trace){cur.sel=0;cur.recolor();if(view.kind==='county')showCountyPanel();else showShedPanel(view.id)}return}
+  const v=cur.key(k);
+  if(cur.kind==='county'){if(!v)return;if(st.lock){cur.sel=v;cur.recolor();showGroupPreview(v);startTrace(cur,k)}else openShed(COUNTY.groups[v-1][0])}
+  else{if(v)selectSub(v,{keepTrace:true,force:true});startTrace(cur,k)}});
+renderer.domElement.addEventListener('pointermove',e=>{if(e.buttons)return;
+  if(inCompass(e)){renderer.domElement.style.cursor='pointer';renderer.domElement.title='Turn the map to face north';tip.hidden=true;return}renderer.domElement.style.cursor='';renderer.domElement.title='';
+  const k=pickCell(e);
+  if(k<0){tip.hidden=true;if(cur&&cur.hov){cur.hov=0;cur.recolor()}return}
+  const v=cur.key(k),creek=cur.creekAt(k);let name='',sub='';
+  if(cur.kind==='county'){if(v){name=COUNTY.groups[v-1][1]+' region';sub=st.lock?'Click to follow the rain to the Gulf':'Click to explore this region'}}
+  else if(v){name=COUNTY.sheds[v-1][1]+' subregion';sub='Click to see where the rain goes'}
+  if(creek)sub=creek+(sub?' · '+sub:'');
+  if(v!==cur.hov){cur.hov=v;cur.recolor()}
+  if(name){placeTip(e.clientX,e.clientY,name,sub)}else tip.hidden=true});
+renderer.domElement.addEventListener('pointerleave',()=>{tip.hidden=true;if(cur&&cur.hov){cur.hov=0;cur.recolor()}});
+function placeTip(cx,cy,name,sub){const r=stage.getBoundingClientRect();tip.innerHTML='';const b=document.createElement('span');b.textContent=name;const s=document.createElement('small');s.textContent=sub||'';tip.append(b,s);
+  tip.style.left=(cx-r.left)+'px';tip.style.top=(cy-r.top)+'px';tip.hidden=false}
+function showMkTip(e){const r=e.getBoundingClientRect();placeTip(r.left+r.width/2,r.top,e.dataset.name,e.dataset.cat)}
+
+// ------------------------------------------------------------------ views, picker and side panel
+function stat(v,l){return `<div class="stat"><b>${v}</b><span>${l}</span></div>`}
+function setList(items,onClick){const ul=$('list');ul.innerHTML='';items.forEach(it=>{const li=document.createElement('li'),b=document.createElement('button');
+  b.innerHTML=`<span class="sw" style="background:${it.color}"></span><span></span><span class="ar">${it.right}</span>`;b.children[1].textContent=it.name;b.dataset.v=it.v;
+  b.onclick=()=>onClick(it);b.onmouseenter=()=>{if(cur){cur.hov=it.v;cur.recolor()}};b.onmouseleave=()=>{if(cur){cur.hov=0;cur.recolor()}};li.append(b);ul.append(li)})}
+const incNames=()=>(COUNTY.includes||[]).map(r=>r[1]);
+function areaName(){const inc=incNames();return COUNTY.name+(inc.length?' and the '+inc.join(' and the '):'')}
+function topNames(T,n){const counts=new Map(),CN=T.D.cn?b64(T.D.cn):null;if(!CN)return[];for(let k=0;k<CN.length;k+=3)if(CN[k])counts.set(CN[k],(counts.get(CN[k])||0)+1);
+  return[...counts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,n).map(e=>T.D.creeks[e[0]-1])}
+const joinList=a=>a.length<2?a.join(''):a.slice(0,-1).join(', ')+' and '+a[a.length-1];
+function setAbout(text,noteKey){$('aboutText').textContent=text;$('myNote').textContent=(NOTES[noteKey]&&NOTES[noteKey].note)||''}
+function showCountyPanel(){const D=COUNTY,NS=D.sheds.length;
+  $('sideKick').textContent='River basin';$('sideName').textContent=D.name;
+  $('sideDesc').textContent=`The Mississippi River and its tributaries drain all or part of 31 states and 2 Canadian provinces, about 40 percent of the lower 48 states.`;
+  $('stats').innerHTML=stat(sqmi(D.areakm),'square miles')+stat(D.groups.length,'great regions')+stat(NS,'subregions')+stat(`${D.elo.toLocaleString()}-${D.ehi.toLocaleString()}`,'feet above sea level');
+  setAbout(`Rain that falls anywhere on this map, from the Rocky Mountains to the Appalachians, ends up in the Gulf of Mexico below New Orleans. The basin is divided into ${D.groups.length} great regions (2-digit hydrologic units) and ${NS} subregions (4-digit hydrologic units). Turn on Lock view and click anywhere to follow the rain all the way to the Gulf, with a clock that counts the hours, or click a region to explore it.`,'basin');
+  $('listHead').textContent='Great regions';
+  setList(D.groups.map((g,i)=>({v:i+1,name:g[1],right:sqmi(g[2])+' sq mi',color:PAL[i%PAL.length],code:g[0]})),it=>openShed(it.code));
+  $('capName').textContent=D.name;$('capSub').textContent=`${D.groups.length} great regions · ${NS} subregions · ${sqmi(D.areakm)} sq mi`;
+  $('crumb').textContent=D.name;$('back').hidden=true;$('shed').value='c'}
+function showGroupPreview(gi){const g=COUNTY.groups[gi-1];$('sideKick').textContent='Region (locked view)';$('sideName').textContent=g[1]+' region';
+  $('sideDesc').textContent=`${sqmi(g[2])} sq mi · ${g[3].length} subregions. Turn off Lock view and click to open the region.`;
+  document.querySelectorAll('#list button').forEach(b=>b.classList.toggle('on',+b.dataset.v===gi))}
+function showShedPanel(gi){const D=COUNTY,g=D.groups[gi-1],sub=g[3];
+  $('sideKick').textContent='Great region';$('sideName').textContent=g[1]+' region';
+  $('sideDesc').textContent=`Region ${g[0]} (a 2-digit hydrologic unit), ${Math.round(g[2]/D.areakm*100)}% of the Mississippi River Basin.`;
+  $('stats').innerHTML=stat(sqmi(g[2]),'square miles')+stat(sub.length,'subregions')+stat(`${shedT.D.elo.toLocaleString()}-${shedT.D.ehi.toLocaleString()}`,'feet above sea level')+stat((shedT.D.cities||[]).length,'major metros shown');
+  setAbout((REGION_ABOUT[g[0]]||'')+' Click anywhere on the land to follow the rain to the end of the region, with a clock that counts the hours.',g[0]);
+  $('listHead').textContent='Subregions';
+  setList(sub.map((s,i)=>({v:s,name:D.sheds[s-1][1],right:sqmi(D.sheds[s-1][5]||D.sheds[s-1][2])+' sq mi',color:PAL[i%PAL.length]})),it=>selectSub(it.v));
+  $('capName').textContent=g[1]+' region';$('capSub').textContent=`Mississippi River Basin · ${sub.length} subregions · ${sqmi(g[2])} sq mi`;
+  $('crumb').textContent=`${D.name} / ${g[1]}`;$('back').hidden=false;$('backName').textContent='Whole basin';$('shed').value='g'+gi}
+function selectSub(v,opt={}){if(!shedT)return;if(!opt.keepTrace)clearTrace();shedT.sel=(shedT.sel===v&&!opt.keepTrace&&!opt.force)?0:v;shedT.recolor();
+  document.querySelectorAll('#list button').forEach(b=>b.classList.toggle('on',+b.dataset.v===shedT.sel));
+  if(shedT.sel){const s=COUNTY.sheds[v-1],full=s[5]||s[2];
+    $('capName').textContent=s[1];$('capSub').textContent=`Subregion ${s[0]} · ${sqmi(full)} sq mi`;
+    $('sideKick').textContent='Subregion';$('sideName').textContent=s[1];$('sideDesc').textContent=`Subregion ${s[0]} (a 4-digit hydrologic unit), part of the ${COUNTY.groups[s[4]-1][1]} region.`;
+    $('aboutText').textContent=`${s[1]} covers ${sqmi(full)} square miles. Click on the land to follow rain from any spot and watch the clock count the hours.`;
+    $('myNote').textContent=(NOTES[s[0]]&&NOTES[s[0]].note)||'';$('shed').value='s'+v}
+  else{showShedPanel(view.id)}updateUrl()}
+function fillPicker(){const sel=$('shed');sel.innerHTML='<option value="c">Whole basin</option>';
+  COUNTY.groups.forEach((g,i)=>{const og=document.createElement('optgroup');og.label=g[1];const o=document.createElement('option');o.value='g'+(i+1);o.textContent=g[1]+' region (all)';og.append(o);
+    g[3].forEach(s=>{const so=document.createElement('option');so.value='s'+s;so.textContent='· '+COUNTY.sheds[s-1][1];og.append(so)});sel.append(og)});
+  sel.onchange=async()=>{const v=sel.value;if(v==='c'){showCounty();return}const n=+v.slice(1);
+    if(v[0]==='g')openShed(COUNTY.groups[n-1][0]);else{const gi=COUNTY.sheds[n-1][4];if(view.kind!=='shed'||view.id!==gi)await openShed(COUNTY.groups[gi-1][0]);selectSub(n,{force:true})}}}
+async function openShed(code,opt={}){if(busy)return;const gi=COUNTY.groups.findIndex(g=>g[0]===code)+1;if(!gi)return;busy=true;$('loading').hidden=false;
+  try{let D=cache.get(code);if(!D){const r=await fetch(DATA_DIR+code+'.json');if(!r.ok)throw new Error(r.status);D=await r.json();cache.set(code,D)}
+    clearTrace();clearPin();if(shedT){scene.remove(shedT.group);shedT.dispose()}
+    countyT.sel=0;countyT.recolor();
+    shedT=build(D,'shed');countyT.group.visible=false;countyT.labs.forEach(L=>L.e.style.display='none');scene.add(shedT.group);cur=shedT;view={kind:'shed',id:gi,code};
+    showShedPanel(gi);placeCloud(shedT);
+    if(opt.sub){const s=COUNTY.sheds.findIndex(r=>r[0]===opt.sub)+1;if(s)selectSub(s,{force:true})}
+    flyTo(shedT,opt.instant?1:1000);updateUrl();
+    if(opt.pin){const k=shedT.cellLL(opt.pin[0],opt.pin[1]);if(k>=0&&shedT.inC(k)){setPin(k,opt.addr);const v=shedT.key(k);if(v)selectSub(v,{keepTrace:true,force:true});startTrace(shedT,k)}}}
+  catch(e){console.error(e);toast('Sorry, that region could not be loaded.')}
+  finally{busy=false;$('loading').hidden=true}}
+function showCounty(){clearTrace();clearPin();if(shedT){scene.remove(shedT.group);shedT.dispose();shedT=null}countyT.sel=0;countyT.recolor();countyT.group.visible=true;cur=countyT;view={kind:'county'};
+  showCountyPanel();placeCloud(countyT);flyTo(countyT);updateUrl()}
+function goUp(){if(trace){clearTrace();return}if(view.kind==='shed'&&shedT&&shedT.sel){selectSub(shedT.sel);return}if(view.kind==='shed')showCounty()}
+$('back').onclick=showCounty;
+$('reset').onclick=()=>flyTo(cur);
+addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(card.classList.contains('fs')&&!document.fullscreenElement){setFs(false);return}goUp()});
+
+// pin for a found address
+function setPin(k,addr){clearPin();const e=document.createElement('div');e.className='pin';e.innerHTML=PIN;e.title=addr||'';stage.appendChild(e);pin={e,k}}
+function clearPin(){if(pin){pin.e.remove();pin=null}}
+
+// ------------------------------------------------------------------ toggles
+function setToggle(k,on){st[k]=on;const b=document.querySelector(`#tg button[data-k="${k}"]`);if(b)b.setAttribute('aria-pressed',on);
+  if(k==='rotate')ctl.autoRotate=on;
+  if(k==='flow')[countyT,shedT].forEach(T=>T&&(T.flow.visible=on));
+  if(k==='rain'){rain.visible=on;cloud.visible=on}
+  if(['sheds','states','counties','roads'].includes(k))[countyT,shedT].forEach(T=>T&&T.recolor());
+  if(k==='lock'&&!on&&view.kind==='county'&&countyT){clearTrace();countyT.sel=0;countyT.recolor();showCountyPanel()}}
+document.querySelectorAll('#tg button').forEach(b=>b.onclick=()=>setToggle(b.dataset.k,b.getAttribute('aria-pressed')!=='true'));
+$('ex').oninput=e=>{st.ex=+e.target.value;$('exv').textContent=st.ex+'×';[countyT,shedT].forEach(T=>T&&T.applyEx(st.ex));if(cur)placeCloud(cur)};
+
+// ------------------------------------------------------------------ full screen
+function setFs(on){card.classList.toggle('fs',on);$('fsl').textContent=on?'Exit full screen':'Full screen';if(on){ctl.enableZoom=true;$('hint').hidden=true}requestAnimationFrame(size)}
+$('fsb').onclick=()=>{if(card.classList.contains('fs')){if(document.fullscreenElement)document.exitFullscreen();else setFs(false);return}
+  const req=card.requestFullscreen||card.webkitRequestFullscreen;if(!req){setFs(true);return}try{const r=req.call(card);if(r&&r.catch)r.catch(()=>setFs(true))}catch(e){setFs(true)}};
+const onFs=()=>setFs(!!(document.fullscreenElement||document.webkitFullscreenElement));
+document.addEventListener('fullscreenchange',onFs);document.addEventListener('webkitfullscreenchange',onFs);
+
+// ------------------------------------------------------------------ find my watershed (address search)
+const GEO='https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
+$('find').addEventListener('submit',async ev=>{ev.preventDefault();const q=$('q').value.trim();if(!q||!COUNTY)return;const fmsg=$('fmsg');fmsg.textContent='Searching...';
+  const [w,e,s,n]=COUNTY.bb,EXT=JSON.stringify({xmin:w-.1,ymin:s-.1,xmax:e+.1,ymax:n+.1,spatialReference:{wkid:4326}});
+  try{const u=GEO+'?f=json&maxLocations=1&outFields=Match_addr&forStorage=false&searchExtent='+encodeURIComponent(EXT)+'&SingleLine='+encodeURIComponent(q);
+    const d=await (await fetch(u)).json(),c=d.candidates&&d.candidates[0];
+    if(!c||c.score<70){fmsg.textContent='No match found. Try a street address with the city or ZIP code.';return}
+    const k=countyT.cellLL(c.location.x,c.location.y),gi=k>=0&&countyT.inC(k)?countyT.key(k):0;
+    if(!gi){fmsg.textContent='That address is outside the Mississippi River Basin.';return}
+    fmsg.textContent='';
+    if(view.kind==='shed'&&view.id===gi&&shedT){const kk=shedT.cellLL(c.location.x,c.location.y);if(kk>=0){setPin(kk,c.address);const v=shedT.key(kk);if(v)selectSub(v,{keepTrace:true,force:true});startTrace(shedT,kk)}}
+    else await openShed(COUNTY.groups[gi-1][0],{pin:[c.location.x,c.location.y],addr:c.address});
+    toast('Found: '+c.address)}
+  catch(e){fmsg.textContent='Address search is not available right now. Please try again.'}});
+
+// ------------------------------------------------------------------ share links
+function viewUrl(){const u=new URL(location.href);u.search='';u.hash='';
+  if(view.kind==='shed'){u.searchParams.set('w',view.code);if(shedT&&shedT.sel)u.searchParams.set('s',COUNTY.sheds[shedT.sel-1][0])}return u.toString()}
+function updateUrl(){try{history.replaceState(null,'',viewUrl())}catch(e){}}
+let toastT;function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
+$('share').onclick=async()=>{const url=viewUrl(),title=$('capName').textContent+' - 3D watershed map';
+  if(navigator.share){try{await navigator.share({title,text:'Explore this 3D watershed map from Mid-America Watershed.Org',url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);toast('Link copied - paste it anywhere to share this view.')}catch(e){prompt('Copy this link:',url)}};
+
+// ------------------------------------------------------------------ branded exports (logo is drawn into the pixels)
+function whenLogo(){return logoImg.complete&&logoImg.naturalWidth?Promise.resolve():new Promise(r=>{logoImg.onload=r;logoImg.onerror=r})}
+function snapshot(scale){const w=stage.clientWidth,h=stage.clientHeight,pr=renderer.getPixelRatio();
+  renderer.setPixelRatio(scale);renderer.setSize(w,h,false);renderer.render(scene,cam);drawCompass();
+  const c=document.createElement('canvas');c.width=renderer.domElement.width;c.height=renderer.domElement.height;c.getContext('2d').drawImage(renderer.domElement,0,0);
+  renderer.setPixelRatio(pr);size();return c}
+function drawLogo3D(g,x,y,d){g.save();
+  g.fillStyle='#9fb0c5';g.beginPath();g.arc(x+d/2,y+d/2+d*.05,d/2,0,7);g.fill();
+  g.shadowColor='rgba(15,42,78,.4)';g.shadowBlur=d*.14;g.shadowOffsetY=d*.07;g.fillStyle='#fff';g.beginPath();g.arc(x+d/2,y+d/2,d/2,0,7);g.fill();g.shadowColor='transparent';
+  g.drawImage(logoImg,x+d*.05,y+d*.05,d*.9,d*.9*302/300);
+  const gr=g.createRadialGradient(x+d*.35,y+d*.2,0,x+d*.35,y+d*.2,d*.5);gr.addColorStop(0,'rgba(255,255,255,.55)');gr.addColorStop(1,'rgba(255,255,255,0)');
+  g.fillStyle=gr;g.beginPath();g.arc(x+d/2,y+d/2,d/2,0,7);g.fill();g.restore()}
+async function compose(){await whenLogo();await document.fonts.ready;return composeSync()}
+function composeSync(){
+  const shot=snapshot(Math.max(2,Math.min(3,2400/stage.clientWidth)));
+  const Wd=2400,head=190,foot0=150,mapH=Math.round(Wd*shot.height/shot.width),sx=Wd/stage.clientWidth;
+  let storyLines=[];if(!$('story').hidden){const m=document.createElement('canvas').getContext('2d');m.font='400 26px "Public Sans",sans-serif';let ln='';
+    for(const w of $('stext').textContent.split(' ')){const t=ln?ln+' '+w:w;if(m.measureText(t).width>Wd-100){storyLines.push(ln);ln=w}else ln=t}if(ln)storyLines.push(ln)}
+  const storyH=storyLines.length?100+storyLines.length*34:0,foot=foot0+storyH,Hd=head+mapH+foot;
+  const c=document.createElement('canvas');c.width=Wd;c.height=Hd;const g=c.getContext('2d');
+  g.fillStyle='#ffffff';g.fillRect(0,0,Wd,Hd);
+  const sky=g.createLinearGradient(0,head,0,head+mapH);sky.addColorStop(0,'#f4f9fd');sky.addColorStop(1,'#c9dcec');g.fillStyle=sky;g.fillRect(0,head,Wd,mapH);
+  g.drawImage(shot,0,head,Wd,mapH);
+  // labels, markers and the address pin, as seen on screen
+  if(cur){g.save();g.textBaseline='middle';g.lineJoin='round';
+    const at=e=>[parseFloat(e.style.left)*sx,head+parseFloat(e.style.top)*sx];
+    for(const L of cur.labs){if(L.e.style.display!=='block')continue;const [x,y]=at(L.e);
+      if(L.type==='marker'){const col={park:'#178a3c',school:'#e0a400',college:'#7b4fa3',hospital:'#d32f2f',fire:'#f06a1d',cityhall:'#2b5fb4'}[L.cat]||'#555';
+        g.fillStyle='#fff';g.beginPath();g.arc(x,y,6*sx/2.2,0,7);g.fill();g.fillStyle=col;g.beginPath();g.arc(x,y,4.4*sx/2.2,0,7);g.fill();continue}
+      const t=L.e.textContent;
+      if(L.type==='road'){g.font=`700 ${Math.round(10.5*sx)}px "Public Sans",sans-serif`;const tw=g.measureText(t).width,ph=8*sx;g.fillStyle=/^I-/.test(t)?'#1f4f9a':'#6b5b45';
+        g.fillRect(x-tw/2-6*sx/2,y-ph,tw+6*sx,ph*2);g.fillStyle='#fff';g.textAlign='center';g.fillText(t,x,y);continue}
+      if(L.type==='river'){g.font=`italic 700 ${Math.round(13*sx)}px "Public Sans",sans-serif`;g.lineWidth=5*sx/2;g.strokeStyle='rgba(255,255,255,.95)';g.textAlign='center';g.strokeText(t,x,y);g.fillStyle='#0b3d91';g.fillText(t,x,y);continue}
+      g.font=`700 ${Math.round(11.5*sx)}px "Public Sans",sans-serif`;const tw=g.measureText(t).width;g.lineWidth=5*sx/2;g.strokeStyle='rgba(255,255,255,.95)';
+      g.fillStyle='#b3206f';g.beginPath();g.arc(x-tw/2-2*sx,y,3.2*sx/2,0,7);g.fill();g.textAlign='center';g.strokeText(t,x+4,y);g.fillStyle='#3b2a4a';g.fillText(t,x+4,y)}
+    if(pin&&pin.e.style.display!=='none'){const [x,y]=at(pin.e);g.fillStyle='#b3206f';g.strokeStyle='#fff';g.lineWidth=4;g.beginPath();g.arc(x,y-28,18,0,7);g.fill();g.stroke();g.beginPath();g.moveTo(x-12,y-18);g.lineTo(x,y);g.lineTo(x+12,y-18);g.fill()}
+    g.restore()}
+  // faint diagonal watermark across the map
+  g.save();g.beginPath();g.rect(0,head,Wd,mapH);g.clip();g.translate(Wd/2,head+mapH/2);g.rotate(-Math.PI/9);g.globalAlpha=.055;g.fillStyle='#0F2A4E';
+  g.font='700 54px "Public Sans",sans-serif';g.textAlign='center';
+  for(let yy=-mapH;yy<=mapH;yy+=190)for(let xx=-Wd;xx<=Wd;xx+=900)g.fillText('Mid-America Watershed.Org',xx+(yy/190%2?450:0),yy);
+  g.globalAlpha=.06;const cd=Math.min(mapH,Wd)*.45;g.drawImage(logoImg,-cd/2,-cd/2,cd,cd*302/300);g.restore();
+  // story box, when a rain trace is showing
+  if(storyLines.length){g.save();const y0=head+mapH;g.fillStyle='#eef8fc';g.fillRect(0,y0,Wd,storyH);g.fillStyle='#00a6d6';g.fillRect(0,y0,10,storyH);
+    g.fillStyle='#0083ad';g.font='700 22px "Public Sans",sans-serif';g.textAlign='left';g.textBaseline='alphabetic';g.fillText('WHERE DOES MY RAIN GO?',40,y0+42);g.fillStyle='#15243B';g.font='400 26px "Public Sans",sans-serif';
+    storyLines.forEach((l,i)=>g.fillText(l,40,y0+80+i*34));g.restore()}
+  // header band
+  g.fillStyle='#173B6B';g.fillRect(0,0,Wd,head);g.fillStyle='#E39A2A';g.fillRect(0,head-8,Wd,8);
+  drawLogo3D(g,36,18,150);
+  g.fillStyle='#fff';g.font='600 60px Fraunces,Georgia,serif';g.textAlign='left';g.textBaseline='alphabetic';
+  g.fillText($('capName').textContent,214,94,Wd-214-720);g.font='500 32px "Public Sans",sans-serif';g.fillStyle='#cfe0f2';
+  g.fillText($('capSub').textContent,214,144,Wd-214-720);
+  g.textAlign='right';g.font='700 34px "Public Sans",sans-serif';g.fillStyle='#fff';g.fillText('Mid-America Watershed.Org',Wd-40,82);
+  g.font='500 28px "Public Sans",sans-serif';g.fillStyle='#E39A2A';g.fillText('midamericawatershed.org',Wd-40,126);
+  drawLogo3D(g,Wd-300,head+36,250);
+  // footer band
+  const fy=head+mapH+storyH;
+  g.fillStyle='#FBFAF6';g.fillRect(0,fy,Wd,foot0);g.fillStyle='#E2E7EE';g.fillRect(0,fy,Wd,3);
+  drawLogo3D(g,36,fy+22,106);
+  g.textAlign='left';g.fillStyle='#173B6B';g.font='700 32px "Public Sans",sans-serif';g.fillText('Free 3D Watershed Map Library · midamericawatershed.org',166,fy+64);
+  g.fillStyle='#54637C';g.font='400 21px "Public Sans",sans-serif';
+  g.fillText('Watershed regions: USGS Watershed Boundary Dataset. Elevation: AWS Terrain Tiles. Rivers, lakes, interstates, metros: Natural Earth. State and county lines: U.S. Census Bureau. Travel times are estimates.',166,fy+100,Wd-200);
+  g.fillText('Heights exaggerated. Map design © Mid-America Watershed.Org. Share freely with this logo and credit intact. Generated '+new Date().toLocaleDateString()+'.',166,fy+130,Wd-200);
+  return c}
+function fileBase(){return ('mawa-'+$('capName').textContent).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+$('dl').onclick=async()=>{const c=await compose();c.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fileBase()+'.png';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),4000)},'image/png')};
+$('pdf').onclick=async()=>{if(!window.jspdf){toast('PDF tool is still loading - try again in a moment.');return}
+  const c=await compose(),{jsPDF}=window.jspdf,doc=new jsPDF({orientation:'landscape',unit:'pt',format:'letter'});
+  const pw=doc.internal.pageSize.getWidth(),ph=doc.internal.pageSize.getHeight(),m=24,s=Math.min((pw-2*m)/c.width,(ph-2*m)/c.height),iw=c.width*s,ih=c.height*s,x=(pw-iw)/2,y=(ph-ih)/2;
+  doc.addImage(c.toDataURL('image/jpeg',.92),'JPEG',x,y,iw,ih);
+  doc.link(x+36*s,y+18*s,150*s,150*s,{url:SITE});doc.link(x+(c.width-300)*s,y+(190+36)*s,250*s,250*s,{url:SITE});
+  doc.link(x+(c.width-700)*s,y+40*s,660*s,100*s,{url:SITE});doc.link(x+36*s,y+(c.height-150+22)*s,1400*s,106*s,{url:SITE});
+  doc.setProperties({title:$('capName').textContent+' - Mid-America Watershed.Org',author:'Mid-America Watershed.Org',subject:'3D watershed map',creator:'midamericawatershed.org'});
+  doc.save(fileBase()+'.pdf')};
+async function preparePrint(){const c=await compose();$('printSheet').src=c.toDataURL('image/png');await $('printSheet').decode().catch(()=>{})}
+$('print').onclick=async()=>{await preparePrint();window.print()};
+window.addEventListener('beforeprint',()=>{if(!$('printSheet').getAttribute('src')){$('printSheet').src=composeSync().toDataURL('image/png')}});
+window.addEventListener('afterprint',()=>{$('printSheet').removeAttribute('src')});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='p'){e.preventDefault();$('print').click()}});
+
+// ------------------------------------------------------------------ 3D compass rose (lower right, turns with the map; click it to face north)
+const CS=118,CMR=8,CMB=54,cScene=new THREE.Scene(),cCam=new THREE.PerspectiveCamera(30,1,.1,50);
+cScene.add(new THREE.HemisphereLight('#ffffff','#9aa3b5',2.2));
+{const flat=g=>{g.rotateX(-Math.PI/2);return g};
+ cScene.add(new THREE.Mesh(flat(new THREE.CircleGeometry(1.08,48)),new THREE.MeshLambertMaterial({color:'#ffffff',transparent:true,opacity:.92})));
+ const ring=new THREE.Mesh(flat(new THREE.RingGeometry(1.0,1.08,48)),new THREE.MeshLambertMaterial({color:'#173B6B'}));ring.position.y=.01;cScene.add(ring);
+ const rim=new THREE.Mesh(new THREE.CylinderGeometry(1.08,1.08,.08,48,1,true),new THREE.MeshLambertMaterial({color:'#173B6B',side:THREE.DoubleSide}));rim.position.y=-.03;cScene.add(rim);
+ const point=(ang,len,w,color,y)=>{const sh=new THREE.Shape();sh.moveTo(0,len);sh.lineTo(w,0);sh.lineTo(-w,0);sh.closePath();
+   const g=new THREE.ExtrudeGeometry(sh,{depth:.03,bevelEnabled:false});g.rotateX(-Math.PI/2);g.rotateY(ang);const m=new THREE.Mesh(g,new THREE.MeshLambertMaterial({color,side:THREE.DoubleSide}));m.position.y=y;cScene.add(m)};
+ for(const a of [Math.PI/4,3*Math.PI/4,5*Math.PI/4,7*Math.PI/4])point(a,.62,.14,'#9aa3b5',.02);
+ point(0,.95,.2,'#c8102e',.05);point(Math.PI,.95,.2,'#173B6B',.05);point(Math.PI/2,.95,.2,'#173B6B',.04);point(-Math.PI/2,.95,.2,'#173B6B',.04);
+ const hub=new THREE.Mesh(new THREE.CylinderGeometry(.09,.09,.08,20),new THREE.MeshLambertMaterial({color:'#E39A2A'}));hub.position.y=.09;cScene.add(hub);
+ const letter=(t,x,z,color)=>{const c=document.createElement('canvas');c.width=c.height=64;const g=c.getContext('2d');g.font='700 42px "Public Sans", Arial, sans-serif';g.textAlign='center';g.textBaseline='middle';
+   g.lineWidth=6;g.strokeStyle='rgba(255,255,255,.95)';g.strokeText(t,32,34);g.fillStyle=color;g.fillText(t,32,34);
+   const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:Object.assign(new THREE.CanvasTexture(c),{colorSpace:THREE.SRGBColorSpace}),depthTest:false}));sp.scale.set(.62,.62,1);sp.position.set(x,.12,z);cScene.add(sp)};
+ letter('N',0,-1.42,'#c8102e');letter('S',0,1.42,'#173B6B');letter('E',1.42,0,'#173B6B');letter('W',-1.42,0,'#173B6B')}
+const inCompass=ev=>{const r=renderer.domElement.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top;return x>r.width-CS-CMR&&x<r.width-CMR&&y>r.height-CS-CMB&&y<r.height-CMB};
+function faceNorth(){const off=cam.position.clone().sub(ctl.target),h=Math.hypot(off.x,off.z),p0=cam.position.clone(),p1=ctl.target.clone().add(new THREE.Vector3(0,off.y,h)),s0=performance.now();
+  if(st.rotate)setToggle('rotate',false);
+  (function step(){const u=Math.min(1,(performance.now()-s0)/900),e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;
+    // swing around the target, not through it
+    const a0=Math.atan2(p0.x-ctl.target.x,p0.z-ctl.target.z);let a1=0,da=a1-a0;while(da>Math.PI)da-=2*Math.PI;while(da<-Math.PI)da+=2*Math.PI;const a=a0+da*e;
+    cam.position.set(ctl.target.x+Math.sin(a)*h,p0.y+(p1.y-p0.y)*e,ctl.target.z+Math.cos(a)*h);if(u<1)requestAnimationFrame(step)})()}
+function drawCompass(){const w=stage.clientWidth,h=stage.clientHeight;
+  cCam.position.copy(cam.position).sub(ctl.target).normalize();cCam.position.y=Math.max(cCam.position.y,.82);cCam.position.normalize().multiplyScalar(6.6);cCam.lookAt(0,0,0);
+  renderer.autoClear=false;renderer.setScissorTest(true);renderer.setViewport(w-CS-CMR,CMB,CS,CS);renderer.setScissor(w-CS-CMR,CMB,CS,CS);
+  renderer.clearDepth();renderer.render(cScene,cCam);
+  renderer.setScissorTest(false);renderer.setViewport(0,0,w,h);renderer.autoClear=true}
+
+// ------------------------------------------------------------------ animation
+const v3=new THREE.Vector3();
+function tick(){requestAnimationFrame(tick);ctl.update();
+  const T=cur;
+  if(T&&st.flow&&T.FN){for(let m=0;m<T.FN;m++){const f=T.fs[m];f.t+=.22;if(f.t>=1){f.t=0;const nk=T.down[f.k];f.age++;if(nk<0||f.age>260){T.respawn(m);continue}f.k=nk}
+    const a=f.k,b=T.down[a]>=0?T.down[a]:a,u=f.t;T.fp[m*3]=T.pos[a*3]*(1-u)+T.pos[b*3]*u;T.fp[m*3+1]=T.pos[a*3+1]*(1-u)+T.pos[b*3+1]*u+.25;T.fp[m*3+2]=T.pos[a*3+2]*(1-u)+T.pos[b*3+2]*u}
+    T.fg.attributes.position.needsUpdate=true}
+  if(T&&st.rain){for(let m=0;m<RN;m++){rp[m*3+1]-=rv[m];if(rp[m*3+1]<T.topY*.3)resetDrop(m,T)}rg.attributes.position.needsUpdate=true}
+  if(trace)stepTrace();
+  renderer.render(scene,cam);drawCompass();
+  if(T){const w=stage.clientWidth,h=stage.clientHeight,placed=[];
+    const show=L=>L.type==='marker'?st.places:L.type==='road'?(st.labels&&st.roads):st.labels;
+    for(const L of T.labs){if(!show(L)){L.e.style.display='none';continue}
+      v3.set(T.pos[L.k*3],T.pos[L.k*3+1]+.5,T.pos[L.k*3+2]).project(cam);
+      if(v3.z>1||Math.abs(v3.x)>1||Math.abs(v3.y)>1){L.e.style.display='none';continue}
+      const x=(v3.x+1)/2*w,y=(1-v3.y)/2*h,lw=L.type==='marker'?16+L.e.textContent.length*6.2:L.e.textContent.length*6.4+12,lh=16,cx2=L.type==='marker'?x+lw/2-6:x;
+      if(placed.some(p=>Math.abs(p[0]-cx2)<(p[2]+lw)/2&&Math.abs(p[1]-y)<(p[3]+lh)/2)||x<140&&y<160){L.e.style.display='none';continue}
+      placed.push([cx2,y,lw,lh]);L.e.style.display='block';L.e.style.left=x+'px';L.e.style.top=y+'px'}
+    if(pin){v3.set(T.pos[pin.k*3],T.pos[pin.k*3+1]+.3,T.pos[pin.k*3+2]).project(cam);pin.e.style.display=v3.z>1?'none':'block';pin.e.style.left=(v3.x+1)/2*w+'px';pin.e.style.top=(1-v3.y)/2*h+'px'}}}
+
+// ------------------------------------------------------------------ start
+(async function(){
+  try{const r=await fetch(DATA_DIR+'basin.json');if(!r.ok)throw new Error(r.status);COUNTY=await r.json()}
+  catch(e){$('loading').textContent='The basin map could not be loaded.';$('title').textContent='Map not found';return}
+  document.title='Mississippi River Basin - 3D Watershed Map - Mid-America Watershed.Org';
+  $('title').textContent='Mississippi River Basin';$('subtitle').textContent='Interactive 3D map of the basin, its great regions and subregions, and how long rain takes to reach the Gulf of Mexico';
+  fillPicker();
+  countyT=build(COUNTY,'county');scene.add(countyT.group);cur=countyT;showCountyPanel();
+  const p=poseFor(countyT);cam.position.copy(p.p);ctl.target.copy(p.tg);placeCloud(countyT);
+  for(const k of Object.keys(st))if(typeof st[k]==='boolean')setToggle(k,st[k]);
+  $('exv').textContent=st.ex+'×';$('loading').hidden=true;tick();
+  const w=qs.get('w');if(w)openShed(w,{sub:qs.get('s'),instant:true});
+  if(qs.has('full'))setFs(true);
+})();
+</script>
+</body>
+</html>

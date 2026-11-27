@@ -69,11 +69,11 @@ def area_km2(g, lat0):
     return scale(g, kx, ky, origin=(0, 0)).area
 
 
-def wbd_query(layer, bb, fields, where='1=1'):
+def wbd_query(layer, bb, fields, where='1=1', offset=0.00005):
     w, s, e, n = bb
     q = urllib.parse.urlencode({'where': where, 'geometry': f'{w},{s},{e},{n}', 'geometryType': 'esriGeometryEnvelope', 'inSR': 4326,
                                 'spatialRel': 'esriSpatialRelIntersects', 'outFields': fields, 'returnGeometry': 'true',
-                                'outSR': 4326, 'f': 'geojson', 'geometryPrecision': 6, 'maxAllowableOffset': 0.00005})
+                                'outSR': 4326, 'f': 'geojson', 'geometryPrecision': 6, 'maxAllowableOffset': offset})
     import time
     for attempt in range(6):
         try:
