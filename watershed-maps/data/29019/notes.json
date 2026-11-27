@@ -1,0 +1,283 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Boone County",
+  "note": ""
+ },
+ "1030010207": {
+  "watershed": "Perche Creek",
+  "note": ""
+ },
+ "1030010209": {
+  "watershed": "Splice Creek-Missouri River",
+  "note": ""
+ },
+ "1030010206": {
+  "watershed": "Hinkson Creek",
+  "note": ""
+ },
+ "1030010210": {
+  "watershed": "Cedar Creek",
+  "note": ""
+ },
+ "1030010213": {
+  "watershed": "City of Jefferson City-Missouri River",
+  "note": ""
+ },
+ "0711000601": {
+  "watershed": "Long Branch",
+  "note": ""
+ },
+ "1030010203": {
+  "watershed": "Prairie Creek-Moniteau Creek",
+  "note": ""
+ },
+ "1030010205": {
+  "watershed": "City of Boonville-Missouri River",
+  "note": ""
+ },
+ "0711000603": {
+  "watershed": "Elk Fork Salt River",
+  "note": ""
+ },
+ "0711000605": {
+  "watershed": "South Fork Salt River",
+  "note": ""
+ },
+ "103001020708": {
+  "subwatershed": "Callahan Creek-Perche Creek",
+  "note": ""
+ },
+ "103001020706": {
+  "subwatershed": "Rocky Fork Creek",
+  "note": ""
+ },
+ "103001020703": {
+  "subwatershed": "Headwaters Silver Fork",
+  "note": ""
+ },
+ "103001020704": {
+  "subwatershed": "Silver Fork",
+  "note": ""
+ },
+ "103001020702": {
+  "subwatershed": "Headwaters Perche Creek",
+  "note": ""
+ },
+ "103001020701": {
+  "subwatershed": "Lick Creek",
+  "note": ""
+ },
+ "103001020709": {
+  "subwatershed": "Black Branch-Perche Creek",
+  "note": ""
+ },
+ "103001020705": {
+  "subwatershed": "Reeder Creek-Perche Creek",
+  "note": ""
+ },
+ "103001020707": {
+  "subwatershed": "Slacks Branch-Perche Creek",
+  "note": ""
+ },
+ "103001020902": {
+  "subwatershed": "Bonne Femme Creek",
+  "note": ""
+ },
+ "103001020903": {
+  "subwatershed": "Little Bonne Femme Creek-Missouri River",
+  "note": ""
+ },
+ "103001020905": {
+  "subwatershed": "Grider Branch-Missouri River",
+  "note": ""
+ },
+ "103001020901": {
+  "subwatershed": "Town of Lupus-Missouri River",
+  "note": ""
+ },
+ "103001020904": {
+  "subwatershed": "Factory Creek-Missouri River",
+  "note": ""
+ },
+ "103001020602": {
+  "subwatershed": "Middle Hinkson Creek",
+  "note": ""
+ },
+ "103001020601": {
+  "subwatershed": "Upper Hinkson Creek",
+  "note": ""
+ },
+ "103001020603": {
+  "subwatershed": "Lower Hinkson Creek",
+  "note": ""
+ },
+ "103001021004": {
+  "subwatershed": "Fowler Creek-Cedar Creek",
+  "note": ""
+ },
+ "103001021002": {
+  "subwatershed": "Headwaters Cedar Creek",
+  "note": ""
+ },
+ "103001021001": {
+  "subwatershed": "Little Cedar Creek",
+  "note": ""
+ },
+ "103001021003": {
+  "subwatershed": "Millers Creek-Cedar Creek",
+  "note": ""
+ },
+ "103001021005": {
+  "subwatershed": "Clifton Creek-Cedar Creek",
+  "note": ""
+ },
+ "103001021301": {
+  "subwatershed": "Rock Creek-Missouri River",
+  "note": ""
+ },
+ "103001021302": {
+  "subwatershed": "Slate Creek-Missouri River",
+  "note": ""
+ },
+ "103001021306": {
+  "subwatershed": "Rivaux Creek-Missouri River",
+  "note": ""
+ },
+ "103001021303": {
+  "subwatershed": "Grays Creek-Missouri River",
+  "note": ""
+ },
+ "103001021304": {
+  "subwatershed": "Wears Creek-Missouri River",
+  "note": ""
+ },
+ "103001021305": {
+  "subwatershed": "Niemans Creek-Missouri River",
+  "note": ""
+ },
+ "071100060103": {
+  "subwatershed": "Wabash Lake-Youngs Creek",
+  "note": ""
+ },
+ "071100060101": {
+  "subwatershed": "Scattering Branch-Long Branch",
+  "note": ""
+ },
+ "071100060102": {
+  "subwatershed": "Goodwater Creek",
+  "note": ""
+ },
+ "071100060105": {
+  "subwatershed": "Long Branch",
+  "note": ""
+ },
+ "071100060104": {
+  "subwatershed": "Youngs Creek",
+  "note": ""
+ },
+ "103001020303": {
+  "subwatershed": "Prairie Creek",
+  "note": ""
+ },
+ "103001020305": {
+  "subwatershed": "McGill Branch-Moniteau Creek",
+  "note": ""
+ },
+ "103001020302": {
+  "subwatershed": "Headwaters Moniteau Creek",
+  "note": ""
+ },
+ "103001020301": {
+  "subwatershed": "Hungry Mother Creek",
+  "note": ""
+ },
+ "103001020304": {
+  "subwatershed": "Hunters Creek-Moniteau Creek",
+  "note": ""
+ },
+ "103001020503": {
+  "subwatershed": "Terrapin Creek-Missouri River",
+  "note": ""
+ },
+ "103001020502": {
+  "subwatershed": "Salt Creek-Missouri River",
+  "note": ""
+ },
+ "103001020501": {
+  "subwatershed": "Bartlett Creek-Missouri River",
+  "note": ""
+ },
+ "071100060303": {
+  "subwatershed": "Saling Creek",
+  "note": ""
+ },
+ "071100060302": {
+  "subwatershed": "Coon Creek-Elk Fork Salt River",
+  "note": ""
+ },
+ "071100060308": {
+  "subwatershed": "Turkey Creek-Elk Fork Salt River",
+  "note": ""
+ },
+ "071100060301": {
+  "subwatershed": "Milligan Creek",
+  "note": ""
+ },
+ "071100060307": {
+  "subwatershed": "Briar Creek-Elk Fork Salt River",
+  "note": ""
+ },
+ "071100060305": {
+  "subwatershed": "Reese Fork-Allen Creek",
+  "note": ""
+ },
+ "071100060306": {
+  "subwatershed": "Bee Creek",
+  "note": ""
+ },
+ "071100060304": {
+  "subwatershed": "Headwaters Reese Fork",
+  "note": ""
+ },
+ "071100060502": {
+  "subwatershed": "Davis Creek",
+  "note": ""
+ },
+ "071100060501": {
+  "subwatershed": "Headwaters South Fork Salt River",
+  "note": ""
+ },
+ "071100060510": {
+  "subwatershed": "South Fork Salt River",
+  "note": ""
+ },
+ "071100060508": {
+  "subwatershed": "Bean Creek-South Fork Salt River",
+  "note": ""
+ },
+ "071100060506": {
+  "subwatershed": "Headwaters Littleby Creek",
+  "note": ""
+ },
+ "071100060507": {
+  "subwatershed": "Littleby Creek",
+  "note": ""
+ },
+ "071100060504": {
+  "subwatershed": "Skull Lick Creek",
+  "note": ""
+ },
+ "071100060503": {
+  "subwatershed": "Long Branch-South Fork Salt River",
+  "note": ""
+ },
+ "071100060509": {
+  "subwatershed": "Elm Branch-South Fork Salt River",
+  "note": ""
+ },
+ "071100060505": {
+  "subwatershed": "Fish Branch",
+  "note": ""
+ }
+}

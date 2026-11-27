@@ -2,6 +2,25 @@
  "updated": "2026-11-26",
  "maps": [
   {
+   "geoid": "17167",
+   "includes": [],
+   "name": "Sangamon County",
+   "state": "Illinois",
+   "slug": "sangamon-county",
+   "areakm": 2259.24,
+   "watersheds": 15,
+   "subwatersheds": 41,
+   "elo": 510,
+   "ehi": 714,
+   "bb": [
+    -90.00451,
+    -89.20746,
+    39.5121,
+    39.98673
+   ],
+   "thumb": "watershed-maps/thumbs/17167.jpg"
+  },
+  {
    "geoid": "19153",
    "includes": [],
    "name": "Polk County",
@@ -19,6 +38,44 @@
     41.87347
    ],
    "thumb": "watershed-maps/thumbs/19153.jpg"
+  },
+  {
+   "geoid": "29019",
+   "includes": [],
+   "name": "Boone County",
+   "state": "Missouri",
+   "slug": "boone-county",
+   "areakm": 1781.44,
+   "watersheds": 10,
+   "subwatersheds": 33,
+   "elo": 550,
+   "ehi": 948,
+   "bb": [
+    -92.58016,
+    -92.09437,
+    38.63317,
+    39.25879
+   ],
+   "thumb": "watershed-maps/thumbs/29019.jpg"
+  },
+  {
+   "geoid": "29077",
+   "includes": [],
+   "name": "Greene County",
+   "state": "Missouri",
+   "slug": "greene-county",
+   "areakm": 1747.19,
+   "watersheds": 8,
+   "subwatersheds": 28,
+   "elo": 958,
+   "ehi": 1515,
+   "bb": [
+    -93.63584,
+    -93.05154,
+    37.07869,
+    37.43742
+   ],
+   "thumb": "watershed-maps/thumbs/29077.jpg"
   },
   {
    "geoid": "29095",

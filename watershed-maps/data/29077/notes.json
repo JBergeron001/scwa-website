@@ -1,0 +1,235 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Greene County",
+  "note": ""
+ },
+ "1029010602": {
+  "watershed": "Clear Creek-Sac River",
+  "note": ""
+ },
+ "1029010604": {
+  "watershed": "Headwaters Little Sac River",
+  "note": ""
+ },
+ "1101000203": {
+  "watershed": "Wilsons Creek-James River",
+  "note": ""
+ },
+ "1101000201": {
+  "watershed": "Headwaters James River",
+  "note": ""
+ },
+ "1029010701": {
+  "watershed": "Little Pomme de Terre River-Pomme de Terre River",
+  "note": ""
+ },
+ "1101000202": {
+  "watershed": "Finley Creek",
+  "note": ""
+ },
+ "1029010601": {
+  "watershed": "Turnback Creek",
+  "note": ""
+ },
+ "1029010605": {
+  "watershed": "Little Sac River",
+  "note": ""
+ },
+ "102901060204": {
+  "subwatershed": "Headwaters Clear Creek",
+  "note": ""
+ },
+ "102901060201": {
+  "subwatershed": "Pickerel Creek",
+  "note": ""
+ },
+ "102901060202": {
+  "subwatershed": "Headwaters Sac River",
+  "note": ""
+ },
+ "102901060205": {
+  "subwatershed": "Clear Creek",
+  "note": ""
+ },
+ "102901060203": {
+  "subwatershed": "Sycamore Creek-Sac River",
+  "note": ""
+ },
+ "102901060206": {
+  "subwatershed": "Dry Branch-Sac River",
+  "note": ""
+ },
+ "102901060207": {
+  "subwatershed": "Cave Spring Branch-Sac River",
+  "note": ""
+ },
+ "102901060404": {
+  "subwatershed": "Flint Hill Branch-Little Sac River",
+  "note": ""
+ },
+ "102901060402": {
+  "subwatershed": "Headwaters Little Sac River",
+  "note": ""
+ },
+ "102901060403": {
+  "subwatershed": "North Dry Sac River",
+  "note": ""
+ },
+ "102901060406": {
+  "subwatershed": "Asher Creek-Little Sac River",
+  "note": ""
+ },
+ "102901060401": {
+  "subwatershed": "South Dry Sac River",
+  "note": ""
+ },
+ "102901060405": {
+  "subwatershed": "Slagle Creek",
+  "note": ""
+ },
+ "110100020301": {
+  "subwatershed": "Headwaters Wilsons Creek",
+  "note": ""
+ },
+ "110100020304": {
+  "subwatershed": "Ward Branch-James River",
+  "note": ""
+ },
+ "110100020303": {
+  "subwatershed": "Wilsons Creek",
+  "note": ""
+ },
+ "110100020302": {
+  "subwatershed": "Terrell Creek",
+  "note": ""
+ },
+ "110100020305": {
+  "subwatershed": "Green Valley Creek-James River",
+  "note": ""
+ },
+ "110100020108": {
+  "subwatershed": "Lake Springfield-James River",
+  "note": ""
+ },
+ "110100020105": {
+  "subwatershed": "Sawyer Creek-James River",
+  "note": ""
+ },
+ "110100020107": {
+  "subwatershed": "Turner Creek-James River",
+  "note": ""
+ },
+ "110100020106": {
+  "subwatershed": "Pearson Creek",
+  "note": ""
+ },
+ "110100020104": {
+  "subwatershed": "Turnbo Creek-James River",
+  "note": ""
+ },
+ "110100020101": {
+  "subwatershed": "Headwaters James River",
+  "note": ""
+ },
+ "110100020103": {
+  "subwatershed": "Panther Creek",
+  "note": ""
+ },
+ "110100020102": {
+  "subwatershed": "Dry Creek-James River",
+  "note": ""
+ },
+ "102901070102": {
+  "subwatershed": "Spring Creek-Little Pomme de Terre River",
+  "note": ""
+ },
+ "102901070103": {
+  "subwatershed": "Selph Branch-Pomme de Terre River",
+  "note": ""
+ },
+ "102901070101": {
+  "subwatershed": "Headwaters Pomme de Terre River",
+  "note": ""
+ },
+ "102901070104": {
+  "subwatershed": "Little Wilson Creek-Pomme de Terre River",
+  "note": ""
+ },
+ "110100020206": {
+  "subwatershed": "Parched Corn Hollow-Finley Creek",
+  "note": ""
+ },
+ "110100020204": {
+  "subwatershed": "Pedelo Creek",
+  "note": ""
+ },
+ "110100020201": {
+  "subwatershed": "Headwaters Finley Creek",
+  "note": ""
+ },
+ "110100020203": {
+  "subwatershed": "Davis Branch-Finley Creek",
+  "note": ""
+ },
+ "110100020209": {
+  "subwatershed": "Finley Creek",
+  "note": ""
+ },
+ "110100020208": {
+  "subwatershed": "Spout Spring Hollow-Finley Creek",
+  "note": ""
+ },
+ "110100020202": {
+  "subwatershed": "Stewart Creek",
+  "note": ""
+ },
+ "110100020205": {
+  "subwatershed": "Run Creek-Finley Creek",
+  "note": ""
+ },
+ "110100020207": {
+  "subwatershed": "Elk Valley",
+  "note": ""
+ },
+ "102901060102": {
+  "subwatershed": "Headwaters Turnback Creek",
+  "note": ""
+ },
+ "102901060103": {
+  "subwatershed": "Billies Creek-Turnback Creek",
+  "note": ""
+ },
+ "102901060106": {
+  "subwatershed": "Limestone Creek",
+  "note": ""
+ },
+ "102901060105": {
+  "subwatershed": "Sycamore Branch-Turnback Creek",
+  "note": ""
+ },
+ "102901060101": {
+  "subwatershed": "Goose Creek",
+  "note": ""
+ },
+ "102901060104": {
+  "subwatershed": "Sinking Creek",
+  "note": ""
+ },
+ "102901060107": {
+  "subwatershed": "Turnback Creek",
+  "note": ""
+ },
+ "102901060501": {
+  "subwatershed": "King Branch-Turkey Creek",
+  "note": ""
+ },
+ "102901060503": {
+  "subwatershed": "Little Sac River",
+  "note": ""
+ },
+ "102901060502": {
+  "subwatershed": "Walnut Creek-Little Sac River",
+  "note": ""
+ }
+}

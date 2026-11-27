@@ -1,0 +1,359 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Sangamon County",
+  "note": ""
+ },
+ "0713000707": {
+  "watershed": "Sugar Creek",
+  "note": ""
+ },
+ "0713000608": {
+  "watershed": "Clear Creek-Sangamon River",
+  "note": ""
+ },
+ "0713000802": {
+  "watershed": "Spring Creek",
+  "note": ""
+ },
+ "0713000804": {
+  "watershed": "Fancy Creek-Sangamon River",
+  "note": ""
+ },
+ "0713000803": {
+  "watershed": "Richland Creek",
+  "note": ""
+ },
+ "0713000706": {
+  "watershed": "Horse Creek",
+  "note": ""
+ },
+ "0713000801": {
+  "watershed": "Wolf Creek",
+  "note": ""
+ },
+ "0713000708": {
+  "watershed": "Lower South Fork Sangamon River",
+  "note": ""
+ },
+ "0713000903": {
+  "watershed": "Lake Fork",
+  "note": ""
+ },
+ "0713000607": {
+  "watershed": "Buckhart Creek",
+  "note": ""
+ },
+ "0713000704": {
+  "watershed": "Clear Creek",
+  "note": ""
+ },
+ "0713001106": {
+  "watershed": "Headwaters Apple Creek",
+  "note": ""
+ },
+ "0713001101": {
+  "watershed": "Prairie Creek",
+  "note": ""
+ },
+ "0713000705": {
+  "watershed": "Middle South Fork Sangamon River",
+  "note": ""
+ },
+ "0713001202": {
+  "watershed": "Hodges Creek",
+  "note": ""
+ },
+ "071300070706": {
+  "subwatershed": "Polecat Creek",
+  "note": ""
+ },
+ "071300070704": {
+  "subwatershed": "South Fork Lick Creek",
+  "note": ""
+ },
+ "071300070707": {
+  "subwatershed": "Lake Springfield-Sugar Creek",
+  "note": ""
+ },
+ "071300070703": {
+  "subwatershed": "City of Auburn-Sugar Creek",
+  "note": ""
+ },
+ "071300070705": {
+  "subwatershed": "Lick Creek",
+  "note": ""
+ },
+ "071300070702": {
+  "subwatershed": "Panther Creek",
+  "note": ""
+ },
+ "071300070708": {
+  "subwatershed": "Hoover Branch-Sugar Creek",
+  "note": ""
+ },
+ "071300070701": {
+  "subwatershed": "Headwaters Sugar Creek",
+  "note": ""
+ },
+ "071300060805": {
+  "subwatershed": "Griffith Creek-Clear Creek",
+  "note": ""
+ },
+ "071300060806": {
+  "subwatershed": "Blind Horse Ridge-Sangamon River",
+  "note": ""
+ },
+ "071300060803": {
+  "subwatershed": "Long Point Slough",
+  "note": ""
+ },
+ "071300060804": {
+  "subwatershed": "Goose Neck Slough-Sangamon River",
+  "note": ""
+ },
+ "071300060801": {
+  "subwatershed": "Spring Creek-Sangamon River",
+  "note": ""
+ },
+ "071300060802": {
+  "subwatershed": "Willow Branch-Long Point Slough",
+  "note": ""
+ },
+ "071300080203": {
+  "subwatershed": "Archer Creek-Spring Creek",
+  "note": ""
+ },
+ "071300080202": {
+  "subwatershed": "Headwaters Spring Creek",
+  "note": ""
+ },
+ "071300080201": {
+  "subwatershed": "Little Spring Creek",
+  "note": ""
+ },
+ "071300080401": {
+  "subwatershed": "Fancy Creek",
+  "note": ""
+ },
+ "071300080402": {
+  "subwatershed": "Clear Lake-Sangamon River",
+  "note": ""
+ },
+ "071300080403": {
+  "subwatershed": "Willow Branch-Sangamon River",
+  "note": ""
+ },
+ "071300080404": {
+  "subwatershed": "Cantrall Creek",
+  "note": ""
+ },
+ "071300080406": {
+  "subwatershed": "Town Branch-Sangamon River",
+  "note": ""
+ },
+ "071300080405": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ },
+ "071300080302": {
+  "subwatershed": "Prairie Creek",
+  "note": ""
+ },
+ "071300080303": {
+  "subwatershed": "Outlet Richland Creek",
+  "note": ""
+ },
+ "071300080301": {
+  "subwatershed": "Headwaters Richland Creek",
+  "note": ""
+ },
+ "071300070605": {
+  "subwatershed": "Horse Creek",
+  "note": ""
+ },
+ "071300070604": {
+  "subwatershed": "Outlet Brush Creek",
+  "note": ""
+ },
+ "071300070603": {
+  "subwatershed": "Headwaters Brush Creek",
+  "note": ""
+ },
+ "071300070602": {
+  "subwatershed": "West Branch Horse Creek",
+  "note": ""
+ },
+ "071300070601": {
+  "subwatershed": "Headwaters Horse Creek",
+  "note": ""
+ },
+ "071300080102": {
+  "subwatershed": "Little Wolf Creek-Wolf Creek",
+  "note": ""
+ },
+ "071300080101": {
+  "subwatershed": "Town of Barclay",
+  "note": ""
+ },
+ "071300070801": {
+  "subwatershed": "Town of New City-South Fork Sangamon River",
+  "note": ""
+ },
+ "071300070802": {
+  "subwatershed": "Black Branch-South Fork Sangamon River",
+  "note": ""
+ },
+ "071300090306": {
+  "subwatershed": "Hunter Slough",
+  "note": ""
+ },
+ "071300090308": {
+  "subwatershed": "Town of Mount Pulaski-Lake Fork",
+  "note": ""
+ },
+ "071300090307": {
+  "subwatershed": "Bell Cemetery-Lake Fork",
+  "note": ""
+ },
+ "071300090304": {
+  "subwatershed": "Town of Warrensburg-South Fork Lake Fork",
+  "note": ""
+ },
+ "071300090303": {
+  "subwatershed": "North Fork Lake Fork",
+  "note": ""
+ },
+ "071300090309": {
+  "subwatershed": "Elkhart Hill-Lake Fork",
+  "note": ""
+ },
+ "071300090305": {
+  "subwatershed": "South Fork Lake Fork",
+  "note": ""
+ },
+ "071300090310": {
+  "subwatershed": "Elkhart Slough-Lake Fork",
+  "note": ""
+ },
+ "071300090302": {
+  "subwatershed": "Lake Urich-North Fork Lake Fork",
+  "note": ""
+ },
+ "071300090301": {
+  "subwatershed": "Town of Rowell",
+  "note": ""
+ },
+ "071300060703": {
+  "subwatershed": "Town of Berry-Buckhart Creek",
+  "note": ""
+ },
+ "071300060701": {
+  "subwatershed": "Village of Stonington-Buckhart Creek",
+  "note": ""
+ },
+ "071300060702": {
+  "subwatershed": "Grove City",
+  "note": ""
+ },
+ "071300070402": {
+  "subwatershed": "Sangchris Lake-Clear Creek",
+  "note": ""
+ },
+ "071300070401": {
+  "subwatershed": "Town of Tovey-Clear Creek",
+  "note": ""
+ },
+ "071300110602": {
+  "subwatershed": "Turner Creek-Apple Creek",
+  "note": ""
+ },
+ "071300110606": {
+  "subwatershed": "Birch Creek-Apple Creek",
+  "note": ""
+ },
+ "071300110605": {
+  "subwatershed": "Marks Creek",
+  "note": ""
+ },
+ "071300110603": {
+  "subwatershed": "Left Fork Apple Creek-Apple Creek",
+  "note": ""
+ },
+ "071300110607": {
+  "subwatershed": "Bear Creek-Apple Creek",
+  "note": ""
+ },
+ "071300110604": {
+  "subwatershed": "Little Apple Creek",
+  "note": ""
+ },
+ "071300110601": {
+  "subwatershed": "Woods Creek",
+  "note": ""
+ },
+ "071300110101": {
+  "subwatershed": "Conover Branch-Indian Creek",
+  "note": ""
+ },
+ "071300110103": {
+  "subwatershed": "Snake Creek-Indian Creek",
+  "note": ""
+ },
+ "071300110106": {
+  "subwatershed": "Mud Creek-Indian Creek",
+  "note": ""
+ },
+ "071300110105": {
+  "subwatershed": "Clear Creek",
+  "note": ""
+ },
+ "071300110102": {
+  "subwatershed": "Little Indian Creek",
+  "note": ""
+ },
+ "071300110104": {
+  "subwatershed": "Prairie Creek",
+  "note": ""
+ },
+ "071300070503": {
+  "subwatershed": "Clear Creek-South Fork Sangamon River",
+  "note": ""
+ },
+ "071300070501": {
+  "subwatershed": "Panther Creek-South Fork Sangamon River",
+  "note": ""
+ },
+ "071300070502": {
+  "subwatershed": "Town of Sharpsburg",
+  "note": ""
+ },
+ "071300120202": {
+  "subwatershed": "Otter Lake-West Fork Otter Creek",
+  "note": ""
+ },
+ "071300120205": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "071300120207": {
+  "subwatershed": "Joes Creek-Hodges Creek",
+  "note": ""
+ },
+ "071300120201": {
+  "subwatershed": "East Fork Otter Creek",
+  "note": ""
+ },
+ "071300120206": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "071300120203": {
+  "subwatershed": "Nassa Creek",
+  "note": ""
+ },
+ "071300120204": {
+  "subwatershed": "Soloman Creek",
+  "note": ""
+ }
+}
