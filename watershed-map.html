@@ -413,7 +413,7 @@ $('sclose').onclick=clearTrace;
 
 // ------------------------------------------------------------------ camera
 const camDir=new THREE.Vector3(-.3,.78,.95).normalize();
-function poseFor(T){const tg=new THREE.Vector3(T.cx,T.topY*.25,T.cz);const d=T.ext*.5/Math.tan(cam.fov*Math.PI/360)*1.02*Math.max(1,1.08/cam.aspect);
+function poseFor(T){const tg=new THREE.Vector3(T.cx,T.topY*.25,T.cz);const d=T.ext*.5/Math.tan(cam.fov*Math.PI/360)*1.14*Math.max(1,1.08/cam.aspect);
   return{p:tg.clone().add(camDir.clone().multiplyScalar(d)),tg}}
 function flyTo(T,ms=1000){const to=poseFor(T);if(reduce||ms<5){cam.position.copy(to.p);ctl.target.copy(to.tg);return}
   const p0=cam.position.clone(),t0=ctl.target.clone(),s=performance.now();
