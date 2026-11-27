@@ -9,7 +9,7 @@ EXCLUDE = {'29183'}  # St. Charles County: its map lives only on the St. Charles
 MIDWEST = {'29': 'Missouri', '17': 'Illinois', '19': 'Iowa', '20': 'Kansas', '31': 'Nebraska', '27': 'Minnesota', '55': 'Wisconsin',
            '18': 'Indiana', '39': 'Ohio', '26': 'Michigan', '38': 'North Dakota', '46': 'South Dakota',
            # Mississippi River states to the south, plus Texas
-           '21': 'Kentucky', '47': 'Tennessee', '05': 'Arkansas', '28': 'Mississippi', '22': 'Louisiana', '48': 'Texas', '40': 'Oklahoma'}
+           '21': 'Kentucky', '47': 'Tennessee', '05': 'Arkansas', '28': 'Mississippi', '22': 'Louisiana', '48': 'Texas', '40': 'Oklahoma', '01': 'Alabama'}
 # Metro area each county belongs to, shown on the gallery cards and used by the search box. Add one line per new county.
 METRO = {'29189': 'St. Louis', '29095': 'Kansas City', '31055': 'Omaha', '19153': 'Des Moines', '29019': 'Columbia',
          '29077': 'Springfield', '17167': 'Springfield', '17031': 'Chicago', '27053': 'Minneapolis-St. Paul',
