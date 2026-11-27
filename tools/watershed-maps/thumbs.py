@@ -9,8 +9,8 @@ async def main():
         pg=await b.new_page(viewport={'width':1300,'height':900})
         for g in ids:
             await pg.goto(f'{base}/watershed-map.html?c={g}'); await pg.wait_for_timeout(6000)
-            await pg.evaluate("document.getElementById('spin').click()"); await pg.wait_for_timeout(400)
-            await pg.add_style_tag(content='.tools,.cap,.tip,.lab{display:none!important}')
+            await pg.evaluate("document.querySelector('#tg [data-k=rotate]').click();document.querySelector('#tg [data-k=rain]').click()"); await pg.wait_for_timeout(400)
+            await pg.add_style_tag(content='.cap,.tip,.lab,.mk,.stbtn,.hint,.story{display:none!important}')
             out=os.path.join(root,'watershed-maps','thumbs',g+'.png')
             await pg.locator('#stage').screenshot(path=out)
             im=Image.open(out).convert('RGB'); w,h=im.size; tw=int(h*1.5)

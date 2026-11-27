@@ -22,4 +22,6 @@ python3 tools/watershed-maps/build_manifest.py .
 
 - Elevation: Terrain Tiles on AWS Open Data (U.S. Geological Survey 3D Elevation Program in the U.S.)
 - Watersheds (10-digit) and subwatersheds (12-digit): U.S. Geological Survey Watershed Boundary Dataset
-- County, place, area water and linear water: U.S. Census Bureau cartographic boundary files and TIGER/Line 2023
+- County, place, area water, linear water and roads: U.S. Census Bureau cartographic boundary files and TIGER/Line 2023
+- Parks, schools, colleges, hospitals, fire stations and city halls: OpenStreetMap (ODbL, credit "© OpenStreetMap contributors")
+- Each county folder has a notes.json: add your own text for the county, a watershed or a subwatershed and it shows under the About text.

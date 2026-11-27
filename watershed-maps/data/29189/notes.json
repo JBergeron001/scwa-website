@@ -1,0 +1,131 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "St. Louis County",
+  "note": ""
+ },
+ "0714010210": {
+  "watershed": "Meramec River",
+  "note": ""
+ },
+ "0714010104": {
+  "watershed": "Maline Creek-Mississippi River",
+  "note": ""
+ },
+ "1030020007": {
+  "watershed": "Bonhomme Island-Missouri River",
+  "note": ""
+ },
+ "0714010105": {
+  "watershed": "Prairie duPont Creek-Mississippi River",
+  "note": ""
+ },
+ "1030020008": {
+  "watershed": "Coldwater Creek-Missouri River",
+  "note": ""
+ },
+ "0714010209": {
+  "watershed": "Calvey Creek-Meramec River",
+  "note": ""
+ },
+ "1030020006": {
+  "watershed": "Howell Island-Missouri River",
+  "note": ""
+ },
+ "0714010106": {
+  "watershed": "Rock Creek-Mississippi River",
+  "note": ""
+ },
+ "071401021001": {
+  "subwatershed": "Hamilton Creek-Meramec River",
+  "note": ""
+ },
+ "071401021002": {
+  "subwatershed": "Grand Glaize Creek-Meramec River",
+  "note": ""
+ },
+ "071401021004": {
+  "subwatershed": "Meramec River",
+  "note": ""
+ },
+ "071401021003": {
+  "subwatershed": "Sugar Creek-Meramec River",
+  "note": ""
+ },
+ "071401010401": {
+  "subwatershed": "Maline Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010403": {
+  "subwatershed": "Schoenberger Creek-Mississippi River",
+  "note": ""
+ },
+ "103002000703": {
+  "subwatershed": "Creve Coeur Creek",
+  "note": ""
+ },
+ "103002000701": {
+  "subwatershed": "Bonhomme Creek",
+  "note": ""
+ },
+ "103002000702": {
+  "subwatershed": "Greens Chute-Missouri River",
+  "note": ""
+ },
+ "103002000704": {
+  "subwatershed": "Duckett Creek-Missouri River",
+  "note": ""
+ },
+ "071401010504": {
+  "subwatershed": "Deer Creek",
+  "note": ""
+ },
+ "071401010506": {
+  "subwatershed": "River des Peres",
+  "note": ""
+ },
+ "071401010505": {
+  "subwatershed": "Gravois Creek",
+  "note": ""
+ },
+ "071401010507": {
+  "subwatershed": "Palmer Creek-Mississippi River",
+  "note": ""
+ },
+ "103002000801": {
+  "subwatershed": "Cowmire Creek-Missouri River",
+  "note": ""
+ },
+ "103002000802": {
+  "subwatershed": "Headwaters Coldwater Creek",
+  "note": ""
+ },
+ "103002000804": {
+  "subwatershed": "Outlet Missouri River",
+  "note": ""
+ },
+ "103002000803": {
+  "subwatershed": "Coldwater Creek",
+  "note": ""
+ },
+ "071401020903": {
+  "subwatershed": "Fox Creek-Meramec River",
+  "note": ""
+ },
+ "071401020902": {
+  "subwatershed": "Brush Creek-Meramec River",
+  "note": ""
+ },
+ "103002000607": {
+  "subwatershed": "Wildhorse Creek-Missouri River",
+  "note": ""
+ },
+ "103002000602": {
+  "subwatershed": "Fiddle Creek",
+  "note": ""
+ },
+ "071401010603": {
+  "subwatershed": "Carr Creek-Mississippi River",
+  "note": ""
+ }
+}

@@ -186,7 +186,66 @@ def clean_name(n):
     return n.replace("'", "’")
 
 
-def build_grid(G, county, region, el, sheds, area_water, lin_water, places, detail, extras=()):
+def road_name(n):
+    n = re.sub(r'^I- ?(\d+)$', r'I-\1', n.strip())
+    n = re.sub(r'^I- ?(\d+) .*', r'I-\1', n)
+    n = re.sub(r'^US Hwy (\d+\w?)$', r'US \1', n)
+    n = re.sub(r'^State Hwy (\w+)$', r'Hwy \1', n)
+    return clean_name(n) if len(n) < 26 else ''
+
+
+def osm_layers(bb, path):
+    """Parks, schools, colleges, hospitals, fire stations and city halls from OpenStreetMap (ODbL)."""
+    w, s, e, n = bb
+    q = f'[out:json][timeout:120];(way["leisure"="park"]({s},{w},{n},{e});relation["leisure"="park"]({s},{w},{n},{e}););out geom;' \
+        f'(nwr["amenity"~"^(school|college|university|hospital|fire_station|townhall)$"]({s},{w},{n},{e}););out center tags;'
+    if not os.path.exists(path):
+        data = urllib.parse.urlencode({'data': q}).encode()
+        for url in ('https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass-api.de/api/interpreter'):
+            try:
+                req = urllib.request.Request(url, data=data, headers={'User-Agent': 'MAWA-map-builder'})
+                with urllib.request.urlopen(req, timeout=240) as r, open(path, 'wb') as f: f.write(r.read())
+                break
+            except Exception as ex:
+                print('overpass failed', url, ex)
+    if not os.path.exists(path): return [], []
+    from shapely.geometry import Polygon, LineString
+    from shapely.ops import polygonize
+    parks, pois = [], []
+    CAT = {'school': 'school', 'college': 'college', 'university': 'college', 'hospital': 'hospital', 'fire_station': 'fire', 'townhall': 'cityhall'}
+    for el in json.load(open(path)).get('elements', []):
+        t = el.get('tags', {}); nm = t.get('name', '')
+        if t.get('leisure') == 'park' and ('geometry' in el or 'members' in el):
+            try:
+                if el['type'] == 'way':
+                    cs = [(p['lon'], p['lat']) for p in el['geometry']]
+                    if len(cs) < 4 or cs[0] != cs[-1]: continue
+                    g = make_valid(Polygon(cs))
+                else:
+                    outer = [LineString([(p['lon'], p['lat']) for p in m['geometry']]) for m in el['members'] if m.get('geometry') and m.get('role') != 'inner']
+                    inner = [LineString([(p['lon'], p['lat']) for p in m['geometry']]) for m in el['members'] if m.get('geometry') and m.get('role') == 'inner']
+                    g = unary_union(list(polygonize(unary_union(outer))))
+                    if inner: g = g.difference(unary_union(list(polygonize(unary_union(inner)))))
+                    g = make_valid(g)
+            except Exception:
+                continue
+            if g.is_empty: continue
+            a = area_km2(g, (s + n) / 2)
+            parks.append((nm, g, a))
+            if nm: pois.append(('park', nm, g.representative_point(), a))
+        elif t.get('amenity') in CAT and nm:
+            c = el.get('center') or ({'lat': el['lat'], 'lon': el['lon']} if 'lat' in el else None)
+            if c: pois.append((CAT[t['amenity']], nm, Point(c['lon'], c['lat']), 0))
+    order = {'college': 0, 'hospital': 1, 'cityhall': 2, 'fire': 3, 'park': 4, 'school': 5}
+    pois.sort(key=lambda r: (order[r[0]], -r[3]))
+    seen, uniq = set(), []
+    for r in pois:
+        if (r[0], r[1]) in seen and r[0] != 'park': continue
+        seen.add((r[0], r[1])); uniq.append(r)
+    return parks, uniq
+
+
+def build_grid(G, county, region, el, sheds, area_water, lin_water, places, detail, extras=(), L=None):
     """Returns the encoded payload for a grid covering `region` (already inside the county)."""
     LON, LAT = G.centers()
     h = el.sample(LON, LAT)
@@ -242,7 +301,45 @@ def build_grid(G, county, region, el, sheds, area_water, lin_water, places, deta
     hv = np.maximum(hv, lo - 2.0)
     cities.sort(key=lambda r: -r[3])
     cities = [r[:3] for r in cities[:(36 if detail else 18)]]
+    uv = lambda x, y: [round((x - G.w) / (G.dlon * G.nx), 4), round((G.n - y) / (G.dlat * G.ny), 4)]
+    # extra layers: roads, parks, city limits, places (r byte: bits0-1 road class 1 local/2 highway/3 interstate,
+    # bit3 city-limit edge, bit4 park, bit5 park edge, bit6 inside a city)
+    rr = np.zeros((G.ny, G.nx), np.uint8); road_labels, pois = [], []
+    if L:
+        bbox = box(*region.bounds)
+        rl = [(g, 1, 1) for p, g in L['roads'] if detail and p['MTFCC'] == 'S1400' and g.intersects(bbox)]
+        rl += [(g, 2, 1) for p, g in L['roads'] if p['MTFCC'] == 'S1200' and g.intersects(bbox)]
+        rl += [(g, 3, 2 if detail else 1) for p, g in L['roads'] if p['MTFCC'] == 'S1100' and g.intersects(bbox)]
+        rr |= G.stroke(rl)
+        muni = G.fill([(g, 1) for nm, g in L['munis'] if g.intersects(region)]) > 0
+        me = np.zeros_like(muni); me[1:-1, 1:-1] = muni[1:-1, 1:-1] & ~(muni[:-2, 1:-1] & muni[2:, 1:-1] & muni[1:-1, :-2] & muni[1:-1, 2:])
+        # also the lines between two neighbouring cities
+        mid = G.fill([(g, (i % 250) + 1) for i, (nm, g) in enumerate(L['munis']) if g.intersects(region)])
+        me[1:-1, 1:-1] |= (mid[1:-1, 1:-1] > 0) & ((mid[1:-1, 1:-1] != mid[:-2, 1:-1]) | (mid[1:-1, 1:-1] != mid[1:-1, :-2])) & (mid[:-2, 1:-1] > 0) & (mid[1:-1, :-2] > 0)
+        rr |= me.astype(np.uint8) << 3; rr |= muni.astype(np.uint8) << 6
+        pk = [(g, 1) for nm, g, a in L['parks'] if g.intersects(region) and (detail or a > 0.15)]
+        pr = G.fill(pk) > 0
+        pe = np.zeros_like(pr); pe[1:-1, 1:-1] = pr[1:-1, 1:-1] & ~(pr[:-2, 1:-1] & pr[2:, 1:-1] & pr[1:-1, :-2] & pr[1:-1, 2:])
+        rr |= pr.astype(np.uint8) << 4; rr |= pe.astype(np.uint8) << 5
+        rr[(inside == 0)] = 0
+        # road labels: one per numbered route, on its longest piece inside the area
+        best = {}
+        for p, g in L['roads']:
+            if p['MTFCC'] not in ('S1100', 'S1200') or p.get('RTTYP') not in ('I', 'U', 'S') and not re.search(r'\bHwy\b', p.get('FULLNAME') or ''): continue
+            nm = road_name(p.get('FULLNAME') or '')
+            if not nm or not g.intersects(region): continue
+            gi = g.intersection(region)
+            for ln in G.lines(gi):
+                if ln.length > best.get(nm, (0,))[0]: best[nm] = (ln.length, ln, 3 if p['MTFCC'] == 'S1100' else 2)
+        for nm, (ln_len, ln, c) in sorted(best.items(), key=lambda t: -t[1][0])[:(14 if detail else 12)]:
+            pt = ln.interpolate(0.5, normalized=True); road_labels.append([nm] + uv(pt.x, pt.y) + [c])
+        for cat, nm, pt, a in L['pois']:
+            if not region.contains(pt): continue
+            if not detail and not (cat in ('college', 'hospital') or (cat == 'park' and a > 0.6)): continue
+            pois.append([cat, clean_name(nm)] + uv(pt.x, pt.y))
+        pois = pois[:400]
     return {
+        'r': b64(rr), 'roads': road_labels, 'places': pois,
         'bb': [round(v, 5) for v in G.bb], 'nx': G.nx, 'ny': G.ny, 'cellkm': round(G.cellkm, 5),
         'h': b64(np.clip(np.round(hv * 2), -32000, 32000).astype('<i2')), 'c': b64(cls), 's': b64(sidx.astype(np.uint8)),
         'cn': b64(cn), 'creeks': creeks, 'cities': cities,
@@ -309,12 +406,20 @@ def main(geoid, outdir, extra=()):
         if gi.is_empty or area_km2(gi, lat0) < 0.3: continue
         places.append((p['NAME'], gi.representative_point(), area_km2(gi, lat0)))
 
+    roads = []
+    for gg in [geoid] + list(extra):
+        roads += [(p, g) for p, g in read_shp_zip(fetch(TIGER + f'TIGER2023/ROADS/tl_2023_{gg}_roads.zip', os.path.join(RAW, f'tl_2023_{gg}_roads.zip')))
+                  if p['MTFCC'] in ('S1100', 'S1200', 'S1400')]
+    munis = [(p['NAME'], make_valid(g)) for p, g in pl if g.intersects(county)]
+    parks, pois = osm_layers(bb, os.path.join(RAW, f'osm_{geoid}.json'))
+    print(len(roads), 'roads,', len(munis), 'cities,', len(parks), 'parks,', len(pois), 'places')
+    L = {'roads': roads, 'munis': munis, 'parks': parks, 'pois': pois}
     el = Elev(bb)
     cslug = slug(cname)
     os.makedirs(outdir, exist_ok=True)
 
     G = Grid(bb, 560)
-    D = build_grid(G, county, county, el, sheds, aw, lw, places, detail=False, extras=extra_geoms)
+    D = build_grid(G, county, county, el, sheds, aw, lw, places, detail=False, extras=extra_geoms, L=L)
     D.update({'geoid': geoid, 'name': cname, 'state': sname, 'slug': cslug, 'kind': 'county', 'includes': includes,
               'areakm': round(area_km2(county, lat0), 2),
               'groups': [[g[0], g[1], round(g[3], 2), [i + 1 for i, sh in enumerate(sheds) if sh[5] == gi], round(g[4], 1)] for gi, g in enumerate(groups)],
@@ -325,7 +430,7 @@ def main(geoid, outdir, extra=()):
     for gi, g in enumerate(groups):
         gb = g[2].bounds
         GG = Grid((gb[0] - .004, gb[1] - .004, gb[2] + .004, gb[3] + .004), 440)
-        DD = build_grid(GG, county, g[2], el, sheds, aw, lw, places, detail=True, extras=extra_geoms)
+        DD = build_grid(GG, county, g[2], el, sheds, aw, lw, places, detail=True, extras=extra_geoms, L=L)
         DD.update({'kind': 'watershed', 'huc10': g[0], 'name': g[1], 'areakm': round(g[3], 2), 'fullkm': round(g[4], 1)})
         json.dump(DD, open(os.path.join(outdir, g[0] + '.json'), 'w'), separators=(',', ':'))
         print(' ', g[0], g[1], GG.nx, GG.ny, round(GG.cellkm, 3))
