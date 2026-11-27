@@ -1,0 +1,391 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Sedgwick County",
+  "note": ""
+ },
+ "1103001301": {
+  "watershed": "Cowskin Creek-Arkansas River",
+  "note": ""
+ },
+ "1103001601": {
+  "watershed": "Clearwater Creek-Ninnescah River",
+  "note": ""
+ },
+ "1103001002": {
+  "watershed": "Big Slough-Arkansas River",
+  "note": ""
+ },
+ "1103001205": {
+  "watershed": "Chisholm Creek-Little Arkansas River",
+  "note": ""
+ },
+ "1103001303": {
+  "watershed": "Mill Race Canal-Arkansas River",
+  "note": ""
+ },
+ "1103001403": {
+  "watershed": "Outlet North Fork Ninnescah River",
+  "note": ""
+ },
+ "1103001701": {
+  "watershed": "West Branch Whitewater River",
+  "note": ""
+ },
+ "1103001602": {
+  "watershed": "Spring Creek-Ninnescah River",
+  "note": ""
+ },
+ "1103001204": {
+  "watershed": "Emma Creek-Little Arkansas River",
+  "note": ""
+ },
+ "1103001801": {
+  "watershed": "Fourmile Creek-Walnut River",
+  "note": ""
+ },
+ "1103001503": {
+  "watershed": "Outlet South Fork Ninnescah River",
+  "note": ""
+ },
+ "1103001803": {
+  "watershed": "Rock Creek-Walnut River",
+  "note": ""
+ },
+ "1103001702": {
+  "watershed": "Whitewater River",
+  "note": ""
+ },
+ "1103001302": {
+  "watershed": "Slate Creek",
+  "note": ""
+ },
+ "110300130103": {
+  "subwatershed": "Cadillac Lake-Cowskin Creek",
+  "note": ""
+ },
+ "110300130102": {
+  "subwatershed": "Headwaters Cowskin Creek",
+  "note": ""
+ },
+ "110300130101": {
+  "subwatershed": "Gypsum Creek",
+  "note": ""
+ },
+ "110300130105": {
+  "subwatershed": "Wichita-Valley Center Floodway",
+  "note": ""
+ },
+ "110300130106": {
+  "subwatershed": "Big Slough-Arkansas River",
+  "note": ""
+ },
+ "110300130104": {
+  "subwatershed": "Dry Creek-Cowskin Creek",
+  "note": ""
+ },
+ "110300160102": {
+  "subwatershed": "Clearwater Creek",
+  "note": ""
+ },
+ "110300160103": {
+  "subwatershed": "City of Viola-Ninnescah River",
+  "note": ""
+ },
+ "110300160104": {
+  "subwatershed": "Town of Clonmel-Ninnescah River",
+  "note": ""
+ },
+ "110300160101": {
+  "subwatershed": "Sand Creek",
+  "note": ""
+ },
+ "110300160105": {
+  "subwatershed": "Silver Creek-Ninnescah River",
+  "note": ""
+ },
+ "110300100206": {
+  "subwatershed": "Big Slough",
+  "note": ""
+ },
+ "110300100207": {
+  "subwatershed": "Wilson Lake-Arkansas River",
+  "note": ""
+ },
+ "110300100204": {
+  "subwatershed": "Greenfield Lake-Arkansas River",
+  "note": ""
+ },
+ "110300100205": {
+  "subwatershed": "West Lake-Arkansas River",
+  "note": ""
+ },
+ "110300100208": {
+  "subwatershed": "Wichita-Valley Center Floodway-Arkansas River",
+  "note": ""
+ },
+ "110300100203": {
+  "subwatershed": "Gar Creek-Arkansas River",
+  "note": ""
+ },
+ "110300100201": {
+  "subwatershed": "Sand Creek-Arkansas River",
+  "note": ""
+ },
+ "110300100202": {
+  "subwatershed": "Town of Yoder-Arkansas River",
+  "note": ""
+ },
+ "110300120501": {
+  "subwatershed": "Headwaters Chisholm Creek",
+  "note": ""
+ },
+ "110300120502": {
+  "subwatershed": "Middle Fork Chisholm Creek-Little Arkansas River",
+  "note": ""
+ },
+ "110300130301": {
+  "subwatershed": "Spring Creek-Arkansas River",
+  "note": ""
+ },
+ "110300130302": {
+  "subwatershed": "City of Haysville-Cowskin Creek",
+  "note": ""
+ },
+ "110300130303": {
+  "subwatershed": "Dog Creek-Arkansas River",
+  "note": ""
+ },
+ "110300130305": {
+  "subwatershed": "Lost Creek-Arkansas River",
+  "note": ""
+ },
+ "110300130304": {
+  "subwatershed": "Outlet Cowskin Creek-Arkansas River",
+  "note": ""
+ },
+ "110300130307": {
+  "subwatershed": "Salt Creek-Arkansas River",
+  "note": ""
+ },
+ "110300130306": {
+  "subwatershed": "Beaver Creek-Arkansas River",
+  "note": ""
+ },
+ "110300130308": {
+  "subwatershed": "Negro Creek-Arkansas River",
+  "note": ""
+ },
+ "110300130309": {
+  "subwatershed": "Arkansas City-Arkansas River",
+  "note": ""
+ },
+ "110300140307": {
+  "subwatershed": "Spring Creek-North Fork Ninnescah River",
+  "note": ""
+ },
+ "110300140306": {
+  "subwatershed": "Rock Creek-North Fork Ninnescah River",
+  "note": ""
+ },
+ "110300140305": {
+  "subwatershed": "Lower Cheney Reservoir-North Fork Ninnescah River",
+  "note": ""
+ },
+ "110300140304": {
+  "subwatershed": "Upper Cheney Reservoir-North Fork Ninnescah River",
+  "note": ""
+ },
+ "110300140302": {
+  "subwatershed": "Red Rock Creek",
+  "note": ""
+ },
+ "110300140303": {
+  "subwatershed": "Town of Castleton-North Fork Ninnescah River",
+  "note": ""
+ },
+ "110300140301": {
+  "subwatershed": "Irish Creek-North Fork Ninnescah River",
+  "note": ""
+ },
+ "110300170104": {
+  "subwatershed": "Whitewater Creek-West Branch Whitewater River",
+  "note": ""
+ },
+ "110300170103": {
+  "subwatershed": "Wildcat Creek",
+  "note": ""
+ },
+ "110300170102": {
+  "subwatershed": "Gypsum Creek-West Branch Whitewater River",
+  "note": ""
+ },
+ "110300170101": {
+  "subwatershed": "Headwaters West Branch Whitewater River",
+  "note": ""
+ },
+ "110300160201": {
+  "subwatershed": "Wattles Lake-Ninnescah River",
+  "note": ""
+ },
+ "110300160202": {
+  "subwatershed": "Elm Creek-Ninnescah River",
+  "note": ""
+ },
+ "110300160203": {
+  "subwatershed": "Dry Creek-Ninnescah River",
+  "note": ""
+ },
+ "110300120408": {
+  "subwatershed": "City of Sedgwick-Little Arkansas River",
+  "note": ""
+ },
+ "110300120407": {
+  "subwatershed": "Jester Creek",
+  "note": ""
+ },
+ "110300120403": {
+  "subwatershed": "East Emma Creek",
+  "note": ""
+ },
+ "110300120406": {
+  "subwatershed": "Outlet Sand Creek",
+  "note": ""
+ },
+ "110300120401": {
+  "subwatershed": "Headwaters West Emma Creek",
+  "note": ""
+ },
+ "110300120405": {
+  "subwatershed": "Headwaters Sand Creek",
+  "note": ""
+ },
+ "110300120404": {
+  "subwatershed": "Emma Creek-Little Arkansas River",
+  "note": ""
+ },
+ "110300120402": {
+  "subwatershed": "Freedom Cemetery-West Emma Creek",
+  "note": ""
+ },
+ "110300180101": {
+  "subwatershed": "Headwaters Fourmile Creek",
+  "note": ""
+ },
+ "110300180102": {
+  "subwatershed": "Republican Creek-Fourmile Creek",
+  "note": ""
+ },
+ "110300180103": {
+  "subwatershed": "Town of Gordon-Walnut River",
+  "note": ""
+ },
+ "110300150306": {
+  "subwatershed": "Nester Creek-South Fork Ninnescah River",
+  "note": ""
+ },
+ "110300150302": {
+  "subwatershed": "Petyt Creek-South Fork Ninnescah River",
+  "note": ""
+ },
+ "110300150304": {
+  "subwatershed": "Sand Creek-South Fork Ninnescah River",
+  "note": ""
+ },
+ "110300150301": {
+  "subwatershed": "Pat Creek-South Fork Ninnescah River",
+  "note": ""
+ },
+ "110300150303": {
+  "subwatershed": "Hunter Creek-South Fork Ninnescah River",
+  "note": ""
+ },
+ "110300150305": {
+  "subwatershed": "Coon Creek-South Fork Ninnescah River",
+  "note": ""
+ },
+ "110300180303": {
+  "subwatershed": "Polecat Creek",
+  "note": ""
+ },
+ "110300180302": {
+  "subwatershed": "Eightmile Creek",
+  "note": ""
+ },
+ "110300180301": {
+  "subwatershed": "Muddy Creek",
+  "note": ""
+ },
+ "110300180306": {
+  "subwatershed": "Chigger Creek-Rock Creek",
+  "note": ""
+ },
+ "110300180305": {
+  "subwatershed": "North Branch Rock Creek-Rock Creek",
+  "note": ""
+ },
+ "110300180304": {
+  "subwatershed": "Headwaters Rock Creek",
+  "note": ""
+ },
+ "110300180307": {
+  "subwatershed": "Sanford Creek-Walnut River",
+  "note": ""
+ },
+ "110300170208": {
+  "subwatershed": "Dry Creek-Whitewater River",
+  "note": ""
+ },
+ "110300170202": {
+  "subwatershed": "Headwater Whitewater River",
+  "note": ""
+ },
+ "110300170207": {
+  "subwatershed": "Elm Creek-Whitewater River",
+  "note": ""
+ },
+ "110300170203": {
+  "subwatershed": "East Branch Whitewater River",
+  "note": ""
+ },
+ "110300170206": {
+  "subwatershed": "Rock Creek-Whitewater River",
+  "note": ""
+ },
+ "110300170201": {
+  "subwatershed": "Henry Creek",
+  "note": ""
+ },
+ "110300170205": {
+  "subwatershed": "Fourmile Creek-Whitewater River",
+  "note": ""
+ },
+ "110300170204": {
+  "subwatershed": "Brush Creek-Whitewater River",
+  "note": ""
+ },
+ "110300130201": {
+  "subwatershed": "Headwaters Slate Creek",
+  "note": ""
+ },
+ "110300130202": {
+  "subwatershed": "Town of Anson-Slate Creek",
+  "note": ""
+ },
+ "110300130206": {
+  "subwatershed": "Winser Creek-Slate Creek",
+  "note": ""
+ },
+ "110300130204": {
+  "subwatershed": "Hargis Creek-Slate Creek",
+  "note": ""
+ },
+ "110300130203": {
+  "subwatershed": "Spring Creek-Slate Creek",
+  "note": ""
+ },
+ "110300130205": {
+  "subwatershed": "Antelope Creek-Slate Creek",
+  "note": ""
+ }
+}

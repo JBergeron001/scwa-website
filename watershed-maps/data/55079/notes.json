@@ -1,0 +1,147 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Milwaukee County",
+  "note": ""
+ },
+ "0404000306": {
+  "watershed": "Lower Milwaukee River-Frontal Lake Michigan",
+  "note": ""
+ },
+ "0404000304": {
+  "watershed": "Menomonee River",
+  "note": ""
+ },
+ "0404000203": {
+  "watershed": "Root River",
+  "note": ""
+ },
+ "0404000201": {
+  "watershed": "Oak Creek-Frontal Lake Michigan",
+  "note": ""
+ },
+ "0404000305": {
+  "watershed": "Kinnickinnic River",
+  "note": ""
+ },
+ "0404000202": {
+  "watershed": "Root River Canal",
+  "note": ""
+ },
+ "0712000603": {
+  "watershed": "Wind Lake Drainage Canal",
+  "note": ""
+ },
+ "040400030606": {
+  "subwatershed": "Milwaukee River",
+  "note": ""
+ },
+ "040400030605": {
+  "subwatershed": "Lincoln Creek",
+  "note": ""
+ },
+ "040400030601": {
+  "subwatershed": "Fox Point-Frontal Lake Michigan",
+  "note": ""
+ },
+ "040400030604": {
+  "subwatershed": "Pigeon Creek-Milwaukee River",
+  "note": ""
+ },
+ "040400030603": {
+  "subwatershed": "Village of Grafton-Milwaukee River",
+  "note": ""
+ },
+ "040400030602": {
+  "subwatershed": "Town of Freedonia-Milwaukee River",
+  "note": ""
+ },
+ "040400030405": {
+  "subwatershed": "Menomonee River",
+  "note": ""
+ },
+ "040400030402": {
+  "subwatershed": "Little Menomonee River",
+  "note": ""
+ },
+ "040400030404": {
+  "subwatershed": "Underwood Creek",
+  "note": ""
+ },
+ "040400030403": {
+  "subwatershed": "City of Butler-Menomonee River",
+  "note": ""
+ },
+ "040400030401": {
+  "subwatershed": "Village of Menomonee Falls-Menomonee River",
+  "note": ""
+ },
+ "040400020302": {
+  "subwatershed": "Ryan Creek-Root River",
+  "note": ""
+ },
+ "040400020301": {
+  "subwatershed": "Village of Hales Corner-Root River",
+  "note": ""
+ },
+ "040400020305": {
+  "subwatershed": "Community of Husher-Root River",
+  "note": ""
+ },
+ "040400020303": {
+  "subwatershed": "Husher Creek-Root River",
+  "note": ""
+ },
+ "040400020304": {
+  "subwatershed": "Hoods Creek",
+  "note": ""
+ },
+ "040400020306": {
+  "subwatershed": "City of Racine-Root River",
+  "note": ""
+ },
+ "040400020102": {
+  "subwatershed": "Oak Creek",
+  "note": ""
+ },
+ "040400020101": {
+  "subwatershed": "Wind Point-Frontal Lake Michigan",
+  "note": ""
+ },
+ "040400030501": {
+  "subwatershed": "Kinnickinnic River",
+  "note": ""
+ },
+ "040400020204": {
+  "subwatershed": "Root River Canal",
+  "note": ""
+ },
+ "040400020203": {
+  "subwatershed": "West Branch Root River Canal",
+  "note": ""
+ },
+ "040400020201": {
+  "subwatershed": "Village of Union Grove-West Branch Root River Canal",
+  "note": ""
+ },
+ "040400020202": {
+  "subwatershed": "East Branch Root River Canal",
+  "note": ""
+ },
+ "071200060302": {
+  "subwatershed": "Muskego Lake",
+  "note": ""
+ },
+ "071200060304": {
+  "subwatershed": "Wind Lake Drainage Canal",
+  "note": ""
+ },
+ "071200060303": {
+  "subwatershed": "Goose Lake Branch Canal",
+  "note": ""
+ },
+ "071200060301": {
+  "subwatershed": "Little Muskego Lake",
+  "note": ""
+ }
+}

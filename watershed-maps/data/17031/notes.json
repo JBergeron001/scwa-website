@@ -1,0 +1,387 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Cook County",
+  "note": ""
+ },
+ "0712000301": {
+  "watershed": "North Branch Chicago River-Chicago Sanitary and Ship Canal",
+  "note": ""
+ },
+ "0712000304": {
+  "watershed": "Calumet Sag Channel-Little Calumet River",
+  "note": ""
+ },
+ "0712000405": {
+  "watershed": "Willow Creek-Des Plaines River",
+  "note": ""
+ },
+ "0712000407": {
+  "watershed": "Chicago Sanitary and Ship Canal-Des Plaines River",
+  "note": ""
+ },
+ "0712000404": {
+  "watershed": "Salt Creek",
+  "note": ""
+ },
+ "0712000302": {
+  "watershed": "Thorn Creek",
+  "note": ""
+ },
+ "0712000612": {
+  "watershed": "Poplar Creek-Fox River",
+  "note": ""
+ },
+ "0404000205": {
+  "watershed": "Waukegan River-Frontal Lake Michigan",
+  "note": ""
+ },
+ "0712000406": {
+  "watershed": "Hickory Creek",
+  "note": ""
+ },
+ "0404000106": {
+  "watershed": "Calumet River-Frontal Lake Michigan",
+  "note": ""
+ },
+ "0712000408": {
+  "watershed": "Du Page River",
+  "note": ""
+ },
+ "0712000611": {
+  "watershed": "Flint Creek-Fox River",
+  "note": ""
+ },
+ "0712000303": {
+  "watershed": "Plum Creek-Little Calumet River",
+  "note": ""
+ },
+ "0712000701": {
+  "watershed": "Ferson Creek-Fox River",
+  "note": ""
+ },
+ "071200030107": {
+  "subwatershed": "South Branch Chicago River-Chicago Sanitary and Ship Canal",
+  "note": ""
+ },
+ "071200030106": {
+  "subwatershed": "Lower North Branch Chicago River",
+  "note": ""
+ },
+ "071200030105": {
+  "subwatershed": "Middle North Branch Chicago River",
+  "note": ""
+ },
+ "071200030104": {
+  "subwatershed": "North Shore Channel",
+  "note": ""
+ },
+ "071200030103": {
+  "subwatershed": "West Fork North Branch Chicago River",
+  "note": ""
+ },
+ "071200030101": {
+  "subwatershed": "Skokie River",
+  "note": ""
+ },
+ "071200030102": {
+  "subwatershed": "Upper North Branch Chicago River",
+  "note": ""
+ },
+ "071200030405": {
+  "subwatershed": "Little Calumet River",
+  "note": ""
+ },
+ "071200030403": {
+  "subwatershed": "Calumet Sag Channel",
+  "note": ""
+ },
+ "071200030401": {
+  "subwatershed": "Stony Creek",
+  "note": ""
+ },
+ "071200030407": {
+  "subwatershed": "Grand Calumet River-Calumet River",
+  "note": ""
+ },
+ "071200030404": {
+  "subwatershed": "Midlothian Creek",
+  "note": ""
+ },
+ "071200030402": {
+  "subwatershed": "Tinley Creek",
+  "note": ""
+ },
+ "071200040505": {
+  "subwatershed": "Weller Creek-Des Plaines River",
+  "note": ""
+ },
+ "071200040506": {
+  "subwatershed": "Bensenville Ditch-Des Plaines River",
+  "note": ""
+ },
+ "071200040503": {
+  "subwatershed": "McDonald Creek-Des Plaines River",
+  "note": ""
+ },
+ "071200040502": {
+  "subwatershed": "Wheeling Drainage Ditch",
+  "note": ""
+ },
+ "071200040504": {
+  "subwatershed": "Willow Creek",
+  "note": ""
+ },
+ "071200040501": {
+  "subwatershed": "Indian Creek",
+  "note": ""
+ },
+ "071200040705": {
+  "subwatershed": "Maple Lake-Chicago Sanitary and Ship Canal",
+  "note": ""
+ },
+ "071200040702": {
+  "subwatershed": "Saganashkee Slough-Calumet Sag Channel",
+  "note": ""
+ },
+ "071200040703": {
+  "subwatershed": "Long Run",
+  "note": ""
+ },
+ "071200040706": {
+  "subwatershed": "Goose Lake-Des Plaines River",
+  "note": ""
+ },
+ "071200040701": {
+  "subwatershed": "Flag Creek",
+  "note": ""
+ },
+ "071200040704": {
+  "subwatershed": "Sawmill Creek",
+  "note": ""
+ },
+ "071200040401": {
+  "subwatershed": "Upper Salt Creek",
+  "note": ""
+ },
+ "071200040403": {
+  "subwatershed": "Addison Creek",
+  "note": ""
+ },
+ "071200040404": {
+  "subwatershed": "Lower Salt Creek",
+  "note": ""
+ },
+ "071200040402": {
+  "subwatershed": "Middle Salt Creek",
+  "note": ""
+ },
+ "071200030202": {
+  "subwatershed": "Butterfield Creek",
+  "note": ""
+ },
+ "071200030204": {
+  "subwatershed": "Thorn Creek",
+  "note": ""
+ },
+ "071200030203": {
+  "subwatershed": "North Creek",
+  "note": ""
+ },
+ "071200030201": {
+  "subwatershed": "Deer Creek",
+  "note": ""
+ },
+ "071200061205": {
+  "subwatershed": "East Branch Poplar Creek-Poplar Creek",
+  "note": ""
+ },
+ "071200061202": {
+  "subwatershed": "Spring Creek-Fox River",
+  "note": ""
+ },
+ "071200061206": {
+  "subwatershed": "Jelkes Creek-Fox River",
+  "note": ""
+ },
+ "071200061201": {
+  "subwatershed": "Crystal Lake Outlet",
+  "note": ""
+ },
+ "071200061203": {
+  "subwatershed": "Headwaters Tyler Creek",
+  "note": ""
+ },
+ "071200061204": {
+  "subwatershed": "Tyler Creek",
+  "note": ""
+ },
+ "040400020502": {
+  "subwatershed": "Diversey Harbor-Frontal Lake Michigan",
+  "note": ""
+ },
+ "040400020503": {
+  "subwatershed": "Oakwoods Cemetery-Frontal Lake Michigan",
+  "note": ""
+ },
+ "040400020501": {
+  "subwatershed": "Waukegan River-Frontal Lake Michigan",
+  "note": ""
+ },
+ "071200040601": {
+  "subwatershed": "Headwaters Hickory Creek",
+  "note": ""
+ },
+ "071200040603": {
+  "subwatershed": "Hickory Creek",
+  "note": ""
+ },
+ "071200040602": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "040400010606": {
+  "subwatershed": "Calumet River-Frontal Lake Michigan",
+  "note": ""
+ },
+ "040400010604": {
+  "subwatershed": "City of Gary-Grand Calumet River",
+  "note": ""
+ },
+ "040400010605": {
+  "subwatershed": "Frontal Lake Michigan",
+  "note": ""
+ },
+ "040400010602": {
+  "subwatershed": "Dunes Creek",
+  "note": ""
+ },
+ "040400010601": {
+  "subwatershed": "Kintzele Ditch",
+  "note": ""
+ },
+ "071200040801": {
+  "subwatershed": "Upper West Branch Du Page River",
+  "note": ""
+ },
+ "071200040802": {
+  "subwatershed": "Middle West Branch Du Page River",
+  "note": ""
+ },
+ "071200040805": {
+  "subwatershed": "Lower West Branch Du Page River",
+  "note": ""
+ },
+ "071200040807": {
+  "subwatershed": "Lily Cache Creek",
+  "note": ""
+ },
+ "071200040804": {
+  "subwatershed": "East Branch Du Page River",
+  "note": ""
+ },
+ "071200040803": {
+  "subwatershed": "Headwaters East Branch Du Page River",
+  "note": ""
+ },
+ "071200040810": {
+  "subwatershed": "Lower DuPage River",
+  "note": ""
+ },
+ "071200040806": {
+  "subwatershed": "Upper DuPage River",
+  "note": ""
+ },
+ "071200040808": {
+  "subwatershed": "Middle DuPage River",
+  "note": ""
+ },
+ "071200040809": {
+  "subwatershed": "Rock Run-Illinois and Michigan Canal",
+  "note": ""
+ },
+ "071200061104": {
+  "subwatershed": "Flint Creek",
+  "note": ""
+ },
+ "071200061102": {
+  "subwatershed": "Griswold Lake-Fox River",
+  "note": ""
+ },
+ "071200061105": {
+  "subwatershed": "Cary Creek-Fox River",
+  "note": ""
+ },
+ "071200061101": {
+  "subwatershed": "Boone Creek",
+  "note": ""
+ },
+ "071200061103": {
+  "subwatershed": "Cotton Creek",
+  "note": ""
+ },
+ "071200030306": {
+  "subwatershed": "Town of Munster-Little Calumet River",
+  "note": ""
+ },
+ "071200030302": {
+  "subwatershed": "Town of Willowbrook-Plum Creek",
+  "note": ""
+ },
+ "071200030301": {
+  "subwatershed": "Headwaters Plum Creek",
+  "note": ""
+ },
+ "071200030304": {
+  "subwatershed": "Plum Creek-Hart Ditch",
+  "note": ""
+ },
+ "071200030303": {
+  "subwatershed": "Cady Marsh Ditch",
+  "note": ""
+ },
+ "071200070101": {
+  "subwatershed": "Brewster Creek",
+  "note": ""
+ },
+ "071200070102": {
+  "subwatershed": "Otter Creek-Ferson Creek",
+  "note": ""
+ },
+ "071200070105": {
+  "subwatershed": "Mill Creek",
+  "note": ""
+ },
+ "071200070108": {
+  "subwatershed": "Waubonsie Creek",
+  "note": ""
+ },
+ "071200070106": {
+  "subwatershed": "Town of Geneva-Fox River",
+  "note": ""
+ },
+ "071200070104": {
+  "subwatershed": "Norton Creek-Fox River",
+  "note": ""
+ },
+ "071200070103": {
+  "subwatershed": "Ferson Creek",
+  "note": ""
+ },
+ "071200070110": {
+  "subwatershed": "Morgan Creek",
+  "note": ""
+ },
+ "071200070109": {
+  "subwatershed": "Mastodon Lake-Fox River",
+  "note": ""
+ },
+ "071200070107": {
+  "subwatershed": "City of Aurora",
+  "note": ""
+ },
+ "071200070111": {
+  "subwatershed": "Town of Oswego-Fox River",
+  "note": ""
+ }
+}

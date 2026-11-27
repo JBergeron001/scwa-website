@@ -1,0 +1,287 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Marion County",
+  "note": ""
+ },
+ "0512020112": {
+  "watershed": "Pleasant Run-White River",
+  "note": ""
+ },
+ "0512020111": {
+  "watershed": "Eagle Creek",
+  "note": ""
+ },
+ "0512020110": {
+  "watershed": "Crooked Creek-White River",
+  "note": ""
+ },
+ "0512020109": {
+  "watershed": "Fall Creek",
+  "note": ""
+ },
+ "0512020405": {
+  "watershed": "Buck Creek",
+  "note": ""
+ },
+ "0512020113": {
+  "watershed": "White Lick Creek",
+  "note": ""
+ },
+ "0512020114": {
+  "watershed": "Clear Creek-White River",
+  "note": ""
+ },
+ "0512020108": {
+  "watershed": "Geist Reservoir-Fall Creek",
+  "note": ""
+ },
+ "0512020407": {
+  "watershed": "Sugar Creek",
+  "note": ""
+ },
+ "051202011205": {
+  "subwatershed": "Dollar Hide Creek-White River",
+  "note": ""
+ },
+ "051202011201": {
+  "subwatershed": "Pogues Run-White River",
+  "note": ""
+ },
+ "051202011203": {
+  "subwatershed": "Lick Creek",
+  "note": ""
+ },
+ "051202011202": {
+  "subwatershed": "Bean Creek-Pleasant Run",
+  "note": ""
+ },
+ "051202011204": {
+  "subwatershed": "Little Buck Creek",
+  "note": ""
+ },
+ "051202011206": {
+  "subwatershed": "Pleasant Run Creek",
+  "note": ""
+ },
+ "051202011109": {
+  "subwatershed": "Little Eagle Creek",
+  "note": ""
+ },
+ "051202011110": {
+  "subwatershed": "Ristow Branch-Eagle Creek",
+  "note": ""
+ },
+ "051202011108": {
+  "subwatershed": "Eagle Creek Reservoir-Eagle Creek",
+  "note": ""
+ },
+ "051202011107": {
+  "subwatershed": "Irishman Run-Eagle Creek",
+  "note": ""
+ },
+ "051202011106": {
+  "subwatershed": "Fishback Creek",
+  "note": ""
+ },
+ "051202011104": {
+  "subwatershed": "Lion Creek-Little Eagle Creek",
+  "note": ""
+ },
+ "051202011103": {
+  "subwatershed": "Finley Creek-Eagle Creek",
+  "note": ""
+ },
+ "051202011105": {
+  "subwatershed": "Jackson Run-Eagle Creek",
+  "note": ""
+ },
+ "051202011101": {
+  "subwatershed": "Dixon Branch-Eagle Creek",
+  "note": ""
+ },
+ "051202011102": {
+  "subwatershed": "Mounts Run",
+  "note": ""
+ },
+ "051202011006": {
+  "subwatershed": "Howland Ditch-White River",
+  "note": ""
+ },
+ "051202011005": {
+  "subwatershed": "Delaware Creek-Crooked Creek",
+  "note": ""
+ },
+ "051202011003": {
+  "subwatershed": "Carmel Creek-White River",
+  "note": ""
+ },
+ "051202011004": {
+  "subwatershed": "Williams Creek",
+  "note": ""
+ },
+ "051202011001": {
+  "subwatershed": "Cool Creek",
+  "note": ""
+ },
+ "051202011002": {
+  "subwatershed": "Vestal Ditch-White River",
+  "note": ""
+ },
+ "051202010904": {
+  "subwatershed": "Devon Creek-Fall Creek",
+  "note": ""
+ },
+ "051202010902": {
+  "subwatershed": "Indian Lake-Indian Creek",
+  "note": ""
+ },
+ "051202010903": {
+  "subwatershed": "Sand Creek-Mud Creek",
+  "note": ""
+ },
+ "051202010901": {
+  "subwatershed": "Headwaters Mud Creek",
+  "note": ""
+ },
+ "051202040504": {
+  "subwatershed": "Doe Creek-Buck Creek",
+  "note": ""
+ },
+ "051202040501": {
+  "subwatershed": "Grassy Creek",
+  "note": ""
+ },
+ "051202040502": {
+  "subwatershed": "Headwaters Buck Creek",
+  "note": ""
+ },
+ "051202040503": {
+  "subwatershed": "West Little Sugar Creek",
+  "note": ""
+ },
+ "051202011309": {
+  "subwatershed": "East Fork White Lick Creek",
+  "note": ""
+ },
+ "051202011308": {
+  "subwatershed": "Headwaters East Fork White Lick Creek",
+  "note": ""
+ },
+ "051202011303": {
+  "subwatershed": "Abner Creek-White Lick Creek",
+  "note": ""
+ },
+ "051202011302": {
+  "subwatershed": "Wiley Thompson Ditch-White Lick Creek",
+  "note": ""
+ },
+ "051202011305": {
+  "subwatershed": "West Fork White Lick Creek",
+  "note": ""
+ },
+ "051202011310": {
+  "subwatershed": "Monical Branch-White Lick Creek",
+  "note": ""
+ },
+ "051202011306": {
+  "subwatershed": "Clarks Creek-White Lick Creek",
+  "note": ""
+ },
+ "051202011304": {
+  "subwatershed": "Headwaters West Fork White Lick Creek",
+  "note": ""
+ },
+ "051202011301": {
+  "subwatershed": "Hughes Branch-West Fork White Lick Creek",
+  "note": ""
+ },
+ "051202011307": {
+  "subwatershed": "McCracken Creek",
+  "note": ""
+ },
+ "051202011402": {
+  "subwatershed": "Goose Creek-White River",
+  "note": ""
+ },
+ "051202011404": {
+  "subwatershed": "South Prong Stotts Creek",
+  "note": ""
+ },
+ "051202011407": {
+  "subwatershed": "Sinking Creek-White River",
+  "note": ""
+ },
+ "051202011405": {
+  "subwatershed": "Stotts Creek",
+  "note": ""
+ },
+ "051202011406": {
+  "subwatershed": "East Fork Clear Creek-Clear Creek",
+  "note": ""
+ },
+ "051202011401": {
+  "subwatershed": "Turkey Pen Creek-Honey Creek",
+  "note": ""
+ },
+ "051202011403": {
+  "subwatershed": "Crooked Creek",
+  "note": ""
+ },
+ "051202010809": {
+  "subwatershed": "Thorpe Creek-Geist Reservoir",
+  "note": ""
+ },
+ "051202010804": {
+  "subwatershed": "Prairie Creek-Fall Creek",
+  "note": ""
+ },
+ "051202010803": {
+  "subwatershed": "Deer Creek-Fall Creek",
+  "note": ""
+ },
+ "051202010808": {
+  "subwatershed": "Flatfork Creek-Fall Creek",
+  "note": ""
+ },
+ "051202010805": {
+  "subwatershed": "Headwaters Lick Creek",
+  "note": ""
+ },
+ "051202010802": {
+  "subwatershed": "Sly Fork",
+  "note": ""
+ },
+ "051202010801": {
+  "subwatershed": "Honey Creek-Fall Creek",
+  "note": ""
+ },
+ "051202010807": {
+  "subwatershed": "McFadden Ditch-Lick Creek",
+  "note": ""
+ },
+ "051202010806": {
+  "subwatershed": "Foster Branch",
+  "note": ""
+ },
+ "051202040702": {
+  "subwatershed": "Little Sugar Creek",
+  "note": ""
+ },
+ "051202040701": {
+  "subwatershed": "Snail Creek",
+  "note": ""
+ },
+ "051202040704": {
+  "subwatershed": "Gibson Ditch-Sugar Creek",
+  "note": ""
+ },
+ "051202040703": {
+  "subwatershed": "Town of Needham-Sugar Creek",
+  "note": ""
+ },
+ "051202040705": {
+  "subwatershed": "Herriotts Creek-Sugar Creek",
+  "note": ""
+ }
+}

@@ -1,0 +1,267 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Wayne County",
+  "note": ""
+ },
+ "0409000407": {
+  "watershed": "Outlet Detroit River",
+  "note": ""
+ },
+ "0409000404": {
+  "watershed": "River Rouge",
+  "note": ""
+ },
+ "0410001304": {
+  "watershed": "Huron River",
+  "note": ""
+ },
+ "0409000403": {
+  "watershed": "Lower River Rouge",
+  "note": ""
+ },
+ "0409000402": {
+  "watershed": "Middle River Rouge",
+  "note": ""
+ },
+ "0409000405": {
+  "watershed": "Turkey Creek-Detroit River",
+  "note": ""
+ },
+ "0410000101": {
+  "watershed": "Stony Creek-Frontal Lake Erie",
+  "note": ""
+ },
+ "0409000401": {
+  "watershed": "Upper River Rouge",
+  "note": ""
+ },
+ "0409000210": {
+  "watershed": "Lake St. Clair",
+  "note": ""
+ },
+ "0409000304": {
+  "watershed": "Clinton River",
+  "note": ""
+ },
+ "0409000302": {
+  "watershed": "Red Run",
+  "note": ""
+ },
+ "040900040702": {
+  "subwatershed": "Brownstone Creek",
+  "note": ""
+ },
+ "040900040701": {
+  "subwatershed": "Ecorse River",
+  "note": ""
+ },
+ "040900040703": {
+  "subwatershed": "Grosse Isle-Detroit River",
+  "note": ""
+ },
+ "040900040407": {
+  "subwatershed": "Woodmere Cemetery-River Rouge",
+  "note": ""
+ },
+ "040900040406": {
+  "subwatershed": "Ashcroft-Sherwood Drain-River Rouge",
+  "note": ""
+ },
+ "040900040405": {
+  "subwatershed": "Eliza Howell Park-River Rouge",
+  "note": ""
+ },
+ "040900040403": {
+  "subwatershed": "Headwaters River Rouge",
+  "note": ""
+ },
+ "040900040404": {
+  "subwatershed": "Pebble Creek-River Rouge",
+  "note": ""
+ },
+ "040900040401": {
+  "subwatershed": "Sunken Bridge Drain",
+  "note": ""
+ },
+ "040900040402": {
+  "subwatershed": "Franklin Branch",
+  "note": ""
+ },
+ "041000130406": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "041000130407": {
+  "subwatershed": "Bancroft Noles Drain-Huron River",
+  "note": ""
+ },
+ "041000130405": {
+  "subwatershed": "Griggs Drain-Huron River",
+  "note": ""
+ },
+ "041000130404": {
+  "subwatershed": "Belleville Lake-Huron River",
+  "note": ""
+ },
+ "041000130401": {
+  "subwatershed": "Fleming Creek",
+  "note": ""
+ },
+ "041000130402": {
+  "subwatershed": "Swift Drain-Huron River",
+  "note": ""
+ },
+ "041000130403": {
+  "subwatershed": "Ford Lake-Huron River",
+  "note": ""
+ },
+ "040900040303": {
+  "subwatershed": "Perrin Drain-Lower River Rouge",
+  "note": ""
+ },
+ "040900040302": {
+  "subwatershed": "Molt Drain-Lower River Rouge",
+  "note": ""
+ },
+ "040900040301": {
+  "subwatershed": "Fellows Creek",
+  "note": ""
+ },
+ "040900040202": {
+  "subwatershed": "Tonquish Creek",
+  "note": ""
+ },
+ "040900040204": {
+  "subwatershed": "Maple Grove Cemetery-Middle River Rouge",
+  "note": ""
+ },
+ "040900040203": {
+  "subwatershed": "Newburgh Lake-Middle River Rouge",
+  "note": ""
+ },
+ "040900040201": {
+  "subwatershed": "Johnson Drain",
+  "note": ""
+ },
+ "040900040503": {
+  "subwatershed": "Belle Isle-Detroit River",
+  "note": ""
+ },
+ "040900040501": {
+  "subwatershed": "Little River",
+  "note": ""
+ },
+ "040900040502": {
+  "subwatershed": "Turkey Creek",
+  "note": ""
+ },
+ "041000010103": {
+  "subwatershed": "Middle Creek-Swan Creek",
+  "note": ""
+ },
+ "041000010102": {
+  "subwatershed": "North Branch Swan Creek",
+  "note": ""
+ },
+ "041000010101": {
+  "subwatershed": "Mouille Creek-Frontal Lake Erie",
+  "note": ""
+ },
+ "041000010107": {
+  "subwatershed": "Stony Creek",
+  "note": ""
+ },
+ "041000010104": {
+  "subwatershed": "Swan Creek",
+  "note": ""
+ },
+ "041000010105": {
+  "subwatershed": "Paint Creek",
+  "note": ""
+ },
+ "041000010106": {
+  "subwatershed": "Sugar Creek-Stony Creek",
+  "note": ""
+ },
+ "041000010108": {
+  "subwatershed": "Sandy Creek",
+  "note": ""
+ },
+ "040900040101": {
+  "subwatershed": "Wolfrom Drain-Bell Branch",
+  "note": ""
+ },
+ "040900040102": {
+  "subwatershed": "Bell Branch",
+  "note": ""
+ },
+ "040900040103": {
+  "subwatershed": "Smith Drain-Upper River Rouge",
+  "note": ""
+ },
+ "040900021009": {
+  "subwatershed": "Lake Saint Clair",
+  "note": ""
+ },
+ "040900021005": {
+  "subwatershed": "Ruscom River",
+  "note": ""
+ },
+ "040900021004": {
+  "subwatershed": "McFarlane Relief Drain",
+  "note": ""
+ },
+ "040900021006": {
+  "subwatershed": "Belle River",
+  "note": ""
+ },
+ "040900021003": {
+  "subwatershed": "Salt River",
+  "note": ""
+ },
+ "040900021008": {
+  "subwatershed": "Pike Creek",
+  "note": ""
+ },
+ "040900021002": {
+  "subwatershed": "Swan Creek",
+  "note": ""
+ },
+ "040900021007": {
+  "subwatershed": "Puce River",
+  "note": ""
+ },
+ "040900021001": {
+  "subwatershed": "Beaubien Creek",
+  "note": ""
+ },
+ "040900030401": {
+  "subwatershed": "Harrington Drain",
+  "note": ""
+ },
+ "040900030402": {
+  "subwatershed": "Cranberry Marsh Drain-Clinton River",
+  "note": ""
+ },
+ "040900030205": {
+  "subwatershed": "McCoy Drain-Red Run",
+  "note": ""
+ },
+ "040900030202": {
+  "subwatershed": "Meckler Drain-Red Run",
+  "note": ""
+ },
+ "040900030203": {
+  "subwatershed": "Big Beaver Creek",
+  "note": ""
+ },
+ "040900030204": {
+  "subwatershed": "Plum Brook",
+  "note": ""
+ },
+ "040900030201": {
+  "subwatershed": "Gibson Drain-Plum Brook",
+  "note": ""
+ }
+}

@@ -1,6 +1,25 @@
 {
- "updated": "2026-11-26",
+ "updated": "2026-11-27",
  "maps": [
+  {
+   "geoid": "17031",
+   "includes": [],
+   "name": "Cook County",
+   "state": "Illinois",
+   "slug": "cook-county",
+   "areakm": 2466.23,
+   "watersheds": 14,
+   "subwatersheds": 46,
+   "elo": 578,
+   "ehi": 948,
+   "bb": [
+    -88.27364,
+    -87.51416,
+    41.45971,
+    42.16427
+   ],
+   "thumb": "watershed-maps/thumbs/17031.jpg"
+  },
   {
    "geoid": "17167",
    "includes": [],
@@ -21,6 +40,25 @@
    "thumb": "watershed-maps/thumbs/17167.jpg"
   },
   {
+   "geoid": "18097",
+   "includes": [],
+   "name": "Marion County",
+   "state": "Indiana",
+   "slug": "marion-county",
+   "areakm": 1038.04,
+   "watersheds": 9,
+   "subwatersheds": 27,
+   "elo": 654,
+   "ehi": 908,
+   "bb": [
+    -86.33812,
+    -85.92738,
+    39.62218,
+    39.93738
+   ],
+   "thumb": "watershed-maps/thumbs/18097.jpg"
+  },
+  {
    "geoid": "19153",
    "includes": [],
    "name": "Polk County",
@@ -38,6 +76,63 @@
     41.87347
    ],
    "thumb": "watershed-maps/thumbs/19153.jpg"
+  },
+  {
+   "geoid": "20173",
+   "includes": [],
+   "name": "Sedgwick County",
+   "state": "Kansas",
+   "slug": "sedgwick-county",
+   "areakm": 2600.01,
+   "watersheds": 14,
+   "subwatersheds": 37,
+   "elo": 1231,
+   "ehi": 1547,
+   "bb": [
+    -97.81835,
+    -97.14214,
+    37.46418,
+    37.92273
+   ],
+   "thumb": "watershed-maps/thumbs/20173.jpg"
+  },
+  {
+   "geoid": "26163",
+   "includes": [],
+   "name": "Wayne County",
+   "state": "Michigan",
+   "slug": "wayne-county",
+   "areakm": 1627.39,
+   "watersheds": 11,
+   "subwatersheds": 28,
+   "elo": 573,
+   "ehi": 995,
+   "bb": [
+    -83.56191,
+    -82.86024,
+    42.02334,
+    42.46101
+   ],
+   "thumb": "watershed-maps/thumbs/26163.jpg"
+  },
+  {
+   "geoid": "27053",
+   "includes": [],
+   "name": "Hennepin County",
+   "state": "Minnesota",
+   "slug": "hennepin-county",
+   "areakm": 1560.66,
+   "watersheds": 10,
+   "subwatersheds": 30,
+   "elo": 696,
+   "ehi": 1120,
+   "bb": [
+    -93.77839,
+    -93.16722,
+    44.77519,
+    45.25662
+   ],
+   "thumb": "watershed-maps/thumbs/27053.jpg"
   },
   {
    "geoid": "29019",
@@ -138,6 +233,63 @@
     41.40331
    ],
    "thumb": "watershed-maps/thumbs/31055.jpg"
+  },
+  {
+   "geoid": "31109",
+   "includes": [],
+   "name": "Lancaster County",
+   "state": "Nebraska",
+   "slug": "lancaster-county",
+   "areakm": 2179.59,
+   "watersheds": 11,
+   "subwatersheds": 38,
+   "elo": 1106,
+   "ehi": 1510,
+   "bb": [
+    -96.92393,
+    -96.45363,
+    40.51301,
+    41.05612
+   ],
+   "thumb": "watershed-maps/thumbs/31109.jpg"
+  },
+  {
+   "geoid": "39049",
+   "includes": [],
+   "name": "Franklin County",
+   "state": "Ohio",
+   "slug": "franklin-county",
+   "areakm": 1400.18,
+   "watersheds": 11,
+   "subwatersheds": 28,
+   "elo": 681,
+   "ehi": 1129,
+   "bb": [
+    -83.27088,
+    -82.75183,
+    39.785,
+    40.15308
+   ],
+   "thumb": "watershed-maps/thumbs/39049.jpg"
+  },
+  {
+   "geoid": "55079",
+   "includes": [],
+   "name": "Milwaukee County",
+   "state": "Wisconsin",
+   "slug": "milwaukee-county",
+   "areakm": 623.4,
+   "watersheds": 7,
+   "subwatersheds": 16,
+   "elo": 585,
+   "ehi": 997,
+   "bb": [
+    -88.07992,
+    -87.81713,
+    42.83212,
+    43.20258
+   ],
+   "thumb": "watershed-maps/thumbs/55079.jpg"
   }
  ]
 }

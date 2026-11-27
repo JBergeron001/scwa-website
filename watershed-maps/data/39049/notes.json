@@ -1,0 +1,271 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Franklin County",
+  "note": ""
+ },
+ "0506000115": {
+  "watershed": "Blacklick Creek-Big Walnut Creek",
+  "note": ""
+ },
+ "0506000123": {
+  "watershed": "Scioto Big Run-Scioto River",
+  "note": ""
+ },
+ "0506000116": {
+  "watershed": "Alum Creek-Big Walnut Creek",
+  "note": ""
+ },
+ "0506000112": {
+  "watershed": "Indian Run-Scioto River",
+  "note": ""
+ },
+ "0506000122": {
+  "watershed": "Hellbranch Run-Big Darby Creek",
+  "note": ""
+ },
+ "0506000111": {
+  "watershed": "Rush Run-Olentangy River",
+  "note": ""
+ },
+ "0506000118": {
+  "watershed": "Little Walnut Creek-Walnut Creek",
+  "note": ""
+ },
+ "0506000121": {
+  "watershed": "Worthington Ditch-Big Darby Creek",
+  "note": ""
+ },
+ "0506000113": {
+  "watershed": "Headwaters Big Walnut Creek",
+  "note": ""
+ },
+ "0506000120": {
+  "watershed": "Little Darby Creek",
+  "note": ""
+ },
+ "0506000202": {
+  "watershed": "Sugar Run-Deer Creek",
+  "note": ""
+ },
+ "050600011505": {
+  "subwatershed": "Mason Run-Big Walnut Creek",
+  "note": ""
+ },
+ "050600011501": {
+  "subwatershed": "Rocky Fork Creek",
+  "note": ""
+ },
+ "050600011503": {
+  "subwatershed": "Headwaters Blacklick Creek",
+  "note": ""
+ },
+ "050600011502": {
+  "subwatershed": "City of Gahanna-Big Walnut Creek",
+  "note": ""
+ },
+ "050600011504": {
+  "subwatershed": "Town of Brice-Blacklick Creek",
+  "note": ""
+ },
+ "050600012303": {
+  "subwatershed": "Grant Run-Scioto River",
+  "note": ""
+ },
+ "050600012302": {
+  "subwatershed": "Kian Run-Scioto River",
+  "note": ""
+ },
+ "050600012301": {
+  "subwatershed": "Scioto Big Run",
+  "note": ""
+ },
+ "050600012304": {
+  "subwatershed": "Grove Run-Scioto River",
+  "note": ""
+ },
+ "050600012305": {
+  "subwatershed": "Dry Run",
+  "note": ""
+ },
+ "050600012306": {
+  "subwatershed": "Jackson Township Cemetery-Scioto River",
+  "note": ""
+ },
+ "050600011602": {
+  "subwatershed": "Bliss Run-Alum Creek",
+  "note": ""
+ },
+ "050600011603": {
+  "subwatershed": "Town of Lockbourne-Big Walnut Creek",
+  "note": ""
+ },
+ "050600011601": {
+  "subwatershed": "Westerville Reservoir-Alum Creek",
+  "note": ""
+ },
+ "050600011204": {
+  "subwatershed": "Hayden Run-Scioto River",
+  "note": ""
+ },
+ "050600011205": {
+  "subwatershed": "Roberts Millkin Ditch-Scioto River",
+  "note": ""
+ },
+ "050600011203": {
+  "subwatershed": "Indian Run",
+  "note": ""
+ },
+ "050600011202": {
+  "subwatershed": "O\u2019Shaughnessy Dam-Scioto River",
+  "note": ""
+ },
+ "050600011201": {
+  "subwatershed": "Eversole Run",
+  "note": ""
+ },
+ "050600012201": {
+  "subwatershed": "Hellbranch Run",
+  "note": ""
+ },
+ "050600012202": {
+  "subwatershed": "Gay Run-Big Darby Creek",
+  "note": ""
+ },
+ "050600012203": {
+  "subwatershed": "Greenbrier Creek-Big Darby Creek",
+  "note": ""
+ },
+ "050600012204": {
+  "subwatershed": "Lizard Run-Big Darby Creek",
+  "note": ""
+ },
+ "050600011103": {
+  "subwatershed": "Outlet Olentangy River",
+  "note": ""
+ },
+ "050600011102": {
+  "subwatershed": "Rush Run-Olentangy River",
+  "note": ""
+ },
+ "050600011101": {
+  "subwatershed": "Deep Run-Olentangy River",
+  "note": ""
+ },
+ "050600011805": {
+  "subwatershed": "Big Run-Walnut Creek",
+  "note": ""
+ },
+ "050600011802": {
+  "subwatershed": "Tussing Ditch-Walnut Creek",
+  "note": ""
+ },
+ "050600011801": {
+  "subwatershed": "George Creek",
+  "note": ""
+ },
+ "050600011804": {
+  "subwatershed": "Bull Run-Little Walnut Creek",
+  "note": ""
+ },
+ "050600011803": {
+  "subwatershed": "Turkey Run",
+  "note": ""
+ },
+ "050600011806": {
+  "subwatershed": "Mud Run-Walnut Creek",
+  "note": ""
+ },
+ "050600012101": {
+  "subwatershed": "Worthington Ditch-Big Darby Creek",
+  "note": ""
+ },
+ "050600012102": {
+  "subwatershed": "Silver Ditch-Big Darby Creek",
+  "note": ""
+ },
+ "050600011308": {
+  "subwatershed": "Hoover Reservoir-Big Walnut Creek",
+  "note": ""
+ },
+ "050600011302": {
+  "subwatershed": "Headwaters Big Walnut Creek",
+  "note": ""
+ },
+ "050600011305": {
+  "subwatershed": "Little Walnut Creek",
+  "note": ""
+ },
+ "050600011303": {
+  "subwatershed": "Rattlesnake Creek",
+  "note": ""
+ },
+ "050600011307": {
+  "subwatershed": "Duncan Run",
+  "note": ""
+ },
+ "050600011301": {
+  "subwatershed": "Culver Creek",
+  "note": ""
+ },
+ "050600011304": {
+  "subwatershed": "Perfect Creek-Big Walnut Creek",
+  "note": ""
+ },
+ "050600011306": {
+  "subwatershed": "Prairie Run-Big Walnut Creek",
+  "note": ""
+ },
+ "050600012006": {
+  "subwatershed": "Thomas Ditch-Little Darby Creek",
+  "note": ""
+ },
+ "050600012004": {
+  "subwatershed": "Spring Fork",
+  "note": ""
+ },
+ "050600012005": {
+  "subwatershed": "Barron Creek-Little Darby Creek",
+  "note": ""
+ },
+ "050600012003": {
+  "subwatershed": "Headwaters Little Darby Creek",
+  "note": ""
+ },
+ "050600012001": {
+  "subwatershed": "Headwaters Treacle Creek",
+  "note": ""
+ },
+ "050600012002": {
+  "subwatershed": "Proctor Run-Treacle Creek",
+  "note": ""
+ },
+ "050600020203": {
+  "subwatershed": "Opossum Run",
+  "note": ""
+ },
+ "050600020204": {
+  "subwatershed": "Town of Mount Sterling-Deer Creek",
+  "note": ""
+ },
+ "050600020201": {
+  "subwatershed": "South Fork Bradford Creek-Bradford Creek",
+  "note": ""
+ },
+ "050600020205": {
+  "subwatershed": "Deer Creek Lake-Deer Creek",
+  "note": ""
+ },
+ "050600020202": {
+  "subwatershed": "Bradford Creek-Sugar Run",
+  "note": ""
+ },
+ "050600020206": {
+  "subwatershed": "Buskirk Creek",
+  "note": ""
+ },
+ "050600020207": {
+  "subwatershed": "Deercreek Dam-Deer Creek",
+  "note": ""
+ }
+}

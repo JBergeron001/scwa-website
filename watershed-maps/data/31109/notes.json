@@ -1,0 +1,307 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Lancaster County",
+  "note": ""
+ },
+ "1020020303": {
+  "watershed": "Middle Salt Creek",
+  "note": ""
+ },
+ "1020020309": {
+  "watershed": "Lower Salt Creek",
+  "note": ""
+ },
+ "1020020304": {
+  "watershed": "Oak Creek",
+  "note": ""
+ },
+ "1020020301": {
+  "watershed": "Upper Salt Creek",
+  "note": ""
+ },
+ "1020020305": {
+  "watershed": "Rock Creek",
+  "note": ""
+ },
+ "1024000801": {
+  "watershed": "Middle Branch Big Nemaha River-North Fork Big Nemaha River",
+  "note": ""
+ },
+ "1024000602": {
+  "watershed": "Headwaters Little Nemaha River",
+  "note": ""
+ },
+ "1020020302": {
+  "watershed": "Middle Creek",
+  "note": ""
+ },
+ "1027020202": {
+  "watershed": "Clatonia Creek-Big Blue River",
+  "note": ""
+ },
+ "1024000601": {
+  "watershed": "South Fork Little Nemaha River",
+  "note": ""
+ },
+ "1027020204": {
+  "watershed": "Indian Creek-Big Blue River",
+  "note": ""
+ },
+ "102002030307": {
+  "subwatershed": "Beal Slough-Salt Creek",
+  "note": ""
+ },
+ "102002030302": {
+  "subwatershed": "Haines Branch",
+  "note": ""
+ },
+ "102002030306": {
+  "subwatershed": "Hickman Branch",
+  "note": ""
+ },
+ "102002030305": {
+  "subwatershed": "Wagon Train Lake",
+  "note": ""
+ },
+ "102002030303": {
+  "subwatershed": "Cardwell Branch",
+  "note": ""
+ },
+ "102002030304": {
+  "subwatershed": "Antelope Creek",
+  "note": ""
+ },
+ "102002030301": {
+  "subwatershed": "Holmes Creek",
+  "note": ""
+ },
+ "102002030904": {
+  "subwatershed": "Jordan Creek-Salt Creek",
+  "note": ""
+ },
+ "102002030902": {
+  "subwatershed": "Stevens Creek",
+  "note": ""
+ },
+ "102002030901": {
+  "subwatershed": "Little Salt Creek",
+  "note": ""
+ },
+ "102002030903": {
+  "subwatershed": "Deadmans Run-Salt Creek",
+  "note": ""
+ },
+ "102002030905": {
+  "subwatershed": "Camp Creek",
+  "note": ""
+ },
+ "102002030907": {
+  "subwatershed": "Dee Creek-Salt Creek",
+  "note": ""
+ },
+ "102002030906": {
+  "subwatershed": "Callahan Creek",
+  "note": ""
+ },
+ "102002030406": {
+  "subwatershed": "Elk Creek-Oak Creek",
+  "note": ""
+ },
+ "102002030404": {
+  "subwatershed": "Wagon Tongue Creek-North Oak Creek",
+  "note": ""
+ },
+ "102002030405": {
+  "subwatershed": "Oak Creek",
+  "note": ""
+ },
+ "102002030403": {
+  "subwatershed": "Branched Oak Lake-Oak Creek",
+  "note": ""
+ },
+ "102002030402": {
+  "subwatershed": "Middle Oak Creek",
+  "note": ""
+ },
+ "102002030401": {
+  "subwatershed": "Middle Oak Creek-North Oak Creek",
+  "note": ""
+ },
+ "102002030103": {
+  "subwatershed": "Wittstruck Creek-Salt Creek",
+  "note": ""
+ },
+ "102002030102": {
+  "subwatershed": "Bluestem Lake",
+  "note": ""
+ },
+ "102002030101": {
+  "subwatershed": "Olive Creek Lake",
+  "note": ""
+ },
+ "102002030503": {
+  "subwatershed": "Ash Hollow Creek-Rock Creek",
+  "note": ""
+ },
+ "102002030504": {
+  "subwatershed": "Millville Creek-Rock Creek",
+  "note": ""
+ },
+ "102002030501": {
+  "subwatershed": "Little Rock Creek-Rock Creek",
+  "note": ""
+ },
+ "102002030502": {
+  "subwatershed": "North Fork Rock Creek",
+  "note": ""
+ },
+ "102400080102": {
+  "subwatershed": "Headwaters Middle Branch Big Nemaha River",
+  "note": ""
+ },
+ "102400080104": {
+  "subwatershed": "Headwaters North Fork Big Nemaha River",
+  "note": ""
+ },
+ "102400080108": {
+  "subwatershed": "Pratts Branch-North Fork Big Nemaha River",
+  "note": ""
+ },
+ "102400080107": {
+  "subwatershed": "Yankee Creek",
+  "note": ""
+ },
+ "102400080103": {
+  "subwatershed": "Outlet Middle Branch Big Nemaha River",
+  "note": ""
+ },
+ "102400080105": {
+  "subwatershed": "Hooker Creek",
+  "note": ""
+ },
+ "102400080101": {
+  "subwatershed": "Shaw Creek",
+  "note": ""
+ },
+ "102400080106": {
+  "subwatershed": "Lost Branch",
+  "note": ""
+ },
+ "102400060203": {
+  "subwatershed": "Headwaters Little Nemaha River",
+  "note": ""
+ },
+ "102400060201": {
+  "subwatershed": "Hooper Creek",
+  "note": ""
+ },
+ "102400060202": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "102400060206": {
+  "subwatershed": "Muddy Creek",
+  "note": ""
+ },
+ "102400060208": {
+  "subwatershed": "Ziegler Creek-Little Nemaha River",
+  "note": ""
+ },
+ "102400060205": {
+  "subwatershed": "Russell Creek-Little Nemaha River",
+  "note": ""
+ },
+ "102400060204": {
+  "subwatershed": "Wolf Creek",
+  "note": ""
+ },
+ "102400060207": {
+  "subwatershed": "Brownell Creek",
+  "note": ""
+ },
+ "102002030203": {
+  "subwatershed": "Middle Creek",
+  "note": ""
+ },
+ "102002030202": {
+  "subwatershed": "Pawnee Lake-Middle Creek",
+  "note": ""
+ },
+ "102002030201": {
+  "subwatershed": "South Branch Middle Creek",
+  "note": ""
+ },
+ "102702020204": {
+  "subwatershed": "Clatonia Creek",
+  "note": ""
+ },
+ "102702020203": {
+  "subwatershed": "Bohemian National Cemetery-Big Blue River",
+  "note": ""
+ },
+ "102702020202": {
+  "subwatershed": "Walnut Creek-Big Blue River",
+  "note": ""
+ },
+ "102702020205": {
+  "subwatershed": "City of Wilber-Big Blue River",
+  "note": ""
+ },
+ "102702020201": {
+  "subwatershed": "Otoe Creek",
+  "note": ""
+ },
+ "102400060101": {
+  "subwatershed": "Headwaters South Fork Little Nemaha River",
+  "note": ""
+ },
+ "102400060104": {
+  "subwatershed": "Lower South Fork Little Nemaha River",
+  "note": ""
+ },
+ "102400060102": {
+  "subwatershed": "Upper South Fork Little Nemaha River",
+  "note": ""
+ },
+ "102400060103": {
+  "subwatershed": "Middle South Fork Little Nemaha River",
+  "note": ""
+ },
+ "102702020402": {
+  "subwatershed": "Headwaters Indian Creek",
+  "note": ""
+ },
+ "102702020404": {
+  "subwatershed": "Snake Creek-Big Blue River",
+  "note": ""
+ },
+ "102702020407": {
+  "subwatershed": "Headwaters Bear Creek",
+  "note": ""
+ },
+ "102702020401": {
+  "subwatershed": "City of Plymouth",
+  "note": ""
+ },
+ "102702020405": {
+  "subwatershed": "Bottle Creek-Big Blue River",
+  "note": ""
+ },
+ "102702020406": {
+  "subwatershed": "Pierce Creek",
+  "note": ""
+ },
+ "102702020403": {
+  "subwatershed": "Outlet Indian Creek",
+  "note": ""
+ },
+ "102702020408": {
+  "subwatershed": "Outlet Bear Creek",
+  "note": ""
+ },
+ "102702020409": {
+  "subwatershed": "City of Beatrice-Big Blue River",
+  "note": ""
+ }
+}

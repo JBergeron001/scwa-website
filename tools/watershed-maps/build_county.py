@@ -24,10 +24,22 @@ ZOOM = 12
 
 
 def fetch(url, path, timeout=180):
-    if not os.path.exists(path) or os.path.getsize(path) == 0:
-        req = urllib.request.Request(url, headers={'User-Agent': 'MAWA-map-builder'})
-        with urllib.request.urlopen(req, timeout=timeout) as r, open(path, 'wb') as f:
-            f.write(r.read())
+    import time
+    for attempt in range(7):
+        if os.path.exists(path) and os.path.getsize(path) > 0:
+            if not path.endswith('.zip'): return path
+            try:
+                zipfile.ZipFile(path).close(); return path
+            except Exception:
+                os.remove(path)
+        if attempt == 6: break
+        try:
+            time.sleep(1)
+            req = urllib.request.Request(url, headers={'User-Agent': 'MAWA-map-builder'})
+            with urllib.request.urlopen(req, timeout=timeout) as r: body = r.read()
+            open(path, 'wb').write(body)
+        except Exception as ex:
+            print('download retry', attempt + 1, url, ex); time.sleep(10 + 10 * attempt)
     return path
 
 
@@ -57,14 +69,20 @@ def area_km2(g, lat0):
     return scale(g, kx, ky, origin=(0, 0)).area
 
 
-def wbd_query(layer, bb, fields):
+def wbd_query(layer, bb, fields, where='1=1'):
     w, s, e, n = bb
-    q = urllib.parse.urlencode({'geometry': f'{w},{s},{e},{n}', 'geometryType': 'esriGeometryEnvelope', 'inSR': 4326,
+    q = urllib.parse.urlencode({'where': where, 'geometry': f'{w},{s},{e},{n}', 'geometryType': 'esriGeometryEnvelope', 'inSR': 4326,
                                 'spatialRel': 'esriSpatialRelIntersects', 'outFields': fields, 'returnGeometry': 'true',
-                                'outSR': 4326, 'f': 'geojson'})
-    req = urllib.request.Request(WBD + f'{layer}/query?' + q, headers={'User-Agent': 'MAWA-map-builder'})
-    with urllib.request.urlopen(req, timeout=180) as r:
-        return json.load(r)['features']
+                                'outSR': 4326, 'f': 'geojson', 'geometryPrecision': 6, 'maxAllowableOffset': 0.00005})
+    import time
+    for attempt in range(6):
+        try:
+            req = urllib.request.Request(WBD + f'{layer}/query?' + q, headers={'User-Agent': 'MAWA-map-builder'})
+            with urllib.request.urlopen(req, timeout=180) as r:
+                return json.load(r)['features']
+        except Exception as ex:
+            print('watershed service retry', attempt + 1, ex); time.sleep(10 + 10 * attempt)
+    raise SystemExit('watershed service unavailable')
 
 
 # ---------- elevation ----------
@@ -178,10 +196,11 @@ def slug(s):
 ABBR = {'Crk': 'Creek', 'Cr': 'Creek', 'Ck': 'Creek', 'Riv': 'River', 'Br': 'Branch', 'Brk': 'Brook', 'Trib': 'Tributary',
         'Lk': 'Lake', 'Res': 'Reservoir', 'Spg': 'Spring', 'Spgs': 'Springs', 'Fk': 'Fork', 'Pd': 'Pond',
         'N': 'North', 'S': 'South', 'E': 'East', 'W': 'West', 'Mid': 'Middle', 'Ft': 'Fort', 'Mt': 'Mount',
-        'Hbr': 'Harbor', 'Chnl': 'Channel', 'Dch': 'Ditch', 'Slo': 'Slough'}
+        'Hbr': 'Harbor', 'Chnl': 'Channel', 'Chnnl': 'Channel', 'Dch': 'Ditch', 'Slo': 'Slough', 'Drn': 'Drain', 'Co': 'County', 'Cnl': 'Canal', 'Lks': 'Lakes', 'Pnd': 'Pond', 'Rsvr': 'Reservoir'}
 
 
 def clean_name(n):
+    n = re.sub(r' (city )?\(balance\)$', '', n)
     n = ' '.join(ABBR.get(w, w) for w in n.split())
     return n.replace("'", "’")
 
@@ -199,15 +218,20 @@ def osm_layers(bb, path):
     w, s, e, n = bb
     q = f'[out:json][timeout:120];(way["leisure"="park"]({s},{w},{n},{e});relation["leisure"="park"]({s},{w},{n},{e}););out geom;' \
         f'(nwr["amenity"~"^(school|college|university|hospital|fire_station|townhall)$"]({s},{w},{n},{e}););out center tags;'
-    if not os.path.exists(path):
-        data = urllib.parse.urlencode({'data': q}).encode()
-        for url in ('https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass-api.de/api/interpreter'):
-            try:
-                req = urllib.request.Request(url, data=data, headers={'User-Agent': 'MAWA-map-builder'})
-                with urllib.request.urlopen(req, timeout=240) as r, open(path, 'wb') as f: f.write(r.read())
-                break
-            except Exception as ex:
-                print('overpass failed', url, ex)
+    import time
+    for attempt in range(4):
+      if os.path.exists(path): break
+      if attempt: time.sleep(25)
+      data = urllib.parse.urlencode({'data': q}).encode()
+      for url in ('https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass-api.de/api/interpreter'):
+        try:
+            req = urllib.request.Request(url, data=data, headers={'User-Agent': 'MAWA-map-builder'})
+            with urllib.request.urlopen(req, timeout=240) as r: body = r.read()
+            json.loads(body)
+            open(path, 'wb').write(body)
+            break
+        except Exception as ex:
+            print('overpass failed', url, ex)
     if not os.path.exists(path): return [], []
     from shapely.geometry import Polygon, LineString
     from shapely.ops import polygonize
@@ -299,7 +323,7 @@ def build_grid(G, county, region, el, sheds, area_water, lin_water, places, deta
     for nm, pt, a in places:
         if region.contains(pt):
             cities.append([clean_name(nm), round((pt.x - G.w) / (G.dlon * G.nx), 4), round((G.n - pt.y) / (G.dlat * G.ny), 4), round(a, 2)])
-    hv = np.maximum(hv, lo - 2.0)
+    hv = np.clip(hv, lo - 2.0, hi + (hi - lo) * 0.25)  # trims rare spikes and pits in the elevation tiles
     cities.sort(key=lambda r: -r[3])
     cities = [r[:3] for r in cities[:(36 if detail else 18)]]
     uv = lambda x, y: [round((x - G.w) / (G.dlon * G.nx), 4), round((G.n - y) / (G.dlat * G.ny), 4)]
@@ -344,7 +368,7 @@ def build_grid(G, county, region, el, sheds, area_water, lin_water, places, deta
         'bb': [round(v, 5) for v in G.bb], 'nx': G.nx, 'ny': G.ny, 'cellkm': round(G.cellkm, 5),
         'h': b64(np.clip(np.round(hv * 2), -32000, 32000).astype('<i2')), 'c': b64(cls), 's': b64(sidx.astype(np.uint8)),
         'cn': b64(cn), 'creeks': creeks, 'cities': cities,
-        'hlo': round(lo, 1), 'hhi': round(hi, 1), 'elo': int(round(lo * 3.281)), 'ehi': int(round(float(hin.max()) * 3.281)),
+        'hlo': round(lo, 1), 'hhi': round(hi, 1), 'elo': int(round(lo * 3.281)), 'ehi': int(round(min(float(np.percentile(hin, 99.97)), hi + (hi - lo) * 0.25) * 3.281)),
     }
 
 
@@ -379,11 +403,14 @@ def main(geoid, outdir, extra=()):
         g = full.intersection(county)
         a = area_km2(g, lat0)
         if a < 0.5: continue
+        if f['properties']['areasqkm'] > 5000: continue  # open-water Great Lakes units (e.g. 'Lake Michigan'), not land watersheds
         groups.append([f['properties']['huc10'], clean_name(f['properties']['name']), g, a, f['properties']['areasqkm'], full])
     groups.sort(key=lambda r: -r[3])
     gb = [g[5].bounds for g in groups]
     BB = (min([b[0] for b in gb] + [bb[0]]) - .01, min([b[1] for b in gb] + [bb[1]]) - .01, max([b[2] for b in gb] + [bb[2]]) + .01, max([b[3] for b in gb] + [bb[3]]) + .01)
-    h12 = wbd_query(6, BB, 'huc12,name,areasqkm')
+    h12 = []
+    for g in groups:  # one small request per watershed (a single big box can overload the service near the Great Lakes)
+        h12 += wbd_query(6, g[5].bounds, 'huc12,name,areasqkm', where=f"huc12 LIKE '{g[0]}%'")
     sheds = []
     for f in h12:
         code = f['properties']['huc12']
@@ -408,10 +435,15 @@ def main(geoid, outdir, extra=()):
     aw, lw, roads = [], [], []
     for p, g in near:
         gg = p['GEOID']
-        aw += read_shp_zip(fetch(TIGER + f'TIGER2023/AREAWATER/tl_2023_{gg}_areawater.zip', os.path.join(RAW, f'tl_2023_{gg}_areawater.zip')))
-        lw += read_shp_zip(fetch(TIGER + f'TIGER2023/LINEARWATER/tl_2023_{gg}_linearwater.zip', os.path.join(RAW, f'tl_2023_{gg}_linearwater.zip')))
-        roads += [(q, r) for q, r in read_shp_zip(fetch(TIGER + f'TIGER2023/ROADS/tl_2023_{gg}_roads.zip', os.path.join(RAW, f'tl_2023_{gg}_roads.zip')))
-                  if q['MTFCC'] in ('S1100', 'S1200', 'S1400')]
+        for kind in ('areawater', 'linearwater', 'roads'):
+            try:
+                rows = read_shp_zip(fetch(TIGER + f'TIGER2023/{kind.upper()}/tl_2023_{gg}_{kind}.zip', os.path.join(RAW, f'tl_2023_{gg}_{kind}.zip')))
+            except Exception as ex:
+                if gg == geoid or gg in extra: raise
+                print('skipping neighbour file', gg, kind, ex); continue
+            if kind == 'areawater': aw += rows
+            elif kind == 'linearwater': lw += rows
+            else: roads += [(q, r) for q, r in rows if q['MTFCC'] in ('S1100', 'S1200', 'S1400')]
     aw = [(p, make_valid(g)) for p, g in aw]
     pl = []
     for sf in states:
