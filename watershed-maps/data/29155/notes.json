@@ -1,0 +1,191 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Pemiscot County",
+  "note": ""
+ },
+ "0802020407": {
+  "watershed": "Main Ditch",
+  "note": ""
+ },
+ "0802020406": {
+  "watershed": "Main Ditch-Little River",
+  "note": ""
+ },
+ "0801010005": {
+  "watershed": "Blue Bank Bayou-Mississippi River",
+  "note": ""
+ },
+ "0802020405": {
+  "watershed": "West Ditch",
+  "note": ""
+ },
+ "0801010004": {
+  "watershed": "Stewart Towhead-Mississippi River",
+  "note": ""
+ },
+ "0802020403": {
+  "watershed": "Ditch Number 9",
+  "note": ""
+ },
+ "080202040701": {
+  "subwatershed": "Half Moon Bayou",
+  "note": ""
+ },
+ "080202040702": {
+  "subwatershed": "Ditch Number 4",
+  "note": ""
+ },
+ "080202040707": {
+  "subwatershed": "Ditch Number 2-Main Ditch",
+  "note": ""
+ },
+ "080202040706": {
+  "subwatershed": "Main Ditch Number 6",
+  "note": ""
+ },
+ "080202040712": {
+  "subwatershed": "Lower Belle Fountain Ditch",
+  "note": ""
+ },
+ "080202040703": {
+  "subwatershed": "New Franklin Ditch",
+  "note": ""
+ },
+ "080202040708": {
+  "subwatershed": "Upper Belle Fountain Ditch",
+  "note": ""
+ },
+ "080202040709": {
+  "subwatershed": "Bess Slough-Main Ditch",
+  "note": ""
+ },
+ "080202040705": {
+  "subwatershed": "Blow Ridge-Main Ditch Number 6",
+  "note": ""
+ },
+ "080202040704": {
+  "subwatershed": "Ditch Number 3",
+  "note": ""
+ },
+ "080202040710": {
+  "subwatershed": "Ditch Number 3-Sand Slough Ditch",
+  "note": ""
+ },
+ "080202040711": {
+  "subwatershed": "Sand Slough Ditch",
+  "note": ""
+ },
+ "080202040614": {
+  "subwatershed": "Elk Chute Ditch-Old Channel Little River",
+  "note": ""
+ },
+ "080202040611": {
+  "subwatershed": "Community of Stanley",
+  "note": ""
+ },
+ "080202040610": {
+  "subwatershed": "Ditch Number 68-Old Channel Little River",
+  "note": ""
+ },
+ "080202040613": {
+  "subwatershed": "Main Ditch Number 8",
+  "note": ""
+ },
+ "080202040612": {
+  "subwatershed": "Ditch Number 22-Main Ditch Number 8",
+  "note": ""
+ },
+ "080202040609": {
+  "subwatershed": "Ditch Number 65-Old Channel Little River",
+  "note": ""
+ },
+ "080202040608": {
+  "subwatershed": "Portage Open Bay",
+  "note": ""
+ },
+ "080202040615": {
+  "subwatershed": "Ditch Number 61-Old Channel Little River",
+  "note": ""
+ },
+ "080202040607": {
+  "subwatershed": "Town of Howardville-Little River",
+  "note": ""
+ },
+ "080202040606": {
+  "subwatershed": "Otter Slough Ditch-Little River",
+  "note": ""
+ },
+ "080202040602": {
+  "subwatershed": "City of Oran",
+  "note": ""
+ },
+ "080202040604": {
+  "subwatershed": "Ash Slough Ditch",
+  "note": ""
+ },
+ "080202040605": {
+  "subwatershed": "Town of North Llibourn",
+  "note": ""
+ },
+ "080202040601": {
+  "subwatershed": "Whitewater River",
+  "note": ""
+ },
+ "080202040603": {
+  "subwatershed": "Community of Delmo-Otter Slough Ditch",
+  "note": ""
+ },
+ "080101000502": {
+  "subwatershed": "Sandy Hook Bar-Mississippi River",
+  "note": ""
+ },
+ "080101000503": {
+  "subwatershed": "Everett Lake-Mississippi River",
+  "note": ""
+ },
+ "080101000501": {
+  "subwatershed": "Blue Bank Bayou",
+  "note": ""
+ },
+ "080202040503": {
+  "subwatershed": "Ditch Number 85-The Floodway",
+  "note": ""
+ },
+ "080202040501": {
+  "subwatershed": "Ditch Number 293",
+  "note": ""
+ },
+ "080202040506": {
+  "subwatershed": "Ditch Number 27",
+  "note": ""
+ },
+ "080202040505": {
+  "subwatershed": "City of Campbell-Main Ditch",
+  "note": ""
+ },
+ "080202040504": {
+  "subwatershed": "West Ditch-Main Ditch",
+  "note": ""
+ },
+ "080202040502": {
+  "subwatershed": "Main Ditch",
+  "note": ""
+ },
+ "080101000401": {
+  "subwatershed": "Stewart Towhead-Mississippi River",
+  "note": ""
+ },
+ "080202040303": {
+  "subwatershed": "Ditch Number 44-The Floodway",
+  "note": ""
+ },
+ "080202040302": {
+  "subwatershed": "Ditch Number 9",
+  "note": ""
+ },
+ "080202040301": {
+  "subwatershed": "Ditch Number 8",
+  "note": ""
+ }
+}

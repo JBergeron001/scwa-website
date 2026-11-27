@@ -1,0 +1,195 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Des Moines County",
+  "note": ""
+ },
+ "0708010412": {
+  "watershed": "Flint Creek",
+  "note": ""
+ },
+ "0708010411": {
+  "watershed": "Yellow Spring Creek-Mississippi River",
+  "note": ""
+ },
+ "0708010415": {
+  "watershed": "Spring Creek-Mississippi River",
+  "note": ""
+ },
+ "0708010710": {
+  "watershed": "Skunk River",
+  "note": ""
+ },
+ "0708010406": {
+  "watershed": "Dolbee Creek-Mississippi River",
+  "note": ""
+ },
+ "0708020911": {
+  "watershed": "Iowa River",
+  "note": ""
+ },
+ "0708010702": {
+  "watershed": "Crooked Creek",
+  "note": ""
+ },
+ "0708010709": {
+  "watershed": "Big Creek",
+  "note": ""
+ },
+ "0708020910": {
+  "watershed": "Otter Creek",
+  "note": ""
+ },
+ "070801041204": {
+  "subwatershed": "Flint Creek",
+  "note": ""
+ },
+ "070801041203": {
+  "subwatershed": "Big Hollow-Flint Creek",
+  "note": ""
+ },
+ "070801041201": {
+  "subwatershed": "Cedar Fork Creek",
+  "note": ""
+ },
+ "070801041202": {
+  "subwatershed": "Headwaters Flint Creek",
+  "note": ""
+ },
+ "070801041101": {
+  "subwatershed": "Cottonwood Drain",
+  "note": ""
+ },
+ "070801041102": {
+  "subwatershed": "Yellow Spring Creek",
+  "note": ""
+ },
+ "070801041103": {
+  "subwatershed": "Benton Bay-Mississippi River",
+  "note": ""
+ },
+ "070801041502": {
+  "subwatershed": "Dry Branch-Mississippi River",
+  "note": ""
+ },
+ "070801041503": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "070801041504": {
+  "subwatershed": "Skunk Slough",
+  "note": ""
+ },
+ "070801041505": {
+  "subwatershed": "Fish Lake-Mississippi River",
+  "note": ""
+ },
+ "070801041501": {
+  "subwatershed": "Carthage Lake",
+  "note": ""
+ },
+ "070801071005": {
+  "subwatershed": "Long Creek",
+  "note": ""
+ },
+ "070801071006": {
+  "subwatershed": "Skunk River",
+  "note": ""
+ },
+ "070801071004": {
+  "subwatershed": "Geode Lake-Cedar Creek",
+  "note": ""
+ },
+ "070801071003": {
+  "subwatershed": "Mud Creek",
+  "note": ""
+ },
+ "070801071002": {
+  "subwatershed": "Prairie Creek-Skunk River",
+  "note": ""
+ },
+ "070801071001": {
+  "subwatershed": "Fish Creek",
+  "note": ""
+ },
+ "070801040602": {
+  "subwatershed": "Hawkeye-Dolbee Diversion Channel",
+  "note": ""
+ },
+ "070801040601": {
+  "subwatershed": "Iowa Slough",
+  "note": ""
+ },
+ "070801040603": {
+  "subwatershed": "Huron Chute-Mississippi River",
+  "note": ""
+ },
+ "070802091103": {
+  "subwatershed": "Smith Creek",
+  "note": ""
+ },
+ "070802091104": {
+  "subwatershed": "Sunfish Lake-Iowa River",
+  "note": ""
+ },
+ "070802091101": {
+  "subwatershed": "Indian Creek",
+  "note": ""
+ },
+ "070802091102": {
+  "subwatershed": "Ditch Number 25-Iowa River",
+  "note": ""
+ },
+ "070801070201": {
+  "subwatershed": "Headwaters East Fork Crooked Creek",
+  "note": ""
+ },
+ "070801070204": {
+  "subwatershed": "East Fork Crooked Creek",
+  "note": ""
+ },
+ "070801070202": {
+  "subwatershed": "Phillips Creek",
+  "note": ""
+ },
+ "070801070203": {
+  "subwatershed": "City of Winfield-East Fork Crooked Creek",
+  "note": ""
+ },
+ "070801070205": {
+  "subwatershed": "Williams Creek",
+  "note": ""
+ },
+ "070801070206": {
+  "subwatershed": "Crooked Creek",
+  "note": ""
+ },
+ "070801070901": {
+  "subwatershed": "Headwaters Big Creek",
+  "note": ""
+ },
+ "070801070905": {
+  "subwatershed": "Lynn Creek-Big Creek",
+  "note": ""
+ },
+ "070801070903": {
+  "subwatershed": "North Branch Big Creek-Big Creek",
+  "note": ""
+ },
+ "070801070902": {
+  "subwatershed": "Brandywine Creek",
+  "note": ""
+ },
+ "070801070904": {
+  "subwatershed": "City of New London-Brush Creek",
+  "note": ""
+ },
+ "070802091001": {
+  "subwatershed": "Bethel Cemetery-Honey Creek",
+  "note": ""
+ },
+ "070802091002": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ }
+}

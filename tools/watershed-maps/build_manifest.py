@@ -5,7 +5,10 @@ import sys, os, json, glob
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_county import read_shp_zip, fetch, RAW, TIGER
 root = sys.argv[1]; wm = os.path.join(root, 'watershed-maps')
-EXCLUDE = {'29183'}  # St. Charles County: its map lives only on the St. Charles Watersheds Alliance site
+EXCLUDE = set()
+# Maps made elsewhere and copied into the library (own page, own data)
+EXTRA_MAPS = [{'geoid': '29183', 'name': 'St. Charles County', 'state': 'Missouri', 'url': 'watershed-maps/st-charles/',
+               'watersheds': 7, 'subwatersheds': 26, 'areakm': 1525.9, 'thumb': 'watershed-maps/thumbs/29183.jpg', 'includes': []}]
 MIDWEST = {'29': 'Missouri', '17': 'Illinois', '19': 'Iowa', '20': 'Kansas', '31': 'Nebraska', '27': 'Minnesota', '55': 'Wisconsin',
            '18': 'Indiana', '39': 'Ohio', '26': 'Michigan', '38': 'North Dakota', '46': 'South Dakota',
            # Mississippi River states to the south, plus Texas
@@ -15,7 +18,10 @@ METRO = {'29189': 'St. Louis', '29095': 'Kansas City', '31055': 'Omaha', '19153'
          '29077': 'Springfield', '17167': 'Springfield', '17031': 'Chicago', '27053': 'Minneapolis-St. Paul',
          '18097': 'Indianapolis', '39049': 'Columbus', '55079': 'Milwaukee', '26163': 'Detroit', '20173': 'Wichita',
          '31109': 'Lincoln', '39061': 'Cincinnati', '39035': 'Cleveland', '55025': 'Madison', '26081': 'Grand Rapids',
-         '19163': 'Quad Cities', '46099': 'Sioux Falls', '29031': 'Cape Girardeau'}
+         '19163': 'Quad Cities', '46099': 'Sioux Falls', '29031': 'Cape Girardeau', '29183': 'St. Charles and West Alton'}
+# Mississippi River Cities and Towns Initiative member cities, by county
+_mr = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'mrcti.json')
+if os.path.exists(_mr): METRO = {**json.load(open(_mr)), **METRO}
 maps = []
 for f in sorted(glob.glob(os.path.join(wm, 'data', '*', 'info.json'))):
     i = json.load(open(f))
@@ -24,6 +30,8 @@ for f in sorted(glob.glob(os.path.join(wm, 'data', '*', 'info.json'))):
     i['metro'] = METRO.get(i['geoid'], '')
     i['thumb'] = f"watershed-maps/thumbs/{i['geoid']}.jpg" if os.path.exists(os.path.join(wm, 'thumbs', i['geoid'] + '.jpg')) else ''
     maps.append(i)
+for x in EXTRA_MAPS:
+    x = dict(x); x['metro'] = METRO.get(x['geoid'], ''); maps.append(x)
 maps.sort(key=lambda r: (r['state'], r['name'].replace('City of ', '')))
 json.dump({'updated': __import__('datetime').date.today().isoformat(), 'maps': maps}, open(os.path.join(wm, 'manifest.json'), 'w'), indent=1)
 # Midwest county locator: simplified SVG paths in an equal-ish projection

@@ -1,0 +1,191 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Muscatine County",
+  "note": ""
+ },
+ "0708020608": {
+  "watershed": "Cedar River",
+  "note": ""
+ },
+ "0708010106": {
+  "watershed": "Pine Creek-Mississippi River",
+  "note": ""
+ },
+ "0708020607": {
+  "watershed": "Wapsinonoc Creek",
+  "note": ""
+ },
+ "0708020605": {
+  "watershed": "Mud Creek",
+  "note": ""
+ },
+ "0708010107": {
+  "watershed": "Muscatine Slough-Mississippi River",
+  "note": ""
+ },
+ "0708020908": {
+  "watershed": "Goose Creek-Iowa River",
+  "note": ""
+ },
+ "0708020911": {
+  "watershed": "Iowa River",
+  "note": ""
+ },
+ "0708020606": {
+  "watershed": "Sugar Creek",
+  "note": ""
+ },
+ "070802060805": {
+  "subwatershed": "Pike Run-Cedar River",
+  "note": ""
+ },
+ "070802060806": {
+  "subwatershed": "Crane Creek-Cedar River",
+  "note": ""
+ },
+ "070802060804": {
+  "subwatershed": "Chicken Creek-Cedar River",
+  "note": ""
+ },
+ "070802060807": {
+  "subwatershed": "Cedar River",
+  "note": ""
+ },
+ "070802060802": {
+  "subwatershed": "Little Mosquito Creek",
+  "note": ""
+ },
+ "070802060803": {
+  "subwatershed": "Pee Dee Creek-Cedar River",
+  "note": ""
+ },
+ "070802060801": {
+  "subwatershed": "Crooked Creek",
+  "note": ""
+ },
+ "070801010602": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070801010605": {
+  "subwatershed": "Fourth Slough-Mississippi River",
+  "note": ""
+ },
+ "070801010604": {
+  "subwatershed": "Mad Creek",
+  "note": ""
+ },
+ "070801010603": {
+  "subwatershed": "Coal Creek-Mississippi River",
+  "note": ""
+ },
+ "070801010601": {
+  "subwatershed": "Kickapoo Slough-Mississippi River",
+  "note": ""
+ },
+ "070802060704": {
+  "subwatershed": "East Branch Wapsinonoc Creek-Wapsinonoc Creek",
+  "note": ""
+ },
+ "070802060703": {
+  "subwatershed": "Big Slough",
+  "note": ""
+ },
+ "070802060705": {
+  "subwatershed": "Wapsinonoc Creek",
+  "note": ""
+ },
+ "070802060702": {
+  "subwatershed": "West Branch Wapsinonoc Creek",
+  "note": ""
+ },
+ "070802060701": {
+  "subwatershed": "Middle Branch Wapsinonoc Creek",
+  "note": ""
+ },
+ "070802060501": {
+  "subwatershed": "Upper Mud Creek",
+  "note": ""
+ },
+ "070802060503": {
+  "subwatershed": "Lower Mud Creek",
+  "note": ""
+ },
+ "070802060502": {
+  "subwatershed": "Middle Mud Creek",
+  "note": ""
+ },
+ "070801010701": {
+  "subwatershed": "Upper Muscatine Slough",
+  "note": ""
+ },
+ "070801010702": {
+  "subwatershed": "Lower Muscatine Slough",
+  "note": ""
+ },
+ "070801010705": {
+  "subwatershed": "Boston Bay-Mississippi River",
+  "note": ""
+ },
+ "070801010704": {
+  "subwatershed": "Eliza Creek",
+  "note": ""
+ },
+ "070801010703": {
+  "subwatershed": "Deerlick Branch-Eliza Creek",
+  "note": ""
+ },
+ "070802090804": {
+  "subwatershed": "Honey Creek",
+  "note": ""
+ },
+ "070802090802": {
+  "subwatershed": "Richey Creek",
+  "note": ""
+ },
+ "070802090806": {
+  "subwatershed": "Prairie Creek-Iowa River",
+  "note": ""
+ },
+ "070802090803": {
+  "subwatershed": "Goose Creek",
+  "note": ""
+ },
+ "070802090805": {
+  "subwatershed": "Short Creek",
+  "note": ""
+ },
+ "070802090801": {
+  "subwatershed": "Davis Creek",
+  "note": ""
+ },
+ "070802091101": {
+  "subwatershed": "Indian Creek",
+  "note": ""
+ },
+ "070802091102": {
+  "subwatershed": "Ditch Number 25-Iowa River",
+  "note": ""
+ },
+ "070802091104": {
+  "subwatershed": "Sunfish Lake-Iowa River",
+  "note": ""
+ },
+ "070802091103": {
+  "subwatershed": "Smith Creek",
+  "note": ""
+ },
+ "070802060603": {
+  "subwatershed": "Sugar Creek",
+  "note": ""
+ },
+ "070802060602": {
+  "subwatershed": "Bennet Creek-Sugar Creek",
+  "note": ""
+ },
+ "070802060601": {
+  "subwatershed": "Bennett Creek",
+  "note": ""
+ }
+}

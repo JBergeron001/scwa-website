@@ -1,0 +1,199 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Ascension Parish",
+  "note": ""
+ },
+ "0807020401": {
+  "watershed": "New River",
+  "note": ""
+ },
+ "0807020402": {
+  "watershed": "Blind River-Frontal Lake Maurepas",
+  "note": ""
+ },
+ "0809030201": {
+  "watershed": "Grand Bayou-Lake Verret",
+  "note": ""
+ },
+ "0807020208": {
+  "watershed": "Bayou Manchac",
+  "note": ""
+ },
+ "0807020209": {
+  "watershed": "Grays Creek-Amite River",
+  "note": ""
+ },
+ "0807010001": {
+  "watershed": "Raccourci Island-Mississippi River",
+  "note": ""
+ },
+ "0809030101": {
+  "watershed": "Bayou Verret",
+  "note": ""
+ },
+ "0807020403": {
+  "watershed": "Mississippi Bayou-Frontal Lake Maurepas",
+  "note": ""
+ },
+ "080702040102": {
+  "subwatershed": "Black Bayou-Saveiro Canal",
+  "note": ""
+ },
+ "080702040103": {
+  "subwatershed": "Grand Goudine Bayou-New River",
+  "note": ""
+ },
+ "080702040104": {
+  "subwatershed": "Bayou Pierre-Petite Amite River",
+  "note": ""
+ },
+ "080702040101": {
+  "subwatershed": "Bayou Francois",
+  "note": ""
+ },
+ "080702040203": {
+  "subwatershed": "Bayou Conway",
+  "note": ""
+ },
+ "080702040204": {
+  "subwatershed": "Old New River-Blind River",
+  "note": ""
+ },
+ "080702040201": {
+  "subwatershed": "Saint James Parish Canal",
+  "note": ""
+ },
+ "080702040205": {
+  "subwatershed": "Blind River-Frontal Lake Maurepas",
+  "note": ""
+ },
+ "080702040202": {
+  "subwatershed": "Bayou des Acadiens",
+  "note": ""
+ },
+ "080903020101": {
+  "subwatershed": "Bayou Sigur-Rocky Canal",
+  "note": ""
+ },
+ "080903020102": {
+  "subwatershed": "Bayou Corne-Grand Bayou",
+  "note": ""
+ },
+ "080903020104": {
+  "subwatershed": "Bayou Saint Vincent-Little Grand Bayou",
+  "note": ""
+ },
+ "080903020105": {
+  "subwatershed": "Cancienne Canal",
+  "note": ""
+ },
+ "080903020106": {
+  "subwatershed": "Lake Verret",
+  "note": ""
+ },
+ "080903020107": {
+  "subwatershed": "Bay Natchez-Bayou Grosbec",
+  "note": ""
+ },
+ "080903020103": {
+  "subwatershed": "Bayou Pierre Part",
+  "note": ""
+ },
+ "080702020802": {
+  "subwatershed": "Alligator Bayou-Bayou Braud",
+  "note": ""
+ },
+ "080702020804": {
+  "subwatershed": "Bayou Fountain-Bayou Manchac",
+  "note": ""
+ },
+ "080702020801": {
+  "subwatershed": "Bayou Braud",
+  "note": ""
+ },
+ "080702020803": {
+  "subwatershed": "Ward Creek",
+  "note": ""
+ },
+ "080702020904": {
+  "subwatershed": "Clay Cut Bayou-Amite River",
+  "note": ""
+ },
+ "080702020905": {
+  "subwatershed": "King George Bayou-Amite River",
+  "note": ""
+ },
+ "080702020906": {
+  "subwatershed": "Bayou Barbary-Amite River",
+  "note": ""
+ },
+ "080702020902": {
+  "subwatershed": "Beaver Creek-Amite River",
+  "note": ""
+ },
+ "080702020903": {
+  "subwatershed": "Grays Creek",
+  "note": ""
+ },
+ "080702020901": {
+  "subwatershed": "Jones Creek",
+  "note": ""
+ },
+ "080701000105": {
+  "subwatershed": "Claiborne Island-Mississippi River",
+  "note": ""
+ },
+ "080701000101": {
+  "subwatershed": "Little Island-Mississippi River",
+  "note": ""
+ },
+ "080701000103": {
+  "subwatershed": "Profit Island-Mississippi River",
+  "note": ""
+ },
+ "080701000102": {
+  "subwatershed": "Raccourci Island",
+  "note": ""
+ },
+ "080701000104": {
+  "subwatershed": "Manchac Point-Mississippi River",
+  "note": ""
+ },
+ "080903010101": {
+  "subwatershed": "Bayou Napoleon-Bayou Verret",
+  "note": ""
+ },
+ "080903010105": {
+  "subwatershed": "Bayou Petit Chackbay",
+  "note": ""
+ },
+ "080903010104": {
+  "subwatershed": "Bayou Verret-Bayou Citamon",
+  "note": ""
+ },
+ "080903010102": {
+  "subwatershed": "Baker Canal North-Bayou Lafourche",
+  "note": ""
+ },
+ "080903010103": {
+  "subwatershed": "Saint James Canal",
+  "note": ""
+ },
+ "080903010106": {
+  "subwatershed": "Bayou Citamon",
+  "note": ""
+ },
+ "080702040303": {
+  "subwatershed": "Dutch Bayou-Mississippi Bayou",
+  "note": ""
+ },
+ "080702040301": {
+  "subwatershed": "Reserve Relief Canal-Frontal Lake Maurepas",
+  "note": ""
+ },
+ "080702040302": {
+  "subwatershed": "Hope Canal-Pipeline Canal",
+  "note": ""
+ }
+}

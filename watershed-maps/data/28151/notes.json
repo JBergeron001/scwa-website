@@ -1,0 +1,263 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Washington County",
+  "note": ""
+ },
+ "0803020902": {
+  "watershed": "Black Bayou",
+  "note": ""
+ },
+ "0803020901": {
+  "watershed": "Granicus Bayou",
+  "note": ""
+ },
+ "0803020903": {
+  "watershed": "Washington Bayou-Steele Bayou",
+  "note": ""
+ },
+ "0803020714": {
+  "watershed": "Outlet Bogue Phalia",
+  "note": ""
+ },
+ "0803020716": {
+  "watershed": "Ditchlow Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "0803010001": {
+  "watershed": "Lake Ferguson-Mississippi River",
+  "note": ""
+ },
+ "0803020713": {
+  "watershed": "Bogue Hasty-Bogue Phalia",
+  "note": ""
+ },
+ "0803020709": {
+  "watershed": "Bogue Phalia Cutoff",
+  "note": ""
+ },
+ "0803010002": {
+  "watershed": "Cottonwood Chute-Mississippi River",
+  "note": ""
+ },
+ "0803020715": {
+  "watershed": "Dawson Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "0803020718": {
+  "watershed": "Rolling Fork Creek-Deer Creek",
+  "note": ""
+ },
+ "0803020904": {
+  "watershed": "Indian Bayou-Steele Bayou",
+  "note": ""
+ },
+ "0803020712": {
+  "watershed": "Stillwater Bayou-Clear Creek",
+  "note": ""
+ },
+ "080302090205": {
+  "subwatershed": "Widow Bayou-Black Bayou",
+  "note": ""
+ },
+ "080302090201": {
+  "subwatershed": "Horseshoe Bayou",
+  "note": ""
+ },
+ "080302090206": {
+  "subwatershed": "Moon Lake-Black Bayou",
+  "note": ""
+ },
+ "080302090204": {
+  "subwatershed": "Town of Arcola",
+  "note": ""
+ },
+ "080302090203": {
+  "subwatershed": "Aqua Farms Dam",
+  "note": ""
+ },
+ "080302090202": {
+  "subwatershed": "Rolling Bayou",
+  "note": ""
+ },
+ "080302090104": {
+  "subwatershed": "Granny Baker Bayou-Granicus Bayou",
+  "note": ""
+ },
+ "080302090103": {
+  "subwatershed": "Ditch Number Ten-Granicus Bayou",
+  "note": ""
+ },
+ "080302090101": {
+  "subwatershed": "Black Bayou",
+  "note": ""
+ },
+ "080302090102": {
+  "subwatershed": "Ditch Number Eightyeight",
+  "note": ""
+ },
+ "080302090303": {
+  "subwatershed": "Swan Lake",
+  "note": ""
+ },
+ "080302090302": {
+  "subwatershed": "Upper Lake Washington",
+  "note": ""
+ },
+ "080302090304": {
+  "subwatershed": "Lower Lake Washington",
+  "note": ""
+ },
+ "080302090301": {
+  "subwatershed": "Ditch Number Fourteen",
+  "note": ""
+ },
+ "080302090305": {
+  "subwatershed": "Lafayette Lake-Steele Bayou",
+  "note": ""
+ },
+ "080302071402": {
+  "subwatershed": "Fourmile Bayou-Bogue Phalia",
+  "note": ""
+ },
+ "080302071401": {
+  "subwatershed": "Bear Lake-Bogue Phalia",
+  "note": ""
+ },
+ "080302071606": {
+  "subwatershed": "Mills Bayou-Fourmile Bayou",
+  "note": ""
+ },
+ "080302071609": {
+  "subwatershed": "De Viney Bayou",
+  "note": ""
+ },
+ "080302071605": {
+  "subwatershed": "Fourmile Bayou",
+  "note": ""
+ },
+ "080302071604": {
+  "subwatershed": "Bucker Catfish Pond Dam",
+  "note": ""
+ },
+ "080302071602": {
+  "subwatershed": "Beasley Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302071607": {
+  "subwatershed": "Ditchlow Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302071610": {
+  "subwatershed": "Turkeyfoot Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302071611": {
+  "subwatershed": "Fish Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302071608": {
+  "subwatershed": "Hard Cash Lake",
+  "note": ""
+ },
+ "080302071601": {
+  "subwatershed": "Tupper Bayou",
+  "note": ""
+ },
+ "080302071603": {
+  "subwatershed": "City of Belzoni",
+  "note": ""
+ },
+ "080301000100": {
+  "subwatershed": "Lake Ferguson-Mississippi River",
+  "note": ""
+ },
+ "080302071305": {
+  "subwatershed": "Clark Bayou-Bogue Phalia",
+  "note": ""
+ },
+ "080302071304": {
+  "subwatershed": "Bee Bayou",
+  "note": ""
+ },
+ "080302071303": {
+  "subwatershed": "Bogue Hasty-Bogue Phalia",
+  "note": ""
+ },
+ "080302071301": {
+  "subwatershed": "West Bogue Hasty-Bogue Hasty",
+  "note": ""
+ },
+ "080302071302": {
+  "subwatershed": "City of Cleveland-Pecan Bayou",
+  "note": ""
+ },
+ "080302070901": {
+  "subwatershed": "Deep Slough",
+  "note": ""
+ },
+ "080302070902": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "080301000200": {
+  "subwatershed": "Cottonwood Chute-Mississippi River",
+  "note": ""
+ },
+ "080302071501": {
+  "subwatershed": "Locust Bayou",
+  "note": ""
+ },
+ "080302071504": {
+  "subwatershed": "Dutch Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302071503": {
+  "subwatershed": "Short Bayou",
+  "note": ""
+ },
+ "080302071502": {
+  "subwatershed": "Beaver Dam Bayou",
+  "note": ""
+ },
+ "080302071803": {
+  "subwatershed": "Deer Creek-Rolling Fork Creek",
+  "note": ""
+ },
+ "080302071802": {
+  "subwatershed": "Straight Bayou",
+  "note": ""
+ },
+ "080302071801": {
+  "subwatershed": "Big Monocnoc Lake",
+  "note": ""
+ },
+ "080302090401": {
+  "subwatershed": "Otter Bayou",
+  "note": ""
+ },
+ "080302090402": {
+  "subwatershed": "Flag Lake-Otter Bayou",
+  "note": ""
+ },
+ "080302090405": {
+  "subwatershed": "Steele Bayou Cutoff-Steele Bayou",
+  "note": ""
+ },
+ "080302090403": {
+  "subwatershed": "Gross Bayou",
+  "note": ""
+ },
+ "080302090404": {
+  "subwatershed": "Steele Bayou",
+  "note": ""
+ },
+ "080302071202": {
+  "subwatershed": "Stillwater Bayou-Clear Creek",
+  "note": ""
+ },
+ "080302071201": {
+  "subwatershed": "Christmas Lake Branch-Clear Creek",
+  "note": ""
+ }
+}

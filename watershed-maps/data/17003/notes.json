@@ -1,0 +1,123 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Alexander County",
+  "note": ""
+ },
+ "0714010507": {
+  "watershed": "Sexton Creek",
+  "note": ""
+ },
+ "0714010802": {
+  "watershed": "Mill Creek-Cache River",
+  "note": ""
+ },
+ "0714010803": {
+  "watershed": "Boar Creek-Cache River",
+  "note": ""
+ },
+ "0714010508": {
+  "watershed": "Hobbs Creek-Mississippi River",
+  "note": ""
+ },
+ "0514020607": {
+  "watershed": "Redstone Creek-Ohio River",
+  "note": ""
+ },
+ "0714010505": {
+  "watershed": "Cape La Croix Creek-Mississippi River",
+  "note": ""
+ },
+ "071401050704": {
+  "subwatershed": "Edmondson Slough-Sexton Creek",
+  "note": ""
+ },
+ "071401050703": {
+  "subwatershed": "Miller Creek",
+  "note": ""
+ },
+ "071401050702": {
+  "subwatershed": "Harrison Creek-Clear Creek",
+  "note": ""
+ },
+ "071401050701": {
+  "subwatershed": "Running Lake Ditch",
+  "note": ""
+ },
+ "071401080203": {
+  "subwatershed": "Sandy Creek",
+  "note": ""
+ },
+ "071401080202": {
+  "subwatershed": "Mill Creek",
+  "note": ""
+ },
+ "071401080201": {
+  "subwatershed": "Cooper Creek-Mill Creek",
+  "note": ""
+ },
+ "071401080204": {
+  "subwatershed": "Indian Camp Creek-Cache River",
+  "note": ""
+ },
+ "071401080303": {
+  "subwatershed": "Lake Creek",
+  "note": ""
+ },
+ "071401080304": {
+  "subwatershed": "Hogskin Creek-Cache River",
+  "note": ""
+ },
+ "071401080301": {
+  "subwatershed": "Headwaters Boar Creek",
+  "note": ""
+ },
+ "071401080302": {
+  "subwatershed": "Cypress Slough-Boar Creek",
+  "note": ""
+ },
+ "071401050802": {
+  "subwatershed": "Powers Island-Mississippi River",
+  "note": ""
+ },
+ "071401050804": {
+  "subwatershed": "Big Lake Bayou-Mississippi River",
+  "note": ""
+ },
+ "071401050801": {
+  "subwatershed": "Holden Creek-Mississippi River",
+  "note": ""
+ },
+ "071401050803": {
+  "subwatershed": "Big Lake Bayou",
+  "note": ""
+ },
+ "051402060704": {
+  "subwatershed": "City of Cairo-Ohio River",
+  "note": ""
+ },
+ "051402060701": {
+  "subwatershed": "Bayou Creek-Ohio River",
+  "note": ""
+ },
+ "051402060702": {
+  "subwatershed": "Redstone Creek-Ohio River",
+  "note": ""
+ },
+ "051402060703": {
+  "subwatershed": "Hess Bayou-Ohio River",
+  "note": ""
+ },
+ "071401050503": {
+  "subwatershed": "Cape La Croix Creek-Mississippi River",
+  "note": ""
+ },
+ "071401050502": {
+  "subwatershed": "Flora Creek-Mississippi River",
+  "note": ""
+ },
+ "071401050501": {
+  "subwatershed": "Little Indian Creek-Indian Creek",
+  "note": ""
+ }
+}

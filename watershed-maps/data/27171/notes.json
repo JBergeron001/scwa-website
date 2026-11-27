@@ -1,0 +1,183 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Wright County",
+  "note": ""
+ },
+ "0701020406": {
+  "watershed": "North Fork Crow River",
+  "note": ""
+ },
+ "0701020306": {
+  "watershed": "Silver Creek-Mississippi River",
+  "note": ""
+ },
+ "0701020407": {
+  "watershed": "Crow River",
+  "note": ""
+ },
+ "0701020302": {
+  "watershed": "Clearwater River",
+  "note": ""
+ },
+ "0701020507": {
+  "watershed": "South Fork Crow River",
+  "note": ""
+ },
+ "0701020405": {
+  "watershed": "Big Swan Lake",
+  "note": ""
+ },
+ "0701020503": {
+  "watershed": "City of Lester Prairie-South Fork Crow River",
+  "note": ""
+ },
+ "070102040605": {
+  "subwatershed": "Twelvemile Creek",
+  "note": ""
+ },
+ "070102040609": {
+  "subwatershed": "North Fork Crow River",
+  "note": ""
+ },
+ "070102040606": {
+  "subwatershed": "Mill Creek",
+  "note": ""
+ },
+ "070102040604": {
+  "subwatershed": "Rock Lake-North Fork Crow River",
+  "note": ""
+ },
+ "070102040602": {
+  "subwatershed": "French Lake-North Fork Crow River",
+  "note": ""
+ },
+ "070102040603": {
+  "subwatershed": "Cokato Lake",
+  "note": ""
+ },
+ "070102040607": {
+  "subwatershed": "Mud Lake",
+  "note": ""
+ },
+ "070102040608": {
+  "subwatershed": "Fountain Lake",
+  "note": ""
+ },
+ "070102040601": {
+  "subwatershed": "Lake Francis",
+  "note": ""
+ },
+ "070102030602": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070102030605": {
+  "subwatershed": "City of Elk River-Mississippi River",
+  "note": ""
+ },
+ "070102030604": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "070102030601": {
+  "subwatershed": "Fish Creek-Mississippi River",
+  "note": ""
+ },
+ "070102030603": {
+  "subwatershed": "City of Becker-Mississippi River",
+  "note": ""
+ },
+ "070102040702": {
+  "subwatershed": "Pelican Lake",
+  "note": ""
+ },
+ "070102040701": {
+  "subwatershed": "City of Rockford-Crow River",
+  "note": ""
+ },
+ "070102040703": {
+  "subwatershed": "Crow River",
+  "note": ""
+ },
+ "070102030204": {
+  "subwatershed": "Clearwater Lake-Clearwater River",
+  "note": ""
+ },
+ "070102030202": {
+  "subwatershed": "Lake Louisa-Clearwater River",
+  "note": ""
+ },
+ "070102030205": {
+  "subwatershed": "Grass Lake-Clearwater River",
+  "note": ""
+ },
+ "070102030201": {
+  "subwatershed": "Clear Lake-Clearwater River",
+  "note": ""
+ },
+ "070102030203": {
+  "subwatershed": "Threemile Creek",
+  "note": ""
+ },
+ "070102050705": {
+  "subwatershed": "South Fork Crow River",
+  "note": ""
+ },
+ "070102050702": {
+  "subwatershed": "City of Watertown-South Fork Crow River",
+  "note": ""
+ },
+ "070102050704": {
+  "subwatershed": "Rice Lake",
+  "note": ""
+ },
+ "070102050701": {
+  "subwatershed": "City of Mayer-South Fork Crow River",
+  "note": ""
+ },
+ "070102050703": {
+  "subwatershed": "Pioneer Creek",
+  "note": ""
+ },
+ "070102040503": {
+  "subwatershed": "Big Swan Lake",
+  "note": ""
+ },
+ "070102040501": {
+  "subwatershed": "Lake Jennie",
+  "note": ""
+ },
+ "070102040502": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070102050306": {
+  "subwatershed": "Crane Creek",
+  "note": ""
+ },
+ "070102050302": {
+  "subwatershed": "City of Biscay-South Fork Crow River",
+  "note": ""
+ },
+ "070102050305": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "070102050304": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070102050307": {
+  "subwatershed": "City of Lester Prairie-South Fork Crow River",
+  "note": ""
+ },
+ "070102050303": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "070102050301": {
+  "subwatershed": "McCuen Creek",
+  "note": ""
+ }
+}

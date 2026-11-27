@@ -1,0 +1,203 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Jersey County",
+  "note": ""
+ },
+ "0713001109": {
+  "watershed": "Southern Fork Otter Creek",
+  "note": ""
+ },
+ "0711000902": {
+  "watershed": "Piasa Creek",
+  "note": ""
+ },
+ "0713001205": {
+  "watershed": "Phils Creek",
+  "note": ""
+ },
+ "0713001110": {
+  "watershed": "Swan Lake-Illinois River",
+  "note": ""
+ },
+ "0713001206": {
+  "watershed": "Lower Macoupin Creek",
+  "note": ""
+ },
+ "0713001204": {
+  "watershed": "Middle Macoupin Creek",
+  "note": ""
+ },
+ "0711000904": {
+  "watershed": "Portage Des Sioux-Mississippi River",
+  "note": ""
+ },
+ "0711000903": {
+  "watershed": "Wood River",
+  "note": ""
+ },
+ "0713001203": {
+  "watershed": "Taylor Creek",
+  "note": ""
+ },
+ "0713001202": {
+  "watershed": "Hodges Creek",
+  "note": ""
+ },
+ "071300110901": {
+  "subwatershed": "Sandy Creek-Otter Creek",
+  "note": ""
+ },
+ "071300110903": {
+  "subwatershed": "Spring Creek-Otter Creek",
+  "note": ""
+ },
+ "071300110902": {
+  "subwatershed": "Shiloh Hollow-South Fork Otter Creek",
+  "note": ""
+ },
+ "071100090201": {
+  "subwatershed": "Upper Piasa Creek",
+  "note": ""
+ },
+ "071100090202": {
+  "subwatershed": "Middle Piasa Creek",
+  "note": ""
+ },
+ "071100090204": {
+  "subwatershed": "Lower Piasa Creek",
+  "note": ""
+ },
+ "071100090203": {
+  "subwatershed": "Little Piasa Creek",
+  "note": ""
+ },
+ "071300120501": {
+  "subwatershed": "Owl Branch-Phils Creek",
+  "note": ""
+ },
+ "071300120502": {
+  "subwatershed": "De Arcy Branch-Phils Creek",
+  "note": ""
+ },
+ "071300111006": {
+  "subwatershed": "Possum Creek-Illinois River",
+  "note": ""
+ },
+ "071300111004": {
+  "subwatershed": "Old Macoupin Creek-Illinois River",
+  "note": ""
+ },
+ "071300111005": {
+  "subwatershed": "Swan Lake",
+  "note": ""
+ },
+ "071300111001": {
+  "subwatershed": "Shaffer Hollow-Hurricane Creek",
+  "note": ""
+ },
+ "071300111002": {
+  "subwatershed": "East Panther Creek-Illinois River",
+  "note": ""
+ },
+ "071300111003": {
+  "subwatershed": "Crater Creek-Illinois River",
+  "note": ""
+ },
+ "071300120603": {
+  "subwatershed": "Wines Branch-Macoupin Creek",
+  "note": ""
+ },
+ "071300120604": {
+  "subwatershed": "Cole Creek-Macoupin Creek",
+  "note": ""
+ },
+ "071300120601": {
+  "subwatershed": "Bear Creek-Macoupin Creek",
+  "note": ""
+ },
+ "071300120602": {
+  "subwatershed": "Link Branch-Macoupin Creek",
+  "note": ""
+ },
+ "071300120404": {
+  "subwatershed": "Lampkin Branch-Macoupin Creek",
+  "note": ""
+ },
+ "071300120403": {
+  "subwatershed": "Town of Challacombe-Macoupin Creek",
+  "note": ""
+ },
+ "071300120401": {
+  "subwatershed": "Coop Branch",
+  "note": ""
+ },
+ "071300120402": {
+  "subwatershed": "Bullard Lake-Macoupin Creek",
+  "note": ""
+ },
+ "071100090401": {
+  "subwatershed": "Marais Temps Clair-Mississippi River",
+  "note": ""
+ },
+ "071100090402": {
+  "subwatershed": "City of Alton-Mississippi River",
+  "note": ""
+ },
+ "071100090403": {
+  "subwatershed": "City of Wood River-Mississippi River",
+  "note": ""
+ },
+ "071100090302": {
+  "subwatershed": "Honeycut Branch-West Fork Wood River",
+  "note": ""
+ },
+ "071100090301": {
+  "subwatershed": "Girder Branch-East Fork Wood RIver",
+  "note": ""
+ },
+ "071100090304": {
+  "subwatershed": "East Branch Wood River-Wood River",
+  "note": ""
+ },
+ "071100090303": {
+  "subwatershed": "West Fork Wood River",
+  "note": ""
+ },
+ "071300120302": {
+  "subwatershed": "Town of Greenfield-Taylor Creek",
+  "note": ""
+ },
+ "071300120301": {
+  "subwatershed": "Rubicon Creek-Taylor Creek",
+  "note": ""
+ },
+ "071300120207": {
+  "subwatershed": "Joes Creek-Hodges Creek",
+  "note": ""
+ },
+ "071300120205": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "071300120201": {
+  "subwatershed": "East Fork Otter Creek",
+  "note": ""
+ },
+ "071300120206": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "071300120203": {
+  "subwatershed": "Nassa Creek",
+  "note": ""
+ },
+ "071300120204": {
+  "subwatershed": "Soloman Creek",
+  "note": ""
+ },
+ "071300120202": {
+  "subwatershed": "Otter Lake-West Fork Otter Creek",
+  "note": ""
+ }
+}

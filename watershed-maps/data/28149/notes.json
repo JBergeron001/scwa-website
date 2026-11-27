@@ -1,0 +1,199 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Warren County",
+  "note": ""
+ },
+ "0806020210": {
+  "watershed": "Fivemile Creek-Big Black River",
+  "note": ""
+ },
+ "0806020207": {
+  "watershed": "Bear Creek-Big Black River",
+  "note": ""
+ },
+ "0806020211": {
+  "watershed": "Big Bogue Desha-Big Black River",
+  "note": ""
+ },
+ "0806010001": {
+  "watershed": "Hatcher Bayou-Hennesseys Bayou",
+  "note": ""
+ },
+ "0803020802": {
+  "watershed": "Centennial Lake-Yazoo River",
+  "note": ""
+ },
+ "0806010002": {
+  "watershed": "Palmyra Lake-Mississippi River",
+  "note": ""
+ },
+ "0803020801": {
+  "watershed": "Collins Creek-Yazoo River",
+  "note": ""
+ },
+ "0803020906": {
+  "watershed": "Deer Creek-Steele Bayou",
+  "note": ""
+ },
+ "0803010003": {
+  "watershed": "Paw Paw Chute-Mississippi River",
+  "note": ""
+ },
+ "0803020719": {
+  "watershed": "Little Sunflower River-Big Sunflower River",
+  "note": ""
+ },
+ "080602021001": {
+  "subwatershed": "Muddy Creek-Clear Creek",
+  "note": ""
+ },
+ "080602021002": {
+  "subwatershed": "Markham Creek-Big Black River",
+  "note": ""
+ },
+ "080602021005": {
+  "subwatershed": "Commissioners Creek-Big Black River",
+  "note": ""
+ },
+ "080602021003": {
+  "subwatershed": "Fivemile Creek",
+  "note": ""
+ },
+ "080602021004": {
+  "subwatershed": "Big Sand Creek",
+  "note": ""
+ },
+ "080602020706": {
+  "subwatershed": "Little Bear Creek-Bear Creek",
+  "note": ""
+ },
+ "080602020707": {
+  "subwatershed": "Summer Seat Creek-Big Black River",
+  "note": ""
+ },
+ "080602020705": {
+  "subwatershed": "Halls Creek-Big Black River",
+  "note": ""
+ },
+ "080602020703": {
+  "subwatershed": "Beaver Creek-Big Black River",
+  "note": ""
+ },
+ "080602020704": {
+  "subwatershed": "Porter Creek",
+  "note": ""
+ },
+ "080602020702": {
+  "subwatershed": "Poplar Creek-Big Black River",
+  "note": ""
+ },
+ "080602020701": {
+  "subwatershed": "Bogue Falia Creek",
+  "note": ""
+ },
+ "080602021101": {
+  "subwatershed": "Hamer Bayou-Big Black River",
+  "note": ""
+ },
+ "080602021103": {
+  "subwatershed": "Big Bogue Desha",
+  "note": ""
+ },
+ "080602021102": {
+  "subwatershed": "Gunns Bayou-Big Black River",
+  "note": ""
+ },
+ "080602021104": {
+  "subwatershed": "Kennison Creek-Big Black River",
+  "note": ""
+ },
+ "080601000103": {
+  "subwatershed": "Hennesseys Bayou",
+  "note": ""
+ },
+ "080601000101": {
+  "subwatershed": "Hatcher Bayou",
+  "note": ""
+ },
+ "080601000102": {
+  "subwatershed": "Paces Bayou",
+  "note": ""
+ },
+ "080302080201": {
+  "subwatershed": "Bliss Creek-Yazoo River",
+  "note": ""
+ },
+ "080302080202": {
+  "subwatershed": "Yazoo River Diversion Canal-Yazoo River",
+  "note": ""
+ },
+ "080601000200": {
+  "subwatershed": "Yucatan Lake-Mississippi River",
+  "note": ""
+ },
+ "080302080103": {
+  "subwatershed": "Skillikalia Creek-Yazoo River",
+  "note": ""
+ },
+ "080302080102": {
+  "subwatershed": "Ballground Creek",
+  "note": ""
+ },
+ "080302080101": {
+  "subwatershed": "Collins Creek",
+  "note": ""
+ },
+ "080302090607": {
+  "subwatershed": "Outlet Steele Bayou",
+  "note": ""
+ },
+ "080302090606": {
+  "subwatershed": "Cypress Bayou",
+  "note": ""
+ },
+ "080302090603": {
+  "subwatershed": "Eagle Lake",
+  "note": ""
+ },
+ "080302090605": {
+  "subwatershed": "Outlet Deer Creek",
+  "note": ""
+ },
+ "080302090604": {
+  "subwatershed": "080302090604",
+  "note": ""
+ },
+ "080302090601": {
+  "subwatershed": "Fivemile Lake-Steele Bayou",
+  "note": ""
+ },
+ "080302090602": {
+  "subwatershed": "Cypress Lake",
+  "note": ""
+ },
+ "080301000300": {
+  "subwatershed": "Paw Paw Chute-Mississippi River",
+  "note": ""
+ },
+ "080302071905": {
+  "subwatershed": "Miller Lake",
+  "note": ""
+ },
+ "080302071902": {
+  "subwatershed": "Howlett Bayou-Little Sunflower River",
+  "note": ""
+ },
+ "080302071903": {
+  "subwatershed": "Coon Bayou",
+  "note": ""
+ },
+ "080302071904": {
+  "subwatershed": "Six Mile Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302071901": {
+  "subwatershed": "Fifteen Mile Island-Big Sunflower River",
+  "note": ""
+ }
+}

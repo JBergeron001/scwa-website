@@ -1,0 +1,95 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "West Baton Rouge Parish",
+  "note": ""
+ },
+ "0807030002": {
+  "watershed": "Bayou Cholpe-Choctaw Bayou",
+  "note": ""
+ },
+ "0807010001": {
+  "watershed": "Raccourci Island-Mississippi River",
+  "note": ""
+ },
+ "0807030003": {
+  "watershed": "Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000204": {
+  "subwatershed": "Alligator Bayou-Choctaw Bayou",
+  "note": ""
+ },
+ "080703000203": {
+  "subwatershed": "Bayou Clause-Grand Bayou",
+  "note": ""
+ },
+ "080703000205": {
+  "subwatershed": "Gulf Intracoastal Waterway-Choctaw Basin Drainage Canal",
+  "note": ""
+ },
+ "080703000207": {
+  "subwatershed": "Bayou Bourbeaux",
+  "note": ""
+ },
+ "080703000202": {
+  "subwatershed": "Bayou Poydras-Stumpy Bayou",
+  "note": ""
+ },
+ "080703000201": {
+  "subwatershed": "Cholpe Bayou-Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000206": {
+  "subwatershed": "Choctaw Bayou",
+  "note": ""
+ },
+ "080703000208": {
+  "subwatershed": "Bayou Plaquemine",
+  "note": ""
+ },
+ "080701000103": {
+  "subwatershed": "Profit Island-Mississippi River",
+  "note": ""
+ },
+ "080701000104": {
+  "subwatershed": "Manchac Point-Mississippi River",
+  "note": ""
+ },
+ "080701000105": {
+  "subwatershed": "Claiborne Island-Mississippi River",
+  "note": ""
+ },
+ "080701000101": {
+  "subwatershed": "Little Island-Mississippi River",
+  "note": ""
+ },
+ "080701000102": {
+  "subwatershed": "Raccourci Island",
+  "note": ""
+ },
+ "080703000303": {
+  "subwatershed": "Caney Bayou-Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000302": {
+  "subwatershed": "Grand Bayou-Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000301": {
+  "subwatershed": "Bayou Maringouin",
+  "note": ""
+ },
+ "080703000305": {
+  "subwatershed": "Bayou Blue-Grand River",
+  "note": ""
+ },
+ "080703000306": {
+  "subwatershed": "Bayou Richard-Lower Grand River",
+  "note": ""
+ },
+ "080703000304": {
+  "subwatershed": "Bear Bayou-Catfish Canal",
+  "note": ""
+ }
+}

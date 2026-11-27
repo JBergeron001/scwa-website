@@ -1,0 +1,183 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Shelby County",
+  "note": ""
+ },
+ "0801021003": {
+  "watershed": "Wolf River",
+  "note": ""
+ },
+ "0801021101": {
+  "watershed": "Nonconnah Creek",
+  "note": ""
+ },
+ "0801020904": {
+  "watershed": "Lower Loosahatchie River",
+  "note": ""
+ },
+ "0801020903": {
+  "watershed": "Big Creek",
+  "note": ""
+ },
+ "0801010007": {
+  "watershed": "City of Memphis-Mississippi River",
+  "note": ""
+ },
+ "0801021103": {
+  "watershed": "Horn Lake Creek-Horn Lake Pass",
+  "note": ""
+ },
+ "0801020902": {
+  "watershed": "Beaver Creek",
+  "note": ""
+ },
+ "0801021102": {
+  "watershed": "Cypress Creek",
+  "note": ""
+ },
+ "0803020407": {
+  "watershed": "Lake Cormorant Bayou-Coldwater River",
+  "note": ""
+ },
+ "080102100308": {
+  "subwatershed": "Outlet Wolf River",
+  "note": ""
+ },
+ "080102100304": {
+  "subwatershed": "Marys Creek-Grays Creek",
+  "note": ""
+ },
+ "080102100305": {
+  "subwatershed": "Grays Creek-Wolf River",
+  "note": ""
+ },
+ "080102100307": {
+  "subwatershed": "Fletcher Creek",
+  "note": ""
+ },
+ "080102100306": {
+  "subwatershed": "White Station Creek-Wolf River",
+  "note": ""
+ },
+ "080102100302": {
+  "subwatershed": "Hurricane Creek-Wolf River",
+  "note": ""
+ },
+ "080102100303": {
+  "subwatershed": "Shaws Creek",
+  "note": ""
+ },
+ "080102100301": {
+  "subwatershed": "Grissum Creek",
+  "note": ""
+ },
+ "080102110103": {
+  "subwatershed": "Lower Nonconnah Creek",
+  "note": ""
+ },
+ "080102110102": {
+  "subwatershed": "Middle Nonconnah Creek",
+  "note": ""
+ },
+ "080102110101": {
+  "subwatershed": "Upper Nonconnah Creek",
+  "note": ""
+ },
+ "080102090406": {
+  "subwatershed": "Outlet Loosahatchie River",
+  "note": ""
+ },
+ "080102090405": {
+  "subwatershed": "Oliver Creek-Loosahatchie River Drainage Canal",
+  "note": ""
+ },
+ "080102090404": {
+  "subwatershed": "Clear Creek Canal",
+  "note": ""
+ },
+ "080102090403": {
+  "subwatershed": "Weber Branch-Loosahatchie River",
+  "note": ""
+ },
+ "080102090402": {
+  "subwatershed": "Little Cypress Creek Canal",
+  "note": ""
+ },
+ "080102090401": {
+  "subwatershed": "Laurel Creek Canal",
+  "note": ""
+ },
+ "080102090302": {
+  "subwatershed": "Middle Big Creek",
+  "note": ""
+ },
+ "080102090303": {
+  "subwatershed": "Lower Big Creek",
+  "note": ""
+ },
+ "080102090301": {
+  "subwatershed": "Upper Big Creek",
+  "note": ""
+ },
+ "080101000702": {
+  "subwatershed": "Brinkley Bayou-Mississippi River",
+  "note": ""
+ },
+ "080101000703": {
+  "subwatershed": "Loosahatchie Bar-Mississippi River",
+  "note": ""
+ },
+ "080101000704": {
+  "subwatershed": "Cow Island Bend-Mississippi River",
+  "note": ""
+ },
+ "080101000701": {
+  "subwatershed": "Bear Creek-Mississippi River",
+  "note": ""
+ },
+ "080102110302": {
+  "subwatershed": "Horn Lake-Horn Lake Pass",
+  "note": ""
+ },
+ "080102110301": {
+  "subwatershed": "Horn Lake Creek",
+  "note": ""
+ },
+ "080102090202": {
+  "subwatershed": "West Beaver Creek Canal",
+  "note": ""
+ },
+ "080102090203": {
+  "subwatershed": "Beaver Creek",
+  "note": ""
+ },
+ "080102090201": {
+  "subwatershed": "East Beaver Creek",
+  "note": ""
+ },
+ "080102110201": {
+  "subwatershed": "Cypress Creek",
+  "note": ""
+ },
+ "080302040703": {
+  "subwatershed": "Lake Cormorant Bayou",
+  "note": ""
+ },
+ "080302040705": {
+  "subwatershed": "Lake Cormorant Bayou-Coldwater River",
+  "note": ""
+ },
+ "080302040704": {
+  "subwatershed": "Buck Island Bayou",
+  "note": ""
+ },
+ "080302040701": {
+  "subwatershed": "Rock Creek-Coldwater River",
+  "note": ""
+ },
+ "080302040702": {
+  "subwatershed": "Johnson Creek",
+  "note": ""
+ }
+}

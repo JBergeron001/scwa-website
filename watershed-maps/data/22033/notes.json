@@ -1,0 +1,211 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "East Baton Rouge Parish",
+  "note": ""
+ },
+ "0807020206": {
+  "watershed": "Redwood Creek-Comite River",
+  "note": ""
+ },
+ "0807020208": {
+  "watershed": "Bayou Manchac",
+  "note": ""
+ },
+ "0807020104": {
+  "watershed": "Bayou Baton Rouge-Frontal Mississippi River",
+  "note": ""
+ },
+ "0807020209": {
+  "watershed": "Grays Creek-Amite River",
+  "note": ""
+ },
+ "0807020205": {
+  "watershed": "Sandy Creek",
+  "note": ""
+ },
+ "0807010001": {
+  "watershed": "Raccourci Island-Mississippi River",
+  "note": ""
+ },
+ "0807020204": {
+  "watershed": "Darling Creek-Amite River",
+  "note": ""
+ },
+ "0807020103": {
+  "watershed": "Thompson Creek",
+  "note": ""
+ },
+ "080702020608": {
+  "subwatershed": "Hurricane Creek-Comite River",
+  "note": ""
+ },
+ "080702020607": {
+  "subwatershed": "Blackwater Bayou-Comite River",
+  "note": ""
+ },
+ "080702020606": {
+  "subwatershed": "White Bayou",
+  "note": ""
+ },
+ "080702020605": {
+  "subwatershed": "Doyle Bayou-Redwood Creek",
+  "note": ""
+ },
+ "080702020604": {
+  "subwatershed": "Knighton Bayou-Comite River",
+  "note": ""
+ },
+ "080702020603": {
+  "subwatershed": "Pretty Creek-Comite River",
+  "note": ""
+ },
+ "080702020602": {
+  "subwatershed": "Richland Creek-Comite Creek",
+  "note": ""
+ },
+ "080702020601": {
+  "subwatershed": "Little Comite Creek",
+  "note": ""
+ },
+ "080702020804": {
+  "subwatershed": "Bayou Fountain-Bayou Manchac",
+  "note": ""
+ },
+ "080702020803": {
+  "subwatershed": "Ward Creek",
+  "note": ""
+ },
+ "080702020802": {
+  "subwatershed": "Alligator Bayou-Bayou Braud",
+  "note": ""
+ },
+ "080702020801": {
+  "subwatershed": "Bayou Braud",
+  "note": ""
+ },
+ "080702010401": {
+  "subwatershed": "Cypress Bayou-Bayou Baton Rouge-Frontal Mississippi River",
+  "note": ""
+ },
+ "080702010402": {
+  "subwatershed": "Devils Swamp-Bayou Baton Rouge-Frontal Mississippi River",
+  "note": ""
+ },
+ "080702020904": {
+  "subwatershed": "Clay Cut Bayou-Amite River",
+  "note": ""
+ },
+ "080702020901": {
+  "subwatershed": "Jones Creek",
+  "note": ""
+ },
+ "080702020902": {
+  "subwatershed": "Beaver Creek-Amite River",
+  "note": ""
+ },
+ "080702020906": {
+  "subwatershed": "Bayou Barbary-Amite River",
+  "note": ""
+ },
+ "080702020903": {
+  "subwatershed": "Grays Creek",
+  "note": ""
+ },
+ "080702020905": {
+  "subwatershed": "King George Bayou-Amite River",
+  "note": ""
+ },
+ "080702020503": {
+  "subwatershed": "Little Sandy Creek",
+  "note": ""
+ },
+ "080702020504": {
+  "subwatershed": "Beaver Pond Bayou-Sandy Creek",
+  "note": ""
+ },
+ "080702020502": {
+  "subwatershed": "Mill Creek",
+  "note": ""
+ },
+ "080702020501": {
+  "subwatershed": "Hunter Bayou-Sandy Creek",
+  "note": ""
+ },
+ "080701000103": {
+  "subwatershed": "Profit Island-Mississippi River",
+  "note": ""
+ },
+ "080701000104": {
+  "subwatershed": "Manchac Point-Mississippi River",
+  "note": ""
+ },
+ "080701000105": {
+  "subwatershed": "Claiborne Island-Mississippi River",
+  "note": ""
+ },
+ "080701000101": {
+  "subwatershed": "Little Island-Mississippi River",
+  "note": ""
+ },
+ "080701000102": {
+  "subwatershed": "Raccourci Island",
+  "note": ""
+ },
+ "080702020406": {
+  "subwatershed": "Kidds Creek-Amite River",
+  "note": ""
+ },
+ "080702020405": {
+  "subwatershed": "Pigeon Creek-Amite River",
+  "note": ""
+ },
+ "080702020401": {
+  "subwatershed": "Clear Creek-Amite River",
+  "note": ""
+ },
+ "080702020403": {
+  "subwatershed": "Sandy Run-Darling Creek",
+  "note": ""
+ },
+ "080702020402": {
+  "subwatershed": "Channey Creek-Darling Creek",
+  "note": ""
+ },
+ "080702020404": {
+  "subwatershed": "Bluff Creek",
+  "note": ""
+ },
+ "080702010308": {
+  "subwatershed": "Sandy Creek-Thompson Creek",
+  "note": ""
+ },
+ "080702010305": {
+  "subwatershed": "West Fork Thompson Creek",
+  "note": ""
+ },
+ "080702010307": {
+  "subwatershed": "Alligator Bayou",
+  "note": ""
+ },
+ "080702010306": {
+  "subwatershed": "Hammer Creek-Thompson Creek",
+  "note": ""
+ },
+ "080702010301": {
+  "subwatershed": "Matthews Creek-Thompson Creek",
+  "note": ""
+ },
+ "080702010304": {
+  "subwatershed": "Middle Fork Thompson Creek",
+  "note": ""
+ },
+ "080702010302": {
+  "subwatershed": "Lost Creek-Thompson Creek",
+  "note": ""
+ },
+ "080702010303": {
+  "subwatershed": "Beaver Creek-Thompson Creek",
+  "note": ""
+ }
+}

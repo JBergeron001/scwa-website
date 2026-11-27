@@ -1,0 +1,175 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Washington County",
+  "note": ""
+ },
+ "0703000512": {
+  "watershed": "Lake Saint Croix",
+  "note": ""
+ },
+ "0703000509": {
+  "watershed": "Big Marine Lake-Saint Croix River",
+  "note": ""
+ },
+ "0701020609": {
+  "watershed": "Lock and Dam Number Two-Mississippi River",
+  "note": ""
+ },
+ "0701020603": {
+  "watershed": "Rice Creek",
+  "note": ""
+ },
+ "0703000504": {
+  "watershed": "Sunrise River",
+  "note": ""
+ },
+ "0701020608": {
+  "watershed": "City of Saint Paul-Mississippi River",
+  "note": ""
+ },
+ "070300051202": {
+  "subwatershed": "Lake Elmo",
+  "note": ""
+ },
+ "070300051205": {
+  "subwatershed": "Trout Brook-Lake Saint Croix",
+  "note": ""
+ },
+ "070300051206": {
+  "subwatershed": "Saint Croix River",
+  "note": ""
+ },
+ "070300051203": {
+  "subwatershed": "Valley Branch",
+  "note": ""
+ },
+ "070300051201": {
+  "subwatershed": "City of Stillwater-Lake Saint Croix",
+  "note": ""
+ },
+ "070300051204": {
+  "subwatershed": "Town of Troy",
+  "note": ""
+ },
+ "070300050906": {
+  "subwatershed": "Big Marine Lake",
+  "note": ""
+ },
+ "070300050907": {
+  "subwatershed": "Browns Creek",
+  "note": ""
+ },
+ "070300050905": {
+  "subwatershed": "Square Lake-Saint Croix River",
+  "note": ""
+ },
+ "070300050908": {
+  "subwatershed": "Silver Creek-Saint Croix River",
+  "note": ""
+ },
+ "070300050903": {
+  "subwatershed": "McLeods Slough-Saint Croix River",
+  "note": ""
+ },
+ "070300050902": {
+  "subwatershed": "Osceola Creek-Saint Croix River",
+  "note": ""
+ },
+ "070300050904": {
+  "subwatershed": "Pine Lake",
+  "note": ""
+ },
+ "070300050901": {
+  "subwatershed": "Lawrence Creek",
+  "note": ""
+ },
+ "070102060903": {
+  "subwatershed": "Spring Lake-Mississippi River",
+  "note": ""
+ },
+ "070102060902": {
+  "subwatershed": "Colby Lake",
+  "note": ""
+ },
+ "070102060901": {
+  "subwatershed": "Schmidt Lake-Mississippi River",
+  "note": ""
+ },
+ "070102060302": {
+  "subwatershed": "Hardwood Creek",
+  "note": ""
+ },
+ "070102060303": {
+  "subwatershed": "Clearwater Creek",
+  "note": ""
+ },
+ "070102060301": {
+  "subwatershed": "Headwaters Rice Creek",
+  "note": ""
+ },
+ "070102060305": {
+  "subwatershed": "Turtle Lake-Rice Creek",
+  "note": ""
+ },
+ "070102060304": {
+  "subwatershed": "Rice Lake-Rice Creek",
+  "note": ""
+ },
+ "070102060306": {
+  "subwatershed": "Long Lake-Rice Creek",
+  "note": ""
+ },
+ "070300050401": {
+  "subwatershed": "Forest Lake-Sunrise River",
+  "note": ""
+ },
+ "070300050402": {
+  "subwatershed": "Bone Lake",
+  "note": ""
+ },
+ "070300050403": {
+  "subwatershed": "Comfort Lake-Sunrise River",
+  "note": ""
+ },
+ "070300050406": {
+  "subwatershed": "Green Lake",
+  "note": ""
+ },
+ "070300050408": {
+  "subwatershed": "Sunrise River",
+  "note": ""
+ },
+ "070300050405": {
+  "subwatershed": "West Branch Sunrise River",
+  "note": ""
+ },
+ "070300050404": {
+  "subwatershed": "South Branch Sunrise River",
+  "note": ""
+ },
+ "070300050407": {
+  "subwatershed": "Mud Lake-Sunrise River",
+  "note": ""
+ },
+ "070102060804": {
+  "subwatershed": "Battle Creek",
+  "note": ""
+ },
+ "070102060805": {
+  "subwatershed": "Harriet Island-Mississippi River",
+  "note": ""
+ },
+ "070102060803": {
+  "subwatershed": "Lake Phalen",
+  "note": ""
+ },
+ "070102060801": {
+  "subwatershed": "Vadnais Lake",
+  "note": ""
+ },
+ "070102060802": {
+  "subwatershed": "McCarrons Lake",
+  "note": ""
+ }
+}

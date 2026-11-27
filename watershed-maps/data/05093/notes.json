@@ -1,0 +1,319 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Mississippi County",
+  "note": ""
+ },
+ "0802020312": {
+  "watershed": "Tyronza River",
+  "note": ""
+ },
+ "0802020408": {
+  "watershed": "Buffalo Creek Ditch",
+  "note": ""
+ },
+ "0802020409": {
+  "watershed": "Pemiscot Bayou",
+  "note": ""
+ },
+ "0802020311": {
+  "watershed": "Big Creek",
+  "note": ""
+ },
+ "0801010006": {
+  "watershed": "Cold Creek-Mississippi River",
+  "note": ""
+ },
+ "0802020407": {
+  "watershed": "Main Ditch",
+  "note": ""
+ },
+ "0801010007": {
+  "watershed": "City of Memphis-Mississippi River",
+  "note": ""
+ },
+ "0802020313": {
+  "watershed": "Copeland Slough-Saint Francis River",
+  "note": ""
+ },
+ "0801010005": {
+  "watershed": "Blue Bank Bayou-Mississippi River",
+  "note": ""
+ },
+ "0802020405": {
+  "watershed": "West Ditch",
+  "note": ""
+ },
+ "0802020308": {
+  "watershed": "Little Slough Ditch",
+  "note": ""
+ },
+ "080202031201": {
+  "subwatershed": "Headwaters Ditch Number 31",
+  "note": ""
+ },
+ "080202031203": {
+  "subwatershed": "Ditch Number 6",
+  "note": ""
+ },
+ "080202031207": {
+  "subwatershed": "Ditch Number 9",
+  "note": ""
+ },
+ "080202031206": {
+  "subwatershed": "Middle Ditch Number 40",
+  "note": ""
+ },
+ "080202031205": {
+  "subwatershed": "Upper Ditch Number 40",
+  "note": ""
+ },
+ "080202031204": {
+  "subwatershed": "National Ditch Number 6",
+  "note": ""
+ },
+ "080202031208": {
+  "subwatershed": "Lower Ditch Number 40",
+  "note": ""
+ },
+ "080202031209": {
+  "subwatershed": "Ditch Number 53-Tyronza River",
+  "note": ""
+ },
+ "080202031202": {
+  "subwatershed": "Outlet Ditch Number 31",
+  "note": ""
+ },
+ "080202031210": {
+  "subwatershed": "Ditch Number 23-Tyronza River",
+  "note": ""
+ },
+ "080202031212": {
+  "subwatershed": "Gibson Bayou-Tyronza River",
+  "note": ""
+ },
+ "080202031211": {
+  "subwatershed": "Mack Bayou-Tyronza River",
+  "note": ""
+ },
+ "080202040806": {
+  "subwatershed": "Ditch Number Four-Buffalo Creek Ditch",
+  "note": ""
+ },
+ "080202040804": {
+  "subwatershed": "Ditch Number 14-Buffalo Creek Ditch",
+  "note": ""
+ },
+ "080202040805": {
+  "subwatershed": "Big Lake",
+  "note": ""
+ },
+ "080202040803": {
+  "subwatershed": "Honey Cypress Ditch Number 2-Buffalo Creek Ditch",
+  "note": ""
+ },
+ "080202040808": {
+  "subwatershed": "Ditch Number 1",
+  "note": ""
+ },
+ "080202040801": {
+  "subwatershed": "Buffalo Arm Number 8",
+  "note": ""
+ },
+ "080202040802": {
+  "subwatershed": "Headwaters Buffalo Creek Ditch",
+  "note": ""
+ },
+ "080202040807": {
+  "subwatershed": "Ditch Number 56",
+  "note": ""
+ },
+ "080202040902": {
+  "subwatershed": "Ditch Number 21-Pemiscot Bayou",
+  "note": ""
+ },
+ "080202040903": {
+  "subwatershed": "Ditch Number 13-Left Hand Chute of Little River",
+  "note": ""
+ },
+ "080202040901": {
+  "subwatershed": "Ditch Number 36-Pemiscot Bayou",
+  "note": ""
+ },
+ "080202040904": {
+  "subwatershed": "Ditch Number 12-Left Hand Chute of Little River",
+  "note": ""
+ },
+ "080202031103": {
+  "subwatershed": "Frenchmans Bayou",
+  "note": ""
+ },
+ "080202031101": {
+  "subwatershed": "Ditch Number 4",
+  "note": ""
+ },
+ "080202031102": {
+  "subwatershed": "Cross Bayou",
+  "note": ""
+ },
+ "080202031105": {
+  "subwatershed": "Dead Timber Lake-Big Creek",
+  "note": ""
+ },
+ "080202031106": {
+  "subwatershed": "Deer Bayou-Big Creek",
+  "note": ""
+ },
+ "080202031104": {
+  "subwatershed": "Bellhammer Slough",
+  "note": ""
+ },
+ "080101000604": {
+  "subwatershed": "Fletcher Towhead-Mississippi River",
+  "note": ""
+ },
+ "080101000602": {
+  "subwatershed": "Tamm Bend-Mississippi River",
+  "note": ""
+ },
+ "080101000605": {
+  "subwatershed": "Hatchie Towhead-Mississippi River",
+  "note": ""
+ },
+ "080101000603": {
+  "subwatershed": "Cold Creek",
+  "note": ""
+ },
+ "080101000601": {
+  "subwatershed": "Middle Forked Deer River",
+  "note": ""
+ },
+ "080202040712": {
+  "subwatershed": "Lower Belle Fountain Ditch",
+  "note": ""
+ },
+ "080202040708": {
+  "subwatershed": "Upper Belle Fountain Ditch",
+  "note": ""
+ },
+ "080202040711": {
+  "subwatershed": "Sand Slough Ditch",
+  "note": ""
+ },
+ "080202040701": {
+  "subwatershed": "Half Moon Bayou",
+  "note": ""
+ },
+ "080202040702": {
+  "subwatershed": "Ditch Number 4",
+  "note": ""
+ },
+ "080202040710": {
+  "subwatershed": "Ditch Number 3-Sand Slough Ditch",
+  "note": ""
+ },
+ "080202040707": {
+  "subwatershed": "Ditch Number 2-Main Ditch",
+  "note": ""
+ },
+ "080202040706": {
+  "subwatershed": "Main Ditch Number 6",
+  "note": ""
+ },
+ "080202040703": {
+  "subwatershed": "New Franklin Ditch",
+  "note": ""
+ },
+ "080202040709": {
+  "subwatershed": "Bess Slough-Main Ditch",
+  "note": ""
+ },
+ "080202040705": {
+  "subwatershed": "Blow Ridge-Main Ditch Number 6",
+  "note": ""
+ },
+ "080202040704": {
+  "subwatershed": "Ditch Number 3",
+  "note": ""
+ },
+ "080101000701": {
+  "subwatershed": "Bear Creek-Mississippi River",
+  "note": ""
+ },
+ "080101000702": {
+  "subwatershed": "Brinkley Bayou-Mississippi River",
+  "note": ""
+ },
+ "080101000703": {
+  "subwatershed": "Loosahatchie Bar-Mississippi River",
+  "note": ""
+ },
+ "080101000704": {
+  "subwatershed": "Cow Island Bend-Mississippi River",
+  "note": ""
+ },
+ "080202031301": {
+  "subwatershed": "Ditch Number 1-Saint Francis River",
+  "note": ""
+ },
+ "080202031303": {
+  "subwatershed": "Barnes Lake-Saint Francis River",
+  "note": ""
+ },
+ "080202031305": {
+  "subwatershed": "Elbow Slough-Saint Francis River",
+  "note": ""
+ },
+ "080202031302": {
+  "subwatershed": "Fortune Slough-Saint Francis River",
+  "note": ""
+ },
+ "080202031304": {
+  "subwatershed": "Copeland Slough",
+  "note": ""
+ },
+ "080101000503": {
+  "subwatershed": "Everett Lake-Mississippi River",
+  "note": ""
+ },
+ "080101000502": {
+  "subwatershed": "Sandy Hook Bar-Mississippi River",
+  "note": ""
+ },
+ "080101000501": {
+  "subwatershed": "Blue Bank Bayou",
+  "note": ""
+ },
+ "080202040506": {
+  "subwatershed": "Ditch Number 27",
+  "note": ""
+ },
+ "080202040501": {
+  "subwatershed": "Ditch Number 293",
+  "note": ""
+ },
+ "080202040503": {
+  "subwatershed": "Ditch Number 85-The Floodway",
+  "note": ""
+ },
+ "080202040505": {
+  "subwatershed": "City of Campbell-Main Ditch",
+  "note": ""
+ },
+ "080202040504": {
+  "subwatershed": "West Ditch-Main Ditch",
+  "note": ""
+ },
+ "080202040502": {
+  "subwatershed": "Main Ditch",
+  "note": ""
+ },
+ "080202030801": {
+  "subwatershed": "Cockle Burr Slough Ditch",
+  "note": ""
+ },
+ "080202030802": {
+  "subwatershed": "Little Slough Ditch",
+  "note": ""
+ }
+}

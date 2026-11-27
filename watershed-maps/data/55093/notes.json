@@ -1,0 +1,207 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Pierce County",
+  "note": ""
+ },
+ "0704000105": {
+  "watershed": "Rush River",
+  "note": ""
+ },
+ "0704000103": {
+  "watershed": "Trimbelle River",
+  "note": ""
+ },
+ "0704000107": {
+  "watershed": "Lake Pepin",
+  "note": ""
+ },
+ "0704000101": {
+  "watershed": "Big River-Mississippi River",
+  "note": ""
+ },
+ "0705000511": {
+  "watershed": "Plum Creek",
+  "note": ""
+ },
+ "0705000510": {
+  "watershed": "Eau Galle River",
+  "note": ""
+ },
+ "0703000511": {
+  "watershed": "Kinnickinnic River",
+  "note": ""
+ },
+ "0704000104": {
+  "watershed": "Hay Creek-Mississippi River",
+  "note": ""
+ },
+ "0703000512": {
+  "watershed": "Lake Saint Croix",
+  "note": ""
+ },
+ "070400010507": {
+  "subwatershed": "Crystal Springs Coulee-Rush River",
+  "note": ""
+ },
+ "070400010505": {
+  "subwatershed": "Brush Creek-Rush River",
+  "note": ""
+ },
+ "070400010502": {
+  "subwatershed": "Town of Martell-Rush River",
+  "note": ""
+ },
+ "070400010504": {
+  "subwatershed": "Lost Creek",
+  "note": ""
+ },
+ "070400010506": {
+  "subwatershed": "Township of Salem-Rush River",
+  "note": ""
+ },
+ "070400010503": {
+  "subwatershed": "Cave Creek",
+  "note": ""
+ },
+ "070400010501": {
+  "subwatershed": "Village of Baldwin-Rush River",
+  "note": ""
+ },
+ "070400010303": {
+  "subwatershed": "Spring Creek-Trimbelle River",
+  "note": ""
+ },
+ "070400010301": {
+  "subwatershed": "Goose Creek-Trimbelle River",
+  "note": ""
+ },
+ "070400010302": {
+  "subwatershed": "Little Trimbelle River",
+  "note": ""
+ },
+ "070400010701": {
+  "subwatershed": "Isabelle Creek",
+  "note": ""
+ },
+ "070400010705": {
+  "subwatershed": "Lake Pepin",
+  "note": ""
+ },
+ "070400010702": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070400010703": {
+  "subwatershed": "Gilbert Creek",
+  "note": ""
+ },
+ "070400010704": {
+  "subwatershed": "Miller Creek",
+  "note": ""
+ },
+ "070400010102": {
+  "subwatershed": "Lock and Dam Number Three-Mississippi River",
+  "note": ""
+ },
+ "070400010101": {
+  "subwatershed": "Big River",
+  "note": ""
+ },
+ "070500051101": {
+  "subwatershed": "Nugget Lake-Plum Creek",
+  "note": ""
+ },
+ "070500051102": {
+  "subwatershed": "Porcupine Creek-Plum Creek",
+  "note": ""
+ },
+ "070500051004": {
+  "subwatershed": "Burkhart Creek-Eau Galle Creek",
+  "note": ""
+ },
+ "070500051003": {
+  "subwatershed": "Cady Creek",
+  "note": ""
+ },
+ "070500051006": {
+  "subwatershed": "Missouri Creek",
+  "note": ""
+ },
+ "070500051007": {
+  "subwatershed": "Arkansaw Creek",
+  "note": ""
+ },
+ "070500051002": {
+  "subwatershed": "Lousy Creek-Eau Galle River",
+  "note": ""
+ },
+ "070500051005": {
+  "subwatershed": "Knights Creek",
+  "note": ""
+ },
+ "070500051008": {
+  "subwatershed": "Lake Eau Galle-Eau Galle River",
+  "note": ""
+ },
+ "070500051001": {
+  "subwatershed": "Carr Creek-Eau Galle River",
+  "note": ""
+ },
+ "070300051105": {
+  "subwatershed": "Outlet Kinnickinnic River",
+  "note": ""
+ },
+ "070300051103": {
+  "subwatershed": "South Fork Kinnickinnic River",
+  "note": ""
+ },
+ "070300051104": {
+  "subwatershed": "Parker Creek-Kinnickinnic River",
+  "note": ""
+ },
+ "070300051101": {
+  "subwatershed": "Headwaters Kinnickinnic River",
+  "note": ""
+ },
+ "070300051102": {
+  "subwatershed": "Twin Lakes",
+  "note": ""
+ },
+ "070400010403": {
+  "subwatershed": "City of Red Wing-Mississippi River",
+  "note": ""
+ },
+ "070400010401": {
+  "subwatershed": "Hay Creek",
+  "note": ""
+ },
+ "070400010402": {
+  "subwatershed": "Bullard Creek",
+  "note": ""
+ },
+ "070300051206": {
+  "subwatershed": "Saint Croix River",
+  "note": ""
+ },
+ "070300051205": {
+  "subwatershed": "Trout Brook-Lake Saint Croix",
+  "note": ""
+ },
+ "070300051202": {
+  "subwatershed": "Lake Elmo",
+  "note": ""
+ },
+ "070300051201": {
+  "subwatershed": "City of Stillwater-Lake Saint Croix",
+  "note": ""
+ },
+ "070300051203": {
+  "subwatershed": "Valley Branch",
+  "note": ""
+ },
+ "070300051204": {
+  "subwatershed": "Town of Troy",
+  "note": ""
+ }
+}

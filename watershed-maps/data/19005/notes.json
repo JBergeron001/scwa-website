@@ -1,0 +1,291 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Allamakee County",
+  "note": ""
+ },
+ "0706000109": {
+  "watershed": "Yellow River",
+  "note": ""
+ },
+ "0706000206": {
+  "watershed": "Upper Iowa River",
+  "note": ""
+ },
+ "0706000108": {
+  "watershed": "Paint Creek",
+  "note": ""
+ },
+ "0706000107": {
+  "watershed": "Rush Creek-Mississippi River",
+  "note": ""
+ },
+ "0706000106": {
+  "watershed": "Village Creek",
+  "note": ""
+ },
+ "0706000205": {
+  "watershed": "Bear Creek",
+  "note": ""
+ },
+ "0706000110": {
+  "watershed": "Bloody Run-Mississippi River",
+  "note": ""
+ },
+ "0706000204": {
+  "watershed": "Trout Creek-Upper Iowa River",
+  "note": ""
+ },
+ "0706000105": {
+  "watershed": "Mormon Creek-Mississippi River",
+  "note": ""
+ },
+ "0706000404": {
+  "watershed": "Roberts Creek",
+  "note": ""
+ },
+ "0706000407": {
+  "watershed": "Otter Creek-Turkey River",
+  "note": ""
+ },
+ "0706000104": {
+  "watershed": "Winnebago Creek",
+  "note": ""
+ },
+ "070600010905": {
+  "subwatershed": "Middle Yellow River",
+  "note": ""
+ },
+ "070600010903": {
+  "subwatershed": "Upper Yellow River",
+  "note": ""
+ },
+ "070600010906": {
+  "subwatershed": "Lower Yellow River",
+  "note": ""
+ },
+ "070600010902": {
+  "subwatershed": "Norfolk Creek",
+  "note": ""
+ },
+ "070600010904": {
+  "subwatershed": "Hickory Creek",
+  "note": ""
+ },
+ "070600010901": {
+  "subwatershed": "Headwaters Yellow River",
+  "note": ""
+ },
+ "070600020606": {
+  "subwatershed": "Outlet Upper Iowa River",
+  "note": ""
+ },
+ "070600020605": {
+  "subwatershed": "Clear Creek-Upper Iowa River",
+  "note": ""
+ },
+ "070600020602": {
+  "subwatershed": "Paint Creek-Upper Iowa River",
+  "note": ""
+ },
+ "070600020604": {
+  "subwatershed": "French Creek",
+  "note": ""
+ },
+ "070600020603": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070600020601": {
+  "subwatershed": "Patterson Creek",
+  "note": ""
+ },
+ "070600010801": {
+  "subwatershed": "Headwaters Paint Creek",
+  "note": ""
+ },
+ "070600010802": {
+  "subwatershed": "Paint Creek",
+  "note": ""
+ },
+ "070600010702": {
+  "subwatershed": "Clear Creek-Mississippi River",
+  "note": ""
+ },
+ "070600010706": {
+  "subwatershed": "Wexford Creek",
+  "note": ""
+ },
+ "070600010707": {
+  "subwatershed": "Leitner Creek-Mississippi River",
+  "note": ""
+ },
+ "070600010705": {
+  "subwatershed": "Buck Creek-Mississippi River",
+  "note": ""
+ },
+ "070600010701": {
+  "subwatershed": "Rush Creek",
+  "note": ""
+ },
+ "070600010704": {
+  "subwatershed": "Copper Creek",
+  "note": ""
+ },
+ "070600010703": {
+  "subwatershed": "Sugar Creek",
+  "note": ""
+ },
+ "070600010601": {
+  "subwatershed": "Headwaters Village Creek",
+  "note": ""
+ },
+ "070600010602": {
+  "subwatershed": "Village Creek",
+  "note": ""
+ },
+ "070600020502": {
+  "subwatershed": "Waterloo Creek",
+  "note": ""
+ },
+ "070600020503": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "070600020501": {
+  "subwatershed": "North Bear Creek",
+  "note": ""
+ },
+ "070600011001": {
+  "subwatershed": "Picatee Creek-Mississippi River",
+  "note": ""
+ },
+ "070600011003": {
+  "subwatershed": "City of Prairie du Chien-Mississippi River",
+  "note": ""
+ },
+ "070600011002": {
+  "subwatershed": "Bloody Run",
+  "note": ""
+ },
+ "070600020407": {
+  "subwatershed": "Coon Creek",
+  "note": ""
+ },
+ "070600020408": {
+  "subwatershed": "Community of Freeport-Upper Iowa River",
+  "note": ""
+ },
+ "070600020406": {
+  "subwatershed": "Trout River",
+  "note": ""
+ },
+ "070600020403": {
+  "subwatershed": "Trout Creek-Trout Run",
+  "note": ""
+ },
+ "070600020401": {
+  "subwatershed": "Dry Run",
+  "note": ""
+ },
+ "070600020404": {
+  "subwatershed": "City of Decorah-Upper Iowa River",
+  "note": ""
+ },
+ "070600020402": {
+  "subwatershed": "Community of Nordness",
+  "note": ""
+ },
+ "070600020405": {
+  "subwatershed": "Trout Creek",
+  "note": ""
+ },
+ "070600010505": {
+  "subwatershed": "Town of New Albin-Mississippi River",
+  "note": ""
+ },
+ "070600010504": {
+  "subwatershed": "Lock and Dam Number Eight-Mississippi River",
+  "note": ""
+ },
+ "070600010501": {
+  "subwatershed": "Mormon Creek",
+  "note": ""
+ },
+ "070600010503": {
+  "subwatershed": "Wildcat Creek",
+  "note": ""
+ },
+ "070600010502": {
+  "subwatershed": "Chipmunk Coulee",
+  "note": ""
+ },
+ "070600040402": {
+  "subwatershed": "Headwaters Roberts Creek",
+  "note": ""
+ },
+ "070600040403": {
+  "subwatershed": "Howard Creek",
+  "note": ""
+ },
+ "070600040401": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070600040405": {
+  "subwatershed": "Roberts Creek",
+  "note": ""
+ },
+ "070600040404": {
+  "subwatershed": "Dry Mill Creek",
+  "note": ""
+ },
+ "070600040704": {
+  "subwatershed": "Dibble Creek",
+  "note": ""
+ },
+ "070600040708": {
+  "subwatershed": "Beaver Creek-Turkey River",
+  "note": ""
+ },
+ "070600040706": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "070600040709": {
+  "subwatershed": "French Hollow-Turkey River",
+  "note": ""
+ },
+ "070600040710": {
+  "subwatershed": "Panther Creek-Turkey River",
+  "note": ""
+ },
+ "070600040702": {
+  "subwatershed": "Nutting Creek",
+  "note": ""
+ },
+ "070600040703": {
+  "subwatershed": "Village of Eldorado-Turkey River",
+  "note": ""
+ },
+ "070600040701": {
+  "subwatershed": "Dry Branch",
+  "note": ""
+ },
+ "070600040707": {
+  "subwatershed": "Bell Creek-Turkey River",
+  "note": ""
+ },
+ "070600040705": {
+  "subwatershed": "Fitzgerald Creek-Turkey River",
+  "note": ""
+ },
+ "070600010402": {
+  "subwatershed": "Lower Winnebago Creek",
+  "note": ""
+ },
+ "070600010401": {
+  "subwatershed": "Upper Winnebago Creek",
+  "note": ""
+ }
+}

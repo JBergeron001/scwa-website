@@ -1,0 +1,207 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Benton County",
+  "note": ""
+ },
+ "0701020303": {
+  "watershed": "Headwaters Elk River",
+  "note": ""
+ },
+ "0701020304": {
+  "watershed": "Saint Francis River",
+  "note": ""
+ },
+ "0701020105": {
+  "watershed": "Little Rock Creek",
+  "note": ""
+ },
+ "0701020703": {
+  "watershed": "West Branch Rum River",
+  "note": ""
+ },
+ "0701020305": {
+  "watershed": "Elk River",
+  "note": ""
+ },
+ "0701020107": {
+  "watershed": "City of Sartell-Mississippi River",
+  "note": ""
+ },
+ "0701020104": {
+  "watershed": "Platte River",
+  "note": ""
+ },
+ "0701020301": {
+  "watershed": "City of Saint Cloud-Mississippi River",
+  "note": ""
+ },
+ "070102030301": {
+  "subwatershed": "Headwaters Elk River",
+  "note": ""
+ },
+ "070102030302": {
+  "subwatershed": "Mayhew Creek",
+  "note": ""
+ },
+ "070102030304": {
+  "subwatershed": "Town of Parent-Elk River",
+  "note": ""
+ },
+ "070102030303": {
+  "subwatershed": "County Ditch Number Three",
+  "note": ""
+ },
+ "070102030403": {
+  "subwatershed": "County Ditch Number Thirteen-Saint Francis River",
+  "note": ""
+ },
+ "070102030401": {
+  "subwatershed": "Headwaters Saint Francis River",
+  "note": ""
+ },
+ "070102030402": {
+  "subwatershed": "West Branch Saint Francis River",
+  "note": ""
+ },
+ "070102030405": {
+  "subwatershed": "Battle Brook",
+  "note": ""
+ },
+ "070102030404": {
+  "subwatershed": "Rice Lake-Saint Francis River",
+  "note": ""
+ },
+ "070102030406": {
+  "subwatershed": "Saint Francis River",
+  "note": ""
+ },
+ "070102010504": {
+  "subwatershed": "Outlet Little Rock Creek",
+  "note": ""
+ },
+ "070102010503": {
+  "subwatershed": "Zuleger Creek",
+  "note": ""
+ },
+ "070102010502": {
+  "subwatershed": "Bunker Hill Creek",
+  "note": ""
+ },
+ "070102010501": {
+  "subwatershed": "Headwaters Little Rock Creek",
+  "note": ""
+ },
+ "070102070304": {
+  "subwatershed": "Estes Brook",
+  "note": ""
+ },
+ "070102070303": {
+  "subwatershed": "City of Foreston-West Branch Rum River",
+  "note": ""
+ },
+ "070102070302": {
+  "subwatershed": "Stony Brook",
+  "note": ""
+ },
+ "070102070301": {
+  "subwatershed": "Headwaters West Branch Rum River",
+  "note": ""
+ },
+ "070102070305": {
+  "subwatershed": "West Branch Rum River",
+  "note": ""
+ },
+ "070102030501": {
+  "subwatershed": "Rice Creek",
+  "note": ""
+ },
+ "070102030502": {
+  "subwatershed": "Briggs Lake",
+  "note": ""
+ },
+ "070102030504": {
+  "subwatershed": "Snake River",
+  "note": ""
+ },
+ "070102030506": {
+  "subwatershed": "Tibbits Brook",
+  "note": ""
+ },
+ "070102030505": {
+  "subwatershed": "Big Lake-Elk River",
+  "note": ""
+ },
+ "070102030503": {
+  "subwatershed": "Elk Lake-Elk River",
+  "note": ""
+ },
+ "070102030507": {
+  "subwatershed": "Elk River",
+  "note": ""
+ },
+ "070102010705": {
+  "subwatershed": "City of Sartell-Mississippi River",
+  "note": ""
+ },
+ "070102010704": {
+  "subwatershed": "Stony Creek-Mississippi River",
+  "note": ""
+ },
+ "070102010703": {
+  "subwatershed": "Zebulon Pike Lake-Mississippi River",
+  "note": ""
+ },
+ "070102010702": {
+  "subwatershed": "Little Two River",
+  "note": ""
+ },
+ "070102010701": {
+  "subwatershed": "Hay Creek",
+  "note": ""
+ },
+ "070102010408": {
+  "subwatershed": "Platte River",
+  "note": ""
+ },
+ "070102010401": {
+  "subwatershed": "Platte Lake-Platte River",
+  "note": ""
+ },
+ "070102010402": {
+  "subwatershed": "Wolf Creek-Platte River",
+  "note": ""
+ },
+ "070102010407": {
+  "subwatershed": "Rice Creek",
+  "note": ""
+ },
+ "070102010406": {
+  "subwatershed": "Buckman Creek",
+  "note": ""
+ },
+ "070102010405": {
+  "subwatershed": "Pierz Lake-Platte River",
+  "note": ""
+ },
+ "070102010403": {
+  "subwatershed": "Big Mink Creek",
+  "note": ""
+ },
+ "070102010404": {
+  "subwatershed": "Little Mink Creek",
+  "note": ""
+ },
+ "070102030103": {
+  "subwatershed": "City of Saint Cloud-Mississippi River",
+  "note": ""
+ },
+ "070102030101": {
+  "subwatershed": "Johnson Creek",
+  "note": ""
+ },
+ "070102030102": {
+  "subwatershed": "Plum Creek",
+  "note": ""
+ }
+}

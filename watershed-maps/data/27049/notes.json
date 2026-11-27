@@ -1,0 +1,319 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Goodhue County",
+  "note": ""
+ },
+ "0704000404": {
+  "watershed": "North Fork Zumbro River",
+  "note": ""
+ },
+ "0704000209": {
+  "watershed": "Lower Cannon River",
+  "note": ""
+ },
+ "0704000207": {
+  "watershed": "Little Cannon River",
+  "note": ""
+ },
+ "0704000208": {
+  "watershed": "Belle Creek",
+  "note": ""
+ },
+ "0704000104": {
+  "watershed": "Hay Creek-Mississippi River",
+  "note": ""
+ },
+ "0704000106": {
+  "watershed": "Wells Creek",
+  "note": ""
+ },
+ "0704000403": {
+  "watershed": "Middle Fork Zumbro River",
+  "note": ""
+ },
+ "0704000405": {
+  "watershed": "Zumbro River",
+  "note": ""
+ },
+ "0704000107": {
+  "watershed": "Lake Pepin",
+  "note": ""
+ },
+ "0704000205": {
+  "watershed": "Prairie Creek",
+  "note": ""
+ },
+ "0704000102": {
+  "watershed": "Vermillion River",
+  "note": ""
+ },
+ "0704000206": {
+  "watershed": "Middle Cannon River",
+  "note": ""
+ },
+ "0704000101": {
+  "watershed": "Big River-Mississippi River",
+  "note": ""
+ },
+ "070400040405": {
+  "subwatershed": "North Fork Zumbro River",
+  "note": ""
+ },
+ "070400040404": {
+  "subwatershed": "Trout Brook",
+  "note": ""
+ },
+ "070400040403": {
+  "subwatershed": "Shingle Creek-North Fork Zumbro River",
+  "note": ""
+ },
+ "070400040402": {
+  "subwatershed": "Pearl Creek-North Fork Zumbro River",
+  "note": ""
+ },
+ "070400040401": {
+  "subwatershed": "Headwaters North Fork Zumbro River",
+  "note": ""
+ },
+ "070400020903": {
+  "subwatershed": "Town of Welch-Cannon River",
+  "note": ""
+ },
+ "070400020904": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "070400020905": {
+  "subwatershed": "Cannon River",
+  "note": ""
+ },
+ "070400020901": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070400020902": {
+  "subwatershed": "City of Miesville",
+  "note": ""
+ },
+ "070400020702": {
+  "subwatershed": "Middle Little Cannon River",
+  "note": ""
+ },
+ "070400020703": {
+  "subwatershed": "Lower Little Cannon River",
+  "note": ""
+ },
+ "070400020701": {
+  "subwatershed": "Upper Little Cannon River",
+  "note": ""
+ },
+ "070400020802": {
+  "subwatershed": "Middle Belle Creek",
+  "note": ""
+ },
+ "070400020801": {
+  "subwatershed": "Upper Belle Creek",
+  "note": ""
+ },
+ "070400020803": {
+  "subwatershed": "Lower Belle Creek",
+  "note": ""
+ },
+ "070400010401": {
+  "subwatershed": "Hay Creek",
+  "note": ""
+ },
+ "070400010402": {
+  "subwatershed": "Bullard Creek",
+  "note": ""
+ },
+ "070400010403": {
+  "subwatershed": "City of Red Wing-Mississippi River",
+  "note": ""
+ },
+ "070400010602": {
+  "subwatershed": "Lower Wells Creek",
+  "note": ""
+ },
+ "070400010601": {
+  "subwatershed": "Upper Wells Creek",
+  "note": ""
+ },
+ "070400040306": {
+  "subwatershed": "North Branch Middle Fork Zumbro River",
+  "note": ""
+ },
+ "070400040302": {
+  "subwatershed": "County Ditch Number One",
+  "note": ""
+ },
+ "070400040307": {
+  "subwatershed": "Middle Fork Zumbro River",
+  "note": ""
+ },
+ "070400040305": {
+  "subwatershed": "Harkcom Creek-Middle Fork Zumbro River",
+  "note": ""
+ },
+ "070400040304": {
+  "subwatershed": "Milliken Creek",
+  "note": ""
+ },
+ "070400040301": {
+  "subwatershed": "Headwaters Middle Fork Zumbro River",
+  "note": ""
+ },
+ "070400040303": {
+  "subwatershed": "City of Concord-Middle Fork Zumbro River",
+  "note": ""
+ },
+ "070400040501": {
+  "subwatershed": "Dry Run Creek",
+  "note": ""
+ },
+ "070400040503": {
+  "subwatershed": "Cold Creek",
+  "note": ""
+ },
+ "070400040512": {
+  "subwatershed": "Zumbro River",
+  "note": ""
+ },
+ "070400040504": {
+  "subwatershed": "City of Zumbro Falls-Zumbro River",
+  "note": ""
+ },
+ "070400040509": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "070400040502": {
+  "subwatershed": "Zumbro Lake-Zumbro River",
+  "note": ""
+ },
+ "070400040507": {
+  "subwatershed": "Silver Spring Creek-Zumbro River",
+  "note": ""
+ },
+ "070400040505": {
+  "subwatershed": "Long Creek",
+  "note": ""
+ },
+ "070400040508": {
+  "subwatershed": "Hungry Hollow",
+  "note": ""
+ },
+ "070400040510": {
+  "subwatershed": "West Indian Creek",
+  "note": ""
+ },
+ "070400040511": {
+  "subwatershed": "Hope Coulee-Trout Brook",
+  "note": ""
+ },
+ "070400040506": {
+  "subwatershed": "Middle Creek",
+  "note": ""
+ },
+ "070400010705": {
+  "subwatershed": "Lake Pepin",
+  "note": ""
+ },
+ "070400010703": {
+  "subwatershed": "Gilbert Creek",
+  "note": ""
+ },
+ "070400010701": {
+  "subwatershed": "Isabelle Creek",
+  "note": ""
+ },
+ "070400010704": {
+  "subwatershed": "Miller Creek",
+  "note": ""
+ },
+ "070400010702": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070400020503": {
+  "subwatershed": "Prairie Creek",
+  "note": ""
+ },
+ "070400020502": {
+  "subwatershed": "Town of Dennison",
+  "note": ""
+ },
+ "070400020501": {
+  "subwatershed": "Headwaters Prairie Creek",
+  "note": ""
+ },
+ "070400010210": {
+  "subwatershed": "Vermillion River",
+  "note": ""
+ },
+ "070400010206": {
+  "subwatershed": "Town of Pine Bend",
+  "note": ""
+ },
+ "070400010203": {
+  "subwatershed": "Farquar Lake",
+  "note": ""
+ },
+ "070400010201": {
+  "subwatershed": "Headwaters Vermillion River",
+  "note": ""
+ },
+ "070400010204": {
+  "subwatershed": "City of Farmington-Vermillion River",
+  "note": ""
+ },
+ "070400010205": {
+  "subwatershed": "South Branch Vermillion River",
+  "note": ""
+ },
+ "070400010208": {
+  "subwatershed": "Willow Ridge Airport",
+  "note": ""
+ },
+ "070400010209": {
+  "subwatershed": "City of Hastings-Vermillion River",
+  "note": ""
+ },
+ "070400010207": {
+  "subwatershed": "Sky Meadow Airport",
+  "note": ""
+ },
+ "070400010202": {
+  "subwatershed": "Marion Lake",
+  "note": ""
+ },
+ "070400020605": {
+  "subwatershed": "Lake Byllesby",
+  "note": ""
+ },
+ "070400020604": {
+  "subwatershed": "City of Northfield-Cannon River",
+  "note": ""
+ },
+ "070400020602": {
+  "subwatershed": "Wolf Creek",
+  "note": ""
+ },
+ "070400020603": {
+  "subwatershed": "Heath Creek",
+  "note": ""
+ },
+ "070400020601": {
+  "subwatershed": "Crystal Lake-Cannon River",
+  "note": ""
+ },
+ "070400010102": {
+  "subwatershed": "Lock and Dam Number Three-Mississippi River",
+  "note": ""
+ },
+ "070400010101": {
+  "subwatershed": "Big River",
+  "note": ""
+ }
+}

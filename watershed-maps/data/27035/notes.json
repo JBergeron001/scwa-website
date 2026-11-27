@@ -1,0 +1,451 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Crow Wing County",
+  "note": ""
+ },
+ "0701010405": {
+  "watershed": "City of Brainerd-Mississippi River",
+  "note": ""
+ },
+ "0701010406": {
+  "watershed": "Nokasippi River",
+  "note": ""
+ },
+ "0701010610": {
+  "watershed": "Gull River",
+  "note": ""
+ },
+ "0701010505": {
+  "watershed": "Little Pine River",
+  "note": ""
+ },
+ "0701010504": {
+  "watershed": "Whitefish Lake",
+  "note": ""
+ },
+ "0701010506": {
+  "watershed": "Pine River",
+  "note": ""
+ },
+ "0701010404": {
+  "watershed": "City of Aitkin-Mississippi River",
+  "note": ""
+ },
+ "0701020701": {
+  "watershed": "Mille Lacs Lake",
+  "note": ""
+ },
+ "0701010503": {
+  "watershed": "Daggett Brook",
+  "note": ""
+ },
+ "0701020104": {
+  "watershed": "Platte River",
+  "note": ""
+ },
+ "0701010409": {
+  "watershed": "City of Little Falls-Mississippi River",
+  "note": ""
+ },
+ "0701010402": {
+  "watershed": "Ripple River",
+  "note": ""
+ },
+ "0701010501": {
+  "watershed": "Headwaters Pine River",
+  "note": ""
+ },
+ "0701010403": {
+  "watershed": "Little Willow River",
+  "note": ""
+ },
+ "0701010611": {
+  "watershed": "Crow Wing River",
+  "note": ""
+ },
+ "0701020702": {
+  "watershed": "Upper Rum River",
+  "note": ""
+ },
+ "070101040506": {
+  "subwatershed": "City of Brainerd-Mississippi River",
+  "note": ""
+ },
+ "070101040503": {
+  "subwatershed": "Rabbit River",
+  "note": ""
+ },
+ "070101040505": {
+  "subwatershed": "Brainerd Dam-Mississippi River",
+  "note": ""
+ },
+ "070101040504": {
+  "subwatershed": "Sand Creek",
+  "note": ""
+ },
+ "070101040502": {
+  "subwatershed": "Black Bear Lake-Mississippi River",
+  "note": ""
+ },
+ "070101040501": {
+  "subwatershed": "Mission Creek",
+  "note": ""
+ },
+ "070101040601": {
+  "subwatershed": "Headwaters Nokasippi River",
+  "note": ""
+ },
+ "070101040603": {
+  "subwatershed": "Daggett Brook",
+  "note": ""
+ },
+ "070101040606": {
+  "subwatershed": "Nokasippi River",
+  "note": ""
+ },
+ "070101040602": {
+  "subwatershed": "South Long Lake",
+  "note": ""
+ },
+ "070101040604": {
+  "subwatershed": "Hay Creek",
+  "note": ""
+ },
+ "070101040605": {
+  "subwatershed": "Little Nokasippi River",
+  "note": ""
+ },
+ "070101061005": {
+  "subwatershed": "Upper Gull Lake",
+  "note": ""
+ },
+ "070101061006": {
+  "subwatershed": "Round Lake",
+  "note": ""
+ },
+ "070101061008": {
+  "subwatershed": "Gull River",
+  "note": ""
+ },
+ "070101061007": {
+  "subwatershed": "Gull Lake",
+  "note": ""
+ },
+ "070101061001": {
+  "subwatershed": "Mayo Creek",
+  "note": ""
+ },
+ "070101061004": {
+  "subwatershed": "Home Brook",
+  "note": ""
+ },
+ "070101061002": {
+  "subwatershed": "Stony Brook",
+  "note": ""
+ },
+ "070101061003": {
+  "subwatershed": "Rush Brook",
+  "note": ""
+ },
+ "070101050503": {
+  "subwatershed": "Mud Brook",
+  "note": ""
+ },
+ "070101050502": {
+  "subwatershed": "Ruth Lake-Little Pine River",
+  "note": ""
+ },
+ "070101050504": {
+  "subwatershed": "Little Pine River",
+  "note": ""
+ },
+ "070101050501": {
+  "subwatershed": "Little Pine Lake-Little Pine River",
+  "note": ""
+ },
+ "070101050405": {
+  "subwatershed": "Lower Whitefish Lake",
+  "note": ""
+ },
+ "070101050403": {
+  "subwatershed": "Arrowhead Lake",
+  "note": ""
+ },
+ "070101050402": {
+  "subwatershed": "Lower Hay Lake",
+  "note": ""
+ },
+ "070101050404": {
+  "subwatershed": "Big Trout Lake",
+  "note": ""
+ },
+ "070101050401": {
+  "subwatershed": "Arvig Creek",
+  "note": ""
+ },
+ "070101050406": {
+  "subwatershed": "Cross Lake",
+  "note": ""
+ },
+ "070101050601": {
+  "subwatershed": "Pine Lake-Pine River",
+  "note": ""
+ },
+ "070101050602": {
+  "subwatershed": "Pelican Lake",
+  "note": ""
+ },
+ "070101050603": {
+  "subwatershed": "Pelican Brook",
+  "note": ""
+ },
+ "070101050604": {
+  "subwatershed": "Outlet Pine River",
+  "note": ""
+ },
+ "070101040405": {
+  "subwatershed": "Dean Brook",
+  "note": ""
+ },
+ "070101040406": {
+  "subwatershed": "Deadmans Creek-Mississippi River",
+  "note": ""
+ },
+ "070101040403": {
+  "subwatershed": "Cedar Creek",
+  "note": ""
+ },
+ "070101040404": {
+  "subwatershed": "Little Willow River-Mississippi River",
+  "note": ""
+ },
+ "070101040402": {
+  "subwatershed": "Sisabagamah Creek",
+  "note": ""
+ },
+ "070101040401": {
+  "subwatershed": "Big Logan-Mississippi River",
+  "note": ""
+ },
+ "070102070104": {
+  "subwatershed": "Garrison Creek",
+  "note": ""
+ },
+ "070102070105": {
+  "subwatershed": "Sequchie Creek",
+  "note": ""
+ },
+ "070102070106": {
+  "subwatershed": "Whitefish Lake",
+  "note": ""
+ },
+ "070102070107": {
+  "subwatershed": "Mille Lacs Lake",
+  "note": ""
+ },
+ "070102070102": {
+  "subwatershed": "Sunset Bay-Frontal Mille Lacs Lake",
+  "note": ""
+ },
+ "070102070101": {
+  "subwatershed": "Malmo Bay-Frontal Mille Lacs Lake",
+  "note": ""
+ },
+ "070102070103": {
+  "subwatershed": "Malone Creek",
+  "note": ""
+ },
+ "070101050304": {
+  "subwatershed": "Daggett Brook",
+  "note": ""
+ },
+ "070101050302": {
+  "subwatershed": "Crooked Creek",
+  "note": ""
+ },
+ "070101050303": {
+  "subwatershed": "Fox Creek",
+  "note": ""
+ },
+ "070101050301": {
+  "subwatershed": "Headwaters Daggett Brook",
+  "note": ""
+ },
+ "070102010401": {
+  "subwatershed": "Platte Lake-Platte River",
+  "note": ""
+ },
+ "070102010402": {
+  "subwatershed": "Wolf Creek-Platte River",
+  "note": ""
+ },
+ "070102010408": {
+  "subwatershed": "Platte River",
+  "note": ""
+ },
+ "070102010407": {
+  "subwatershed": "Rice Creek",
+  "note": ""
+ },
+ "070102010406": {
+  "subwatershed": "Buckman Creek",
+  "note": ""
+ },
+ "070102010405": {
+  "subwatershed": "Pierz Lake-Platte River",
+  "note": ""
+ },
+ "070102010403": {
+  "subwatershed": "Big Mink Creek",
+  "note": ""
+ },
+ "070102010404": {
+  "subwatershed": "Little Mink Creek",
+  "note": ""
+ },
+ "070101040901": {
+  "subwatershed": "Crow Wing Lake",
+  "note": ""
+ },
+ "070101040902": {
+  "subwatershed": "Mud Lake-Mississippi River",
+  "note": ""
+ },
+ "070101040903": {
+  "subwatershed": "Broken Bow Creek-Mississippi River",
+  "note": ""
+ },
+ "070101040905": {
+  "subwatershed": "Pike Creek",
+  "note": ""
+ },
+ "070101040906": {
+  "subwatershed": "City of Little Falls-Mississippi River",
+  "note": ""
+ },
+ "070101040904": {
+  "subwatershed": "Fletcher Creek",
+  "note": ""
+ },
+ "070101040201": {
+  "subwatershed": "Bay Lake",
+  "note": ""
+ },
+ "070101040202": {
+  "subwatershed": "Spirit Lake-Ripple River",
+  "note": ""
+ },
+ "070101040203": {
+  "subwatershed": "Mallard Lake-Ripple River",
+  "note": ""
+ },
+ "070101040205": {
+  "subwatershed": "Ripple River",
+  "note": ""
+ },
+ "070101040204": {
+  "subwatershed": "Ripple Lake-Ripple River",
+  "note": ""
+ },
+ "070101050103": {
+  "subwatershed": "Lizzie Creek",
+  "note": ""
+ },
+ "070101050104": {
+  "subwatershed": "Norway Lake-Pine River",
+  "note": ""
+ },
+ "070101050101": {
+  "subwatershed": "Pine Mountain Lake-Pine River",
+  "note": ""
+ },
+ "070101050102": {
+  "subwatershed": "Lake Hattie-Pine River",
+  "note": ""
+ },
+ "070101040303": {
+  "subwatershed": "Blind Lake",
+  "note": ""
+ },
+ "070101040301": {
+  "subwatershed": "Headwaters Little Willow River",
+  "note": ""
+ },
+ "070101040304": {
+  "subwatershed": "Little Willow River",
+  "note": ""
+ },
+ "070101040302": {
+  "subwatershed": "Waukenabo Lake",
+  "note": ""
+ },
+ "070101061108": {
+  "subwatershed": "Crow Wing River",
+  "note": ""
+ },
+ "070101061103": {
+  "subwatershed": "Mosquito Creek",
+  "note": ""
+ },
+ "070101061102": {
+  "subwatershed": "Swan Creek",
+  "note": ""
+ },
+ "070101061106": {
+  "subwatershed": "Lake Placid-Crow Wing River",
+  "note": ""
+ },
+ "070101061104": {
+  "subwatershed": "City of Motley-Crow Wing River",
+  "note": ""
+ },
+ "070101061101": {
+  "subwatershed": "Hayden Creek-Crow Wing River",
+  "note": ""
+ },
+ "070101061105": {
+  "subwatershed": "Sevenmile Creek",
+  "note": ""
+ },
+ "070101061107": {
+  "subwatershed": "Pillager Creek",
+  "note": ""
+ },
+ "070102070201": {
+  "subwatershed": "Lake Onamia-Rum River",
+  "note": ""
+ },
+ "070102070204": {
+  "subwatershed": "Burnt Lane Brook-Rum River",
+  "note": ""
+ },
+ "070102070206": {
+  "subwatershed": "City of Milaca-Rum River",
+  "note": ""
+ },
+ "070102070203": {
+  "subwatershed": "Bradbury Brook",
+  "note": ""
+ },
+ "070102070205": {
+  "subwatershed": "Tibbetts Brook",
+  "note": ""
+ },
+ "070102070209": {
+  "subwatershed": "Washburn Brook-Rum River",
+  "note": ""
+ },
+ "070102070202": {
+  "subwatershed": "City of Onamia-Rum River",
+  "note": ""
+ },
+ "070102070208": {
+  "subwatershed": "Bogus Brook",
+  "note": ""
+ },
+ "070102070207": {
+  "subwatershed": "Vondell Brook",
+  "note": ""
+ }
+}

@@ -1,0 +1,131 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Ballard County",
+  "note": ""
+ },
+ "0514020606": {
+  "watershed": "Humphrey Creek",
+  "note": ""
+ },
+ "0801010001": {
+  "watershed": "Shawnee Creek-Mississippi River",
+  "note": ""
+ },
+ "0514020607": {
+  "watershed": "Redstone Creek-Ohio River",
+  "note": ""
+ },
+ "0801020103": {
+  "watershed": "Lower Mayfield Creek",
+  "note": ""
+ },
+ "0801020102": {
+  "watershed": "Middle Mayfield Creek",
+  "note": ""
+ },
+ "0514020603": {
+  "watershed": "Massac Creek",
+  "note": ""
+ },
+ "051402060603": {
+  "subwatershed": "Clanton Creek",
+  "note": ""
+ },
+ "051402060601": {
+  "subwatershed": "Upper Humphrey Creek",
+  "note": ""
+ },
+ "051402060602": {
+  "subwatershed": "Middle Humphrey Creek",
+  "note": ""
+ },
+ "051402060604": {
+  "subwatershed": "Lower Humphrey Creek",
+  "note": ""
+ },
+ "080101000102": {
+  "subwatershed": "Shawnee Creek Slough",
+  "note": ""
+ },
+ "080101000103": {
+  "subwatershed": "Town of Wickliffe-Mississippi River",
+  "note": ""
+ },
+ "080101000101": {
+  "subwatershed": "Shawnee Creek",
+  "note": ""
+ },
+ "051402060702": {
+  "subwatershed": "Redstone Creek-Ohio River",
+  "note": ""
+ },
+ "051402060703": {
+  "subwatershed": "Hess Bayou-Ohio River",
+  "note": ""
+ },
+ "051402060704": {
+  "subwatershed": "City of Cairo-Ohio River",
+  "note": ""
+ },
+ "051402060701": {
+  "subwatershed": "Bayou Creek-Ohio River",
+  "note": ""
+ },
+ "080102010304": {
+  "subwatershed": "Stovall Creek-Mayfield Creek",
+  "note": ""
+ },
+ "080102010305": {
+  "subwatershed": "Shelton Creek-Mayfield Creek",
+  "note": ""
+ },
+ "080102010303": {
+  "subwatershed": "Truman Creek-Mayfield Creek",
+  "note": ""
+ },
+ "080102010301": {
+  "subwatershed": "Upper West Fork Mayfield Creek",
+  "note": ""
+ },
+ "080102010302": {
+  "subwatershed": "Lower West Fork Mayfield Creek",
+  "note": ""
+ },
+ "080102010204": {
+  "subwatershed": "Brush Creek-Mayfield Creek",
+  "note": ""
+ },
+ "080102010205": {
+  "subwatershed": "Hurricane Creek-Mayfield Creek",
+  "note": ""
+ },
+ "080102010203": {
+  "subwatershed": "Wilson Creek",
+  "note": ""
+ },
+ "080102010202": {
+  "subwatershed": "Town of Melber-Mayfield Creek",
+  "note": ""
+ },
+ "080102010201": {
+  "subwatershed": "Carney Creek-Mayfield Creek",
+  "note": ""
+ },
+ "051402060303": {
+  "subwatershed": "West Fork Massac Creek",
+  "note": ""
+ },
+ "051402060304": {
+  "subwatershed": "Black Branch-Massac Creek",
+  "note": ""
+ },
+ "051402060301": {
+  "subwatershed": "Headwaters Massac Creek",
+  "note": ""
+ },
+ "051402060302": {
+  "subwatershed": "Middle Fork Massac Creek",
+  "note": ""
+ }
+}

@@ -1,0 +1,179 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "La Crosse County",
+  "note": ""
+ },
+ "0704000712": {
+  "watershed": "Fleming Creek-Black River",
+  "note": ""
+ },
+ "0704000604": {
+  "watershed": "Lower La Crosse River",
+  "note": ""
+ },
+ "0704000603": {
+  "watershed": "Middle La Crosse River",
+  "note": ""
+ },
+ "0704000601": {
+  "watershed": "Halfway Creek-Mississippi River",
+  "note": ""
+ },
+ "0706000105": {
+  "watershed": "Mormon Creek-Mississippi River",
+  "note": ""
+ },
+ "0704000605": {
+  "watershed": "Pine Creek-Mississippi River",
+  "note": ""
+ },
+ "0706000101": {
+  "watershed": "Coon Creek",
+  "note": ""
+ },
+ "070400071207": {
+  "subwatershed": "Fleming Creek",
+  "note": ""
+ },
+ "070400071209": {
+  "subwatershed": "Van Loon Lake-Black River",
+  "note": ""
+ },
+ "070400071206": {
+  "subwatershed": "Davis Creek-Black River",
+  "note": ""
+ },
+ "070400071208": {
+  "subwatershed": "Grant Creek-Black River",
+  "note": ""
+ },
+ "070400071204": {
+  "subwatershed": "Sand Creek",
+  "note": ""
+ },
+ "070400071205": {
+  "subwatershed": "Roaring Creek-Black River",
+  "note": ""
+ },
+ "070400071201": {
+  "subwatershed": "Rathbone Creek-Soper Creek",
+  "note": ""
+ },
+ "070400071202": {
+  "subwatershed": "Spencer Creek-Big Creek",
+  "note": ""
+ },
+ "070400071203": {
+  "subwatershed": "Douglas Creek",
+  "note": ""
+ },
+ "070400060401": {
+  "subwatershed": "Bostwick Creek",
+  "note": ""
+ },
+ "070400060402": {
+  "subwatershed": "Neshonoc Creek-La Crosse River",
+  "note": ""
+ },
+ "070400060403": {
+  "subwatershed": "Smith Valley-La Crosse River",
+  "note": ""
+ },
+ "070400060309": {
+  "subwatershed": "Burns Creek",
+  "note": ""
+ },
+ "070400060310": {
+  "subwatershed": "Neshonoc Lake-La Crosse River",
+  "note": ""
+ },
+ "070400060308": {
+  "subwatershed": "Dutch Creek",
+  "note": ""
+ },
+ "070400060307": {
+  "subwatershed": "Fish Creek",
+  "note": ""
+ },
+ "070400060305": {
+  "subwatershed": "Big Creek",
+  "note": ""
+ },
+ "070400060306": {
+  "subwatershed": "Town of Sparta-La Crosse River",
+  "note": ""
+ },
+ "070400060303": {
+  "subwatershed": "Headwaters Little LaCrosse River",
+  "note": ""
+ },
+ "070400060304": {
+  "subwatershed": "Little LaCrosse River",
+  "note": ""
+ },
+ "070400060301": {
+  "subwatershed": "Farmers Valley Creek",
+  "note": ""
+ },
+ "070400060302": {
+  "subwatershed": "Beaver Creek",
+  "note": ""
+ },
+ "070400060103": {
+  "subwatershed": "Lake Onalaska-Mississippi River",
+  "note": ""
+ },
+ "070400060102": {
+  "subwatershed": "Halfway Creek",
+  "note": ""
+ },
+ "070400060101": {
+  "subwatershed": "Shingle Creek-Mississippi River",
+  "note": ""
+ },
+ "070600010501": {
+  "subwatershed": "Mormon Creek",
+  "note": ""
+ },
+ "070600010504": {
+  "subwatershed": "Lock and Dam Number Eight-Mississippi River",
+  "note": ""
+ },
+ "070600010502": {
+  "subwatershed": "Chipmunk Coulee",
+  "note": ""
+ },
+ "070600010505": {
+  "subwatershed": "Town of New Albin-Mississippi River",
+  "note": ""
+ },
+ "070600010503": {
+  "subwatershed": "Wildcat Creek",
+  "note": ""
+ },
+ "070400060502": {
+  "subwatershed": "City of La Crosse-Mississippi River",
+  "note": ""
+ },
+ "070400060501": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070600010102": {
+  "subwatershed": "Upper Coon Creek",
+  "note": ""
+ },
+ "070600010103": {
+  "subwatershed": "Middle Coon Creek",
+  "note": ""
+ },
+ "070600010101": {
+  "subwatershed": "Timber Coulee Creek",
+  "note": ""
+ },
+ "070600010104": {
+  "subwatershed": "Lower Coon Creek",
+  "note": ""
+ }
+}

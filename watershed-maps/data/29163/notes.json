@@ -1,0 +1,247 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Pike County",
+  "note": ""
+ },
+ "0711000802": {
+  "watershed": "North Fork Cuivre River",
+  "note": ""
+ },
+ "0711000704": {
+  "watershed": "Peno Creek-Salt River",
+  "note": ""
+ },
+ "0711000407": {
+  "watershed": "North Fritz Island-Mississippi River",
+  "note": ""
+ },
+ "0711000410": {
+  "watershed": "Fox Creek-Mississippi River",
+  "note": ""
+ },
+ "0711000702": {
+  "watershed": "Spencer Creek",
+  "note": ""
+ },
+ "0711000801": {
+  "watershed": "Headwaters West Fork Cuivre River",
+  "note": ""
+ },
+ "0711000406": {
+  "watershed": "Kiser Creek-Mississippi River",
+  "note": ""
+ },
+ "0711000411": {
+  "watershed": "Bobs Creek-Mississippi River",
+  "note": ""
+ },
+ "0711000803": {
+  "watershed": "West Fork Cuivre River",
+  "note": ""
+ },
+ "071100080203": {
+  "subwatershed": "Indian Creek",
+  "note": ""
+ },
+ "071100080201": {
+  "subwatershed": "Headwaters Indian Creek",
+  "note": ""
+ },
+ "071100080204": {
+  "subwatershed": "Lick Creek-North Fork Cuivre River",
+  "note": ""
+ },
+ "071100080206": {
+  "subwatershed": "Sulphur Creek",
+  "note": ""
+ },
+ "071100080202": {
+  "subwatershed": "Cuivre Creek",
+  "note": ""
+ },
+ "071100080205": {
+  "subwatershed": "Sandy Creek",
+  "note": ""
+ },
+ "071100080207": {
+  "subwatershed": "Mill Creek-North Fork Cuivre River",
+  "note": ""
+ },
+ "071100080208": {
+  "subwatershed": "North Fork Cuivre River",
+  "note": ""
+ },
+ "071100070401": {
+  "subwatershed": "Peno Creek",
+  "note": ""
+ },
+ "071100070403": {
+  "subwatershed": "Salt River",
+  "note": ""
+ },
+ "071100070402": {
+  "subwatershed": "Sugar Creek-Salt River",
+  "note": ""
+ },
+ "071100040702": {
+  "subwatershed": "Buffalo Creek-Mississippi River",
+  "note": ""
+ },
+ "071100040701": {
+  "subwatershed": "Noix Creek-Mississippi River",
+  "note": ""
+ },
+ "071100040703": {
+  "subwatershed": "Calumet Creek-Mississippi River",
+  "note": ""
+ },
+ "071100041002": {
+  "subwatershed": "Ramsey Creek-Mississippi River",
+  "note": ""
+ },
+ "071100041004": {
+  "subwatershed": "Bryants Creek-Mississippi River",
+  "note": ""
+ },
+ "071100041003": {
+  "subwatershed": "Fox Creek",
+  "note": ""
+ },
+ "071100041001": {
+  "subwatershed": "Bay Creek",
+  "note": ""
+ },
+ "071100070203": {
+  "subwatershed": "South Spencer Creek",
+  "note": ""
+ },
+ "071100070205": {
+  "subwatershed": "Spencer Creek",
+  "note": ""
+ },
+ "071100070204": {
+  "subwatershed": "Hippo Branch-Spencer Creek",
+  "note": ""
+ },
+ "071100070201": {
+  "subwatershed": "Headwaters Spencer Creek",
+  "note": ""
+ },
+ "071100070202": {
+  "subwatershed": "Bear Branch-Spencer Creek",
+  "note": ""
+ },
+ "071100080105": {
+  "subwatershed": "Sandy Creek-West Fork Cuivre River",
+  "note": ""
+ },
+ "071100080104": {
+  "subwatershed": "Crooked Creek-Coon Creek",
+  "note": ""
+ },
+ "071100080102": {
+  "subwatershed": "Hickory Creek",
+  "note": ""
+ },
+ "071100080101": {
+  "subwatershed": "Headwaters West Fork Cuivre River",
+  "note": ""
+ },
+ "071100080103": {
+  "subwatershed": "Johns Branch-West Fork Cuivre River",
+  "note": ""
+ },
+ "071100040604": {
+  "subwatershed": "Gilbert Island-Mississippi River",
+  "note": ""
+ },
+ "071100040601": {
+  "subwatershed": "Headwaters Kiser Creek",
+  "note": ""
+ },
+ "071100040602": {
+  "subwatershed": "Runnin Slough",
+  "note": ""
+ },
+ "071100040603": {
+  "subwatershed": "Kiser Creek",
+  "note": ""
+ },
+ "071100041102": {
+  "subwatershed": "Headwaters Old Kings Lake Creek",
+  "note": ""
+ },
+ "071100041101": {
+  "subwatershed": "Gresham Hollow-Mississippi River",
+  "note": ""
+ },
+ "071100041108": {
+  "subwatershed": "Bobs Creek",
+  "note": ""
+ },
+ "071100041109": {
+  "subwatershed": "Dogtown Hollow-Mississippi River",
+  "note": ""
+ },
+ "071100041106": {
+  "subwatershed": "Sandy Creek",
+  "note": ""
+ },
+ "071100041107": {
+  "subwatershed": "McLean Creek",
+  "note": ""
+ },
+ "071100041105": {
+  "subwatershed": "Old Kings Lake Creek",
+  "note": ""
+ },
+ "071100041103": {
+  "subwatershed": "Headwaters Lost Creek",
+  "note": ""
+ },
+ "071100041104": {
+  "subwatershed": "Lost Creek",
+  "note": ""
+ },
+ "071100080309": {
+  "subwatershed": "Lead Creek",
+  "note": ""
+ },
+ "071100080308": {
+  "subwatershed": "Bracht Branch-West Fork Cuivre River",
+  "note": ""
+ },
+ "071100080307": {
+  "subwatershed": "Camp Creek",
+  "note": ""
+ },
+ "071100080305": {
+  "subwatershed": "Little Bear Creek-Bear Creek",
+  "note": ""
+ },
+ "071100080310": {
+  "subwatershed": "West Fork Cuivre River",
+  "note": ""
+ },
+ "071100080302": {
+  "subwatershed": "Middle Elkhorn Creek",
+  "note": ""
+ },
+ "071100080303": {
+  "subwatershed": "Lower Elkhorn Creek",
+  "note": ""
+ },
+ "071100080304": {
+  "subwatershed": "Brush Creek",
+  "note": ""
+ },
+ "071100080301": {
+  "subwatershed": "Upper Elkhorn Creek",
+  "note": ""
+ },
+ "071100080306": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ }
+}

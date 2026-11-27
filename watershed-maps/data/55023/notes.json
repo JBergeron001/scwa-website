@@ -1,0 +1,179 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Crawford County",
+  "note": ""
+ },
+ "0707000605": {
+  "watershed": "Kickapoo River",
+  "note": ""
+ },
+ "0706000107": {
+  "watershed": "Rush Creek-Mississippi River",
+  "note": ""
+ },
+ "0707000604": {
+  "watershed": "Tainter Creek-Kickapoo River",
+  "note": ""
+ },
+ "0707000518": {
+  "watershed": "Wisconsin River",
+  "note": ""
+ },
+ "0706000110": {
+  "watershed": "Bloody Run-Mississippi River",
+  "note": ""
+ },
+ "0707000517": {
+  "watershed": "City of Boscobel-Wisconsin River",
+  "note": ""
+ },
+ "0707000515": {
+  "watershed": "Knapp Creek",
+  "note": ""
+ },
+ "070700060505": {
+  "subwatershed": "Shaw Hollow-Kickapoo River",
+  "note": ""
+ },
+ "070700060504": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070700060502": {
+  "subwatershed": "Crow Hollow-Kickapoo River",
+  "note": ""
+ },
+ "070700060507": {
+  "subwatershed": "Kickapoo River",
+  "note": ""
+ },
+ "070700060506": {
+  "subwatershed": "Plum Creek",
+  "note": ""
+ },
+ "070700060501": {
+  "subwatershed": "Halls Branch",
+  "note": ""
+ },
+ "070700060503": {
+  "subwatershed": "Citron Creek",
+  "note": ""
+ },
+ "070600010707": {
+  "subwatershed": "Leitner Creek-Mississippi River",
+  "note": ""
+ },
+ "070600010704": {
+  "subwatershed": "Copper Creek",
+  "note": ""
+ },
+ "070600010703": {
+  "subwatershed": "Sugar Creek",
+  "note": ""
+ },
+ "070600010701": {
+  "subwatershed": "Rush Creek",
+  "note": ""
+ },
+ "070600010705": {
+  "subwatershed": "Buck Creek-Mississippi River",
+  "note": ""
+ },
+ "070600010702": {
+  "subwatershed": "Clear Creek-Mississippi River",
+  "note": ""
+ },
+ "070600010706": {
+  "subwatershed": "Wexford Creek",
+  "note": ""
+ },
+ "070700060403": {
+  "subwatershed": "Tainter Creek",
+  "note": ""
+ },
+ "070700060402": {
+  "subwatershed": "Trout Creek-Kickapoo River",
+  "note": ""
+ },
+ "070700060404": {
+  "subwatershed": "Caswell Hollow-Kickapoo River",
+  "note": ""
+ },
+ "070700060401": {
+  "subwatershed": "Reads Creek",
+  "note": ""
+ },
+ "070700051804": {
+  "subwatershed": "Lane Creek-Wisconsin River",
+  "note": ""
+ },
+ "070700051802": {
+  "subwatershed": "Little Kickapoo Creek-Wisconsin River",
+  "note": ""
+ },
+ "070700051803": {
+  "subwatershed": "Gran Grae Creek",
+  "note": ""
+ },
+ "070700051801": {
+  "subwatershed": "Millville Creek",
+  "note": ""
+ },
+ "070600011003": {
+  "subwatershed": "City of Prairie du Chien-Mississippi River",
+  "note": ""
+ },
+ "070600011001": {
+  "subwatershed": "Picatee Creek-Mississippi River",
+  "note": ""
+ },
+ "070600011002": {
+  "subwatershed": "Bloody Run",
+  "note": ""
+ },
+ "070700051707": {
+  "subwatershed": "Clear Creek-Wisconsin River",
+  "note": ""
+ },
+ "070700051703": {
+  "subwatershed": "Richland Creek",
+  "note": ""
+ },
+ "070700051705": {
+  "subwatershed": "Feather Island-Wisconsin River",
+  "note": ""
+ },
+ "070700051702": {
+  "subwatershed": "Byrds Creek-Wisconsin River",
+  "note": ""
+ },
+ "070700051701": {
+  "subwatershed": "Indian Creek-Wisconsin River",
+  "note": ""
+ },
+ "070700051704": {
+  "subwatershed": "Sanders Creek",
+  "note": ""
+ },
+ "070700051706": {
+  "subwatershed": "Crooked Creek",
+  "note": ""
+ },
+ "070700051502": {
+  "subwatershed": "West Fork Knapp Creek",
+  "note": ""
+ },
+ "070700051501": {
+  "subwatershed": "Upper Knapp Creek",
+  "note": ""
+ },
+ "070700051504": {
+  "subwatershed": "Lower Knapp Creek",
+  "note": ""
+ },
+ "070700051503": {
+  "subwatershed": "Middle Knapp Creek",
+  "note": ""
+ }
+}

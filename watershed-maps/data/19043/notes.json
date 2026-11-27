@@ -1,0 +1,295 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Clayton County",
+  "note": ""
+ },
+ "0706000406": {
+  "watershed": "Volga River",
+  "note": ""
+ },
+ "0706000404": {
+  "watershed": "Roberts Creek",
+  "note": ""
+ },
+ "0706000307": {
+  "watershed": "Sny Magill Creek-Mississippi River",
+  "note": ""
+ },
+ "0706000407": {
+  "watershed": "Otter Creek-Turkey River",
+  "note": ""
+ },
+ "0706000409": {
+  "watershed": "Turkey River",
+  "note": ""
+ },
+ "0706000110": {
+  "watershed": "Bloody Run-Mississippi River",
+  "note": ""
+ },
+ "0706000602": {
+  "watershed": "Headwaters Maquoketa River",
+  "note": ""
+ },
+ "0706000408": {
+  "watershed": "Elk Creek",
+  "note": ""
+ },
+ "0706000109": {
+  "watershed": "Yellow River",
+  "note": ""
+ },
+ "0706000606": {
+  "watershed": "Headwaters North Fork Maquoketa River",
+  "note": ""
+ },
+ "070600040606": {
+  "subwatershed": "Honey Creek-Volga River",
+  "note": ""
+ },
+ "070600040604": {
+  "subwatershed": "Nagle Creek-Volga River",
+  "note": ""
+ },
+ "070600040605": {
+  "subwatershed": "Cox Creek",
+  "note": ""
+ },
+ "070600040607": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "070600040608": {
+  "subwatershed": "Doe Creek-Volga River",
+  "note": ""
+ },
+ "070600040603": {
+  "subwatershed": "Hewett Creek",
+  "note": ""
+ },
+ "070600040602": {
+  "subwatershed": "Mink Creek",
+  "note": ""
+ },
+ "070600040601": {
+  "subwatershed": "Brush Creek",
+  "note": ""
+ },
+ "070600040402": {
+  "subwatershed": "Headwaters Roberts Creek",
+  "note": ""
+ },
+ "070600040403": {
+  "subwatershed": "Howard Creek",
+  "note": ""
+ },
+ "070600040401": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070600040405": {
+  "subwatershed": "Roberts Creek",
+  "note": ""
+ },
+ "070600040404": {
+  "subwatershed": "Dry Mill Creek",
+  "note": ""
+ },
+ "070600030701": {
+  "subwatershed": "Sny Magill Creek",
+  "note": ""
+ },
+ "070600030703": {
+  "subwatershed": "Buck Creek",
+  "note": ""
+ },
+ "070600030704": {
+  "subwatershed": "Lock and Dam Number Ten-Mississippi River",
+  "note": ""
+ },
+ "070600030705": {
+  "subwatershed": "Miners Creek-Mississippi River",
+  "note": ""
+ },
+ "070600030706": {
+  "subwatershed": "Plum Creek-Mississippi River",
+  "note": ""
+ },
+ "070600030707": {
+  "subwatershed": "McCartney Branch-Mississippi River",
+  "note": ""
+ },
+ "070600030708": {
+  "subwatershed": "Sinnipee Creek-Mississippi River",
+  "note": ""
+ },
+ "070600030702": {
+  "subwatershed": "Sandy Creek",
+  "note": ""
+ },
+ "070600040709": {
+  "subwatershed": "French Hollow-Turkey River",
+  "note": ""
+ },
+ "070600040708": {
+  "subwatershed": "Beaver Creek-Turkey River",
+  "note": ""
+ },
+ "070600040710": {
+  "subwatershed": "Panther Creek-Turkey River",
+  "note": ""
+ },
+ "070600040707": {
+  "subwatershed": "Bell Creek-Turkey River",
+  "note": ""
+ },
+ "070600040706": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "070600040702": {
+  "subwatershed": "Nutting Creek",
+  "note": ""
+ },
+ "070600040703": {
+  "subwatershed": "Village of Eldorado-Turkey River",
+  "note": ""
+ },
+ "070600040701": {
+  "subwatershed": "Dry Branch",
+  "note": ""
+ },
+ "070600040704": {
+  "subwatershed": "Dibble Creek",
+  "note": ""
+ },
+ "070600040705": {
+  "subwatershed": "Fitzgerald Creek-Turkey River",
+  "note": ""
+ },
+ "070600040901": {
+  "subwatershed": "South Cedar Creek",
+  "note": ""
+ },
+ "070600040902": {
+  "subwatershed": "Carlan Creek-Turkey River",
+  "note": ""
+ },
+ "070600040904": {
+  "subwatershed": "Bluebell Creek-Turkey River",
+  "note": ""
+ },
+ "070600040903": {
+  "subwatershed": "Cherry Valley-Little Turkey River",
+  "note": ""
+ },
+ "070600011002": {
+  "subwatershed": "Bloody Run",
+  "note": ""
+ },
+ "070600011003": {
+  "subwatershed": "City of Prairie du Chien-Mississippi River",
+  "note": ""
+ },
+ "070600011001": {
+  "subwatershed": "Picatee Creek-Mississippi River",
+  "note": ""
+ },
+ "070600060203": {
+  "subwatershed": "Fenchel Creek-Maquoketa River",
+  "note": ""
+ },
+ "070600060201": {
+  "subwatershed": "Bruce Creek-Maquoketa River",
+  "note": ""
+ },
+ "070600060204": {
+  "subwatershed": "Lindsey Creek",
+  "note": ""
+ },
+ "070600060202": {
+  "subwatershed": "South Fork Maquoketa River",
+  "note": ""
+ },
+ "070600060207": {
+  "subwatershed": "Coffins Creek",
+  "note": ""
+ },
+ "070600060210": {
+  "subwatershed": "Allison Creek-Maquoketa River",
+  "note": ""
+ },
+ "070600060206": {
+  "subwatershed": "Sand Hagen Creek-Maquoketa River",
+  "note": ""
+ },
+ "070600060205": {
+  "subwatershed": "Honey Creek",
+  "note": ""
+ },
+ "070600060208": {
+  "subwatershed": "Sand Creek",
+  "note": ""
+ },
+ "070600060209": {
+  "subwatershed": "Spring Branch",
+  "note": ""
+ },
+ "070600040802": {
+  "subwatershed": "Elk Creek",
+  "note": ""
+ },
+ "070600040801": {
+  "subwatershed": "Headwaters Elk Creek",
+  "note": ""
+ },
+ "070600010904": {
+  "subwatershed": "Hickory Creek",
+  "note": ""
+ },
+ "070600010906": {
+  "subwatershed": "Lower Yellow River",
+  "note": ""
+ },
+ "070600010905": {
+  "subwatershed": "Middle Yellow River",
+  "note": ""
+ },
+ "070600010903": {
+  "subwatershed": "Upper Yellow River",
+  "note": ""
+ },
+ "070600010901": {
+  "subwatershed": "Headwaters Yellow River",
+  "note": ""
+ },
+ "070600010902": {
+  "subwatershed": "Norfolk Creek",
+  "note": ""
+ },
+ "070600060603": {
+  "subwatershed": "Coffee Creek-North Fork Maquoketa River",
+  "note": ""
+ },
+ "070600060605": {
+  "subwatershed": "Mount Pleasant Cemetery-North Fork Maquoketa River",
+  "note": ""
+ },
+ "070600060602": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "070600060601": {
+  "subwatershed": "Hewitt Creek",
+  "note": ""
+ },
+ "070600060604": {
+  "subwatershed": "Durion Creek-North Fork Maquoketa River",
+  "note": ""
+ },
+ "070600060606": {
+  "subwatershed": "City of Cascade-North Fork Maquoketa River",
+  "note": ""
+ }
+}

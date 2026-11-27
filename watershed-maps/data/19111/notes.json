@@ -1,0 +1,223 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Lee County",
+  "note": ""
+ },
+ "0708010416": {
+  "watershed": "Sugar Creek-Devils Creek",
+  "note": ""
+ },
+ "0710000911": {
+  "watershed": "Sugar Creek",
+  "note": ""
+ },
+ "0708010417": {
+  "watershed": "Lost Creek-Mississippi River",
+  "note": ""
+ },
+ "0710000912": {
+  "watershed": "Reeds Creek-Des Moines River",
+  "note": ""
+ },
+ "0708010418": {
+  "watershed": "Lamalees Creek-Mississippi River",
+  "note": ""
+ },
+ "0708010710": {
+  "watershed": "Skunk River",
+  "note": ""
+ },
+ "0708010707": {
+  "watershed": "Cedar Creek",
+  "note": ""
+ },
+ "070801041604": {
+  "subwatershed": "Pitman Creek-Sugar Creek",
+  "note": ""
+ },
+ "070801041602": {
+  "subwatershed": "Headwaters Sugar Creek",
+  "note": ""
+ },
+ "070801041601": {
+  "subwatershed": "West Branch Sugar Creek",
+  "note": ""
+ },
+ "070801041605": {
+  "subwatershed": "Devils Creek",
+  "note": ""
+ },
+ "070801041603": {
+  "subwatershed": "Painter Creek",
+  "note": ""
+ },
+ "071000091103": {
+  "subwatershed": "Sugar Creek",
+  "note": ""
+ },
+ "071000091101": {
+  "subwatershed": "Little Sugar Creek-Sugar Creek",
+  "note": ""
+ },
+ "071000091102": {
+  "subwatershed": "Birch Creek-Sugar Creek",
+  "note": ""
+ },
+ "070801041703": {
+  "subwatershed": "Lost Creek",
+  "note": ""
+ },
+ "070801041704": {
+  "subwatershed": "Spillman Creek-Mississippi River",
+  "note": ""
+ },
+ "070801041705": {
+  "subwatershed": "Tyson Creek-Mississippi River",
+  "note": ""
+ },
+ "070801041702": {
+  "subwatershed": "Camp Creek",
+  "note": ""
+ },
+ "070801041701": {
+  "subwatershed": "Dugout Creek",
+  "note": ""
+ },
+ "071000091208": {
+  "subwatershed": "Lick Creek",
+  "note": ""
+ },
+ "071000091210": {
+  "subwatershed": "Dumas Creek-Des Moines River",
+  "note": ""
+ },
+ "071000091211": {
+  "subwatershed": "Weaver Branch-Des Moines River",
+  "note": ""
+ },
+ "071000091212": {
+  "subwatershed": "Outlet Des Moines River",
+  "note": ""
+ },
+ "071000091209": {
+  "subwatershed": "Rollins Creek-Des Moines River",
+  "note": ""
+ },
+ "071000091207": {
+  "subwatershed": "Reeds Creek",
+  "note": ""
+ },
+ "071000091206": {
+  "subwatershed": "Coppers Creek-Des Moines River",
+  "note": ""
+ },
+ "071000091202": {
+  "subwatershed": "Holcomb Creek-Des Moines River",
+  "note": ""
+ },
+ "071000091203": {
+  "subwatershed": "Austin County Park-Des Moines River",
+  "note": ""
+ },
+ "071000091205": {
+  "subwatershed": "Honey Creek",
+  "note": ""
+ },
+ "071000091204": {
+  "subwatershed": "Robb Cemetery-Bear Creek",
+  "note": ""
+ },
+ "071000091201": {
+  "subwatershed": "Stump Creek",
+  "note": ""
+ },
+ "070801041802": {
+  "subwatershed": "Jack Creek-Mississippi River",
+  "note": ""
+ },
+ "070801041805": {
+  "subwatershed": "Waggoner Creek-Mississippi River",
+  "note": ""
+ },
+ "070801041806": {
+  "subwatershed": "Cedar Glen Creek-Mississippi River",
+  "note": ""
+ },
+ "070801041803": {
+  "subwatershed": "Larry Creek",
+  "note": ""
+ },
+ "070801041804": {
+  "subwatershed": "Chaney Creek",
+  "note": ""
+ },
+ "070801041801": {
+  "subwatershed": "Sheridan Creek",
+  "note": ""
+ },
+ "070801071006": {
+  "subwatershed": "Skunk River",
+  "note": ""
+ },
+ "070801071002": {
+  "subwatershed": "Prairie Creek-Skunk River",
+  "note": ""
+ },
+ "070801071001": {
+  "subwatershed": "Fish Creek",
+  "note": ""
+ },
+ "070801071005": {
+  "subwatershed": "Long Creek",
+  "note": ""
+ },
+ "070801071003": {
+  "subwatershed": "Mud Creek",
+  "note": ""
+ },
+ "070801071004": {
+  "subwatershed": "Geode Lake-Cedar Creek",
+  "note": ""
+ },
+ "070801070707": {
+  "subwatershed": "Little Cedar Creek",
+  "note": ""
+ },
+ "070801070708": {
+  "subwatershed": "Summer Creek-Cedar Creek",
+  "note": ""
+ },
+ "070801070702": {
+  "subwatershed": "Church Creek-Cedar Creek",
+  "note": ""
+ },
+ "070801070709": {
+  "subwatershed": "Wolf Creek",
+  "note": ""
+ },
+ "070801070701": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ },
+ "070801070710": {
+  "subwatershed": "Cedar Creek",
+  "note": ""
+ },
+ "070801070704": {
+  "subwatershed": "City of Fairfield-Cedar Creek",
+  "note": ""
+ },
+ "070801070706": {
+  "subwatershed": "City of Birmingham-Cedar Creek",
+  "note": ""
+ },
+ "070801070703": {
+  "subwatershed": "Crow Creek",
+  "note": ""
+ },
+ "070801070705": {
+  "subwatershed": "Troy Creek",
+  "note": ""
+ }
+}

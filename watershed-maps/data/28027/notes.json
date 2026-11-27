@@ -1,0 +1,167 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Coahoma County",
+  "note": ""
+ },
+ "0803020703": {
+  "watershed": "Harris Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "0803020701": {
+  "watershed": "Lake Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "0802010002": {
+  "watershed": "DeSoto Lake-Mississippi River",
+  "note": ""
+ },
+ "0803020205": {
+  "watershed": "Cassidy Bayou",
+  "note": ""
+ },
+ "0803020409": {
+  "watershed": "Phillips Bayou-Yazoo Pass",
+  "note": ""
+ },
+ "0803020702": {
+  "watershed": "Hushpuckena River",
+  "note": ""
+ },
+ "0803020410": {
+  "watershed": "Muddy Bayou-Coldwater River",
+  "note": ""
+ },
+ "0803020706": {
+  "watershed": "Parks Bayou-Quiver River",
+  "note": ""
+ },
+ "0802010001": {
+  "watershed": "Tunica Lake-Mississippi River",
+  "note": ""
+ },
+ "080302070303": {
+  "subwatershed": "Clark Bayou",
+  "note": ""
+ },
+ "080302070304": {
+  "subwatershed": "Hopson Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302070305": {
+  "subwatershed": "Dry Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302070302": {
+  "subwatershed": "Bobo Outlet-Harris Bayou",
+  "note": ""
+ },
+ "080302070301": {
+  "subwatershed": "Overcup Slough",
+  "note": ""
+ },
+ "080302070306": {
+  "subwatershed": "Black Bayou",
+  "note": ""
+ },
+ "080302070103": {
+  "subwatershed": "Headwaters Big Sunflower River",
+  "note": ""
+ },
+ "080302070101": {
+  "subwatershed": "Black Lake Bayou",
+  "note": ""
+ },
+ "080302070102": {
+  "subwatershed": "Headwaters Little Sunflower River",
+  "note": ""
+ },
+ "080201000200": {
+  "subwatershed": "DeSoto Lake-Mississippi River",
+  "note": ""
+ },
+ "080302020501": {
+  "subwatershed": "Whiting Lake-Cassidy Bayou",
+  "note": ""
+ },
+ "080302020502": {
+  "subwatershed": "Alcorn Bayou-Cassidy Bayou",
+  "note": ""
+ },
+ "080302020504": {
+  "subwatershed": "Walnut Bayou-Cassidy Bayou",
+  "note": ""
+ },
+ "080302020503": {
+  "subwatershed": "Melancholy Bayou-Cassidy Bayou",
+  "note": ""
+ },
+ "080302020505": {
+  "subwatershed": "Outlet Cassidy Bayou",
+  "note": ""
+ },
+ "080302040903": {
+  "subwatershed": "Yazoo Pass",
+  "note": ""
+ },
+ "080302040902": {
+  "subwatershed": "Bear Lake",
+  "note": ""
+ },
+ "080302040901": {
+  "subwatershed": "Beaverdam Lake",
+  "note": ""
+ },
+ "080302070201": {
+  "subwatershed": "Yellow Bayou-Hushpuckena River",
+  "note": ""
+ },
+ "080302070202": {
+  "subwatershed": "Edward Bayou-Hushpuckena River",
+  "note": ""
+ },
+ "080302070203": {
+  "subwatershed": "Pecan Bayou-Hushpuckena River",
+  "note": ""
+ },
+ "080302041003": {
+  "subwatershed": "Brady Bayou",
+  "note": ""
+ },
+ "080302041004": {
+  "subwatershed": "Thomasson Bayou-Coldwater River",
+  "note": ""
+ },
+ "080302041002": {
+  "subwatershed": "Ark Bayou",
+  "note": ""
+ },
+ "080302041001": {
+  "subwatershed": "McNeil Bayou-Coldwater River",
+  "note": ""
+ },
+ "080302070601": {
+  "subwatershed": "Watson Bayou-Quiver River",
+  "note": ""
+ },
+ "080302070603": {
+  "subwatershed": "Parks Bayou-Quiver River",
+  "note": ""
+ },
+ "080302070602": {
+  "subwatershed": "Lower Quiver River",
+  "note": ""
+ },
+ "080302070604": {
+  "subwatershed": "Wild Bill Bayou-Quiver River",
+  "note": ""
+ },
+ "080201000102": {
+  "subwatershed": "Tunica Lake-Mississippi River",
+  "note": ""
+ },
+ "080201000101": {
+  "subwatershed": "McKinney Bayou",
+  "note": ""
+ }
+}

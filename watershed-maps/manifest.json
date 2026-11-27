@@ -2,6 +2,146 @@
  "updated": "2026-11-27",
  "maps": [
   {
+   "geoid": "05017",
+   "includes": [],
+   "name": "Chicot County",
+   "state": "Arkansas",
+   "slug": "chicot-county",
+   "areakm": 1782.84,
+   "watersheds": 10,
+   "subwatersheds": 20,
+   "elo": 95,
+   "ehi": 151,
+   "bb": [
+    -91.47052,
+    -91.03362,
+    32.99429,
+    33.57368
+   ],
+   "metro": "Lake Village",
+   "thumb": "watershed-maps/thumbs/05017.jpg"
+  },
+  {
+   "geoid": "05035",
+   "includes": [],
+   "name": "Crittenden County",
+   "state": "Arkansas",
+   "slug": "crittenden-county",
+   "areakm": 1662.67,
+   "watersheds": 7,
+   "subwatersheds": 25,
+   "elo": 180,
+   "ehi": 241,
+   "bb": [
+    -90.51653,
+    -90.05401,
+    34.81683,
+    35.45165
+   ],
+   "metro": "West Memphis",
+   "thumb": "watershed-maps/thumbs/05035.jpg"
+  },
+  {
+   "geoid": "05093",
+   "includes": [],
+   "name": "Mississippi County",
+   "state": "Arkansas",
+   "slug": "mississippi-county",
+   "areakm": 2398.73,
+   "watersheds": 11,
+   "subwatersheds": 35,
+   "elo": 209,
+   "ehi": 270,
+   "bb": [
+    -90.29908,
+    -89.631,
+    35.37928,
+    36.01081
+   ],
+   "metro": "Blytheville and Osceola",
+   "thumb": "watershed-maps/thumbs/05093.jpg"
+  },
+  {
+   "geoid": "05107",
+   "includes": [],
+   "name": "Phillips County",
+   "state": "Arkansas",
+   "slug": "phillips-county",
+   "areakm": 1877.55,
+   "watersheds": 9,
+   "subwatersheds": 28,
+   "elo": 139,
+   "ehi": 376,
+   "bb": [
+    -91.12792,
+    -90.52962,
+    34.10852,
+    34.65572
+   ],
+   "metro": "Helena-West Helena",
+   "thumb": "watershed-maps/thumbs/05107.jpg"
+  },
+  {
+   "geoid": "17001",
+   "includes": [],
+   "name": "Adams County",
+   "state": "Illinois",
+   "slug": "adams-county",
+   "areakm": 2244.35,
+   "watersheds": 12,
+   "subwatersheds": 36,
+   "elo": 463,
+   "ehi": 846,
+   "bb": [
+    -91.52308,
+    -90.90197,
+    39.74694,
+    40.20993
+   ],
+   "metro": "Quincy",
+   "thumb": "watershed-maps/thumbs/17001.jpg"
+  },
+  {
+   "geoid": "17003",
+   "includes": [],
+   "name": "Alexander County",
+   "state": "Illinois",
+   "slug": "alexander-county",
+   "areakm": 651.53,
+   "watersheds": 6,
+   "subwatersheds": 15,
+   "elo": 296,
+   "ehi": 805,
+   "bb": [
+    -89.52839,
+    -89.12268,
+    36.9603,
+    37.34557
+   ],
+   "metro": "Cairo",
+   "thumb": "watershed-maps/thumbs/17003.jpg"
+  },
+  {
+   "geoid": "17015",
+   "includes": [],
+   "name": "Carroll County",
+   "state": "Illinois",
+   "slug": "carroll-county",
+   "areakm": 1202.37,
+   "watersheds": 11,
+   "subwatersheds": 23,
+   "elo": 585,
+   "ehi": 1043,
+   "bb": [
+    -90.32733,
+    -89.67474,
+    41.91892,
+    42.20911
+   ],
+   "metro": "Savanna",
+   "thumb": "watershed-maps/thumbs/17015.jpg"
+  },
+  {
    "geoid": "17031",
    "includes": [],
    "name": "Cook County",
@@ -20,6 +160,86 @@
    ],
    "metro": "Chicago",
    "thumb": "watershed-maps/thumbs/17031.jpg"
+  },
+  {
+   "geoid": "17083",
+   "includes": [],
+   "name": "Jersey County",
+   "state": "Illinois",
+   "slug": "jersey-county",
+   "areakm": 972.09,
+   "watersheds": 10,
+   "subwatersheds": 22,
+   "elo": 417,
+   "ehi": 872,
+   "bb": [
+    -90.61357,
+    -90.13586,
+    38.9134,
+    39.27196
+   ],
+   "metro": "Grafton",
+   "thumb": "watershed-maps/thumbs/17083.jpg"
+  },
+  {
+   "geoid": "17119",
+   "includes": [],
+   "name": "Madison County",
+   "state": "Illinois",
+   "slug": "madison-county",
+   "areakm": 1906.63,
+   "watersheds": 10,
+   "subwatersheds": 41,
+   "elo": 397,
+   "ehi": 648,
+   "bb": [
+    -90.28571,
+    -89.5851,
+    38.645,
+    39.00935
+   ],
+   "metro": "Alton, Granite City and Godfrey",
+   "thumb": "watershed-maps/thumbs/17119.jpg"
+  },
+  {
+   "geoid": "17157",
+   "includes": [],
+   "name": "Randolph County",
+   "state": "Illinois",
+   "slug": "randolph-county",
+   "areakm": 1538.9,
+   "watersheds": 10,
+   "subwatersheds": 26,
+   "elo": 354,
+   "ehi": 706,
+   "bb": [
+    -90.21535,
+    -89.58239,
+    37.79301,
+    38.23325
+   ],
+   "metro": "Chester and Prairie du Rocher",
+   "thumb": "watershed-maps/thumbs/17157.jpg"
+  },
+  {
+   "geoid": "17161",
+   "includes": [],
+   "name": "Rock Island County",
+   "state": "Illinois",
+   "slug": "rock-island-county",
+   "areakm": 1160.1,
+   "watersheds": 8,
+   "subwatersheds": 19,
+   "elo": 537,
+   "ehi": 808,
+   "bb": [
+    -91.08196,
+    -90.14988,
+    41.31684,
+    41.79296
+   ],
+   "metro": "Moline, Rock Island and East Moline",
+   "thumb": "watershed-maps/thumbs/17161.jpg"
   },
   {
    "geoid": "17167",
@@ -42,6 +262,26 @@
    "thumb": "watershed-maps/thumbs/17167.jpg"
   },
   {
+   "geoid": "17163",
+   "includes": [],
+   "name": "St. Clair County",
+   "state": "Illinois",
+   "slug": "st-clair-county",
+   "areakm": 1737.05,
+   "watersheds": 10,
+   "subwatersheds": 38,
+   "elo": 372,
+   "ehi": 684,
+   "bb": [
+    -90.27383,
+    -89.69326,
+    38.2094,
+    38.67027
+   ],
+   "metro": "East St. Louis, Cahokia Heights and Sauget",
+   "thumb": "watershed-maps/thumbs/17163.jpg"
+  },
+  {
    "geoid": "18097",
    "includes": [],
    "name": "Marion County",
@@ -60,6 +300,146 @@
    ],
    "metro": "Indianapolis",
    "thumb": "watershed-maps/thumbs/18097.jpg"
+  },
+  {
+   "geoid": "19005",
+   "includes": [],
+   "name": "Allamakee County",
+   "state": "Iowa",
+   "slug": "allamakee-county",
+   "areakm": 1695.53,
+   "watersheds": 12,
+   "subwatersheds": 32,
+   "elo": 615,
+   "ehi": 1308,
+   "bb": [
+    -91.62105,
+    -91.04791,
+    43.07025,
+    43.51098
+   ],
+   "metro": "Lansing",
+   "thumb": "watershed-maps/thumbs/19005.jpg"
+  },
+  {
+   "geoid": "19043",
+   "includes": [],
+   "name": "Clayton County",
+   "state": "Iowa",
+   "slug": "clayton-county",
+   "areakm": 2039.91,
+   "watersheds": 10,
+   "subwatersheds": 37,
+   "elo": 607,
+   "ehi": 1253,
+   "bb": [
+    -91.61841,
+    -90.8869,
+    42.63397,
+    43.09169
+   ],
+   "metro": "Guttenberg",
+   "thumb": "watershed-maps/thumbs/19043.jpg"
+  },
+  {
+   "geoid": "19045",
+   "includes": [],
+   "name": "Clinton County",
+   "state": "Iowa",
+   "slug": "clinton-county",
+   "areakm": 1828.89,
+   "watersheds": 10,
+   "subwatersheds": 32,
+   "elo": 574,
+   "ehi": 921,
+   "bb": [
+    -90.90894,
+    -90.13006,
+    41.7177,
+    42.04357
+   ],
+   "metro": "Clinton",
+   "thumb": "watershed-maps/thumbs/19045.jpg"
+  },
+  {
+   "geoid": "19057",
+   "includes": [],
+   "name": "Des Moines County",
+   "state": "Iowa",
+   "slug": "des-moines-county",
+   "areakm": 1107.35,
+   "watersheds": 9,
+   "subwatersheds": 23,
+   "elo": 520,
+   "ehi": 835,
+   "bb": [
+    -91.41945,
+    -90.93225,
+    40.68628,
+    41.08417
+   ],
+   "metro": "Burlington",
+   "thumb": "watershed-maps/thumbs/19057.jpg"
+  },
+  {
+   "geoid": "19061",
+   "includes": [],
+   "name": "Dubuque County",
+   "state": "Iowa",
+   "slug": "dubuque-county",
+   "areakm": 1586.34,
+   "watersheds": 8,
+   "subwatersheds": 28,
+   "elo": 598,
+   "ehi": 1225,
+   "bb": [
+    -91.14444,
+    -90.46381,
+    42.28464,
+    42.68526
+   ],
+   "metro": "Dubuque",
+   "thumb": "watershed-maps/thumbs/19061.jpg"
+  },
+  {
+   "geoid": "19111",
+   "includes": [],
+   "name": "Lee County",
+   "state": "Iowa",
+   "slug": "lee-county",
+   "areakm": 1388.46,
+   "watersheds": 7,
+   "subwatersheds": 24,
+   "elo": 495,
+   "ehi": 775,
+   "bb": [
+    -91.72879,
+    -91.10243,
+    40.36566,
+    40.8239
+   ],
+   "metro": "Fort Madison",
+   "thumb": "watershed-maps/thumbs/19111.jpg"
+  },
+  {
+   "geoid": "19139",
+   "includes": [],
+   "name": "Muscatine County",
+   "state": "Iowa",
+   "slug": "muscatine-county",
+   "areakm": 1156.76,
+   "watersheds": 8,
+   "subwatersheds": 26,
+   "elo": 536,
+   "ehi": 804,
+   "bb": [
+    -91.37933,
+    -90.77373,
+    41.32359,
+    41.60837
+   ],
+   "metro": "Muscatine",
+   "thumb": "watershed-maps/thumbs/19139.jpg"
   },
   {
    "geoid": "19153",
@@ -122,6 +502,286 @@
    "thumb": "watershed-maps/thumbs/20173.jpg"
   },
   {
+   "geoid": "21007",
+   "includes": [],
+   "name": "Ballard County",
+   "state": "Kentucky",
+   "slug": "ballard-county",
+   "areakm": 705.87,
+   "watersheds": 6,
+   "subwatersheds": 17,
+   "elo": 290,
+   "ehi": 492,
+   "bb": [
+    -89.19251,
+    -88.80595,
+    36.90549,
+    37.23971
+   ],
+   "metro": "Wickliffe",
+   "thumb": "watershed-maps/thumbs/21007.jpg"
+  },
+  {
+   "geoid": "21075",
+   "includes": [],
+   "name": "Fulton County",
+   "state": "Kentucky",
+   "slug": "fulton-county",
+   "areakm": 594.02,
+   "watersheds": 6,
+   "subwatersheds": 10,
+   "elo": 270,
+   "ehi": 485,
+   "bb": [
+    -89.58151,
+    -88.82487,
+    36.48749,
+    36.66047
+   ],
+   "metro": "Hickman",
+   "thumb": "watershed-maps/thumbs/21075.jpg"
+  },
+  {
+   "geoid": "21105",
+   "includes": [],
+   "name": "Hickman County",
+   "state": "Kentucky",
+   "slug": "hickman-county",
+   "areakm": 652.2,
+   "watersheds": 4,
+   "subwatersheds": 13,
+   "elo": 288,
+   "ehi": 505,
+   "bb": [
+    -89.21105,
+    -88.80323,
+    36.49282,
+    36.80729
+   ],
+   "metro": "Columbus, KY",
+   "thumb": "watershed-maps/thumbs/21105.jpg"
+  },
+  {
+   "geoid": "22005",
+   "includes": [],
+   "name": "Ascension Parish",
+   "state": "Louisiana",
+   "slug": "ascension-parish",
+   "areakm": 781.2,
+   "watersheds": 8,
+   "subwatersheds": 18,
+   "elo": 0,
+   "ehi": 40,
+   "bb": [
+    -91.11656,
+    -90.6219,
+    30.05275,
+    30.35688
+   ],
+   "metro": "Donaldsonville",
+   "thumb": "watershed-maps/thumbs/22005.jpg"
+  },
+  {
+   "geoid": "22029",
+   "includes": [],
+   "name": "Concordia Parish",
+   "state": "Louisiana",
+   "slug": "concordia-parish",
+   "areakm": 1929.98,
+   "watersheds": 10,
+   "subwatersheds": 25,
+   "elo": 31,
+   "ehi": 79,
+   "bb": [
+    -91.87742,
+    -91.36799,
+    30.96036,
+    31.77209
+   ],
+   "metro": "Vidalia",
+   "thumb": "watershed-maps/thumbs/22029.jpg"
+  },
+  {
+   "geoid": "22033",
+   "includes": [],
+   "name": "East Baton Rouge Parish",
+   "state": "Louisiana",
+   "slug": "east-baton-rouge-parish",
+   "areakm": 1214.28,
+   "watersheds": 8,
+   "subwatersheds": 19,
+   "elo": 7,
+   "ehi": 139,
+   "bb": [
+    -91.32655,
+    -90.83418,
+    30.30247,
+    30.72946
+   ],
+   "metro": "Baton Rouge",
+   "thumb": "watershed-maps/thumbs/22033.jpg"
+  },
+  {
+   "geoid": "22047",
+   "includes": [],
+   "name": "Iberville Parish",
+   "state": "Louisiana",
+   "slug": "iberville-parish",
+   "areakm": 1685.11,
+   "watersheds": 9,
+   "subwatersheds": 31,
+   "elo": 1,
+   "ehi": 36,
+   "bb": [
+    -91.71134,
+    -91.00932,
+    30.01556,
+    30.50775
+   ],
+   "metro": "Plaquemine and St. Gabriel",
+   "thumb": "watershed-maps/thumbs/22047.jpg"
+  },
+  {
+   "geoid": "22051",
+   "includes": [],
+   "name": "Jefferson Parish",
+   "state": "Louisiana",
+   "slug": "jefferson-parish",
+   "areakm": 1318.5,
+   "watersheds": 6,
+   "subwatersheds": 20,
+   "elo": 0,
+   "ehi": 22,
+   "bb": [
+    -90.2903,
+    -89.89659,
+    29.15694,
+    30.19961
+   ],
+   "metro": "Gretna, Harahan and Westwego",
+   "thumb": "watershed-maps/thumbs/22051.jpg"
+  },
+  {
+   "geoid": "22065",
+   "includes": [],
+   "name": "Madison Parish",
+   "state": "Louisiana",
+   "slug": "madison-parish",
+   "areakm": 1678.19,
+   "watersheds": 11,
+   "subwatersheds": 25,
+   "elo": 58,
+   "ehi": 111,
+   "bb": [
+    -91.56728,
+    -90.86563,
+    32.11035,
+    32.57254
+   ],
+   "metro": "Tallulah",
+   "thumb": "watershed-maps/thumbs/22065.jpg"
+  },
+  {
+   "geoid": "22071",
+   "includes": [],
+   "name": "Orleans Parish",
+   "state": "Louisiana",
+   "slug": "orleans-parish",
+   "areakm": 898.76,
+   "watersheds": 8,
+   "subwatersheds": 11,
+   "elo": -8,
+   "ehi": 53,
+   "bb": [
+    -90.15007,
+    -89.61552,
+    29.85666,
+    30.20866
+   ],
+   "metro": "New Orleans",
+   "thumb": "watershed-maps/thumbs/22071.jpg"
+  },
+  {
+   "geoid": "22077",
+   "includes": [],
+   "name": "Pointe Coupee Parish",
+   "state": "Louisiana",
+   "slug": "pointe-coupee-parish",
+   "areakm": 1522.98,
+   "watersheds": 8,
+   "subwatersheds": 22,
+   "elo": 7,
+   "ehi": 58,
+   "bb": [
+    -91.83307,
+    -91.29975,
+    30.47259,
+    31.03001
+   ],
+   "metro": "New Roads",
+   "thumb": "watershed-maps/thumbs/22077.jpg"
+  },
+  {
+   "geoid": "22107",
+   "includes": [],
+   "name": "Tensas Parish",
+   "state": "Louisiana",
+   "slug": "tensas-parish",
+   "areakm": 1655.87,
+   "watersheds": 9,
+   "subwatersheds": 24,
+   "elo": 36,
+   "ehi": 95,
+   "bb": [
+    -91.59002,
+    -91.02051,
+    31.72324,
+    32.25967
+   ],
+   "metro": "St. Joseph",
+   "thumb": "watershed-maps/thumbs/22107.jpg"
+  },
+  {
+   "geoid": "22121",
+   "includes": [],
+   "name": "West Baton Rouge Parish",
+   "state": "Louisiana",
+   "slug": "west-baton-rouge-parish",
+   "areakm": 525.98,
+   "watersheds": 3,
+   "subwatersheds": 11,
+   "elo": 4,
+   "ehi": 46,
+   "bb": [
+    -91.49516,
+    -91.1321,
+    30.31247,
+    30.66868
+   ],
+   "metro": "Port Allen",
+   "thumb": "watershed-maps/thumbs/22121.jpg"
+  },
+  {
+   "geoid": "22125",
+   "includes": [],
+   "name": "West Feliciana Parish",
+   "state": "Louisiana",
+   "slug": "west-feliciana-parish",
+   "areakm": 1100.01,
+   "watersheds": 6,
+   "subwatersheds": 17,
+   "elo": 20,
+   "ehi": 336,
+   "bb": [
+    -91.76012,
+    -91.16614,
+    30.64396,
+    31.05479
+   ],
+   "metro": "St. Francisville",
+   "thumb": "watershed-maps/thumbs/22125.jpg"
+  },
+  {
    "geoid": "26081",
    "includes": [],
    "name": "Kent County",
@@ -162,6 +822,126 @@
    "thumb": "watershed-maps/thumbs/26163.jpg"
   },
   {
+   "geoid": "27003",
+   "includes": [],
+   "name": "Anoka County",
+   "state": "Minnesota",
+   "slug": "anoka-county",
+   "areakm": 1148.64,
+   "watersheds": 7,
+   "subwatersheds": 24,
+   "elo": 827,
+   "ehi": 1061,
+   "bb": [
+    -93.52265,
+    -93.00841,
+    45.02537,
+    45.4248
+   ],
+   "metro": "Anoka, Coon Rapids, Fridley and Ramsey",
+   "thumb": "watershed-maps/thumbs/27003.jpg"
+  },
+  {
+   "geoid": "27007",
+   "includes": [],
+   "name": "Beltrami County",
+   "state": "Minnesota",
+   "slug": "beltrami-county",
+   "areakm": 7854.14,
+   "watersheds": 32,
+   "subwatersheds": 92,
+   "elo": 1175,
+   "ehi": 1486,
+   "bb": [
+    -95.61285,
+    -94.4035,
+    47.39962,
+    48.55035
+   ],
+   "metro": "Bemidji",
+   "thumb": "watershed-maps/thumbs/27007.jpg"
+  },
+  {
+   "geoid": "27009",
+   "includes": [],
+   "name": "Benton County",
+   "state": "Minnesota",
+   "slug": "benton-county",
+   "areakm": 1062.54,
+   "watersheds": 8,
+   "subwatersheds": 24,
+   "elo": 1011,
+   "ehi": 1302,
+   "bb": [
+    -94.36317,
+    -93.74945,
+    45.54907,
+    45.83413
+   ],
+   "metro": "Sauk Rapids",
+   "thumb": "watershed-maps/thumbs/27009.jpg"
+  },
+  {
+   "geoid": "27035",
+   "includes": [],
+   "name": "Crow Wing County",
+   "state": "Minnesota",
+   "slug": "crow-wing-county",
+   "areakm": 2974.69,
+   "watersheds": 16,
+   "subwatersheds": 54,
+   "elo": 1157,
+   "ehi": 1462,
+   "bb": [
+    -94.40572,
+    -93.76602,
+    46.14592,
+    46.81553
+   ],
+   "metro": "Brainerd and Baxter",
+   "thumb": "watershed-maps/thumbs/27035.jpg"
+  },
+  {
+   "geoid": "27037",
+   "includes": [],
+   "name": "Dakota County",
+   "state": "Minnesota",
+   "slug": "dakota-county",
+   "areakm": 1509.16,
+   "watersheds": 8,
+   "subwatersheds": 27,
+   "elo": 675,
+   "ehi": 1149,
+   "bb": [
+    -93.33967,
+    -92.72204,
+    44.46115,
+    44.93329
+   ],
+   "metro": "Hastings and Rosemount",
+   "thumb": "watershed-maps/thumbs/27037.jpg"
+  },
+  {
+   "geoid": "27049",
+   "includes": [],
+   "name": "Goodhue County",
+   "state": "Minnesota",
+   "slug": "goodhue-county",
+   "areakm": 2004.22,
+   "watersheds": 13,
+   "subwatersheds": 35,
+   "elo": 666,
+   "ehi": 1261,
+   "bb": [
+    -93.05116,
+    -92.23201,
+    44.18492,
+    44.72367
+   ],
+   "metro": "Red Wing",
+   "thumb": "watershed-maps/thumbs/27049.jpg"
+  },
+  {
    "geoid": "27053",
    "includes": [],
    "name": "Hennepin County",
@@ -180,6 +960,286 @@
    ],
    "metro": "Minneapolis-St. Paul",
    "thumb": "watershed-maps/thumbs/27053.jpg"
+  },
+  {
+   "geoid": "27055",
+   "includes": [],
+   "name": "Houston County",
+   "state": "Minnesota",
+   "slug": "houston-county",
+   "areakm": 1463.66,
+   "watersheds": 11,
+   "subwatersheds": 26,
+   "elo": 621,
+   "ehi": 1323,
+   "bb": [
+    -91.74073,
+    -91.20735,
+    43.49044,
+    43.85706
+   ],
+   "metro": "La Crescent",
+   "thumb": "watershed-maps/thumbs/27055.jpg"
+  },
+  {
+   "geoid": "27061",
+   "includes": [],
+   "name": "Itasca County",
+   "state": "Minnesota",
+   "slug": "itasca-county",
+   "areakm": 7534.9,
+   "watersheds": 28,
+   "subwatersheds": 107,
+   "elo": 1255,
+   "ehi": 1655,
+   "bb": [
+    -94.42928,
+    -93.04601,
+    47.01519,
+    47.90895
+   ],
+   "metro": "Grand Rapids, MN",
+   "thumb": "watershed-maps/thumbs/27061.jpg"
+  },
+  {
+   "geoid": "27123",
+   "includes": [],
+   "name": "Ramsey County",
+   "state": "Minnesota",
+   "slug": "ramsey-county",
+   "areakm": 437.45,
+   "watersheds": 6,
+   "subwatersheds": 13,
+   "elo": 687,
+   "ehi": 1062,
+   "bb": [
+    -93.2381,
+    -92.97419,
+    44.8774,
+    45.13453
+   ],
+   "metro": "Saint Paul",
+   "thumb": "watershed-maps/thumbs/27123.jpg"
+  },
+  {
+   "geoid": "27145",
+   "includes": [],
+   "name": "Stearns County",
+   "state": "Minnesota",
+   "slug": "stearns-county",
+   "areakm": 3576.7,
+   "watersheds": 14,
+   "subwatersheds": 57,
+   "elo": 981,
+   "ehi": 1395,
+   "bb": [
+    -95.14986,
+    -94.03774,
+    45.2728,
+    45.7853
+   ],
+   "metro": "St. Cloud and Sartell",
+   "thumb": "watershed-maps/thumbs/27145.jpg"
+  },
+  {
+   "geoid": "27157",
+   "includes": [],
+   "name": "Wabasha County",
+   "state": "Minnesota",
+   "slug": "wabasha-county",
+   "areakm": 1413.99,
+   "watersheds": 6,
+   "subwatersheds": 28,
+   "elo": 659,
+   "ehi": 1223,
+   "bb": [
+    -92.56097,
+    -91.84839,
+    44.09672,
+    44.46532
+   ],
+   "metro": "Lake City",
+   "thumb": "watershed-maps/thumbs/27157.jpg"
+  },
+  {
+   "geoid": "27163",
+   "includes": [],
+   "name": "Washington County",
+   "state": "Minnesota",
+   "slug": "washington-county",
+   "areakm": 1089.78,
+   "watersheds": 6,
+   "subwatersheds": 22,
+   "elo": 675,
+   "ehi": 1082,
+   "bb": [
+    -93.03152,
+    -92.72953,
+    44.7358,
+    45.30693
+   ],
+   "metro": "Newport and St. Paul Park",
+   "thumb": "watershed-maps/thumbs/27163.jpg"
+  },
+  {
+   "geoid": "27169",
+   "includes": [],
+   "name": "Winona County",
+   "state": "Minnesota",
+   "slug": "winona-county",
+   "areakm": 1650.27,
+   "watersheds": 9,
+   "subwatersheds": 29,
+   "elo": 639,
+   "ehi": 1351,
+   "bb": [
+    -92.0895,
+    -91.27414,
+    43.83683,
+    44.20315
+   ],
+   "metro": "Winona",
+   "thumb": "watershed-maps/thumbs/27169.jpg"
+  },
+  {
+   "geoid": "27171",
+   "includes": [],
+   "name": "Wright County",
+   "state": "Minnesota",
+   "slug": "wright-county",
+   "areakm": 1836.74,
+   "watersheds": 7,
+   "subwatersheds": 26,
+   "elo": 867,
+   "ehi": 1168,
+   "bb": [
+    -94.27152,
+    -93.50467,
+    44.96765,
+    45.43366
+   ],
+   "metro": "Monticello and Clearwater",
+   "thumb": "watershed-maps/thumbs/27171.jpg"
+  },
+  {
+   "geoid": "28001",
+   "includes": [],
+   "name": "Adams County",
+   "state": "Mississippi",
+   "slug": "adams-county",
+   "areakm": 1258.13,
+   "watersheds": 9,
+   "subwatersheds": 22,
+   "elo": 39,
+   "ehi": 432,
+   "bb": [
+    -91.66501,
+    -91.14384,
+    31.18114,
+    31.76001
+   ],
+   "metro": "Natchez",
+   "thumb": "watershed-maps/thumbs/28001.jpg"
+  },
+  {
+   "geoid": "28011",
+   "includes": [],
+   "name": "Bolivar County",
+   "state": "Mississippi",
+   "slug": "bolivar-county",
+   "areakm": 2341.01,
+   "watersheds": 14,
+   "subwatersheds": 33,
+   "elo": 120,
+   "ehi": 175,
+   "bb": [
+    -91.24461,
+    -90.64698,
+    33.51934,
+    34.13071
+   ],
+   "metro": "Rosedale",
+   "thumb": "watershed-maps/thumbs/28011.jpg"
+  },
+  {
+   "geoid": "28027",
+   "includes": [],
+   "name": "Coahoma County",
+   "state": "Mississippi",
+   "slug": "coahoma-county",
+   "areakm": 1503.37,
+   "watersheds": 9,
+   "subwatersheds": 24,
+   "elo": 140,
+   "ehi": 198,
+   "bb": [
+    -90.97104,
+    -90.38753,
+    33.97569,
+    34.53398
+   ],
+   "metro": "Clarksdale",
+   "thumb": "watershed-maps/thumbs/28027.jpg"
+  },
+  {
+   "geoid": "28143",
+   "includes": [],
+   "name": "Tunica County",
+   "state": "Mississippi",
+   "slug": "tunica-county",
+   "areakm": 1227.67,
+   "watersheds": 6,
+   "subwatersheds": 17,
+   "elo": 162,
+   "ehi": 220,
+   "bb": [
+    -90.60178,
+    -90.18854,
+    34.41381,
+    34.90174
+   ],
+   "metro": "Tunica",
+   "thumb": "watershed-maps/thumbs/28143.jpg"
+  },
+  {
+   "geoid": "28149",
+   "includes": [],
+   "name": "Warren County",
+   "state": "Mississippi",
+   "slug": "warren-county",
+   "areakm": 1596.4,
+   "watersheds": 10,
+   "subwatersheds": 27,
+   "elo": 58,
+   "ehi": 375,
+   "bb": [
+    -91.18455,
+    -90.54382,
+    32.06834,
+    32.62886
+   ],
+   "metro": "Vicksburg",
+   "thumb": "watershed-maps/thumbs/28149.jpg"
+  },
+  {
+   "geoid": "28151",
+   "includes": [],
+   "name": "Washington County",
+   "state": "Mississippi",
+   "slug": "washington-county",
+   "areakm": 1961.71,
+   "watersheds": 13,
+   "subwatersheds": 38,
+   "elo": 95,
+   "ehi": 149,
+   "bb": [
+    -91.24593,
+    -90.66866,
+    32.9977,
+    33.54044
+   ],
+   "metro": "Greenville",
+   "thumb": "watershed-maps/thumbs/28151.jpg"
   },
   {
    "geoid": "29019",
@@ -262,6 +1322,138 @@
    "thumb": "watershed-maps/thumbs/29095.jpg"
   },
   {
+   "geoid": "29099",
+   "includes": [],
+   "name": "Jefferson County",
+   "state": "Missouri",
+   "slug": "jefferson-county",
+   "areakm": 1711.5,
+   "watersheds": 8,
+   "subwatersheds": 29,
+   "elo": 373,
+   "ehi": 981,
+   "bb": [
+    -90.79019,
+    -90.23986,
+    37.9935,
+    38.51174
+   ],
+   "metro": "Arnold, Festus and Crystal City",
+   "thumb": "watershed-maps/thumbs/29099.jpg"
+  },
+  {
+   "geoid": "29111",
+   "includes": [],
+   "name": "Lewis County",
+   "state": "Missouri",
+   "slug": "lewis-county",
+   "areakm": 1315.65,
+   "watersheds": 8,
+   "subwatersheds": 22,
+   "elo": 470,
+   "ehi": 744,
+   "bb": [
+    -91.96273,
+    -91.42548,
+    39.93528,
+    40.26721
+   ],
+   "metro": "Canton and LaGrange",
+   "thumb": "watershed-maps/thumbs/29111.jpg"
+  },
+  {
+   "geoid": "29127",
+   "includes": [],
+   "name": "Marion County",
+   "state": "Missouri",
+   "slug": "marion-county",
+   "areakm": 1143.68,
+   "watersheds": 10,
+   "subwatersheds": 20,
+   "elo": 464,
+   "ehi": 763,
+   "bb": [
+    -91.85675,
+    -91.29668,
+    39.64737,
+    39.95823
+   ],
+   "metro": "Hannibal",
+   "thumb": "watershed-maps/thumbs/29127.jpg"
+  },
+  {
+   "geoid": "29143",
+   "includes": [],
+   "name": "New Madrid County",
+   "state": "Missouri",
+   "slug": "new-madrid-county",
+   "areakm": 1796.22,
+   "watersheds": 9,
+   "subwatersheds": 25,
+   "elo": 262,
+   "ehi": 328,
+   "bb": [
+    -89.98248,
+    -89.31748,
+    36.32681,
+    36.88091
+   ],
+   "metro": "New Madrid",
+   "thumb": "watershed-maps/thumbs/29143.jpg"
+  },
+  {
+   "geoid": "29155",
+   "includes": [],
+   "name": "Pemiscot County",
+   "state": "Missouri",
+   "slug": "pemiscot-county",
+   "areakm": 1323.84,
+   "watersheds": 6,
+   "subwatersheds": 26,
+   "elo": 236,
+   "ehi": 291,
+   "bb": [
+    -89.9717,
+    -89.52451,
+    35.98902,
+    36.43766
+   ],
+   "metro": "Caruthersville",
+   "thumb": "watershed-maps/thumbs/29155.jpg"
+  },
+  {
+   "geoid": "29163",
+   "includes": [],
+   "name": "Pike County",
+   "state": "Missouri",
+   "slug": "pike-county",
+   "areakm": 1763.27,
+   "watersheds": 9,
+   "subwatersheds": 25,
+   "elo": 438,
+   "ehi": 959,
+   "bb": [
+    -91.47044,
+    -90.71119,
+    39.12905,
+    39.60835
+   ],
+   "metro": "Louisiana and Clarksville",
+   "thumb": "watershed-maps/thumbs/29163.jpg"
+  },
+  {
+   "geoid": "29183",
+   "name": "St. Charles County",
+   "state": "Missouri",
+   "url": "watershed-maps/st-charles/",
+   "watersheds": 7,
+   "subwatersheds": 26,
+   "areakm": 1525.9,
+   "thumb": "watershed-maps/thumbs/29183.jpg",
+   "includes": [],
+   "metro": "St. Charles and West Alton"
+  },
+  {
    "geoid": "29189",
    "includes": [
     [
@@ -285,6 +1477,26 @@
    ],
    "metro": "St. Louis",
    "thumb": "watershed-maps/thumbs/29189.jpg"
+  },
+  {
+   "geoid": "29186",
+   "includes": [],
+   "name": "Ste. Genevieve County",
+   "state": "Missouri",
+   "slug": "ste-genevieve-county",
+   "areakm": 1306.05,
+   "watersheds": 6,
+   "subwatersheds": 27,
+   "elo": 358,
+   "ehi": 1194,
+   "bb": [
+    -90.46913,
+    -89.91481,
+    37.65963,
+    38.13781
+   ],
+   "metro": "Ste. Genevieve",
+   "thumb": "watershed-maps/thumbs/29186.jpg"
   },
   {
    "geoid": "31055",
@@ -407,6 +1619,66 @@
    "thumb": "watershed-maps/thumbs/46099.jpg"
   },
   {
+   "geoid": "47095",
+   "includes": [],
+   "name": "Lake County",
+   "state": "Tennessee",
+   "slug": "lake-county",
+   "areakm": 499.43,
+   "watersheds": 4,
+   "subwatersheds": 6,
+   "elo": 244,
+   "ehi": 319,
+   "bb": [
+    -89.71555,
+    -89.33016,
+    36.17538,
+    36.51321
+   ],
+   "metro": "Tiptonville and Ridgely",
+   "thumb": "watershed-maps/thumbs/47095.jpg"
+  },
+  {
+   "geoid": "47157",
+   "includes": [],
+   "name": "Shelby County",
+   "state": "Tennessee",
+   "slug": "shelby-county",
+   "areakm": 2013.53,
+   "watersheds": 9,
+   "subwatersheds": 27,
+   "elo": 190,
+   "ehi": 425,
+   "bb": [
+    -90.32045,
+    -89.62278,
+    34.98419,
+    35.41948
+   ],
+   "metro": "Memphis",
+   "thumb": "watershed-maps/thumbs/47157.jpg"
+  },
+  {
+   "geoid": "55023",
+   "includes": [],
+   "name": "Crawford County",
+   "state": "Wisconsin",
+   "slug": "crawford-county",
+   "areakm": 1543.03,
+   "watersheds": 7,
+   "subwatersheds": 28,
+   "elo": 614,
+   "ehi": 1289,
+   "bb": [
+    -91.22499,
+    -90.65582,
+    42.97817,
+    43.43455
+   ],
+   "metro": "Prairie du Chien",
+   "thumb": "watershed-maps/thumbs/55023.jpg"
+  },
+  {
    "geoid": "55025",
    "includes": [],
    "name": "Dane County",
@@ -427,6 +1699,26 @@
    "thumb": "watershed-maps/thumbs/55025.jpg"
   },
   {
+   "geoid": "55063",
+   "includes": [],
+   "name": "La Crosse County",
+   "state": "Wisconsin",
+   "slug": "la-crosse-county",
+   "areakm": 1235.24,
+   "watersheds": 7,
+   "subwatersheds": 24,
+   "elo": 630,
+   "ehi": 1368,
+   "bb": [
+    -91.43519,
+    -90.90007,
+    43.7149,
+    44.10058
+   ],
+   "metro": "La Crosse",
+   "thumb": "watershed-maps/thumbs/55063.jpg"
+  },
+  {
    "geoid": "55079",
    "includes": [],
    "name": "Milwaukee County",
@@ -445,6 +1737,26 @@
    ],
    "metro": "Milwaukee",
    "thumb": "watershed-maps/thumbs/55079.jpg"
+  },
+  {
+   "geoid": "55093",
+   "includes": [],
+   "name": "Pierce County",
+   "state": "Wisconsin",
+   "slug": "pierce-county",
+   "areakm": 1524.89,
+   "watersheds": 9,
+   "subwatersheds": 28,
+   "elo": 666,
+   "ehi": 1263,
+   "bb": [
+    -92.81799,
+    -92.12481,
+    44.52948,
+    44.87267
+   ],
+   "metro": "Prescott",
+   "thumb": "watershed-maps/thumbs/55093.jpg"
   }
  ]
 }

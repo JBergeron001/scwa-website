@@ -1,0 +1,207 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Orleans Parish",
+  "note": ""
+ },
+ "0809020201": {
+  "watershed": "Lake Pontchartrain",
+  "note": ""
+ },
+ "0809020303": {
+  "watershed": "Mississippi River Gulf Outlet Canal-Frontal Lake Borgne",
+  "note": ""
+ },
+ "0809020302": {
+  "watershed": "Bayou Sauvage-Frontal Chef Menteur Pass",
+  "note": ""
+ },
+ "0809020301": {
+  "watershed": "Canal Number Two-Frontal Lake Pontchartrain",
+  "note": ""
+ },
+ "0809030103": {
+  "watershed": "Bayou Des Allemands-Lake Salvador",
+  "note": ""
+ },
+ "0809010001": {
+  "watershed": "Bonnet Carre Spillway-Mississippi River",
+  "note": ""
+ },
+ "0809030104": {
+  "watershed": "Bayou Perot-Little Lake",
+  "note": ""
+ },
+ "0809020305": {
+  "watershed": "Bayou Gentilly-Bayou Terre aux Boeufs",
+  "note": ""
+ },
+ "080902020100": {
+  "subwatershed": "Lake Pontchartrain",
+  "note": ""
+ },
+ "080902030303": {
+  "subwatershed": "Lake Saint Catherine-Frontal Lake Borgne",
+  "note": ""
+ },
+ "080902030302": {
+  "subwatershed": "Mississippi River Gulf Outlet Canal-Frontal Lake Borgne",
+  "note": ""
+ },
+ "080902030301": {
+  "subwatershed": "Bayou Bienvenue",
+  "note": ""
+ },
+ "080902030202": {
+  "subwatershed": "Bayou Sauvage-Frontal Chef Menteur Pass",
+  "note": ""
+ },
+ "080902030201": {
+  "subwatershed": "Morrison Canal",
+  "note": ""
+ },
+ "080902030103": {
+  "subwatershed": "Bayou Saint John-Canal Number Two",
+  "note": ""
+ },
+ "080902030101": {
+  "subwatershed": "Bayou La Branche-Frontal Lake Pontchartrain",
+  "note": ""
+ },
+ "080902030102": {
+  "subwatershed": "Duncan Canal-Canal Number Two",
+  "note": ""
+ },
+ "080903010309": {
+  "subwatershed": "City of Gretna-Intracoastal Waterway",
+  "note": ""
+ },
+ "080903010312": {
+  "subwatershed": "Lake Salvador",
+  "note": ""
+ },
+ "080903010301": {
+  "subwatershed": "Bayou des Allemands",
+  "note": ""
+ },
+ "080903010307": {
+  "subwatershed": "Town of Westwego-Main Canal",
+  "note": ""
+ },
+ "080903010305": {
+  "subwatershed": "Lake Cataouatche-Frontal Lake Salvador",
+  "note": ""
+ },
+ "080903010308": {
+  "subwatershed": "Forty Arpent Canal-Bayou Lafourche",
+  "note": ""
+ },
+ "080903010306": {
+  "subwatershed": "Simoneaux Ponds-Frontal Lake Salvador",
+  "note": ""
+ },
+ "080903010310": {
+  "subwatershed": "Bayou Bardeaux-Frontal Lake Salvador",
+  "note": ""
+ },
+ "080903010303": {
+  "subwatershed": "Town of Boutte-Grand Bayou",
+  "note": ""
+ },
+ "080903010304": {
+  "subwatershed": "Town of Mathews-Bayou Lafourche",
+  "note": ""
+ },
+ "080903010311": {
+  "subwatershed": "Bayou Vacherie-Frontal Lake Salvador",
+  "note": ""
+ },
+ "080903010302": {
+  "subwatershed": "Town of Des Allemands-Crawford Canal",
+  "note": ""
+ },
+ "080901000101": {
+  "subwatershed": "City of New Orleans-Mississippi River",
+  "note": ""
+ },
+ "080901000102": {
+  "subwatershed": "Grand Pass-Mississippi River",
+  "note": ""
+ },
+ "080903010404": {
+  "subwatershed": "Planters Canal",
+  "note": ""
+ },
+ "080903010410": {
+  "subwatershed": "Little Lake",
+  "note": ""
+ },
+ "080903010408": {
+  "subwatershed": "Bayou Dupont",
+  "note": ""
+ },
+ "080903010405": {
+  "subwatershed": "The Pen",
+  "note": ""
+ },
+ "080903010402": {
+  "subwatershed": "Delta Farms",
+  "note": ""
+ },
+ "080903010407": {
+  "subwatershed": "Brusle Lake-Frontal Little Lake",
+  "note": ""
+ },
+ "080903010411": {
+  "subwatershed": "Round Lake-Frontal Mud Lake",
+  "note": ""
+ },
+ "080903010406": {
+  "subwatershed": "Breton Canal-Bayou Lafourche",
+  "note": ""
+ },
+ "080903010401": {
+  "subwatershed": "Bayou Perot",
+  "note": ""
+ },
+ "080903010409": {
+  "subwatershed": "Dupre Cut-Frontal Little Lake",
+  "note": ""
+ },
+ "080903010403": {
+  "subwatershed": "Bayou Des Amoreux-Frontal Little Lake",
+  "note": ""
+ },
+ "080902030501": {
+  "subwatershed": "Bayou Terre aux Boeufs-Fourty Arpent Canal",
+  "note": ""
+ },
+ "080902030508": {
+  "subwatershed": "Grand Lake-Bayou Long",
+  "note": ""
+ },
+ "080902030506": {
+  "subwatershed": "Manuel Canal-Spanish Lake",
+  "note": ""
+ },
+ "080902030504": {
+  "subwatershed": "River aux Chenes-Fourty Arpent Canal",
+  "note": ""
+ },
+ "080902030503": {
+  "subwatershed": "Joe Brown Canal-Fourty Arpent Canal",
+  "note": ""
+ },
+ "080902030502": {
+  "subwatershed": "Creedmore Canal-Fourty Arpent Canal",
+  "note": ""
+ },
+ "080902030505": {
+  "subwatershed": "Lake Lery-Bayou Terre Aux Boeufs",
+  "note": ""
+ },
+ "080902030507": {
+  "subwatershed": "Reggio Canal-Bayou la Chape",
+  "note": ""
+ }
+}

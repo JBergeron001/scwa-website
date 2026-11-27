@@ -1,0 +1,175 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Anoka County",
+  "note": ""
+ },
+ "0701020707": {
+  "watershed": "Lower Rum River",
+  "note": ""
+ },
+ "0701020602": {
+  "watershed": "Coon Creek",
+  "note": ""
+ },
+ "0701020603": {
+  "watershed": "Rice Creek",
+  "note": ""
+ },
+ "0703000504": {
+  "watershed": "Sunrise River",
+  "note": ""
+ },
+ "0701020706": {
+  "watershed": "Cedar Creek",
+  "note": ""
+ },
+ "0701020607": {
+  "watershed": "City of Minneapolis-Mississippi River",
+  "note": ""
+ },
+ "0701020608": {
+  "watershed": "City of Saint Paul-Mississippi River",
+  "note": ""
+ },
+ "070102070705": {
+  "subwatershed": "Ford Brook",
+  "note": ""
+ },
+ "070102070704": {
+  "subwatershed": "City of Saint Francis-Rum River",
+  "note": ""
+ },
+ "070102070707": {
+  "subwatershed": "Rum River",
+  "note": ""
+ },
+ "070102070706": {
+  "subwatershed": "Trott Brook",
+  "note": ""
+ },
+ "070102070703": {
+  "subwatershed": "Seelye Brook",
+  "note": ""
+ },
+ "070102070702": {
+  "subwatershed": "City of Isanti-Rum River",
+  "note": ""
+ },
+ "070102070701": {
+  "subwatershed": "Isanti Brook",
+  "note": ""
+ },
+ "070102060203": {
+  "subwatershed": "Lower Coon Creek",
+  "note": ""
+ },
+ "070102060201": {
+  "subwatershed": "Upper Coon Creek",
+  "note": ""
+ },
+ "070102060202": {
+  "subwatershed": "Sand Creek",
+  "note": ""
+ },
+ "070102060304": {
+  "subwatershed": "Rice Lake-Rice Creek",
+  "note": ""
+ },
+ "070102060301": {
+  "subwatershed": "Headwaters Rice Creek",
+  "note": ""
+ },
+ "070102060305": {
+  "subwatershed": "Turtle Lake-Rice Creek",
+  "note": ""
+ },
+ "070102060303": {
+  "subwatershed": "Clearwater Creek",
+  "note": ""
+ },
+ "070102060306": {
+  "subwatershed": "Long Lake-Rice Creek",
+  "note": ""
+ },
+ "070102060302": {
+  "subwatershed": "Hardwood Creek",
+  "note": ""
+ },
+ "070300050404": {
+  "subwatershed": "South Branch Sunrise River",
+  "note": ""
+ },
+ "070300050405": {
+  "subwatershed": "West Branch Sunrise River",
+  "note": ""
+ },
+ "070300050403": {
+  "subwatershed": "Comfort Lake-Sunrise River",
+  "note": ""
+ },
+ "070300050406": {
+  "subwatershed": "Green Lake",
+  "note": ""
+ },
+ "070300050408": {
+  "subwatershed": "Sunrise River",
+  "note": ""
+ },
+ "070300050407": {
+  "subwatershed": "Mud Lake-Sunrise River",
+  "note": ""
+ },
+ "070300050402": {
+  "subwatershed": "Bone Lake",
+  "note": ""
+ },
+ "070300050401": {
+  "subwatershed": "Forest Lake-Sunrise River",
+  "note": ""
+ },
+ "070102070603": {
+  "subwatershed": "Lower Cedar Creek",
+  "note": ""
+ },
+ "070102070601": {
+  "subwatershed": "Upper Cedar Creek",
+  "note": ""
+ },
+ "070102070602": {
+  "subwatershed": "Crooked Brook",
+  "note": ""
+ },
+ "070102060702": {
+  "subwatershed": "Durnam Island-Mississippi River",
+  "note": ""
+ },
+ "070102060701": {
+  "subwatershed": "Cloquet Island-Mississippi River",
+  "note": ""
+ },
+ "070102060703": {
+  "subwatershed": "Saint Anthony Falls-Mississippi River",
+  "note": ""
+ },
+ "070102060801": {
+  "subwatershed": "Vadnais Lake",
+  "note": ""
+ },
+ "070102060805": {
+  "subwatershed": "Harriet Island-Mississippi River",
+  "note": ""
+ },
+ "070102060803": {
+  "subwatershed": "Lake Phalen",
+  "note": ""
+ },
+ "070102060802": {
+  "subwatershed": "McCarrons Lake",
+  "note": ""
+ },
+ "070102060804": {
+  "subwatershed": "Battle Creek",
+  "note": ""
+ }
+}

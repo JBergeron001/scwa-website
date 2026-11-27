@@ -1,0 +1,303 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "St. Clair County",
+  "note": ""
+ },
+ "0714020405": {
+  "watershed": "Silver Creek",
+  "note": ""
+ },
+ "0714020406": {
+  "watershed": "Richland Creek",
+  "note": ""
+ },
+ "0714020409": {
+  "watershed": "Kaskaskia River",
+  "note": ""
+ },
+ "0714010105": {
+  "watershed": "Prairie duPont Creek-Mississippi River",
+  "note": ""
+ },
+ "0714020403": {
+  "watershed": "Mud Creek",
+  "note": ""
+ },
+ "0714010103": {
+  "watershed": "Canteen Creek-Cahokia Creek",
+  "note": ""
+ },
+ "0714010104": {
+  "watershed": "Maline Creek-Mississippi River",
+  "note": ""
+ },
+ "0714020401": {
+  "watershed": "Sugar Creek",
+  "note": ""
+ },
+ "0714020407": {
+  "watershed": "Plum Creek",
+  "note": ""
+ },
+ "0714010106": {
+  "watershed": "Rock Creek-Mississippi River",
+  "note": ""
+ },
+ "071402040512": {
+  "subwatershed": "Jacks Run-Silver Creek",
+  "note": ""
+ },
+ "071402040508": {
+  "subwatershed": "East Branch Little Silver Creek",
+  "note": ""
+ },
+ "071402040511": {
+  "subwatershed": "Loop Creek",
+  "note": ""
+ },
+ "071402040509": {
+  "subwatershed": "Mill Creek-Silver Creek",
+  "note": ""
+ },
+ "071402040510": {
+  "subwatershed": "Scott Lake-Silver Creek",
+  "note": ""
+ },
+ "071402040507": {
+  "subwatershed": "Ogles Creek",
+  "note": ""
+ },
+ "071402040503": {
+  "subwatershed": "Town of Hamel-Silver Creek",
+  "note": ""
+ },
+ "071402040502": {
+  "subwatershed": "Town of Livingston-Silver Creek",
+  "note": ""
+ },
+ "071402040506": {
+  "subwatershed": "Wendell Branch-Silver Creek",
+  "note": ""
+ },
+ "071402040501": {
+  "subwatershed": "Town of Mount Olive-Silver Creek",
+  "note": ""
+ },
+ "071402040505": {
+  "subwatershed": "Town of Marine-Silver Creek",
+  "note": ""
+ },
+ "071402040504": {
+  "subwatershed": "Town of Fruit-Silver Creek",
+  "note": ""
+ },
+ "071402040605": {
+  "subwatershed": "West Fork Richland Creek",
+  "note": ""
+ },
+ "071402040604": {
+  "subwatershed": "Sugar Creek-Richland Creek",
+  "note": ""
+ },
+ "071402040603": {
+  "subwatershed": "Douglas Creek",
+  "note": ""
+ },
+ "071402040606": {
+  "subwatershed": "Kinney Branch-Richland Creek",
+  "note": ""
+ },
+ "071402040602": {
+  "subwatershed": "Stolberg Lake-Richland Creek",
+  "note": ""
+ },
+ "071402040601": {
+  "subwatershed": "Wolf Branch-Richland Creek",
+  "note": ""
+ },
+ "071402040608": {
+  "subwatershed": "Prairie du Long Creek",
+  "note": ""
+ },
+ "071402040611": {
+  "subwatershed": "Long Lake-Richland Creek",
+  "note": ""
+ },
+ "071402040609": {
+  "subwatershed": "Rockhouse Creek-Prairie du Long Creek",
+  "note": ""
+ },
+ "071402040607": {
+  "subwatershed": "Walters Creek",
+  "note": ""
+ },
+ "071402040610": {
+  "subwatershed": "Black Creek",
+  "note": ""
+ },
+ "071402040907": {
+  "subwatershed": "Doza Creek",
+  "note": ""
+ },
+ "071402040903": {
+  "subwatershed": "Rayhill Slough",
+  "note": ""
+ },
+ "071402040905": {
+  "subwatershed": "Drum Hill Branch-Kaskaskia River",
+  "note": ""
+ },
+ "071402040906": {
+  "subwatershed": "Lively Branch-Kaskaskia River",
+  "note": ""
+ },
+ "071402040904": {
+  "subwatershed": "Dyer Pond-Kaskaskia River",
+  "note": ""
+ },
+ "071402040901": {
+  "subwatershed": "Queen Lake Branch",
+  "note": ""
+ },
+ "071402040908": {
+  "subwatershed": "Baldwin Lake-Kaskaskia River",
+  "note": ""
+ },
+ "071402040902": {
+  "subwatershed": "Sipple Slough-Kaskaskia River",
+  "note": ""
+ },
+ "071402040910": {
+  "subwatershed": "Camp Creek-Kaskaskia River",
+  "note": ""
+ },
+ "071402040909": {
+  "subwatershed": "Ninemile Creek",
+  "note": ""
+ },
+ "071401010503": {
+  "subwatershed": "Lower Prairie duPont Creek",
+  "note": ""
+ },
+ "071401010502": {
+  "subwatershed": "Schoenberger Creek",
+  "note": ""
+ },
+ "071401010501": {
+  "subwatershed": "Upper Prairie duPont Creek",
+  "note": ""
+ },
+ "071401010507": {
+  "subwatershed": "Palmer Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010504": {
+  "subwatershed": "Deer Creek",
+  "note": ""
+ },
+ "071401010506": {
+  "subwatershed": "River des Peres",
+  "note": ""
+ },
+ "071401010505": {
+  "subwatershed": "Gravois Creek",
+  "note": ""
+ },
+ "071402040304": {
+  "subwatershed": "Wagon Lake-Little Mud Creek",
+  "note": ""
+ },
+ "071402040305": {
+  "subwatershed": "Town of Biddleborn-Mud Creek",
+  "note": ""
+ },
+ "071402040302": {
+  "subwatershed": "South Fork Mud Creek-Mud Creek",
+  "note": ""
+ },
+ "071402040303": {
+  "subwatershed": "Little Mud Creek",
+  "note": ""
+ },
+ "071402040301": {
+  "subwatershed": "Archie Creek-Mud Creek",
+  "note": ""
+ },
+ "071401010303": {
+  "subwatershed": "Schoolhouse Branch-Cahokia Creek",
+  "note": ""
+ },
+ "071401010302": {
+  "subwatershed": "Canteen Creek",
+  "note": ""
+ },
+ "071401010301": {
+  "subwatershed": "Judys Branch-Cahokia Creek",
+  "note": ""
+ },
+ "071401010403": {
+  "subwatershed": "Schoenberger Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010401": {
+  "subwatershed": "Maline Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010402": {
+  "subwatershed": "Horseshoe Lake",
+  "note": ""
+ },
+ "071402040104": {
+  "subwatershed": "Sportsman Lake-Sugar Creek",
+  "note": ""
+ },
+ "071402040102": {
+  "subwatershed": "Buckeye Branch-Sugar Creek",
+  "note": ""
+ },
+ "071402040106": {
+  "subwatershed": "Grassy Branch-Sugar Creek",
+  "note": ""
+ },
+ "071402040101": {
+  "subwatershed": "Town of Pierron-Sugar Creek",
+  "note": ""
+ },
+ "071402040105": {
+  "subwatershed": "Lake Branch",
+  "note": ""
+ },
+ "071402040103": {
+  "subwatershed": "Spanker Branch",
+  "note": ""
+ },
+ "071402040701": {
+  "subwatershed": "Town of Tilden-Plum Creek",
+  "note": ""
+ },
+ "071402040704": {
+  "subwatershed": "Schaffner Lake-Plum Creek",
+  "note": ""
+ },
+ "071402040702": {
+  "subwatershed": "Town of Sparta-Plum Creek",
+  "note": ""
+ },
+ "071402040703": {
+  "subwatershed": "Little Plum Creek",
+  "note": ""
+ },
+ "071401010603": {
+  "subwatershed": "Carr Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010602": {
+  "subwatershed": "Glaize Creek",
+  "note": ""
+ },
+ "071401010601": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ }
+}

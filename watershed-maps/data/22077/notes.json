@@ -1,0 +1,259 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Pointe Coupee Parish",
+  "note": ""
+ },
+ "0807030001": {
+  "watershed": "Bayou Fordoche-Bayou Grosse Tete",
+  "note": ""
+ },
+ "0808010101": {
+  "watershed": "Upper Atchafalaya River",
+  "note": ""
+ },
+ "0808010102": {
+  "watershed": "Middle Atchafalaya River",
+  "note": ""
+ },
+ "0807030002": {
+  "watershed": "Bayou Cholpe-Choctaw Bayou",
+  "note": ""
+ },
+ "0807010001": {
+  "watershed": "Raccourci Island-Mississippi River",
+  "note": ""
+ },
+ "0808010104": {
+  "watershed": "Atchafalaya Basin Main Channel",
+  "note": ""
+ },
+ "0804030105": {
+  "watershed": "Long Bayou-Red River",
+  "note": ""
+ },
+ "0807030003": {
+  "watershed": "Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000102": {
+  "subwatershed": "Portage Canal Number One-Portage Canal Number Two",
+  "note": ""
+ },
+ "080703000101": {
+  "subwatershed": "False River",
+  "note": ""
+ },
+ "080703000104": {
+  "subwatershed": "Bayou Fordoche-Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000103": {
+  "subwatershed": "Portage Canal Number Two",
+  "note": ""
+ },
+ "080801010106": {
+  "subwatershed": "Morris Bayou-Johnson Bayou",
+  "note": ""
+ },
+ "080801010108": {
+  "subwatershed": "Bayou Latenache Drainage Canal-Johnson Bayou",
+  "note": ""
+ },
+ "080801010107": {
+  "subwatershed": "Bayou Latenache",
+  "note": ""
+ },
+ "080801010105": {
+  "subwatershed": "Bayou Thornton",
+  "note": ""
+ },
+ "080801010104": {
+  "subwatershed": "Bayou Moreau",
+  "note": ""
+ },
+ "080801010103": {
+  "subwatershed": "McCrea Lake-Atchafalaya River",
+  "note": ""
+ },
+ "080801010109": {
+  "subwatershed": "Turners Bayou",
+  "note": ""
+ },
+ "080801010110": {
+  "subwatershed": "Bayou Current",
+  "note": ""
+ },
+ "080801010111": {
+  "subwatershed": "Bayou Ha Ha",
+  "note": ""
+ },
+ "080801010101": {
+  "subwatershed": "Bayou Courville",
+  "note": ""
+ },
+ "080801010102": {
+  "subwatershed": "Bayou Des Glaises",
+  "note": ""
+ },
+ "080801010112": {
+  "subwatershed": "Swayze Lake",
+  "note": ""
+ },
+ "080801010201": {
+  "subwatershed": "Johnson Bayou",
+  "note": ""
+ },
+ "080801010202": {
+  "subwatershed": "Alabama Bayou",
+  "note": ""
+ },
+ "080801010205": {
+  "subwatershed": "Bayou Courtableau-Atchafalaya River",
+  "note": ""
+ },
+ "080801010207": {
+  "subwatershed": "Henderson Swamp",
+  "note": ""
+ },
+ "080801010203": {
+  "subwatershed": "Darbonne Bay",
+  "note": ""
+ },
+ "080801010206": {
+  "subwatershed": "Bayou Fusilier of the Swamps-Bayou Fordoche",
+  "note": ""
+ },
+ "080801010204": {
+  "subwatershed": "Bayou Courtableau-Bayou Fordoche",
+  "note": ""
+ },
+ "080703000201": {
+  "subwatershed": "Cholpe Bayou-Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000202": {
+  "subwatershed": "Bayou Poydras-Stumpy Bayou",
+  "note": ""
+ },
+ "080703000203": {
+  "subwatershed": "Bayou Clause-Grand Bayou",
+  "note": ""
+ },
+ "080703000204": {
+  "subwatershed": "Alligator Bayou-Choctaw Bayou",
+  "note": ""
+ },
+ "080703000207": {
+  "subwatershed": "Bayou Bourbeaux",
+  "note": ""
+ },
+ "080703000205": {
+  "subwatershed": "Gulf Intracoastal Waterway-Choctaw Basin Drainage Canal",
+  "note": ""
+ },
+ "080703000208": {
+  "subwatershed": "Bayou Plaquemine",
+  "note": ""
+ },
+ "080703000206": {
+  "subwatershed": "Choctaw Bayou",
+  "note": ""
+ },
+ "080701000101": {
+  "subwatershed": "Little Island-Mississippi River",
+  "note": ""
+ },
+ "080701000102": {
+  "subwatershed": "Raccourci Island",
+  "note": ""
+ },
+ "080701000103": {
+  "subwatershed": "Profit Island-Mississippi River",
+  "note": ""
+ },
+ "080701000105": {
+  "subwatershed": "Claiborne Island-Mississippi River",
+  "note": ""
+ },
+ "080701000104": {
+  "subwatershed": "Manchac Point-Mississippi River",
+  "note": ""
+ },
+ "080801010401": {
+  "subwatershed": "Bayou Des Glaises-Bayou Burron",
+  "note": ""
+ },
+ "080801010406": {
+  "subwatershed": "Lake Fausse Pointe Cut-Lower Lake Long Pass",
+  "note": ""
+ },
+ "080801010405": {
+  "subwatershed": "Lake Rond",
+  "note": ""
+ },
+ "080801010403": {
+  "subwatershed": "Upper Grand River-Atchafalaya River",
+  "note": ""
+ },
+ "080801010402": {
+  "subwatershed": "Little Tensas Bayou",
+  "note": ""
+ },
+ "080801010408": {
+  "subwatershed": "Atchafalaya Basin Main Channel-Wax Lake Outlet",
+  "note": ""
+ },
+ "080801010404": {
+  "subwatershed": "Little Gonsoulin Bayou",
+  "note": ""
+ },
+ "080801010407": {
+  "subwatershed": "Lower Lake Long Pass-Grand Lake",
+  "note": ""
+ },
+ "080403010505": {
+  "subwatershed": "Lower Old River-Red River",
+  "note": ""
+ },
+ "080403010501": {
+  "subwatershed": "Bayou Milligan-Red River",
+  "note": ""
+ },
+ "080403010502": {
+  "subwatershed": "Bayou Natchitoches",
+  "note": ""
+ },
+ "080403010503": {
+  "subwatershed": "Long Bayou-Alligator Bayou",
+  "note": ""
+ },
+ "080403010504": {
+  "subwatershed": "Bayou Natchitoches-Red River",
+  "note": ""
+ },
+ "080703000301": {
+  "subwatershed": "Bayou Maringouin",
+  "note": ""
+ },
+ "080703000305": {
+  "subwatershed": "Bayou Blue-Grand River",
+  "note": ""
+ },
+ "080703000306": {
+  "subwatershed": "Bayou Richard-Lower Grand River",
+  "note": ""
+ },
+ "080703000304": {
+  "subwatershed": "Bear Bayou-Catfish Canal",
+  "note": ""
+ },
+ "080703000302": {
+  "subwatershed": "Grand Bayou-Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000303": {
+  "subwatershed": "Caney Bayou-Bayou Grosse Tete",
+  "note": ""
+ }
+}

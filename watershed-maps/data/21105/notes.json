@@ -1,0 +1,111 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Hickman County",
+  "note": ""
+ },
+ "0801020105": {
+  "watershed": "Obion Creek",
+  "note": ""
+ },
+ "0801020104": {
+  "watershed": "Bayou De Chien",
+  "note": ""
+ },
+ "0801010002": {
+  "watershed": "Islands Nos 2 3 and 4-Mississippi River",
+  "note": ""
+ },
+ "0801020202": {
+  "watershed": "Lower North Fork Obion River",
+  "note": ""
+ },
+ "080102010507": {
+  "subwatershed": "Cane Creek-Obion Creek",
+  "note": ""
+ },
+ "080102010505": {
+  "subwatershed": "Russells Creek-Obion Creek",
+  "note": ""
+ },
+ "080102010506": {
+  "subwatershed": "Hurricane Creek-Obion Creek",
+  "note": ""
+ },
+ "080102010502": {
+  "subwatershed": "Brush Creek",
+  "note": ""
+ },
+ "080102010504": {
+  "subwatershed": "Little Creek",
+  "note": ""
+ },
+ "080102010503": {
+  "subwatershed": "Opossum Creek-Obion Creek",
+  "note": ""
+ },
+ "080102010501": {
+  "subwatershed": "Little Cypress Creek-Obion Creek",
+  "note": ""
+ },
+ "080102010404": {
+  "subwatershed": "Middle Bayou de Chien",
+  "note": ""
+ },
+ "080102010401": {
+  "subwatershed": "Upper Bayou de Chien",
+  "note": ""
+ },
+ "080102010402": {
+  "subwatershed": "Cane Creek",
+  "note": ""
+ },
+ "080102010403": {
+  "subwatershed": "Little Bayou de Chien",
+  "note": ""
+ },
+ "080102010405": {
+  "subwatershed": "Lower Bayou de Chien",
+  "note": ""
+ },
+ "080101000202": {
+  "subwatershed": "Wolf Island Number 5-Mississippi River",
+  "note": ""
+ },
+ "080101000201": {
+  "subwatershed": "Islands Nos 2 3 and 4-Mississippi River",
+  "note": ""
+ },
+ "080102020206": {
+  "subwatershed": "Harris Fork Creek",
+  "note": ""
+ },
+ "080102020203": {
+  "subwatershed": "Stephens Creek-North Fork Obion River",
+  "note": ""
+ },
+ "080102020201": {
+  "subwatershed": "Cypress Creek",
+  "note": ""
+ },
+ "080102020208": {
+  "subwatershed": "Outlet North Fork Obion River",
+  "note": ""
+ },
+ "080102020205": {
+  "subwatershed": "Hoosier Creek",
+  "note": ""
+ },
+ "080102020204": {
+  "subwatershed": "Wolf Creek-Richland Creek",
+  "note": ""
+ },
+ "080102020207": {
+  "subwatershed": "Little Cypress Creek",
+  "note": ""
+ },
+ "080102020202": {
+  "subwatershed": "Town of Highland",
+  "note": ""
+ }
+}

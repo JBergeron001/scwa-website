@@ -1,0 +1,367 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Randolph County",
+  "note": ""
+ },
+ "0714010502": {
+  "watershed": "Marys River",
+  "note": ""
+ },
+ "0714020409": {
+  "watershed": "Kaskaskia River",
+  "note": ""
+ },
+ "0714020407": {
+  "watershed": "Plum Creek",
+  "note": ""
+ },
+ "0714010109": {
+  "watershed": "Establishment Creek-Mississippi River",
+  "note": ""
+ },
+ "0714010501": {
+  "watershed": "Saline Creek-Mississippi River",
+  "note": ""
+ },
+ "0714020408": {
+  "watershed": "Horse Creek",
+  "note": ""
+ },
+ "0714010503": {
+  "watershed": "Cinque Hommes Creek-Mississippi River",
+  "note": ""
+ },
+ "0714020406": {
+  "watershed": "Richland Creek",
+  "note": ""
+ },
+ "0714020403": {
+  "watershed": "Mud Creek",
+  "note": ""
+ },
+ "0714010609": {
+  "watershed": "Galum Creek",
+  "note": ""
+ },
+ "071401050202": {
+  "subwatershed": "Lick Branch-Marys River",
+  "note": ""
+ },
+ "071401050203": {
+  "subwatershed": "Welge Creek-Little Marys River",
+  "note": ""
+ },
+ "071401050206": {
+  "subwatershed": "Mill Creek-Marys River",
+  "note": ""
+ },
+ "071401050204": {
+  "subwatershed": "Little Marys River",
+  "note": ""
+ },
+ "071401050201": {
+  "subwatershed": "Cox Creek",
+  "note": ""
+ },
+ "071401050205": {
+  "subwatershed": "Rockcastle Creek-Marys River",
+  "note": ""
+ },
+ "071402040910": {
+  "subwatershed": "Camp Creek-Kaskaskia River",
+  "note": ""
+ },
+ "071402040909": {
+  "subwatershed": "Ninemile Creek",
+  "note": ""
+ },
+ "071402040908": {
+  "subwatershed": "Baldwin Lake-Kaskaskia River",
+  "note": ""
+ },
+ "071402040907": {
+  "subwatershed": "Doza Creek",
+  "note": ""
+ },
+ "071402040906": {
+  "subwatershed": "Lively Branch-Kaskaskia River",
+  "note": ""
+ },
+ "071402040903": {
+  "subwatershed": "Rayhill Slough",
+  "note": ""
+ },
+ "071402040905": {
+  "subwatershed": "Drum Hill Branch-Kaskaskia River",
+  "note": ""
+ },
+ "071402040901": {
+  "subwatershed": "Queen Lake Branch",
+  "note": ""
+ },
+ "071402040902": {
+  "subwatershed": "Sipple Slough-Kaskaskia River",
+  "note": ""
+ },
+ "071402040904": {
+  "subwatershed": "Dyer Pond-Kaskaskia River",
+  "note": ""
+ },
+ "071402040704": {
+  "subwatershed": "Schaffner Lake-Plum Creek",
+  "note": ""
+ },
+ "071402040702": {
+  "subwatershed": "Town of Sparta-Plum Creek",
+  "note": ""
+ },
+ "071402040701": {
+  "subwatershed": "Town of Tilden-Plum Creek",
+  "note": ""
+ },
+ "071402040703": {
+  "subwatershed": "Little Plum Creek",
+  "note": ""
+ },
+ "071401010910": {
+  "subwatershed": "Moro Island-Mississippi River",
+  "note": ""
+ },
+ "071401010909": {
+  "subwatershed": "Prairie Du Rocher Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010905": {
+  "subwatershed": "Brickleys Hollow-Mississippi River",
+  "note": ""
+ },
+ "071401010904": {
+  "subwatershed": "Old Maeystown Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010907": {
+  "subwatershed": "Headwaters Establishment Creek",
+  "note": ""
+ },
+ "071401010906": {
+  "subwatershed": "Fourche a Du Clos",
+  "note": ""
+ },
+ "071401010901": {
+  "subwatershed": "Monroe City Creek",
+  "note": ""
+ },
+ "071401010908": {
+  "subwatershed": "Establishment Creek",
+  "note": ""
+ },
+ "071401010902": {
+  "subwatershed": "Maeystown Creek",
+  "note": ""
+ },
+ "071401010903": {
+  "subwatershed": "Isle du Bois Creek",
+  "note": ""
+ },
+ "071401050114": {
+  "subwatershed": "Old River-Mississippi River",
+  "note": ""
+ },
+ "071401050101": {
+  "subwatershed": "Kaskaskia Island",
+  "note": ""
+ },
+ "071401050109": {
+  "subwatershed": "Middle South Fork Saline Creek",
+  "note": ""
+ },
+ "071401050108": {
+  "subwatershed": "Upper South Fork Saline Creek",
+  "note": ""
+ },
+ "071401050107": {
+  "subwatershed": "Coldwater Creek-Saline Creek",
+  "note": ""
+ },
+ "071401050104": {
+  "subwatershed": "Middle River aux Vases",
+  "note": ""
+ },
+ "071401050111": {
+  "subwatershed": "Brushy Creek-Saline Creek",
+  "note": ""
+ },
+ "071401050102": {
+  "subwatershed": "Jonca Creek",
+  "note": ""
+ },
+ "071401050103": {
+  "subwatershed": "Upper River aux Vases",
+  "note": ""
+ },
+ "071401050110": {
+  "subwatershed": "Lower South Fork Saline Creek",
+  "note": ""
+ },
+ "071401050106": {
+  "subwatershed": "Madden Creek",
+  "note": ""
+ },
+ "071401050113": {
+  "subwatershed": "Saline Creek",
+  "note": ""
+ },
+ "071401050105": {
+  "subwatershed": "Lower River aux Vases",
+  "note": ""
+ },
+ "071401050112": {
+  "subwatershed": "Little Saline Creek",
+  "note": ""
+ },
+ "071402040804": {
+  "subwatershed": "Horse Prairie-Horse Creek",
+  "note": ""
+ },
+ "071402040803": {
+  "subwatershed": "Paint Creek-Horse Creek",
+  "note": ""
+ },
+ "071402040801": {
+  "subwatershed": "South Fork Horse Creek",
+  "note": ""
+ },
+ "071402040802": {
+  "subwatershed": "Bradley Branch-Horse Creek",
+  "note": ""
+ },
+ "071401050306": {
+  "subwatershed": "Rockwood Island-Mississippi River",
+  "note": ""
+ },
+ "071401050303": {
+  "subwatershed": "Puckett Island",
+  "note": ""
+ },
+ "071401050301": {
+  "subwatershed": "Bois Brule Creek",
+  "note": ""
+ },
+ "071401050305": {
+  "subwatershed": "Cinque Hommes Creek",
+  "note": ""
+ },
+ "071401050309": {
+  "subwatershed": "Fountain Bluff-Mississippi River",
+  "note": ""
+ },
+ "071401050307": {
+  "subwatershed": "Wilkinson Island-Mississippi River",
+  "note": ""
+ },
+ "071401050308": {
+  "subwatershed": "Brazeau Creek",
+  "note": ""
+ },
+ "071401050304": {
+  "subwatershed": "Omete Creek",
+  "note": ""
+ },
+ "071401050302": {
+  "subwatershed": "Dry Fork",
+  "note": ""
+ },
+ "071401050310": {
+  "subwatershed": "Grand Tower Island-Mississippi River",
+  "note": ""
+ },
+ "071402040610": {
+  "subwatershed": "Black Creek",
+  "note": ""
+ },
+ "071402040609": {
+  "subwatershed": "Rockhouse Creek-Prairie du Long Creek",
+  "note": ""
+ },
+ "071402040605": {
+  "subwatershed": "West Fork Richland Creek",
+  "note": ""
+ },
+ "071402040611": {
+  "subwatershed": "Long Lake-Richland Creek",
+  "note": ""
+ },
+ "071402040604": {
+  "subwatershed": "Sugar Creek-Richland Creek",
+  "note": ""
+ },
+ "071402040603": {
+  "subwatershed": "Douglas Creek",
+  "note": ""
+ },
+ "071402040607": {
+  "subwatershed": "Walters Creek",
+  "note": ""
+ },
+ "071402040606": {
+  "subwatershed": "Kinney Branch-Richland Creek",
+  "note": ""
+ },
+ "071402040602": {
+  "subwatershed": "Stolberg Lake-Richland Creek",
+  "note": ""
+ },
+ "071402040601": {
+  "subwatershed": "Wolf Branch-Richland Creek",
+  "note": ""
+ },
+ "071402040608": {
+  "subwatershed": "Prairie du Long Creek",
+  "note": ""
+ },
+ "071402040302": {
+  "subwatershed": "South Fork Mud Creek-Mud Creek",
+  "note": ""
+ },
+ "071402040301": {
+  "subwatershed": "Archie Creek-Mud Creek",
+  "note": ""
+ },
+ "071402040304": {
+  "subwatershed": "Wagon Lake-Little Mud Creek",
+  "note": ""
+ },
+ "071402040305": {
+  "subwatershed": "Town of Biddleborn-Mud Creek",
+  "note": ""
+ },
+ "071402040303": {
+  "subwatershed": "Little Mud Creek",
+  "note": ""
+ },
+ "071401060901": {
+  "subwatershed": "Headwaters Galum Creek",
+  "note": ""
+ },
+ "071401060905": {
+  "subwatershed": "Pipestone Creek",
+  "note": ""
+ },
+ "071401060903": {
+  "subwatershed": "Rock Fork-Galum Creek",
+  "note": ""
+ },
+ "071401060906": {
+  "subwatershed": "Goose Creek-Galum Creek",
+  "note": ""
+ },
+ "071401060902": {
+  "subwatershed": "Bonnie Creek",
+  "note": ""
+ },
+ "071401060904": {
+  "subwatershed": "Little Galum Creek",
+  "note": ""
+ }
+}

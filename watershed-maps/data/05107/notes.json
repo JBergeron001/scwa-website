@@ -1,0 +1,259 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Phillips County",
+  "note": ""
+ },
+ "0802030304": {
+  "watershed": "Long Lake Bayou-Little Bee Bayou",
+  "note": ""
+ },
+ "0802030403": {
+  "watershed": "Lick Creek-Big Creek",
+  "note": ""
+ },
+ "0802030402": {
+  "watershed": "Spring Creek-Big Creek",
+  "note": ""
+ },
+ "0802010002": {
+  "watershed": "DeSoto Lake-Mississippi River",
+  "note": ""
+ },
+ "0802030404": {
+  "watershed": "Big Cypress Creek-Big Creek",
+  "note": ""
+ },
+ "0802010001": {
+  "watershed": "Tunica Lake-Mississippi River",
+  "note": ""
+ },
+ "0802030305": {
+  "watershed": "Indian Bayou-White River",
+  "note": ""
+ },
+ "0802030306": {
+  "watershed": "La Grue Bayou-White River",
+  "note": ""
+ },
+ "0802020316": {
+  "watershed": "L\u2019Anguille River-Saint Francis River",
+  "note": ""
+ },
+ "080203030401": {
+  "subwatershed": "Town of Preston Place-Long Lake Bayou",
+  "note": ""
+ },
+ "080203030404": {
+  "subwatershed": "Humphrey Slough",
+  "note": ""
+ },
+ "080203030403": {
+  "subwatershed": "Yellow Bank Bayou",
+  "note": ""
+ },
+ "080203030405": {
+  "subwatershed": "Sandy Slough",
+  "note": ""
+ },
+ "080203030402": {
+  "subwatershed": "Old Town Lake-Long Lake Bayou",
+  "note": ""
+ },
+ "080203030408": {
+  "subwatershed": "Little Bee Bayou",
+  "note": ""
+ },
+ "080203030406": {
+  "subwatershed": "Little Island Bayou",
+  "note": ""
+ },
+ "080203030407": {
+  "subwatershed": "Upper Taylor Lake",
+  "note": ""
+ },
+ "080203040307": {
+  "subwatershed": "Johnson Bayou Ditch-Big Creek",
+  "note": ""
+ },
+ "080203040303": {
+  "subwatershed": "Outlet Lick Creek",
+  "note": ""
+ },
+ "080203040305": {
+  "subwatershed": "Beaver Bayou Ditch",
+  "note": ""
+ },
+ "080203040306": {
+  "subwatershed": "Coffee Creek",
+  "note": ""
+ },
+ "080203040304": {
+  "subwatershed": "Hurricane Ditch",
+  "note": ""
+ },
+ "080203040302": {
+  "subwatershed": "Headwaters Lick Creek",
+  "note": ""
+ },
+ "080203040301": {
+  "subwatershed": "Town of Cypress Corner-Big Cypress Creek",
+  "note": ""
+ },
+ "080203040205": {
+  "subwatershed": "North Creek-Big Creek",
+  "note": ""
+ },
+ "080203040204": {
+  "subwatershed": "Crooked Creek",
+  "note": ""
+ },
+ "080203040202": {
+  "subwatershed": "Little Mossy Lake-Big Creek",
+  "note": ""
+ },
+ "080203040203": {
+  "subwatershed": "Town of Turkey Scratch",
+  "note": ""
+ },
+ "080203040201": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "080201000200": {
+  "subwatershed": "DeSoto Lake-Mississippi River",
+  "note": ""
+ },
+ "080203040401": {
+  "subwatershed": "Little Cypress Creek",
+  "note": ""
+ },
+ "080203040407": {
+  "subwatershed": "Willow Lake-Big Creek",
+  "note": ""
+ },
+ "080203040405": {
+  "subwatershed": "Givins Branch-Big Cypress Creek",
+  "note": ""
+ },
+ "080203040404": {
+  "subwatershed": "Persimmon Slash-Big Cypress Creek",
+  "note": ""
+ },
+ "080203040403": {
+  "subwatershed": "Cypress Creek-Big Cypress Creek",
+  "note": ""
+ },
+ "080203040406": {
+  "subwatershed": "Prairie Cypress Creek",
+  "note": ""
+ },
+ "080203040402": {
+  "subwatershed": "Riddell Landing Strip-Cypress Creek",
+  "note": ""
+ },
+ "080201000102": {
+  "subwatershed": "Tunica Lake-Mississippi River",
+  "note": ""
+ },
+ "080201000101": {
+  "subwatershed": "McKinney Bayou",
+  "note": ""
+ },
+ "080203030511": {
+  "subwatershed": "Little Island Bayou-White River",
+  "note": ""
+ },
+ "080203030504": {
+  "subwatershed": "Dial Creek-Walker Cypress Creek",
+  "note": ""
+ },
+ "080203030509": {
+  "subwatershed": "Stinking Bay-White River",
+  "note": ""
+ },
+ "080203030507": {
+  "subwatershed": "Hill Bayou-Indian Bayou",
+  "note": ""
+ },
+ "080203030505": {
+  "subwatershed": "Mud Lake-Green Bayou",
+  "note": ""
+ },
+ "080203030503": {
+  "subwatershed": "Knights Creek-Dial Creek",
+  "note": ""
+ },
+ "080203030502": {
+  "subwatershed": "Roc Roe Bayou-White River",
+  "note": ""
+ },
+ "080203030510": {
+  "subwatershed": "Indian Bay-Indian Bayou",
+  "note": ""
+ },
+ "080203030501": {
+  "subwatershed": "Honey Creek",
+  "note": ""
+ },
+ "080203030506": {
+  "subwatershed": "Big Creek-White River",
+  "note": ""
+ },
+ "080203030508": {
+  "subwatershed": "Big Island Chute",
+  "note": ""
+ },
+ "080203030604": {
+  "subwatershed": "La Grue Bayou-White River",
+  "note": ""
+ },
+ "080203030601": {
+  "subwatershed": "Big Creek",
+  "note": ""
+ },
+ "080203030603": {
+  "subwatershed": "Prairie Bayou-La Grue Bayou",
+  "note": ""
+ },
+ "080203030602": {
+  "subwatershed": "Tarleton Creek",
+  "note": ""
+ },
+ "080202031609": {
+  "subwatershed": "Phillips Bayou-Saint Francis River",
+  "note": ""
+ },
+ "080202031607": {
+  "subwatershed": "Saint Francis Floodway",
+  "note": ""
+ },
+ "080202031606": {
+  "subwatershed": "Raft Bayou-Saint Francis River",
+  "note": ""
+ },
+ "080202031604": {
+  "subwatershed": "Cow Bayou-Saint Francis River",
+  "note": ""
+ },
+ "080202031603": {
+  "subwatershed": "Cup Bayou-Saint Francis River",
+  "note": ""
+ },
+ "080202031601": {
+  "subwatershed": "Little Crow Creek",
+  "note": ""
+ },
+ "080202031602": {
+  "subwatershed": "Horseshoe Lake-Saint Francis River",
+  "note": ""
+ },
+ "080202031605": {
+  "subwatershed": "Alligator Bayou",
+  "note": ""
+ },
+ "080202031608": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ }
+}

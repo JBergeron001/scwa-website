@@ -1,0 +1,135 @@
+{
+  "_how_to_use": "Add your own text in \"note\" for any watershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+  "indian-camp-creek": {
+    "watershed": "Indian Camp Creek",
+    "note": ""
+  },
+  "mccoy-creek": {
+    "watershed": "McCoy Creek",
+    "note": ""
+  },
+  "lower-big-creek": {
+    "watershed": "Lower Big Creek",
+    "note": ""
+  },
+  "cuivre-river": {
+    "watershed": "Cuivre River",
+    "note": ""
+  },
+  "headwaters-peruque-creek": {
+    "watershed": "Headwaters Peruque Creek",
+    "note": ""
+  },
+  "peruque-creek": {
+    "watershed": "Peruque Creek",
+    "note": ""
+  },
+  "upper-dardenne-creek": {
+    "watershed": "Upper Dardenne Creek",
+    "note": ""
+  },
+  "middle-dardenne-creek": {
+    "watershed": "Middle Dardenne Creek",
+    "note": ""
+  },
+  "lower-dardenne-creek": {
+    "watershed": "Lower Dardenne Creek",
+    "note": ""
+  },
+  "cuivre-island-mississippi-river": {
+    "watershed": "Cuivre Island-Mississippi River",
+    "note": ""
+  },
+  "bolter-island-mississippi-river": {
+    "watershed": "Bolter Island-Mississippi River",
+    "note": ""
+  },
+  "marais-temps-clair-mississippi-river": {
+    "watershed": "Marais Temps Clair-Mississippi River",
+    "note": ""
+  },
+  "city-of-alton-mississippi-river": {
+    "watershed": "City of Alton-Mississippi River",
+    "note": ""
+  },
+  "city-of-wood-river-mississippi-river": {
+    "watershed": "City of Wood River-Mississippi River",
+    "note": ""
+  },
+  "middle-charrette-creek": {
+    "watershed": "Middle Charrette Creek",
+    "note": ""
+  },
+  "lower-charrette-creek": {
+    "watershed": "Lower Charrette Creek",
+    "note": ""
+  },
+  "dubois-creek-missouri-river": {
+    "watershed": "Dubois Creek-Missouri River",
+    "note": ""
+  },
+  "labadie-creek-missouri-river": {
+    "watershed": "Labadie Creek-Missouri River",
+    "note": ""
+  },
+  "callaway-fork": {
+    "watershed": "Callaway Fork",
+    "note": ""
+  },
+  "schluersburg-creek-femme-osage-creek": {
+    "watershed": "Schluersburg Creek-Femme Osage Creek",
+    "note": ""
+  },
+  "femme-osage-creek": {
+    "watershed": "Femme Osage Creek",
+    "note": ""
+  },
+  "wildhorse-creek-missouri-river": {
+    "watershed": "Wildhorse Creek-Missouri River",
+    "note": ""
+  },
+  "greens-chute-missouri-river": {
+    "watershed": "Greens Chute-Missouri River",
+    "note": ""
+  },
+  "duckett-creek-missouri-river": {
+    "watershed": "Duckett Creek-Missouri River",
+    "note": ""
+  },
+  "cowmire-creek-missouri-river": {
+    "watershed": "Cowmire Creek-Missouri River",
+    "note": ""
+  },
+  "outlet-missouri-river": {
+    "watershed": "Outlet Missouri River",
+    "note": ""
+  },
+  "big-creek-watershed": {
+    "watershed": "Big Creek watershed",
+    "note": ""
+  },
+  "peruque-creek-watershed": {
+    "watershed": "Peruque Creek watershed",
+    "note": ""
+  },
+  "dardenne-creek-watershed": {
+    "watershed": "Dardenne Creek watershed",
+    "note": ""
+  },
+  "mississippi-river-watershed": {
+    "watershed": "Mississippi River bottoms area",
+    "note": ""
+  },
+  "femme-osage-creek-watershed": {
+    "watershed": "Femme Osage Creek watershed",
+    "note": ""
+  },
+  "charrette-creek-watershed": {
+    "watershed": "Charrette Creek watershed",
+    "note": ""
+  },
+  "missouri-river-watershed": {
+    "watershed": "Missouri River bottoms area",
+    "note": ""
+  }
+}

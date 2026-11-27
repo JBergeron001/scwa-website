@@ -1,0 +1,363 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Stearns County",
+  "note": ""
+ },
+ "0701020205": {
+  "watershed": "Middle Sauk River",
+  "note": ""
+ },
+ "0701020206": {
+  "watershed": "Lower Sauk River",
+  "note": ""
+ },
+ "0701020401": {
+  "watershed": "Lake Koronis-North Fork Crow River",
+  "note": ""
+ },
+ "0701020301": {
+  "watershed": "City of Saint Cloud-Mississippi River",
+  "note": ""
+ },
+ "0701020101": {
+  "watershed": "Two River",
+  "note": ""
+ },
+ "0701020203": {
+  "watershed": "Upper Sauk River",
+  "note": ""
+ },
+ "0701020106": {
+  "watershed": "Watab River",
+  "note": ""
+ },
+ "0701020102": {
+  "watershed": "Spunk Creek",
+  "note": ""
+ },
+ "0701020302": {
+  "watershed": "Clearwater River",
+  "note": ""
+ },
+ "0701020107": {
+  "watershed": "City of Sartell-Mississippi River",
+  "note": ""
+ },
+ "0701020202": {
+  "watershed": "Ashley Creek",
+  "note": ""
+ },
+ "0701020204": {
+  "watershed": "Adley Creek",
+  "note": ""
+ },
+ "0701020402": {
+  "watershed": "Middle Fork Crow River",
+  "note": ""
+ },
+ "0701020403": {
+  "watershed": "Jewitts Creek-North Fork Crow River",
+  "note": ""
+ },
+ "070102020506": {
+  "subwatershed": "Lake Henry-Sauk River",
+  "note": ""
+ },
+ "070102020507": {
+  "subwatershed": "Backes Lake-Sauk River",
+  "note": ""
+ },
+ "070102020502": {
+  "subwatershed": "City of New Munich-Sauk River",
+  "note": ""
+ },
+ "070102020503": {
+  "subwatershed": "Upper Getchell Creek",
+  "note": ""
+ },
+ "070102020501": {
+  "subwatershed": "County Ditch Number Fortyfour",
+  "note": ""
+ },
+ "070102020504": {
+  "subwatershed": "Lower Getchell Creek",
+  "note": ""
+ },
+ "070102020505": {
+  "subwatershed": "Stony Creek",
+  "note": ""
+ },
+ "070102020607": {
+  "subwatershed": "Sauk River",
+  "note": ""
+ },
+ "070102020601": {
+  "subwatershed": "Kolling Creek",
+  "note": ""
+ },
+ "070102020602": {
+  "subwatershed": "Long Lake",
+  "note": ""
+ },
+ "070102020604": {
+  "subwatershed": "Cedar Island Lake-Sauk River",
+  "note": ""
+ },
+ "070102020605": {
+  "subwatershed": "Pearl Lake",
+  "note": ""
+ },
+ "070102020606": {
+  "subwatershed": "Mill Creek",
+  "note": ""
+ },
+ "070102020603": {
+  "subwatershed": "Big Fish Lake",
+  "note": ""
+ },
+ "070102040106": {
+  "subwatershed": "City of Regal-North Fork Crow River",
+  "note": ""
+ },
+ "070102040102": {
+  "subwatershed": "Headwaters North Fork Crow River",
+  "note": ""
+ },
+ "070102040107": {
+  "subwatershed": "Rice Lake-North Fork Crow River",
+  "note": ""
+ },
+ "070102040104": {
+  "subwatershed": "County Ditch Number Seven-North Fork Crow River",
+  "note": ""
+ },
+ "070102040105": {
+  "subwatershed": "Skunk River",
+  "note": ""
+ },
+ "070102040108": {
+  "subwatershed": "Lake Koronis-North Fork Crow River",
+  "note": ""
+ },
+ "070102040103": {
+  "subwatershed": "County Ditch Number Seven",
+  "note": ""
+ },
+ "070102040101": {
+  "subwatershed": "Sedan Brook",
+  "note": ""
+ },
+ "070102030101": {
+  "subwatershed": "Johnson Creek",
+  "note": ""
+ },
+ "070102030102": {
+  "subwatershed": "Plum Creek",
+  "note": ""
+ },
+ "070102030103": {
+  "subwatershed": "City of Saint Cloud-Mississippi River",
+  "note": ""
+ },
+ "070102010101": {
+  "subwatershed": "Headwaters South Two River",
+  "note": ""
+ },
+ "070102010103": {
+  "subwatershed": "South Two River",
+  "note": ""
+ },
+ "070102010102": {
+  "subwatershed": "Two River Lake",
+  "note": ""
+ },
+ "070102010104": {
+  "subwatershed": "North Two River",
+  "note": ""
+ },
+ "070102010105": {
+  "subwatershed": "Two River",
+  "note": ""
+ },
+ "070102020304": {
+  "subwatershed": "City of Melrose-Sauk River",
+  "note": ""
+ },
+ "070102020301": {
+  "subwatershed": "Hoboken Creek",
+  "note": ""
+ },
+ "070102020303": {
+  "subwatershed": "Moliter Lake",
+  "note": ""
+ },
+ "070102020302": {
+  "subwatershed": "Sauk Lake-Sauk River",
+  "note": ""
+ },
+ "070102010601": {
+  "subwatershed": "South Fork Watab River",
+  "note": ""
+ },
+ "070102010604": {
+  "subwatershed": "Watab River",
+  "note": ""
+ },
+ "070102010602": {
+  "subwatershed": "North Fork Watab River",
+  "note": ""
+ },
+ "070102010603": {
+  "subwatershed": "County Ditch Number Twelve",
+  "note": ""
+ },
+ "070102010202": {
+  "subwatershed": "Lower Spunk Creek",
+  "note": ""
+ },
+ "070102010201": {
+  "subwatershed": "Upper Spunk Creek",
+  "note": ""
+ },
+ "070102030202": {
+  "subwatershed": "Lake Louisa-Clearwater River",
+  "note": ""
+ },
+ "070102030203": {
+  "subwatershed": "Threemile Creek",
+  "note": ""
+ },
+ "070102030201": {
+  "subwatershed": "Clear Lake-Clearwater River",
+  "note": ""
+ },
+ "070102030205": {
+  "subwatershed": "Grass Lake-Clearwater River",
+  "note": ""
+ },
+ "070102030204": {
+  "subwatershed": "Clearwater Lake-Clearwater River",
+  "note": ""
+ },
+ "070102010704": {
+  "subwatershed": "Stony Creek-Mississippi River",
+  "note": ""
+ },
+ "070102010705": {
+  "subwatershed": "City of Sartell-Mississippi River",
+  "note": ""
+ },
+ "070102010703": {
+  "subwatershed": "Zebulon Pike Lake-Mississippi River",
+  "note": ""
+ },
+ "070102010702": {
+  "subwatershed": "Little Two River",
+  "note": ""
+ },
+ "070102010701": {
+  "subwatershed": "Hay Creek",
+  "note": ""
+ },
+ "070102020203": {
+  "subwatershed": "Middle Ashley Creek",
+  "note": ""
+ },
+ "070102020202": {
+  "subwatershed": "County Ditch Number Six",
+  "note": ""
+ },
+ "070102020204": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070102020205": {
+  "subwatershed": "Lower Ashley Creek",
+  "note": ""
+ },
+ "070102020201": {
+  "subwatershed": "Upper Ashley Creek",
+  "note": ""
+ },
+ "070102020404": {
+  "subwatershed": "Adley Creek",
+  "note": ""
+ },
+ "070102020402": {
+  "subwatershed": "Big Birch Lake",
+  "note": ""
+ },
+ "070102020403": {
+  "subwatershed": "Little Birch Lake",
+  "note": ""
+ },
+ "070102020401": {
+  "subwatershed": "Trout Creek",
+  "note": ""
+ },
+ "070102040201": {
+  "subwatershed": "Headwaters Middle Fork Crow River",
+  "note": ""
+ },
+ "070102040202": {
+  "subwatershed": "County Ditch Number B Six",
+  "note": ""
+ },
+ "070102040204": {
+  "subwatershed": "Lake Monongalia-Middle Fork Crow River",
+  "note": ""
+ },
+ "070102040208": {
+  "subwatershed": "Diamond Lake",
+  "note": ""
+ },
+ "070102040210": {
+  "subwatershed": "Middle Fork Crow River",
+  "note": ""
+ },
+ "070102040207": {
+  "subwatershed": "Lake Calhoun-Middle Fork Crow River",
+  "note": ""
+ },
+ "070102040206": {
+  "subwatershed": "Green Lake",
+  "note": ""
+ },
+ "070102040209": {
+  "subwatershed": "Peterson Lake",
+  "note": ""
+ },
+ "070102040203": {
+  "subwatershed": "County Ditch Number Thirtyseven",
+  "note": ""
+ },
+ "070102040205": {
+  "subwatershed": "Nest Lake-Middle Fork Crow River",
+  "note": ""
+ },
+ "070102040303": {
+  "subwatershed": "Stag Brook-North Fork Crow River",
+  "note": ""
+ },
+ "070102040306": {
+  "subwatershed": "City of Kingston-North Fork Crow River",
+  "note": ""
+ },
+ "070102040305": {
+  "subwatershed": "Jewett Creek",
+  "note": ""
+ },
+ "070102040301": {
+  "subwatershed": "Long Lake",
+  "note": ""
+ },
+ "070102040302": {
+  "subwatershed": "Grove Creek",
+  "note": ""
+ },
+ "070102040304": {
+  "subwatershed": "Lake Mary",
+  "note": ""
+ }
+}

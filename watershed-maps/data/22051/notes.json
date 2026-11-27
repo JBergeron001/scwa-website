@@ -1,0 +1,195 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Jefferson Parish",
+  "note": ""
+ },
+ "0809030104": {
+  "watershed": "Bayou Perot-Little Lake",
+  "note": ""
+ },
+ "0809030103": {
+  "watershed": "Bayou Des Allemands-Lake Salvador",
+  "note": ""
+ },
+ "0809020201": {
+  "watershed": "Lake Pontchartrain",
+  "note": ""
+ },
+ "0809020301": {
+  "watershed": "Canal Number Two-Frontal Lake Pontchartrain",
+  "note": ""
+ },
+ "0809030105": {
+  "watershed": "Barataria Bay-Frontal Gulf of Mexico",
+  "note": ""
+ },
+ "0809010001": {
+  "watershed": "Bonnet Carre Spillway-Mississippi River",
+  "note": ""
+ },
+ "080903010409": {
+  "subwatershed": "Dupre Cut-Frontal Little Lake",
+  "note": ""
+ },
+ "080903010405": {
+  "subwatershed": "The Pen",
+  "note": ""
+ },
+ "080903010410": {
+  "subwatershed": "Little Lake",
+  "note": ""
+ },
+ "080903010401": {
+  "subwatershed": "Bayou Perot",
+  "note": ""
+ },
+ "080903010408": {
+  "subwatershed": "Bayou Dupont",
+  "note": ""
+ },
+ "080903010411": {
+  "subwatershed": "Round Lake-Frontal Mud Lake",
+  "note": ""
+ },
+ "080903010404": {
+  "subwatershed": "Planters Canal",
+  "note": ""
+ },
+ "080903010402": {
+  "subwatershed": "Delta Farms",
+  "note": ""
+ },
+ "080903010407": {
+  "subwatershed": "Brusle Lake-Frontal Little Lake",
+  "note": ""
+ },
+ "080903010406": {
+  "subwatershed": "Breton Canal-Bayou Lafourche",
+  "note": ""
+ },
+ "080903010403": {
+  "subwatershed": "Bayou Des Amoreux-Frontal Little Lake",
+  "note": ""
+ },
+ "080903010307": {
+  "subwatershed": "Town of Westwego-Main Canal",
+  "note": ""
+ },
+ "080903010310": {
+  "subwatershed": "Bayou Bardeaux-Frontal Lake Salvador",
+  "note": ""
+ },
+ "080903010309": {
+  "subwatershed": "City of Gretna-Intracoastal Waterway",
+  "note": ""
+ },
+ "080903010312": {
+  "subwatershed": "Lake Salvador",
+  "note": ""
+ },
+ "080903010305": {
+  "subwatershed": "Lake Cataouatche-Frontal Lake Salvador",
+  "note": ""
+ },
+ "080903010301": {
+  "subwatershed": "Bayou des Allemands",
+  "note": ""
+ },
+ "080903010308": {
+  "subwatershed": "Forty Arpent Canal-Bayou Lafourche",
+  "note": ""
+ },
+ "080903010306": {
+  "subwatershed": "Simoneaux Ponds-Frontal Lake Salvador",
+  "note": ""
+ },
+ "080903010303": {
+  "subwatershed": "Town of Boutte-Grand Bayou",
+  "note": ""
+ },
+ "080903010304": {
+  "subwatershed": "Town of Mathews-Bayou Lafourche",
+  "note": ""
+ },
+ "080903010311": {
+  "subwatershed": "Bayou Vacherie-Frontal Lake Salvador",
+  "note": ""
+ },
+ "080903010302": {
+  "subwatershed": "Town of Des Allemands-Crawford Canal",
+  "note": ""
+ },
+ "080902020100": {
+  "subwatershed": "Lake Pontchartrain",
+  "note": ""
+ },
+ "080902030102": {
+  "subwatershed": "Duncan Canal-Canal Number Two",
+  "note": ""
+ },
+ "080902030103": {
+  "subwatershed": "Bayou Saint John-Canal Number Two",
+  "note": ""
+ },
+ "080902030101": {
+  "subwatershed": "Bayou La Branche-Frontal Lake Pontchartrain",
+  "note": ""
+ },
+ "080903010501": {
+  "subwatershed": "Hackberry Bay",
+  "note": ""
+ },
+ "080903010507": {
+  "subwatershed": "Caminada Bay",
+  "note": ""
+ },
+ "080903010506": {
+  "subwatershed": "Bayou Palourde-Frontal Gulf of Mexico",
+  "note": ""
+ },
+ "080903010508": {
+  "subwatershed": "Barataria Bay Waterway-Grand Terre Islands",
+  "note": ""
+ },
+ "080903010509": {
+  "subwatershed": "Barataria Bay-Cat Bay",
+  "note": ""
+ },
+ "080903010503": {
+  "subwatershed": "Bay Vasier-Frontal Caminada Bay",
+  "note": ""
+ },
+ "080903010511": {
+  "subwatershed": "Bayou Grande Cheniere-Frontal Barataria Bay",
+  "note": ""
+ },
+ "080903010512": {
+  "subwatershed": "Bay Sansbois-Frontal Barataria Bay",
+  "note": ""
+ },
+ "080903010504": {
+  "subwatershed": "Bay Jaque-Frontal Bay Desespere",
+  "note": ""
+ },
+ "080903010505": {
+  "subwatershed": "Bayou Lafourche-Frontal Gulf of Mexico",
+  "note": ""
+ },
+ "080903010502": {
+  "subwatershed": "Hatchet Lake-Frontal West Champagne Bay",
+  "note": ""
+ },
+ "080903010510": {
+  "subwatershed": "Port Sulphur",
+  "note": ""
+ },
+ "080901000101": {
+  "subwatershed": "City of New Orleans-Mississippi River",
+  "note": ""
+ },
+ "080901000102": {
+  "subwatershed": "Grand Pass-Mississippi River",
+  "note": ""
+ }
+}

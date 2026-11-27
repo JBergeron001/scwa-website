@@ -1,0 +1,275 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Adams County",
+  "note": ""
+ },
+ "0713001102": {
+  "watershed": "McKee Creek",
+  "note": ""
+ },
+ "0711000104": {
+  "watershed": "South Fork Bear Creek",
+  "note": ""
+ },
+ "0711000110": {
+  "watershed": "Durgens Creek-Mississippi River",
+  "note": ""
+ },
+ "0711000402": {
+  "watershed": "Mill Creek",
+  "note": ""
+ },
+ "0711000404": {
+  "watershed": "McCraney Creek",
+  "note": ""
+ },
+ "0711000105": {
+  "watershed": "Bear Creek",
+  "note": ""
+ },
+ "0711000405": {
+  "watershed": "Bear Creek-Mississippi River",
+  "note": ""
+ },
+ "0711000403": {
+  "watershed": "Clear Creek-Mississippi River",
+  "note": ""
+ },
+ "0711000106": {
+  "watershed": "Buck Run-Mississippi River",
+  "note": ""
+ },
+ "0713001009": {
+  "watershed": "Cedar Creek",
+  "note": ""
+ },
+ "0713001011": {
+  "watershed": "Missouri Creek",
+  "note": ""
+ },
+ "0713001008": {
+  "watershed": "Flour Creek",
+  "note": ""
+ },
+ "071300110202": {
+  "subwatershed": "Curl Creek-McKee Creek",
+  "note": ""
+ },
+ "071300110201": {
+  "subwatershed": "North Branch McKee Creek-McKee Creek",
+  "note": ""
+ },
+ "071300110203": {
+  "subwatershed": "Walnut Fork",
+  "note": ""
+ },
+ "071300110204": {
+  "subwatershed": "Grindstone Creek-McKee Creek",
+  "note": ""
+ },
+ "071300110206": {
+  "subwatershed": "Fishhook Creek-McKee Creek",
+  "note": ""
+ },
+ "071300110205": {
+  "subwatershed": "Little Missouri Creek",
+  "note": ""
+ },
+ "071300110209": {
+  "subwatershed": "Middle Fork McKee Creek-South Fork McKee Creek",
+  "note": ""
+ },
+ "071300110207": {
+  "subwatershed": "Dry Fork-McKee Creek",
+  "note": ""
+ },
+ "071300110210": {
+  "subwatershed": "Avery Branch-McKee Creek",
+  "note": ""
+ },
+ "071300110208": {
+  "subwatershed": "South Fork McKee Creek",
+  "note": ""
+ },
+ "071100010402": {
+  "subwatershed": "Elm Creek-South Fork Bear Creek",
+  "note": ""
+ },
+ "071100010404": {
+  "subwatershed": "Thurman Creek-South Fork Bear Creek",
+  "note": ""
+ },
+ "071100010403": {
+  "subwatershed": "Bigneck Creek-South Fork Bear Creek",
+  "note": ""
+ },
+ "071100010401": {
+  "subwatershed": "Honey Creek",
+  "note": ""
+ },
+ "071100011002": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ },
+ "071100011005": {
+  "subwatershed": "Goose Lake-Mississippi River",
+  "note": ""
+ },
+ "071100011006": {
+  "subwatershed": "Curtis Creek-Mississippi River",
+  "note": ""
+ },
+ "071100011001": {
+  "subwatershed": "Main Ditch",
+  "note": ""
+ },
+ "071100011004": {
+  "subwatershed": "Homan Creek",
+  "note": ""
+ },
+ "071100011003": {
+  "subwatershed": "Durgens Creek",
+  "note": ""
+ },
+ "071100040202": {
+  "subwatershed": "Burton Creek",
+  "note": ""
+ },
+ "071100040201": {
+  "subwatershed": "Headwaters Mill Creek",
+  "note": ""
+ },
+ "071100040203": {
+  "subwatershed": "Mill Creek",
+  "note": ""
+ },
+ "071100040403": {
+  "subwatershed": "McCraney Creek",
+  "note": ""
+ },
+ "071100040401": {
+  "subwatershed": "Headwaters Hadley Creek",
+  "note": ""
+ },
+ "071100040402": {
+  "subwatershed": "Hadley Creek",
+  "note": ""
+ },
+ "071100010509": {
+  "subwatershed": "Whiteoak Creek-Bear Creek",
+  "note": ""
+ },
+ "071100010507": {
+  "subwatershed": "Little Creek-Bear Creek",
+  "note": ""
+ },
+ "071100010505": {
+  "subwatershed": "Mud Creek",
+  "note": ""
+ },
+ "071100010508": {
+  "subwatershed": "Bluff Canal",
+  "note": ""
+ },
+ "071100010506": {
+  "subwatershed": "Panther Creek-Bear Creek",
+  "note": ""
+ },
+ "071100010502": {
+  "subwatershed": "West Fork Bear Creek-Bear Creek",
+  "note": ""
+ },
+ "071100010503": {
+  "subwatershed": "Slater Creek",
+  "note": ""
+ },
+ "071100010501": {
+  "subwatershed": "Little Bear Creek",
+  "note": ""
+ },
+ "071100010504": {
+  "subwatershed": "Village of Basco-Bear Creek",
+  "note": ""
+ },
+ "071100040503": {
+  "subwatershed": "Fall Creek",
+  "note": ""
+ },
+ "071100040502": {
+  "subwatershed": "Headwaters Pigeon Creek",
+  "note": ""
+ },
+ "071100040504": {
+  "subwatershed": "Pigeon Creek",
+  "note": ""
+ },
+ "071100040501": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "071100040505": {
+  "subwatershed": "Fools Creek-Mississippi River",
+  "note": ""
+ },
+ "071100040301": {
+  "subwatershed": "Ghost Hollow-Mississippi River",
+  "note": ""
+ },
+ "071100040303": {
+  "subwatershed": "Bay Island-Mississippi River",
+  "note": ""
+ },
+ "071100040302": {
+  "subwatershed": "South River",
+  "note": ""
+ },
+ "071100010604": {
+  "subwatershed": "Lima Slough",
+  "note": ""
+ },
+ "071100010605": {
+  "subwatershed": "Buck Run-Mississippi River",
+  "note": ""
+ },
+ "071100010603": {
+  "subwatershed": "Headwaters Buck Run-Mississippi River",
+  "note": ""
+ },
+ "071100010602": {
+  "subwatershed": "Taylor Slough",
+  "note": ""
+ },
+ "071100010601": {
+  "subwatershed": "Greys Island-Mississippi River",
+  "note": ""
+ },
+ "071300100901": {
+  "subwatershed": "Headwaters Cedar Creek",
+  "note": ""
+ },
+ "071300100902": {
+  "subwatershed": "Little Cedar Creek-Cedar Creek",
+  "note": ""
+ },
+ "071300101101": {
+  "subwatershed": "Pea Ridge-Missouri Creek",
+  "note": ""
+ },
+ "071300101102": {
+  "subwatershed": "Little Missouri Creek",
+  "note": ""
+ },
+ "071300101103": {
+  "subwatershed": "Grand Tower Branch-Missouri Creek",
+  "note": ""
+ },
+ "071300100801": {
+  "subwatershed": "Williams Creek",
+  "note": ""
+ },
+ "071300100802": {
+  "subwatershed": "Augusta Lake-Flour Creek",
+  "note": ""
+ }
+}

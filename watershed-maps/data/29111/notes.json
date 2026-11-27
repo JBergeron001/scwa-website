@@ -1,0 +1,199 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Lewis County",
+  "note": ""
+ },
+ "0711000109": {
+  "watershed": "Wyaconda River",
+  "note": ""
+ },
+ "0711000204": {
+  "watershed": "North Fabius River",
+  "note": ""
+ },
+ "0711000203": {
+  "watershed": "Middle Fabius River",
+  "note": ""
+ },
+ "0711000110": {
+  "watershed": "Durgens Creek-Mississippi River",
+  "note": ""
+ },
+ "0711000302": {
+  "watershed": "Troublesome Creek",
+  "note": ""
+ },
+ "0711000304": {
+  "watershed": "Lower South Fabius River",
+  "note": ""
+ },
+ "0711000106": {
+  "watershed": "Buck Run-Mississippi River",
+  "note": ""
+ },
+ "0711000303": {
+  "watershed": "Middle South Fabius River",
+  "note": ""
+ },
+ "071100010903": {
+  "subwatershed": "Little Sugar Creek-Sugar Creek",
+  "note": ""
+ },
+ "071100010904": {
+  "subwatershed": "Middle Wyaconda River",
+  "note": ""
+ },
+ "071100010905": {
+  "subwatershed": "Lower Wyaconda River",
+  "note": ""
+ },
+ "071100010901": {
+  "subwatershed": "Little Wyaconda River",
+  "note": ""
+ },
+ "071100010902": {
+  "subwatershed": "Upper Wyaconda River",
+  "note": ""
+ },
+ "071100020403": {
+  "subwatershed": "Cooper Branch-North Fabius River",
+  "note": ""
+ },
+ "071100020404": {
+  "subwatershed": "Town of Weber-North Fabius River",
+  "note": ""
+ },
+ "071100020405": {
+  "subwatershed": "North Fabius River",
+  "note": ""
+ },
+ "071100020402": {
+  "subwatershed": "Long Branch-North Fabius River",
+  "note": ""
+ },
+ "071100020401": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "071100020305": {
+  "subwatershed": "Reddish Branch-Middle Fabius River",
+  "note": ""
+ },
+ "071100020306": {
+  "subwatershed": "Middle Fabius River",
+  "note": ""
+ },
+ "071100020304": {
+  "subwatershed": "Sand Hill Branch-Middle Fabius River",
+  "note": ""
+ },
+ "071100020303": {
+  "subwatershed": "Little Bridge Creek-Bridge Creek",
+  "note": ""
+ },
+ "071100020302": {
+  "subwatershed": "City of Baring-Bridge Creek",
+  "note": ""
+ },
+ "071100020301": {
+  "subwatershed": "Tobin Creek",
+  "note": ""
+ },
+ "071100011003": {
+  "subwatershed": "Durgens Creek",
+  "note": ""
+ },
+ "071100011006": {
+  "subwatershed": "Curtis Creek-Mississippi River",
+  "note": ""
+ },
+ "071100011005": {
+  "subwatershed": "Goose Lake-Mississippi River",
+  "note": ""
+ },
+ "071100011002": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ },
+ "071100011001": {
+  "subwatershed": "Main Ditch",
+  "note": ""
+ },
+ "071100011004": {
+  "subwatershed": "Homan Creek",
+  "note": ""
+ },
+ "071100030203": {
+  "subwatershed": "Middle Troublesome Creek",
+  "note": ""
+ },
+ "071100030204": {
+  "subwatershed": "Lower Troublesome Creek",
+  "note": ""
+ },
+ "071100030201": {
+  "subwatershed": "Hawkins Branch",
+  "note": ""
+ },
+ "071100030202": {
+  "subwatershed": "Upper Troublesome Creek",
+  "note": ""
+ },
+ "071100030401": {
+  "subwatershed": "Grassy Creek",
+  "note": ""
+ },
+ "071100030402": {
+  "subwatershed": "South Fabius River-Outlet Fabius River",
+  "note": ""
+ },
+ "071100010605": {
+  "subwatershed": "Buck Run-Mississippi River",
+  "note": ""
+ },
+ "071100010603": {
+  "subwatershed": "Headwaters Buck Run-Mississippi River",
+  "note": ""
+ },
+ "071100010604": {
+  "subwatershed": "Lima Slough",
+  "note": ""
+ },
+ "071100010602": {
+  "subwatershed": "Taylor Slough",
+  "note": ""
+ },
+ "071100010601": {
+  "subwatershed": "Greys Island-Mississippi River",
+  "note": ""
+ },
+ "071100030305": {
+  "subwatershed": "Spees Branch-South Fabius River",
+  "note": ""
+ },
+ "071100030306": {
+  "subwatershed": "Brower Branch-South Fabius River",
+  "note": ""
+ },
+ "071100030304": {
+  "subwatershed": "Long Branch-South Fabius River",
+  "note": ""
+ },
+ "071100030307": {
+  "subwatershed": "Keller Branch-South Fabius River",
+  "note": ""
+ },
+ "071100030302": {
+  "subwatershed": "Middle Little Fabius River",
+  "note": ""
+ },
+ "071100030301": {
+  "subwatershed": "Upper Little Fabius River",
+  "note": ""
+ },
+ "071100030303": {
+  "subwatershed": "Lower Little Fabius River",
+  "note": ""
+ }
+}

@@ -1,0 +1,239 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Madison Parish",
+  "note": ""
+ },
+ "0805000302": {
+  "watershed": "Walnut Bayou-Roundaway Bayou",
+  "note": ""
+ },
+ "0805000303": {
+  "watershed": "Tensas Bayou-Tensas River",
+  "note": ""
+ },
+ "0805000301": {
+  "watershed": "Tensas Bayou",
+  "note": ""
+ },
+ "0805000206": {
+  "watershed": "Joes Bayou",
+  "note": ""
+ },
+ "0803010003": {
+  "watershed": "Paw Paw Chute-Mississippi River",
+  "note": ""
+ },
+ "0805000304": {
+  "watershed": "Upper Tensas River",
+  "note": ""
+ },
+ "0806010002": {
+  "watershed": "Palmyra Lake-Mississippi River",
+  "note": ""
+ },
+ "0805000207": {
+  "watershed": "Salters Bayou-Bayou Macon",
+  "note": ""
+ },
+ "0803020906": {
+  "watershed": "Deer Creek-Steele Bayou",
+  "note": ""
+ },
+ "0805000205": {
+  "watershed": "Alligator Bayou-Bayou Macon",
+  "note": ""
+ },
+ "0803020802": {
+  "watershed": "Centennial Lake-Yazoo River",
+  "note": ""
+ },
+ "080500030204": {
+  "subwatershed": "Roundaway Bayou",
+  "note": ""
+ },
+ "080500030205": {
+  "subwatershed": "Bayou Vidal",
+  "note": ""
+ },
+ "080500030202": {
+  "subwatershed": "Walnut Bayou-Roundaway Bayou",
+  "note": ""
+ },
+ "080500030203": {
+  "subwatershed": "Cypress Bayou",
+  "note": ""
+ },
+ "080500030207": {
+  "subwatershed": "Alligator Bayou-Spring Bayou",
+  "note": ""
+ },
+ "080500030201": {
+  "subwatershed": "Macon Slough-Panola Bayou",
+  "note": ""
+ },
+ "080500030206": {
+  "subwatershed": "Mill Bayou",
+  "note": ""
+ },
+ "080500030304": {
+  "subwatershed": "Tensas River",
+  "note": ""
+ },
+ "080500030303": {
+  "subwatershed": "Lick Bayou",
+  "note": ""
+ },
+ "080500030305": {
+  "subwatershed": "Mack Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030302": {
+  "subwatershed": "Mothiglam Bayou-Bayou Despair",
+  "note": ""
+ },
+ "080500030301": {
+  "subwatershed": "Tensas Bayou",
+  "note": ""
+ },
+ "080500030103": {
+  "subwatershed": "Talla Bena Bayou-Willow Bayou",
+  "note": ""
+ },
+ "080500030105": {
+  "subwatershed": "Little Tensas Bayou-Bull Bayou",
+  "note": ""
+ },
+ "080500030106": {
+  "subwatershed": "Graveyard Bayou-Tensas Bayou",
+  "note": ""
+ },
+ "080500030101": {
+  "subwatershed": "Lake Providence-Tensas Bayou",
+  "note": ""
+ },
+ "080500030102": {
+  "subwatershed": "Duckpond Bayou-Tensas Bayou",
+  "note": ""
+ },
+ "080500030104": {
+  "subwatershed": "Maiden Doe Bayou-Tensas Bayou",
+  "note": ""
+ },
+ "080500020602": {
+  "subwatershed": "Lower Joes Bayou",
+  "note": ""
+ },
+ "080500020601": {
+  "subwatershed": "Upper Joes Bayou",
+  "note": ""
+ },
+ "080301000300": {
+  "subwatershed": "Paw Paw Chute-Mississippi River",
+  "note": ""
+ },
+ "080500030401": {
+  "subwatershed": "Fool River-Tensas River",
+  "note": ""
+ },
+ "080500030403": {
+  "subwatershed": "Big Roaring Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030407": {
+  "subwatershed": "Bieler Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030402": {
+  "subwatershed": "Wildhorse Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030406": {
+  "subwatershed": "Lake Saint Joseph-Clark Bayou",
+  "note": ""
+ },
+ "080500030405": {
+  "subwatershed": "Lake Shallow-Cypress Bayou",
+  "note": ""
+ },
+ "080500030408": {
+  "subwatershed": "Dean Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030404": {
+  "subwatershed": "Palmetto Slough-Cow Slough",
+  "note": ""
+ },
+ "080601000200": {
+  "subwatershed": "Yucatan Lake-Mississippi River",
+  "note": ""
+ },
+ "080500020701": {
+  "subwatershed": "Hurricane Bayou-Bayou Macon",
+  "note": ""
+ },
+ "080500020702": {
+  "subwatershed": "Stillhouse Creek-Bayou Macon",
+  "note": ""
+ },
+ "080500020703": {
+  "subwatershed": "Clarks Bayou-Bayou Macon",
+  "note": ""
+ },
+ "080302090603": {
+  "subwatershed": "Eagle Lake",
+  "note": ""
+ },
+ "080302090607": {
+  "subwatershed": "Outlet Steele Bayou",
+  "note": ""
+ },
+ "080302090601": {
+  "subwatershed": "Fivemile Lake-Steele Bayou",
+  "note": ""
+ },
+ "080302090606": {
+  "subwatershed": "Cypress Bayou",
+  "note": ""
+ },
+ "080302090602": {
+  "subwatershed": "Cypress Lake",
+  "note": ""
+ },
+ "080302090605": {
+  "subwatershed": "Outlet Deer Creek",
+  "note": ""
+ },
+ "080302090604": {
+  "subwatershed": "080302090604",
+  "note": ""
+ },
+ "080500020505": {
+  "subwatershed": "Cypress Bayou-Bayou Macon",
+  "note": ""
+ },
+ "080500020502": {
+  "subwatershed": "Long Lake Bayou-Bayou Macon",
+  "note": ""
+ },
+ "080500020501": {
+  "subwatershed": "Baxter Bayou",
+  "note": ""
+ },
+ "080500020503": {
+  "subwatershed": "Alligator Bayou",
+  "note": ""
+ },
+ "080500020504": {
+  "subwatershed": "Bogzack Creek",
+  "note": ""
+ },
+ "080302080202": {
+  "subwatershed": "Yazoo River Diversion Canal-Yazoo River",
+  "note": ""
+ },
+ "080302080201": {
+  "subwatershed": "Bliss Creek-Yazoo River",
+  "note": ""
+ }
+}

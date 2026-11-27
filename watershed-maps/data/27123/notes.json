@@ -1,0 +1,163 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Ramsey County",
+  "note": ""
+ },
+ "0701020608": {
+  "watershed": "City of Saint Paul-Mississippi River",
+  "note": ""
+ },
+ "0701020603": {
+  "watershed": "Rice Creek",
+  "note": ""
+ },
+ "0701020607": {
+  "watershed": "City of Minneapolis-Mississippi River",
+  "note": ""
+ },
+ "0703000512": {
+  "watershed": "Lake Saint Croix",
+  "note": ""
+ },
+ "0701020609": {
+  "watershed": "Lock and Dam Number Two-Mississippi River",
+  "note": ""
+ },
+ "0702001211": {
+  "watershed": "Minnesota River",
+  "note": ""
+ },
+ "070102060801": {
+  "subwatershed": "Vadnais Lake",
+  "note": ""
+ },
+ "070102060805": {
+  "subwatershed": "Harriet Island-Mississippi River",
+  "note": ""
+ },
+ "070102060803": {
+  "subwatershed": "Lake Phalen",
+  "note": ""
+ },
+ "070102060802": {
+  "subwatershed": "McCarrons Lake",
+  "note": ""
+ },
+ "070102060804": {
+  "subwatershed": "Battle Creek",
+  "note": ""
+ },
+ "070102060306": {
+  "subwatershed": "Long Lake-Rice Creek",
+  "note": ""
+ },
+ "070102060305": {
+  "subwatershed": "Turtle Lake-Rice Creek",
+  "note": ""
+ },
+ "070102060303": {
+  "subwatershed": "Clearwater Creek",
+  "note": ""
+ },
+ "070102060304": {
+  "subwatershed": "Rice Lake-Rice Creek",
+  "note": ""
+ },
+ "070102060302": {
+  "subwatershed": "Hardwood Creek",
+  "note": ""
+ },
+ "070102060301": {
+  "subwatershed": "Headwaters Rice Creek",
+  "note": ""
+ },
+ "070102060703": {
+  "subwatershed": "Saint Anthony Falls-Mississippi River",
+  "note": ""
+ },
+ "070102060702": {
+  "subwatershed": "Durnam Island-Mississippi River",
+  "note": ""
+ },
+ "070102060701": {
+  "subwatershed": "Cloquet Island-Mississippi River",
+  "note": ""
+ },
+ "070300051202": {
+  "subwatershed": "Lake Elmo",
+  "note": ""
+ },
+ "070300051205": {
+  "subwatershed": "Trout Brook-Lake Saint Croix",
+  "note": ""
+ },
+ "070300051206": {
+  "subwatershed": "Saint Croix River",
+  "note": ""
+ },
+ "070300051201": {
+  "subwatershed": "City of Stillwater-Lake Saint Croix",
+  "note": ""
+ },
+ "070300051203": {
+  "subwatershed": "Valley Branch",
+  "note": ""
+ },
+ "070300051204": {
+  "subwatershed": "Town of Troy",
+  "note": ""
+ },
+ "070102060901": {
+  "subwatershed": "Schmidt Lake-Mississippi River",
+  "note": ""
+ },
+ "070102060903": {
+  "subwatershed": "Spring Lake-Mississippi River",
+  "note": ""
+ },
+ "070102060902": {
+  "subwatershed": "Colby Lake",
+  "note": ""
+ },
+ "070200121110": {
+  "subwatershed": "Minnesota River",
+  "note": ""
+ },
+ "070200121102": {
+  "subwatershed": "City of Shakopee-Minnesota River",
+  "note": ""
+ },
+ "070200121108": {
+  "subwatershed": "Ninemile Creek",
+  "note": ""
+ },
+ "070200121107": {
+  "subwatershed": "Credit River",
+  "note": ""
+ },
+ "070200121105": {
+  "subwatershed": "Prior Lake",
+  "note": ""
+ },
+ "070200121104": {
+  "subwatershed": "Purgatory Creek",
+  "note": ""
+ },
+ "070200121109": {
+  "subwatershed": "Black Dog Lake-Minnesota River",
+  "note": ""
+ },
+ "070200121106": {
+  "subwatershed": "Eagle Creek-Minnesota River",
+  "note": ""
+ },
+ "070200121101": {
+  "subwatershed": "Chaska Creek",
+  "note": ""
+ },
+ "070200121103": {
+  "subwatershed": "Riley Creek",
+  "note": ""
+ }
+}

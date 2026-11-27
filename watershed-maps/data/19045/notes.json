@@ -1,0 +1,235 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Clinton County",
+  "note": ""
+ },
+ "0708010304": {
+  "watershed": "Yankee Run-Wapsipinicon River",
+  "note": ""
+ },
+ "0708010306": {
+  "watershed": "Wapsipinicon River",
+  "note": ""
+ },
+ "0706000609": {
+  "watershed": "Deep Creek",
+  "note": ""
+ },
+ "0708010305": {
+  "watershed": "Brophy Creek",
+  "note": ""
+ },
+ "0708010102": {
+  "watershed": "Mill Creek-Mississippi River",
+  "note": ""
+ },
+ "0706000511": {
+  "watershed": "Elk River",
+  "note": ""
+ },
+ "0706000610": {
+  "watershed": "Brush Creek-Maquoketa River",
+  "note": ""
+ },
+ "0708010104": {
+  "watershed": "Spencer Creek-Mississippi River",
+  "note": ""
+ },
+ "0706000512": {
+  "watershed": "Deer Creek-Mississippi River",
+  "note": ""
+ },
+ "0706000603": {
+  "watershed": "Bear Creek",
+  "note": ""
+ },
+ "070801030405": {
+  "subwatershed": "Mockridge County Wildlife Preserve",
+  "note": ""
+ },
+ "070801030409": {
+  "subwatershed": "Sherman Park-Wapsipinicon River",
+  "note": ""
+ },
+ "070801030402": {
+  "subwatershed": "City of Lost Nation",
+  "note": ""
+ },
+ "070801030403": {
+  "subwatershed": "City of Toronto-Wapsipinicon River",
+  "note": ""
+ },
+ "070801030406": {
+  "subwatershed": "Yankee Run",
+  "note": ""
+ },
+ "070801030404": {
+  "subwatershed": "Calamus Creek",
+  "note": ""
+ },
+ "070801030407": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ },
+ "070801030401": {
+  "subwatershed": "Plum Creek-Wapsipinicon River",
+  "note": ""
+ },
+ "070801030408": {
+  "subwatershed": "Walnut Creek",
+  "note": ""
+ },
+ "070801030603": {
+  "subwatershed": "Barber Creek-Wapsipinicon River",
+  "note": ""
+ },
+ "070801030602": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070801030601": {
+  "subwatershed": "Negro Creek-Silver Creek",
+  "note": ""
+ },
+ "070801030604": {
+  "subwatershed": "Ames Creek",
+  "note": ""
+ },
+ "070801030607": {
+  "subwatershed": "Wapsipinicon River",
+  "note": ""
+ },
+ "070801030605": {
+  "subwatershed": "McDonald Creek-Wapsipinicon River",
+  "note": ""
+ },
+ "070801030606": {
+  "subwatershed": "Lost Creek",
+  "note": ""
+ },
+ "070600060904": {
+  "subwatershed": "Deep Creek",
+  "note": ""
+ },
+ "070600060901": {
+  "subwatershed": "Headwaters Deep Creek",
+  "note": ""
+ },
+ "070600060902": {
+  "subwatershed": "Sugar Creek",
+  "note": ""
+ },
+ "070600060903": {
+  "subwatershed": "Copper Creek",
+  "note": ""
+ },
+ "070801030502": {
+  "subwatershed": "Brophy Creek",
+  "note": ""
+ },
+ "070801030501": {
+  "subwatershed": "Cherry Creek",
+  "note": ""
+ },
+ "070801010202": {
+  "subwatershed": "Mill Creek",
+  "note": ""
+ },
+ "070801010204": {
+  "subwatershed": "Cattail Slough-Mississippi River",
+  "note": ""
+ },
+ "070801010203": {
+  "subwatershed": "Meredosia Ditch",
+  "note": ""
+ },
+ "070801010201": {
+  "subwatershed": "Cattail Creek",
+  "note": ""
+ },
+ "070600051101": {
+  "subwatershed": "Headwaters Elk River",
+  "note": ""
+ },
+ "070600051102": {
+  "subwatershed": "Elk River",
+  "note": ""
+ },
+ "070600061002": {
+  "subwatershed": "Elwood Creek",
+  "note": ""
+ },
+ "070600061003": {
+  "subwatershed": "Union Creek-Prairie Creek",
+  "note": ""
+ },
+ "070600061001": {
+  "subwatershed": "Pumpkin Creek-Maquoketa River",
+  "note": ""
+ },
+ "070600061004": {
+  "subwatershed": "Brush Creek",
+  "note": ""
+ },
+ "070600061007": {
+  "subwatershed": "Maquoketa River",
+  "note": ""
+ },
+ "070600061005": {
+  "subwatershed": "Hainer Creek-Maquoketa River",
+  "note": ""
+ },
+ "070600061006": {
+  "subwatershed": "Rock Creek-Maquoketa River",
+  "note": ""
+ },
+ "070801010401": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ },
+ "070801010402": {
+  "subwatershed": "Cordova Slough-Mississippi River",
+  "note": ""
+ },
+ "070801010406": {
+  "subwatershed": "Sugar Creek-Mississippi River",
+  "note": ""
+ },
+ "070801010404": {
+  "subwatershed": "McCarty Creek-Mississippi River",
+  "note": ""
+ },
+ "070801010403": {
+  "subwatershed": "Spencer Creek",
+  "note": ""
+ },
+ "070801010405": {
+  "subwatershed": "Crow Creek",
+  "note": ""
+ },
+ "070600051203": {
+  "subwatershed": "Deer Creek-Mississippi River",
+  "note": ""
+ },
+ "070600051202": {
+  "subwatershed": "Spring Lake-Mississippi River",
+  "note": ""
+ },
+ "070600051201": {
+  "subwatershed": "Beaver Creek-Mississippi River",
+  "note": ""
+ },
+ "070600060303": {
+  "subwatershed": "Rat Run-Bear Creek",
+  "note": ""
+ },
+ "070600060301": {
+  "subwatershed": "Little Bear Creek-Bear Creek",
+  "note": ""
+ },
+ "070600060302": {
+  "subwatershed": "Beers Creek",
+  "note": ""
+ }
+}

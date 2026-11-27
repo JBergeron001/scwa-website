@@ -1,0 +1,707 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Beltrami County",
+  "note": ""
+ },
+ "0902030209": {
+  "watershed": "Lower Red Lake",
+  "note": ""
+ },
+ "0902030206": {
+  "watershed": "Blackduck River",
+  "note": ""
+ },
+ "0701010104": {
+  "watershed": "Turtle River",
+  "note": ""
+ },
+ "0902030204": {
+  "watershed": "Upper Red Lake",
+  "note": ""
+ },
+ "0902030202": {
+  "watershed": "0902030202-Frontal Upper Red Lake",
+  "note": ""
+ },
+ "0902030207": {
+  "watershed": "Puposky Lake-Lower Red Lake",
+  "note": ""
+ },
+ "0701010105": {
+  "watershed": "Cass Lake-Mississippi River",
+  "note": ""
+ },
+ "0902030401": {
+  "watershed": "Moose River",
+  "note": ""
+ },
+ "0902030403": {
+  "watershed": "Mud River",
+  "note": ""
+ },
+ "0903000701": {
+  "watershed": "Upper Rapid River",
+  "note": ""
+ },
+ "0902030406": {
+  "watershed": "County Ditch Number Twenty",
+  "note": ""
+ },
+ "0902030302": {
+  "watershed": "Upper Red Lake River",
+  "note": ""
+ },
+ "0701010101": {
+  "watershed": "Little Mississippi River",
+  "note": ""
+ },
+ "0902030301": {
+  "watershed": "Cahill Lake",
+  "note": ""
+ },
+ "0902030205": {
+  "watershed": "Battle River",
+  "note": ""
+ },
+ "0903000702": {
+  "watershed": "Middle Rapid River",
+  "note": ""
+ },
+ "0902030203": {
+  "watershed": "Manomin Creek",
+  "note": ""
+ },
+ "0902030208": {
+  "watershed": "Sandy River",
+  "note": ""
+ },
+ "0902030201": {
+  "watershed": "Tamarac River",
+  "note": ""
+ },
+ "0902030501": {
+  "watershed": "Upper Clearwater River",
+  "note": ""
+ },
+ "0701010102": {
+  "watershed": "Headwaters Mississippi River",
+  "note": ""
+ },
+ "0903000705": {
+  "watershed": "Lower Rapid River",
+  "note": ""
+ },
+ "0902031401": {
+  "watershed": "Headwaters Roseau River",
+  "note": ""
+ },
+ "0701010106": {
+  "watershed": "Third River",
+  "note": ""
+ },
+ "0902031402": {
+  "watershed": "South Fork Roseau River",
+  "note": ""
+ },
+ "0701010107": {
+  "watershed": "Lake Winnibigoshish",
+  "note": ""
+ },
+ "0902030405": {
+  "watershed": "Lost River",
+  "note": ""
+ },
+ "0903000704": {
+  "watershed": "East Fork Rapid River",
+  "note": ""
+ },
+ "0701010103": {
+  "watershed": "Schoolcraft River",
+  "note": ""
+ },
+ "0701010201": {
+  "watershed": "Steamboat River",
+  "note": ""
+ },
+ "0902030407": {
+  "watershed": "Judicial Ditch Number Eighteen",
+  "note": ""
+ },
+ "0903000703": {
+  "watershed": "North Branch Rapid River",
+  "note": ""
+ },
+ "090203020900": {
+  "subwatershed": "Lower Red Lake",
+  "note": ""
+ },
+ "090203020610": {
+  "subwatershed": "Lower Blackduck River",
+  "note": ""
+ },
+ "090203020607": {
+  "subwatershed": "South Cormorant River",
+  "note": ""
+ },
+ "090203020603": {
+  "subwatershed": "O\u2019Brien Creek",
+  "note": ""
+ },
+ "090203020604": {
+  "subwatershed": "Upper Blackduck River",
+  "note": ""
+ },
+ "090203020609": {
+  "subwatershed": "Lower North Cormorant River",
+  "note": ""
+ },
+ "090203020602": {
+  "subwatershed": "Darrigans Creek",
+  "note": ""
+ },
+ "090203020601": {
+  "subwatershed": "Blackduck Lake",
+  "note": ""
+ },
+ "090203020606": {
+  "subwatershed": "Perry Creek",
+  "note": ""
+ },
+ "090203020608": {
+  "subwatershed": "Upper North Cormorant River",
+  "note": ""
+ },
+ "090203020605": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "070101010408": {
+  "subwatershed": "Rabideau Lake-North Turtle River",
+  "note": ""
+ },
+ "070101010411": {
+  "subwatershed": "Turtle River",
+  "note": ""
+ },
+ "070101010405": {
+  "subwatershed": "Turtle River Lake",
+  "note": ""
+ },
+ "070101010409": {
+  "subwatershed": "North Turtle River",
+  "note": ""
+ },
+ "070101010407": {
+  "subwatershed": "North Twin Lake-Turtle River",
+  "note": ""
+ },
+ "070101010406": {
+  "subwatershed": "Gull River",
+  "note": ""
+ },
+ "070101010403": {
+  "subwatershed": "Turtle Lake",
+  "note": ""
+ },
+ "070101010404": {
+  "subwatershed": "Three Island Lake",
+  "note": ""
+ },
+ "070101010401": {
+  "subwatershed": "Long Lake",
+  "note": ""
+ },
+ "070101010402": {
+  "subwatershed": "Little Turtle Lake",
+  "note": ""
+ },
+ "070101010410": {
+  "subwatershed": "Kitchi Creek",
+  "note": ""
+ },
+ "090203020402": {
+  "subwatershed": "Upper Red Lake",
+  "note": ""
+ },
+ "090203020401": {
+  "subwatershed": "Shotley Brook",
+  "note": ""
+ },
+ "090203020202": {
+  "subwatershed": "090203020202-Frontal Upper Red Lake",
+  "note": ""
+ },
+ "090203020201": {
+  "subwatershed": "Deer River-Frontal Upper Red Lake",
+  "note": ""
+ },
+ "090203020703": {
+  "subwatershed": "Mud River",
+  "note": ""
+ },
+ "090203020704": {
+  "subwatershed": "Pike Creek",
+  "note": ""
+ },
+ "090203020705": {
+  "subwatershed": "Little Rock Creek",
+  "note": ""
+ },
+ "090203020706": {
+  "subwatershed": "Big Rock Creek",
+  "note": ""
+ },
+ "090203020701": {
+  "subwatershed": "Hay Creek",
+  "note": ""
+ },
+ "090203020702": {
+  "subwatershed": "Gibibwisher Lake",
+  "note": ""
+ },
+ "070101010502": {
+  "subwatershed": "Lake Bemidji-Mississippi River",
+  "note": ""
+ },
+ "070101010508": {
+  "subwatershed": "Cass Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010503": {
+  "subwatershed": "Stump Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010505": {
+  "subwatershed": "Big Lake",
+  "note": ""
+ },
+ "070101010501": {
+  "subwatershed": "Alice Lake",
+  "note": ""
+ },
+ "070101010504": {
+  "subwatershed": "Wolf Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010506": {
+  "subwatershed": "Andrusia Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010507": {
+  "subwatershed": "Pike Bay",
+  "note": ""
+ },
+ "090203040102": {
+  "subwatershed": "Middle Moose River",
+  "note": ""
+ },
+ "090203040101": {
+  "subwatershed": "Upper Moose River",
+  "note": ""
+ },
+ "090203040103": {
+  "subwatershed": "Randeen Cemetery",
+  "note": ""
+ },
+ "090203040104": {
+  "subwatershed": "Lower Moose River",
+  "note": ""
+ },
+ "090203040301": {
+  "subwatershed": "Linder Lookout Tower",
+  "note": ""
+ },
+ "090203040303": {
+  "subwatershed": "Judicial Ditch Number Eleven-Mud River",
+  "note": ""
+ },
+ "090203040302": {
+  "subwatershed": "Valley Cemetery",
+  "note": ""
+ },
+ "090203040305": {
+  "subwatershed": "City of Grygla-Mud River",
+  "note": ""
+ },
+ "090203040304": {
+  "subwatershed": "Grygla State Wildlife Management Area",
+  "note": ""
+ },
+ "090300070100": {
+  "subwatershed": "Headwater Rapid River",
+  "note": ""
+ },
+ "090203040601": {
+  "subwatershed": "Town of Thorhult",
+  "note": ""
+ },
+ "090203040602": {
+  "subwatershed": "Hamre State Wildlife Management Area",
+  "note": ""
+ },
+ "090203040603": {
+  "subwatershed": "County Ditch Number Thirtytwo",
+  "note": ""
+ },
+ "090203040606": {
+  "subwatershed": "County Ditch Number Twenty",
+  "note": ""
+ },
+ "090203040605": {
+  "subwatershed": "County Ditch Number Twentyseven-Lost River",
+  "note": ""
+ },
+ "090203040604": {
+  "subwatershed": "Judicial Ditch Number Eighteen",
+  "note": ""
+ },
+ "090203030201": {
+  "subwatershed": "Roosevelt Lake-Red Lake River",
+  "note": ""
+ },
+ "090203030202": {
+  "subwatershed": "Good Lake",
+  "note": ""
+ },
+ "090203030203": {
+  "subwatershed": "County Ditch Number Fortythree",
+  "note": ""
+ },
+ "090203030204": {
+  "subwatershed": "County Ditch Number Seventyfive",
+  "note": ""
+ },
+ "090203030206": {
+  "subwatershed": "County Ditch Number Thirtynine-Red Lake River",
+  "note": ""
+ },
+ "090203030205": {
+  "subwatershed": "Town of High Landing-Red Lake River",
+  "note": ""
+ },
+ "090203030207": {
+  "subwatershed": "County Ditch Number Thirtythree-Red Lake River",
+  "note": ""
+ },
+ "070101010102": {
+  "subwatershed": "Headwaters Grant Creek",
+  "note": ""
+ },
+ "070101010103": {
+  "subwatershed": "Grant Creek",
+  "note": ""
+ },
+ "070101010104": {
+  "subwatershed": "Little Mississippi River",
+  "note": ""
+ },
+ "070101010101": {
+  "subwatershed": "Headwaters Little Mississippi River",
+  "note": ""
+ },
+ "090203030100": {
+  "subwatershed": "Cahill Lake",
+  "note": ""
+ },
+ "090203020502": {
+  "subwatershed": "Lower South Branch Battle River",
+  "note": ""
+ },
+ "090203020503": {
+  "subwatershed": "North Branch Battle River-Battle River",
+  "note": ""
+ },
+ "090203020501": {
+  "subwatershed": "Upper South Branch Battle River",
+  "note": ""
+ },
+ "090300070201": {
+  "subwatershed": "Miller Creek",
+  "note": ""
+ },
+ "090300070202": {
+  "subwatershed": "Chase Brook",
+  "note": ""
+ },
+ "090300070203": {
+  "subwatershed": "Troy Creek",
+  "note": ""
+ },
+ "090300070204": {
+  "subwatershed": "Moose Creek",
+  "note": ""
+ },
+ "090300070205": {
+  "subwatershed": "Town of Carp-Rapid River",
+  "note": ""
+ },
+ "090203020300": {
+  "subwatershed": "Manomin Creek",
+  "note": ""
+ },
+ "090203020801": {
+  "subwatershed": "Upper Sandy River",
+  "note": ""
+ },
+ "090203020802": {
+  "subwatershed": "Lower Sandy River",
+  "note": ""
+ },
+ "090203020104": {
+  "subwatershed": "Lower Tamarac River",
+  "note": ""
+ },
+ "090203020103": {
+  "subwatershed": "Little Tamarac River",
+  "note": ""
+ },
+ "090203020102": {
+  "subwatershed": "Lost River",
+  "note": ""
+ },
+ "090203020101": {
+  "subwatershed": "Upper Tamarac River",
+  "note": ""
+ },
+ "090203050105": {
+  "subwatershed": "Clearwater Lake-Clearwater River",
+  "note": ""
+ },
+ "090203050104": {
+  "subwatershed": "Buzzle Lake",
+  "note": ""
+ },
+ "090203050103": {
+  "subwatershed": "Blair Lake-Clearwater River",
+  "note": ""
+ },
+ "090203050101": {
+  "subwatershed": "Headwaters Clearwater River",
+  "note": ""
+ },
+ "090203050102": {
+  "subwatershed": "Walker Brook",
+  "note": ""
+ },
+ "070101010207": {
+  "subwatershed": "Bootleg Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010205": {
+  "subwatershed": "LaSalle Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010206": {
+  "subwatershed": "Hennepin Creek",
+  "note": ""
+ },
+ "070101010201": {
+  "subwatershed": "Lake Itasca-Mississippi River",
+  "note": ""
+ },
+ "070101010203": {
+  "subwatershed": "Gill Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010202": {
+  "subwatershed": "Sucker Creek",
+  "note": ""
+ },
+ "070101010204": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "090300070501": {
+  "subwatershed": "Bartons Brook-Rapid River",
+  "note": ""
+ },
+ "090300070502": {
+  "subwatershed": "Rapid River",
+  "note": ""
+ },
+ "090203140102": {
+  "subwatershed": "090203140102-Roseau River",
+  "note": ""
+ },
+ "090203140101": {
+  "subwatershed": "Headwaters Roseau River",
+  "note": ""
+ },
+ "090203140104": {
+  "subwatershed": "Hayes Lake-Roseau River",
+  "note": ""
+ },
+ "090203140103": {
+  "subwatershed": "Hansen Creek",
+  "note": ""
+ },
+ "090203140107": {
+  "subwatershed": "Rafferty Creek-Roseau River",
+  "note": ""
+ },
+ "090203140106": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "090203140105": {
+  "subwatershed": "Severson Creek",
+  "note": ""
+ },
+ "070101010601": {
+  "subwatershed": "Decker Lake",
+  "note": ""
+ },
+ "070101010602": {
+  "subwatershed": "Skimerhorn Creek-Third River",
+  "note": ""
+ },
+ "070101010604": {
+  "subwatershed": "Third River",
+  "note": ""
+ },
+ "070101010603": {
+  "subwatershed": "Moose Creek",
+  "note": ""
+ },
+ "090203140201": {
+  "subwatershed": "Headwaters South Fork Roseau River",
+  "note": ""
+ },
+ "090203140202": {
+  "subwatershed": "Mickinock Creek",
+  "note": ""
+ },
+ "090203140205": {
+  "subwatershed": "South Fork Roseau River",
+  "note": ""
+ },
+ "090203140204": {
+  "subwatershed": "Town of Wannaska-South Fork Roseau River",
+  "note": ""
+ },
+ "090203140203": {
+  "subwatershed": "Paulson Creek",
+  "note": ""
+ },
+ "070101010701": {
+  "subwatershed": "Lydick Brook-Mississippi River",
+  "note": ""
+ },
+ "070101010704": {
+  "subwatershed": "Lake Winnibigoshish",
+  "note": ""
+ },
+ "070101010703": {
+  "subwatershed": "Cut Foot Sioux Lake",
+  "note": ""
+ },
+ "070101010702": {
+  "subwatershed": "Pigeon River",
+  "note": ""
+ },
+ "090203040501": {
+  "subwatershed": "Espelie State Wildlife Management Area",
+  "note": ""
+ },
+ "090203040502": {
+  "subwatershed": "Lost River",
+  "note": ""
+ },
+ "090300070404": {
+  "subwatershed": "Headwaters Bartons Brook",
+  "note": ""
+ },
+ "090300070401": {
+  "subwatershed": "Upper East Fork Rapid River",
+  "note": ""
+ },
+ "090300070405": {
+  "subwatershed": "Bartons Brook",
+  "note": ""
+ },
+ "090300070402": {
+  "subwatershed": "Wing River",
+  "note": ""
+ },
+ "090300070403": {
+  "subwatershed": "Middle East Fork Rapid River",
+  "note": ""
+ },
+ "090300070406": {
+  "subwatershed": "Lower East Fork Rapid River",
+  "note": ""
+ },
+ "070101010306": {
+  "subwatershed": "Lower Schoolcraft River",
+  "note": ""
+ },
+ "070101010301": {
+  "subwatershed": "Birch Creek",
+  "note": ""
+ },
+ "070101010302": {
+  "subwatershed": "Upper Schoolcraft River",
+  "note": ""
+ },
+ "070101010305": {
+  "subwatershed": "Middle Schoolcraft River",
+  "note": ""
+ },
+ "070101010304": {
+  "subwatershed": "Frontenac Creek",
+  "note": ""
+ },
+ "070101010303": {
+  "subwatershed": "Alcohol Creek",
+  "note": ""
+ },
+ "070101020101": {
+  "subwatershed": "Headwaters Necktie River",
+  "note": ""
+ },
+ "070101020105": {
+  "subwatershed": "Steamboat River",
+  "note": ""
+ },
+ "070101020102": {
+  "subwatershed": "Bungashing Creek",
+  "note": ""
+ },
+ "070101020104": {
+  "subwatershed": "Necktie River",
+  "note": ""
+ },
+ "070101020103": {
+  "subwatershed": "Pokety River",
+  "note": ""
+ },
+ "090203040701": {
+  "subwatershed": "Judicial Ditch Number Thirteen",
+  "note": ""
+ },
+ "090203040702": {
+  "subwatershed": "Judicial Ditch Number Eighteen",
+  "note": ""
+ },
+ "090300070303": {
+  "subwatershed": "090300070303",
+  "note": ""
+ },
+ "090300070305": {
+  "subwatershed": "Lower North Branch Rapid River",
+  "note": ""
+ },
+ "090300070301": {
+  "subwatershed": "Meadow Creek",
+  "note": ""
+ },
+ "090300070304": {
+  "subwatershed": "Middle North Branch Rapid River",
+  "note": ""
+ },
+ "090300070302": {
+  "subwatershed": "Upper North Branch Rapid River",
+  "note": ""
+ }
+}

@@ -1,0 +1,215 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Dakota County",
+  "note": ""
+ },
+ "0704000102": {
+  "watershed": "Vermillion River",
+  "note": ""
+ },
+ "0702001211": {
+  "watershed": "Minnesota River",
+  "note": ""
+ },
+ "0704000204": {
+  "watershed": "Chub Creek",
+  "note": ""
+ },
+ "0704000209": {
+  "watershed": "Lower Cannon River",
+  "note": ""
+ },
+ "0701020609": {
+  "watershed": "Lock and Dam Number Two-Mississippi River",
+  "note": ""
+ },
+ "0704000206": {
+  "watershed": "Middle Cannon River",
+  "note": ""
+ },
+ "0701020608": {
+  "watershed": "City of Saint Paul-Mississippi River",
+  "note": ""
+ },
+ "0704000101": {
+  "watershed": "Big River-Mississippi River",
+  "note": ""
+ },
+ "070400010206": {
+  "subwatershed": "Town of Pine Bend",
+  "note": ""
+ },
+ "070400010203": {
+  "subwatershed": "Farquar Lake",
+  "note": ""
+ },
+ "070400010204": {
+  "subwatershed": "City of Farmington-Vermillion River",
+  "note": ""
+ },
+ "070400010205": {
+  "subwatershed": "South Branch Vermillion River",
+  "note": ""
+ },
+ "070400010210": {
+  "subwatershed": "Vermillion River",
+  "note": ""
+ },
+ "070400010208": {
+  "subwatershed": "Willow Ridge Airport",
+  "note": ""
+ },
+ "070400010209": {
+  "subwatershed": "City of Hastings-Vermillion River",
+  "note": ""
+ },
+ "070400010207": {
+  "subwatershed": "Sky Meadow Airport",
+  "note": ""
+ },
+ "070400010202": {
+  "subwatershed": "Marion Lake",
+  "note": ""
+ },
+ "070400010201": {
+  "subwatershed": "Headwaters Vermillion River",
+  "note": ""
+ },
+ "070200121110": {
+  "subwatershed": "Minnesota River",
+  "note": ""
+ },
+ "070200121109": {
+  "subwatershed": "Black Dog Lake-Minnesota River",
+  "note": ""
+ },
+ "070200121107": {
+  "subwatershed": "Credit River",
+  "note": ""
+ },
+ "070200121102": {
+  "subwatershed": "City of Shakopee-Minnesota River",
+  "note": ""
+ },
+ "070200121108": {
+  "subwatershed": "Ninemile Creek",
+  "note": ""
+ },
+ "070200121105": {
+  "subwatershed": "Prior Lake",
+  "note": ""
+ },
+ "070200121104": {
+  "subwatershed": "Purgatory Creek",
+  "note": ""
+ },
+ "070200121106": {
+  "subwatershed": "Eagle Creek-Minnesota River",
+  "note": ""
+ },
+ "070200121101": {
+  "subwatershed": "Chaska Creek",
+  "note": ""
+ },
+ "070200121103": {
+  "subwatershed": "Riley Creek",
+  "note": ""
+ },
+ "070400020404": {
+  "subwatershed": "Chub Creek",
+  "note": ""
+ },
+ "070400020403": {
+  "subwatershed": "North Branch Chub Creek",
+  "note": ""
+ },
+ "070400020402": {
+  "subwatershed": "Chub Lake-Chub Creek",
+  "note": ""
+ },
+ "070400020401": {
+  "subwatershed": "Dutch Creek",
+  "note": ""
+ },
+ "070400020902": {
+  "subwatershed": "City of Miesville",
+  "note": ""
+ },
+ "070400020901": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070400020903": {
+  "subwatershed": "Town of Welch-Cannon River",
+  "note": ""
+ },
+ "070400020904": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "070400020905": {
+  "subwatershed": "Cannon River",
+  "note": ""
+ },
+ "070102060903": {
+  "subwatershed": "Spring Lake-Mississippi River",
+  "note": ""
+ },
+ "070102060901": {
+  "subwatershed": "Schmidt Lake-Mississippi River",
+  "note": ""
+ },
+ "070102060902": {
+  "subwatershed": "Colby Lake",
+  "note": ""
+ },
+ "070400020604": {
+  "subwatershed": "City of Northfield-Cannon River",
+  "note": ""
+ },
+ "070400020605": {
+  "subwatershed": "Lake Byllesby",
+  "note": ""
+ },
+ "070400020603": {
+  "subwatershed": "Heath Creek",
+  "note": ""
+ },
+ "070400020602": {
+  "subwatershed": "Wolf Creek",
+  "note": ""
+ },
+ "070400020601": {
+  "subwatershed": "Crystal Lake-Cannon River",
+  "note": ""
+ },
+ "070102060805": {
+  "subwatershed": "Harriet Island-Mississippi River",
+  "note": ""
+ },
+ "070102060801": {
+  "subwatershed": "Vadnais Lake",
+  "note": ""
+ },
+ "070102060803": {
+  "subwatershed": "Lake Phalen",
+  "note": ""
+ },
+ "070102060802": {
+  "subwatershed": "McCarrons Lake",
+  "note": ""
+ },
+ "070102060804": {
+  "subwatershed": "Battle Creek",
+  "note": ""
+ },
+ "070400010102": {
+  "subwatershed": "Lock and Dam Number Three-Mississippi River",
+  "note": ""
+ },
+ "070400010101": {
+  "subwatershed": "Big River",
+  "note": ""
+ }
+}

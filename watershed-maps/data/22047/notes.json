@@ -1,0 +1,279 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Iberville Parish",
+  "note": ""
+ },
+ "0807030003": {
+  "watershed": "Bayou Grosse Tete",
+  "note": ""
+ },
+ "0807030004": {
+  "watershed": "Wilbert Canal-Choctaw Bayou",
+  "note": ""
+ },
+ "0808010103": {
+  "watershed": "Intracoastal Waterway",
+  "note": ""
+ },
+ "0808010104": {
+  "watershed": "Atchafalaya Basin Main Channel",
+  "note": ""
+ },
+ "0807020208": {
+  "watershed": "Bayou Manchac",
+  "note": ""
+ },
+ "0809030201": {
+  "watershed": "Grand Bayou-Lake Verret",
+  "note": ""
+ },
+ "0807030002": {
+  "watershed": "Bayou Cholpe-Choctaw Bayou",
+  "note": ""
+ },
+ "0807010001": {
+  "watershed": "Raccourci Island-Mississippi River",
+  "note": ""
+ },
+ "0808010102": {
+  "watershed": "Middle Atchafalaya River",
+  "note": ""
+ },
+ "080703000301": {
+  "subwatershed": "Bayou Maringouin",
+  "note": ""
+ },
+ "080703000305": {
+  "subwatershed": "Bayou Blue-Grand River",
+  "note": ""
+ },
+ "080703000306": {
+  "subwatershed": "Bayou Richard-Lower Grand River",
+  "note": ""
+ },
+ "080703000304": {
+  "subwatershed": "Bear Bayou-Catfish Canal",
+  "note": ""
+ },
+ "080703000302": {
+  "subwatershed": "Grand Bayou-Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000303": {
+  "subwatershed": "Caney Bayou-Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000401": {
+  "subwatershed": "Bayou la Butte",
+  "note": ""
+ },
+ "080703000402": {
+  "subwatershed": "Choctaw Bayou-Lower Grand River",
+  "note": ""
+ },
+ "080703000403": {
+  "subwatershed": "Chopin Chute-Lower Grand River",
+  "note": ""
+ },
+ "080801010301": {
+  "subwatershed": "Upper Grand River-Bayou Maringouin",
+  "note": ""
+ },
+ "080801010303": {
+  "subwatershed": "Bayou Sorrel-Intracoastal Waterway",
+  "note": ""
+ },
+ "080801010304": {
+  "subwatershed": "Bayou Pigeon-Intracoastal Waterway",
+  "note": ""
+ },
+ "080801010302": {
+  "subwatershed": "East Fork Bayou Pigeon-Intracoastal Waterway",
+  "note": ""
+ },
+ "080801010306": {
+  "subwatershed": "Middle Fork Bayou Long",
+  "note": ""
+ },
+ "080801010305": {
+  "subwatershed": "Old River-Intracoastal Waterway",
+  "note": ""
+ },
+ "080801010311": {
+  "subwatershed": "Cypress Pass",
+  "note": ""
+ },
+ "080801010307": {
+  "subwatershed": "Little Bayou Sorrel",
+  "note": ""
+ },
+ "080801010310": {
+  "subwatershed": "Hog Island Pass-Grand Lake",
+  "note": ""
+ },
+ "080801010308": {
+  "subwatershed": "Big Fork Bayou-Intracoastal Waterway",
+  "note": ""
+ },
+ "080801010309": {
+  "subwatershed": "Flat Lake",
+  "note": ""
+ },
+ "080801010401": {
+  "subwatershed": "Bayou Des Glaises-Bayou Burron",
+  "note": ""
+ },
+ "080801010402": {
+  "subwatershed": "Little Tensas Bayou",
+  "note": ""
+ },
+ "080801010403": {
+  "subwatershed": "Upper Grand River-Atchafalaya River",
+  "note": ""
+ },
+ "080801010406": {
+  "subwatershed": "Lake Fausse Pointe Cut-Lower Lake Long Pass",
+  "note": ""
+ },
+ "080801010405": {
+  "subwatershed": "Lake Rond",
+  "note": ""
+ },
+ "080801010408": {
+  "subwatershed": "Atchafalaya Basin Main Channel-Wax Lake Outlet",
+  "note": ""
+ },
+ "080801010404": {
+  "subwatershed": "Little Gonsoulin Bayou",
+  "note": ""
+ },
+ "080801010407": {
+  "subwatershed": "Lower Lake Long Pass-Grand Lake",
+  "note": ""
+ },
+ "080702020802": {
+  "subwatershed": "Alligator Bayou-Bayou Braud",
+  "note": ""
+ },
+ "080702020801": {
+  "subwatershed": "Bayou Braud",
+  "note": ""
+ },
+ "080702020804": {
+  "subwatershed": "Bayou Fountain-Bayou Manchac",
+  "note": ""
+ },
+ "080702020803": {
+  "subwatershed": "Ward Creek",
+  "note": ""
+ },
+ "080903020101": {
+  "subwatershed": "Bayou Sigur-Rocky Canal",
+  "note": ""
+ },
+ "080903020102": {
+  "subwatershed": "Bayou Corne-Grand Bayou",
+  "note": ""
+ },
+ "080903020103": {
+  "subwatershed": "Bayou Pierre Part",
+  "note": ""
+ },
+ "080903020104": {
+  "subwatershed": "Bayou Saint Vincent-Little Grand Bayou",
+  "note": ""
+ },
+ "080903020105": {
+  "subwatershed": "Cancienne Canal",
+  "note": ""
+ },
+ "080903020106": {
+  "subwatershed": "Lake Verret",
+  "note": ""
+ },
+ "080903020107": {
+  "subwatershed": "Bay Natchez-Bayou Grosbec",
+  "note": ""
+ },
+ "080703000208": {
+  "subwatershed": "Bayou Plaquemine",
+  "note": ""
+ },
+ "080703000207": {
+  "subwatershed": "Bayou Bourbeaux",
+  "note": ""
+ },
+ "080703000206": {
+  "subwatershed": "Choctaw Bayou",
+  "note": ""
+ },
+ "080703000201": {
+  "subwatershed": "Cholpe Bayou-Bayou Grosse Tete",
+  "note": ""
+ },
+ "080703000204": {
+  "subwatershed": "Alligator Bayou-Choctaw Bayou",
+  "note": ""
+ },
+ "080703000203": {
+  "subwatershed": "Bayou Clause-Grand Bayou",
+  "note": ""
+ },
+ "080703000202": {
+  "subwatershed": "Bayou Poydras-Stumpy Bayou",
+  "note": ""
+ },
+ "080703000205": {
+  "subwatershed": "Gulf Intracoastal Waterway-Choctaw Basin Drainage Canal",
+  "note": ""
+ },
+ "080701000105": {
+  "subwatershed": "Claiborne Island-Mississippi River",
+  "note": ""
+ },
+ "080701000104": {
+  "subwatershed": "Manchac Point-Mississippi River",
+  "note": ""
+ },
+ "080701000101": {
+  "subwatershed": "Little Island-Mississippi River",
+  "note": ""
+ },
+ "080701000103": {
+  "subwatershed": "Profit Island-Mississippi River",
+  "note": ""
+ },
+ "080701000102": {
+  "subwatershed": "Raccourci Island",
+  "note": ""
+ },
+ "080801010202": {
+  "subwatershed": "Alabama Bayou",
+  "note": ""
+ },
+ "080801010201": {
+  "subwatershed": "Johnson Bayou",
+  "note": ""
+ },
+ "080801010207": {
+  "subwatershed": "Henderson Swamp",
+  "note": ""
+ },
+ "080801010203": {
+  "subwatershed": "Darbonne Bay",
+  "note": ""
+ },
+ "080801010206": {
+  "subwatershed": "Bayou Fusilier of the Swamps-Bayou Fordoche",
+  "note": ""
+ },
+ "080801010204": {
+  "subwatershed": "Bayou Courtableau-Bayou Fordoche",
+  "note": ""
+ },
+ "080801010205": {
+  "subwatershed": "Bayou Courtableau-Atchafalaya River",
+  "note": ""
+ }
+}

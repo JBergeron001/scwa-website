@@ -1,0 +1,267 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Ste. Genevieve County",
+  "note": ""
+ },
+ "0714010501": {
+  "watershed": "Saline Creek-Mississippi River",
+  "note": ""
+ },
+ "0714010109": {
+  "watershed": "Establishment Creek-Mississippi River",
+  "note": ""
+ },
+ "0714010401": {
+  "watershed": "Upper Big River",
+  "note": ""
+ },
+ "0802020202": {
+  "watershed": "Stouts Creek-Saint Francis River",
+  "note": ""
+ },
+ "0714010108": {
+  "watershed": "Joachim Creek-Mississippi River",
+  "note": ""
+ },
+ "0714010702": {
+  "watershed": "Big Creek-Castor River",
+  "note": ""
+ },
+ "071401050107": {
+  "subwatershed": "Coldwater Creek-Saline Creek",
+  "note": ""
+ },
+ "071401050104": {
+  "subwatershed": "Middle River aux Vases",
+  "note": ""
+ },
+ "071401050111": {
+  "subwatershed": "Brushy Creek-Saline Creek",
+  "note": ""
+ },
+ "071401050102": {
+  "subwatershed": "Jonca Creek",
+  "note": ""
+ },
+ "071401050114": {
+  "subwatershed": "Old River-Mississippi River",
+  "note": ""
+ },
+ "071401050103": {
+  "subwatershed": "Upper River aux Vases",
+  "note": ""
+ },
+ "071401050106": {
+  "subwatershed": "Madden Creek",
+  "note": ""
+ },
+ "071401050105": {
+  "subwatershed": "Lower River aux Vases",
+  "note": ""
+ },
+ "071401050112": {
+  "subwatershed": "Little Saline Creek",
+  "note": ""
+ },
+ "071401050113": {
+  "subwatershed": "Saline Creek",
+  "note": ""
+ },
+ "071401050108": {
+  "subwatershed": "Upper South Fork Saline Creek",
+  "note": ""
+ },
+ "071401050110": {
+  "subwatershed": "Lower South Fork Saline Creek",
+  "note": ""
+ },
+ "071401050109": {
+  "subwatershed": "Middle South Fork Saline Creek",
+  "note": ""
+ },
+ "071401050101": {
+  "subwatershed": "Kaskaskia Island",
+  "note": ""
+ },
+ "071401010907": {
+  "subwatershed": "Headwaters Establishment Creek",
+  "note": ""
+ },
+ "071401010906": {
+  "subwatershed": "Fourche a Du Clos",
+  "note": ""
+ },
+ "071401010910": {
+  "subwatershed": "Moro Island-Mississippi River",
+  "note": ""
+ },
+ "071401010908": {
+  "subwatershed": "Establishment Creek",
+  "note": ""
+ },
+ "071401010903": {
+  "subwatershed": "Isle du Bois Creek",
+  "note": ""
+ },
+ "071401010905": {
+  "subwatershed": "Brickleys Hollow-Mississippi River",
+  "note": ""
+ },
+ "071401010909": {
+  "subwatershed": "Prairie Du Rocher Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010904": {
+  "subwatershed": "Old Maeystown Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010901": {
+  "subwatershed": "Monroe City Creek",
+  "note": ""
+ },
+ "071401010902": {
+  "subwatershed": "Maeystown Creek",
+  "note": ""
+ },
+ "071401040109": {
+  "subwatershed": "Headwaters Terre Bleue Creek",
+  "note": ""
+ },
+ "071401040110": {
+  "subwatershed": "Terre Bleue Creek",
+  "note": ""
+ },
+ "071401040108": {
+  "subwatershed": "Flat River",
+  "note": ""
+ },
+ "071401040105": {
+  "subwatershed": "Clear Creek-Big River",
+  "note": ""
+ },
+ "071401040106": {
+  "subwatershed": "Wallen Creek-Big River",
+  "note": ""
+ },
+ "071401040101": {
+  "subwatershed": "Headwaters Big River",
+  "note": ""
+ },
+ "071401040111": {
+  "subwatershed": "Owl Creek-Big River",
+  "note": ""
+ },
+ "071401040102": {
+  "subwatershed": "Saline Creek",
+  "note": ""
+ },
+ "071401040103": {
+  "subwatershed": "Headwaters Cedar Creek",
+  "note": ""
+ },
+ "071401040107": {
+  "subwatershed": "Blay Creek-Big River",
+  "note": ""
+ },
+ "071401040104": {
+  "subwatershed": "Cedar Creek",
+  "note": ""
+ },
+ "080202020202": {
+  "subwatershed": "Sand Creek-Wolf Creek",
+  "note": ""
+ },
+ "080202020203": {
+  "subwatershed": "Wolf Creek",
+  "note": ""
+ },
+ "080202020201": {
+  "subwatershed": "Headwaters Saint Francis River",
+  "note": ""
+ },
+ "080202020208": {
+  "subwatershed": "Stouts Creek",
+  "note": ""
+ },
+ "080202020209": {
+  "subwatershed": "Wachita Creek-Saint Francis River",
+  "note": ""
+ },
+ "080202020204": {
+  "subwatershed": "Blankshire Branch-Saint Francis River",
+  "note": ""
+ },
+ "080202020207": {
+  "subwatershed": "Headwaters Stouts Creek",
+  "note": ""
+ },
+ "080202020205": {
+  "subwatershed": "Doe Run Creek",
+  "note": ""
+ },
+ "080202020210": {
+  "subwatershed": "Turkey Creek-Saint Francis River",
+  "note": ""
+ },
+ "080202020206": {
+  "subwatershed": "O\u2019Bannon Creek-Saint Francis River",
+  "note": ""
+ },
+ "071401010805": {
+  "subwatershed": "Headwaters Plattin Creek",
+  "note": ""
+ },
+ "071401010801": {
+  "subwatershed": "Upper Joachim Creek",
+  "note": ""
+ },
+ "071401010802": {
+  "subwatershed": "Middle Joachim Creek",
+  "note": ""
+ },
+ "071401010806": {
+  "subwatershed": "Plattin Creek",
+  "note": ""
+ },
+ "071401010803": {
+  "subwatershed": "Sandy Creek",
+  "note": ""
+ },
+ "071401010804": {
+  "subwatershed": "Lower Joachim Creek",
+  "note": ""
+ },
+ "071401010807": {
+  "subwatershed": "Meissner Island-Mississippi River",
+  "note": ""
+ },
+ "071401070201": {
+  "subwatershed": "Headwaters Upper Castor River",
+  "note": ""
+ },
+ "071401070202": {
+  "subwatershed": "Henderson Creek-Upper Castor River",
+  "note": ""
+ },
+ "071401070206": {
+  "subwatershed": "Grassy Creek-Upper Castor River",
+  "note": ""
+ },
+ "071401070205": {
+  "subwatershed": "Big Creek",
+  "note": ""
+ },
+ "071401070207": {
+  "subwatershed": "Turkey Creek-Upper Castor River",
+  "note": ""
+ },
+ "071401070204": {
+  "subwatershed": "Wash Creek-Upper Castor River",
+  "note": ""
+ },
+ "071401070203": {
+  "subwatershed": "Shetley Creek",
+  "note": ""
+ }
+}

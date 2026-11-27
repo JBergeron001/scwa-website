@@ -1,0 +1,211 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Houston County",
+  "note": ""
+ },
+ "0704000808": {
+  "watershed": "South Fork Root River",
+  "note": ""
+ },
+ "0704000809": {
+  "watershed": "Root River",
+  "note": ""
+ },
+ "0706000102": {
+  "watershed": "Crooked Creek",
+  "note": ""
+ },
+ "0706000104": {
+  "watershed": "Winnebago Creek",
+  "note": ""
+ },
+ "0706000105": {
+  "watershed": "Mormon Creek-Mississippi River",
+  "note": ""
+ },
+ "0706000205": {
+  "watershed": "Bear Creek",
+  "note": ""
+ },
+ "0704000807": {
+  "watershed": "City of Rushford-Root River",
+  "note": ""
+ },
+ "0704000605": {
+  "watershed": "Pine Creek-Mississippi River",
+  "note": ""
+ },
+ "0704000806": {
+  "watershed": "Money Creek",
+  "note": ""
+ },
+ "0704000805": {
+  "watershed": "Rush Creek",
+  "note": ""
+ },
+ "0706000206": {
+  "watershed": "Upper Iowa River",
+  "note": ""
+ },
+ "070400080805": {
+  "subwatershed": "Beaver Creek",
+  "note": ""
+ },
+ "070400080806": {
+  "subwatershed": "Lower South Fork Root River",
+  "note": ""
+ },
+ "070400080804": {
+  "subwatershed": "Riceford Creek",
+  "note": ""
+ },
+ "070400080803": {
+  "subwatershed": "Middle South Fork Root River",
+  "note": ""
+ },
+ "070400080802": {
+  "subwatershed": "Wisel Creek",
+  "note": ""
+ },
+ "070400080801": {
+  "subwatershed": "Upper Souh Fork Root River",
+  "note": ""
+ },
+ "070400080904": {
+  "subwatershed": "Root River",
+  "note": ""
+ },
+ "070400080903": {
+  "subwatershed": "Thompson Creek",
+  "note": ""
+ },
+ "070400080902": {
+  "subwatershed": "Crystal Creek",
+  "note": ""
+ },
+ "070400080901": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070600010203": {
+  "subwatershed": "Clear Creek-Crooked Creek",
+  "note": ""
+ },
+ "070600010201": {
+  "subwatershed": "North Fork Crooked Creek",
+  "note": ""
+ },
+ "070600010202": {
+  "subwatershed": "South Fork Crooked Creek",
+  "note": ""
+ },
+ "070600010402": {
+  "subwatershed": "Lower Winnebago Creek",
+  "note": ""
+ },
+ "070600010401": {
+  "subwatershed": "Upper Winnebago Creek",
+  "note": ""
+ },
+ "070600010505": {
+  "subwatershed": "Town of New Albin-Mississippi River",
+  "note": ""
+ },
+ "070600010504": {
+  "subwatershed": "Lock and Dam Number Eight-Mississippi River",
+  "note": ""
+ },
+ "070600010503": {
+  "subwatershed": "Wildcat Creek",
+  "note": ""
+ },
+ "070600010501": {
+  "subwatershed": "Mormon Creek",
+  "note": ""
+ },
+ "070600010502": {
+  "subwatershed": "Chipmunk Coulee",
+  "note": ""
+ },
+ "070600020502": {
+  "subwatershed": "Waterloo Creek",
+  "note": ""
+ },
+ "070600020501": {
+  "subwatershed": "North Bear Creek",
+  "note": ""
+ },
+ "070600020503": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "070400080703": {
+  "subwatershed": "City of Houston-Root River",
+  "note": ""
+ },
+ "070400080702": {
+  "subwatershed": "City of Peterson-Root River",
+  "note": ""
+ },
+ "070400080701": {
+  "subwatershed": "City of Whalan-Root River",
+  "note": ""
+ },
+ "070400060501": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070400060502": {
+  "subwatershed": "City of La Crosse-Mississippi River",
+  "note": ""
+ },
+ "070400080602": {
+  "subwatershed": "Lower Money Creek",
+  "note": ""
+ },
+ "070400080601": {
+  "subwatershed": "Upper Money Creek",
+  "note": ""
+ },
+ "070400080504": {
+  "subwatershed": "Lower Rush Creek",
+  "note": ""
+ },
+ "070400080503": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070400080502": {
+  "subwatershed": "Middle Rush Creek",
+  "note": ""
+ },
+ "070400080501": {
+  "subwatershed": "Upper Rush Creek",
+  "note": ""
+ },
+ "070600020605": {
+  "subwatershed": "Clear Creek-Upper Iowa River",
+  "note": ""
+ },
+ "070600020606": {
+  "subwatershed": "Outlet Upper Iowa River",
+  "note": ""
+ },
+ "070600020602": {
+  "subwatershed": "Paint Creek-Upper Iowa River",
+  "note": ""
+ },
+ "070600020604": {
+  "subwatershed": "French Creek",
+  "note": ""
+ },
+ "070600020603": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070600020601": {
+  "subwatershed": "Patterson Creek",
+  "note": ""
+ }
+}

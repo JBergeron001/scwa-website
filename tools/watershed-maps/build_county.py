@@ -270,8 +270,24 @@ def osm_layers(bb, path):
     return parks, uniq
 
 
+_TREES = {}
+
+
+def near_items(items, geom, gi=1):
+    """Items (tuples whose element gi is a geometry) whose bounds touch geom, via a cached STRtree."""
+    from shapely.strtree import STRtree
+    key = id(items)
+    if key not in _TREES: _TREES[key] = (STRtree([t[gi] for t in items]), items)
+    tree, its = _TREES[key]
+    return [its[i] for i in tree.query(geom)]
+
+
 def build_grid(G, county, region, el, sheds, area_water, lin_water, places, detail, extras=(), L=None):
     """Returns the encoded payload for a grid covering `region` (already inside the county)."""
+    # only look at features near this area (spatial index), which keeps big counties fast
+    rb = box(*region.bounds)
+    area_water = near_items(area_water, rb); lin_water = near_items(lin_water, rb)
+    if L: L = dict(L, roads=near_items(L['roads'], rb), munis=near_items(L['munis'], rb, 1), parks=near_items(L['parks'], rb, 1))
     LON, LAT = G.centers()
     h = el.sample(LON, LAT)
     inside = G.fill([(region, 1)])
@@ -406,7 +422,7 @@ def main(geoid, outdir, extra=()):
         if a < 0.5: continue
         if f['properties']['areasqkm'] > 5000: continue  # open-water Great Lakes units (e.g. 'Lake Michigan'), not land watersheds
         bx = full.bounds; kx, ky = km_scale(lat0)
-        if (bx[2] - bx[0]) * kx * (bx[3] - bx[1]) * ky > 20 * f['properties']['areasqkm']: continue  # long thin open-lake units such as 'Pelee Island'
+        if f['properties']['huc10'].startswith('04') and (bx[2] - bx[0]) * kx * (bx[3] - bx[1]) * ky > 20 * f['properties']['areasqkm']: continue  # Great Lakes open-water units such as Lake Erie's 'Pelee Island' (not river corridors)
         groups.append([f['properties']['huc10'], clean_name(f['properties']['name']), g, a, f['properties']['areasqkm'], full])
     groups.sort(key=lambda r: -r[3])
     gb = [g[5].bounds for g in groups]

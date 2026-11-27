@@ -1,0 +1,199 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Jefferson County",
+  "note": ""
+ },
+ "0714010108": {
+  "watershed": "Joachim Creek-Mississippi River",
+  "note": ""
+ },
+ "0714010404": {
+  "watershed": "Lower Big River",
+  "note": ""
+ },
+ "0714010106": {
+  "watershed": "Rock Creek-Mississippi River",
+  "note": ""
+ },
+ "0714010210": {
+  "watershed": "Meramec River",
+  "note": ""
+ },
+ "0714010209": {
+  "watershed": "Calvey Creek-Meramec River",
+  "note": ""
+ },
+ "0714010109": {
+  "watershed": "Establishment Creek-Mississippi River",
+  "note": ""
+ },
+ "0714010403": {
+  "watershed": "Middle Big River",
+  "note": ""
+ },
+ "0714010208": {
+  "watershed": "Little Meramec River-Meramec River",
+  "note": ""
+ },
+ "071401010801": {
+  "subwatershed": "Upper Joachim Creek",
+  "note": ""
+ },
+ "071401010802": {
+  "subwatershed": "Middle Joachim Creek",
+  "note": ""
+ },
+ "071401010806": {
+  "subwatershed": "Plattin Creek",
+  "note": ""
+ },
+ "071401010803": {
+  "subwatershed": "Sandy Creek",
+  "note": ""
+ },
+ "071401010804": {
+  "subwatershed": "Lower Joachim Creek",
+  "note": ""
+ },
+ "071401010805": {
+  "subwatershed": "Headwaters Plattin Creek",
+  "note": ""
+ },
+ "071401010807": {
+  "subwatershed": "Meissner Island-Mississippi River",
+  "note": ""
+ },
+ "071401040407": {
+  "subwatershed": "Big River",
+  "note": ""
+ },
+ "071401040403": {
+  "subwatershed": "Ditch Creek-Big River",
+  "note": ""
+ },
+ "071401040406": {
+  "subwatershed": "Heads Creek",
+  "note": ""
+ },
+ "071401040402": {
+  "subwatershed": "Dry Creek",
+  "note": ""
+ },
+ "071401040404": {
+  "subwatershed": "Belews Creek",
+  "note": ""
+ },
+ "071401040405": {
+  "subwatershed": "Jones Creek-Big River",
+  "note": ""
+ },
+ "071401040401": {
+  "subwatershed": "Calico Creek-Big River",
+  "note": ""
+ },
+ "071401010602": {
+  "subwatershed": "Glaize Creek",
+  "note": ""
+ },
+ "071401010601": {
+  "subwatershed": "Rock Creek",
+  "note": ""
+ },
+ "071401010603": {
+  "subwatershed": "Carr Creek-Mississippi River",
+  "note": ""
+ },
+ "071401021003": {
+  "subwatershed": "Sugar Creek-Meramec River",
+  "note": ""
+ },
+ "071401021004": {
+  "subwatershed": "Meramec River",
+  "note": ""
+ },
+ "071401021001": {
+  "subwatershed": "Hamilton Creek-Meramec River",
+  "note": ""
+ },
+ "071401021002": {
+  "subwatershed": "Grand Glaize Creek-Meramec River",
+  "note": ""
+ },
+ "071401020903": {
+  "subwatershed": "Fox Creek-Meramec River",
+  "note": ""
+ },
+ "071401020901": {
+  "subwatershed": "Calvey Creek-Meramec River",
+  "note": ""
+ },
+ "071401020902": {
+  "subwatershed": "Brush Creek-Meramec River",
+  "note": ""
+ },
+ "071401010904": {
+  "subwatershed": "Old Maeystown Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010903": {
+  "subwatershed": "Isle du Bois Creek",
+  "note": ""
+ },
+ "071401010910": {
+  "subwatershed": "Moro Island-Mississippi River",
+  "note": ""
+ },
+ "071401010907": {
+  "subwatershed": "Headwaters Establishment Creek",
+  "note": ""
+ },
+ "071401010906": {
+  "subwatershed": "Fourche a Du Clos",
+  "note": ""
+ },
+ "071401010909": {
+  "subwatershed": "Prairie Du Rocher Creek-Mississippi River",
+  "note": ""
+ },
+ "071401010901": {
+  "subwatershed": "Monroe City Creek",
+  "note": ""
+ },
+ "071401010908": {
+  "subwatershed": "Establishment Creek",
+  "note": ""
+ },
+ "071401010902": {
+  "subwatershed": "Maeystown Creek",
+  "note": ""
+ },
+ "071401010905": {
+  "subwatershed": "Brickleys Hollow-Mississippi River",
+  "note": ""
+ },
+ "071401040303": {
+  "subwatershed": "Tiff Creek-Big River",
+  "note": ""
+ },
+ "071401040302": {
+  "subwatershed": "Three Hill Creek-Big River",
+  "note": ""
+ },
+ "071401040301": {
+  "subwatershed": "Mill Creek",
+  "note": ""
+ },
+ "071401020801": {
+  "subwatershed": "Little Meramec River",
+  "note": ""
+ },
+ "071401020802": {
+  "subwatershed": "Rye Creek-Meramec River",
+  "note": ""
+ },
+ "071401020803": {
+  "subwatershed": "Johnson Branch-Meramec River",
+  "note": ""
+ }
+}

@@ -1,0 +1,191 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Dubuque County",
+  "note": ""
+ },
+ "0706000306": {
+  "watershed": "Little Maquoketa River",
+  "note": ""
+ },
+ "0706000606": {
+  "watershed": "Headwaters North Fork Maquoketa River",
+  "note": ""
+ },
+ "0706000605": {
+  "watershed": "Whitewater Creek",
+  "note": ""
+ },
+ "0706000501": {
+  "watershed": "Catfish Creek",
+  "note": ""
+ },
+ "0706000607": {
+  "watershed": "Lytle Creek",
+  "note": ""
+ },
+ "0706000502": {
+  "watershed": "Sinsinawa River-Mississippi River",
+  "note": ""
+ },
+ "0706000307": {
+  "watershed": "Sny Magill Creek-Mississippi River",
+  "note": ""
+ },
+ "0706000409": {
+  "watershed": "Turkey River",
+  "note": ""
+ },
+ "070600030603": {
+  "subwatershed": "Upper Little Maquoketa River",
+  "note": ""
+ },
+ "070600030602": {
+  "subwatershed": "North Fork Little Maquoketa River",
+  "note": ""
+ },
+ "070600030601": {
+  "subwatershed": "Middle Fork Little Maquoketa River",
+  "note": ""
+ },
+ "070600030604": {
+  "subwatershed": "Lower Little Maquoketa River",
+  "note": ""
+ },
+ "070600060603": {
+  "subwatershed": "Coffee Creek-North Fork Maquoketa River",
+  "note": ""
+ },
+ "070600060601": {
+  "subwatershed": "Hewitt Creek",
+  "note": ""
+ },
+ "070600060605": {
+  "subwatershed": "Mount Pleasant Cemetery-North Fork Maquoketa River",
+  "note": ""
+ },
+ "070600060604": {
+  "subwatershed": "Durion Creek-North Fork Maquoketa River",
+  "note": ""
+ },
+ "070600060606": {
+  "subwatershed": "City of Cascade-North Fork Maquoketa River",
+  "note": ""
+ },
+ "070600060602": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "070600060501": {
+  "subwatershed": "Curran Creek-Whitewater Creek",
+  "note": ""
+ },
+ "070600060502": {
+  "subwatershed": "Johns Creek",
+  "note": ""
+ },
+ "070600060503": {
+  "subwatershed": "Whitewater Creek",
+  "note": ""
+ },
+ "070600050102": {
+  "subwatershed": "Catfish Creek",
+  "note": ""
+ },
+ "070600050101": {
+  "subwatershed": "South Fork Catfish Creek",
+  "note": ""
+ },
+ "070600060701": {
+  "subwatershed": "Prairie Creek",
+  "note": ""
+ },
+ "070600060702": {
+  "subwatershed": "Headwaters Lytle Creek",
+  "note": ""
+ },
+ "070600060703": {
+  "subwatershed": "Buncombe Creek",
+  "note": ""
+ },
+ "070600060704": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "070600060705": {
+  "subwatershed": "Washington Mills-Lytle Creek",
+  "note": ""
+ },
+ "070600060706": {
+  "subwatershed": "Lytle Creek",
+  "note": ""
+ },
+ "070600050202": {
+  "subwatershed": "Frentress Lake-Mississippi River",
+  "note": ""
+ },
+ "070600050204": {
+  "subwatershed": "Tetes Des Morts Creek",
+  "note": ""
+ },
+ "070600050205": {
+  "subwatershed": "Little Menominee River-Mississippi River",
+  "note": ""
+ },
+ "070600050203": {
+  "subwatershed": "Sinsinawa River",
+  "note": ""
+ },
+ "070600050201": {
+  "subwatershed": "Menominee River",
+  "note": ""
+ },
+ "070600030707": {
+  "subwatershed": "McCartney Branch-Mississippi River",
+  "note": ""
+ },
+ "070600030708": {
+  "subwatershed": "Sinnipee Creek-Mississippi River",
+  "note": ""
+ },
+ "070600030706": {
+  "subwatershed": "Plum Creek-Mississippi River",
+  "note": ""
+ },
+ "070600030704": {
+  "subwatershed": "Lock and Dam Number Ten-Mississippi River",
+  "note": ""
+ },
+ "070600030705": {
+  "subwatershed": "Miners Creek-Mississippi River",
+  "note": ""
+ },
+ "070600030701": {
+  "subwatershed": "Sny Magill Creek",
+  "note": ""
+ },
+ "070600030703": {
+  "subwatershed": "Buck Creek",
+  "note": ""
+ },
+ "070600030702": {
+  "subwatershed": "Sandy Creek",
+  "note": ""
+ },
+ "070600040903": {
+  "subwatershed": "Cherry Valley-Little Turkey River",
+  "note": ""
+ },
+ "070600040904": {
+  "subwatershed": "Bluebell Creek-Turkey River",
+  "note": ""
+ },
+ "070600040901": {
+  "subwatershed": "South Cedar Creek",
+  "note": ""
+ },
+ "070600040902": {
+  "subwatershed": "Carlan Creek-Turkey River",
+  "note": ""
+ }
+}

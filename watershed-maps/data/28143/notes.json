@@ -1,0 +1,119 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Tunica County",
+  "note": ""
+ },
+ "0802010001": {
+  "watershed": "Tunica Lake-Mississippi River",
+  "note": ""
+ },
+ "0803020408": {
+  "watershed": "White Oak Bayou-Coldwater River",
+  "note": ""
+ },
+ "0803020407": {
+  "watershed": "Lake Cormorant Bayou-Coldwater River",
+  "note": ""
+ },
+ "0803020410": {
+  "watershed": "Muddy Bayou-Coldwater River",
+  "note": ""
+ },
+ "0803020409": {
+  "watershed": "Phillips Bayou-Yazoo Pass",
+  "note": ""
+ },
+ "0803020411": {
+  "watershed": "Burrell Bayou-Coldwater River",
+  "note": ""
+ },
+ "080201000102": {
+  "subwatershed": "Tunica Lake-Mississippi River",
+  "note": ""
+ },
+ "080201000101": {
+  "subwatershed": "McKinney Bayou",
+  "note": ""
+ },
+ "080302040801": {
+  "subwatershed": "Little White Oak Bayou",
+  "note": ""
+ },
+ "080302040802": {
+  "subwatershed": "Seven Mile Bayou",
+  "note": ""
+ },
+ "080302040804": {
+  "subwatershed": "Brushy Bayou-Coldwater River",
+  "note": ""
+ },
+ "080302040803": {
+  "subwatershed": "Flag Lake",
+  "note": ""
+ },
+ "080302040704": {
+  "subwatershed": "Buck Island Bayou",
+  "note": ""
+ },
+ "080302040705": {
+  "subwatershed": "Lake Cormorant Bayou-Coldwater River",
+  "note": ""
+ },
+ "080302040703": {
+  "subwatershed": "Lake Cormorant Bayou",
+  "note": ""
+ },
+ "080302040701": {
+  "subwatershed": "Rock Creek-Coldwater River",
+  "note": ""
+ },
+ "080302040702": {
+  "subwatershed": "Johnson Creek",
+  "note": ""
+ },
+ "080302041002": {
+  "subwatershed": "Ark Bayou",
+  "note": ""
+ },
+ "080302041003": {
+  "subwatershed": "Brady Bayou",
+  "note": ""
+ },
+ "080302041001": {
+  "subwatershed": "McNeil Bayou-Coldwater River",
+  "note": ""
+ },
+ "080302041004": {
+  "subwatershed": "Thomasson Bayou-Coldwater River",
+  "note": ""
+ },
+ "080302040902": {
+  "subwatershed": "Bear Lake",
+  "note": ""
+ },
+ "080302040901": {
+  "subwatershed": "Beaverdam Lake",
+  "note": ""
+ },
+ "080302040903": {
+  "subwatershed": "Yazoo Pass",
+  "note": ""
+ },
+ "080302041104": {
+  "subwatershed": "Outlet Coldwater River",
+  "note": ""
+ },
+ "080302041101": {
+  "subwatershed": "David Bayou",
+  "note": ""
+ },
+ "080302041102": {
+  "subwatershed": "Indian Creek",
+  "note": ""
+ },
+ "080302041103": {
+  "subwatershed": "Burrell Bayou",
+  "note": ""
+ }
+}

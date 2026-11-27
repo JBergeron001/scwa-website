@@ -1,0 +1,67 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Lake County",
+  "note": ""
+ },
+ "0801020204": {
+  "watershed": "Reelfoot Lake",
+  "note": ""
+ },
+ "0801010005": {
+  "watershed": "Blue Bank Bayou-Mississippi River",
+  "note": ""
+ },
+ "0801010004": {
+  "watershed": "Stewart Towhead-Mississippi River",
+  "note": ""
+ },
+ "0801010003": {
+  "watershed": "Island Number 8-Mississippi River",
+  "note": ""
+ },
+ "080102020404": {
+  "subwatershed": "Reelfoot Lake",
+  "note": ""
+ },
+ "080102020406": {
+  "subwatershed": "Running Reelfoot Bayou",
+  "note": ""
+ },
+ "080102020401": {
+  "subwatershed": "North Reelfoot Creek",
+  "note": ""
+ },
+ "080102020402": {
+  "subwatershed": "South Reelfoot Creek",
+  "note": ""
+ },
+ "080102020405": {
+  "subwatershed": "Pawpaw Creek",
+  "note": ""
+ },
+ "080102020403": {
+  "subwatershed": "Indian Creek",
+  "note": ""
+ },
+ "080101000502": {
+  "subwatershed": "Sandy Hook Bar-Mississippi River",
+  "note": ""
+ },
+ "080101000501": {
+  "subwatershed": "Blue Bank Bayou",
+  "note": ""
+ },
+ "080101000503": {
+  "subwatershed": "Everett Lake-Mississippi River",
+  "note": ""
+ },
+ "080101000401": {
+  "subwatershed": "Stewart Towhead-Mississippi River",
+  "note": ""
+ },
+ "080101000301": {
+  "subwatershed": "Donaldson Point-Mississippi River",
+  "note": ""
+ }
+}

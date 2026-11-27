@@ -1,0 +1,211 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Tensas Parish",
+  "note": ""
+ },
+ "0805000304": {
+  "watershed": "Upper Tensas River",
+  "note": ""
+ },
+ "0805000305": {
+  "watershed": "Middle Tensas River",
+  "note": ""
+ },
+ "0806010002": {
+  "watershed": "Palmyra Lake-Mississippi River",
+  "note": ""
+ },
+ "0805000302": {
+  "watershed": "Walnut Bayou-Roundaway Bayou",
+  "note": ""
+ },
+ "0806010003": {
+  "watershed": "Rodney Lake-Mississippi River",
+  "note": ""
+ },
+ "0805000306": {
+  "watershed": "Lower Tensas River",
+  "note": ""
+ },
+ "0806020403": {
+  "watershed": "Fairchilds Creek-Coles Creek",
+  "note": ""
+ },
+ "0804030601": {
+  "watershed": "Upper Bayou Cocodrie",
+  "note": ""
+ },
+ "0806020308": {
+  "watershed": "James Creek-Bayou Pierre",
+  "note": ""
+ },
+ "080500030402": {
+  "subwatershed": "Wildhorse Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030406": {
+  "subwatershed": "Lake Saint Joseph-Clark Bayou",
+  "note": ""
+ },
+ "080500030405": {
+  "subwatershed": "Lake Shallow-Cypress Bayou",
+  "note": ""
+ },
+ "080500030407": {
+  "subwatershed": "Bieler Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030403": {
+  "subwatershed": "Big Roaring Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030404": {
+  "subwatershed": "Palmetto Slough-Cow Slough",
+  "note": ""
+ },
+ "080500030401": {
+  "subwatershed": "Fool River-Tensas River",
+  "note": ""
+ },
+ "080500030408": {
+  "subwatershed": "Dean Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030503": {
+  "subwatershed": "Van Buren Bayou",
+  "note": ""
+ },
+ "080500030505": {
+  "subwatershed": "Little Tensas Bayou-Little Tensas River",
+  "note": ""
+ },
+ "080500030504": {
+  "subwatershed": "Little Choctaw Bayou-Big Choctaw Bayou",
+  "note": ""
+ },
+ "080500030502": {
+  "subwatershed": "Routh Bayou-Big Choctaw Bayou",
+  "note": ""
+ },
+ "080500030506": {
+  "subwatershed": "Big Choctaw Bayou-Tensas Lake",
+  "note": ""
+ },
+ "080500030501": {
+  "subwatershed": "Lake Bruin",
+  "note": ""
+ },
+ "080500030507": {
+  "subwatershed": "Devils Bayou-Tensas River",
+  "note": ""
+ },
+ "080601000200": {
+  "subwatershed": "Yucatan Lake-Mississippi River",
+  "note": ""
+ },
+ "080500030206": {
+  "subwatershed": "Mill Bayou",
+  "note": ""
+ },
+ "080500030205": {
+  "subwatershed": "Bayou Vidal",
+  "note": ""
+ },
+ "080500030204": {
+  "subwatershed": "Roundaway Bayou",
+  "note": ""
+ },
+ "080500030202": {
+  "subwatershed": "Walnut Bayou-Roundaway Bayou",
+  "note": ""
+ },
+ "080500030203": {
+  "subwatershed": "Cypress Bayou",
+  "note": ""
+ },
+ "080500030207": {
+  "subwatershed": "Alligator Bayou-Spring Bayou",
+  "note": ""
+ },
+ "080500030201": {
+  "subwatershed": "Macon Slough-Panola Bayou",
+  "note": ""
+ },
+ "080601000302": {
+  "subwatershed": "Rodney Lake-Mississippi River",
+  "note": ""
+ },
+ "080601000301": {
+  "subwatershed": "Dowd Creek-Mammy Judy Bayou",
+  "note": ""
+ },
+ "080500030601": {
+  "subwatershed": "Black Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030602": {
+  "subwatershed": "Big Cash Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030603": {
+  "subwatershed": "Pool Lake Bayou-Tensas River",
+  "note": ""
+ },
+ "080602040304": {
+  "subwatershed": "Gum Ridge Chute-Coles Creek",
+  "note": ""
+ },
+ "080602040303": {
+  "subwatershed": "Dunbar Bayou-Fairchilds Creek",
+  "note": ""
+ },
+ "080602040301": {
+  "subwatershed": "Black Creek-Coles Creek",
+  "note": ""
+ },
+ "080602040302": {
+  "subwatershed": "Blueskin Creek",
+  "note": ""
+ },
+ "080403060101": {
+  "subwatershed": "Lake Saint John-Black Bayou",
+  "note": ""
+ },
+ "080403060105": {
+  "subwatershed": "Boggy Bayou",
+  "note": ""
+ },
+ "080403060107": {
+  "subwatershed": "Vidalia Canal-Bayou Cocodrie",
+  "note": ""
+ },
+ "080403060103": {
+  "subwatershed": "Cross Bayou",
+  "note": ""
+ },
+ "080403060102": {
+  "subwatershed": "Brushy Bayou",
+  "note": ""
+ },
+ "080403060104": {
+  "subwatershed": "Lake Concordia-Bayou Cocodrie",
+  "note": ""
+ },
+ "080403060106": {
+  "subwatershed": "Cocodrie Lake",
+  "note": ""
+ },
+ "080602030803": {
+  "subwatershed": "Outlet Bayou Pierre",
+  "note": ""
+ },
+ "080602030801": {
+  "subwatershed": "Widows Creek-Bayou Pierre",
+  "note": ""
+ },
+ "080602030802": {
+  "subwatershed": "Perkins Creek-James Creek",
+  "note": ""
+ }
+}

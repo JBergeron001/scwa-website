@@ -1,0 +1,131 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "West Feliciana Parish",
+  "note": ""
+ },
+ "0807020103": {
+  "watershed": "Thompson Creek",
+  "note": ""
+ },
+ "0807020101": {
+  "watershed": "Tunica Bayou-Tunica Swamp-Frontal Mississippi River",
+  "note": ""
+ },
+ "0807020102": {
+  "watershed": "Bayou Sara",
+  "note": ""
+ },
+ "0807010001": {
+  "watershed": "Raccourci Island-Mississippi River",
+  "note": ""
+ },
+ "0804030105": {
+  "watershed": "Long Bayou-Red River",
+  "note": ""
+ },
+ "0806010006": {
+  "watershed": "Lake Mary-Mississippi River",
+  "note": ""
+ },
+ "080702010307": {
+  "subwatershed": "Alligator Bayou",
+  "note": ""
+ },
+ "080702010305": {
+  "subwatershed": "West Fork Thompson Creek",
+  "note": ""
+ },
+ "080702010306": {
+  "subwatershed": "Hammer Creek-Thompson Creek",
+  "note": ""
+ },
+ "080702010308": {
+  "subwatershed": "Sandy Creek-Thompson Creek",
+  "note": ""
+ },
+ "080702010304": {
+  "subwatershed": "Middle Fork Thompson Creek",
+  "note": ""
+ },
+ "080702010302": {
+  "subwatershed": "Lost Creek-Thompson Creek",
+  "note": ""
+ },
+ "080702010303": {
+  "subwatershed": "Beaver Creek-Thompson Creek",
+  "note": ""
+ },
+ "080702010301": {
+  "subwatershed": "Matthews Creek-Thompson Creek",
+  "note": ""
+ },
+ "080702010102": {
+  "subwatershed": "Tunica Swamp-Frontal Mississippi River",
+  "note": ""
+ },
+ "080702010101": {
+  "subwatershed": "Tunica Bayou-Frontal Mississippi River",
+  "note": ""
+ },
+ "080702010204": {
+  "subwatershed": "Scott Creek-Bayou Sara",
+  "note": ""
+ },
+ "080702010203": {
+  "subwatershed": "Little Bayou Sara",
+  "note": ""
+ },
+ "080702010201": {
+  "subwatershed": "Headwaters Bayou Sara",
+  "note": ""
+ },
+ "080702010202": {
+  "subwatershed": "Hooks Creek-Dunbar Creek",
+  "note": ""
+ },
+ "080701000102": {
+  "subwatershed": "Raccourci Island",
+  "note": ""
+ },
+ "080701000101": {
+  "subwatershed": "Little Island-Mississippi River",
+  "note": ""
+ },
+ "080701000103": {
+  "subwatershed": "Profit Island-Mississippi River",
+  "note": ""
+ },
+ "080701000105": {
+  "subwatershed": "Claiborne Island-Mississippi River",
+  "note": ""
+ },
+ "080701000104": {
+  "subwatershed": "Manchac Point-Mississippi River",
+  "note": ""
+ },
+ "080403010505": {
+  "subwatershed": "Lower Old River-Red River",
+  "note": ""
+ },
+ "080403010501": {
+  "subwatershed": "Bayou Milligan-Red River",
+  "note": ""
+ },
+ "080403010502": {
+  "subwatershed": "Bayou Natchitoches",
+  "note": ""
+ },
+ "080403010503": {
+  "subwatershed": "Long Bayou-Alligator Bayou",
+  "note": ""
+ },
+ "080403010504": {
+  "subwatershed": "Bayou Natchitoches-Red River",
+  "note": ""
+ },
+ "080601000600": {
+  "subwatershed": "Lake Mary-Mississippi River",
+  "note": ""
+ }
+}

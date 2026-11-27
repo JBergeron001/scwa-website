@@ -1,0 +1,211 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Winona County",
+  "note": ""
+ },
+ "0704000303": {
+  "watershed": "Whitewater River",
+  "note": ""
+ },
+ "0704000306": {
+  "watershed": "City of Winona-Mississippi River",
+  "note": ""
+ },
+ "0704000805": {
+  "watershed": "Rush Creek",
+  "note": ""
+ },
+ "0704000305": {
+  "watershed": "Garvin Brook",
+  "note": ""
+ },
+ "0704000806": {
+  "watershed": "Money Creek",
+  "note": ""
+ },
+ "0704000605": {
+  "watershed": "Pine Creek-Mississippi River",
+  "note": ""
+ },
+ "0704000803": {
+  "watershed": "Trout Run-Root River",
+  "note": ""
+ },
+ "0704000601": {
+  "watershed": "Halfway Creek-Mississippi River",
+  "note": ""
+ },
+ "0704000809": {
+  "watershed": "Root River",
+  "note": ""
+ },
+ "070400030307": {
+  "subwatershed": "Lower South Fork Whitewater River",
+  "note": ""
+ },
+ "070400030310": {
+  "subwatershed": "Whitewater River",
+  "note": ""
+ },
+ "070400030309": {
+  "subwatershed": "Trout Creek",
+  "note": ""
+ },
+ "070400030305": {
+  "subwatershed": "Middle Fork Whitewater River",
+  "note": ""
+ },
+ "070400030308": {
+  "subwatershed": "Beaver Creek",
+  "note": ""
+ },
+ "070400030306": {
+  "subwatershed": "Upper South Fork Whitewater River",
+  "note": ""
+ },
+ "070400030304": {
+  "subwatershed": "Lower North Fork Whitewater River",
+  "note": ""
+ },
+ "070400030302": {
+  "subwatershed": "Dry Creek",
+  "note": ""
+ },
+ "070400030301": {
+  "subwatershed": "Upper North Fork Whitewater River",
+  "note": ""
+ },
+ "070400030303": {
+  "subwatershed": "Logan Branch",
+  "note": ""
+ },
+ "070400030607": {
+  "subwatershed": "Pleasant Valley Creek",
+  "note": ""
+ },
+ "070400030609": {
+  "subwatershed": "Big Trout Creek",
+  "note": ""
+ },
+ "070400030610": {
+  "subwatershed": "City of Winona-Mississippi River",
+  "note": ""
+ },
+ "070400030606": {
+  "subwatershed": "Fountain City-Mississippi River",
+  "note": ""
+ },
+ "070400030608": {
+  "subwatershed": "Cedar Creek",
+  "note": ""
+ },
+ "070400030604": {
+  "subwatershed": "City of Buffalo City-Mississippi River",
+  "note": ""
+ },
+ "070400030603": {
+  "subwatershed": "East Indian Creek",
+  "note": ""
+ },
+ "070400030601": {
+  "subwatershed": "City of Wabasha-Mississippi River",
+  "note": ""
+ },
+ "070400030602": {
+  "subwatershed": "Snake Creek",
+  "note": ""
+ },
+ "070400030605": {
+  "subwatershed": "Rose Valley",
+  "note": ""
+ },
+ "070400080503": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070400080502": {
+  "subwatershed": "Middle Rush Creek",
+  "note": ""
+ },
+ "070400080501": {
+  "subwatershed": "Upper Rush Creek",
+  "note": ""
+ },
+ "070400080504": {
+  "subwatershed": "Lower Rush Creek",
+  "note": ""
+ },
+ "070400030501": {
+  "subwatershed": "Rollingstone Creek",
+  "note": ""
+ },
+ "070400030502": {
+  "subwatershed": "Garvin Brook",
+  "note": ""
+ },
+ "070400080601": {
+  "subwatershed": "Upper Money Creek",
+  "note": ""
+ },
+ "070400080602": {
+  "subwatershed": "Lower Money Creek",
+  "note": ""
+ },
+ "070400060501": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070400060502": {
+  "subwatershed": "City of La Crosse-Mississippi River",
+  "note": ""
+ },
+ "070400080304": {
+  "subwatershed": "Town of Pilot Mound-Money Creek",
+  "note": ""
+ },
+ "070400080302": {
+  "subwatershed": "Trout Run",
+  "note": ""
+ },
+ "070400080303": {
+  "subwatershed": "Lynch Creek-Root River",
+  "note": ""
+ },
+ "070400080305": {
+  "subwatershed": "Torkelson Creek-Root River",
+  "note": ""
+ },
+ "070400080301": {
+  "subwatershed": "Rice Creek",
+  "note": ""
+ },
+ "070400060103": {
+  "subwatershed": "Lake Onalaska-Mississippi River",
+  "note": ""
+ },
+ "070400060101": {
+  "subwatershed": "Shingle Creek-Mississippi River",
+  "note": ""
+ },
+ "070400060102": {
+  "subwatershed": "Halfway Creek",
+  "note": ""
+ },
+ "070400080901": {
+  "subwatershed": "Silver Creek",
+  "note": ""
+ },
+ "070400080904": {
+  "subwatershed": "Root River",
+  "note": ""
+ },
+ "070400080903": {
+  "subwatershed": "Thompson Creek",
+  "note": ""
+ },
+ "070400080902": {
+  "subwatershed": "Crystal Creek",
+  "note": ""
+ }
+}

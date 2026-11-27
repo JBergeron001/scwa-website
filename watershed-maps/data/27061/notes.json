@@ -1,0 +1,807 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Itasca County",
+  "note": ""
+ },
+ "0701010302": {
+  "watershed": "Prairie River",
+  "note": ""
+ },
+ "0701010304": {
+  "watershed": "Swan River",
+  "note": ""
+ },
+ "0701010109": {
+  "watershed": "Pokegama Lake-Mississippi River",
+  "note": ""
+ },
+ "0903000601": {
+  "watershed": "Bowstring River",
+  "note": ""
+ },
+ "0903000605": {
+  "watershed": "Deer Creek-Big Fork River",
+  "note": ""
+ },
+ "0903000603": {
+  "watershed": "Headwaters Big Fork River",
+  "note": ""
+ },
+ "0701010301": {
+  "watershed": "Headwaters Prairie River",
+  "note": ""
+ },
+ "0701010107": {
+  "watershed": "Lake Winnibigoshish",
+  "note": ""
+ },
+ "0903000602": {
+  "watershed": "Popple River",
+  "note": ""
+ },
+ "0903000502": {
+  "watershed": "Bear River",
+  "note": ""
+ },
+ "0701010303": {
+  "watershed": "Split Hand Creek-Mississippi River",
+  "note": ""
+ },
+ "0903000604": {
+  "watershed": "Rice River",
+  "note": ""
+ },
+ "0701010108": {
+  "watershed": "Deer River",
+  "note": ""
+ },
+ "0701010106": {
+  "watershed": "Third River",
+  "note": ""
+ },
+ "0401020110": {
+  "watershed": "Floodwood River",
+  "note": ""
+ },
+ "0903000505": {
+  "watershed": "Valley River",
+  "note": ""
+ },
+ "0903000503": {
+  "watershed": "Sturgeon River",
+  "note": ""
+ },
+ "0701010307": {
+  "watershed": "Hill River",
+  "note": ""
+ },
+ "0902030206": {
+  "watershed": "Blackduck River",
+  "note": ""
+ },
+ "0701010308": {
+  "watershed": "Willow River",
+  "note": ""
+ },
+ "0701010104": {
+  "watershed": "Turtle River",
+  "note": ""
+ },
+ "0903000606": {
+  "watershed": "Caldwell Brook",
+  "note": ""
+ },
+ "0401020106": {
+  "watershed": "West Swan River-East Swan River",
+  "note": ""
+ },
+ "0401020107": {
+  "watershed": "Sand Creek-Saint Louis River",
+  "note": ""
+ },
+ "0903000506": {
+  "watershed": "Middle Little Fork River",
+  "note": ""
+ },
+ "0903000607": {
+  "watershed": "City of Big Falls-Big Fork River",
+  "note": ""
+ },
+ "0701010309": {
+  "watershed": "City of Palisade-Mississippi River",
+  "note": ""
+ },
+ "0902030205": {
+  "watershed": "Battle River",
+  "note": ""
+ },
+ "070101030205": {
+  "subwatershed": "Wabana Lake",
+  "note": ""
+ },
+ "070101030201": {
+  "subwatershed": "Balsam Creek",
+  "note": ""
+ },
+ "070101030207": {
+  "subwatershed": "Prairie Lake-Prairie River",
+  "note": ""
+ },
+ "070101030202": {
+  "subwatershed": "Crooked Lake-Prairie River",
+  "note": ""
+ },
+ "070101030206": {
+  "subwatershed": "Reiley Lake-Prairie River",
+  "note": ""
+ },
+ "070101030204": {
+  "subwatershed": "Sucker Brook",
+  "note": ""
+ },
+ "070101030203": {
+  "subwatershed": "Lawrence Lake-Prairie River",
+  "note": ""
+ },
+ "070101030406": {
+  "subwatershed": "Shallow Lake-Swan River",
+  "note": ""
+ },
+ "070101030402": {
+  "subwatershed": "Swan Lake",
+  "note": ""
+ },
+ "070101030403": {
+  "subwatershed": "Twin Lakes-Swan River",
+  "note": ""
+ },
+ "070101030401": {
+  "subwatershed": "Hay Creek",
+  "note": ""
+ },
+ "070101030408": {
+  "subwatershed": "Swan River",
+  "note": ""
+ },
+ "070101030404": {
+  "subwatershed": "Trout Lake",
+  "note": ""
+ },
+ "070101030405": {
+  "subwatershed": "Sand Creek",
+  "note": ""
+ },
+ "070101030407": {
+  "subwatershed": "Bruce Creek",
+  "note": ""
+ },
+ "070101010907": {
+  "subwatershed": "Pokegama Lake",
+  "note": ""
+ },
+ "070101010903": {
+  "subwatershed": "White Oak Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010902": {
+  "subwatershed": "Ball Club Lake",
+  "note": ""
+ },
+ "070101010909": {
+  "subwatershed": "Blackwater Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010908": {
+  "subwatershed": "Bass Lake",
+  "note": ""
+ },
+ "070101010906": {
+  "subwatershed": "Sugar Brook",
+  "note": ""
+ },
+ "070101010901": {
+  "subwatershed": "Little Winnibigoshish Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010905": {
+  "subwatershed": "Leighton Lake-Mississippi River",
+  "note": ""
+ },
+ "070101010904": {
+  "subwatershed": "Vermillion River",
+  "note": ""
+ },
+ "090300060101": {
+  "subwatershed": "Turtle River",
+  "note": ""
+ },
+ "090300060105": {
+  "subwatershed": "Bowstring Lake",
+  "note": ""
+ },
+ "090300060103": {
+  "subwatershed": "Headwaters Bowstring River",
+  "note": ""
+ },
+ "090300060106": {
+  "subwatershed": "Sand Lake",
+  "note": ""
+ },
+ "090300060102": {
+  "subwatershed": "Jessie Lake",
+  "note": ""
+ },
+ "090300060104": {
+  "subwatershed": "Grouse Creek",
+  "note": ""
+ },
+ "090300060107": {
+  "subwatershed": "Bowstring River",
+  "note": ""
+ },
+ "090300060501": {
+  "subwatershed": "Coon Creek",
+  "note": ""
+ },
+ "090300060503": {
+  "subwatershed": "Deer Creek",
+  "note": ""
+ },
+ "090300060502": {
+  "subwatershed": "Connors Lake-Big Fork River",
+  "note": ""
+ },
+ "090300060504": {
+  "subwatershed": "Town of Craigville-Big Fork River",
+  "note": ""
+ },
+ "090300060506": {
+  "subwatershed": "Plum Creek",
+  "note": ""
+ },
+ "090300060505": {
+  "subwatershed": "Bowerman Brook",
+  "note": ""
+ },
+ "090300060507": {
+  "subwatershed": "Beaver Brook-Big Fork River",
+  "note": ""
+ },
+ "090300060308": {
+  "subwatershed": "City of Big Fork-Big Fork River",
+  "note": ""
+ },
+ "090300060305": {
+  "subwatershed": "Windigo Creek-Big Fork River",
+  "note": ""
+ },
+ "090300060307": {
+  "subwatershed": "Harrison Creek-Big Fork River",
+  "note": ""
+ },
+ "090300060304": {
+  "subwatershed": "Hinken Creek",
+  "note": ""
+ },
+ "090300060302": {
+  "subwatershed": "Moose Brook",
+  "note": ""
+ },
+ "090300060303": {
+  "subwatershed": "Hay Creek",
+  "note": ""
+ },
+ "090300060301": {
+  "subwatershed": "Dora Lake",
+  "note": ""
+ },
+ "090300060306": {
+  "subwatershed": "Fletcher Creek",
+  "note": ""
+ },
+ "070101030103": {
+  "subwatershed": "Headwaters Prairie River",
+  "note": ""
+ },
+ "070101030102": {
+  "subwatershed": "West Fork Prairie River",
+  "note": ""
+ },
+ "070101030105": {
+  "subwatershed": "East River",
+  "note": ""
+ },
+ "070101030104": {
+  "subwatershed": "Buck Lake-East River",
+  "note": ""
+ },
+ "070101030101": {
+  "subwatershed": "Day Brook",
+  "note": ""
+ },
+ "070101030106": {
+  "subwatershed": "Kennedy Lake-Prairie River",
+  "note": ""
+ },
+ "070101010704": {
+  "subwatershed": "Lake Winnibigoshish",
+  "note": ""
+ },
+ "070101010703": {
+  "subwatershed": "Cut Foot Sioux Lake",
+  "note": ""
+ },
+ "070101010702": {
+  "subwatershed": "Pigeon River",
+  "note": ""
+ },
+ "070101010701": {
+  "subwatershed": "Lydick Brook-Mississippi River",
+  "note": ""
+ },
+ "090300060201": {
+  "subwatershed": "Island Lake-Popple River",
+  "note": ""
+ },
+ "090300060205": {
+  "subwatershed": "Popple River",
+  "note": ""
+ },
+ "090300060202": {
+  "subwatershed": "Dunbar River",
+  "note": ""
+ },
+ "090300060204": {
+  "subwatershed": "Wagner Creek",
+  "note": ""
+ },
+ "090300060203": {
+  "subwatershed": "Round Lake",
+  "note": ""
+ },
+ "090300050206": {
+  "subwatershed": "Bear River",
+  "note": ""
+ },
+ "090300050201": {
+  "subwatershed": "Headwaters Bear River",
+  "note": ""
+ },
+ "090300050203": {
+  "subwatershed": "Thistledew Lake",
+  "note": ""
+ },
+ "090300050202": {
+  "subwatershed": "Raddison Lake",
+  "note": ""
+ },
+ "090300050205": {
+  "subwatershed": "090300050205",
+  "note": ""
+ },
+ "090300050204": {
+  "subwatershed": "Stony Brook",
+  "note": ""
+ },
+ "070101030302": {
+  "subwatershed": "Blackberry Lake-Mississippi River",
+  "note": ""
+ },
+ "070101030303": {
+  "subwatershed": "Split Hand Creek",
+  "note": ""
+ },
+ "070101030304": {
+  "subwatershed": "070101030304-Mississippi River",
+  "note": ""
+ },
+ "070101030301": {
+  "subwatershed": "City of Grand Rapids-Mississippi River",
+  "note": ""
+ },
+ "090300060401": {
+  "subwatershed": "Headwaters Rice River",
+  "note": ""
+ },
+ "090300060403": {
+  "subwatershed": "Gale Brook",
+  "note": ""
+ },
+ "090300060404": {
+  "subwatershed": "Rice River",
+  "note": ""
+ },
+ "090300060402": {
+  "subwatershed": "Johnson Creek",
+  "note": ""
+ },
+ "070101010803": {
+  "subwatershed": "Deer River",
+  "note": ""
+ },
+ "070101010801": {
+  "subwatershed": "Deer Lake",
+  "note": ""
+ },
+ "070101010802": {
+  "subwatershed": "Moose Lake",
+  "note": ""
+ },
+ "070101010604": {
+  "subwatershed": "Third River",
+  "note": ""
+ },
+ "070101010603": {
+  "subwatershed": "Moose Creek",
+  "note": ""
+ },
+ "070101010602": {
+  "subwatershed": "Skimerhorn Creek-Third River",
+  "note": ""
+ },
+ "070101010601": {
+  "subwatershed": "Decker Lake",
+  "note": ""
+ },
+ "040102011002": {
+  "subwatershed": "West Branch Floodwood River",
+  "note": ""
+ },
+ "040102011001": {
+  "subwatershed": "Floodwood Lake-Floodwood River",
+  "note": ""
+ },
+ "040102011005": {
+  "subwatershed": "Floodwood River",
+  "note": ""
+ },
+ "040102011004": {
+  "subwatershed": "Juola Creek-Floodwood River",
+  "note": ""
+ },
+ "040102011003": {
+  "subwatershed": "Vaara Creek",
+  "note": ""
+ },
+ "090300050502": {
+  "subwatershed": "Buttonbox Lake",
+  "note": ""
+ },
+ "090300050501": {
+  "subwatershed": "Upper Valley River",
+  "note": ""
+ },
+ "090300050503": {
+  "subwatershed": "Lower Valley River",
+  "note": ""
+ },
+ "090300050301": {
+  "subwatershed": "Sturgeon Lake",
+  "note": ""
+ },
+ "090300050308": {
+  "subwatershed": "Lower Sturgeon River",
+  "note": ""
+ },
+ "090300050302": {
+  "subwatershed": "Shannon River",
+  "note": ""
+ },
+ "090300050303": {
+  "subwatershed": "East Branch Sturgeon River",
+  "note": ""
+ },
+ "090300050304": {
+  "subwatershed": "Dark River",
+  "note": ""
+ },
+ "090300050306": {
+  "subwatershed": "Upper Sturgeon River",
+  "note": ""
+ },
+ "090300050307": {
+  "subwatershed": "Sand Creek",
+  "note": ""
+ },
+ "090300050305": {
+  "subwatershed": "Paavola Creek",
+  "note": ""
+ },
+ "070101030701": {
+  "subwatershed": "Morrison Brook",
+  "note": ""
+ },
+ "070101030702": {
+  "subwatershed": "Hill Lake-Hill River",
+  "note": ""
+ },
+ "070101030703": {
+  "subwatershed": "Little Hill River",
+  "note": ""
+ },
+ "070101030704": {
+  "subwatershed": "Washburn Lake",
+  "note": ""
+ },
+ "070101030705": {
+  "subwatershed": "Hill River",
+  "note": ""
+ },
+ "090203020608": {
+  "subwatershed": "Upper North Cormorant River",
+  "note": ""
+ },
+ "090203020607": {
+  "subwatershed": "South Cormorant River",
+  "note": ""
+ },
+ "090203020610": {
+  "subwatershed": "Lower Blackduck River",
+  "note": ""
+ },
+ "090203020603": {
+  "subwatershed": "O\u2019Brien Creek",
+  "note": ""
+ },
+ "090203020604": {
+  "subwatershed": "Upper Blackduck River",
+  "note": ""
+ },
+ "090203020609": {
+  "subwatershed": "Lower North Cormorant River",
+  "note": ""
+ },
+ "090203020602": {
+  "subwatershed": "Darrigans Creek",
+  "note": ""
+ },
+ "090203020601": {
+  "subwatershed": "Blackduck Lake",
+  "note": ""
+ },
+ "090203020606": {
+  "subwatershed": "Perry Creek",
+  "note": ""
+ },
+ "090203020605": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "070101030801": {
+  "subwatershed": "Headwaters Willow River",
+  "note": ""
+ },
+ "070101030803": {
+  "subwatershed": "Little Thunder Lake-Willow River",
+  "note": ""
+ },
+ "070101030804": {
+  "subwatershed": "Moose River",
+  "note": ""
+ },
+ "070101030808": {
+  "subwatershed": "Willow River",
+  "note": ""
+ },
+ "070101030805": {
+  "subwatershed": "Willow River Ditch",
+  "note": ""
+ },
+ "070101030806": {
+  "subwatershed": "Clear Lake",
+  "note": ""
+ },
+ "070101030802": {
+  "subwatershed": "Big Rice Lake",
+  "note": ""
+ },
+ "070101030807": {
+  "subwatershed": "White Elk Creek",
+  "note": ""
+ },
+ "070101010410": {
+  "subwatershed": "Kitchi Creek",
+  "note": ""
+ },
+ "070101010408": {
+  "subwatershed": "Rabideau Lake-North Turtle River",
+  "note": ""
+ },
+ "070101010411": {
+  "subwatershed": "Turtle River",
+  "note": ""
+ },
+ "070101010405": {
+  "subwatershed": "Turtle River Lake",
+  "note": ""
+ },
+ "070101010409": {
+  "subwatershed": "North Turtle River",
+  "note": ""
+ },
+ "070101010407": {
+  "subwatershed": "North Twin Lake-Turtle River",
+  "note": ""
+ },
+ "070101010406": {
+  "subwatershed": "Gull River",
+  "note": ""
+ },
+ "070101010403": {
+  "subwatershed": "Turtle Lake",
+  "note": ""
+ },
+ "070101010404": {
+  "subwatershed": "Three Island Lake",
+  "note": ""
+ },
+ "070101010401": {
+  "subwatershed": "Long Lake",
+  "note": ""
+ },
+ "070101010402": {
+  "subwatershed": "Little Turtle Lake",
+  "note": ""
+ },
+ "090300060603": {
+  "subwatershed": "Middle Caldwell Brook",
+  "note": ""
+ },
+ "090300060604": {
+  "subwatershed": "Lower Caldwell Brook",
+  "note": ""
+ },
+ "090300060602": {
+  "subwatershed": "Pancake Creek",
+  "note": ""
+ },
+ "090300060601": {
+  "subwatershed": "Upper Caldwell Brook",
+  "note": ""
+ },
+ "040102010606": {
+  "subwatershed": "Middle West Swan River",
+  "note": ""
+ },
+ "040102010602": {
+  "subwatershed": "Barber Creek",
+  "note": ""
+ },
+ "040102010608": {
+  "subwatershed": "East Swan River",
+  "note": ""
+ },
+ "040102010601": {
+  "subwatershed": "Dempsey Creek",
+  "note": ""
+ },
+ "040102010607": {
+  "subwatershed": "Lower West Swan River",
+  "note": ""
+ },
+ "040102010604": {
+  "subwatershed": "Village of Little Swan",
+  "note": ""
+ },
+ "040102010603": {
+  "subwatershed": "Maple Hill",
+  "note": ""
+ },
+ "040102010605": {
+  "subwatershed": "Upper West Swan River",
+  "note": ""
+ },
+ "040102010707": {
+  "subwatershed": "Sand Creek",
+  "note": ""
+ },
+ "040102010709": {
+  "subwatershed": "Town of Elmer-Saint Louis River",
+  "note": ""
+ },
+ "040102010704": {
+  "subwatershed": "East Two River",
+  "note": ""
+ },
+ "040102010706": {
+  "subwatershed": "Town of Zim-Saint Louis River",
+  "note": ""
+ },
+ "040102010702": {
+  "subwatershed": "Long Lake Creek-Saint Louis River",
+  "note": ""
+ },
+ "040102010701": {
+  "subwatershed": "Ely Creek-Saint Louis River",
+  "note": ""
+ },
+ "040102010705": {
+  "subwatershed": "Stony Creek",
+  "note": ""
+ },
+ "040102010708": {
+  "subwatershed": "Skunk Creek",
+  "note": ""
+ },
+ "040102010703": {
+  "subwatershed": "Elbow Creek",
+  "note": ""
+ },
+ "090300050601": {
+  "subwatershed": "Town of Silverdale-Little Fork River",
+  "note": ""
+ },
+ "090300050607": {
+  "subwatershed": "Deadmans Rapids-Little Fork River",
+  "note": ""
+ },
+ "090300050603": {
+  "subwatershed": "Franklin Lake-Little Fork River",
+  "note": ""
+ },
+ "090300050602": {
+  "subwatershed": "Prairie Creek",
+  "note": ""
+ },
+ "090300050604": {
+  "subwatershed": "Gardner Brook",
+  "note": ""
+ },
+ "090300050605": {
+  "subwatershed": "090300050605-Little Fork River",
+  "note": ""
+ },
+ "090300050606": {
+  "subwatershed": "Rapid River",
+  "note": ""
+ },
+ "090300060702": {
+  "subwatershed": "Reilly Brook",
+  "note": ""
+ },
+ "090300060703": {
+  "subwatershed": "Reilly Creek",
+  "note": ""
+ },
+ "090300060701": {
+  "subwatershed": "090300060701-Big Fork River",
+  "note": ""
+ },
+ "090300060704": {
+  "subwatershed": "Macaffee Brook-Big Fork River",
+  "note": ""
+ },
+ "090300060705": {
+  "subwatershed": "City of Big Falls-Big Fork River",
+  "note": ""
+ },
+ "070101030902": {
+  "subwatershed": "Pokegama Creek",
+  "note": ""
+ },
+ "070101030901": {
+  "subwatershed": "Ball Bluff Lake-Mississippi River",
+  "note": ""
+ },
+ "070101030904": {
+  "subwatershed": "City of Palisade-Mississippi River",
+  "note": ""
+ },
+ "070101030903": {
+  "subwatershed": "Oxbow Lake-Mississippi River",
+  "note": ""
+ },
+ "090203020501": {
+  "subwatershed": "Upper South Branch Battle River",
+  "note": ""
+ },
+ "090203020502": {
+  "subwatershed": "Lower South Branch Battle River",
+  "note": ""
+ },
+ "090203020503": {
+  "subwatershed": "North Branch Battle River-Battle River",
+  "note": ""
+ }
+}

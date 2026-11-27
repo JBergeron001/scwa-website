@@ -1,0 +1,187 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Concordia Parish",
+  "note": ""
+ },
+ "0804030601": {
+  "watershed": "Upper Bayou Cocodrie",
+  "note": ""
+ },
+ "0804030602": {
+  "watershed": "Lower Bayou Cocodrie",
+  "note": ""
+ },
+ "0804030105": {
+  "watershed": "Long Bayou-Red River",
+  "note": ""
+ },
+ "0806010006": {
+  "watershed": "Lake Mary-Mississippi River",
+  "note": ""
+ },
+ "0806010005": {
+  "watershed": "Glasscock Cutoff-Mississippi River",
+  "note": ""
+ },
+ "0804030502": {
+  "watershed": "Lower Black River",
+  "note": ""
+ },
+ "0806010003": {
+  "watershed": "Rodney Lake-Mississippi River",
+  "note": ""
+ },
+ "0804030501": {
+  "watershed": "Upper Black River",
+  "note": ""
+ },
+ "0805000306": {
+  "watershed": "Lower Tensas River",
+  "note": ""
+ },
+ "0805000305": {
+  "watershed": "Middle Tensas River",
+  "note": ""
+ },
+ "080403060101": {
+  "subwatershed": "Lake Saint John-Black Bayou",
+  "note": ""
+ },
+ "080403060105": {
+  "subwatershed": "Boggy Bayou",
+  "note": ""
+ },
+ "080403060107": {
+  "subwatershed": "Vidalia Canal-Bayou Cocodrie",
+  "note": ""
+ },
+ "080403060103": {
+  "subwatershed": "Cross Bayou",
+  "note": ""
+ },
+ "080403060102": {
+  "subwatershed": "Brushy Bayou",
+  "note": ""
+ },
+ "080403060104": {
+  "subwatershed": "Lake Concordia-Bayou Cocodrie",
+  "note": ""
+ },
+ "080403060106": {
+  "subwatershed": "Cocodrie Lake",
+  "note": ""
+ },
+ "080403060205": {
+  "subwatershed": "Excelsior Lake-Bayou Cocodrie",
+  "note": ""
+ },
+ "080403060203": {
+  "subwatershed": "Greens Bayou",
+  "note": ""
+ },
+ "080403060202": {
+  "subwatershed": "Wyches Bayou-Bayou Cocodrie",
+  "note": ""
+ },
+ "080403060201": {
+  "subwatershed": "Whites Bayou-Bayou Cocodrie",
+  "note": ""
+ },
+ "080403060206": {
+  "subwatershed": "Dismal Swamp-Bayou Cocodrie",
+  "note": ""
+ },
+ "080403060204": {
+  "subwatershed": "Durham Prong",
+  "note": ""
+ },
+ "080403010503": {
+  "subwatershed": "Long Bayou-Alligator Bayou",
+  "note": ""
+ },
+ "080403010505": {
+  "subwatershed": "Lower Old River-Red River",
+  "note": ""
+ },
+ "080403010504": {
+  "subwatershed": "Bayou Natchitoches-Red River",
+  "note": ""
+ },
+ "080403010501": {
+  "subwatershed": "Bayou Milligan-Red River",
+  "note": ""
+ },
+ "080403010502": {
+  "subwatershed": "Bayou Natchitoches",
+  "note": ""
+ },
+ "080601000600": {
+  "subwatershed": "Lake Mary-Mississippi River",
+  "note": ""
+ },
+ "080601000502": {
+  "subwatershed": "Glasscock Cutoff-Mississippi River",
+  "note": ""
+ },
+ "080601000501": {
+  "subwatershed": "Old Saint Catherine Creek",
+  "note": ""
+ },
+ "080403050201": {
+  "subwatershed": "Black River Lake-Black River",
+  "note": ""
+ },
+ "080601000302": {
+  "subwatershed": "Rodney Lake-Mississippi River",
+  "note": ""
+ },
+ "080601000301": {
+  "subwatershed": "Dowd Creek-Mammy Judy Bayou",
+  "note": ""
+ },
+ "080403050101": {
+  "subwatershed": "Glade Bayou-Black River",
+  "note": ""
+ },
+ "080500030602": {
+  "subwatershed": "Big Cash Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030603": {
+  "subwatershed": "Pool Lake Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030601": {
+  "subwatershed": "Black Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030505": {
+  "subwatershed": "Little Tensas Bayou-Little Tensas River",
+  "note": ""
+ },
+ "080500030503": {
+  "subwatershed": "Van Buren Bayou",
+  "note": ""
+ },
+ "080500030504": {
+  "subwatershed": "Little Choctaw Bayou-Big Choctaw Bayou",
+  "note": ""
+ },
+ "080500030506": {
+  "subwatershed": "Big Choctaw Bayou-Tensas Lake",
+  "note": ""
+ },
+ "080500030502": {
+  "subwatershed": "Routh Bayou-Big Choctaw Bayou",
+  "note": ""
+ },
+ "080500030507": {
+  "subwatershed": "Devils Bayou-Tensas River",
+  "note": ""
+ },
+ "080500030501": {
+  "subwatershed": "Lake Bruin",
+  "note": ""
+ }
+}

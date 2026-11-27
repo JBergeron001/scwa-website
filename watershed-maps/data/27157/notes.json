@@ -1,0 +1,207 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Wabasha County",
+  "note": ""
+ },
+ "0704000405": {
+  "watershed": "Zumbro River",
+  "note": ""
+ },
+ "0704000306": {
+  "watershed": "City of Winona-Mississippi River",
+  "note": ""
+ },
+ "0704000107": {
+  "watershed": "Lake Pepin",
+  "note": ""
+ },
+ "0704000303": {
+  "watershed": "Whitewater River",
+  "note": ""
+ },
+ "0704000404": {
+  "watershed": "North Fork Zumbro River",
+  "note": ""
+ },
+ "0704000106": {
+  "watershed": "Wells Creek",
+  "note": ""
+ },
+ "070400040512": {
+  "subwatershed": "Zumbro River",
+  "note": ""
+ },
+ "070400040504": {
+  "subwatershed": "City of Zumbro Falls-Zumbro River",
+  "note": ""
+ },
+ "070400040509": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "070400040503": {
+  "subwatershed": "Cold Creek",
+  "note": ""
+ },
+ "070400040505": {
+  "subwatershed": "Long Creek",
+  "note": ""
+ },
+ "070400040508": {
+  "subwatershed": "Hungry Hollow",
+  "note": ""
+ },
+ "070400040510": {
+  "subwatershed": "West Indian Creek",
+  "note": ""
+ },
+ "070400040507": {
+  "subwatershed": "Silver Spring Creek-Zumbro River",
+  "note": ""
+ },
+ "070400040511": {
+  "subwatershed": "Hope Coulee-Trout Brook",
+  "note": ""
+ },
+ "070400040506": {
+  "subwatershed": "Middle Creek",
+  "note": ""
+ },
+ "070400040502": {
+  "subwatershed": "Zumbro Lake-Zumbro River",
+  "note": ""
+ },
+ "070400040501": {
+  "subwatershed": "Dry Run Creek",
+  "note": ""
+ },
+ "070400030602": {
+  "subwatershed": "Snake Creek",
+  "note": ""
+ },
+ "070400030601": {
+  "subwatershed": "City of Wabasha-Mississippi River",
+  "note": ""
+ },
+ "070400030603": {
+  "subwatershed": "East Indian Creek",
+  "note": ""
+ },
+ "070400030604": {
+  "subwatershed": "City of Buffalo City-Mississippi River",
+  "note": ""
+ },
+ "070400030607": {
+  "subwatershed": "Pleasant Valley Creek",
+  "note": ""
+ },
+ "070400030610": {
+  "subwatershed": "City of Winona-Mississippi River",
+  "note": ""
+ },
+ "070400030606": {
+  "subwatershed": "Fountain City-Mississippi River",
+  "note": ""
+ },
+ "070400030609": {
+  "subwatershed": "Big Trout Creek",
+  "note": ""
+ },
+ "070400030608": {
+  "subwatershed": "Cedar Creek",
+  "note": ""
+ },
+ "070400030605": {
+  "subwatershed": "Rose Valley",
+  "note": ""
+ },
+ "070400010705": {
+  "subwatershed": "Lake Pepin",
+  "note": ""
+ },
+ "070400010703": {
+  "subwatershed": "Gilbert Creek",
+  "note": ""
+ },
+ "070400010704": {
+  "subwatershed": "Miller Creek",
+  "note": ""
+ },
+ "070400010701": {
+  "subwatershed": "Isabelle Creek",
+  "note": ""
+ },
+ "070400010702": {
+  "subwatershed": "Pine Creek",
+  "note": ""
+ },
+ "070400030304": {
+  "subwatershed": "Lower North Fork Whitewater River",
+  "note": ""
+ },
+ "070400030302": {
+  "subwatershed": "Dry Creek",
+  "note": ""
+ },
+ "070400030308": {
+  "subwatershed": "Beaver Creek",
+  "note": ""
+ },
+ "070400030310": {
+  "subwatershed": "Whitewater River",
+  "note": ""
+ },
+ "070400030301": {
+  "subwatershed": "Upper North Fork Whitewater River",
+  "note": ""
+ },
+ "070400030309": {
+  "subwatershed": "Trout Creek",
+  "note": ""
+ },
+ "070400030307": {
+  "subwatershed": "Lower South Fork Whitewater River",
+  "note": ""
+ },
+ "070400030305": {
+  "subwatershed": "Middle Fork Whitewater River",
+  "note": ""
+ },
+ "070400030306": {
+  "subwatershed": "Upper South Fork Whitewater River",
+  "note": ""
+ },
+ "070400030303": {
+  "subwatershed": "Logan Branch",
+  "note": ""
+ },
+ "070400040404": {
+  "subwatershed": "Trout Brook",
+  "note": ""
+ },
+ "070400040405": {
+  "subwatershed": "North Fork Zumbro River",
+  "note": ""
+ },
+ "070400040401": {
+  "subwatershed": "Headwaters North Fork Zumbro River",
+  "note": ""
+ },
+ "070400040402": {
+  "subwatershed": "Pearl Creek-North Fork Zumbro River",
+  "note": ""
+ },
+ "070400040403": {
+  "subwatershed": "Shingle Creek-North Fork Zumbro River",
+  "note": ""
+ },
+ "070400010602": {
+  "subwatershed": "Lower Wells Creek",
+  "note": ""
+ },
+ "070400010601": {
+  "subwatershed": "Upper Wells Creek",
+  "note": ""
+ }
+}

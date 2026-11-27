@@ -1,0 +1,187 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Chicot County",
+  "note": ""
+ },
+ "0805000203": {
+  "watershed": "Hill Bayou-Bayou Macon",
+  "note": ""
+ },
+ "0805000104": {
+  "watershed": "Crooked Bayou-Boeuf River",
+  "note": ""
+ },
+ "0805000105": {
+  "watershed": "Lafourche Bayou-Boeuf River",
+  "note": ""
+ },
+ "0805000103": {
+  "watershed": "Big Slough",
+  "note": ""
+ },
+ "0805000204": {
+  "watershed": "Grand Lake-Bayou Macon",
+  "note": ""
+ },
+ "0803010001": {
+  "watershed": "Lake Ferguson-Mississippi River",
+  "note": ""
+ },
+ "0803010002": {
+  "watershed": "Cottonwood Chute-Mississippi River",
+  "note": ""
+ },
+ "0805000107": {
+  "watershed": "Camp Bayou Canal-Boeuf River",
+  "note": ""
+ },
+ "0805000202": {
+  "watershed": "Clay Bayou",
+  "note": ""
+ },
+ "0804020505": {
+  "watershed": "Cutoff Creek-Bayou Bartholomew",
+  "note": ""
+ },
+ "080500020303": {
+  "subwatershed": "Paps Slough-Bayou Macon",
+  "note": ""
+ },
+ "080500020302": {
+  "subwatershed": "Lake Chicot-Bayou Macon",
+  "note": ""
+ },
+ "080500020301": {
+  "subwatershed": "Little Lake Bayou-Bayou Macon",
+  "note": ""
+ },
+ "080500010402": {
+  "subwatershed": "Big Bayou-Boeuf River",
+  "note": ""
+ },
+ "080500010401": {
+  "subwatershed": "Boef River Diversion Canal Number 1-Old Boeuf River",
+  "note": ""
+ },
+ "080500010503": {
+  "subwatershed": "Fleschmans Bayou-Boeuf River",
+  "note": ""
+ },
+ "080500010502": {
+  "subwatershed": "Caney Bayou",
+  "note": ""
+ },
+ "080500010501": {
+  "subwatershed": "Hogpen Creek-Fleschmans Bayou",
+  "note": ""
+ },
+ "080500010302": {
+  "subwatershed": "Bear Bayou-Big Bayou",
+  "note": ""
+ },
+ "080500010303": {
+  "subwatershed": "Wards Bayou-Big Bayou",
+  "note": ""
+ },
+ "080500010301": {
+  "subwatershed": "Black Pond Slough-Big Bayou",
+  "note": ""
+ },
+ "080500020401": {
+  "subwatershed": "Rush Bayou-Bayou Macon",
+  "note": ""
+ },
+ "080500020402": {
+  "subwatershed": "Grand Lake-Bayou Macon",
+  "note": ""
+ },
+ "080500020403": {
+  "subwatershed": "Hill Bayou-Bayou Macon",
+  "note": ""
+ },
+ "080301000100": {
+  "subwatershed": "Lake Ferguson-Mississippi River",
+  "note": ""
+ },
+ "080301000200": {
+  "subwatershed": "Cottonwood Chute-Mississippi River",
+  "note": ""
+ },
+ "080500010701": {
+  "subwatershed": "Tiger Bayou",
+  "note": ""
+ },
+ "080500010703": {
+  "subwatershed": "Camp Bayou Canal-Boeuf River",
+  "note": ""
+ },
+ "080500010707": {
+  "subwatershed": "Fivemile Slough-Boeuf River",
+  "note": ""
+ },
+ "080500010705": {
+  "subwatershed": "Cypress Bayou",
+  "note": ""
+ },
+ "080500010702": {
+  "subwatershed": "Camp Bayou Canal",
+  "note": ""
+ },
+ "080500010706": {
+  "subwatershed": "Coffee Bayou-Boeuf River",
+  "note": ""
+ },
+ "080500010704": {
+  "subwatershed": "The Swale",
+  "note": ""
+ },
+ "080500020203": {
+  "subwatershed": "Canal Number 43-Clay Bayou",
+  "note": ""
+ },
+ "080500020201": {
+  "subwatershed": "Canal Number 43",
+  "note": ""
+ },
+ "080500020202": {
+  "subwatershed": "Boggy Bayou",
+  "note": ""
+ },
+ "080402050509": {
+  "subwatershed": "Lake Wallace-Bayou Bartholomew",
+  "note": ""
+ },
+ "080402050508": {
+  "subwatershed": "Outlet Cutoff Creek",
+  "note": ""
+ },
+ "080402050504": {
+  "subwatershed": "Sandy Creek",
+  "note": ""
+ },
+ "080402050505": {
+  "subwatershed": "Seven Devils Lake-Cutoff Creek",
+  "note": ""
+ },
+ "080402050501": {
+  "subwatershed": "Lower Cutoff Creek",
+  "note": ""
+ },
+ "080402050506": {
+  "subwatershed": "Upper Wolf Creek",
+  "note": ""
+ },
+ "080402050502": {
+  "subwatershed": "Upper Cutoff Creek",
+  "note": ""
+ },
+ "080402050507": {
+  "subwatershed": "Lower Wolf Creek",
+  "note": ""
+ },
+ "080402050503": {
+  "subwatershed": "Piney Creek",
+  "note": ""
+ }
+}

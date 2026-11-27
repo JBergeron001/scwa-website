@@ -1,0 +1,175 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Adams County",
+  "note": ""
+ },
+ "0806020507": {
+  "watershed": "Second Creek-Homochitto River",
+  "note": ""
+ },
+ "0806010004": {
+  "watershed": "Saint Catherine Creek",
+  "note": ""
+ },
+ "0806020506": {
+  "watershed": "Wells Creek-Homochitto River",
+  "note": ""
+ },
+ "0806010005": {
+  "watershed": "Glasscock Cutoff-Mississippi River",
+  "note": ""
+ },
+ "0806010003": {
+  "watershed": "Rodney Lake-Mississippi River",
+  "note": ""
+ },
+ "0806020403": {
+  "watershed": "Fairchilds Creek-Coles Creek",
+  "note": ""
+ },
+ "0806010006": {
+  "watershed": "Lake Mary-Mississippi River",
+  "note": ""
+ },
+ "0806020402": {
+  "watershed": "Folkes Creek-South Fork Coles Creek",
+  "note": ""
+ },
+ "0806020603": {
+  "watershed": "Percy Creek-Buffalo River",
+  "note": ""
+ },
+ "080602050702": {
+  "subwatershed": "Callahan Branch-Second Creek",
+  "note": ""
+ },
+ "080602050706": {
+  "subwatershed": "Washout Bayou-Homochitto River",
+  "note": ""
+ },
+ "080602050704": {
+  "subwatershed": "Robins Bayou-Second Creek",
+  "note": ""
+ },
+ "080602050705": {
+  "subwatershed": "Lynn Creek-Homochitto River",
+  "note": ""
+ },
+ "080602050703": {
+  "subwatershed": "Chase Bayou-Sammy Creek",
+  "note": ""
+ },
+ "080602050701": {
+  "subwatershed": "Duval Creek-Crooked Creek",
+  "note": ""
+ },
+ "080601000403": {
+  "subwatershed": "Kittering Creek-Saint Catherine Creek",
+  "note": ""
+ },
+ "080601000402": {
+  "subwatershed": "Melvin Bayou-Saint Catherine Creek",
+  "note": ""
+ },
+ "080601000401": {
+  "subwatershed": "Headwaters Saint Catherine Creek",
+  "note": ""
+ },
+ "080602050607": {
+  "subwatershed": "Turkey Creek-Sandy Creek",
+  "note": ""
+ },
+ "080602050606": {
+  "subwatershed": "Bates Creek-Sandy Creek",
+  "note": ""
+ },
+ "080602050608": {
+  "subwatershed": "Beaver Branch-Homochitto River",
+  "note": ""
+ },
+ "080602050604": {
+  "subwatershed": "Caney Branch-Dry Bayou",
+  "note": ""
+ },
+ "080602050605": {
+  "subwatershed": "Tony Creek-Wells Creek",
+  "note": ""
+ },
+ "080602050603": {
+  "subwatershed": "Haram Branch-Wells Creek",
+  "note": ""
+ },
+ "080602050602": {
+  "subwatershed": "Dry Creek-Homochitto River",
+  "note": ""
+ },
+ "080602050601": {
+  "subwatershed": "Rocky Branch-Dry Creek",
+  "note": ""
+ },
+ "080601000502": {
+  "subwatershed": "Glasscock Cutoff-Mississippi River",
+  "note": ""
+ },
+ "080601000501": {
+  "subwatershed": "Old Saint Catherine Creek",
+  "note": ""
+ },
+ "080601000302": {
+  "subwatershed": "Rodney Lake-Mississippi River",
+  "note": ""
+ },
+ "080601000301": {
+  "subwatershed": "Dowd Creek-Mammy Judy Bayou",
+  "note": ""
+ },
+ "080602040303": {
+  "subwatershed": "Dunbar Bayou-Fairchilds Creek",
+  "note": ""
+ },
+ "080602040304": {
+  "subwatershed": "Gum Ridge Chute-Coles Creek",
+  "note": ""
+ },
+ "080602040301": {
+  "subwatershed": "Black Creek-Coles Creek",
+  "note": ""
+ },
+ "080602040302": {
+  "subwatershed": "Blueskin Creek",
+  "note": ""
+ },
+ "080601000600": {
+  "subwatershed": "Lake Mary-Mississippi River",
+  "note": ""
+ },
+ "080602040201": {
+  "subwatershed": "Whitens Creek-South Fork Coles Creek",
+  "note": ""
+ },
+ "080602040202": {
+  "subwatershed": "Penquite Creek-Folkes Creek",
+  "note": ""
+ },
+ "080602040203": {
+  "subwatershed": "Lum Bayou-South Fork Coles Creek",
+  "note": ""
+ },
+ "080602060301": {
+  "subwatershed": "Homochitto River-Buffalo River",
+  "note": ""
+ },
+ "080602060304": {
+  "subwatershed": "Belmont Slough-Buffalo River",
+  "note": ""
+ },
+ "080602060302": {
+  "subwatershed": "Hays Creek-Percy Creek",
+  "note": ""
+ },
+ "080602060303": {
+  "subwatershed": "Outlet Buffalo River",
+  "note": ""
+ }
+}

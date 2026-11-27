@@ -1,0 +1,259 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Bolivar County",
+  "note": ""
+ },
+ "0803020711": {
+  "watershed": "Snake Creek-Bogue Phalia",
+  "note": ""
+ },
+ "0803020713": {
+  "watershed": "Bogue Hasty-Bogue Phalia",
+  "note": ""
+ },
+ "0803020704": {
+  "watershed": "Mound Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "0803020702": {
+  "watershed": "Hushpuckena River",
+  "note": ""
+ },
+ "0803020712": {
+  "watershed": "Stillwater Bayou-Clear Creek",
+  "note": ""
+ },
+ "0803020718": {
+  "watershed": "Rolling Fork Creek-Deer Creek",
+  "note": ""
+ },
+ "0803010001": {
+  "watershed": "Lake Ferguson-Mississippi River",
+  "note": ""
+ },
+ "0802010003": {
+  "watershed": "Lake Beulah-Mississippi River",
+  "note": ""
+ },
+ "0803020705": {
+  "watershed": "Porter Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "0803020703": {
+  "watershed": "Harris Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "0802010002": {
+  "watershed": "DeSoto Lake-Mississippi River",
+  "note": ""
+ },
+ "0803020901": {
+  "watershed": "Granicus Bayou",
+  "note": ""
+ },
+ "0803020709": {
+  "watershed": "Bogue Phalia Cutoff",
+  "note": ""
+ },
+ "0803020710": {
+  "watershed": "Indian Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302071105": {
+  "subwatershed": "Little Bradford Bayou",
+  "note": ""
+ },
+ "080302071101": {
+  "subwatershed": "Brook Bayou-Bogue Phalia",
+  "note": ""
+ },
+ "080302071102": {
+  "subwatershed": "Conservatioin League Lake",
+  "note": ""
+ },
+ "080302071104": {
+  "subwatershed": "Dry Bayou",
+  "note": ""
+ },
+ "080302071106": {
+  "subwatershed": "Stokes Bayou-Bogue Phalia",
+  "note": ""
+ },
+ "080302071103": {
+  "subwatershed": "Tommie Bayou-Bogue Phalia",
+  "note": ""
+ },
+ "080302071301": {
+  "subwatershed": "West Bogue Hasty-Bogue Hasty",
+  "note": ""
+ },
+ "080302071303": {
+  "subwatershed": "Bogue Hasty-Bogue Phalia",
+  "note": ""
+ },
+ "080302071302": {
+  "subwatershed": "City of Cleveland-Pecan Bayou",
+  "note": ""
+ },
+ "080302071304": {
+  "subwatershed": "Bee Bayou",
+  "note": ""
+ },
+ "080302071305": {
+  "subwatershed": "Clark Bayou-Bogue Phalia",
+  "note": ""
+ },
+ "080302070402": {
+  "subwatershed": "Beaver Bayou-Mound Bayou",
+  "note": ""
+ },
+ "080302070405": {
+  "subwatershed": "Lead Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302070403": {
+  "subwatershed": "Long Lake-Big Sunflower River",
+  "note": ""
+ },
+ "080302070401": {
+  "subwatershed": "Hyde Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302070404": {
+  "subwatershed": "Blackhaw Bayou-Burrell Bayou",
+  "note": ""
+ },
+ "080302070406": {
+  "subwatershed": "Standing Stump Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302070202": {
+  "subwatershed": "Edward Bayou-Hushpuckena River",
+  "note": ""
+ },
+ "080302070203": {
+  "subwatershed": "Pecan Bayou-Hushpuckena River",
+  "note": ""
+ },
+ "080302070201": {
+  "subwatershed": "Yellow Bayou-Hushpuckena River",
+  "note": ""
+ },
+ "080302071201": {
+  "subwatershed": "Christmas Lake Branch-Clear Creek",
+  "note": ""
+ },
+ "080302071202": {
+  "subwatershed": "Stillwater Bayou-Clear Creek",
+  "note": ""
+ },
+ "080302071802": {
+  "subwatershed": "Straight Bayou",
+  "note": ""
+ },
+ "080302071801": {
+  "subwatershed": "Big Monocnoc Lake",
+  "note": ""
+ },
+ "080302071803": {
+  "subwatershed": "Deer Creek-Rolling Fork Creek",
+  "note": ""
+ },
+ "080301000100": {
+  "subwatershed": "Lake Ferguson-Mississippi River",
+  "note": ""
+ },
+ "080201000302": {
+  "subwatershed": "Lake Beulah-Mississippi River",
+  "note": ""
+ },
+ "080201000301": {
+  "subwatershed": "Deep Bayou",
+  "note": ""
+ },
+ "080302070503": {
+  "subwatershed": "Upper Porter Bayou",
+  "note": ""
+ },
+ "080302070501": {
+  "subwatershed": "Headwaters Jones Bayou",
+  "note": ""
+ },
+ "080302070504": {
+  "subwatershed": "Middle Porter Bayou",
+  "note": ""
+ },
+ "080302070505": {
+  "subwatershed": "Lower Porter Bayou",
+  "note": ""
+ },
+ "080302070506": {
+  "subwatershed": "Gorman Lake-Big Sunflower River",
+  "note": ""
+ },
+ "080302070502": {
+  "subwatershed": "Outlet Jones Bayou",
+  "note": ""
+ },
+ "080302070305": {
+  "subwatershed": "Dry Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302070302": {
+  "subwatershed": "Bobo Outlet-Harris Bayou",
+  "note": ""
+ },
+ "080302070306": {
+  "subwatershed": "Black Bayou",
+  "note": ""
+ },
+ "080302070303": {
+  "subwatershed": "Clark Bayou",
+  "note": ""
+ },
+ "080302070304": {
+  "subwatershed": "Hopson Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302070301": {
+  "subwatershed": "Overcup Slough",
+  "note": ""
+ },
+ "080201000200": {
+  "subwatershed": "DeSoto Lake-Mississippi River",
+  "note": ""
+ },
+ "080302090101": {
+  "subwatershed": "Black Bayou",
+  "note": ""
+ },
+ "080302090104": {
+  "subwatershed": "Granny Baker Bayou-Granicus Bayou",
+  "note": ""
+ },
+ "080302090103": {
+  "subwatershed": "Ditch Number Ten-Granicus Bayou",
+  "note": ""
+ },
+ "080302090102": {
+  "subwatershed": "Ditch Number Eightyeight",
+  "note": ""
+ },
+ "080302070901": {
+  "subwatershed": "Deep Slough",
+  "note": ""
+ },
+ "080302070902": {
+  "subwatershed": "Bear Creek",
+  "note": ""
+ },
+ "080302071001": {
+  "subwatershed": "Indian Bayou-Big Sunflower River",
+  "note": ""
+ },
+ "080302071002": {
+  "subwatershed": "Gravel Bayou-Big Sunflower River",
+  "note": ""
+ }
+}

@@ -1,0 +1,231 @@
+{
+ "_how_to_use": "Add your own text in \"note\" for the county, any watershed or any subwatershed. It appears under the About text in the 3D map. Leave it empty to show nothing extra.",
+ "county": {
+  "name": "Carroll County",
+  "note": ""
+ },
+ "0709000509": {
+  "watershed": "Rock Creek",
+  "note": ""
+ },
+ "0706000510": {
+  "watershed": "Plum River",
+  "note": ""
+ },
+ "0708010101": {
+  "watershed": "Johnson Creek",
+  "note": ""
+ },
+ "0706000509": {
+  "watershed": "Carroll Creek",
+  "note": ""
+ },
+ "0709000507": {
+  "watershed": "Elkhorn Creek",
+  "note": ""
+ },
+ "0706000508": {
+  "watershed": "East Plum River",
+  "note": ""
+ },
+ "0706000512": {
+  "watershed": "Deer Creek-Mississippi River",
+  "note": ""
+ },
+ "0709000313": {
+  "watershed": "Yellow Creek",
+  "note": ""
+ },
+ "0706000507": {
+  "watershed": "Rush Creek",
+  "note": ""
+ },
+ "0706000506": {
+  "watershed": "Apple River",
+  "note": ""
+ },
+ "0709000502": {
+  "watershed": "Leaf River",
+  "note": ""
+ },
+ "070900050902": {
+  "subwatershed": "Town of Chadwick-Rock Creek",
+  "note": ""
+ },
+ "070900050901": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "070900050903": {
+  "subwatershed": "Little Rock Creek",
+  "note": ""
+ },
+ "070900050906": {
+  "subwatershed": "French Creek-Rock Creek",
+  "note": ""
+ },
+ "070900050904": {
+  "subwatershed": "Little Spring Creek-Rock Creek",
+  "note": ""
+ },
+ "070900050905": {
+  "subwatershed": "Lynn Creek",
+  "note": ""
+ },
+ "070600051004": {
+  "subwatershed": "Plum River",
+  "note": ""
+ },
+ "070600051003": {
+  "subwatershed": "Muddy Plum River-Plum River",
+  "note": ""
+ },
+ "070600051002": {
+  "subwatershed": "Camp Creek",
+  "note": ""
+ },
+ "070600051001": {
+  "subwatershed": "North Fork Plum River-Plum River",
+  "note": ""
+ },
+ "070801010102": {
+  "subwatershed": "Johnson Creek",
+  "note": ""
+ },
+ "070801010101": {
+  "subwatershed": "Otter Creek",
+  "note": ""
+ },
+ "070600050901": {
+  "subwatershed": "Straddle Creek",
+  "note": ""
+ },
+ "070600050902": {
+  "subwatershed": "Carroll Creek",
+  "note": ""
+ },
+ "070900050706": {
+  "subwatershed": "Goose Creek-Elkhorn Creek",
+  "note": ""
+ },
+ "070900050703": {
+  "subwatershed": "Middle Creek",
+  "note": ""
+ },
+ "070900050704": {
+  "subwatershed": "Eagle Creek",
+  "note": ""
+ },
+ "070900050701": {
+  "subwatershed": "West Fork Elkhorn River",
+  "note": ""
+ },
+ "070900050709": {
+  "subwatershed": "Skunk Creek-Elkhorn Creek",
+  "note": ""
+ },
+ "070900050705": {
+  "subwatershed": "Buffalo Creek",
+  "note": ""
+ },
+ "070900050707": {
+  "subwatershed": "Sugar Creek",
+  "note": ""
+ },
+ "070900050708": {
+  "subwatershed": "Spring Creek",
+  "note": ""
+ },
+ "070900050702": {
+  "subwatershed": "Fivemile Creek",
+  "note": ""
+ },
+ "070600050802": {
+  "subwatershed": "East Plum River",
+  "note": ""
+ },
+ "070600050801": {
+  "subwatershed": "East Fork Creek",
+  "note": ""
+ },
+ "070600051202": {
+  "subwatershed": "Spring Lake-Mississippi River",
+  "note": ""
+ },
+ "070600051201": {
+  "subwatershed": "Beaver Creek-Mississippi River",
+  "note": ""
+ },
+ "070600051203": {
+  "subwatershed": "Deer Creek-Mississippi River",
+  "note": ""
+ },
+ "070900031303": {
+  "subwatershed": "Lost Creek",
+  "note": ""
+ },
+ "070900031302": {
+  "subwatershed": "Upper Yellow Creek",
+  "note": ""
+ },
+ "070900031306": {
+  "subwatershed": "Lower Yellow Creek",
+  "note": ""
+ },
+ "070900031304": {
+  "subwatershed": "Middle Yellow Creek",
+  "note": ""
+ },
+ "070900031305": {
+  "subwatershed": "Crane Grove Creek",
+  "note": ""
+ },
+ "070900031301": {
+  "subwatershed": "City of Lena",
+  "note": ""
+ },
+ "070600050703": {
+  "subwatershed": "Rush Creek",
+  "note": ""
+ },
+ "070600050702": {
+  "subwatershed": "Lawhorn Creek-Rush Creek",
+  "note": ""
+ },
+ "070600050701": {
+  "subwatershed": "Little Rush Creek",
+  "note": ""
+ },
+ "070600050605": {
+  "subwatershed": "Apple River",
+  "note": ""
+ },
+ "070600050602": {
+  "subwatershed": "Lower Hells Branch",
+  "note": ""
+ },
+ "070600050604": {
+  "subwatershed": "Irish Hollow Creek",
+  "note": ""
+ },
+ "070600050603": {
+  "subwatershed": "Furnace Creek",
+  "note": ""
+ },
+ "070600050601": {
+  "subwatershed": "Upper Hells Branch",
+  "note": ""
+ },
+ "070900050203": {
+  "subwatershed": "Town of Forreston-Leaf River",
+  "note": ""
+ },
+ "070900050202": {
+  "subwatershed": "Mud Creek",
+  "note": ""
+ },
+ "070900050201": {
+  "subwatershed": "South Fork Leaf River",
+  "note": ""
+ }
+}
