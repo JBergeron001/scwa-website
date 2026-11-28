@@ -580,9 +580,13 @@ $('ex').oninput=e=>{st.ex=+e.target.value;$('exv').textContent=st.ex+'×';[count
 
 // ------------------------------------------------------------------ full screen
 function setFs(on){card.classList.toggle('fs',on);$('fsl').textContent=on?'Exit full screen':'Full screen';if(on){ctl.enableZoom=true;$('hint').hidden=true}requestAnimationFrame(size)}
-$('fsb').onclick=()=>{if(card.classList.contains('fs')){if(document.fullscreenElement)document.exitFullscreen();else setFs(false);return}
-  const req=card.requestFullscreen||card.webkitRequestFullscreen;if(!req){setFs(true);return}try{const r=req.call(card);if(r&&r.catch)r.catch(()=>setFs(true))}catch(e){setFs(true)}};
-const onFs=()=>setFs(!!(document.fullscreenElement||document.webkitFullscreenElement));
+// Fill the window with the map right away (works everywhere, including in-app browsers that block true full screen),
+// then also ask the browser for true full screen where it is allowed.
+$('fsb').onclick=()=>{if(card.classList.contains('fs')){const fe=document.fullscreenElement||document.webkitFullscreenElement;setFs(false);
+    if(fe){try{(document.exitFullscreen||document.webkitExitFullscreen).call(document)}catch(e){}}return}
+  setFs(true);const req=card.requestFullscreen||card.webkitRequestFullscreen;
+  if(req){try{const r=req.call(card);if(r&&r.catch)r.catch(()=>{})}catch(e){}}};
+const onFs=()=>{const on=!!(document.fullscreenElement||document.webkitFullscreenElement);if(!on&&card.classList.contains('fs'))setFs(false);else if(on)setFs(true)};
 document.addEventListener('fullscreenchange',onFs);document.addEventListener('webkitfullscreenchange',onFs);
 
 // ------------------------------------------------------------------ find my watershed (address search)
