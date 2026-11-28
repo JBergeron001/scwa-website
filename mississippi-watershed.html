@@ -193,7 +193,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-.01em
       <ul class="key" aria-label="Map key">
         <li><i class="ln" style="background:#1f5fae;height:6px"></i>Major river</li><li><i class="ln" style="background:#13294a"></i>Region line</li>
         <li><i class="ln" style="background:#3b3b3b"></i>State line</li><li><i class="ln" style="background:#b9c0c8"></i>County line</li><li><i class="ln" style="background:#5c4f3e"></i>Interstate</li>
-        <li><i class="ln" style="background:#f39a2b;height:6px;width:6px;border-radius:50%"></i>Runoff</li>
+        <li><i class="ln" style="background:#f39a2b;height:6px;width:6px;border-radius:50%"></i>Runoff</li><li><i class="ln" style="background:#ff6d00;height:4px"></i>Your county outline (address search)</li>
         <li><svg viewBox="0 0 12 14" width="11" height="13" aria-hidden="true"><path d="M6 .8 11.2 9.6H.8z" fill="#178a3c" stroke="#fff" stroke-width=".8"/><rect x="5" y="9.6" width="2" height="3.6" fill="#6b4a2f"/></svg>Park</li>
         <li><svg viewBox="0 0 22 30" width="10" height="14" aria-hidden="true"><path d="M11 29s9-10.3 9-17.2A9 9 0 0 0 2 11.8C2 18.7 11 29 11 29z" fill="#E39A2A" stroke="#fff" stroke-width="2"/></svg>Landmark</li>
       </ul>
@@ -228,7 +228,8 @@ const BIGRIVER=C('#1f5fae'),OUTSIDE=C('#e9ecef'),CITYEDGE=C('#c2185b'),CITYTINT=
 const ROADS=[null,[C('#fbf7ee'),.68],[C('#b8863a'),.93],[C('#5c4f3e'),.97]];
 const TREE='<svg viewBox="0 0 12 14" aria-hidden="true"><path d="M6 .8 11.2 9.6H.8z" fill="#178a3c" stroke="#fff" stroke-width=".8" stroke-linejoin="round"/><rect x="5" y="9.6" width="2" height="3.6" fill="#6b4a2f"/></svg>';
 const LMK='<svg viewBox="0 0 22 30" aria-hidden="true"><path d="M11 29s9-10.3 9-17.2A9 9 0 0 0 2 11.8C2 18.7 11 29 11 29z" fill="#E39A2A" stroke="#fff" stroke-width="2"/><circle cx="11" cy="11.5" r="3.4" fill="#fff"/></svg>';
-const STATELINE=C('#2f2f2f'),COUNTYLINE=C('#c3c9d1');
+const STATELINE=C('#2f2f2f'),COUNTYLINE=C('#c3c9d1'),HICOUNTY=C('#ff9800'),HICOUNTYEDGE=C('#ff6d00');
+let ADDR=null;
 const PIN='<svg viewBox="0 0 22 30" aria-hidden="true"><path d="M11 29s9-10.3 9-17.2A9 9 0 0 0 2 11.8C2 18.7 11 29 11 29z" fill="#b3206f" stroke="#fff" stroke-width="2"/><circle cx="11" cy="11.5" r="3.4" fill="#fff"/></svg>';
 const CATN={landmark:'Landmark',park:'Park',school:'School',college:'College or university',hospital:'Hospital',fire:'Fire station',cityhall:'City hall'};
 const REGION_ABOUT={
@@ -289,7 +290,7 @@ function build(D,kind){
   const grpOf=s=>s?COUNTY.sheds[s-1][4]:0;
   const key=k=>isCounty?grpOf(S[k]):S[k];
   const tintOf=v=>{if(!v)return null;if(isCounty)return PC[(v-1)%PC.length];const g=COUNTY.groups[COUNTY.sheds[v-1][4]-1],i=g[3].indexOf(v);return PC[(i<0?0:i)%PC.length]};
-  const B10=new Uint8Array(N),B12=new Uint8Array(N);
+  const B10=new Uint8Array(N),B12=new Uint8Array(N),CT=D.ct?new Uint16Array(b64(D.ct).buffer):null,HCE=new Uint8Array(N);
   for(let i=1;i<NY-1;i++)for(let j=1;j<NX-1;j++){const k=i*NX+j;if(!inC(k)||!S[k])continue;
     for(const m of [k-1,k+1,k-NX,k+NX]){if(!inC(m)||!S[m])continue;if(S[m]!==S[k]){B12[k]=1;if(grpOf(S[m])!==grpOf(S[k]))B10[k]=1}}}
   const INC=new Uint8Array(N);{const R=isCounty?1:0;for(let i=R;i<NY-R;i++)for(let j=R;j<NX-R;j++){const k=i*NX+j;if(true)continue;for(let a=-R;a<=R;a++)for(let b=-R;b<=R;b++)if(inC(k+a*NX+b))INC[k+a*NX+b]=1}}
@@ -371,6 +372,7 @@ function build(D,kind){
       if(ctyEdge(k))tmp.lerp(CTY,.7);
       if(INC[k])tmp.lerp(CITYLINE,.92);
       if(T.sel&&kv===T.sel)tmp.lerp(SEL,.45);else if(T.sel&&kv&&!T.cm)tmp.multiplyScalar(.85);else if(T.hov&&kv===T.hov)tmp.lerp(HOV,.35);
+      if(T.hc&&HCE[k])tmp.copy(HICOUNTYEDGE);
       if(T.cm&&T.cm[k])tmp.lerp(RAINTINT,.35);
       col[k*3]=tmp.r;col[k*3+1]=tmp.g;col[k*3+2]=tmp.b}top.attributes.color.needsUpdate=true},
     applyEx(ex){for(let k=0;k<N;k++)pos[k*3+1]=inC(k)?yOf(elev(k),ex)+.02:0;top.attributes.position.needsUpdate=true;top.computeVertexNormals();
@@ -379,7 +381,12 @@ function build(D,kind){
     cell(x,z){const j=Math.round((x+(NX-1)*cs/2)/cs),i=Math.round((z+(NY-1)*cs/2)/cs);return i>=0&&j>=0&&i<NY&&j<NX?i*NX+j:-1},
     cellLL(lon,lat){const [w0,e0,s0,n0]=D.bb,j=Math.floor((lon-w0)/(e0-w0)*NX),i=Math.floor((n0-lat)/(n0-s0)*NY);return i>=0&&j>=0&&i<NY&&j<NX?i*NX+j:-1},
     creekAt(k){return CN&&k>=0&&CN[k]?D.creeks[CN[k]-1]:''},
-    elevAt:elev,respawn:spawn,
+    elevAt:elev,respawn:spawn,hc:0,
+    setCounty(id){T.hc=id||0;HCE.fill(0);if(T.hc&&CT){for(let i=1;i<NY-1;i++)for(let j=1;j<NX-1;j++){const k=i*NX+j;if(CT[k]!==T.hc)continue;
+      let edge=false;for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++)if(CT[k+a*NX+b]!==T.hc)edge=true;
+      if(edge)for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const m=k+a*NX+b;if(inC(m))HCE[m]=1}}}T.recolor()},
+    countyByName(nm){if(!CT||!nm)return 0;const i=T.D.ctn.indexOf(nm);return i+1},
+    countyAt(lon,lat){const k=T.cellLL(lon,lat);return k>=0&&CT?CT[k]:0},
     dispose(){group.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material)o.material.dispose()});labs.forEach(L=>L.e.remove())}};
   T.recolor();T.applyEx(st.ex);
   return T;
@@ -408,7 +415,7 @@ function dropTex(){if(_dt)return _dt;const c=document.createElement('canvas');c.
 function clearTrace(){$('clock').hidden=true;if(!trace)return;const T=trace.T;T.group.remove(trace.pts,trace.trail);trace.pts.geometry.dispose();trace.trail.geometry.dispose();T.cm=null;T.recolor();trace=null;$('story').hidden=true}
 function startTrace(T,k0){if(k0<0||!T.inC(k0))return;clearTrace();const {to,acc,out}=flowField(T),{NX,N}=T,cellA=T.D.cellkm*T.D.cellkm;
   // the neighborhood drainage area: everything upstream of the first point below here that drains about 100 acres
-  let p=k0,guard=0;while(!out[p]&&acc[p]*cellA<(T.kind==='county'?2500:600)&&to[p]>=0&&guard++<4000)p=to[p];
+  const TH=T.kind==='county'?2500:600;let p=k0,guard=0;while(!out[p]&&acc[p]*cellA<TH&&to[p]>=0&&acc[to[p]]*cellA<TH*6&&guard++<4000)p=to[p];
   const up=[];for(let k=0;k<N;k++)if(to[k]>=0)(up[to[k]]||(up[to[k]]=[])).push(k);
   const cm=new Uint8Array(N),stack=[p];cm[p]=1;const cells=[p];
   while(stack.length&&cells.length<60000){const c=stack.pop();const u=up[c];if(u)for(const nn of u)if(!cm[nn]){cm[nn]=1;cells.push(nn);stack.push(nn)}}
@@ -551,7 +558,7 @@ async function openShed(code,opt={}){if(busy)return;const gi=COUNTY.groups.findI
     clearTrace();clearPin();if(shedT){scene.remove(shedT.group);shedT.dispose()}
     countyT.sel=0;countyT.recolor();
     shedT=build(D,'shed');countyT.group.visible=false;countyT.labs.forEach(L=>L.e.style.display='none');scene.add(shedT.group);cur=shedT;view={kind:'shed',id:gi,code};
-    showShedPanel(gi);placeCloud(shedT);
+    showShedPanel(gi);placeCloud(shedT);if(ADDR)shedT.setCounty(shedT.countyByName(ADDR.county)||shedT.countyAt(ADDR.lon,ADDR.lat));
     if(opt.sub){const s=COUNTY.sheds.findIndex(r=>r[0]===opt.sub)+1;if(s)selectSub(s,{force:true})}
     flyTo(shedT,opt.instant?1:1000);updateUrl();
     if(opt.pin){const k=shedT.cellLL(opt.pin[0],opt.pin[1]);if(k>=0&&shedT.inC(k)){setPin(k,opt.addr);const v=shedT.key(k);if(v)selectSub(v,{keepTrace:true,force:true});startTrace(shedT,k)}}}
@@ -559,7 +566,7 @@ async function openShed(code,opt={}){if(busy)return;const gi=COUNTY.groups.findI
   finally{busy=false;$('loading').hidden=true}}
 function showCounty(){clearTrace();clearPin();if(shedT){scene.remove(shedT.group);shedT.dispose();shedT=null}countyT.sel=0;countyT.recolor();countyT.group.visible=true;cur=countyT;view={kind:'county'};
   showCountyPanel();placeCloud(countyT);flyTo(countyT);updateUrl()}
-function goUp(){if(trace){clearTrace();return}if(view.kind==='shed'&&shedT&&shedT.sel){selectSub(shedT.sel);return}if(view.kind==='shed')showCounty()}
+function goUp(){if(trace){clearTrace();return}if(ADDR&&view.kind==='county'){ADDR=null;clearPin();countyT.setCounty(0);return}if(view.kind==='shed'&&shedT&&shedT.sel){selectSub(shedT.sel);return}if(view.kind==='shed')showCounty()}
 $('back').onclick=showCounty;
 $('reset').onclick=()=>flyTo(cur);
 addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(card.classList.contains('fs')&&!document.fullscreenElement){setFs(false);return}goUp()});
@@ -593,15 +600,20 @@ document.addEventListener('fullscreenchange',onFs);document.addEventListener('we
 const GEO='https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
 $('find').addEventListener('submit',async ev=>{ev.preventDefault();const q=$('q').value.trim();if(!q||!COUNTY)return;const fmsg=$('fmsg');fmsg.textContent='Searching...';
   const [w,e,s,n]=COUNTY.bb,EXT=JSON.stringify({xmin:w-.1,ymin:s-.1,xmax:e+.1,ymax:n+.1,spatialReference:{wkid:4326}});
-  try{const u=GEO+'?f=json&maxLocations=1&outFields=Match_addr&forStorage=false&searchExtent='+encodeURIComponent(EXT)+'&SingleLine='+encodeURIComponent(q);
+  try{const u=GEO+'?f=json&maxLocations=1&outFields=Match_addr,Subregion,RegionAbbr&forStorage=false&searchExtent='+encodeURIComponent(EXT)+'&SingleLine='+encodeURIComponent(q);
     const d=await (await fetch(u)).json(),c=d.candidates&&d.candidates[0];
     if(!c||c.score<70){fmsg.textContent='No match found. Try a street address with the city or ZIP code.';return}
     const k=countyT.cellLL(c.location.x,c.location.y),gi=k>=0&&countyT.inC(k)?countyT.key(k):0;
     if(!gi){fmsg.textContent='That address is outside the Mississippi River Basin.';return}
     fmsg.textContent='';
+    {const at=c.attributes||{},geoName=at.Subregion&&at.RegionAbbr?`${at.Subregion}, ${at.RegionAbbr}`:'';
+     let id=countyT.countyByName(geoName)||countyT.countyByName(geoName.replace(/^City of (.*), (\w\w)$/,'$1 city, $2'))||countyT.countyAt(c.location.x,c.location.y);
+     ADDR={lon:c.location.x,lat:c.location.y,county:id?countyT.D.ctn[id-1]:geoName};countyT.setCounty(id)}
     if(view.kind==='shed'&&view.id===gi&&shedT){const kk=shedT.cellLL(c.location.x,c.location.y);if(kk>=0){setPin(kk,c.address);const v=shedT.key(kk);if(v)selectSub(v,{keepTrace:true,force:true});startTrace(shedT,kk)}}
     else await openShed(COUNTY.groups[gi-1][0],{pin:[c.location.x,c.location.y],addr:c.address});
-    toast('Found: '+c.address)}
+    if(shedT&&view.kind==='shed')shedT.setCounty(shedT.countyByName(ADDR.county)||shedT.countyAt(ADDR.lon,ADDR.lat));
+    if(ADDR.county){$('stext').textContent+=` Your address is in ${ADDR.county}, outlined in orange.`}
+    toast('Found: '+c.address+(ADDR.county?' · '+ADDR.county:''))}
   catch(e){fmsg.textContent='Address search is not available right now. Please try again.'}});
 
 // ------------------------------------------------------------------ share links
