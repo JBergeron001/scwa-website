@@ -522,7 +522,7 @@ function setAbout(text,noteKey){$('aboutText').textContent=text;$('myNote').text
 function showCountyPanel(){const D=COUNTY,NS=D.sheds.length;
   $('sideKick').textContent='River basin';$('sideName').textContent=D.name;
   $('sideDesc').textContent=`The Mississippi River and its tributaries drain all or part of 31 states and 2 Canadian provinces, about 40 percent of the lower 48 states.`;
-  $('stats').innerHTML=stat(sqmi(D.areakm),'square miles')+stat(D.groups.length,'great regions')+stat(NS,'subregions')+stat(`${D.elo.toLocaleString()}-${D.ehi.toLocaleString()}`,'feet above sea level');
+  $('stats').innerHTML=stat(sqmi(D.areakm),'square miles')+stat(D.groups.length,'great regions')+stat(NS,'subregions')+stat('0-14,440','feet above sea level, Gulf of Mexico to Mount Elbert, CO');
   setAbout(`Rain that falls anywhere on this map, from the Rocky Mountains to the Appalachians, ends up in the Gulf of Mexico below New Orleans. The basin is divided into ${D.groups.length} great regions (2-digit hydrologic units) and ${NS} subregions (4-digit hydrologic units). Turn on Lock view and click anywhere to follow the rain all the way to the Gulf, with a clock that counts the hours, or click a region to explore it.`,'basin');
   $('listHead').textContent='Great regions';
   setList(D.groups.map((g,i)=>({v:i+1,name:g[1],right:sqmi(g[2])+' sq mi',color:PAL[i%PAL.length],code:g[0]})),it=>openShed(it.code));
@@ -534,7 +534,7 @@ function showGroupPreview(gi){const g=COUNTY.groups[gi-1];$('sideKick').textCont
 function showShedPanel(gi){const D=COUNTY,g=D.groups[gi-1],sub=g[3];
   $('sideKick').textContent='Great region';$('sideName').textContent=g[1]+' region';
   $('sideDesc').textContent=`Region ${g[0]} (a 2-digit hydrologic unit), ${Math.round(g[2]/D.areakm*100)}% of the Mississippi River Basin.`;
-  $('stats').innerHTML=stat(sqmi(g[2]),'square miles')+stat(sub.length,'subregions')+stat(`${shedT.D.elo.toLocaleString()}-${shedT.D.ehi.toLocaleString()}`,'feet above sea level')+stat((shedT.D.cities||[]).length,'major metros shown');
+  $('stats').innerHTML=stat(sqmi(g[2]),'square miles')+stat(sub.length,'subregions')+stat(`${shedT.D.elo.toLocaleString()}-${shedT.D.ehi.toLocaleString()}`,'feet, approximate map elevations')+stat((shedT.D.cities||[]).length,'major metros shown');
   setAbout((REGION_ABOUT[g[0]]||'')+' Click anywhere on the land to follow the rain to the end of the region, with a clock that counts the hours.',g[0]);
   $('listHead').textContent='Subregions';
   setList(sub.map((s,i)=>({v:s,name:D.sheds[s-1][1],right:sqmi(D.sheds[s-1][5]||D.sheds[s-1][2])+' sq mi',color:PAL[i%PAL.length]})),it=>selectSub(it.v));
